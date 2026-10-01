@@ -129,7 +129,7 @@ export const licenses = [
     slug: 'vant', code: 'VANT', title: 'Piloto a distancia VANT/SVANT', available: false, practiceOnly: true,
     sourcePageUrl: 'https://www.argentina.gob.ar/examenes/vant-svant',
     sourceLabel: 'ANAC · certificado de competencia de piloto a distancia',
-    sourceNote: 'El índice oficial de exámenes incluye VANT/SVANT. Altura todavía no publica un banco propio: el marco vigente está en las Partes 100, 101 y 102 y en la Parte 61.',
+    sourceNote: 'El índice oficial de exámenes incluye VANT/SVANT. Aerodot todavía no publica un banco propio: el marco vigente está en las Partes 100, 101 y 102 y en la Parte 61.',
     testSize: 10,
   },
 ];

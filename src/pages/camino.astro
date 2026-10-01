@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import { pathChanges, pathInstruments, pathReviewedOn, pathRules, pathSideDoors, pathSteps } from '../data/pilot-path.js';
 ---
-<BaseLayout title="El camino del piloto — Altura" description="Cómo se encadenan las licencias de piloto en Argentina, con la Parte 61 leída al 30 de septiembre de 2026.">
+<BaseLayout title="El camino del piloto — Aerodot" description="Cómo se encadenan las licencias de piloto en Argentina, con la Parte 61 leída al 30 de septiembre de 2026.">
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav />
@@ -84,9 +85,9 @@ import { pathChanges, pathInstruments, pathReviewedOn, pathRules, pathSideDoors,
       </article>)}
     </section>
   </main>
-  <footer class="home-footer study-foot">
+  <SiteFooter>
     <BrandMark />
     <span>Resumen de estudio. Consultá la Parte 61 vigente antes de un trámite.</span>
     <a href="/examenes">Exámenes ↗</a>
-  </footer>
+  </SiteFooter>
 </BaseLayout>

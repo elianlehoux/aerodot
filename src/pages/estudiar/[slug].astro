@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BrandMark from '../../components/BrandMark.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import LibrarySidebar from '../../components/LibrarySidebar.astro';
 import StudyDiagram from '../../components/StudyDiagram.astro';
 import { chapters } from '../../data/library-course.js';
@@ -34,7 +35,7 @@ const articleCopyText = [
     : '',
 ].filter(Boolean).join('\n\n');
 ---
-<BaseLayout title={`${chapter.title} — Altura`} description={chapter.intro}>
+<BaseLayout title={`${chapter.title} — Aerodot`} description={chapter.intro}>
   <header class="site-header study-header"><BrandMark /><SiteNav current="biblioteca" /></header>
   <div class="library-shell">
   <LibrarySidebar activeSlug={chapter.slug} />
@@ -80,7 +81,7 @@ const articleCopyText = [
     </article></div>
   </main>
   </div>
-  <footer class="home-footer study-foot"><BrandMark /><span>Material didáctico complementario para estudiar aviación.</span>{sortedSources.length > 0 && <a href="#material">Ver fuentes ↗</a>}</footer>
+  <SiteFooter><BrandMark /><span>Material didáctico complementario para estudiar aviación.</span>{sortedSources.length > 0 && <a href="#material">Ver fuentes ↗</a>}</SiteFooter>
   <script>
     import '../../scripts/study-progress.js';
   </script>

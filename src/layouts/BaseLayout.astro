@@ -9,7 +9,7 @@ interface Props {
   description?: string;
 }
 
-const { title = 'Altura — aprender aviación, paso a paso', description = 'Aprendé los fundamentos de la aviación, paso a paso y en lenguaje claro.' } = Astro.props;
+const { title = 'Aerodot — aprender aviación, paso a paso', description = 'Aprendé los fundamentos de la aviación, paso a paso y en lenguaje claro.' } = Astro.props;
 ---
 <!doctype html>
 <html lang="es">
@@ -22,7 +22,7 @@ const { title = 'Altura — aprender aviación, paso a paso', description = 'Apr
     <script is:inline>
       (() => {
         try {
-          const savedTheme = localStorage.getItem('altura:theme');
+          const savedTheme = localStorage.getItem('aerodot:theme') || localStorage.getItem('altura:theme');
           const theme = savedTheme === 'light' ? 'light' : 'dark';
           document.documentElement.dataset.theme = theme;
         } catch {
@@ -68,7 +68,7 @@ const { title = 'Altura — aprender aviación, paso a paso', description = 'Apr
         controls.forEach((control) => control.addEventListener('click', () => {
           const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
           update(nextTheme);
-          try { localStorage.setItem('altura:theme', nextTheme); } catch { /* El tema sigue activo en esta visita. */ }
+          try { localStorage.setItem('aerodot:theme', nextTheme); } catch { /* El tema sigue activo en esta visita. */ }
         }));
       })();
     </script>

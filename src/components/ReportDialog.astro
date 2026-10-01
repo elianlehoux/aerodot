@@ -211,7 +211,7 @@ import { reportAccessKey } from '../data/report.js';
         body: JSON.stringify({
           access_key: reportAccessKey,
           subject: `Aviso de error · ${pending.where}`.slice(0, 140),
-          from_name: 'Altura',
+          from_name: 'Aerodot',
           message,
           botcheck: form.elements.botcheck?.value || '',
         }),

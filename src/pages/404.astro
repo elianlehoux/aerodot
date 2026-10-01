@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 ---
-<BaseLayout title="No encontramos esta página — Altura" description="Volvé a la biblioteca de aviación o buscá una práctica por licencia.">
+<BaseLayout title="No encontramos esta página — Aerodot" description="Volvé a la biblioteca de aviación o buscá una práctica por licencia.">
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav />
@@ -17,9 +18,9 @@ import BrandMark from '../components/BrandMark.astro';
       <a class="button-quiet" href="/examenes">Ver exámenes <span aria-hidden="true">↗</span></a>
     </div>
   </main>
-  <footer class="home-footer study-foot">
+  <SiteFooter>
     <BrandMark />
     <span>Material complementario para estudiar aviación.</span>
     <a href="/">Volver al inicio ↗</a>
-  </footer>
+  </SiteFooter>
 </BaseLayout>

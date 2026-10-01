@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BrandMark from '../../components/BrandMark.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import { licenses, examGroups } from '../../data/licenses.js';
 
 const bySlug = Object.fromEntries(licenses.map((license) => [license.slug, license]));
@@ -20,7 +21,7 @@ const listed = groupedExams.flatMap((group) => group.items);
 const metaFor = (license) => (license.available ? '' : 'Próximamente');
 ---
 
-<BaseLayout title="Exámenes — Altura" description="Practicá exámenes teóricos por licencia aeronáutica en Argentina.">
+<BaseLayout title="Exámenes — Aerodot" description="Practicá exámenes teóricos por licencia aeronáutica en Argentina.">
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav current="examenes" />
@@ -65,11 +66,11 @@ const metaFor = (license) => (license.available ? '' : 'Próximamente');
     ))}
     <p class="exam-search-empty" id="licenseSearchEmpty" hidden>No encontramos esa licencia. Probá con el código o el nombre.</p>
   </main>
-  <footer class="home-footer study-foot">
+  <SiteFooter>
     <BrandMark />
     <span>Estudiá a tu ritmo, sin cuenta.</span>
     <a href="/temas">Biblioteca ↗</a>
-  </footer>
+  </SiteFooter>
   <script is:inline>
     const search = document.querySelector('#licenseSearch');
     const rows = [...document.querySelectorAll('[data-license-row]')];

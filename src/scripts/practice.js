@@ -62,7 +62,8 @@ let answered = false;
 let activeQuestion = null;
 let timerId = null;
 let timerStartedAt = null;
-const storageKey = `altura:practice-missed:${licenseSlug}`;
+const storageKey = `aerodot:practice-missed:${licenseSlug}`;
+const legacyStorageKey = `altura:practice-missed:${licenseSlug}`;
 
 const practiceLogger = {
   info: (message, attributes) => window.posthog?.logger?.info(message, { log_source: 'practice_session', ...attributes }),
@@ -141,7 +142,8 @@ const resetSession = () => {
 
 const readMissed = () => {
   try {
-    const ids = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const raw = localStorage.getItem(storageKey) || localStorage.getItem(legacyStorageKey);
+    const ids = JSON.parse(raw || '[]');
     return Array.isArray(ids) ? ids : [];
   } catch {
     return [];

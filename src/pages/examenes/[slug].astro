@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BrandMark from '../../components/BrandMark.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import { licenses } from '../../data/licenses.js';
 import { isScoreableQuestion, allQuestionsOf, scoreableCount, mockSizeOf } from '../../data/question-utils.js';
 import ppaBank from '../../data/ppa-questions.json';
@@ -54,7 +55,7 @@ const regulatoryReferenceTitle = license.regulatoryReferenceTitle
   ?? 'RAAC Parte 61 vigente';
 ---
 
-<BaseLayout title={`${license.title} — Exámenes — Altura`} description={`Preguntas de práctica para ${license.title}.`}>
+<BaseLayout title={`${license.title} — Exámenes — Aerodot`} description={`Preguntas de práctica para ${license.title}.`}>
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav current="examenes" />
@@ -155,14 +156,14 @@ const regulatoryReferenceTitle = license.regulatoryReferenceTitle
       <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">Página de exámenes ANAC ↗</a>
       <a href={regulatoryReferenceUrl} target="_blank" rel="noreferrer">Consultar {regulatoryReferenceTitle} ↗</a>
       <a href="https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-44-2025-408483/texto" target="_blank" rel="noreferrer">Resolución ANAC 44/2025 · bancos alternativos ↗</a>
-      <p>{license.practiceOnly ? 'Las preguntas de Altura son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.' : 'Herramienta independiente de estudio. Las preguntas con clave pendiente quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
+      <p>{license.practiceOnly ? 'Las preguntas de Aerodot son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.' : 'Herramienta independiente de estudio. Las preguntas con clave pendiente quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
     </section>
   </main>
 
-  <footer class="home-footer study-foot">
+  <SiteFooter>
     <BrandMark />
     <span>Estudiá a tu ritmo, sin cuenta.</span>
     <a href="/temas">Biblioteca ↗</a>
-  </footer>
+  </SiteFooter>
   <script src="../../scripts/practice.js"></script>
 </BaseLayout>

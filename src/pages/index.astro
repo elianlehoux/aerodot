@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 ---
-<BaseLayout title="Altura — biblioteca abierta de aviación" description="Una biblioteca abierta de aviación y práctica de exámenes por licencia, sin cuenta.">
+<BaseLayout title="Aerodot — biblioteca abierta de aviación" description="Una biblioteca abierta de aviación y práctica de exámenes por licencia, sin cuenta.">
   <div class="home-page">
     <header class="site-header">
       <BrandMark />
@@ -21,9 +22,9 @@ import BrandMark from '../components/BrandMark.astro';
         </div>
       </section>
     </main>
-    <footer class="home-footer">
+    <SiteFooter variant="home">
       <a href="/camino">El camino del piloto</a>
       <small>Material independiente. No reemplaza instrucción, documentación aeronáutica ni normativa vigente.</small>
-    </footer>
+    </SiteFooter>
   </div>
 </BaseLayout>

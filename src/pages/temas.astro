@@ -2,13 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import { getLibraryNav } from '../data/library-nav.js';
 import { chapters } from '../data/library-course.js';
 
 const chapterBySlug = Object.fromEntries(chapters.map((chapter) => [chapter.slug, chapter]));
 const groups = getLibraryNav();
 ---
-<BaseLayout title="Temas de aviación — Altura" description="Explorá trece temas de aviación: vuelo, aeronave, meteorología, operación, navegación y factores humanos.">
+<BaseLayout title="Temas de aviación — Aerodot" description="Explorá trece temas de aviación: vuelo, aeronave, meteorología, operación, navegación y factores humanos.">
   <header class="site-header study-header library-header">
     <BrandMark />
     <SiteNav current="biblioteca" />
@@ -39,7 +40,7 @@ const groups = getLibraryNav();
       </div>
     </main>
   </div>
-  <footer class="home-footer study-foot"><BrandMark /><span>Material complementario; verificá reglas y procedimientos vigentes.</span><a href="/examenes">Exámenes ↗</a></footer>
+  <SiteFooter><BrandMark /><span>Material complementario; verificá reglas y procedimientos vigentes.</span><a href="/examenes">Exámenes ↗</a></SiteFooter>
   <script>
     import '../scripts/study-progress.js';
   </script>

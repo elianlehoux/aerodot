@@ -1,4 +1,5 @@
-const STATUS_KEY = 'altura:study-status';
+const STATUS_KEY = 'aerodot:study-status';
+const PREVIOUS_KEY = 'altura:study-status';
 const LEGACY_KEY = 'altura:lessons';
 
 const readMap = () => {
@@ -12,7 +13,8 @@ const readMap = () => {
     }
   } catch { /* El avance anterior ilegible no bloquea el nuevo. */ }
   try {
-    const saved = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}');
+    const raw = localStorage.getItem(STATUS_KEY) || localStorage.getItem(PREVIOUS_KEY);
+    const saved = JSON.parse(raw || '{}');
     if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
       Object.entries(saved).forEach(([slug, value]) => {
         if (value === 'curso' || value === 'listo') map[slug] = value;
@@ -75,9 +77,9 @@ const showSaveError = (anchor) => {
 };
 
 const mountStudyProgress = () => {
-  if (window.__alturaStudyProgress) return;
+  if (window.__aerodotStudyProgress) return;
   if (!document.querySelector('[data-study-slug], [data-complete], [data-study-count]')) return;
-  window.__alturaStudyProgress = true;
+  window.__aerodotStudyProgress = true;
   let map = readMap();
   paint(map);
 
