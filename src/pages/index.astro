@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+---
+<BaseLayout title="Altura — biblioteca abierta de aviación" description="Una biblioteca abierta de aviación y práctica de exámenes por licencia, sin cuenta.">
+  <div class="home-page">
+    <header class="site-header">
+      <BrandMark />
+      <SiteNav />
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="home-hero home-hero-simple">
+        <div class="hero-copy">
+          <h1>Entender la aviación,<br/><em>tema por tema.</em></h1>
+          <p class="hero-lede">Conceptos explicados con claridad y profundidad técnica: consultá lo que necesitás y llevá la práctica hasta el examen.</p>
+          <div class="hero-actions">
+            <a class="home-cta-primary" href="/temas">Explorar la biblioteca <span aria-hidden="true">↗</span></a>
+            <a class="button-quiet" href="/examenes">Practicar exámenes ANAC <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="home-footer">
+      <a href="/camino">El camino del piloto</a>
+      <small>Material independiente. No reemplaza instrucción, documentación aeronáutica ni normativa vigente.</small>
+    </footer>
+  </div>
+</BaseLayout>

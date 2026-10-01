@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+import { pathChanges, pathInstruments, pathReviewedOn, pathRules, pathSideDoors, pathSteps } from '../data/pilot-path.js';
+---
+<BaseLayout title="El camino del piloto — Altura" description="Cómo se encadenan las licencias de piloto en Argentina, con la Parte 61 leída al 30 de septiembre de 2026.">
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav />
+  </header>
+  <main class="exam-hub path-page" id="main-content" tabindex="-1">
+    <a class="back-link" href="/">← Inicio</a>
+    <section class="exam-hub-intro">
+      <p class="eyebrow">Revisado el {pathReviewedOn}</p>
+      <h1>El camino<br/><em>del piloto.</em></h1>
+      <p data-report-target data-report-where="El camino del piloto" data-report-ref="/camino">El recorrido para volar aviones en Argentina: alumno, privado, instrumentos, comercial, línea aérea e instructor. Las horas de esta página son de avión. Planeador, globo, helicóptero y las demás categorías tienen otros totales en la misma Parte 61.</p>
+      <p class="path-lead-note" data-report-target data-report-where="El camino del piloto · vigencia" data-report-ref="/camino">La norma vigente es la Edición VI, de enero de 2026, más los cambios de la Resolución 292/2026, del 13 de mayo.</p>
+      <button class="page-report" type="button" data-report-page data-report-where="El camino del piloto" data-report-ref="/camino" data-report-excerpt="El camino del piloto">Avisar un error en esta página</button>
+    </section>
+
+    <nav class="path-contents" aria-label="En esta página">
+      <a href="#vigente">Qué rige hoy</a>
+      <a href="#reglas">Examen y repaso</a>
+      {pathSteps.map((step) => <a href={`#${step.id}`}>{step.title}</a>)}
+      <a href="#lsa">Deportiva liviana</a>
+      <a href="#rpas">Piloto a distancia</a>
+    </nav>
+
+    <section class="path-block" id="fuentes-norma">
+      <h2>Dónde leer la norma</h2>
+      <p data-report-target data-report-where="El camino del piloto · De dónde sale" data-report-ref="/camino#fuentes-norma">Leé enero y mayo juntos. Un PDF de enero no incluye los cambios posteriores.</p>
+      <ul class="path-sources">
+        {pathInstruments.map((item) => <li>
+          <a href={item.href} target="_blank" rel="noreferrer">{item.label} ↗</a>
+          <p data-report-target data-report-where={`Fuente · ${item.label}`} data-report-ref="/camino#fuentes-norma">{item.note}</p>
+        </li>)}
+      </ul>
+    </section>
+
+    <section class="path-block" id="vigente">
+      <h2>Qué rige hoy</h2>
+      <div class="path-changes">
+        {pathChanges.map((change) => <article>
+          <h3>{change.title}</h3>
+          <p data-report-target data-report-where={`Qué rige hoy · ${change.title}`} data-report-ref="/camino#vigente">{change.text}</p>
+          <a href={change.href} target="_blank" rel="noreferrer">{change.hrefLabel} ↗</a>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="path-block" id="reglas">
+      <h2>Para todas las licencias</h2>
+      {pathRules.map((rule) => <article class="path-rule">
+        <p class="path-kicker">{rule.section}</p>
+        <h3>{rule.title}</h3>
+        {rule.paragraphs.map((paragraph) => <p data-report-target data-report-where={`Regla · ${rule.section} · ${rule.title}`} data-report-ref="/camino#reglas">{paragraph}</p>)}
+        {rule.href && <a href={rule.href} target="_blank" rel="noreferrer">{rule.hrefLabel} ↗</a>}
+      </article>)}
+    </section>
+
+    <section class="path-block" id="escalera">
+      <h2>El recorrido en avión</h2>
+      <p data-report-target data-report-where="La escalera, en avión" data-report-ref="/camino#escalera">Cada bloque indica la sección para que puedas abrirla. La médica es una certificación de la RAAC 67, no una clase única.</p>
+      {pathSteps.map((step) => <article class="path-step" id={step.id}>
+        <p class="path-kicker"><span>{step.index}</span> {step.kicker} · {step.section}</p>
+        <h3>{step.title}</h3>
+        {step.paragraphs.map((paragraph) => <p data-report-target data-report-where={`${step.title} · ${step.section}`} data-report-ref={`/camino#${step.id}`}>{paragraph}</p>)}
+        {step.facts && <ul class="path-facts">
+          {step.facts.map((fact) => <li><strong>{fact.label}.</strong> {fact.text}</li>)}
+        </ul>}
+      </article>)}
+    </section>
+
+    <section class="path-block" id="laterales">
+      <h2>Otras dos licencias</h2>
+      {pathSideDoors.map((door) => <article class="path-step" id={door.id}>
+        <p class="path-kicker">{door.kicker} · {door.section}</p>
+        <h3>{door.title}</h3>
+        {door.paragraphs.map((paragraph) => <p data-report-target data-report-where={`${door.title} · ${door.section}`} data-report-ref={`/camino#${door.id}`}>{paragraph}</p>)}
+        {door.facts && <ul class="path-facts">
+          {door.facts.map((fact) => <li><strong>{fact.label}.</strong> {fact.text}</li>)}
+        </ul>}
+      </article>)}
+    </section>
+  </main>
+  <footer class="home-footer study-foot">
+    <BrandMark />
+    <span>Resumen de estudio. Consultá la Parte 61 vigente antes de un trámite.</span>
+    <a href="/examenes">Exámenes ↗</a>
+  </footer>
+</BaseLayout>

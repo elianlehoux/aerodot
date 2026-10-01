@@ -1,0 +1,16 @@
+{
+  "name": "altura-aula-abierta",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "cursor-agent": "^1.0.3"
+  },
+  "devDependencies": {
+    "astro": "^6.0.0"
+  }
+}

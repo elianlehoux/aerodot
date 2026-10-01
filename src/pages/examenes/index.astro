@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import { licenses, examGroups } from '../../data/licenses.js';
+
+const bySlug = Object.fromEntries(licenses.map((license) => [license.slug, license]));
+let runningIndex = 0;
+const groupedExams = examGroups.map((group) => ({
+  ...group,
+  items: group.slugs.map((slug) => {
+    const license = bySlug[slug];
+    if (!license) throw new Error(`Falta la licencia ${slug} en el catálogo`);
+    runningIndex += 1;
+    return { ...license, index: runningIndex };
+  }),
+}));
+const listed = groupedExams.flatMap((group) => group.items);
+
+const metaFor = (license) => (license.available ? '' : 'Próximamente');
+---
+
+<BaseLayout title="Exámenes — Altura" description="Practicá exámenes teóricos por licencia aeronáutica en Argentina.">
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav current="examenes" />
+  </header>
+  <main class="exam-hub" id="main-content" tabindex="-1">
+    <a class="back-link" href="/">← Inicio</a>
+    <section class="exam-hub-intro">
+      <p class="eyebrow">Práctica por licencia</p>
+      <h1>Exámenes<br/><em>de práctica.</em></h1>
+      <p>Elegí una licencia y estudiá a tu ritmo.</p>
+    </section>
+    <div class="exam-search">
+      <label class="exam-search-label" for="licenseSearch">Buscar una licencia</label>
+      <input class="exam-search-input" id="licenseSearch" type="search" placeholder="Ej.: PPA, planeador, instructor…" autocomplete="off" />
+      <p id="licenseSearchStatus" class="exam-search-status" aria-live="polite">{listed.length} licencias en el índice</p>
+    </div>
+    {groupedExams.map((group) => (
+      <section class="exam-group" data-exam-group>
+        <h2>{group.title}</h2>
+        <p>{group.note}</p>
+        <ul class="exam-license-list">
+          {group.items.map((license) => {
+            const meta = metaFor(license);
+            const search = `${license.code} ${license.title} ${meta}`;
+            const inner = <>
+              <span class="exam-license-index" aria-hidden="true">{String(license.index).padStart(2, '0')}</span>
+              <span class="exam-license-code">{license.code}</span>
+              <span class="exam-license-title">{license.title}</span>
+              {meta && <span class="exam-license-meta">{meta}</span>}
+              <span class="exam-license-arrow" aria-hidden="true">{license.available ? '↗' : ''}</span>
+            </>;
+            return (
+              <li data-license-row data-search={search}>
+                {license.available
+                  ? <a class="exam-license-row" href={`/examenes/${license.slug}`}>{inner}</a>
+                  : <div class="exam-license-row is-soon">{inner}</div>}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
+    <p class="exam-search-empty" id="licenseSearchEmpty" hidden>No encontramos esa licencia. Probá con el código o el nombre.</p>
+  </main>
+  <footer class="home-footer study-foot">
+    <BrandMark />
+    <span>Estudiá a tu ritmo, sin cuenta.</span>
+    <a href="/temas">Biblioteca ↗</a>
+  </footer>
+  <script is:inline>
+    const search = document.querySelector('#licenseSearch');
+    const rows = [...document.querySelectorAll('[data-license-row]')];
+    const groups = [...document.querySelectorAll('[data-exam-group]')];
+    const status = document.querySelector('#licenseSearchStatus');
+    const empty = document.querySelector('#licenseSearchEmpty');
+    const normalize = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es');
+    search.addEventListener('input', () => {
+      const term = normalize(search.value.trim());
+      let visible = 0;
+      rows.forEach((row) => {
+        const matches = normalize(row.dataset.search).includes(term);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      groups.forEach((group) => { group.hidden = !group.querySelector('[data-license-row]:not([hidden])'); });
+      empty.hidden = visible > 0;
+      status.textContent = term ? `${visible} ${visible === 1 ? 'licencia encontrada' : 'licencias encontradas'}.` : `${rows.length} licencias en el índice`;
+    });
+  </script>
+</BaseLayout>

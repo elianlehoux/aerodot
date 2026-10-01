@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+import '../styles/visual-system.css';
+import ReportDialog from '../components/ReportDialog.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Altura — aprender aviación, paso a paso', description = 'Aprendé los fundamentos de la aviación, paso a paso y en lenguaje claro.' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1b1a18" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('altura:theme');
+          const theme = savedTheme === 'light' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = theme;
+        } catch {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <slot />
+    <ReportDialog />
+    <a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba" aria-hidden="true" tabindex="-1">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5m-6 6 6-6 6 6" /></svg>
+    </a>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const controls = document.querySelectorAll('.ld-dn');
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        const update = (theme) => {
+          const isNight = theme === 'dark';
+          root.dataset.theme = isNight ? 'dark' : 'light';
+          controls.forEach((control) => {
+            control.setAttribute('aria-checked', String(isNight));
+            const label = isNight ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+            control.setAttribute('aria-label', label);
+            control.setAttribute('title', label);
+          });
+          if (themeColor) themeColor.setAttribute('content', isNight ? '#1b1a18' : '#fdfcfc');
+        };
+
+        update(root.dataset.theme || 'dark');
+        controls.forEach((control) => control.addEventListener('click', () => {
+          const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          update(nextTheme);
+          try { localStorage.setItem('altura:theme', nextTheme); } catch { /* El tema sigue activo en esta visita. */ }
+        }));
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const control = document.querySelector('.back-to-top');
+        if (!control) return;
+
+        const updateVisibility = () => {
+          const visible = window.scrollY > 320 || document.activeElement === control;
+          control.classList.toggle('is-visible', visible);
+          control.setAttribute('aria-hidden', String(!visible));
+          control.tabIndex = visible ? 0 : -1;
+        };
+
+        window.addEventListener('scroll', updateVisibility, { passive: true });
+        control.addEventListener('blur', updateVisibility);
+        updateVisibility();
+      })();
+    </script>
+  </body>
+</html>

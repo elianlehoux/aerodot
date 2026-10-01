@@ -1,0 +1,3850 @@
+{
+  "practiceOnly": false,
+  "testSize": 50,
+  "sourcePageUrl": "https://www.argentina.gob.ar/examenes/rehabilitacion-instructor-de-vuelo-avion",
+  "sourcePdfUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+  "sourceLabel": "Cuestionario público RIVA · ANAC",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Rehabilitación de instructor de vuelo",
+      "questions": [
+        {
+          "id": "riva-01-001",
+          "chapter": 1,
+          "number": 1,
+          "sourceNumber": 1,
+          "prompt": "¿A qué denominamos ritmo circadiano?",
+          "choices": [
+            "Son oscilaciones de las variables biológicas en intervalos regulares de tiempo.",
+            "Es el reloj biológico humano que regula las funciones fisiológicas del organismo para que sigan un ciclo regular que se repite cada 24 horas, y que coincide con los estados de sueño y vigilia.",
+            "A y B son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-002",
+          "chapter": 1,
+          "number": 2,
+          "sourceNumber": 2,
+          "prompt": "¿Cuál es el símbolo correcto para la velocidad mínima en la que un avión se puede controlar?",
+          "choices": [
+            "Vso",
+            "Vs",
+            "Vs1"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-003",
+          "chapter": 1,
+          "number": 3,
+          "sourceNumber": 3,
+          "prompt": "¿Qué origina al salir de un viraje escarpado que el semiala inclinada hacia abajo genere mayor resistencia que al entrar a un viraje?",
+          "choices": [
+            "A: El ángulo de ataque del ala es mayor al iniciar la salida del viraje.",
+            "B: El ala inclinada hacia arriba hace su recorrido por el aire a mayor rapidez que el ala inclinada hacia abajo.",
+            "C: El ala inclinada hacia abajo hace su recorrido por el aire a mayor rapidez y produce mayor sustentación que el ala inclinada hacia arriba."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-004",
+          "chapter": 1,
+          "number": 4,
+          "sourceNumber": 4,
+          "prompt": "(Refiérase a la Figura 9, área C) ¿Cómo se deberían mantener los controles de vuelo al rodar un avión con rueda de cola con viento de cola, parcialmente cruzado, de la izquierda? 14.-",
+          "choices": [
+            "Alerón izquierdo arriba, elevador neutro.",
+            "Alerón izquierdo abajo, elevador neutro.",
+            "Alerón izquierdo abajo, elevador abajo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "figure": {
+            "number": 9,
+            "label": "9"
+          }
+        },
+        {
+          "id": "riva-01-005",
+          "chapter": 1,
+          "number": 5,
+          "sourceNumber": 5,
+          "prompt": "1.- ¿Cuál es el procedimiento correcto para la salida de patrón de tráfico que se debe utilizar en un aeropuerto no controlado?",
+          "choices": [
+            "Partir en cualquier dirección, considerando la seguridad luego de cruzar los límites del aeropuerto.",
+            "Realizar todos los virajes hacia la izquierda.",
+            "Cumplir cualquier patrón de tráfico establecido con respecto a cualquier aeropuerto."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-006",
+          "chapter": 1,
+          "number": 6,
+          "sourceNumber": 6,
+          "prompt": "1.- Altitud mínima de descenso (MDA) o altura mínima de descenso (MDH) significa",
+          "choices": [
+            "Altitud o altura especificada en una aproximación, por debajo de la cual puede efectuarse el descenso sin la referencia visual requerida.",
+            "Altitud o altura especificada en una aproximación, por debajo de la cual no debe efectuarse el descenso sin la referencia visual requerida.",
+            "Ninguna es correcta."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-007",
+          "chapter": 1,
+          "number": 7,
+          "sourceNumber": 7,
+          "prompt": "1.-La clave de referencia de un aeródromo es",
+          "choices": [
+            "Es una clave informática relacionada a la administración de los recursos aeroportuarios.",
+            "Se utiliza para determinar los requisitos en cuanto a la longitud y anchura de pista.",
+            "Está compuesta de dos elementos que se relacionan con las características y dimensiones del avión."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-008",
+          "chapter": 1,
+          "number": 8,
+          "sourceNumber": 8,
+          "prompt": "1.14.ch La licencia de Instructor de Vuelo tendrá vigencia y será efectiva cuando el titular posea la licencia de piloto vigente",
+          "choices": [
+            "página 2 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal a) Haya cumplido con el control bienal de actualización y nivelación de conocimientos, demostrando ante un Inspector de Vuelo de la Autoridad Aeronáutica competente su nivel de actualización de conocimientos teóricos y de vuelo en el desarrollo del programa de instrucción en tierra y maniobras en vuelo requeridas en el proceso de instrucción, mediante un examen escrito y el desempeño de los alumnos presentados a examen",
+            "La vigencia de la licencia se obtiene solo con la entrega de la misma y no es requerido otra exigensia.",
+            "haya un registro que ha cumplido con las maniobras establecidas en los estandares publicados por la autoridad"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-009",
+          "chapter": 1,
+          "number": 9,
+          "sourceNumber": 9,
+          "prompt": "1.14.ch. Todo titular de una licencia, de piloto comercial, Piloto Comercial de Primera Clase de Avión, piloto de transporte de línea aérea o de Piloto de Planeador y que posea la licencia de Instructor de Vuelo, podrá",
+          "choices": [
+            "Instruir al alumno piloto para el primer vuelo solo sin necesidad de registro de la autorización para realizarlo en la aeronave.",
+            "Impartir la instrucción hasta el nivel de su licencia y de las habilitaciones inscriptas en ella.",
+            "Impartir instruccion unicamente en aerodromos no controlados o Aer-radio."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-010",
+          "chapter": 1,
+          "number": 10,
+          "sourceNumber": 10,
+          "prompt": "1) El Código aeronáutico Ley (17.285) modificado parcialmente en 1981 por la ley 22.390 rige actualmente en",
+          "choices": [
+            "La aeronáutica civil y militar.",
+            "En el decreto Ley",
+            "La aeronáutica civil"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-011",
+          "chapter": 1,
+          "number": 11,
+          "sourceNumber": 11,
+          "prompt": "1) Las maniobras de giros relativas a referencias terrestres (pilón,S sobre caminos,etc.) se inician",
+          "choices": [
+            "Con viento de cola",
+            "Con viento de frente.",
+            "Indistintamente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-012",
+          "chapter": 1,
+          "number": 12,
+          "sourceNumber": 12,
+          "prompt": "10.- Cuando el piloto realiza el rodaje con vientos fuertes de frente parcialmente cruzados, ¿qué posiciones de alerón utiliza generalmente?",
+          "choices": [
+            "Alerón arriba en el lado desde donde sopla el viento.",
+            "Alerón abajo en el lado desde donde sopla el viento.",
+            "Alerones neutros."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-013",
+          "chapter": 1,
+          "number": 13,
+          "sourceNumber": 13,
+          "prompt": "10.-La temperatura de referencia de un aeródromo es la media mensual de las temperaturas máximas diarias correspondientes al mes más caluroso del año.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-014",
+          "chapter": 1,
+          "number": 14,
+          "sourceNumber": 14,
+          "prompt": "11.- ¿Cuál condición de viento sería la más crítica al rodar un avión equipado con alas altas y rueda de nariz?",
+          "choices": [
+            "Viento de cola parcialmente cruzado.",
+            "Viento cruzado directo.",
+            "Viento de frente, parcialmente cruzado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-015",
+          "chapter": 1,
+          "number": 15,
+          "sourceNumber": 15,
+          "prompt": "11) Todo accidente de aviación será investigado para determinar sus causas y evitar su repetición. El organismo encargado de dicha investigaciones",
+          "choices": [
+            "La Fuerza Aérea Argentina.",
+            "La Dirección Nacional de Aeronavegabilidad",
+            "La Junta Investigadora de Accidentes de Aviación Civil. página 3 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "c",
+            "b"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-016",
+          "chapter": 1,
+          "number": 16,
+          "sourceNumber": 16,
+          "prompt": "12.- (Refiérase a la Figura 9, área A) ¿Cómo se deberían mantener los controles de vuelo al rodar un avión equipado con un tren de aterrizaje triciclo, con viento de frente, parcialmente cruzado, de la izquierda?",
+          "choices": [
+            "Alerón izquierdo arriba, elevador neutral.",
+            "Alerón izquierdo abajo, elevador neutral.",
+            "Alerón izquierdo arriba, elevador abajo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "figure": {
+            "number": 9,
+            "label": "9"
+          }
+        },
+        {
+          "id": "riva-01-017",
+          "chapter": 1,
+          "number": 17,
+          "sourceNumber": 17,
+          "prompt": "13.- (Refiérase a la Figura 9, área B) ¿Cómo se deberían mantener los controles de vuelo al rodar un avión con rueda de cola, con viento de frente, parcialmente cruzado, de la derecha?",
+          "choices": [
+            "Alerón derecho arriba, elevador arriba.",
+            "Alerón derecho abajo, elevador neutro.",
+            "Alerón derecho arriba, elevador abajo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "figure": {
+            "number": 9,
+            "label": "9"
+          }
+        },
+        {
+          "id": "riva-01-018",
+          "chapter": 1,
+          "number": 18,
+          "sourceNumber": 18,
+          "prompt": "14-) A la fuerza que origina un cambio en la velocidad de una masa, se le denomina",
+          "choices": [
+            "Trabajo",
+            "Energia",
+            "empuje"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-019",
+          "chapter": 1,
+          "number": 19,
+          "sourceNumber": 19,
+          "prompt": "16.- Para minimizar las cargas laterales sobre el tren de aterrizaje durante el aterrizaje, el piloto debería mantener",
+          "choices": [
+            "La dirección de movimiento de la aeronave paralela a la pista de aterrizaje.",
+            "El eje longitudinal de la aeronave paralelo a la dirección de su movimiento.",
+            "El ala a favor del viento bajada lo suficiente para eliminar la tendencia de la aeronave a irse a la deriva."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-020",
+          "chapter": 1,
+          "number": 20,
+          "sourceNumber": 20,
+          "prompt": "16) Volando en un avión con los asientos ubicados en tándem, si el instructor va sentado atrás, cuando se realizan ejercicios de giros alrededor de referencias en tierra se deberá tener en cuenta que dichas referencias serán vistas por el instructor",
+          "choices": [
+            "En la misma posición con respecto al extremo del ala que las ve el alumno.",
+            "Un poco por detrás de la posición en las que las ve el alumno.",
+            "Un poco por delante de la posición en las que las ve el alumno."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-021",
+          "chapter": 1,
+          "number": 21,
+          "sourceNumber": 21,
+          "prompt": "18) Volando un avión de paso variable, el orden de movimiento de las palancas de comando del motor para la reducción después del despegue serán",
+          "choices": [
+            "R.P.M de la helice, acelerador, corrector.",
+            "Corrector, acelerador, R.P.M.",
+            "Acelerador, R.P.M., corrector."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-022",
+          "chapter": 1,
+          "number": 22,
+          "sourceNumber": 22,
+          "prompt": "180- La definicion mas apropiada de “sustentacion” es",
+          "choices": [
+            "la fuerza que actua en forma perpendicular al viento relativo.",
+            "la presión diferencial que actua en forma perpendicular a la cuerda del ala.",
+            "la presión reducida que resulta de un flujo laminar por encima de la curvatura superior de la superficie sustentadora, el cual actua en forma perpendicular a la curvatura media."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-023",
+          "chapter": 1,
+          "number": 23,
+          "sourceNumber": 23,
+          "prompt": "183- ¿Cual de las siguientes afirmaciones es correcta con respecto a la variación del angulo de ataque?",
+          "choices": [
+            "una disminucion en el angulo de ataque incrementa la presión por debajo del ala, y reduce la resistencia al avance.",
+            "un incremento en el angulo de ataque incrementa la resistencia al avance.",
+            "un incremento en el angulo de ataque reduce la presión por debajo del ala, e incrementa la resistencia al avance."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-024",
+          "chapter": 1,
+          "number": 24,
+          "sourceNumber": 24,
+          "prompt": "185- La Perdida aerodinamicamente se define como",
+          "choices": [
+            "el desprendimiento paulatino de la capa limite a medida que el angulo de ataque disminuye.",
+            "la incapacidad el ala para producir la sustentacion necesaria.",
+            "la incapacidad del ala para producir un mayor flujo sobre la superficie alar.",
+            "Libre, salvo cuando se halla limitado por seguridad nacional, interés público o defensa.",
+            "Restringido sólo a quienes tienen permiso previo.",
+            "Libre sólo para las aeronaves extranjeras de pasajeros."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-025",
+          "chapter": 1,
+          "number": 25,
+          "sourceNumber": 26,
+          "prompt": "2.-El área rectangular definida en el terreno, situada a continuación de una pista, en el sentido de despegue, preparada como zona adecuada para soportar a las aeronaves en caso de un despegue interrumpido es una",
+          "choices": [
+            "Zona libre de obstáculos.",
+            "Área de seguridad de extremo de pista.",
+            "Zona de parada."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-026",
+          "chapter": 1,
+          "number": 26,
+          "sourceNumber": 27,
+          "prompt": "2.-En VMC, se aplicarán las reglas generales de vuelo y las reglas de vuelo visual (VFR), no obstante, el piloto puede hacer si lo desea un vuelo ajustándose a las reglas de vuelo por instrumentos (IFR), o la autoridad aeronáutica competente puede solicitarlo que así lo haga.",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-027",
+          "chapter": 1,
+          "number": 27,
+          "sourceNumber": 28,
+          "prompt": "2.14 f. En caso de otras atribuciones que la Autoridad Aeronáutica competente considera que no requieran estar incorporadas en la licencia o certificado de competencia de piloto, tal como es la adaptación o readaptación a ciertas funciones de vuelo, deberá tenerlas registrada y debidamente firmada en",
+          "choices": [
+            "En el Libro matriz de la institución aero-deportiva o Escuela de vuelo.",
+            "En una licencia adicional certificada",
+            "En el Libro de Vuelo del causante, por el Instructor de Vuelo que impartió la instrucción. página 6 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "b",
+            "a",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-028",
+          "chapter": 1,
+          "number": 28,
+          "sourceNumber": 29,
+          "prompt": "2.14 f. Todo titular de un certificado de idoneidad aeronáutica deberá tener, si corresponde, inscripto en el mismo habilitaciones adicionales.",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-029",
+          "chapter": 1,
+          "number": 29,
+          "sourceNumber": 30,
+          "prompt": "2.14.4 La Parte que define la aplicacion de la Raac (RAAC 61.1) establece",
+          "choices": [
+            "Los requisitos mínimos y procedimientos para el otorgamiento de licencias de piloto, certificados de competencia de piloto o habilitaciones.",
+            "Unicamente las condiciones bajo las cuales son necesarias, sus atribuciones y limitaciones",
+            "Establece los requisitos mínimos y procedimientos para el otorgamiento de licencias de piloto, certificados de competencia de piloto o habilitaciones, las condiciones bajo las cuales son necesarias,sus atribuciones y limitaciones."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-030",
+          "chapter": 1,
+          "number": 30,
+          "sourceNumber": 31,
+          "prompt": "2.14.f Ninguna persona titular de una licencia o certificado de competencia de piloto podrá actuar como piloto o en cualquier otra función en que se requiere un piloto miembro de la tripulación de vuelo de una aeronave civil matriculada y o registrada en el país, a menos que",
+          "choices": [
+            "Sea titular y porte una licencia o certificado de competencia de piloto vigente otorgada bajo esta Parte o normas anteriores.",
+            "Sea titular y porte una licencia o certificado de competencia de piloto no necesariamente vigente otorgada o normas anteriores.",
+            "Sea titular y porte una licencia o certificado de competencia de piloto otorgada bajo esta Parte o sin cuidado de ser concedida por normas anteriores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-031",
+          "chapter": 1,
+          "number": 31,
+          "sourceNumber": 32,
+          "prompt": "2) El ámbito de aplicación del Código Aeronáutico es",
+          "choices": [
+            "El territorio nacional determinado por las fronteras del país.",
+            "El espacio Aéreo Nacional",
+            "El territorio Nacional, aguas territoriales y el espacio aéreo que los cubre."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-032",
+          "chapter": 1,
+          "number": 32,
+          "sourceNumber": 33,
+          "prompt": "2)Durante un descenso en la velocidad de planeo recto,las superficies de control",
+          "choices": [
+            "Tendrán menos efectividad que en vuelo recto y nivelado con potencia",
+            "Tendrán igual efectividad que en vuelo recto y nivelado con potencia.",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-033",
+          "chapter": 1,
+          "number": 33,
+          "sourceNumber": 34,
+          "prompt": "202- ¿Cual de los siguientes es considerado un control de vuelo auxiliar?",
+          "choices": [
+            "elevador",
+            "timon de direccion superior",
+            "flaps de borde de fuga"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-034",
+          "chapter": 1,
+          "number": 34,
+          "sourceNumber": 35,
+          "prompt": "203- El proposito principal de los dispositivos hipersustentadores es incrementar",
+          "choices": [
+            "L/D max",
+            "la sustentacion a bajas velocidades",
+            "la resistencia y reducir la velocidad"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-035",
+          "chapter": 1,
+          "number": 35,
+          "sourceNumber": 36,
+          "prompt": "21.10.13.- ¿Por cual de estas razones puede modificarse el factor de carga?",
+          "choices": [
+            "Por rafagas",
+            "página 7 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b)Por fatiga de material",
+            "Por mal uso de los mandos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-036",
+          "chapter": 1,
+          "number": 36,
+          "sourceNumber": 37,
+          "prompt": "21.10.13.-Cuál de estas fuerzas no interviene en el aterrizaje y sí en el despegue?",
+          "choices": [
+            "Peso..",
+            "Sustentación.",
+            "Tracción o empuje."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-037",
+          "chapter": 1,
+          "number": 37,
+          "sourceNumber": 38,
+          "prompt": "214- Las denominadas regulaciones Argentinas de aviación civil. Parte 61 se delimita a la regulación de",
+          "choices": [
+            "LICENCIAS, CERTIFICADO DE COMPETENCIA Y HABILITACIONES",
+            "LICENCIAS, CERTIFICADO DE COMPETENCIA Y HABILITACIONES PARA PILOTO",
+            "CERTIFICADOS DE COMPETENCIA Y HABILITACIONES PARA PILOTO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-038",
+          "chapter": 1,
+          "number": 38,
+          "sourceNumber": 39,
+          "prompt": "234- ¿En cuales de las siguientes maniobras se puede operar una aeronave si su categoria operacional es calificada como utilitario?",
+          "choices": [
+            "acrobacia limitada, sin tirabuzones.",
+            "acrobacia limitada, con tirabuzones (si fuese aprobado).",
+            "cualquier maniobra a excepcion de acrobacia y tirabuzones."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-039",
+          "chapter": 1,
+          "number": 39,
+          "sourceNumber": 40,
+          "prompt": "282- Con respecto a la tecnica necesaria para la correccion de viento cruzado en el despegue, un piloto debe utilizar",
+          "choices": [
+            "la presión del aleron contra el viento e iniciar el despegue vertical (lift-off) a una velocidad aerea normal tanto en aeronaves de tipo convencional como de tipo triciclo.",
+            "la presión del timon de direccion lado derecho, presión del aleron contra el viento y velocidad aerea de lift-off mayor a la normal tanto en aeronaves de tren de aterrizaje tipo triciclo como de tipo convencional.",
+            "el timon de direccion necesario para mantener control direccional, presión del aleron contra el viento, y velocidad aerea de lift-off mayor a la normal en aeronaves tanto de tipo convencional como de tipo triciclo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-040",
+          "chapter": 1,
+          "number": 40,
+          "sourceNumber": 41,
+          "prompt": "283- ¿Si se encuentra turbulencia en una aproximacion a un aterrizaje, que accion se recomienda y por que motivo principal?",
+          "choices": [
+            "incrementar ligeramente la velocidad por encima de la velocidad normal de aproximacion para obtener mas control positivo.",
+            "reducir ligeramente la velocidad aerea por debajo de la velocidad normal de aproximacion para evitar el esfuerzo excesivo de la aeronave.",
+            "incrementar ligeramente la velocidad aerea por encima de la velocidad normal de aproximacion para penetrar la turbulencia lo mas rapido posible."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-041",
+          "chapter": 1,
+          "number": 41,
+          "sourceNumber": 42,
+          "prompt": "284- En caso de una falla total de motor cuando la aeronave se encuentra en vuelo luego del despegue, ¿que accion inmediata y vital debe realizar el piloto?",
+          "choices": [
+            "mantener una velocidad segura.",
+            "aterrizar directamente contra el viento.",
+            "regresar al campo de despegue."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-042",
+          "chapter": 1,
+          "number": 42,
+          "sourceNumber": 43,
+          "prompt": "285- ¿Que tipo de aproximacion y aterrizaje se recomienda realizar en condiciones meteorologicas que presentan rafagas de viento?",
+          "choices": [
+            "una aproximacion con potencia y un aterrizaje con potencia.",
+            "una aproximacion sin potencia y un aterrizaje con potencia.",
+            "página 8 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal c) una aproximacion con potencia y un aterrizaje sin potencia.",
+            "Cuando está destinado al uso público",
+            "Su propietario es Argentino.",
+            "Cuando su dueño es el Estado Provincial"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-043",
+          "chapter": 1,
+          "number": 43,
+          "sourceNumber": 45,
+          "prompt": "3.- Las prácticas de procedimientos IFR, se realizarán en condiciones meteorológicas de vuelo visual, excepto que",
+          "choices": [
+            "No se realizarán prácticas de aproximación IFR, sin obtener previamente la autorización de la dependencia de control correspondiente.",
+            "Las aproximaciones IFR regulares no tendrán prioridad sobre las prácticas de aproximación IFR.",
+            "Las prácticas de aproximación IFR no pueden ser autorizadas independientemente de las condiciones MET."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-044",
+          "chapter": 1,
+          "number": 44,
+          "sourceNumber": 46,
+          "prompt": "3.-Las luces del umbral de pista serán de color",
+          "choices": [
+            "Azules.",
+            "Verdes.",
+            "Blancas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-045",
+          "chapter": 1,
+          "number": 45,
+          "sourceNumber": 47,
+          "prompt": "3.El manual de vuelo aprobado es",
+          "choices": [
+            "Solamente una guía de referencia para el uso correcto del avión.",
+            "Donde se registra la historia técnica del avión.",
+            "Es parte de la documentación básica para poder obtener un certificado de aeronavegabilidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-046",
+          "chapter": 1,
+          "number": 46,
+          "sourceNumber": 48,
+          "prompt": "3) El aumento del ángulo de ataque sin solución de continuidad, traerá aparejado",
+          "choices": [
+            "Un excesivo aumento de la sustentación aerodinámica",
+            "Una excesiva pérdida de la resistencia aerodinámica",
+            "La pérdida de sustentación aerodinámica"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-047",
+          "chapter": 1,
+          "number": 47,
+          "sourceNumber": 49,
+          "prompt": "3) El Certificado de Matricula, que determina la exigencia jurídica de una aeronave es expedida por",
+          "choices": [
+            "Registro Nacional de Aeronaves.",
+            "Dirección Nacional de Aeronavegabilidad.",
+            "Dirección de Fomento y Habilitación"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-048",
+          "chapter": 1,
+          "number": 48,
+          "sourceNumber": 50,
+          "prompt": "3) Una aeronave es Argentina cuando",
+          "choices": [
+            "Su propietario es Argentino.",
+            "Cuando se halla inscripta en el Registro Nacional de Aeronaves.",
+            "Cuando sobrevuela la Argentina.",
+            "La Sustentación multiplicada por el Peso.",
+            "La Sustentación restada del Peso. página 9 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "La Sustentación dividida por el Peso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-049",
+          "chapter": 1,
+          "number": 49,
+          "sourceNumber": 52,
+          "prompt": "371- Para ubicarse en el radial 180° saliendo de una estacion VOR, el procedimiento recomendado consiste en fijar el cursor a",
+          "choices": [
+            "360° y efectuar correcciones de curso hacia la aguja del CDI.",
+            "180° y efectuar correcciones de curso fuera de la aguja del CDI.",
+            "180° y efectuar correcciones de curso hacia la aguja del CDI."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-050",
+          "chapter": 1,
+          "number": 50,
+          "sourceNumber": 53,
+          "prompt": "372- Para ubicarse en el radial 215° entrando en una estacion VOR, el procedimiento recomendado consiste en fijar el cursor a",
+          "choices": [
+            "215° y efectuar correcciones de curso hacia la aguja del CDI.",
+            "215° y efectuar correcciones de curso fuera de la aguja del CDI.",
+            "035° y efectuar correcciones de curso hacia la aguja del CDI."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-051",
+          "chapter": 1,
+          "number": 51,
+          "sourceNumber": 54,
+          "prompt": "4. Un día de baja presión y alta temperatura ambiente producirá",
+          "choices": [
+            "Una disminución en la altitud de densidad.",
+            "Un aumento en la altitud de densidad.",
+            "No producirá ningún cambio en la altitud de densidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-052",
+          "chapter": 1,
+          "number": 52,
+          "sourceNumber": 55,
+          "prompt": "4.- Las prácticas de aproximación IFR requieren el cumplimiento completo de las reglas de vuelo por instrumentos (IFR) y la participación de las dependencias de los servicios de tránsito aéreo correspondientes, para las cuales se trata de un vuelo IFR efectivo",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-053",
+          "chapter": 1,
+          "number": 53,
+          "sourceNumber": 56,
+          "prompt": "4.-Las luces del eje de la calle de rodaje serán de color",
+          "choices": [
+            "Azules.",
+            "Verdes.",
+            "Blancas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-054",
+          "chapter": 1,
+          "number": 54,
+          "sourceNumber": 57,
+          "prompt": "488- ¿Cual de las Reglamentaciones Argentinas de Aviacion Civil (RAAC) corresponde a Licencias al Personal Aeronautico?",
+          "choices": [
+            "RAAC 65.",
+            "RAAC 61.",
+            "RAAC 63."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-055",
+          "chapter": 1,
+          "number": 55,
+          "sourceNumber": 58,
+          "prompt": "4f) Las aeronaves deben despegar y aterrizar",
+          "choices": [
+            "Desde cualquier superficie plana",
+            "Desde un aeródromo o aeropuerto o superficie apta declarada",
+            "Desde un aeropuerto con aduana, migraciones y sanidad de frontera."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-056",
+          "chapter": 1,
+          "number": 56,
+          "sourceNumber": 59,
+          "prompt": "5.-La longitud verdadera de una pista debería ser suficiente para satisfacer los requerimientos operacionales de los aviones para los que está prevista.",
+          "choices": [
+            "Verdadero.",
+            "Falso. página 10 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-057",
+          "chapter": 1,
+          "number": 57,
+          "sourceNumber": 60,
+          "prompt": "5) Durante una pérdida en viraje",
+          "choices": [
+            "Tenderá a caer primero el ala interna del viraje.",
+            "Tenderá a caer primero el ala externa del viraje",
+            "El avión tenderá a bajar la nariz primeramente manteniendo la inclinación del viraje"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-058",
+          "chapter": 1,
+          "number": 58,
+          "sourceNumber": 61,
+          "prompt": "5) Las aeronaves afectadas al transporte aerocomercial que lleguen desde el exterior o salgan del País, deberán hacerlo por las rutas designadas a tal fin, y aterrizar partir de",
+          "choices": [
+            "Un aeropuerto controlado.",
+            "Cualquier aeródromo habilitado.",
+            "Un aeropuerto internacional."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-059",
+          "chapter": 1,
+          "number": 59,
+          "sourceNumber": 62,
+          "prompt": "5f) El titular de la licencia de instructor de vuelo está facultado para",
+          "choices": [
+            "Instruir a alumnos y pilotos en la especialidad inscripta en la misma licencia y habilitacion del poseedor de la licencia de instructor.",
+            "Podra dar instruccion en aeronave tipo siempre que el propietario lo autorice.",
+            "De acuerdo a la solicitud del poseedor de la licencia"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-060",
+          "chapter": 1,
+          "number": 60,
+          "sourceNumber": 63,
+          "prompt": "6.- La parte del aeródromo que ha de utilizarse para el despegue, aterrizaje y movimiento en superficie de las aeronaves se denomina",
+          "choices": [
+            "Área de maniobras.",
+            "Área de movimiento.",
+            "Área de aterrizaje."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-061",
+          "chapter": 1,
+          "number": 61,
+          "sourceNumber": 64,
+          "prompt": "7.- La elevación del aeródromo es la correspondiente a",
+          "choices": [
+            "El punto más alto del área de aterrizaje.",
+            "La del umbral más alto.",
+            "El punto más alto del área de movimiento."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-062",
+          "chapter": 1,
+          "number": 62,
+          "sourceNumber": 65,
+          "prompt": "8.- La distancia de aceleración – parada (ASDA) está conformada por",
+          "choices": [
+            "La longitud del recorrido de despegue disponible más la longitud de la zona de parada, si hubiera.",
+            "La longitud del recorrido de despegue disponible más la longitud de la zona libre de obstáculos si la hubiera.",
+            "La longitud de pista declarada disponible y adecuada para el recorrido en tierra de un avión que aterrice."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-063",
+          "chapter": 1,
+          "number": 63,
+          "sourceNumber": 66,
+          "prompt": "8) El Prefijo LV- indica que se trata de una matricula en una aeronave",
+          "choices": [
+            "Privada.",
+            "De nacionalidad Argentina, privada.",
+            "Publica."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-064",
+          "chapter": 1,
+          "number": 64,
+          "sourceNumber": 67,
+          "prompt": "9.-Un faro de aeródromo es un faro aeronáutico destinado a indicar la posición de un aeródromo desde el aire. Consta de una luz de color (no es blanca) y transmite en código Morse las tres letras que lo identifican.",
+          "choices": [
+            "Verdadero.",
+            "Falso. página 11 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-065",
+          "chapter": 1,
+          "number": 65,
+          "sourceNumber": 68,
+          "prompt": "9) Los comandantes de las aeronaves",
+          "choices": [
+            "Están obligados a prestar socorro a aeronaves en peligro en la medida de sus posibilidades.",
+            "Están obligados en todos los casos sin excepciones.",
+            "No están obligados en ninguna circunstancia."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-066",
+          "chapter": 1,
+          "number": 66,
+          "sourceNumber": 69,
+          "prompt": "A qué nos referimos cuando hablamos de DROGA?",
+          "choices": [
+            "Nombre genérico de ciertas sustancias usadas en industria, medicina o química..",
+            "Cualquier sustancia de efecto estimulante, deprimente, narcótico o alucinógeno y cuyo consumo reiterado puede provocar adicción o dependencia.",
+            "Todas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-067",
+          "chapter": 1,
+          "number": 67,
+          "sourceNumber": 70,
+          "prompt": "Al suscitarse un disturbio en la condición de vuelo estable, existe una tendencia de la aeronave a desarrollar fuerzas que la hagan retornar a su condición original; dicha tendencia es conocida como",
+          "choices": [
+            "inestable",
+            "estable",
+            "dinamica"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-068",
+          "chapter": 1,
+          "number": 68,
+          "sourceNumber": 71,
+          "prompt": "Antes de iniciar el curso de piloto privado, si el alumno es mayor de edad, o sea de 21 años, debe presentar al instructor una autorización de sus padres, tutores o responsables",
+          "choices": [
+            "Verdadero",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-069",
+          "chapter": 1,
+          "number": 69,
+          "sourceNumber": 72,
+          "prompt": "Cuál de las opciones sera una manera eficaz de prevenir un peligro de colisión dentro de un patron de trafico ?",
+          "choices": [
+            "Ingresando al patron desde una altura superior",
+            "Mantener el patron de trafico correcto y mantener un escaneo continuo del area.",
+            "Confiando en los reportes de radio de otras aeronaves que operen en la zona de trafico."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-070",
+          "chapter": 1,
+          "number": 70,
+          "sourceNumber": 73,
+          "prompt": "Cual de las siguientes corresponde a una técnica correcta de recuperación de posterior a una entrada en tirabuzon ?",
+          "choices": [
+            "Mantener potencia, aplicar pedal para el lado contrario del giro y aplicar presion en los comandos de elevador hacia adelante.",
+            "Reducir potencia a ralenti, aplicar pedal para el lado contrario del giro y aplicar presion en los comandos de elevador hacia adelante.",
+            "Reducir potencia a ralenti, aplicar pedal para el lado del giro y aplicar presion en los comandos de elevador hacia adelante."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-071",
+          "chapter": 1,
+          "number": 71,
+          "sourceNumber": 74,
+          "prompt": "Cuál es el símbolo correcto correspondiente a la velocidad mínima de vuelo estable en la cual es posible controlar una aeronave?",
+          "choices": [
+            "Vs.",
+            "Vs1.",
+            "Vso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-072",
+          "chapter": 1,
+          "number": 72,
+          "sourceNumber": 75,
+          "prompt": "Cuando la alimentación no cubre las necesidades nutricionales se producen alteraciones fisiológicas, como hipoglucemia, fatiga muscular, deshidratación, distensión abdominal, obesidad entre otras.",
+          "choices": [
+            "Verdadero.",
+            "Falso. página 12 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-073",
+          "chapter": 1,
+          "number": 73,
+          "sourceNumber": 76,
+          "prompt": "Cuando se duerme más de las horas necesarias se altera el sistema nervioso, se genera un estado de irritabilidad y baja el sistema inmunológico, los órganos del cuerpo se desestabilizan, aparecen con-tracturas y se altera el carácter, es decir la parte físico química, la estructural y también la psíquica se desequilibran.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-074",
+          "chapter": 1,
+          "number": 74,
+          "sourceNumber": 77,
+          "prompt": "Durante una pérdida en viraje",
+          "choices": [
+            "El ángulo de ataque del ala externa es mayor por la deflexión del alerón.",
+            "Los Cl de ambos planos se mantienen iguales",
+            "La velocidad del aire en el ala interna es menor que en la externa."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-075",
+          "chapter": 1,
+          "number": 75,
+          "sourceNumber": 78,
+          "prompt": "El bastón y bola situados como indica la figura debe interpretarse como",
+          "choices": [
+            "Resbale.",
+            "Viraje coordinado.",
+            "Derrape. página 13 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/92.jpg",
+              "width": 575,
+              "height": 510
+            }
+          ]
+        },
+        {
+          "id": "riva-01-076",
+          "chapter": 1,
+          "number": 76,
+          "sourceNumber": 79,
+          "prompt": "El consumo de dosis pequeñas o moderadas de alcohol puede dar lugar a alteraciones del juicio y de los tiempos de reacción. Además disminuye la tolerancia a la hipoxia (el efecto es mayor en altitud que a nivel del mar).",
+          "choices": [
+            "Verdadero.",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-077",
+          "chapter": 1,
+          "number": 77,
+          "sourceNumber": 80,
+          "prompt": "El explotador de la aeronave es quién",
+          "choices": [
+            "La adquiere y utiliza",
+            "Figura en el Registro como propietario",
+            "La utiliza legítimamente por cuenta propia, con o sin fines de lucro"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-078",
+          "chapter": 1,
+          "number": 78,
+          "sourceNumber": 81,
+          "prompt": "El fundamento de la Prevención de Accidentes es",
+          "choices": [
+            "Todo accidente es una cadena de errores.",
+            "Todo accidente ocurre hay que investigar por que.",
+            "Todo accidente puede ser evitado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-079",
+          "chapter": 1,
+          "number": 79,
+          "sourceNumber": 82,
+          "prompt": "El instructor al explicar la técnica empleada para realizar despegue en campo corto, una correcta explicación seria de las siguientes opciones establecer que",
+          "choices": [
+            "Durante despegues de campo corto, se debe iniciar la elevación (lift off) lo más pronto posible una ves superada la velocidad mínima de control de vuelo.",
+            "Durante despegues de campo corto, se debe iniciar la elevación sólo al obtener la velocidad de ángulo óptimo de ascenso.",
+            "Durante despegues de campo corto, se debe intentar el inicio de la elevación sólo tras obtener la velocidad de régimen óptimo de ascenso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-080",
+          "chapter": 1,
+          "number": 80,
+          "sourceNumber": 83,
+          "prompt": "El objetivo de la Prevención de Accidentes es",
+          "choices": [
+            "Detectar las acciones.",
+            "Evitar o Minimizar los riesgos.",
+            "Maximizar la seguridad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-081",
+          "chapter": 1,
+          "number": 81,
+          "sourceNumber": 84,
+          "prompt": "El rodaje de un avión con tren convencional con viento de cola se efectuará con",
+          "choices": [
+            "La palanca hacia atrás.",
+            "La palanca hacia delante.",
+            "La palanca hacia adelante cuando el viento sea superior a la velocidad de rodaje"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-082",
+          "chapter": 1,
+          "number": 82,
+          "sourceNumber": 85,
+          "prompt": "El tránsito de aeronaves por el territorio argentino es",
+          "choices": [
+            "Restringido sólo a quienes tienen permiso previo.",
+            "Prohibido, salvo orden directa de la Autoridad Aeronautica.",
+            "Libre, salvo cuando se halla limitado por seguridad nacional, interés público o defensa."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-083",
+          "chapter": 1,
+          "number": 83,
+          "sourceNumber": 86,
+          "prompt": "En días calurosos y/o húmedos, la distancia requerida para el aterrizaje es",
+          "choices": [
+            "Menor",
+            "página 14 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b) Mayor",
+            "Menor cuando la temperatura del aire exterior( OAT)es igual a la temperatura del punto de rocío."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-084",
+          "chapter": 1,
+          "number": 84,
+          "sourceNumber": 87,
+          "prompt": "En la carrera de despegue la primer superficie de control en ganar efectividad es",
+          "choices": [
+            "El control de profundidad.",
+            "Los alerones.",
+            "El timón de dirección."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-085",
+          "chapter": 1,
+          "number": 85,
+          "sourceNumber": 88,
+          "prompt": "En la República Argentina el organismo encargado de investigar los accidentes es",
+          "choices": [
+            "Región Aérea Centro (Ezeiza).",
+            "La Junta de Investigaciones de Accidentes de Aviación Civil.",
+            "Los peritos Aeronáuticos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-086",
+          "chapter": 1,
+          "number": 86,
+          "sourceNumber": 89,
+          "prompt": "En toda investigación de accidentes existe una relación entre",
+          "choices": [
+            "El hombre, la meteorología y la psicología.",
+            "Hombre – máquina – medio ambiente.",
+            "Hombre – salud – investigación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-087",
+          "chapter": 1,
+          "number": 87,
+          "sourceNumber": 90,
+          "prompt": "f.ch.14 El aspirante a rendir una licencia deberá: Tener conocimiento que será sometido a un examen teórico de conocimientos conforme al curso que ha desarrollado.Poseer el Libro de Vuelo actualizado y la certificación por el Instructor de Vuelo actuante que tiene la experiencia requerida por estas regulaciones para tal examen.",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-088",
+          "chapter": 1,
+          "number": 88,
+          "sourceNumber": 91,
+          "prompt": "f.ch.14 En los procedimientos generales el examen de vuelo consistirá en",
+          "choices": [
+            "La ejecución de las maniobras especificadas en el área de operaciones requeridas por la licencia, certificado de competencia o habilitación. Demostrar dominio y seguridad en la ejecución de las maniobras a realizar.",
+            "La ejecución de las maniobras generales por la licencia, Sin necesidad de demostrar dominio y seguridad en la ejecución de las maniobras a realizar.",
+            "Tal prueba consistirá en la demostración ante el instructor de la escuela de la habilidad en la ejecución de las maniobras y procedimientos establecidos para esa licencia, certificado de competencia o habilitación"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-089",
+          "chapter": 1,
+          "number": 89,
+          "sourceNumber": 92,
+          "prompt": "f.ch.14 La Resolución ANAC N° 996/2013 la cual modifica la Sección 61.39 (b), Subparte A de la Parte 61 de las Regulaciones Argentinas de Aviación Civil (RACC),agregándose como uno de los requisitos para el examen de vuelo, lo siguiente: En caso de tratarse del solicitante de un certificado de Idoneidad Aeronáutica cuyos requisitos para la obtención requiera de experiencia en vuelo solo, deberá completar la misma mediante TRES (3) despegues y TRES (3) aterrizajes como único ocupante de la aeronave, en presencia del Inspector asignado para su examen. Para todas las licencias de vuelo",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-090",
+          "chapter": 1,
+          "number": 90,
+          "sourceNumber": 93,
+          "prompt": "f.ch.14. Las certificaciones de la horas de vuelo deberán ser realizadas conforme al siguiente detalle En aquellos lugares que no se encuentre presente la autoridad aeronáutica la actividad de vuelo deberá ser certificada",
+          "choices": [
+            "Al regreso del vuelo por la autoridad aeronáutica del aeropuerto o aeródromo de salida (presentado los libros historiales de planeador y motor de la aeronave utilizada, con los datos completos en su totalidad y sin comillas, donde esté registrado el vuelo, para la comprobación y posterior certificación).",
+            "página 15 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b) Al regreso del vuelo por la autoridad aeronáutica del aeropuerto o aeródromo de salida con el plan de vuelo como documento probatorio.",
+            "En el aeródromo de salida(donde esté registrado el vuelo, para la comprobación y posterior certificación) para ser aprobado por el jefe de Aeropuerto."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-091",
+          "chapter": 1,
+          "number": 91,
+          "sourceNumber": 94,
+          "prompt": "f.ch14. Para rendir un examen de vuelo para la obtención de una licencia, certificado de competencia de piloto, habilitación de vuelo por instrumentos, de clase, de tipo de aeronave o cualquier otra habilitación establecida en esta Parte, se deberá",
+          "choices": [
+            "El Instructor de Vuelo garantizará mediante un examen de vuelo completo (pre inspección) la pericia y conocimientos del solicitante, todo ello dentro de los 90 días precedentes a la fecha del examen por parte de la autoridad aeronáutica competente.",
+            "El Instructor de Vuelo garantizará mediante un examen de vuelo completo (pre inspección) la pericia y conocimientos del solicitante, todo ello dentro de los 180 días dentro de lo posible a la fecha del examen por parte de la autoridad aeronáutica competente.",
+            "El Instructor de Vuelo garantizará mediante un examen teorico los conocimientos del solicitante, todo ello dentro de los 90 días precedentes a la fecha del examen por parte de la autoridad aeronáutica competente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-092",
+          "chapter": 1,
+          "number": 92,
+          "sourceNumber": 95,
+          "prompt": "IVA La velocidad a la cual comienza el hidroplaneo dinámico dependera de",
+          "choices": [
+            "El peso del avión.",
+            "El inflado de los neumáticos.",
+            "La correcta deflexión de los flaps."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-093",
+          "chapter": 1,
+          "number": 93,
+          "sourceNumber": 96,
+          "prompt": "IVA ¿Cuál afirmación es la correcta al considerar las fuerzas que actúan sobre una aeronave en vuelo recto y nivelado a velocidad aérea constante?",
+          "choices": [
+            "A: El peso siempre actúa en forma vertical hacia el centro de la tierra.",
+            "B: El empuje siempre actúa hacia adelante en forma paralela al viento relativo y es mayor a la resistencia.",
+            "C: La sustentación siempre actúa en forma perpendicular al eje longitudinal del ala y es mayor al peso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-094",
+          "chapter": 1,
+          "number": 94,
+          "sourceNumber": 97,
+          "prompt": "IVA Cuale de los siguientes recursos para la enseñanza contribuyen a dar una mejor clase.",
+          "choices": [
+            "planificacion, demostracion, conclusion",
+            "Demostracion",
+            "Demostracion y practica en repeticiones."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-095",
+          "chapter": 1,
+          "number": 95,
+          "sourceNumber": 98,
+          "prompt": "IVA El diferencial de presion que se forma entre el intrados y el extrados se denomina",
+          "choices": [
+            "Centro diferencial de presion",
+            "Sustentacion",
+            "Centro de presion"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-096",
+          "chapter": 1,
+          "number": 96,
+          "sourceNumber": 99,
+          "prompt": "IVA El proceso de aprendizaje se define como",
+          "choices": [
+            "un conjunto de valores adquiridos por los recursos y experiencia obtenidos.",
+            "un eslabón en la cadena de la instrucción",
+            "un cambio o modificación en el comportamiento, ese cambio o modificacion conlleva a saber y creer en algo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "b"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-097",
+          "chapter": 1,
+          "number": 97,
+          "sourceNumber": 100,
+          "prompt": "IVA En el proceso de aprendizaje sera importante determinar las condiciones, términos y resultados que perseguimos en la instrucción, basándose en",
+          "choices": [
+            "Comunicación, adecuada y confiable; que permita la correcta transmisión de la información",
+            "Mantener en forma rigida los dogmas recibidos para brindar asi toda la informacio.",
+            "Llevar a cabo la planificación con el objetivo de completar la instrucción. página 16 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-098",
+          "chapter": 1,
+          "number": 98,
+          "sourceNumber": 101,
+          "prompt": "IVA F-1 Que accion debe tomar un instructor de vuelo si el alumno no considera importante que debe corregir los errores señalados.",
+          "choices": [
+            "a- Divida en complejas maniobras de vuelo sus próximos temas.",
+            "b- Intente comprometer y bajar su autoestima con el objetivo de lograr un Schok en su aprendizaje.",
+            "C- Elevar el nivel de rendimiento en cada clase o tema de vuelo motivandolo a un mayor esfuerzo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-099",
+          "chapter": 1,
+          "number": 99,
+          "sourceNumber": 102,
+          "prompt": "IVA F-2 Que recurso un instructor puede realizar de manera más asertiva para promover un nivel de motivación al alumno piloto.?",
+          "choices": [
+            "intentando de cada lección una experiencia placentera.",
+            "elevando los estándares de rendimiento necesarios durante la fase temprana de instrucción.",
+            "retando dentro de lo posible al estudiante para que pueda satisfacer los objetivos máximos de instrucción posibles de ser establecidos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-100",
+          "chapter": 1,
+          "number": 100,
+          "sourceNumber": 103,
+          "prompt": "IVA F.11.13 Como usted debera corregir un rendimiento insatisfactorio debido a un exceso de confianza del estudiante.",
+          "choices": [
+            "planificando y ejecutando en cada leccion un estandar mas alto para compensar el exceso de confianza del alumno.",
+            "felicitando al estudiante sólo si el rendimiento es perfecto.",
+            "impartiendo una evaluación enfatizada y negativa al final de cada lección."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-101",
+          "chapter": 1,
+          "number": 101,
+          "sourceNumber": 104,
+          "prompt": "IVA F.13 ¿Qué medida debera tomar un instructor con un estudiante que le resta importancia a la corrección de errores señalados en clases anteriores ?",
+          "choices": [
+            "planificar dividir las maniobras complejas de vuelo en sus proximos vuelos.",
+            "reducir la confianza excesiva del estudiante a fin de minimizar la posibilidad de un accidente.",
+            "Planificar y elevar el estándar de rendimiento por cada clase."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-102",
+          "chapter": 1,
+          "number": 102,
+          "sourceNumber": 105,
+          "prompt": "IVA f.ch De la siguiente lista de perfiles de alumnos cual es el que genera mayor interferencia en clase.",
+          "choices": [
+            "Autoritario",
+            "Sabelotodo",
+            "Amistoso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-103",
+          "chapter": 1,
+          "number": 103,
+          "sourceNumber": 106,
+          "prompt": "IVA f.ch La alta frecuencia en que un tema es desarrollado por un instructor.",
+          "choices": [
+            "lo exime de la planificación de la clase",
+            "Sin importar la cantidad yfrecuencia es necesario que planifique las clases con anterioridad para evitar posibles controversias al momento de ejecutarlas.",
+            "la frecuencia y continuidad de los temas exime al instructor de la preparacion."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-104",
+          "chapter": 1,
+          "number": 104,
+          "sourceNumber": 107,
+          "prompt": "IVA f.ch Las ayudas audiovisuales constituyen para un instructor un medio de ahorrar tiempo y mejorar la calidad de la instrucción.",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-105",
+          "chapter": 1,
+          "number": 105,
+          "sourceNumber": 108,
+          "prompt": "IVA F.Ch.14 El estudiante percibe los puntos clave de una maniobra, el instructor explica la relación entre estos y el estudiante encuentra sentido al maniobra obteniendo el",
+          "choices": [
+            "Instrucción planificada",
+            "Conocimiento",
+            "Ninguna opcion es correcta página 17 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-106",
+          "chapter": 1,
+          "number": 106,
+          "sourceNumber": 109,
+          "prompt": "IVA F.Ch.14 En relacion a los pasos en el proceso de aprendizaje la repetición constante de la maniobra nos lleva al hábito estos pasos los podemos clasificar como",
+          "choices": [
+            "Planificacion, desarrollo, conclusion",
+            "Maniobra, Metodologia",
+            "Percepciones, Habito, Conocimiento"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-107",
+          "chapter": 1,
+          "number": 107,
+          "sourceNumber": 110,
+          "prompt": "IVA f.ch.14. Para una calidad en la educacion el proceso de adapatacion a la instruccion debe realizarla",
+          "choices": [
+            "El instructor, debe cerciorarse de adaptar su instrucción a la experiencia del estudiante",
+            "El Alumno, debe cerciorarse de adaptar su instrucción a la experiencia del Instructor.",
+            "La Autoridad debe cerciorarse de adaptar sus programas a la experiencia del estudiante"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-108",
+          "chapter": 1,
+          "number": 108,
+          "sourceNumber": 111,
+          "prompt": "IVA fch. A los efectos de lograr mejores resultados un instructor debe con sus alumnos",
+          "choices": [
+            "Sin llegar a la intimidad tratarlos amistosamente, liderar, inspirar confianza por su imparcialidad, ser considerado y cortés.",
+            "Lograr intimidad , liderar,inspirar confianza.",
+            "Generar amistad, liderar,inspirar justicia, ser considerado y amable."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-109",
+          "chapter": 1,
+          "number": 109,
+          "sourceNumber": 112,
+          "prompt": "IVA Fch. De las siguientes opciones, cual sera la mas asertiva para optimizar el trabajo de un alumno introvertido.",
+          "choices": [
+            "Menos carga de trabajo.",
+            "Temas de baja complejidad",
+            "Correcciones con mayor paciencia"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-110",
+          "chapter": 1,
+          "number": 110,
+          "sourceNumber": 113,
+          "prompt": "IVA fch. La consideracion inicial para el plan de una leccion sera.",
+          "choices": [
+            "Los puntos a tratar en la leccion",
+            "El objetivo de la leccion",
+            "Ambas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-111",
+          "chapter": 1,
+          "number": 111,
+          "sourceNumber": 114,
+          "prompt": "IVA Los tres ejes de una aeronave se intersectan en el",
+          "choices": [
+            "A: centro de gravedad.",
+            "B: centro de presión.",
+            "C: punto medio de la cuerda media."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-112",
+          "chapter": 1,
+          "number": 112,
+          "sourceNumber": 115,
+          "prompt": "IVA MANIB: El ” bastón y bola” , están montados en el mismo instrumento, y",
+          "choices": [
+            "Deben funcionar sincronizados.",
+            "Funcionan juntos con energía eléctrica.",
+            "No guardan ninguna relación entre sí"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/94.jpg",
+              "width": 263,
+              "height": 255
+            }
+          ]
+        },
+        {
+          "id": "riva-01-113",
+          "chapter": 1,
+          "number": 113,
+          "sourceNumber": 116,
+          "prompt": "IVA MANIB: El bastón y bola situados como indica la figura debe interpretarse como",
+          "choices": [
+            "Resbale.",
+            "Derrape.",
+            "Viraje coordinado"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/94.jpg",
+              "width": 263,
+              "height": 255
+            }
+          ]
+        },
+        {
+          "id": "riva-01-114",
+          "chapter": 1,
+          "number": 114,
+          "sourceNumber": 117,
+          "prompt": "IVA MANIOB: Se denomina centro de presiones",
+          "choices": [
+            "A la sección del ala donde se aplica toda la fuerza de empuje.",
+            "Al punto del ala donde se considera aplicada toda la fuerza de sustentación.",
+            "A la sección del ala donde se aplica toda la fuerza de resistencia al avance. página 19 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-115",
+          "chapter": 1,
+          "number": 115,
+          "sourceNumber": 118,
+          "prompt": "IVA Por qué debe ser incrementado el ángulo de ataque durante un viraje para mantener la altitud?",
+          "choices": [
+            "Para compensar la pérdida de la componente vertical de la sustentación.",
+            "Para incrementar la componente horizontal de la sustentación.",
+            "Para compensar por el aumento de la resistencia"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-116",
+          "chapter": 1,
+          "number": 116,
+          "sourceNumber": 119,
+          "prompt": "IVA- Al suscitarse un disturbio en la condición de vuelo estable, existe una tendencia de la aeronave a desarrollar fuerzas que la hagan retornar a su condición original; dicha tendencia es conocida como",
+          "choices": [
+            "A: Estabilidad.",
+            "B: Controlabilidad.",
+            "C: Maniobrabilidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-117",
+          "chapter": 1,
+          "number": 117,
+          "sourceNumber": 120,
+          "prompt": "IVA-¿Cómo puede un piloto incrementar el régimen de viraje y reducir el radio en forma simultánea?",
+          "choices": [
+            "A: Hacer un banqueo plano e incrementar la velocidad aérea.",
+            "B: Escarpar el Viraje y reducir la velocidad aérea.",
+            "C: Escarpar el Viraje e incrementar la velocidad aérea."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-118",
+          "chapter": 1,
+          "number": 118,
+          "sourceNumber": 121,
+          "prompt": "La acción fundamental de la prevención de accidentes es detectar los peligros potenciales.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-119",
+          "chapter": 1,
+          "number": 119,
+          "sourceNumber": 122,
+          "prompt": "La Arritmia es un trastorno de la frecuencia cardiaca (pulso) o del ritmo cardíaco, como latidos demasiado rápidos, demasiado lentos o con un patrón irregular",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-120",
+          "chapter": 1,
+          "number": 120,
+          "sourceNumber": 123,
+          "prompt": "La autonomía de un avión se mide en",
+          "choices": [
+            "Unidades de peso de combustible.",
+            "Unidades de volumen de combustible y Distancia.",
+            "Tiempo de vuelo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-121",
+          "chapter": 1,
+          "number": 121,
+          "sourceNumber": 124,
+          "prompt": "La embolia gaseosa es provocada por",
+          "choices": [
+            "La formación de burbujas de aire, compuestas sobre todo de nitrógeno, en los tejidos y en la sangre.",
+            "La altura excesiva de vuelo.",
+            "Todas las anteriores son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-122",
+          "chapter": 1,
+          "number": 122,
+          "sourceNumber": 125,
+          "prompt": "La filosofía de la prevención presenta ciertos aspectos",
+          "choices": [
+            "Aspecto Moral.",
+            "Aspecto Material.",
+            "Ambas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-123",
+          "chapter": 1,
+          "number": 123,
+          "sourceNumber": 126,
+          "prompt": "La hipoxia es",
+          "choices": [
+            "Falta de oxígeno en la sangre, en las células o en los tejidos corporales.",
+            "Un estado de saturación de oxígeno en la sangre, células y tejidos del organismo, con compro-miso de la función de éstos.",
+            "Una reacción en la sangre producida por la escasez de oxígeno."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-124",
+          "chapter": 1,
+          "number": 124,
+          "sourceNumber": 127,
+          "prompt": "La MEDICINA AERONAUTICA tiene un carácter eminentemente preventivo",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-125",
+          "chapter": 1,
+          "number": 125,
+          "sourceNumber": 128,
+          "prompt": "La medicina terapéutica es la rama de la medicina que trata de la prevención de enfermedades. Incluye todas las medidas destinadas a evitar la aparición de la enfermedad (prevención primaria), a parar su proceso (prevención secundaria) y a evitar sus posibles complicaciones",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-126",
+          "chapter": 1,
+          "number": 126,
+          "sourceNumber": 129,
+          "prompt": "La prevención de accidentes en el trabajo aéreo se realizará",
+          "choices": [
+            "En alguna de sus actividades.",
+            "En forma selectiva.",
+            "En la totalidad de sus actividades"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-127",
+          "chapter": 1,
+          "number": 127,
+          "sourceNumber": 130,
+          "prompt": "La repetición constante, permite a su estudiante acumular percepciones y al agruparlas creando el Conocimiento; al combinarlos en la práctica y desempeño, forman los",
+          "choices": [
+            "Señalan los errores",
+            "Buenos Habitos",
+            "bagaje de conocimientos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-128",
+          "chapter": 1,
+          "number": 128,
+          "sourceNumber": 131,
+          "prompt": "La seguridad aérea consiste en reducir los riesgos a un mínimo a través de las medidas necesarias para identificar falencias en los procesos administrativos, de mantenimiento y entrenamiento que pudieran afectar la operación de las aeronaves",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-129",
+          "chapter": 1,
+          "number": 129,
+          "sourceNumber": 132,
+          "prompt": "La sustentación y la resistencia al avance",
+          "choices": [
+            "Decrecen en proporción al cuadrado del aumento de la velocidad.",
+            "No guardan relación en su incremento con respecto al de la velocidad.",
+            "Crecen en proporción al cuadrado de la velocidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-130",
+          "chapter": 1,
+          "number": 130,
+          "sourceNumber": 133,
+          "prompt": "La tecnica mas adecuada para detectar otra aeronave en vuelo, en vuelo nocturno sera.",
+          "choices": [
+            "Girar la cabeza y mover los ojos en forma agil sobre una region visible.",
+            "Evitar fijar la vision sobre un punto donde se sospecha que una aeronave esta en movimiento.",
+            "Evitar escaneos por debajo del horizonte para no ser encandilado por las luces de la ciudad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-131",
+          "chapter": 1,
+          "number": 131,
+          "sourceNumber": 134,
+          "prompt": "La última ingesta de alcohol antes de un vuelo es aconsejable hacerla",
+          "choices": [
+            "página 21 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal a) 12 horas antes.",
+            "24 horas antes.",
+            "36 horas antes."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-132",
+          "chapter": 1,
+          "number": 132,
+          "sourceNumber": 135,
+          "prompt": "La velocidad de maniobras de una aeronave es aquella a la que",
+          "choices": [
+            "Se pueden mover los comandos de profundidad y alabeo en todo su recorrido sin comprometer estructuralmente la aeronave.",
+            "No se debería exceder en ningún caso.",
+            "Obtenemos el L/D máximo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-133",
+          "chapter": 1,
+          "number": 133,
+          "sourceNumber": 136,
+          "prompt": "Las acciones de emergencia para reducir los efectos de las lesiones y estabilizar el estado del accidentado se denominan.",
+          "choices": [
+            "Tratamientos médicos.",
+            "Atención médica.",
+            "Primeros Auxilios."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-134",
+          "chapter": 1,
+          "number": 134,
+          "sourceNumber": 137,
+          "prompt": "LG ¿El código aeronáutico (LEY 17.285) rige la aeronáutica civil en el territorio de la Republica Argentina, sus aguas jurisdiccionales y el espacio aéreo que los cubre?",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-135",
+          "chapter": 1,
+          "number": 135,
+          "sourceNumber": 138,
+          "prompt": "LG Abordaje aéreo es toda colisión entre dos o más aeronaves en movimiento. La aeronave esta en movimiento",
+          "choices": [
+            "Cuando se encuentre en funcionamiento cualquiera de sus servicios o equipos con tripulación, pasaje o carga a bordo.",
+            "Cuando se desplaza en la superficie por su propia fuerza motriz o cuando se halla en vuelo.",
+            "A y B son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-136",
+          "chapter": 1,
+          "number": 136,
+          "sourceNumber": 139,
+          "prompt": "LG El comandante de la aeronave tiene, durante el viaje",
+          "choices": [
+            "Poder de disciplina sobre la tripulación y autoridad sobre los pasajeros.",
+            "Velar por la seguridad de los mismos, no pudiendo ausentarse de la aeronave sin tomar las medidas correspondientes para su seguridad.",
+            "A y B son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-137",
+          "chapter": 1,
+          "number": 137,
+          "sourceNumber": 140,
+          "prompt": "LG El comandante de una aeronave está obligado a prestar los siguientes socorros",
+          "choices": [
+            "Asistencia a otras aeronaves que se encuentran en situación de peligro o salvamento de personas que se encuentren a bordo de una aeronave en peligro.",
+            "No habrá obligación de prestar socorro cuando este asegurado en mejores condiciones, o su prestación significase riesgos para las personas a bordo, o no hubiese posibilidad de prestar socorro útil.",
+            "A y B son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-138",
+          "chapter": 1,
+          "number": 138,
+          "sourceNumber": 141,
+          "prompt": "LG El comandante tiene la obligación de asegurarse, antes de la partida, de la eficiencia de la aeronave y de las condiciones atmosféricas de navegabilidad. Teniendo el derecho de negarse a partir si juzgara que cualquiera de ellas no ofrecen la seguridad necesaria para un normal.",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-139",
+          "chapter": 1,
+          "number": 139,
+          "sourceNumber": 142,
+          "prompt": "LG Las personas que realicen funciones aeronáuticas a bordo de aeronaves de matricula argentina, así como las que desempeñen en funciones en la superficie, deben poseer la certificación de su idoneidad expedida por la autoridad aeronáutica.",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-140",
+          "chapter": 1,
+          "number": 140,
+          "sourceNumber": 143,
+          "prompt": "LG Ninguna aeronave volara sin estar provista de certificados de matriculación y aeronavegabilidad y de los libros de abordo que establezca la reglamentación respectiva.",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-141",
+          "chapter": 1,
+          "number": 141,
+          "sourceNumber": 144,
+          "prompt": "LG Según lo indicado en el Código Aeronáutico, completar la siguiente definición. Las aeronaves deben estar equipadas con aparatos radioeléctricos para comunicación y estos poseer licencia expedida por la autoridad competente; y",
+          "choices": [
+            "La autoridad aeronáutica determinara que aeronaves podrán ser exceptuadas de poseer dicho equipo.",
+            "La autoridad aeronáutica determinara que aeronaves no podrán ser exceptuadas de poseer dicho equipo.",
+            "La autoridad aeronáutica indica que todas las aeronaves deben poseer dicho equipo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-142",
+          "chapter": 1,
+          "number": 142,
+          "sourceNumber": 145,
+          "prompt": "LG Según lo indicado en el Código Aeronáutico, completar la siguiente definición. Las infracciones a las disposiciones del código aeronáutico, las leyes de política aérea y sus reglamentaciones, y demás normas que dicte la autoridad aeronáutica que no importen delito, serán determinadas por el poder ejecutivo nacional y sancionadas con APERCIBIMIENTO O MULTA",
+          "choices": [
+            "Inhabilitación temporaria de hasta (4) años o definitiva, de las facultades conferidas por los certificados de idoneidad aeronáutica.",
+            "Para titulares de certificados de idoneidad para el ejercicio de funciones aeronáuticas hasta la suma de cuatro millones de pesos ($4.000.000).",
+            "A y B son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-143",
+          "chapter": 1,
+          "number": 143,
+          "sourceNumber": 146,
+          "prompt": "LG Son aeropuertos aquellos aeródromos públicos que cuentan con servicios o intensidad de movimientos aéreos que justifiquen tal denominación. Aquellos aeródromos públicos o aeropuertos destinados a la operación de aeronaves provenientes del o con destino extranjero deben poseer",
+          "choices": [
+            "Servicios de sanidad y control policial.",
+            "Servicios de sanidad, aduana y otros.",
+            "Servicio de sanidad, aduana, migraciones y otros."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-144",
+          "chapter": 1,
+          "number": 144,
+          "sourceNumber": 147,
+          "prompt": "Orden de aplicación de primeros auxilios",
+          "choices": [
+            "Inmovilizar las fracturas - Controlar hemorragias - Respiración artificial y masaje cardíaco - Proteger heridas o quemaduras - Tratar el shock - Transportar al lesionado.",
+            "Proteger heridas o quemaduras - Tratar el shock - Transportar al lesionado - Controlar hemo-rragias - Respiración artificial y masaje cardíaco - Inmovilizar las fracturas.",
+            "Respiración artificial y masaje cardíaco - Controlar hemorragias - Proteger heridas o quemaduras - Inmovilizar las fracturas - Tratar el shock – Transportar al lesionado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-145",
+          "chapter": 1,
+          "number": 145,
+          "sourceNumber": 148,
+          "prompt": "Otro de los efectos del tabaco sobre el rendimiento de las tripulaciones de vuelo radica en aumentar los efectos de la hipoxia, ya que el monóxido de carbono desplaza al oxígeno en su unión a la hemoglobina",
+          "choices": [
+            "Verdadero.",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-146",
+          "chapter": 1,
+          "number": 146,
+          "sourceNumber": 149,
+          "prompt": "Para alcanzar una mejor calidad en la instrucción, deberá cerciorarse de adaptar su instrucción a la experiencia del estudiante y así lograr un canal de comunicación efectivo.",
+          "choices": [
+            "Verdadero página 23 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-147",
+          "chapter": 1,
+          "number": 147,
+          "sourceNumber": 150,
+          "prompt": "Para comenzar a enseñar la corrección de deriva nos valdremos de la maniobra",
+          "choices": [
+            "Coordinación sobre el eje",
+            "Circuitos de tránsito.",
+            "Giros alrededor de un punto"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-148",
+          "chapter": 1,
+          "number": 148,
+          "sourceNumber": 151,
+          "prompt": "Para lograr una sustentación igual a cero en un perfil plano-convexo se deberá enfrentar a la corriente de aire con",
+          "choices": [
+            "Un ángulo de ataque positivo.",
+            "Un ángulo de ataque neutro (0?)",
+            "Un ángulo de ataque negativo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-149",
+          "chapter": 1,
+          "number": 149,
+          "sourceNumber": 152,
+          "prompt": "Para un vuelo VFR debemos conservar una reserva de combustible",
+          "choices": [
+            "No inferior a 20 minutos.",
+            "No superior a 1 hora. Del orden del 20% del tiempo estimado de vuelo.",
+            "Del orden del 20% del tiempo estimado de vuelo, pero no inferior a los 45 minutos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-150",
+          "chapter": 1,
+          "number": 150,
+          "sourceNumber": 153,
+          "prompt": "PC.VI 1.Sobre la carta de aproximacion SAZM la frecuencia de ILS esta designada como",
+          "choices": [
+            "ILS LOC (MDP) 109.5",
+            "ILS DME (MP) 109.5",
+            "ILS DME (MDP) 109.20"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-151",
+          "chapter": 1,
+          "number": 151,
+          "sourceNumber": 154,
+          "prompt": "PCVI La espera mas baja para la carta IAC 1 SAZM se encuentra.",
+          "choices": [
+            "La espera mas baja se encuentra por debajo del nivel de transición.",
+            "La espera mas baja se encuentra por debajo de la altitud de transición.",
+            "La espera mas baja se encuentra por sobre el nivel de transición."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-152",
+          "chapter": 1,
+          "number": 152,
+          "sourceNumber": 155,
+          "prompt": "PCVI-2 En la aproximación final con curso de ingreso y en descenso sobre la IAC 1 SAZM, usted registra sobre la milla 6 una variación en el indicador de senda de planeo producto de una falla en el instrumento ILS instalado en su aeronave. El procedimiento continuara sobre los mínimos establecidos como",
+          "choices": [
+            "DA 271",
+            "Se realizara una circulación visual",
+            "MDA 460"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-153",
+          "chapter": 1,
+          "number": 153,
+          "sourceNumber": 156,
+          "prompt": "PCVI: Dentro de la altitud mínima de sector de seguridad entre 180° y 360° se encuentra el obstáculo de mayor altitud y este es de",
+          "choices": [
+            "814 Pies",
+            "545 Pies",
+            "1280 Pies"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-154",
+          "chapter": 1,
+          "number": 154,
+          "sourceNumber": 157,
+          "prompt": "PCVI: La IAC N°1 de SAZM es una IAC",
+          "choices": [
+            "VOR DME ILS DME de pista 13",
+            "VOR DME Lo Li ILS de Pista 13",
+            "VOR-ILS DME de Pista 13"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-155",
+          "chapter": 1,
+          "number": 155,
+          "sourceNumber": 158,
+          "prompt": "PCVI: Para una aproximacion con una Ground Speed de 120 Kt el tiempo entre OM y MM de 3 Millas sera de",
+          "choices": [
+            "1:03 y un descenso de 530 FPM",
+            "1:30 y un descenso de 630 FPM",
+            "1:23 y un descenso de 678 FPM"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-156",
+          "chapter": 1,
+          "number": 156,
+          "sourceNumber": 159,
+          "prompt": "PCVI: Para una aproximacion con una Ground Speed de 90 Kt el tiempo entre OM y MM de 3 Millas sera de",
+          "choices": [
+            "1:48 y un descenso de 480 FPM",
+            "2:00 y un descenso de 530 FPM",
+            "2:00 y un descenso de 480 FPM"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-157",
+          "chapter": 1,
+          "number": 157,
+          "sourceNumber": 160,
+          "prompt": "PCVI.- Señale la opcion correcta de la siguientes afirmaciones sobre procedimiento publicado para la IAC numero 1 de SAZM",
+          "choices": [
+            "Alcanzado el nivel de transición se iniciara el procedimiento de alejamiento con Rumbo 324 / Radial 324 del Vor MDP. Nivelado con 2300 Pies y 9.6 Millas del VOR DME MDP se realizara un viraje por derecha para 128°/ R 128 VOR y las 3,7 Millas se obtendrá señal del DME GP.",
+            "Alcanzado el nivel de transición se iniciara el procedimiento de alejamiento con Rumbo 324 / Radial 324 del Vor MDP. Nivelado con 2300 Pies y 9.6 Millas del VOR DME MDP se realizara un viraje por izquierda para 128°/ R 128 VOR y las 7, Millas se obtendrá señal del DME GP.",
+            "Alcanzado el nivel de transición se iniciara el procedimiento de alejamiento con Rumbo 324 / Radial 324 del Vor MDP. Nivelado con 1370 Pies y 9.6 Millas del VOR DME MDP se realizara un viraje por izquierda para 128°/ R 128 VOR y las 7, Millas se obtendrá señal del DME GP."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo",
+          "images": [
+            {
+              "src": "/exam-figures/riva/107.jpg",
+              "width": 1167,
+              "height": 1653
+            }
+          ]
+        },
+        {
+          "id": "riva-01-158",
+          "chapter": 1,
+          "number": 158,
+          "sourceNumber": 161,
+          "prompt": "Qué se entiende por HIPOGLUCEMIA?",
+          "choices": [
+            "Es la enfermedad causada por un desorden de nutrición y que se caracteriza por una concentra-ción excesiva de azúcar en la sangre.",
+            "Es una disminución del nivel de azúcar en la sangre, traduciéndose en una menor cantidad de energía circulante para desarrollar eficientemente cualquier función.",
+            "Es el aumento de la glucosa en sangre por encima de los niveles normales."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-159",
+          "chapter": 1,
+          "number": 159,
+          "sourceNumber": 162,
+          "prompt": "Se denomina Vx a",
+          "choices": [
+            "La velocidad de mejor tasa de ascenso.",
+            "La velocidad de mayor seguridad de ascenso.",
+            "La velocidad de mejor ángulo de ascenso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-160",
+          "chapter": 1,
+          "number": 160,
+          "sourceNumber": 163,
+          "prompt": "Se entiende por resistencia parásita a la producida por",
+          "choices": [
+            "La propia sustentación.",
+            "La fricción de todas las superficies expuestas a la corriente de aire.",
+            "La interferencia entre las superficies de vuelo y el fuselaje o entres las superficies entre sí."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-161",
+          "chapter": 1,
+          "number": 161,
+          "sourceNumber": 164,
+          "prompt": "Si un determinado factor ha demostrado ser capaz de producir un accidente, mientras no se elimine o modifique dicho factor, el ACCIDENTE tendera a repetirse.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-162",
+          "chapter": 1,
+          "number": 162,
+          "sourceNumber": 165,
+          "prompt": "Si un inadecuado uso del pedal derecho ejerciendo presion hacia el lado (derecho) en un giro por derecha durante el ascenso, de las siguientes opciones, que puede ocurrir si se genera una perdida de sustentacion ?",
+          "choices": [
+            "un giro a la izquierda",
+            "un bruzco giro a la derecha",
+            "una tendencia de rollido a la derecha"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-163",
+          "chapter": 1,
+          "number": 163,
+          "sourceNumber": 166,
+          "prompt": "Si una persona presenta Cianosis en labios y uñas (color azulado) ¿Qué le está sucediendo?",
+          "choices": [
+            "Está sufriendo un Paro Respiratorio.",
+            "Está sufriendo un Paro Cardio Respiratorio.",
+            "Está sufriendo un Pico de Stress."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-164",
+          "chapter": 1,
+          "number": 164,
+          "sourceNumber": 167,
+          "prompt": "Si Usted está siendo afectado durante un largo período con un cuadro de fatiga, la misma se clasifica como",
+          "choices": [
+            "Aguda.",
+            "Crónica. página 38 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "Psicológica."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-165",
+          "chapter": 1,
+          "number": 165,
+          "sourceNumber": 168,
+          "prompt": "Un agotamiento de las reservas de energía del cuerpo, que lo lleva a un rendimiento inferior que el habitual se conoce como",
+          "choices": [
+            "Hipoxia.",
+            "Disbarismo.",
+            "Fatiga."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-166",
+          "chapter": 1,
+          "number": 166,
+          "sourceNumber": 169,
+          "prompt": "Un aumento brusco del ángulo de ataque",
+          "choices": [
+            "Puede llegar a producir una entrada en pérdida aún en caso de estar volando por encima de la velocidad de pérdida.",
+            "No puede llegar a producir una entrada en pérdida en ningún caso si se está volando por encima de la velocidad de pérdida.",
+            "Si se está volando por encima de la velocidad de pérdida, reduce tanto la velocidad que en un momento el avión entra en pérdida."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-167",
+          "chapter": 1,
+          "number": 167,
+          "sourceNumber": 170,
+          "prompt": "Un avión en vuelo recto y nivelado, está sometido a un factor de carga de",
+          "choices": [
+            "0 G.",
+            "1 G.",
+            "–1G."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-168",
+          "chapter": 1,
+          "number": 168,
+          "sourceNumber": 171,
+          "prompt": "Una intoxicación se produce por exposición, ingestión, inyección o inhalación de una sustancia tóxica. Un toxico es",
+          "choices": [
+            "Una sustancia venenosa o que produce efectos nocivos sobre el organismo.",
+            "Cualquier sustancia sólida, líquida o gaseosa que en una concentración determinada puede dañar a los seres vivos.",
+            "Todas las anteriores son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-169",
+          "chapter": 1,
+          "number": 169,
+          "sourceNumber": 172,
+          "prompt": "Una RCP es",
+          "choices": [
+            "La ventilación asistida en una persona que ha dejado o se le dificulta respirar.",
+            "Una combinación de respiraciones con masaje cardíaco externo.",
+            "Un método útil en casos de ahogo, ya que permite una libre salida de fluidos por la boca."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-170",
+          "chapter": 1,
+          "number": 170,
+          "sourceNumber": 173,
+          "prompt": "Uno de los efectos del tabaco sobre el rendimiento de las tripulaciones de vuelo radica en",
+          "choices": [
+            "Disminuye la frecuencia cardíaca.",
+            "Disminuye la tensión arterial. .",
+            "Disminuye la tolerancia a las aceleraciones"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-171",
+          "chapter": 1,
+          "number": 171,
+          "sourceNumber": 174,
+          "prompt": "Uno de los elementos más importantes para frenar la cadena de errores es",
+          "choices": [
+            "El buen funcionamiento del sistema.",
+            "La acertada decisión.",
+            "La comunicación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        },
+        {
+          "id": "riva-01-172",
+          "chapter": 1,
+          "number": 172,
+          "sourceNumber": 175,
+          "prompt": "2.14.2 De los Organismos que actuarán en carácter de Autoridades competentes en sus respectivas áreas de responsabilidad surgen de.",
+          "choices": [
+            "La Administracion Nacional de Transporte página 39 / 40 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "La Administración aeroportuaria",
+            "La administracion Nacional De Aviacion Civil. página 40 / 40 Powered by TCExam (www.tcexam.org)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
+        }
+      ]
+    }
+  ],
+  "figureSourceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf"
+}

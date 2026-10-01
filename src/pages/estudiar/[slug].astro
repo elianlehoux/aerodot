@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import LibrarySidebar from '../../components/LibrarySidebar.astro';
+import StudyDiagram from '../../components/StudyDiagram.astro';
+import { chapters } from '../../data/library-course.js';
+import { getLibraryOrder } from '../../data/library-nav.js';
+import { EXAM_LINK_LABEL, LIBRARY_ONLY_REASON } from '../../data/library-course.js';
+export function getStaticPaths() { return chapters.map((chapter) => ({ params: { slug: chapter.slug }, props: { chapter } })); }
+const { chapter } = Astro.props;
+// Orden canónico de lectura: el mismo del índice de /temas y del sidebar.
+const libraryOrder = getLibraryOrder();
+const orderIndex = libraryOrder.findIndex((entry) => entry.slug === chapter.slug);
+const previous = orderIndex > 0 ? libraryOrder[orderIndex - 1] : null;
+const next = orderIndex > -1 && orderIndex < libraryOrder.length - 1 ? libraryOrder[orderIndex + 1] : null;
+// Se muestran TODAS las fuentes del capitulo, con su tipo a la vista. Antes solo se
+// listaban las no argentinas, y un capitulo compuesto solo por fuentes oficiales
+// (regulaciones) se quedaba sin ninguna cita visible.
+const kindLabel = (source) => source.kind === 'Argentina' ? 'Fuente oficial' : source.kind;
+const sortedSources = [...chapter.sources].sort((a, b) => Number(b.kind === 'Argentina') - Number(a.kind === 'Argentina'));
+const formatLesson = (lesson) => {
+  const body = lesson[1].split(/\n\n+/).map((paragraph) => (
+    paragraph.startsWith('US: ') ? `> **En Estados Unidos.** ${paragraph.slice(4)}` : paragraph
+  )).join('\n\n');
+  return `## ${lesson[0]}\n\n${body}\n\n**Idea para recordar:** ${lesson[2]}`;
+};
+const articleCopyText = [
+  `# ${chapter.title}`,
+  chapter.intro,
+  ...chapter.lessons.map(formatLesson),
+  sortedSources.length
+    ? `## Fuentes\n\n${sortedSources.map((source) => `- [${source.title}](${source.url}) — ${kindLabel(source)}`).join('\n')}`
+    : '',
+].filter(Boolean).join('\n\n');
+---
+<BaseLayout title={`${chapter.title} — Altura`} description={chapter.intro}>
+  <header class="site-header study-header"><BrandMark /><SiteNav current="biblioteca" /></header>
+  <div class="library-shell">
+  <LibrarySidebar activeSlug={chapter.slug} />
+  <main class="study-page" id="main-content" tabindex="-1">
+    <section class="study-intro"><p class="eyebrow">Biblioteca abierta</p><h1>{chapter.title}<span>.</span></h1><p class="study-deck" data-report-target data-report-where={`${chapter.title} · introducción`} data-report-ref={`/estudiar/${chapter.slug}`}>{chapter.intro}</p></section>
+    <aside class="library-toc study-page-toc" aria-label="Índice del capítulo">
+      <button class="library-copy-page" type="button" data-copy-page>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="2.5" width="8" height="10" rx="1.5"></rect><path d="M10.5 13.5H3.8A1.3 1.3 0 0 1 2.5 12.2V5.5"></path></svg>
+        <span>Copiar página</span>
+      </button>
+      <span class="library-copy-status" data-copy-status aria-live="polite"></span>
+      <details class="chapter-toc">
+        <summary>En esta página</summary>
+        <nav aria-label="Secciones del capítulo">
+          {chapter.lessons.map((lesson, i) => <a href={`#leccion-${i + 1}`}>{lesson[0]}</a>)}
+          {sortedSources.length > 0 && <a href="#material">Fuentes</a>}
+        </nav>
+      </details>
+    </aside>
+    <div class="study-layout"><article class="study-content">
+      {chapter.lessons.map((lesson, i) => {
+        const ref = `/estudiar/${chapter.slug}#leccion-${i + 1}`;
+        const place = `${chapter.title} · ${lesson[0]}`;
+        return <section class="study-lesson" id={`leccion-${i + 1}`}><h2>{lesson[0]}</h2>{lesson[1].split(/\n\n+/).map((paragraph) => {
+          const us = paragraph.startsWith('US: ');
+          const text = us ? paragraph.slice(4) : paragraph;
+          return us
+            ? <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{text}</p></aside>
+            : <p data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{text}</p>;
+        })}{lesson[3] && <StudyDiagram type={lesson[3]} instance={`${chapter.slug}-l${i + 1}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />}<aside class="learning-note" data-report-target data-report-where={`Idea para recordar · ${place}`} data-report-ref={ref}><span>IDEA PARA RECORDAR</span><p>{lesson[2]}</p></aside></section>;
+      })}
+      <div class="study-report">
+        <button class="button-quiet" type="button" data-report-page data-report-where={chapter.title} data-report-ref={`/estudiar/${chapter.slug}`} data-report-excerpt={chapter.title}>Reportar un error de contenido</button>
+      </div>
+      {sortedSources.length > 0 && <section class="study-sources" id="material">
+        <h2>Fuentes</h2>
+        <p>Primero las oficiales argentinas y después el material de contraste. Contrastá normativa y procedimientos vigentes antes de aplicarlos.</p>
+        <ul>{sortedSources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a><small>{kindLabel(source)}</small></li>)}</ul>
+      </section>}
+      <section class="chapter-finish"><h2>¿Te queda claro?</h2><p>{chapter.examChapterId ? `Marcá el tema como estudiado. Forma parte del temario del ${EXAM_LINK_LABEL}, así que podés practicar sus preguntas.` : `Marcá el tema como estudiado. ${LIBRARY_ONLY_REASON}`}</p><div><button class="button-primary" type="button" data-complete={chapter.slug} aria-pressed="false"><span data-complete-label>Marcar como estudiado</span> <span aria-hidden="true">✓</span></button>{chapter.examChapterId ? <a class="button-quiet" href={`/examenes/ppa?chapter=${chapter.examChapterId}`}>Practicar preguntas de este tema <span>→</span></a> : <a class="button-quiet" href="/temas">Volver al índice de temas <span>→</span></a>}</div><p class="saved-state" aria-live="polite"></p></section>
+      <nav class="chapter-pagination">{previous ? <a href={`/estudiar/${previous.slug}`}><small>← ANTERIOR</small><b>{previous.title}</b></a> : <span></span>}{next ? <a class="next-chapter" href={`/estudiar/${next.slug}`}><small>SIGUIENTE →</small><b>{next.title}</b></a> : <a class="next-chapter" href="/examenes"><small>PRÓXIMO PASO →</small><b>Ir a exámenes</b></a>}</nav>
+      <p class="progress-notice" data-progress-notice aria-live="polite"></p>
+    </article></div>
+  </main>
+  </div>
+  <footer class="home-footer study-foot"><BrandMark /><span>Material didáctico complementario para estudiar aviación.</span>{sortedSources.length > 0 && <a href="#material">Ver fuentes ↗</a>}</footer>
+  <script>
+    import '../../scripts/study-progress.js';
+  </script>
+  <script is:inline define:vars={{articleCopyText}}>
+    const copyButton=document.querySelector('[data-copy-page]');
+    const copyStatus=document.querySelector('[data-copy-status]');
+    copyButton.addEventListener('click',async()=>{
+      copyStatus.textContent='';
+      try {
+        await navigator.clipboard.writeText(articleCopyText);
+        copyStatus.textContent='Página copiada.';
+      } catch {
+        copyStatus.textContent='No se pudo copiar. Revisá los permisos del navegador.';
+      }
+    });
+    const chapterToc=document.querySelector('.chapter-toc');
+    const chapterTocSummary=chapterToc?.querySelector('summary');
+    const wideToc=window.matchMedia('(min-width: 1181px)');
+    const syncChapterToc=()=>{
+      if(!chapterToc||!chapterTocSummary)return;
+      if(wideToc.matches)chapterToc.open=true;
+      chapterTocSummary.tabIndex=wideToc.matches?-1:0;
+    };
+    syncChapterToc();
+    wideToc.addEventListener('change',syncChapterToc);
+    const tocLinks=[...document.querySelectorAll('.study-page-toc nav a')];
+    const tocTargets=tocLinks.map((link)=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window){
+      const observer=new IntersectionObserver((entries)=>{
+        const visible=entries.filter((entry)=>entry.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+        if(!visible)return;
+        tocLinks.forEach((link) => {
+          // Se quita el atributo en vez de escribir aria-current="false": el resto del sitio
+          // representa "no actual" omitiendo el atributo.
+          if (link.hash === `#${visible.target.id}`) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      },{rootMargin:'-12% 0px -72% 0px',threshold:0});
+      tocTargets.forEach((target)=>observer.observe(target));
+    }
+  </script>
+</BaseLayout>

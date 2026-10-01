@@ -1,0 +1,157 @@
+---
+import { getLibraryNav } from '../data/library-nav.js';
+const { activeSlug = null } = Astro.props;
+const groups = getLibraryNav();
+const openGroupIds = new Set(
+  groups.filter((group) => group.chapters.some((chapter) => chapter.slug === activeSlug)).map((group) => group.id)
+);
+---
+<div class="study-index-bar">
+  <button type="button" class="sidebar-open" data-sidebar-open aria-expanded="false" aria-controls="library-sidebar-menu" aria-label="Abrir el índice de la biblioteca">Índice</button>
+</div>
+<div class="sidebar-backdrop" data-sidebar-backdrop hidden aria-hidden="true"></div>
+<aside class="library-sidebar" id="library-sidebar-menu" data-library-sidebar aria-label="Índice de la biblioteca">
+  <div class="sidebar-top">
+    <button type="button" class="sidebar-close" data-sidebar-close aria-label="Cerrar índice"><span aria-hidden="true">×</span></button>
+  </div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-home" href="/">Inicio</a>
+    {groups.map((group) => (
+      <details class="sidebar-group" data-nav-group open={openGroupIds.has(group.id) || !activeSlug}>
+        <summary>
+          <span class="sidebar-group-title">{group.title}</span>
+          <span class="sidebar-chevron" aria-hidden="true"></span>
+        </summary>
+        <ul>
+          {group.chapters.map((chapter) => (
+            <li>
+              <a
+                href={`/estudiar/${chapter.slug}`}
+                aria-current={chapter.slug === activeSlug ? 'page' : undefined}
+              ><span>{chapter.title}</span></a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))}
+  </nav>
+</aside>
+
+<script is:inline>
+  (() => {
+    const sidebar = document.querySelector('[data-library-sidebar]');
+    const openBtn = document.querySelector('[data-sidebar-open]');
+    const closeBtn = document.querySelector('[data-sidebar-close]');
+    const backdrop = document.querySelector('[data-sidebar-backdrop]');
+    if (!sidebar || !openBtn || !closeBtn || !backdrop) return;
+
+    const mobile = window.matchMedia('(max-width: 860px)');
+    const background = [
+      document.querySelector('header.site-header'),
+      openBtn,
+      document.querySelector('.library-shell > main'),
+      document.querySelector('footer.study-foot'),
+      document.querySelector('.back-to-top'),
+      // Sin esto la barra flotante de reporte quedaba por encima del backdrop del drawer
+      // (z-index 45 contra 40) y Era interactiva con el resto de la pagina inert.
+      document.querySelector('#report-point'),
+    ].filter(Boolean);
+    const backgroundState = new Map();
+    let previousFocus = null;
+
+    const setBackgroundInactive = (inactive) => {
+      background.forEach((element) => {
+        if (inactive) {
+          if (!backgroundState.has(element)) {
+            backgroundState.set(element, {
+              inert: element.inert,
+              ariaHidden: element.getAttribute('aria-hidden'),
+            });
+          }
+          element.inert = true;
+          element.setAttribute('aria-hidden', 'true');
+          return;
+        }
+
+        const previous = backgroundState.get(element);
+        if (!previous) return;
+        element.inert = previous.inert;
+        if (previous.ariaHidden === null) element.removeAttribute('aria-hidden');
+        else element.setAttribute('aria-hidden', previous.ariaHidden);
+        backgroundState.delete(element);
+      });
+    };
+
+    const focusableItems = () => [...sidebar.querySelectorAll('a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])')]
+      .filter((element) => element.getClientRects().length > 0 && !element.closest('[inert]'));
+
+    const setOpen = (open, restoreFocus = true) => {
+      const drawerOpen = mobile.matches && open;
+      const wasOpen = sidebar.classList.contains('is-open');
+      sidebar.classList.toggle('is-open', drawerOpen);
+      backdrop.hidden = !drawerOpen;
+      openBtn.setAttribute('aria-expanded', String(drawerOpen));
+      document.body.classList.toggle('sidebar-lock', drawerOpen);
+
+      if (drawerOpen) {
+        if (!wasOpen) previousFocus = document.activeElement;
+        sidebar.inert = false;
+        sidebar.removeAttribute('aria-hidden');
+        sidebar.setAttribute('role', 'dialog');
+        sidebar.setAttribute('aria-modal', 'true');
+        setBackgroundInactive(true);
+        closeBtn.focus();
+        return;
+      }
+
+      setBackgroundInactive(false);
+      sidebar.removeAttribute('role');
+      sidebar.removeAttribute('aria-modal');
+      if (mobile.matches) {
+        sidebar.inert = true;
+        sidebar.setAttribute('aria-hidden', 'true');
+      } else {
+        sidebar.inert = false;
+        sidebar.removeAttribute('aria-hidden');
+      }
+      if (restoreFocus && wasOpen && previousFocus instanceof HTMLElement && previousFocus.isConnected) previousFocus.focus();
+      previousFocus = null;
+    };
+
+    const keepFocusInDrawer = (event) => {
+      if (!mobile.matches || !sidebar.classList.contains('is-open') || sidebar.contains(event.target)) return;
+      (focusableItems()[0] || closeBtn).focus();
+    };
+
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+    backdrop.addEventListener('click', () => setOpen(false));
+    document.addEventListener('focusin', keepFocusInDrawer);
+    document.addEventListener('keydown', (event) => {
+      if (!mobile.matches || !sidebar.classList.contains('is-open')) return;
+      if (event.key === 'Escape') {
+        setOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const items = focusableItems();
+      if (!items.length) {
+        event.preventDefault();
+        closeBtn.focus();
+        return;
+      }
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !sidebar.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !sidebar.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    mobile.addEventListener('change', () => setOpen(false, false));
+    setOpen(false, false);
+  })();
+</script>

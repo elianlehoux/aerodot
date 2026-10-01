@@ -1,0 +1,486 @@
+{
+  "practiceOnly": false,
+  "testSize": 100,
+  "sourcePageUrl": "https://www.argentina.gob.ar/anac/examenes/instructor-de-vuelo-helicoptero",
+  "sourcePdfUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+  "sourceLabel": "Cuestionario público IVH · ANAC",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Instructor de vuelo de helicóptero",
+      "questions": [
+        {
+          "id": "ivh-01-001",
+          "chapter": 1,
+          "number": 1,
+          "sourceNumber": 1,
+          "prompt": "18) Los Helipuertos se clasifican en",
+          "choices": [
+            "Helipuertos de superficie.",
+            "Helipuertos de superficie y elevados.",
+            "Helipuertos y heliplataformas.",
+            "Helipuertos de superficie, elevados, heliplataformas y helipuertos a bordo de buques"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-002",
+          "chapter": 1,
+          "number": 2,
+          "sourceNumber": 2,
+          "prompt": "IVH 10) Para preparar un plan de lección es conveniente dividirlo en las siguientes fases",
+          "choices": [
+            "Preparación, aplicación, demostración, verificación.",
+            "Preparación, verificación, demostración, aplicación.",
+            "Preparación, demostración, aplicación, verificación.",
+            "El instructor puede establecer las fases que estime conveniente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-003",
+          "chapter": 1,
+          "number": 3,
+          "sourceNumber": 3,
+          "prompt": "IVH 11) Si un piloto experimenta desorientación espacial durante un vuelo, ¿Cuál es la mejor manera de contrarrestar el efecto?",
+          "choices": [
+            "Concentrarse en las sensaciones de guiñada, cabeceo e inclinación.",
+            "Concientemente reducir el régimen de respiración hasta que los síntomas desaparezcan.",
+            "Controlar las indicaciones de los instrumentos de vuelo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-004",
+          "chapter": 1,
+          "number": 4,
+          "sourceNumber": 4,
+          "prompt": "IVH 15)La VNE de un helicóptero depende de",
+          "choices": [
+            "Las RPM del rotor principal.",
+            "La longitud de las palas del rotor principal",
+            "A y B son correctas",
+            "La altura de densidad.",
+            "E. Todas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-005",
+          "chapter": 1,
+          "number": 5,
+          "sourceNumber": 5,
+          "prompt": "IVH 16) En la pala que se encuentra sustentando al máximo peso de despegue, ¿Cuál es la fuerza de mayor magnitud?",
+          "choices": [
+            "Sustentación.",
+            "Coriolis.",
+            "Centrífuga."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-006",
+          "chapter": 1,
+          "number": 6,
+          "sourceNumber": 6,
+          "prompt": "IVH 17) Un helicóptero que llega o sale del país deberá aterrizar en o despegar de",
+          "choices": [
+            "Un aeropuerto internacional.",
+            "Un aeródromo público.",
+            "Cualquier aeropuerto o aeródromo controlado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-007",
+          "chapter": 1,
+          "number": 7,
+          "sourceNumber": 7,
+          "prompt": "IVH 19) Las siglas FATO significa: área de aproximación y despegue.",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-008",
+          "chapter": 1,
+          "number": 8,
+          "sourceNumber": 8,
+          "prompt": "IVH 2) ¿Quién tiene la obligación de asegurarse del buen estado de la aeronave antes de la partida?",
+          "choices": [
+            "El explotador.",
+            "El piloto al mando (Comandante)",
+            "La Autoridad Aeronáutica."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-009",
+          "chapter": 1,
+          "number": 9,
+          "sourceNumber": 9,
+          "prompt": "IVH 20) La letra “H” ubicada en le centro del helipuerto señala",
+          "choices": [
+            "El norte magnético.",
+            "El norte geográfico.",
+            "Su orientación señala el sector despejado de obstáculos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-010",
+          "chapter": 1,
+          "number": 10,
+          "sourceNumber": 10,
+          "prompt": "IVH 21) La señal de identificación de helipuerto “H” pintado de color rojo, ubicado en el centro de una cruz blanca corresponde a",
+          "choices": [
+            "Un helipuerto emplazado en un hospital.",
+            "Un helipuerto emplazado en una Unidad Militar.",
+            "Un helipuerto privado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-011",
+          "chapter": 1,
+          "number": 11,
+          "sourceNumber": 11,
+          "prompt": "IVH 22) Todo helipuerto habilitado debe contar con una distancia de aterrizaje disponible (LDAH) y también una distancia de despegue disponible (TODAH)",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-012",
+          "chapter": 1,
+          "number": 12,
+          "sourceNumber": 12,
+          "prompt": "IVH 23) El Traking de un rotor consiste en",
+          "choices": [
+            "Igualar el coeficiente de sustentación en todas las palas y logren que giren en el mismo plano.",
+            "Calibrar y ajustar los comandos que posee el piloto.",
+            "Igualar el peso de las alas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-013",
+          "chapter": 1,
+          "number": 13,
+          "sourceNumber": 13,
+          "prompt": "IVH 24) El plato oscilante es",
+          "choices": [
+            "El dispositivo que desacopla automáticamente el sistema de transmisión del rotor cuando las revoluciones de este son superiores a las del motor.",
+            "El dispositivo de embrague que posee algunos helicópteros.",
+            "El dispositivo que, teniendo una parte fija y otra móvil, transmite a las partes los movimientos de los comandos cíclico y colectivo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-014",
+          "chapter": 1,
+          "number": 14,
+          "sourceNumber": 14,
+          "prompt": "IVH 25) El propósito primario de la “rueda libre” es",
+          "choices": [
+            "Permite reducir la RPM entre el motor, el rotor principal y el eje de cola.",
+            "Desacopla automáticamente al motor (Cuando este se para) del sistema de transmisión para permitir la autorotación.",
+            "Permite arrancar el motor sin mover los rotores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-015",
+          "chapter": 1,
+          "number": 15,
+          "sourceNumber": 15,
+          "prompt": "IVH 26) Después de un arranque fallido de una turbina se debe realizar un “barridos” o “ventilación” ¿Cuál es el motivo?",
+          "choices": [
+            "página 2 / 3 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal A. Para armar los temporizadores de arranque.",
+            "Para recuperar el aceite del motor.",
+            "Para evacuar de la cámara de combustión, el combustible que no se quemó y baja el excedente de temperatura.",
+            "Ninguna de las anteriores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-016",
+          "chapter": 1,
+          "number": 16,
+          "sourceNumber": 16,
+          "prompt": "IVH 30) Si a mi velocidad verdadera (TAS) le sumo o resto la componente de viento de frente o de cola, estoy calculando",
+          "choices": [
+            "IAS",
+            "GS",
+            "EAS"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-017",
+          "chapter": 1,
+          "number": 17,
+          "sourceNumber": 17,
+          "prompt": "IVH 6) Cual es el tipo de alumno que causan dificultades.",
+          "choices": [
+            "El autoritario.",
+            "El sabelotodo",
+            "El amistoso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-018",
+          "chapter": 1,
+          "number": 18,
+          "sourceNumber": 18,
+          "prompt": "IVH 8) Para el alumno antagónico, se recomienda",
+          "choices": [
+            "Hablarle en privado.",
+            "Programarle mas responsabilidad en las tareas.",
+            "Atender sus inquietudes y decidir si están bien justificadas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-019",
+          "chapter": 1,
+          "number": 19,
+          "sourceNumber": 19,
+          "prompt": "IVH 9) Lo primero que se debe considerar para hacer el plan de una lección es",
+          "choices": [
+            "Los puntos que se trataran.",
+            "El objetivo de la lección.",
+            "Un ordenamiento desde el punto de vistas didáctico.",
+            "Todas las anteriores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-020",
+          "chapter": 1,
+          "number": 20,
+          "sourceNumber": 20,
+          "prompt": "IVH1)¿Cuándo un aeropuerto es considerado internacional?",
+          "choices": [
+            "Cuando está ubicado en ciudades capitales o importantes.",
+            "Cuando presten servicios de sanidad, aduana, migraciones y otros.",
+            "Cuando estén situados cerca de las fronteras del País."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        },
+        {
+          "id": "ivh-01-021",
+          "chapter": 1,
+          "number": 21,
+          "sourceNumber": 21,
+          "prompt": "IVH7) Para el alumno que no coopera en clases, se recomienda",
+          "choices": [
+            "Asignarle mas trabajo.",
+            "Hablarle en privado.",
+            "Asignarle tareas más fáciles página 3 / 3 Powered by TCExam (www.tcexam.org)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
+        }
+      ]
+    }
+  ],
+  "figureSourceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf"
+}

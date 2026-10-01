@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+import { getLibraryNav } from '../data/library-nav.js';
+import { chapters } from '../data/library-course.js';
+
+const chapterBySlug = Object.fromEntries(chapters.map((chapter) => [chapter.slug, chapter]));
+const groups = getLibraryNav();
+---
+<BaseLayout title="Temas de aviación — Altura" description="Explorá trece temas de aviación: vuelo, aeronave, meteorología, operación, navegación y factores humanos.">
+  <header class="site-header study-header library-header">
+    <BrandMark />
+    <SiteNav current="biblioteca" />
+  </header>
+  <div class="library-shell library-index-shell">
+    <main id="main-content" tabindex="-1">
+      <section class="library-intro">
+        <h1>Temas para<br/><em>entender el vuelo.</em></h1>
+        <p class="progress-notice" data-progress-notice aria-live="polite"></p>
+      </section>
+      <div class="library-search">
+        <label class="topic-search-label" for="topicSearch">Buscar en la biblioteca</label>
+        <input id="topicSearch" class="topic-search" type="search" placeholder="Ej.: sustentación, motor, meteorología…" autocomplete="off" />
+        <p id="topicSearchStatus" class="topic-search-status" aria-live="polite"></p>
+      </div>
+      <div class="library-groups" id="topicGroups">
+        {groups.map((group) => <section class="topic-group" id={group.id} data-topic-group>
+          <div class="topic-group-heading"><h2>{group.title}</h2></div>
+          <ul class="topic-list">
+            {group.chapters.map((entry) => { const chapter = chapterBySlug[entry.slug]; return <li>
+              <a class="topic-link" href={`/estudiar/${entry.slug}`} data-topic-card data-study-slug={entry.slug} data-search={`${chapter.title} ${chapter.intro} ${chapter.lessons.map((lesson) => lesson[0]).join(' ')}`}>
+                <span class="topic-copy"><strong>{chapter.title}</strong></span><span class="topic-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>; })}
+          </ul>
+        </section>)}
+        <p class="topic-empty" id="topicEmpty" hidden>No encontramos temas con esa búsqueda. Probá con otra palabra.</p>
+      </div>
+    </main>
+  </div>
+  <footer class="home-footer study-foot"><BrandMark /><span>Material complementario; verificá reglas y procedimientos vigentes.</span><a href="/examenes">Exámenes ↗</a></footer>
+  <script>
+    import '../scripts/study-progress.js';
+  </script>
+  <script is:inline>
+    const search = document.querySelector('#topicSearch');
+    const cards = [...document.querySelectorAll('[data-topic-card]')];
+    const groupSections = [...document.querySelectorAll('[data-topic-group]')];
+    const status = document.querySelector('#topicSearchStatus');
+    const empty = document.querySelector('#topicEmpty');
+    const normalize = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es');
+    search.addEventListener('input', () => {
+      const term = normalize(search.value.trim());
+      let visible = 0;
+      cards.forEach((card) => {
+        const matches = normalize(card.dataset.search).includes(term);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      groupSections.forEach((group) => { group.hidden = !group.querySelector('[data-topic-card]:not([hidden])'); });
+      empty.hidden = visible > 0;
+      status.textContent = term ? `${visible} ${visible === 1 ? 'tema encontrado' : 'temas encontrados'}.` : '';
+    });
+  </script>
+</BaseLayout>

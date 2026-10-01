@@ -1,0 +1,2456 @@
+{
+  "practiceOnly": false,
+  "testSize": 100,
+  "sourcePageUrl": "https://www.argentina.gob.ar/examenes/piloto-de-planeador",
+  "sourcePdfUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+  "sourceLabel": "Cuestionario público de planeador · ANAC · Resolución 306/2014",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Piloto de planeador",
+      "questions": [
+        {
+          "id": "ppl-01-001",
+          "chapter": 1,
+          "number": 1,
+          "sourceNumber": 1,
+          "prompt": "¿ Cual es la visibilidad mínima para un vuelo VFR controlado?",
+          "choices": [
+            "3 Km",
+            "5 Km",
+            "8 Km"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-002",
+          "chapter": 1,
+          "number": 2,
+          "sourceNumber": 2,
+          "prompt": "¿Cómo se corrige la velocidad en el tramo final del aterrizaje en los días de viento fuerte?",
+          "choices": [
+            "Multiplico la velocidad del viento por dos y la sumo a la velocidad de aproximación.",
+            "Aumento la velocidad de tráfico en un 50 %.",
+            "Divido la velocidad del viento por dos y la sumo a la velocidad de aproximación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-003",
+          "chapter": 1,
+          "number": 3,
+          "sourceNumber": 3,
+          "prompt": "¿Como se llama la ventanilla donde se lee y ajusta el valor de presión atmosférica?",
+          "choices": [
+            "Bernouilli.",
+            "Laplace",
+            "Kolssman."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-004",
+          "chapter": 1,
+          "number": 4,
+          "sourceNumber": 4,
+          "prompt": "¿Cuál es la distancia mínima que se debe mantener entre el tramo inicial del circuito de aterrizaje y el eje de la pista?",
+          "choices": [
+            "La distancia necesaria para poder accionar los frenos aerodinámicos en básica.",
+            "La distancia necesaria para poder efectuar los dos virajes (de inicial a básica y de básica a final) de 90 °.",
+            "La distancia necesaria para poder efectuar un viraje de 180 ° para poder comenzar la final."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-005",
+          "chapter": 1,
+          "number": 5,
+          "sourceNumber": 5,
+          "prompt": "¿Cuál es la velocidad que se debe utilizar como referencia para maniobrar una aeronave?",
+          "choices": [
+            "La velocidad sobre el terreno.",
+            "La velocidad verdadera.",
+            "La velocidad indicada"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-006",
+          "chapter": 1,
+          "number": 6,
+          "sourceNumber": 6,
+          "prompt": "¿Hasta qué altitud de presión máxima puede volarse en el espacio aéreo nacional sin oxígeno a presión al 100%, por más de 30 minutos? De acuerdo a RAAC 91.211",
+          "choices": [
+            "3.962 m",
+            "3.048 m",
+            "10.000"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-007",
+          "chapter": 1,
+          "number": 7,
+          "sourceNumber": 7,
+          "prompt": "¿La palanca o bastón de mandos actúa sobre los tres ejes de rotación del planeador?",
+          "choices": [
+            "Verdadero",
+            "Falso página 1 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-008",
+          "chapter": 1,
+          "number": 8,
+          "sourceNumber": 8,
+          "prompt": "¿Para qué se practican pérdidas de sustentación?",
+          "choices": [
+            "Para aprender una maniobra acrobática.",
+            "Para comprobación de los comandos del planeador.",
+            "Para aprender a evitarlas o recuperarlas si han ocurrido inadvertidamente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-009",
+          "chapter": 1,
+          "number": 9,
+          "sourceNumber": 9,
+          "prompt": "¿Para qué utiliza los frenos aerodinámicos?",
+          "choices": [
+            "Para corregir un exceso de velocidad.",
+            "Para corregir un exceso de altura en circuito de aterrizaje.",
+            "a y b son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-010",
+          "chapter": 1,
+          "number": 10,
+          "sourceNumber": 10,
+          "prompt": "¿Qué altura aproximada se debe tener, volando un planeador, al comenzar el tramo inicial del circuito de aterrizaje?",
+          "choices": [
+            "150 metros.",
+            "250 metros.",
+            "300 metros."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-011",
+          "chapter": 1,
+          "number": 11,
+          "sourceNumber": 11,
+          "prompt": "¿Qué debemos hacer si durante el remolque el piloto remolcador nos hace señas de corte?",
+          "choices": [
+            "Preguntar por la radio si tiene algún problema.",
+            "Cortar inmediatamente.",
+            "Observar si estamos en lugar adecuado y luego cortar."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-012",
+          "chapter": 1,
+          "number": 12,
+          "sourceNumber": 12,
+          "prompt": "¿Que es atmósfera ISA?",
+          "choices": [
+            "La que reina en ese momento en el aeródromo.",
+            "La que nos da el servicio meteorológico.",
+            "Una atmósfera patrón de uso internacional"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-013",
+          "chapter": 1,
+          "number": 13,
+          "sourceNumber": 13,
+          "prompt": "¿Qué es el alargamiento alar?",
+          "choices": [
+            "La distancia entre borde de ataque y borde de fuga.",
+            "La distancia entre la raíz y la puntera del ala",
+            "La relación entre envergadura y cuerda alar media."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-014",
+          "chapter": 1,
+          "number": 14,
+          "sourceNumber": 14,
+          "prompt": "¿Qué es gradiente vertical de temperatura?",
+          "choices": [
+            "El aumento gradual de temperatura con la altura.",
+            "La diferencia de temperatura de un lugar a otro.",
+            "La disminución gradual de la temperatura con la altura."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-015",
+          "chapter": 1,
+          "number": 15,
+          "sourceNumber": 15,
+          "prompt": "¿Qué ocurre con la velocidad de pérdida, al aumentar la inclinación en un viraje?",
+          "choices": [
+            "Disminuye.",
+            "No varía.",
+            "Aumenta. página 2 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-016",
+          "chapter": 1,
+          "number": 16,
+          "sourceNumber": 16,
+          "prompt": ".- Cual es la anticipación mínima de presentación en vuelo, de un plan VFR controlado que exige retransmisión?",
+          "choices": [
+            "10 minutos",
+            "20 minutos",
+            "30 minutos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-017",
+          "chapter": 1,
+          "number": 17,
+          "sourceNumber": 17,
+          "prompt": ".- Cuál es la función de la ¨lanita¨?",
+          "choices": [
+            "Verificar la inclinación del viraje.",
+            "Mostrar que el planeador está volando coordinado.",
+            "Ninguna de las anteriores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-018",
+          "chapter": 1,
+          "number": 18,
+          "sourceNumber": 18,
+          "prompt": ".- El descenso de temperatura promedio en altura en la tropopausa es de",
+          "choices": [
+            "2,5° F cada 1000 pies",
+            "2° C cada 300 mts ( 1000 pies)",
+            "2° C cada 1000 mts."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-019",
+          "chapter": 1,
+          "number": 19,
+          "sourceNumber": 19,
+          "prompt": ".- El velocímetro debe ir conectado a",
+          "choices": [
+            "Termo y toma estática.",
+            "Pitot y toma estática.",
+            "Ninguna es correcta."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-020",
+          "chapter": 1,
+          "number": 20,
+          "sourceNumber": 20,
+          "prompt": ".- Es posible cursar un plan de vuelo en un aeródromo sin ATS?",
+          "choices": [
+            "Se podría realizar por radio o por teléfono",
+            "No es posible",
+            "Si es posible en cierta categoría de aeródromo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-021",
+          "chapter": 1,
+          "number": 21,
+          "sourceNumber": 21,
+          "prompt": ".- La elevación de nuestro aeródromo es de 60 mts. y decolamos con ajuste QFE. Si en el primer punto de viraje la elevación es de 200 mts. y el altímetro nos indica 1000mts. Cual será nuestra verdadera altura sobre el mismo?",
+          "choices": [
+            "1040mts.",
+            "800mts.",
+            "860mts."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-022",
+          "chapter": 1,
+          "number": 22,
+          "sourceNumber": 22,
+          "prompt": "1. Durante el despegue, ¿el planeador debe abandonar el suelo antes que el remolcador?",
+          "choices": [
+            "Siempre.",
+            "Es indistinto, mientras evite la corriente de la hélice del remolcador.",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-023",
+          "chapter": 1,
+          "number": 23,
+          "sourceNumber": 23,
+          "prompt": "1.- La fuente principal generadora de cambios atmosféricos es",
+          "choices": [
+            "Las mareas.",
+            "El Sol.",
+            "página 3 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal c) El calentamiento de la tierra."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-024",
+          "chapter": 1,
+          "number": 24,
+          "sourceNumber": 24,
+          "prompt": "14.- Si una masa de aire se va trasladando estará",
+          "choices": [
+            "Desarrollando propiedades convectivas.",
+            "Tomando propiedades de la superficie por donde transita.",
+            "Permaneciendo en su estado original."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-025",
+          "chapter": 1,
+          "number": 25,
+          "sourceNumber": 25,
+          "prompt": "15.- Cuando una masa de aire frio y caliente se encuentran",
+          "choices": [
+            "El aire frio se posesiona por encima del aire caliente.",
+            "El aire caliente se mantiene por debajo del aire frio.",
+            "El aire frio se posesiona por debajo del aire caliente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-026",
+          "chapter": 1,
+          "number": 26,
+          "sourceNumber": 26,
+          "prompt": "16.- Un fenómeno meteorológico que siempre ocurre cuando se vuela través de un frente es un cambio en",
+          "choices": [
+            "La dirección del viento",
+            "Tipo de precipitación",
+            "La estabilidad de las masas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-027",
+          "chapter": 1,
+          "number": 27,
+          "sourceNumber": 27,
+          "prompt": "17.- Uno de los cambios fácilmente reconocibles cuando se cruza un frente es",
+          "choices": [
+            "El cambio en la temperatura.",
+            "El incremento de la cobertura nubosa.",
+            "El aumento de la humedad relativa."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-028",
+          "chapter": 1,
+          "number": 28,
+          "sourceNumber": 28,
+          "prompt": "18.- Grandes acumulaciones de monóxido de carbono en el cuerpo humano causan",
+          "choices": [
+            "Rigidez en la frente.",
+            "Pérdida de fuerza muscular.",
+            "Una sensación aumentada de bienestar."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-029",
+          "chapter": 1,
+          "number": 29,
+          "sourceNumber": 29,
+          "prompt": "19.- ¿Cuál de las siguientes afirmaciones define mejor la hipoxia?",
+          "choices": [
+            "Un estado de deficiencia de oxígeno en el cuerpo.",
+            "Un incremento anormal en el volumen de aire respirado.",
+            "Una afección por la formación de burbujas de gas alrededor de las articulaciones o músculos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-030",
+          "chapter": 1,
+          "number": 30,
+          "sourceNumber": 30,
+          "prompt": "20.- Cuando se enfrenta una situación estresante durante el vuelo, un incremento anormal en el volumen de aire inspirado y exhalado puede causar una afección conocida como",
+          "choices": [
+            "Hiperventilación.",
+            "Aerosinusitis.",
+            "Aerotitis."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-031",
+          "chapter": 1,
+          "number": 31,
+          "sourceNumber": 31,
+          "prompt": "21.- ¿Cuál de las siguientes causas es la más probable que produzca hiperventilación?",
+          "choices": [
+            "Tensión emocional, ansiedad o miedo.",
+            "página 4 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b) El consumo excesivo de alcohol.",
+            "Un índice extremadamente lento de respiración y oxígeno insuficiente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-032",
+          "chapter": 1,
+          "number": 32,
+          "sourceNumber": 32,
+          "prompt": "22.- Un piloto debería ser capaz de superar los síntomas de hiperventilación o evitar futuros eventos al",
+          "choices": [
+            "Controlar en detalle los instrumentos de vuelo para controlar el avión.",
+            "Enlentecer el índice de respiración, respirar en una bolsa o hablar en voz alta.",
+            "Incrementar el índice de respiración para aumentar la ventilación de los pulmones."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-033",
+          "chapter": 1,
+          "number": 33,
+          "sourceNumber": 33,
+          "prompt": "23.- La vulnerabilidad a envenenamiento por monóxido de carbono aumenta a medida que",
+          "choices": [
+            "La altitud aumenta.",
+            "La altitud disminuye.",
+            "La presión de aire aumenta."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-034",
+          "chapter": 1,
+          "number": 34,
+          "sourceNumber": 34,
+          "prompt": "25.- Si una masa de aire inestable es forzado a ascender, ¿qué tipo de nubosidad se puede esperar?",
+          "choices": [
+            "Nubes estratiformes de poco desarrollo vertical.",
+            "Nubes estratiformes con considerable turbulencia.",
+            "Nubes con considerable desarrollo vertical asociado a turbulencia."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-035",
+          "chapter": 1,
+          "number": 35,
+          "sourceNumber": 35,
+          "prompt": "27.- Si un piloto experimenta desorientación espacial durante el vuelo en una condición de visibilidad restringida, la mejor manera de superar el efecto consiste en",
+          "choices": [
+            "Confiar en las indicaciones de los instrumentos de la aeronave.",
+            "Concentrarse en las sensaciones de guiño, cabeceo y balanceo.",
+            "Aminorar en forma consciente el ritmo de respiración hasta que los síntomas desaparezcan y se normalice el ritmo normal de respiración."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-036",
+          "chapter": 1,
+          "number": 36,
+          "sourceNumber": 36,
+          "prompt": "29.- ¿Cuál es el antídoto cuando un piloto tiene una actitud riesgosa, como \"impulsividad\"?",
+          "choices": [
+            "Me podría suceder a mí.",
+            "Hazlo rápido para terminar con eso.",
+            "No tan rápido, piensa primero."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-037",
+          "chapter": 1,
+          "number": 37,
+          "sourceNumber": 37,
+          "prompt": "3.- El viento que se desplaza es creado por",
+          "choices": [
+            "Movimiento de aire desde áreas de baja presión hacia un área de alta presión.",
+            "Movimiento de aire desde áreas de alta presión hacia un área de baja presión.",
+            "El efecto que provoca la fuerza de coriolis."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-038",
+          "chapter": 1,
+          "number": 38,
+          "sourceNumber": 38,
+          "prompt": "30.- La intensidad de la turbulencia se puede clasificar como",
+          "choices": [
+            "Leve, moderada, fuerte, severa.",
+            "Inestable.",
+            "Estable."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-039",
+          "chapter": 1,
+          "number": 39,
+          "sourceNumber": 39,
+          "prompt": "31.- En el proceso de toma de decisiones aeronáuticas ¿cuál es el primer paso para neutralizar una actitud riesgosa?",
+          "choices": [
+            "página 5 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal a) Tomar un criterio racional.",
+            "Reconocer los pensamientos riesgosos.",
+            "Reconocer la invulnerabilidad de la situación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-040",
+          "chapter": 1,
+          "number": 40,
+          "sourceNumber": 40,
+          "prompt": "32.- El manejo de riesgo, como parte de un proceso de toma de decisiones aeronáuticas, ¿de qué características depende para reducir los riesgos relacionados con cada vuelo?",
+          "choices": [
+            "La aplicación de manejo de estrés y procedimientos de elementos de riesgo.",
+            "Consciencia situacional, reconocimiento del problema y buen criterio.",
+            "El proceso mental de analizar toda la información en una situación en particular y tomar una decisión oportuna en la elección de una acción."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-041",
+          "chapter": 1,
+          "number": 41,
+          "sourceNumber": 41,
+          "prompt": "35.- ¿Qué es el efecto suelo?",
+          "choices": [
+            "El resultado de la interferencia de la superficie del suelo con el patrón de circulación del aire sobre la aeronave.",
+            "El resultado de la alteración del patrón de circulación del aire incrementando la resistencia inducida en el ala del avión.",
+            "El resultado de la interrupción del patrón de circulación del aire sobre el ala del avión, al punto de no mantenerlo en vuelo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-042",
+          "chapter": 1,
+          "number": 42,
+          "sourceNumber": 42,
+          "prompt": "36.- ¿Qué debe esperar el piloto como resultado del efecto suelo?",
+          "choices": [
+            "Se incrementan los vórtices de punta de ala, creando una estela turbulenta que genera problemas a la aeronave despegando o aterrizando.",
+            "La resistencia inducida decrece y cualquier exceso de velocidad como consecuencia puede producir un exceso de flotabilidad durante el aterrizaje.",
+            "El aterrizaje en pérdida total requerirá menos deflexión del timón de profundidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-043",
+          "chapter": 1,
+          "number": 43,
+          "sourceNumber": 43,
+          "prompt": "36.- ¿Quién es responsable de determinar si un piloto se encuentra apto para volar en un vuelo en particular, aún si él/ella cuenta con un psicofísico vigente?",
+          "choices": [
+            "La ANAC.",
+            "El médico.",
+            "El piloto."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-044",
+          "chapter": 1,
+          "number": 44,
+          "sourceNumber": 44,
+          "prompt": "37.- ¿Cuál es el factor común que afecta los accidentes más prevenibles?",
+          "choices": [
+            "Falla estructural.",
+            "Falla mecánica.",
+            "Error humano."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-045",
+          "chapter": 1,
+          "number": 45,
+          "sourceNumber": 45,
+          "prompt": "38.- ¿Qué suele causar desorientación espacial o colisión con el suelo u obstáculos cuando se vuela según las Reglas de Vuelo Visual (VFR)?",
+          "choices": [
+            "El vuelo visual que se continúa con condiciones instrumentales, sin estar preparado para ello.",
+            "Situarse detrás de la aeronave.",
+            "Volar ignorando las sensaciones del cuerpo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-046",
+          "chapter": 1,
+          "number": 46,
+          "sourceNumber": 46,
+          "prompt": "39.- Se formará niebla si",
+          "choices": [
+            "La temperatura desciende.",
+            "La temperatura aumenta a la del punto de rocío",
+            "La temperatura desciende a la del punto de rocío. página 6 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-047",
+          "chapter": 1,
+          "number": 47,
+          "sourceNumber": 47,
+          "prompt": "4.- Los centros de baja presión son áreas a las cuales se las denomina",
+          "choices": [
+            "Con la letra A.",
+            "Ciclónicas o de depresión.",
+            "Áreas de subsidencia."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-048",
+          "chapter": 1,
+          "number": 48,
+          "sourceNumber": 48,
+          "prompt": "43.- El método más eficaz para encontrar otra aeronave para evitar colisiones durante el vuelo diurno consiste en utilizar",
+          "choices": [
+            "Una concentración espaciada regularmente en las posiciones 3, 9 y 12 en punto.",
+            "Una serie de movimientos oculares cortos, regularmente espaciados, para buscar en cada sector de 10 grados.",
+            "Visión periférica al observar pequeños sectores y utilizar la visión no enfocada en el centro."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-049",
+          "chapter": 1,
+          "number": 49,
+          "sourceNumber": 49,
+          "prompt": "6.- El descenso de temperatura promedio en altura es de",
+          "choices": [
+            "2,5° F cada 1000 pies.",
+            "2° C cada 300 metros (1000 pies).",
+            "2° C cada 1000 metros."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-050",
+          "chapter": 1,
+          "number": 50,
+          "sourceNumber": 50,
+          "prompt": "7.- La temperatura estándar a nivel del mar es de",
+          "choices": [
+            "13° C.",
+            "15° C.",
+            "15° F."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-051",
+          "chapter": 1,
+          "number": 51,
+          "sourceNumber": 51,
+          "prompt": "8.- ¿En qué condición meteorológica es probable hablar de una inversión de temperatura?",
+          "choices": [
+            "Con nubes de gran desarrollo vertical sobre una altura de inversión.",
+            "Buena visibilidad en las capas bajas de la atmósfera y pobre visibilidad sobre la zona de inversión.",
+            "Un incremento de la temperatura a medida que aumenta la altitud."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-052",
+          "chapter": 1,
+          "number": 52,
+          "sourceNumber": 52,
+          "prompt": "A mayor ángulo de ataque",
+          "choices": [
+            "Mayor sustentación y menor resistencia.",
+            "Menor sustentación y menor resistencia.",
+            "Mayor sustentación y mayor resistencia."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-053",
+          "chapter": 1,
+          "number": 53,
+          "sourceNumber": 53,
+          "prompt": "A mayor presión, la densidad",
+          "choices": [
+            "No varía.",
+            "Aumenta.",
+            "Disminuye."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-054",
+          "chapter": 1,
+          "number": 54,
+          "sourceNumber": 54,
+          "prompt": "A medida que el planeador pierde velocidad, ¿qué se debe hacer para mantener la misma sustentación?",
+          "choices": [
+            "Aumentar la guiñada.",
+            "Disminuir el alabeo.",
+            "Incrementar el ángulo de ataque página 7 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-055",
+          "chapter": 1,
+          "number": 55,
+          "sourceNumber": 55,
+          "prompt": "Al concretar el desprendimiento del planeador (corte), debo",
+          "choices": [
+            "Realizar un viraje por izquierda.",
+            "Mantener el rumbo establecido (el remolcador realiza un viraje ascendente).",
+            "Realizar un viraje ascendente por derecha."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-056",
+          "chapter": 1,
+          "number": 56,
+          "sourceNumber": 56,
+          "prompt": "Clases de espacios aéreos en Argentina",
+          "choices": [
+            "Clase A,B y C",
+            "Clase A,B,C y D",
+            "Clase A,B,C,D,F,G"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-057",
+          "chapter": 1,
+          "number": 57,
+          "sourceNumber": 57,
+          "prompt": "Cómo debemos parar la rotación en una pérdida en viraje?",
+          "choices": [
+            "Con alerón contrario.",
+            "Con palanca atrás.",
+            "Con pedal contrario."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-058",
+          "chapter": 1,
+          "number": 58,
+          "sourceNumber": 58,
+          "prompt": "Como se denomina a la Zona de control de aeródromo?",
+          "choices": [
+            "TMA",
+            "ATZ",
+            "CTR"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-059",
+          "chapter": 1,
+          "number": 59,
+          "sourceNumber": 59,
+          "prompt": "Como se denomina a la Zona de Control Terminal?",
+          "choices": [
+            "TMA",
+            "ATZ",
+            "CTR"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-060",
+          "chapter": 1,
+          "number": 60,
+          "sourceNumber": 60,
+          "prompt": "Como se obtiene el permiso para cambiar e vuelo VFR a VFR Controlado, con la dependencia ATS?",
+          "choices": [
+            "Antes de ingresar al espacio aéreo controlado",
+            "Hasta el momento del despegue, luego de lo cual NO se puede cambiar",
+            "En el momento de ingresar a espacio aéreo controlado VFR/IFR"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-061",
+          "chapter": 1,
+          "number": 61,
+          "sourceNumber": 61,
+          "prompt": "Con falla de radio en un VFR controlado ¿Cómo se aterriza en un AD controlado?",
+          "choices": [
+            "Realizar la “Básica” alabeando los planos",
+            "Bajar y subir el tren de aterrizaje en vuelo circular sobre el aeródromo?",
+            "Efectuar alabeo en tramo “Inicial” y esperar señales luminosas verdes de la TWR?"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-062",
+          "chapter": 1,
+          "number": 62,
+          "sourceNumber": 62,
+          "prompt": "Cuál es la principal función del ala?",
+          "choices": [
+            "Disminuir la resistencia.",
+            "Generar sustentación.",
+            "Manejar el ángulo de ataque. página 8 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-063",
+          "chapter": 1,
+          "number": 63,
+          "sourceNumber": 63,
+          "prompt": "Cual es la visibilidad mínima para efectuar un vuelo VFR especial?",
+          "choices": [
+            "5 Km",
+            "Más de 3000 mts.",
+            "2500 mts."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-064",
+          "chapter": 1,
+          "number": 64,
+          "sourceNumber": 64,
+          "prompt": "Cuál posición en el remolque debe ser considerada peligrosa?",
+          "choices": [
+            "En el chorro de la hélice.",
+            "Muy alta.",
+            "Muy baja."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-065",
+          "chapter": 1,
+          "number": 65,
+          "sourceNumber": 65,
+          "prompt": "Cuando el altímetro indica 0 m en la pista, ¿Cómo se denomina al reglaje utilizado?",
+          "choices": [
+            "Nivel de vuelo (FL).",
+            "QFE.",
+            "QNH."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-066",
+          "chapter": 1,
+          "number": 66,
+          "sourceNumber": 66,
+          "prompt": "Cuándo se produce una pérdida de sustentación?",
+          "choices": [
+            "Cuando se exceden los 60º de inclinación.",
+            "Cuando se excede el ángulo de ataque critico",
+            "Ninguna es correcta."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-067",
+          "chapter": 1,
+          "number": 67,
+          "sourceNumber": 67,
+          "prompt": "Cuanto más inclinado es un viraje, el factor de carga.",
+          "choices": [
+            "Aumenta.",
+            "Disminuye.",
+            "Permanece igual."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-068",
+          "chapter": 1,
+          "number": 68,
+          "sourceNumber": 68,
+          "prompt": "El ángulo de ataque es",
+          "choices": [
+            "El ángulo entre el ala y el fuselaje.",
+            "El ángulo entre el viento relativo y la cuerda del ala.",
+            "El ángulo entre el ala y el elevador."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-069",
+          "chapter": 1,
+          "number": 69,
+          "sourceNumber": 69,
+          "prompt": "El desprendimiento de los filetes de aire de un perfil aerodinámico está en función de",
+          "choices": [
+            "De la velocidad.",
+            "Del ángulo de ataque.",
+            "De la relación envergadura – cuerda."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-070",
+          "chapter": 1,
+          "number": 70,
+          "sourceNumber": 70,
+          "prompt": "El peso aparente del planeador es mayor al peso real durante un viraje",
+          "choices": [
+            "Por efecto de la fuerza centrífuga:",
+            "Por efecto de la fuerza centrípeta.",
+            "Ninguna de las anteriores. página 9 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-071",
+          "chapter": 1,
+          "number": 71,
+          "sourceNumber": 71,
+          "prompt": "El servicio de información terminal (ATIS) brinda",
+          "choices": [
+            "Información no esencial para reducir la congestión de transito",
+            "Información meteorológica, de transito en la terminal y pista",
+            "Aviso a los pilotos de probables situaciones de riesgo y peligro"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-072",
+          "chapter": 1,
+          "number": 72,
+          "sourceNumber": 72,
+          "prompt": "El tirabuzón se recupera de la siguiente manera",
+          "choices": [
+            "Colocar la palanca en neutro, levantar plano con alerón y controlar la velocidad.",
+            "Aplicar pedal opuesto al giro hasta que cesa la rotación, aflojando la palanca y recuperar con la menor velocidad posible.",
+            "Aplicar pedal opuesto al giro, palanca atrás para sostener la pérdida, nivelar alas con alerones."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-073",
+          "chapter": 1,
+          "number": 73,
+          "sourceNumber": 73,
+          "prompt": "El uso de flaps positivo está asociado a",
+          "choices": [
+            "Planeo entre térmicas.",
+            "Vuelo a altas velocidades.",
+            "Vuelo a bajas velocidades."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-074",
+          "chapter": 1,
+          "number": 74,
+          "sourceNumber": 74,
+          "prompt": "El variómetro indica",
+          "choices": [
+            "Velocidad verdadera. .",
+            "Velocidad vertical.",
+            "Aceleración longitudinal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-075",
+          "chapter": 1,
+          "number": 75,
+          "sourceNumber": 75,
+          "prompt": "El viento que se desplaza es creado por",
+          "choices": [
+            "movimiento de aire desde áreas de baja presión hacia un área de alta presión",
+            "movimiento de aire desde áreas de alta presión hacia un área de baja presión",
+            "el efecto que provoca la fuerza de Coriolis."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-076",
+          "chapter": 1,
+          "number": 76,
+          "sourceNumber": 76,
+          "prompt": "En que condición meteorológica es probable hablar de una inversión de temperatura?",
+          "choices": [
+            "Con nubes de gran desarrollo vertical sobre una altura de inversión",
+            "Buena visibilidad en capas bajas de la atmosfera y pobre visibilidad sobre la zona de inversión",
+            "Un incremento de la temperatura a medida que aumenta la altitud"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-077",
+          "chapter": 1,
+          "number": 77,
+          "sourceNumber": 77,
+          "prompt": "En radiotelefonía, la palabra internacional de socorro es",
+          "choices": [
+            "PAN PAN",
+            "S.O.S",
+            "MAYDAY"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-078",
+          "chapter": 1,
+          "number": 78,
+          "sourceNumber": 78,
+          "prompt": "En travesía se puede volar VFR sobre una capa que no cubra mas de",
+          "choices": [
+            "3/8 de la superficie terrestre",
+            "4/8 de la superficie terrestre",
+            "página 10 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal c) 5/8 de la superficie terrestre"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-079",
+          "chapter": 1,
+          "number": 79,
+          "sourceNumber": 79,
+          "prompt": "En un día sin viento, al realizar la maniobra de vuelo recto y nivelado, manteniendo las alas niveladas no se logra conservar el rumbo. Esto se debe a",
+          "choices": [
+            "Control ineficiente de alerones.",
+            "Control ineficiente de timón de dirección.",
+            "“a” y “b” son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-080",
+          "chapter": 1,
+          "number": 80,
+          "sourceNumber": 80,
+          "prompt": "Es más fácil entrar inadvertidamente en pérdida",
+          "choices": [
+            "En un viraje escarpado.",
+            "En un viraje suave.",
+            "ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-081",
+          "chapter": 1,
+          "number": 81,
+          "sourceNumber": 81,
+          "prompt": "Es posible presentar un plan de vuelo durante el vuelo?",
+          "choices": [
+            "Siempre se puede presentar",
+            "Solo si se despegó de un aeródromo sin ATS",
+            "De acuerdo a la categoría de avión y al tipo de vuelo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-082",
+          "chapter": 1,
+          "number": 82,
+          "sourceNumber": 82,
+          "prompt": "La función de los alerones es",
+          "choices": [
+            "Rotar el planeador a través del eje vertical",
+            "Controlar la inclinación del ala.",
+            "Generar más sustentación"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-083",
+          "chapter": 1,
+          "number": 83,
+          "sourceNumber": 83,
+          "prompt": "La función del ladero (ayudante que sostiene el ala) es mantener los planos nivelados hasta que, al incrementar su velocidad el planeador, sea efectivo el comando de",
+          "choices": [
+            "Dirección (Timón)",
+            "Alabeo (Alerones)",
+            "Profundidad (Elevador)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-084",
+          "chapter": 1,
+          "number": 84,
+          "sourceNumber": 84,
+          "prompt": "La función del timón de profundidad es",
+          "choices": [
+            "Controlar el ángulo de ataque.",
+            "Controlar la velocidad.",
+            "Ambas son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-085",
+          "chapter": 1,
+          "number": 85,
+          "sourceNumber": 85,
+          "prompt": "La presión, con la altura",
+          "choices": [
+            "No varía.",
+            "Aumenta.",
+            "Disminuye."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-086",
+          "chapter": 1,
+          "number": 86,
+          "sourceNumber": 86,
+          "prompt": "La principal función de los frenos aerodinámicos es",
+          "choices": [
+            "Incrementar la sustentación.",
+            "página 11 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b. Disminuir la relación de planeo.",
+            "Incrementar la resistencia"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-087",
+          "chapter": 1,
+          "number": 87,
+          "sourceNumber": 87,
+          "prompt": "La responsabilidad de evitar una colisión bajo reglas VFR es de",
+          "choices": [
+            "El control de área correspondiente",
+            "El control y el piloto",
+            "El piloto"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-088",
+          "chapter": 1,
+          "number": 88,
+          "sourceNumber": 88,
+          "prompt": "La resultante aerodinámica surge de la relación entre",
+          "choices": [
+            "Sustentación y peso.",
+            "Sustentación y resistencia.",
+            "Tracción y resistencia."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-089",
+          "chapter": 1,
+          "number": 89,
+          "sourceNumber": 89,
+          "prompt": "Los mínimos meteorológicos VMC de un aeródromo controlado son",
+          "choices": [
+            "Visibilidad 8 Km y techo 1000 ft.",
+            "Visibilidad 5 Km y techo 1000 ft.",
+            "Visibilidad 2,5 Km y techo 500 ft."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-090",
+          "chapter": 1,
+          "number": 90,
+          "sourceNumber": 90,
+          "prompt": "Los niveles de vuelo están tomados con referencia a",
+          "choices": [
+            "Las alturas u obstáculos de un aeródromo",
+            "La elevación del aeródromo",
+            "La presión atmosférica estándar"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-091",
+          "chapter": 1,
+          "number": 91,
+          "sourceNumber": 91,
+          "prompt": "Los números 09 y 27 en una pista indican que su orientación es aproximadamente",
+          "choices": [
+            "009° y 027° verdadero",
+            "090°y 270° verdadero",
+            "090° y 270° magnético"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-092",
+          "chapter": 1,
+          "number": 92,
+          "sourceNumber": 92,
+          "prompt": "Los virajes Suaves, Normales y Escarpados se realizan con una inclinación de",
+          "choices": [
+            "30º, 60º y 90º",
+            "20º, 45º y 60º",
+            "15º, 30º y 45º"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-093",
+          "chapter": 1,
+          "number": 93,
+          "sourceNumber": 93,
+          "prompt": "Para convertir los valores de viento informados en nudos a kilómetros por hora, debo",
+          "choices": [
+            "Multiplicar los valores por tres y restarles el 50 %.",
+            "Sumarles el 30 %.",
+            "Multiplicar los valores por dos y restarles el 10 %."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-094",
+          "chapter": 1,
+          "number": 94,
+          "sourceNumber": 94,
+          "prompt": "Para qué se usa el flap negativo?",
+          "choices": [
+            "Para mejorar la performance a altas velocidades. página 12 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "Para subir mejor en la térmica.",
+            "Para efectuar la aproximación con más seguridad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-095",
+          "chapter": 1,
+          "number": 95,
+          "sourceNumber": 95,
+          "prompt": "Para realizar la maniobra de vuelo recto y nivelado se debe controlar los siguientes parámetros",
+          "choices": [
+            "Velocidad, alas niveladas con el horizonte, rumbo y la bolita del indicador de giro y ladeo (o “lana centrada”)",
+            "Velocidad, variómetro en cero, rumbo y la bolita del indicador de giro y ladeo (o “lana centrada”)",
+            "Velocidad, altímetro sin variaciones, variómetro en cero y la bolita del indicador de giro y ladeo (o “lana centrada”)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-096",
+          "chapter": 1,
+          "number": 96,
+          "sourceNumber": 96,
+          "prompt": "Que acción debe realizar un piloto que despega desde un aeródromo no controlado antes de entrar en un espacio “C”?",
+          "choices": [
+            "Debe contactarse con el ATC antes de ingresar",
+            "Debe presentar plan de vuelo antes de la partida",
+            "Debe estar a la escucha del ATC antes de ingresar"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-097",
+          "chapter": 1,
+          "number": 97,
+          "sourceNumber": 97,
+          "prompt": "Que áreas de control se encuentran en el espacio aéreo “C”?",
+          "choices": [
+            "Aeródromos controlados",
+            "TMA y CTR",
+            "TMA,CTR y ATZ"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-098",
+          "chapter": 1,
+          "number": 98,
+          "sourceNumber": 98,
+          "prompt": "Que Areas de Control se encuentran en el espacio aéreo Clase A?",
+          "choices": [
+            "Aeródromos controlados",
+            "CTR con uno o más aeródromos",
+            "Aerovias y TMA por encima de FL 195"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-099",
+          "chapter": 1,
+          "number": 99,
+          "sourceNumber": 99,
+          "prompt": "Qué debo hacer ante un corte de soga durante el remolque con menos de 80 m de altura?",
+          "choices": [
+            "Regresar a pista con un viraje hacia el lado del viento.",
+            "Incorporarme rápidamente a Inicial para aterrizar con viento de frente.",
+            "Aterrizar a mi frente, tratando de evitar los obstáculos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-100",
+          "chapter": 1,
+          "number": 100,
+          "sourceNumber": 100,
+          "prompt": "Qué distancia vertical se mide cuando se habla de altitud?",
+          "choices": [
+            "Entre la aeronave y la superficie terrestre.",
+            "Entre el aeródromo o planeador y el nivel medio del mar.",
+            "Entre el aeródromo y la aeronave."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-101",
+          "chapter": 1,
+          "number": 101,
+          "sourceNumber": 101,
+          "prompt": "Qué es el factor de carga?",
+          "choices": [
+            "El peso de la aeronave dividido por la superficie de sustentación.",
+            "La acción de la fuerza de gravedad sobre la aeronave.",
+            "Las veces que el planeador es capaz de soportar su propio peso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-102",
+          "chapter": 1,
+          "number": 102,
+          "sourceNumber": 102,
+          "prompt": "Que se le facilita al piloto antes de entrar en el circuito de un aeródromo controlado?",
+          "choices": [
+            "página 13 / 15 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal a) Longitud de pista y orientación de la misma",
+            "Elevación y longitud de pista",
+            "Pista en uso e información meteorológica disponible"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-103",
+          "chapter": 1,
+          "number": 103,
+          "sourceNumber": 103,
+          "prompt": "Salvo indicación en contrario, todos los virajes en circuito de aeródromo deben ser",
+          "choices": [
+            "Por izquierda",
+            "Por derecha.",
+            "Es indistinto. Depende del viento."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-104",
+          "chapter": 1,
+          "number": 104,
+          "sourceNumber": 104,
+          "prompt": "Si el viento cruzado tiende a acercarlo a pista en Inicial, qué actitud toma en Básica?",
+          "choices": [
+            "Anticipa el viraje de Básica a Final.",
+            "Disminuye la velocidad de Básica según la intensidad del mismo.",
+            "Retarda el viraje de Básica a Final."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-105",
+          "chapter": 1,
+          "number": 105,
+          "sourceNumber": 105,
+          "prompt": "Si en un viraje se aplica más pedal que alerón",
+          "choices": [
+            "El planeador derrapa.",
+            "El planeador desliza.",
+            "Ambas son correctas (a y b)."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-106",
+          "chapter": 1,
+          "number": 106,
+          "sourceNumber": 106,
+          "prompt": "Si la velocidad que tengo en el circuito de aterrizaje es algo mayor que la establecida, ¿cómo corregir?",
+          "choices": [
+            "Aumentar la actitud (subir la nariz del planeador).",
+            "Extender los frenos aerodinámicos",
+            "Compensar hacia adelante (disminuir la actitud)."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-107",
+          "chapter": 1,
+          "number": 107,
+          "sourceNumber": 107,
+          "prompt": "Siendo el planeador más pesado que el aire, ¿qué es necesario para que vuele?",
+          "choices": [
+            "Una fuerza capaz de oponerse a su propio peso.",
+            "Una componente paralela al viento relativo.",
+            "Una corriente ascendente"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-108",
+          "chapter": 1,
+          "number": 108,
+          "sourceNumber": 108,
+          "prompt": "Un excesivo aumento de peso en el planeador",
+          "choices": [
+            "Aumenta la carrera de despegue.Reduce la capacidad de ascenso.",
+            "Reduce la capacidad de maniobra.Aumenta la velocidad de pérdida.",
+            "Todas las anteriores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-109",
+          "chapter": 1,
+          "number": 109,
+          "sourceNumber": 109,
+          "prompt": "Un planeador con el CG muy atrás",
+          "choices": [
+            "Es muy estable y no influye en las condiciones de vuelo",
+            "Es poco estable y difícil de recuperar de barrenas.",
+            "Ninguna es correcta."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-110",
+          "chapter": 1,
+          "number": 110,
+          "sourceNumber": 110,
+          "prompt": "Un variómetro de energía total",
+          "choices": [
+            "No refleja la acción del piloto sobre el elevador.",
+            "Sí refleja la acción del piloto sobre el elevador.",
+            "Ninguna es correcta."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        },
+        {
+          "id": "ppl-01-111",
+          "chapter": 1,
+          "number": 111,
+          "sourceNumber": 111,
+          "prompt": "Volando recto y nivelado, el correcto control de velocidad se obtiene",
+          "choices": [
+            "Con la relación borde cabina – horizonte.",
+            "Con el velocímetro.",
+            "Con ambos parámetros (a y b). página 15 / 15 Powered by TCExam (www.tcexam.org)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
+        }
+      ]
+    }
+  ],
+  "figureSourceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf"
+}

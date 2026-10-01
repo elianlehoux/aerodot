@@ -1,0 +1,1098 @@
+{
+  "practiceOnly": false,
+  "testSize": 100,
+  "sourcePageUrl": "https://www.argentina.gob.ar/anac/examenes/piloto-combate-de-incendios-forestales",
+  "sourcePdfUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+  "sourceLabel": "Cuestionario público de combate de incendios · ANAC",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Combate de incendios forestales",
+      "questions": [
+        {
+          "id": "incendios-01-001",
+          "chapter": 1,
+          "number": 1,
+          "sourceNumber": 1,
+          "prompt": "1)Cual es la primer premisa a tener en cuenta como medida de seguridad para las operaciones en tierra?",
+          "choices": [
+            "2)El personal de tierra no se acercara a la aeronave hasta que el piloto se los indique",
+            "1)Evaluar las condiciones meteorológicas del lugar",
+            "3)verificar que el camión se encuentre a 10 mts del borde derecho de la pista"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-002",
+          "chapter": 1,
+          "number": 2,
+          "sourceNumber": 2,
+          "prompt": "1)La hipoxia es ?",
+          "choices": [
+            "La falta de oxigeno en el cuerpo",
+            "1)El exceso de oxigeno el el cuerpo",
+            "2)La falta de oxigeno en el torrente sanguineo",
+            "2)La falta de oxigeno en el torrente sanguíneo,con manchas en la piel de color azul"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-003",
+          "chapter": 1,
+          "number": 3,
+          "sourceNumber": 3,
+          "prompt": "1)las normas y procedimientos vigentes en la República Argentina sobre información meteorológica están emitidas y reguladas por",
+          "choices": [
+            "1) servicio meteorológico nacional",
+            "2)ministerio del intterior",
+            "3)Asociación del servicio metereologico con empresas multinacionales"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-004",
+          "chapter": 1,
+          "number": 4,
+          "sourceNumber": 4,
+          "prompt": "1)Se utilizan generalmente",
+          "choices": [
+            "1)coordenadas geográficas",
+            "2) GPS",
+            "3) la información del personal de tierra"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-005",
+          "chapter": 1,
+          "number": 5,
+          "sourceNumber": 5,
+          "prompt": "1)Un lanzamiento fuera significa?",
+          "choices": [
+            "1)Es un lanzamiento paralelo al frente o flanco pero en la zona",
+            "2)Un lanzamiento longitudinal ,a diez metros de la zona",
+            "3)un lanzamiento perpendicular ,ubicado en el centro de la zona"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-006",
+          "chapter": 1,
+          "number": 6,
+          "sourceNumber": 6,
+          "prompt": "10)la deriva del viento puede producir desplazamientos del agua que se lanzara ,de ser así usted debe procurar",
+          "choices": [
+            "1)Que el agua caiga sobre el fuego",
+            "2)Abortar la descarga y esperar mejores condiciones metereologicas",
+            "3)Que el agua caiga del lado del viento"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-007",
+          "chapter": 1,
+          "number": 7,
+          "sourceNumber": 7,
+          "prompt": "10)Los elementos de seguridad que se deben tener a mano son",
+          "choices": [
+            "1)Mata fuegos,arena,agua,guantes de protección,botikin,botas ,jabon blanco",
+            "2)Radio con el alcance necesario",
+            "3)Botikin,radio ,arena,ambulancia para traslado rapido página 1 / 7 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-008",
+          "chapter": 1,
+          "number": 8,
+          "sourceNumber": 8,
+          "prompt": "10)Que temperatura tiene el aire de la atmosfera standar a 3000 metros?",
+          "choices": [
+            "2)-4,5°C",
+            "1)50° C",
+            "3)18°C"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-009",
+          "chapter": 1,
+          "number": 9,
+          "sourceNumber": 9,
+          "prompt": "10)Que tipos de incendios forestales existen?",
+          "choices": [
+            "3)Conatos e incendios",
+            "1)grandes y pequeños",
+            "2)de desarrollo laterales y frontales"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-010",
+          "chapter": 1,
+          "number": 10,
+          "sourceNumber": 10,
+          "prompt": "2)Cuantas personas deben intervenir en la carga de un avión hidrante?",
+          "choices": [
+            "1)dos operadores",
+            "2)tres operadores",
+            "3)cinco operadores"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-011",
+          "chapter": 1,
+          "number": 11,
+          "sourceNumber": 11,
+          "prompt": "2)El casco del piloto debe ser",
+          "choices": [
+            "1)resistente a los golpes,rígido y no elastico",
+            "2)De material suave",
+            "3)De cuero,plastico"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-012",
+          "chapter": 1,
+          "number": 12,
+          "sourceNumber": 12,
+          "prompt": "2)El humo de color blanquecino es normalmente producido por",
+          "choices": [
+            "1)Pastos humedos ,desechos industriales ,rastrojos",
+            "2)Pastos y arboles de color verde",
+            "3)Pastos mezclados líquidos volatiles"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-013",
+          "chapter": 1,
+          "number": 13,
+          "sourceNumber": 13,
+          "prompt": "2)El Servicio metereologico nacional establece sus normas y procedimientos incorporando",
+          "choices": [
+            "1)recomendaciones de la OACI (anexo 3) y de la organización meteorológica mundial que son dos agencias especializadas de las naciones unidas",
+            "2)recomendaciones del tratado del atlántico norte",
+            "3)recomendaciones de IATA"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-014",
+          "chapter": 1,
+          "number": 14,
+          "sourceNumber": 14,
+          "prompt": "2)realizar la descarga en un incendio a mayor velocidad de la requerida ....",
+          "choices": [
+            "2)someterá a la aeronave a mayores cargas aerodinámicas y un angulo de ataque excesivo puede producir la perdida de sustentación",
+            "1)Someterá a la aeronave a mayores cargas aerodinamicas",
+            "3) esparcirá mejor el agua sobre el foco igneo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-015",
+          "chapter": 1,
+          "number": 15,
+          "sourceNumber": 15,
+          "prompt": "3) las recomendaciones y procedimientos del servicio meteorológico nacional son obligatorios por ley en la Rep Argentina y presta sus servicios de información aeronáutica operativa y permanente por medio de",
+          "choices": [
+            "1)oficinas meteorológicas de aeródromo que están en las cabeceras del la FIR",
+            "2)Por medio de internet página 2 / 7 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "3)Por medio de convenios entre provincias"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-016",
+          "chapter": 1,
+          "number": 16,
+          "sourceNumber": 16,
+          "prompt": "3)En el momento de atacar la linea de fuego con el agua ,que elemento es decisivo para orientar el circuito de lanzamiento",
+          "choices": [
+            "3)velocidad y dirección del viento",
+            "1)la dirección de la columna e humo",
+            "2)La altura de las llamas en los laterales de la linea de fuego"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-017",
+          "chapter": 1,
+          "number": 17,
+          "sourceNumber": 17,
+          "prompt": "3)Esta comprobado que en la operación de vuelo",
+          "choices": [
+            "3)En todas las operaciones de vuelo el alcohol es perjudicial para el desempeño de la misma",
+            "1)Tomar alcohol es favorable",
+            "2)No guardar el correspondiente descanso ,mejora la vision"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-018",
+          "chapter": 1,
+          "number": 18,
+          "sourceNumber": 18,
+          "prompt": "3)los tipos de lanzamientos son",
+          "choices": [
+            "Directo ,indirecto,en los flancos ,en zonas urbanas y apoyo a corta fuegos",
+            "1)Directo,indirecto,flancos",
+            "3)Contra indirecto ,por los flancos y en apoyo a cortafuegos y bomberos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-019",
+          "chapter": 1,
+          "number": 19,
+          "sourceNumber": 19,
+          "prompt": "3)Por lo general un foco secundario se produce",
+          "choices": [
+            "1)Detrás de la cabeza del fuego",
+            "2) En el centro del fuego",
+            "3)Luego de la segunda linea de corte de fuego"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-020",
+          "chapter": 1,
+          "number": 20,
+          "sourceNumber": 20,
+          "prompt": "4)A partir de que altura de la base de una capa de nubes y que cantidad de octavos de cielo cubierto tiene esa capa ,se tienen condiciones IMS",
+          "choices": [
+            "1) mas de 4/8",
+            "1) mas de 4/8 y 1000ft",
+            "2)5/8 y 1500ft",
+            "3)7/8 y 500 ft"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-021",
+          "chapter": 1,
+          "number": 21,
+          "sourceNumber": 21,
+          "prompt": "4)Cuales son los tres factores de los que depende un incendio forestal",
+          "choices": [
+            "2) Combustible,comburente,temperatura ambiente",
+            "1)Combustible ,oxigeno ,topografia",
+            "3) Temperatura,viento ,combustible"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-022",
+          "chapter": 1,
+          "number": 22,
+          "sourceNumber": 22,
+          "prompt": "4)En el esquema para identificar la cabeza del fuego ,la cola y las 6 zonas ,la numeración del 01 al 06 .Que sentido horario tiene",
+          "choices": [
+            "1)sentido horario 01-02-03-R 04-05-06-L",
+            "2)sentido anti horario 06-05-04-L 03-02-01-R",
+            "3)sentido horario 02-03-04-R 05-06-01- L"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-023",
+          "chapter": 1,
+          "number": 23,
+          "sourceNumber": 23,
+          "prompt": "4)Si la persona a tragado plaguicida",
+          "choices": [
+            "página 3 / 7 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal 1)hay que provocar el vomito",
+            "2) Tomar leche",
+            "3)No hacer nada y espera 2 hs para ver como evoluciona su estado de salud"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-024",
+          "chapter": 1,
+          "number": 24,
+          "sourceNumber": 24,
+          "prompt": "4)Un lanzamiento alto es utilizado para",
+          "choices": [
+            "1)facilitar el trabajo del personal de tierra ,debido a la mayor dispersión del agua",
+            "2) que el personal de tierra vea el avión y sepa hacia donde se dirija el fuego",
+            "3)Para que el piloto tenga mayor visibilidad y poder realizar mejor su trabajo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-025",
+          "chapter": 1,
+          "number": 25,
+          "sourceNumber": 25,
+          "prompt": "5)El empleo del código R es utilizado por",
+          "choices": [
+            "1)Por cualquier persona que lo entienda y trabaje en la empresa",
+            "2)Solo por el personal de tierra",
+            "3) por el piloto y la torre de control"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-026",
+          "chapter": 1,
+          "number": 26,
+          "sourceNumber": 26,
+          "prompt": "5)Las condiciones meteorológicas para vuelo visual son?",
+          "choices": [
+            "1)Son condiciones experesadas en terminos de visibilidad y distancia de las nubes con techos de nubes que los especificados para las reglas de vuelo visual",
+            "2)Las mismas condiciones iguales o peores",
+            "3)Ninguna de las anteriores"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-027",
+          "chapter": 1,
+          "number": 27,
+          "sourceNumber": 27,
+          "prompt": "5)Las descargas de agua se producirán",
+          "choices": [
+            "3)a través del coordinador de los medios aereos",
+            "1)Analizando la dirección del fuego",
+            "2)dependiendo de la necesidad de proteger las casas y sus habitantes"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-028",
+          "chapter": 1,
+          "number": 28,
+          "sourceNumber": 28,
+          "prompt": "5)Las tolvas en su interior poseen rompe olas ?",
+          "choices": [
+            "3) Si ,tiene el fin de evitar el descontrol del agua y facilitan la estabilidad de la aeronave",
+            "1)no",
+            "2) En algunos casos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-029",
+          "chapter": 1,
+          "number": 29,
+          "sourceNumber": 29,
+          "prompt": "5)Si se contamina con un plaguicida fosforado y los sintomas son graves",
+          "choices": [
+            "3)Administre dos tabletas de atropina",
+            "1)Administrar 2 aspirinas",
+            "2)Administrar corticoide"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-030",
+          "chapter": 1,
+          "number": 30,
+          "sourceNumber": 30,
+          "prompt": "6)Con que sistema se soluciona la descarga del deposito de agua de una aeronave para que esta sea rápida y segura",
+          "choices": [
+            "3)La tapa superior de abre de forma solidaria con la tapa de descarga inferior",
+            "1)Conectando una bomba que succiona el liquido del interior del tanque",
+            "2)Abrir la tapa inferior de descarga de agua"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-031",
+          "chapter": 1,
+          "number": 31,
+          "sourceNumber": 31,
+          "prompt": "6)En caso de contaminación con plaguicida se debe",
+          "choices": [
+            "1)Alejarlo del plaguicida derramado,quitarle la ropa y bañarlo con abundante agua",
+            "2)Alejarlo del hangar,suministrarle leche",
+            "3)lavar sus manos y cuello"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-032",
+          "chapter": 1,
+          "number": 32,
+          "sourceNumber": 32,
+          "prompt": "6)Las condiciones de vuelo por instrumentos son?",
+          "choices": [
+            "1)son expresadas en terminos de visibilidad ,distancia y techos a las nubes inferiores a la de vuelo visual",
+            "2)Las mismas condiciones o mejores",
+            "3)Ninguna de las anteriores"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-033",
+          "chapter": 1,
+          "number": 33,
+          "sourceNumber": 33,
+          "prompt": "6)Para elegir la pasada de descarga tenemos que tener en cuenta",
+          "choices": [
+            "1)la seguridad de la tripulación ,personal de tierra y lograr una máxima eficacia en el lanzamiento",
+            "2) La descarga se realice sobre el fuego",
+            "3)no se programa la descarga"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-034",
+          "chapter": 1,
+          "number": 34,
+          "sourceNumber": 34,
+          "prompt": "6)Que es un retardante ?",
+          "choices": [
+            "2)Un producto que preventivamente retrasa la ovolucion de plagas en las cosechas",
+            "1)un producto que dificulta la combustion",
+            "3)Un reactivo que adelanta la combustion"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-035",
+          "chapter": 1,
+          "number": 35,
+          "sourceNumber": 35,
+          "prompt": "7)Antes de trasladar a un accidentado",
+          "choices": [
+            "2)inmovilizar tanto el cuello como los traumatismos que tenga",
+            "1)Levantarle la cabeza para que respire mejor",
+            "3)dar aviso al hospital del traslado por tel"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-036",
+          "chapter": 1,
+          "number": 36,
+          "sourceNumber": 36,
+          "prompt": "7)Cual de los siguientes agentes es mas resistente a la evaporación ?",
+          "choices": [
+            "1)el agua",
+            "2) el alcohol",
+            "3)La espuma"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-037",
+          "chapter": 1,
+          "number": 37,
+          "sourceNumber": 37,
+          "prompt": "7)Cuantas tapas especificas de descarga existen",
+          "choices": [
+            "1) 2",
+            "2)6",
+            "3)6"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-038",
+          "chapter": 1,
+          "number": 38,
+          "sourceNumber": 38,
+          "prompt": "7)En cual de las siguientes capas de la atmósfera standar la variación de la temperatura es 0,65 ° centigrados cada 100 metros",
+          "choices": [
+            "1)troposfera",
+            "2)Estratosfera",
+            "3)termosfera página 5 / 7 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-039",
+          "chapter": 1,
+          "number": 39,
+          "sourceNumber": 39,
+          "prompt": "7)la preferencia de paso sera",
+          "choices": [
+            "1)a no ser que haya un rescate o emergencia",
+            "2) a voluntad del piloto",
+            "3) de acuerdo a lo estipulado con los bomberos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-040",
+          "chapter": 1,
+          "number": 40,
+          "sourceNumber": 40,
+          "prompt": "8)A que se llama cabeza del incendio?",
+          "choices": [
+            "2)Al punto donde se inicia el incendio",
+            "1)A la persona que dirige la lucha contra el incendio",
+            "3)Al personal que se encuentra en la primera linea de ataque"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-041",
+          "chapter": 1,
+          "number": 41,
+          "sourceNumber": 41,
+          "prompt": "8)Cual de los siguientes sistemas es compatible con los helicópteros afectados a la lucha contra el fuego",
+          "choices": [
+            "1)helibaldes,tanques ventrales,deposito rigido sumergible",
+            "2)carga por inmersión,deposito ventral",
+            "3)No arrojan agua ,solo transportan brigadistas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-042",
+          "chapter": 1,
+          "number": 42,
+          "sourceNumber": 42,
+          "prompt": "8)la reacción de encabritamiento se debe a",
+          "choices": [
+            "1)la perdida brusca de peso",
+            "2) el exceso de velocidad",
+            "3) por el Humo del incendio"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-043",
+          "chapter": 1,
+          "number": 43,
+          "sourceNumber": 43,
+          "prompt": "8)Las quemaduras se clasifican en",
+          "choices": [
+            "3)Primer grado ,segundo y tercer grado",
+            "1)A,AB,B,",
+            "2)primer y segundo grado"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-044",
+          "chapter": 1,
+          "number": 44,
+          "sourceNumber": 44,
+          "prompt": "8)Que caracteriza a la estratosfera?",
+          "choices": [
+            "1)un marcado descenso de la temperatura con la altura",
+            "2)Su baja altitud de menos de 15000 mts",
+            "3)pequeños cambios de presion que se incrementan con la altura"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-045",
+          "chapter": 1,
+          "number": 45,
+          "sourceNumber": 45,
+          "prompt": "9)El avance del fuego ,teniendo en cuenta la dirección e intensidad del viento es mayor en",
+          "choices": [
+            "3)Es simultaneo según la dirección y la intensidad del viento",
+            "1)El frente y los flancos",
+            "2)En la parte trasera del incendio"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-046",
+          "chapter": 1,
+          "number": 46,
+          "sourceNumber": 46,
+          "prompt": "9)El punto de no retorno es",
+          "choices": [
+            "3) es el punto limite de acción mas allá del cual el regreso al punto de salida es imposible",
+            "1)Sin viento ,es el radio de acción mas la autonomía",
+            "2)Es el tiempo máximo de vuelo de un avión hast agotar el combustible página 6 / 7 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-047",
+          "chapter": 1,
+          "number": 47,
+          "sourceNumber": 47,
+          "prompt": "9)En caso de contaminación en los ojos",
+          "choices": [
+            "3)Enjuagar con abundante agua",
+            "1)aplicar aire",
+            "2)limpiar con un trapo limpio y seco"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-048",
+          "chapter": 1,
+          "number": 48,
+          "sourceNumber": 48,
+          "prompt": "9)las radiocomunicaciones son posibles por la existencia de una capa atmosférica standar esta es ?",
+          "choices": [
+            "3)ionosfera",
+            "1)Ozonosfera",
+            "2)termosfera"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        },
+        {
+          "id": "incendios-01-049",
+          "chapter": 1,
+          "number": 49,
+          "sourceNumber": 49,
+          "prompt": "9)Si queremos actuar en la parte de un incendio con mayor intensidad y rapidez de propagación lo haremos sobre?",
+          "choices": [
+            "3)Cualquier sitio con humo y llamas visibles",
+            "1)la cabeza del incendio",
+            "2) el centro del incendio página 7 / 7 Powered by TCExam (www.tcexam.org)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
+        }
+      ]
+    }
+  ],
+  "figureSourceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf"
+}

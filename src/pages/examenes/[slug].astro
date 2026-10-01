@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import { licenses } from '../../data/licenses.js';
+import { isScoreableQuestion, allQuestionsOf, scoreableCount, mockSizeOf } from '../../data/question-utils.js';
+import ppaBank from '../../data/ppa-questions.json';
+import pcaHviBank from '../../data/exam-banks/pca-hvi.json';
+import tlaBank from '../../data/exam-banks/tla.json';
+import ivaBank from '../../data/exam-banks/iva.json';
+import rivaBank from '../../data/exam-banks/riva.json';
+import pplBank from '../../data/exam-banks/ppl.json';
+import ivhBank from '../../data/exam-banks/ivh.json';
+import ddaBank from '../../data/exam-banks/dda.json';
+import ivpBank from '../../data/exam-banks/ivp.json';
+import etviBank from '../../data/exam-banks/etvi.json';
+import ctaBank from '../../data/exam-banks/cta.json';
+import aeroBank from '../../data/exam-banks/aeroaplicador.json';
+import incendiosBank from '../../data/exam-banks/incendios.json';
+import paracaidasBank from '../../data/exam-banks/alumno-paracaidista.json';
+
+const bankByLicense = {
+  ppa: ppaBank,
+  'pca-hvi': pcaHviBank,
+  tla: tlaBank,
+  iva: ivaBank,
+  riva: rivaBank,
+  ppl: pplBank,
+  ivh: ivhBank,
+  dda: ddaBank,
+  ivp: ivpBank,
+  etvi: etviBank,
+  cta: ctaBank,
+  aeroaplicador: aeroBank,
+  incendios: incendiosBank,
+  'alumno-paracaidista': paracaidasBank,
+};
+
+export function getStaticPaths() {
+  return licenses.filter((license) => license.available).map((license) => ({ params: { slug: license.slug }, props: { license } }));
+}
+
+const { license } = Astro.props;
+const bank = bankByLicense[license.slug];
+const isPpa = license.slug === 'ppa';
+const allQuestions = allQuestionsOf(bank);
+const verifiedQuestions = scoreableCount(bank);
+const reviewQuestions = allQuestions.length - verifiedQuestions;
+const mockSize = mockSizeOf(bank, license.testSize);
+const mockCapped = mockSize < license.testSize;
+const regulatoryReferenceUrl = license.regulatoryReferenceUrl
+  ?? 'https://docs.anac.gob.ar/index.php/s/PtMG8j8sFeRyren/download/RAAC%20PARTE%2061.pdf';
+const regulatoryReferenceTitle = license.regulatoryReferenceTitle
+  ?? 'RAAC Parte 61 vigente';
+---
+
+<BaseLayout title={`${license.title} — Exámenes — Altura`} description={`Preguntas de práctica para ${license.title}.`}>
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav current="examenes" />
+  </header>
+
+  <main class="practice-page exam-practice-page" id="main-content" tabindex="-1" data-exam-license={license.slug} data-test-size={license.testSize} data-practice-only={license.practiceOnly}>
+    <a class="back-link" href="/examenes">← Todas las licencias</a>
+    <section class="practice-heading">
+      <p class="eyebrow">{license.code}{license.practiceOnly ? '' : ' · Preguntas del banco ANAC'}</p>
+      {isPpa ? <h1>Piloto Privado<br /><em>de Avión.</em></h1> : <h1>{license.title}</h1>}
+      <p>{license.practiceOnly
+        ? 'Practicá por tema o iniciá un examen de prueba. Las preguntas tienen explicación.'
+        : 'Practicá por tema o iniciá un examen de prueba con preguntas aleatorias del banco público ANAC.'}</p>
+    </section>
+
+    <section class="practice-start" id="practiceStart">
+      <div class="practice-options">
+        <label for="chapterSelect">Tema</label>
+        <select id="chapterSelect">
+          <option value="all">Todos los temas</option>
+          {bank.chapters.map((chapter) => <option value={chapter.questions[0]?.chapter}>Tema {String(chapter.questions[0]?.chapter).padStart(2, '0')} · {chapter.title}</option>)}
+        </select>
+        <small class="practice-options-hint">El filtro por tema se aplica a «Practicar». El examen de prueba mezcla todo el banco, como en la evaluación de ANAC.</small>
+        <div class="practice-start-actions">
+          <button class="button-primary" id="startStudy">Practicar <span>→</span></button>
+          <button class="button-quiet" id="startMock">Examen de prueba <span>↗</span></button>
+          <button class="button-quiet" id="startReview" hidden>Repasar mis errores <span>↻</span></button>
+        </div>
+        <p id="bankStatus" class="bank-status">{isPpa
+          ? `${allQuestions.length} preguntas · ${verifiedQuestions} con clave contrastada · ${reviewQuestions} en revisión.`
+          : license.practiceOnly
+            ? `${allQuestions.length} preguntas propias · ${verifiedQuestions} con clave y explicación.`
+            : `${allQuestions.length} preguntas del cuestionario público · ${verifiedQuestions} con la opción marcada · ${reviewQuestions} sin marca legible.`}</p>
+      </div>
+      <aside class="exam-reference">
+        <span>REFERENCIA ANAC</span>
+        <strong>{mockSize} preguntas</strong>
+        <p>{license.practiceOnly
+          ? `El banco disponible tiene ${allQuestions.length} preguntas originales; el simulacro selecciona hasta ${mockSize} al azar. No reproduce el examen oficial ni permite inferir aprobación.`
+          : mockCapped
+            ? `Este banco tiene ${verifiedQuestions} de sus ${allQuestions.length} preguntas con la opción marcada, así que el simulacro toma ${mockSize} y no ${license.testSize}. ANAC informa ${license.testSize} preguntas en su evaluación: la diferencia son preguntas que este banco todavía no puede puntuar.`
+            : `El simulacro elige ${mockSize} preguntas al azar entre las que tienen opción marcada. ANAC informa 100 preguntas en TCEXAM, 50 en la rehabilitación de instructor, y 75% para aprobar. Confirmá el formato de tu evaluación.`}</p>
+        <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">{license.sourceLabel} ↗</a>
+        <small>{license.sourceNote}</small>
+      </aside>
+    </section>
+
+    <section id="quiz" class="practice-quiz" hidden>
+      <div class="quiz-chrome">
+        <div class="quiz-top">
+          <button class="text-button" id="exitQuiz">← Salir</button>
+          <span id="quizMode">Práctica</span>
+          <span id="quizCount">— / —</span>
+          <span id="quizTimer" hidden>00:00</span>
+        </div>
+        <div class="quiz-progress"><i id="quizProgress"></i></div>
+        <div class="quiz-score">
+          <span>Correctas: <b id="scoreCorrect">0</b></span>
+          <span>Errores: <b id="scoreWrong">0</b></span>
+        </div>
+      </div>
+      <div class="question-area">
+        <p class="question-meta" id="questionMeta"></p>
+        <h2 id="questionText" tabindex="-1"></h2>
+        <div id="questionFigures" class="question-figures" hidden></div>
+        <p id="figureNotice" class="figure-notice" hidden></p>
+        <p id="sourceNote" class="source-note" hidden></p>
+        <div id="answerOptions" class="answer-options"></div>
+        <div id="answerFeedback" class="answer-feedback" aria-live="polite" hidden></div>
+        <div class="quiz-controls">
+          <button class="button-quiet" id="skipQuestion">No sé / Saltar</button>
+          <button class="button-primary" id="nextQuestion" disabled>Continuar <span>→</span></button>
+        </div>
+        <p class="quiz-report"><button class="page-report" type="button" id="reportQuestion" data-report-page data-report-direct>Avisar un error en esta pregunta</button></p>
+
+      </div>
+    </section>
+
+    <section id="results" class="practice-results" hidden>
+      <h2 id="resultTitle" tabindex="-1">Buen trabajo.</h2>
+      <p id="resultSummary"></p>
+      <p id="resultTime" class="result-time" hidden></p>
+      <div class="result-stats">
+        <div><strong id="resultCorrect">0</strong><span>correctas</span></div>
+        <div><strong id="resultReview">0</strong><span>en revisión · sin puntuar</span></div>
+        <div><strong id="resultWrong">0</strong><span>incorrectas o saltadas</span></div>
+      </div>
+      <div class="result-actions">
+        <button class="button-primary" id="retryWrong">Repasar errores <span>→</span></button>
+        <button class="button-quiet" id="finishQuiz">Volver a práctica <span>↗</span></button>
+      </div>
+      <div id="resultReviewList" class="review-list"></div>
+    </section>
+
+    <section class="source-strip">
+      <span>FUENTES Y ALCANCE</span>
+      {license.sourcePdfUrl && <a href={license.sourcePdfUrl} target="_blank" rel="noreferrer">Abrir cuestionario público de referencia ↗</a>}
+      <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">Página de exámenes ANAC ↗</a>
+      <a href={regulatoryReferenceUrl} target="_blank" rel="noreferrer">Consultar {regulatoryReferenceTitle} ↗</a>
+      <a href="https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-44-2025-408483/texto" target="_blank" rel="noreferrer">Resolución ANAC 44/2025 · bancos alternativos ↗</a>
+      <p>{license.practiceOnly ? 'Las preguntas de Altura son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.' : 'Herramienta independiente de estudio. Las preguntas con clave pendiente quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
+    </section>
+  </main>
+
+  <footer class="home-footer study-foot">
+    <BrandMark />
+    <span>Estudiá a tu ritmo, sin cuenta.</span>
+    <a href="/temas">Biblioteca ↗</a>
+  </footer>
+  <script src="../../scripts/practice.js"></script>
+</BaseLayout>

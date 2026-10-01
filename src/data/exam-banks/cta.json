@@ -1,0 +1,158 @@
+{
+  "practiceOnly": true,
+  "testSize": 10,
+  "sourcePageUrl": "https://www.argentina.gob.ar/examenes/controlador-de-transito-aereo",
+  "sourceLabel": "ANAC: referencia al cuestionario oficial publicado para CTA por primera vez 2025; la página oficial advierte que los cuestionarios pueden ampliarse o modificarse. Banco original de práctica, no reemplaza RAAC, PROGEN-ATM ni instrucción vigente.",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Servicios de tránsito aéreo y marco profesional",
+      "questions": [
+        {
+          "id": "cta-01",
+          "chapter": 1,
+          "number": 1,
+          "prompt": "¿Cuál es uno de los objetivos centrales de los servicios de tránsito aéreo según RAAC Parte 211?",
+          "choices": ["Prevenir colisiones entre aeronaves", "Garantizar que toda aeronave llegue a horario", "Reemplazar la responsabilidad del piloto al mando", "Asegurar condiciones meteorológicas favorables"],
+          "answerIndex": 0,
+          "explanation": "Parte 211 incluye prevenir colisiones entre aeronaves entre los objetivos de los servicios de tránsito aéreo.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/parte_211_unido_10-06-2022.pdf",
+          "referenceTitle": "RAAC Parte 211: Gestión del tránsito aéreo, sección 211.015"
+        },
+        {
+          "id": "cta-02",
+          "chapter": 1,
+          "number": 2,
+          "prompt": "¿Qué distingue en términos generales al servicio de información de vuelo del servicio de control de tránsito aéreo?",
+          "choices": ["El primero brinda información útil para la seguridad y eficacia del vuelo; el segundo cumple además objetivos de control definidos por la norma", "El primero solo se presta en aeródromos controlados", "El segundo se limita a transmitir pronósticos meteorológicos", "No hay diferencia funcional entre ambos servicios"],
+          "answerIndex": 0,
+          "explanation": "La Parte 211 diferencia el control, la información de vuelo y el alerta; la información de vuelo aporta información útil, mientras que el control satisface objetivos de separación y ordenamiento conforme a la norma.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/parte_211_unido_10-06-2022.pdf",
+          "referenceTitle": "RAAC Parte 211: Gestión del tránsito aéreo, sección 211.020"
+        },
+        {
+          "id": "cta-03",
+          "chapter": 1,
+          "number": 3,
+          "prompt": "¿Qué propósito tiene el servicio de alerta dentro de los servicios de tránsito aéreo?",
+          "choices": ["Autorizar despegues cuando hay baja visibilidad", "Notificar a los organismos pertinentes cuando una aeronave necesita búsqueda y salvamento y colaborar con ellos", "Determinar la aeronavegabilidad de la aeronave", "Asignar prioridades comerciales a los vuelos"],
+          "answerIndex": 1,
+          "explanation": "El servicio de alerta incluye notificar a los organismos pertinentes sobre aeronaves que requieren ayuda de búsqueda y salvamento y colaborar con ellos.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/parte_211_unido_10-06-2022.pdf",
+          "referenceTitle": "RAAC Parte 211: Gestión del tránsito aéreo, sección 211.015"
+        },
+        {
+          "id": "cta-04",
+          "chapter": 1,
+          "number": 4,
+          "prompt": "¿Qué requisito de examen establece la modificación de la sección 65.33 aprobada por ANAC para el postulante a CTA?",
+          "choices": ["Aprobar una prueba práctica de vuelo en aeronave", "Completar una habilitación de instructor antes de postularse", "Aprobar el examen correspondiente ante un inspector de la ANAC", "Presentar únicamente un certificado de curso sin evaluación"],
+          "answerIndex": 2,
+          "explanation": "La Resolución ANAC 6/2025 modifica la sección 65.33 e incorpora la aprobación del examen ante un inspector como requisito de otorgamiento.",
+          "referenceUrl": "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-6-2025-408211/texto",
+          "referenceTitle": "Resolución ANAC 6/2025: modificación de la sección 65.33 para CTA"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Navegación, ayudas y vigilancia",
+      "questions": [
+        {
+          "id": "cta-05",
+          "chapter": 2,
+          "number": 1,
+          "prompt": "¿Qué información proporciona una estación VOR a una aeronave receptora?",
+          "choices": ["Una distancia horizontal exacta a la estación", "Una marcación angular o radial referida al norte magnético de la estación", "La altitud de presión de las aeronaves próximas", "La guía vertical de una aproximación de precisión"],
+          "answerIndex": 1,
+          "explanation": "VOR proporciona información azimutal en radiales referidas al norte magnético de la estación; no es por sí mismo una medición de distancia.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/anexo_-_reso_85-2024.pdf",
+          "referenceTitle": "RAAC Parte 210, sección 210.150: Radiofaro omnidireccional VHF (VOR)"
+        },
+        {
+          "id": "cta-06",
+          "chapter": 2,
+          "number": 2,
+          "prompt": "¿Qué mide directamente un equipo DME asociado a una estación terrestre?",
+          "choices": ["La distancia oblicua entre la aeronave y la instalación", "La distancia horizontal sobre el terreno", "La elevación de la estación respecto del nivel medio del mar", "La velocidad respecto del suelo"],
+          "answerIndex": 0,
+          "explanation": "DME mide la distancia oblicua entre la aeronave y la instalación terrestre, no la distancia horizontal proyectada.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/anexo_-_reso_85-2024.pdf",
+          "referenceTitle": "RAAC Parte 210, sección 210.165: Equipo radiotelemétrico (DME)"
+        },
+        {
+          "id": "cta-07",
+          "chapter": 2,
+          "number": 3,
+          "prompt": "¿Qué combinación describe correctamente las señales principales de un ILS?",
+          "choices": ["El localizador brinda guía vertical y la trayectoria de planeo, lateral", "Ambas señales informan únicamente distancia", "El localizador brinda guía lateral y la trayectoria de planeo, vertical", "El localizador transmite altitud y la trayectoria de planeo, rumbo"],
+          "answerIndex": 2,
+          "explanation": "El localizador aporta guía lateral del eje de aproximación y la trayectoria de planeo aporta guía vertical.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/anexo_-_reso_85-2024.pdf",
+          "referenceTitle": "RAAC Parte 210, secciones 210.130 y 210.135: ILS"
+        },
+        {
+          "id": "cta-08",
+          "chapter": 2,
+          "number": 4,
+          "prompt": "¿Qué dato transmite automáticamente el modo C del transpondedor, además de la respuesta de vigilancia básica?",
+          "choices": ["El número de pasajeros a bordo", "La altitud de presión", "La temperatura exterior", "La distancia al aeródromo de destino"],
+          "answerIndex": 1,
+          "explanation": "En el modo C, el transpondedor transmite automáticamente información de altitud de presión cuando está equipado y configurado para ello.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/anexo_-_reso_85-2024.pdf",
+          "referenceTitle": "RAAC Parte 210, sección 210.520: respuestas del transpondedor SSR"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Navegación basada en performance y seguridad operacional",
+      "questions": [
+        {
+          "id": "cta-09",
+          "chapter": 3,
+          "number": 1,
+          "prompt": "¿Qué caracteriza a la navegación basada en performance (PBN)?",
+          "choices": ["La navegación depende exclusivamente de referencias visuales", "Las operaciones de navegación se basan en especificaciones de performance para aeronaves que operan en rutas, procedimientos o espacios designados", "Todas las aeronaves deben utilizar el mismo sensor de navegación", "PBN significa que el control de tránsito aéreo deja de ser necesario"],
+          "answerIndex": 1,
+          "explanation": "PBN se apoya en especificaciones de performance de navegación aplicables a operaciones en rutas ATS, procedimientos instrumentales o espacios aéreos designados.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/anexo_-_reso_85-2024.pdf",
+          "referenceTitle": "RAAC Parte 210, sección 210.001: navegación basada en performance"
+        },
+        {
+          "id": "cta-10",
+          "chapter": 3,
+          "number": 2,
+          "prompt": "Antes de implementar un cambio que pueda afectar la seguridad operacional de las actividades del proveedor de navegación aérea, ¿qué medida establece la Resolución ANAC 728/2025?",
+          "choices": ["Implementarlo y evaluar sus efectos al finalizar el primer mes", "Solicitar una autorización al fabricante del equipo", "Realizar un análisis de riesgo previo y presentarlo para aceptación de ANAC cuando corresponda", "Suspender indefinidamente todos los servicios de tránsito aéreo"],
+          "answerIndex": 1,
+          "explanation": "La resolución instruye a requerir un análisis de riesgo antes de implementar cambios con posible impacto en la seguridad operacional, para su aceptación por ANAC cuando corresponda.",
+          "referenceUrl": "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-728-2025-418889/texto",
+          "referenceTitle": "Resolución ANAC 728/2025, artículo 2: análisis de riesgo previo a cambios"
+        },
+        {
+          "id": "cta-11",
+          "chapter": 3,
+          "number": 3,
+          "prompt": "¿Por qué un controlador debe verificar la vigencia del material de estudio operativo utilizado en su formación?",
+          "choices": ["Porque la ANAC informa que los cuestionarios publicados pueden ampliarse o modificarse", "Porque todo material anterior pierde validez automáticamente al año", "Porque las ayudas de navegación se reemplazan cada mes", "Porque los manuales de fabricante sustituyen las RAAC"],
+          "answerIndex": 0,
+          "explanation": "La página oficial de examen de CTA advierte que el cuestionario puede ampliarse o modificarse periódicamente; el candidato debe contrastar el material con publicaciones vigentes.",
+          "referenceUrl": "https://www.argentina.gob.ar/examenes/controlador-de-transito-aereo",
+          "referenceTitle": "ANAC: Controlador de Tránsito Aéreo, publicación del cuestionario oficial"
+        },
+        {
+          "id": "cta-12",
+          "chapter": 3,
+          "number": 4,
+          "prompt": "Al estudiar procedimientos locales para una habilitación CTA, ¿qué combinación es la referencia adecuada?",
+          "choices": ["Apuntes sin fecha de cualquier centro de instrucción", "Solo manuales de proveedores de equipos", "RAAC y procedimientos ATM vigentes aprobados por ANAC, junto con el programa reconocido", "El banco histórico de preguntas por sí solo"],
+          "answerIndex": 2,
+          "explanation": "Las reglas y procedimientos de operación dependen de publicaciones oficiales vigentes; un banco histórico sirve para practicar, no para sustituirlos.",
+          "referenceUrl": "https://www.argentina.gob.ar/anac/navegacion-aerea/servicio-de-transito-aereo-ats",
+          "referenceTitle": "ANAC: Servicio de Tránsito Aéreo (ATS), enlaces a RAAC 211 y PROGEN-ATM"
+        }
+      ]
+    }
+  ]
+}

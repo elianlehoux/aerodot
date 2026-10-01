@@ -1,0 +1,3736 @@
+{
+  "practiceOnly": false,
+  "testSize": 100,
+  "sourcePageUrl": "https://www.argentina.gob.ar/examenes/piloto-aeroaplicador-de-avion",
+  "sourcePdfUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+  "sourceLabel": "Cuestionario público de aeroaplicador · ANAC · Resolución 306/2014",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Aeroaplicador de avión",
+      "questions": [
+        {
+          "id": "aeroaplicador-01-001",
+          "chapter": 1,
+          "number": 1,
+          "sourceNumber": 1,
+          "prompt": "¿A qué denominamos ritmo circadiano?",
+          "choices": [
+            "Son oscilaciones de las variables biológicas en intervalos regulares de tiempo.",
+            "Es el reloj biológico humano que regula las funciones fisiológicas del organismo para que sigan un ciclo regular que se repite cada 24 horas, y que coincide con los estados de sueño y vigilia.",
+            "A y B son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-002",
+          "chapter": 1,
+          "number": 2,
+          "sourceNumber": 2,
+          "prompt": "¿Quién tiene la obligación de asegurarse del buen estado de la aeronave antes de la partida?",
+          "choices": [
+            "El explotador.",
+            "El piloto al mando (Comandante). .",
+            "La Autoridad Aeronáutica"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-003",
+          "chapter": 1,
+          "number": 3,
+          "sourceNumber": 3,
+          "prompt": "10.- ¿Qué significa el término punto de rocío?",
+          "choices": [
+            "Para modificar el caudal aplicado manteniendo la presión constante modifico:",
+            "La temperatura en la cual condensación y evaporación son iguales.",
+            "La temperatura en la que el rocío siempre se forma.",
+            "La temperatura en la cual el aire debe enfriarse manteniendo constante la humedad para que se sature."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 3,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-004",
+          "chapter": 1,
+          "number": 4,
+          "sourceNumber": 4,
+          "prompt": "11.- La cantidad de humedad que el aire puede contener depende de",
+          "choices": [
+            "El punto de rocío.",
+            "La temperatura de aire.",
+            "La estabilidad del aire."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-005",
+          "chapter": 1,
+          "number": 5,
+          "sourceNumber": 5,
+          "prompt": "11) Medicamentos de venta libre tales como las aspirinas no revisten peligro para el vuelo",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-006",
+          "chapter": 1,
+          "number": 6,
+          "sourceNumber": 6,
+          "prompt": "13) Un piloto con un tratamiento por alergia que esté tomando antihistamínicos puede producir alguno de los siguientes efectos secundarios",
+          "choices": [
+            "Dolores de cabeza.",
+            "Alteraciones en vista y oídos.",
+            "Somnolencia.",
+            "Todas las anteriores son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-007",
+          "chapter": 1,
+          "number": 7,
+          "sourceNumber": 7,
+          "prompt": "14.- Si una masa de aire se va trasladando estará",
+          "choices": [
+            "Desarrollando propiedades convectivas. página 1 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "Tomando propiedades de la superficie por donde transita.",
+            "Permaneciendo en su estado original."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-008",
+          "chapter": 1,
+          "number": 8,
+          "sourceNumber": 8,
+          "prompt": "14) La parte del oído más sensible para un piloto es",
+          "choices": [
+            "Conducto auditivo externo.",
+            "Oído medio.",
+            "Oído interno."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-009",
+          "chapter": 1,
+          "number": 9,
+          "sourceNumber": 9,
+          "prompt": "15) El efecto de una cantidad determinada de alcohol en vuelo",
+          "choices": [
+            "Es igual en altura que a nivel del mar.",
+            "Es mayor en altura que a nivel del mar.",
+            "No existen diferencias"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-010",
+          "chapter": 1,
+          "number": 10,
+          "sourceNumber": 10,
+          "prompt": "18) Cuando una persona presenta más de 100 pulsaciones por minuto se denomina",
+          "choices": [
+            "Arritmia.",
+            "Bradicardia.",
+            "Taquicardia.",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-011",
+          "chapter": 1,
+          "number": 11,
+          "sourceNumber": 11,
+          "prompt": "2. A efectos de reducir los riesgos de incendio por colisión es deseable que",
+          "choices": [
+            "Los tanques de combustible se encuentren ubicados detrás del motor.",
+            "Los tanques de combustible se encuentren instalados en las alas lo más lejos del fuselaje.",
+            "Los tanques de combustible se construyen de un material incombustible."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-012",
+          "chapter": 1,
+          "number": 12,
+          "sourceNumber": 12,
+          "prompt": "2.- Cada proceso físico en la atmósfera es acompañado o es el resultado de",
+          "choices": [
+            "Movimiento de aire.",
+            "Presión diferencial.",
+            "Intercambio de calor."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-013",
+          "chapter": 1,
+          "number": 13,
+          "sourceNumber": 13,
+          "prompt": "2.14 f. En caso de otras atribuciones que la Autoridad Aeronáutica competente considere que no requieran estar incorporadas en la licencia o certificado de competencia de piloto, tal como es la adaptación o re-adaptación a ciertas funciones de vuelo, deberá tenerlas registrada y debidamente firmada en",
+          "choices": [
+            "En el Libro matriz de la institución aero-deportiva o Escuela de vuelo.",
+            "En una licencia adicional certificada",
+            "En el Libro de Vuelo del causante, por el Instructor de Vuelo que impartió la instrucción."
+          ],
+          "printedOptionLabels": [
+            "b",
+            "a",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-014",
+          "chapter": 1,
+          "number": 14,
+          "sourceNumber": 14,
+          "prompt": "2.14 f. Todo titular de un certificado de idoneidad aeronáutica deberá tener, si corresponde, inscripto en el mismo habilitaciones adicionales.",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-015",
+          "chapter": 1,
+          "number": 15,
+          "sourceNumber": 15,
+          "prompt": "2.14.4 La parte que define la aplicacion de la Raac (RAAC 61.1) establece",
+          "choices": [
+            "Los requisitos mínimos y procedimientos para el otorgamiento de licencias de piloto, certificados de competencia de piloto o habilitaciones.",
+            "Unicamente las condiciones bajo las cuales son necesarias, sus atribuciones y limitaciones",
+            "Establece los requisitos mínimos y procedimientos para el otorgamiento de licencias de piloto, certificados de competencia de piloto o habilitaciones, las condiciones bajo las cuales son necesarias,sus atribuciones y limitaciones."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-016",
+          "chapter": 1,
+          "number": 16,
+          "sourceNumber": 16,
+          "prompt": "2.14.f Ninguna persona titular de una licencia o certificado de competencia de piloto podrá actuar como piloto o en cualquier otra función en que se requiere un piloto miembro de la tripulación de vuelo de una aeronave civil matriculada y/o registrada en el país, a menos que",
+          "choices": [
+            "Sea titular y porte una licencia o certificado de competencia de piloto vigente otorgada bajo esta Parte o normas anteriores.",
+            "Sea titular y porte una licencia o certificado de competencia de piloto no necesariamente vigente otorgada o normas anteriores.",
+            "Sea titular y porte una licencia o certificado de competencia de piloto otorgada bajo esta Parte o sin cuidado de ser concedida por normas anteriores."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-017",
+          "chapter": 1,
+          "number": 17,
+          "sourceNumber": 17,
+          "prompt": "21) Para reducir el tamaño de la gota con un pico hidráulico.",
+          "choices": [
+            "Se deberá seleccionar una pastilla con un orificio menor.",
+            "Se deberá seleccionar un núcleo de mayor caudal.",
+            "Se deberá enfrentar el pico a la corriente de aire.",
+            "Se deberé orientar el pico a favor de la corriente de aire."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-018",
+          "chapter": 1,
+          "number": 18,
+          "sourceNumber": 18,
+          "prompt": "214- Las denominadas regulaciones Argentinas de aviación civil. Parte 61 se delimita a la regulación de",
+          "choices": [
+            "LICENCIAS, CERTIFICADO DE COMPETENCIA Y HABILITACIONES",
+            "LICENCIAS, CERTIFICADO DE COMPETENCIA Y HABILITACIONES PARA PILOTO",
+            "CERTIFICADOS DE COMPETENCIA Y HABILITACIONES PARA PILOTO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-019",
+          "chapter": 1,
+          "number": 19,
+          "sourceNumber": 19,
+          "prompt": "23.- Las nubes formadas por el aire enfriado de una capa estable son",
+          "choices": [
+            "Cúmulos.",
+            "Nimbus.",
+            "Stratus."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-020",
+          "chapter": 1,
+          "number": 20,
+          "sourceNumber": 20,
+          "prompt": "3.- El viento que se desplaza es creado por",
+          "choices": [
+            "Movimiento de aire desde áreas de baja presión hacia un área de alta presión.",
+            "Movimiento de aire desde áreas de alta presión hacia un área de baja presión.",
+            "El efecto que provoca la fuerza de coriolis."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-021",
+          "chapter": 1,
+          "number": 21,
+          "sourceNumber": 21,
+          "prompt": "3.El manual de vuelo aprobado es",
+          "choices": [
+            "Solamente una guía de referencia para el uso correcto del avión.",
+            "Donde se registra la historia técnica del avión.",
+            "Es parte de la documentación básica para poder obtener un certificado de aeronavegabilidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-022",
+          "chapter": 1,
+          "number": 22,
+          "sourceNumber": 22,
+          "prompt": "38.- Para la disipación de la niebla será necesario vientos de o mayor de",
+          "choices": [
+            "página 3 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal a) 5 nudos.",
+            "7 nudos.",
+            "15 nudos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-023",
+          "chapter": 1,
+          "number": 23,
+          "sourceNumber": 23,
+          "prompt": "4. Un día de baja presión y alta temperatura ambiente producirá",
+          "choices": [
+            "Una disminución en la altitud de densidad.",
+            "Un aumento en la altitud de densidad.",
+            "No producirá ningún cambio en la altitud de densidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-024",
+          "chapter": 1,
+          "number": 24,
+          "sourceNumber": 24,
+          "prompt": "40.- ¿Qué condiciones favorecen la formación de niebla de radiación?",
+          "choices": [
+            "Humedad en capas bajas, poco o nada de viento, noches despejadas.",
+            "Humedad, aire tropical moviéndose sobre superficies de aguas frías costeras.",
+            "Movimiento de aires frio sobre superficies de agua más calientes."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-025",
+          "chapter": 1,
+          "number": 25,
+          "sourceNumber": 25,
+          "prompt": "488- ¿Cual de las Reglamentaciones Argentinas de Aviacion Civil (RAAC) corresponde a Licencias al Personal Aeronautico?",
+          "choices": [
+            "RAAC 65.",
+            "RAAC 61.",
+            "RAAC 63."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-026",
+          "chapter": 1,
+          "number": 26,
+          "sourceNumber": 26,
+          "prompt": "9.- La humedad relativa puede incrementarse",
+          "choices": [
+            "Por una baja de la temperatura ambiente o por un incremento de la cantidad de humedad en el aire.",
+            "Por la presión.",
+            "Por incremento de viento por encima de 15 nudos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-027",
+          "chapter": 1,
+          "number": 27,
+          "sourceNumber": 27,
+          "prompt": "A qué nos referimos cuando hablamos de DROGA?",
+          "choices": [
+            "Nombre genérico de ciertas sustancias usadas en industria, medicina o química..",
+            "Cualquier sustancia de efecto estimulante, deprimente, narcótico o alucinógeno y cuyo consumo reiterado puede provocar adicción o dependencia.",
+            "Todas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-028",
+          "chapter": 1,
+          "number": 28,
+          "sourceNumber": 28,
+          "prompt": "Ante una ráfaga lateral durante la pasada, el avión naturalmente",
+          "choices": [
+            "Tenderá a salirse de la trayectoria sin modificar su rumbo.",
+            "Tenderá a salirse de la trayectoria girando a favor del viento.",
+            "Tenderá a mantenerse en la trayectoria enfrentando el viento."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-029",
+          "chapter": 1,
+          "number": 29,
+          "sourceNumber": 29,
+          "prompt": "Con un equipo de atomizadores rotativos se deberá volar",
+          "choices": [
+            "A una altura superior a la de un equipo de picos hidráulicos.",
+            "A una altura igual a la de un equipo de picos hidráulicos.",
+            "A una altura inferior a la de un equipo de picos hidráulicos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-030",
+          "chapter": 1,
+          "number": 30,
+          "sourceNumber": 30,
+          "prompt": "Con una velocidad de 160 km/h y 20 mts de ancho efectivo de trabajo el avión cubrirá x minuto una superficie aproximada de",
+          "choices": [
+            "5,5 has.",
+            "10 has.",
+            "8 has"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-031",
+          "chapter": 1,
+          "number": 31,
+          "sourceNumber": 31,
+          "prompt": "Cual es la principal desventaja de hacer aplicaciones en circuito hipódromo.",
+          "choices": [
+            "Que los cambios de rumbo son más lentos.",
+            "Que es más difícil ver las referencias.",
+            "Cuando la componente no sea perpendicular a la trayectoria de vuelo una mitad del lote puede quedar más dosificada que la otra."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-032",
+          "chapter": 1,
+          "number": 32,
+          "sourceNumber": 32,
+          "prompt": "Cuando el viento no es perpendicular a la dirección de vuelo, el caudal aplicado es",
+          "choices": [
+            "Mayor con viento de frente",
+            "Mayor con viento de cola",
+            "No varía"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-033",
+          "chapter": 1,
+          "number": 33,
+          "sourceNumber": 33,
+          "prompt": "Cuando la alimentación no cubre las necesidades nutricionales se producen alteraciones fisiológicas, como hipoglucemia, fatiga muscular, deshidratación, distensión abdominal, obesidad entre otras.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-034",
+          "chapter": 1,
+          "number": 34,
+          "sourceNumber": 34,
+          "prompt": "Cuando se duerme más de las horas necesarias se altera el sistema nervioso, se genera un estado de irritabilidad y baja el sistema inmunológico, los órganos del cuerpo se desestabilizan, aparecen con-tracturas y se altera el carácter, es decir la parte físico química, la estructural y también la psíquica se desequilibran.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-035",
+          "chapter": 1,
+          "number": 35,
+          "sourceNumber": 35,
+          "prompt": "El ancho de trabajo de un herbicida total con respecto a un herbicida selectivo es por lo general",
+          "choices": [
+            "Igual",
+            "Mayor",
+            "Menor"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-036",
+          "chapter": 1,
+          "number": 36,
+          "sourceNumber": 36,
+          "prompt": "El ancho efectivo de trabajo dependera de",
+          "choices": [
+            "Embergadura",
+            "Tipo de equipo aspersor",
+            "Presión"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-037",
+          "chapter": 1,
+          "number": 37,
+          "sourceNumber": 37,
+          "prompt": "El aumento de las RPM en las bombas eólicas depende fundamentalmente de",
+          "choices": [
+            "Tipo y cantidad de palas de la hélice de la bomba",
+            "Posición de la bomba respecto del fuselaje",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-038",
+          "chapter": 1,
+          "number": 38,
+          "sourceNumber": 38,
+          "prompt": "El aumento de las RPM en una bomba eólica origina fundamentalmente aumento de",
+          "choices": [
+            "Presión",
+            "Caudal",
+            "Ancho efectivo de trabajo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-039",
+          "chapter": 1,
+          "number": 39,
+          "sourceNumber": 39,
+          "prompt": "El bicho moro es un",
+          "choices": [
+            "Coleóptero.",
+            "Díptero.",
+            "a y b son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-040",
+          "chapter": 1,
+          "number": 40,
+          "sourceNumber": 40,
+          "prompt": "El consumo de dosis pequeñas o moderadas de alcohol puede dar lugar a alteraciones del juicio y de los tiempos de reacción. Además disminuye la tolerancia a la hipoxia (el efecto es mayor en altitud que a nivel del mar).",
+          "choices": [
+            "Verdadero.",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-041",
+          "chapter": 1,
+          "number": 41,
+          "sourceNumber": 41,
+          "prompt": "El Control de la deriva es más eficiente con",
+          "choices": [
+            "Atomizadores",
+            "Picos CP",
+            "Picos Tee Jeet con pastillas cono hueco"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-042",
+          "chapter": 1,
+          "number": 42,
+          "sourceNumber": 42,
+          "prompt": "El control de la maleza sin afectar el cultivo se define como",
+          "choices": [
+            "a- Pulgicida",
+            "b- Herbicida",
+            "c- Control al cultivo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-043",
+          "chapter": 1,
+          "number": 43,
+          "sourceNumber": 43,
+          "prompt": "El explotador de la aeronave es quién",
+          "choices": [
+            "La adquiere y utiliza.",
+            "Figura en el Registro como propietario.",
+            "La utiliza legítimamente por cuenta propia, con o sin fines de lucro"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-044",
+          "chapter": 1,
+          "number": 44,
+          "sourceNumber": 44,
+          "prompt": "El explotador de una aeronave está obligado a asegurar a su personal de abordo (habitual u ocasional), por los daños que ocasione a personas o bienes transportados y por los daños que cause a terceros en superficie",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-045",
+          "chapter": 1,
+          "number": 45,
+          "sourceNumber": 45,
+          "prompt": "El fundamento de la Prevención de Accidentes es",
+          "choices": [
+            "Todo accidente es una cadena de errores.",
+            "Todo accidente ocurre hay que investigar por que.",
+            "Todo accidente puede ser evitado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-046",
+          "chapter": 1,
+          "number": 46,
+          "sourceNumber": 46,
+          "prompt": "El GLIFOSATO es un producto de",
+          "choices": [
+            "Alta toxicidad",
+            "Media toxicidad",
+            "Baja toxicidad"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-047",
+          "chapter": 1,
+          "number": 47,
+          "sourceNumber": 47,
+          "prompt": "El herbicida denominado 2,4D ESTER esta prohibido en la mayoría de las provincias por su",
+          "choices": [
+            "Toxicidad",
+            "Volatilidad",
+            "Contaminación"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-048",
+          "chapter": 1,
+          "number": 48,
+          "sourceNumber": 48,
+          "prompt": "El insecticida CLORPIRIFOS es un",
+          "choices": [
+            "Clorado",
+            "Fosforado",
+            "Isómero"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-049",
+          "chapter": 1,
+          "number": 49,
+          "sourceNumber": 49,
+          "prompt": "El insecticida ENDOSULFAN es un",
+          "choices": [
+            "Clorado",
+            "Fosforado",
+            "Isoentropico"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-050",
+          "chapter": 1,
+          "number": 50,
+          "sourceNumber": 50,
+          "prompt": "El insecticida genéricamente denominado CIPERMETRINA actúa por",
+          "choices": [
+            "Incorporación a la planta",
+            "Fase gaseosa",
+            "Contacto e ingestión"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-051",
+          "chapter": 1,
+          "number": 51,
+          "sourceNumber": 51,
+          "prompt": "El mayor beneficio de los atomizadores con respecto a los picos es",
+          "choices": [
+            "El ancho efectivo de trabajo",
+            "Que trabajan a menor presión",
+            "La uniformidad de las gotas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-052",
+          "chapter": 1,
+          "number": 52,
+          "sourceNumber": 52,
+          "prompt": "El objetivo de la Prevención de Accidentes es",
+          "choices": [
+            "Detectar las acciones.",
+            "Evitar o Minimizar los riesgos.",
+            "Maximizar la seguridad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-053",
+          "chapter": 1,
+          "number": 53,
+          "sourceNumber": 53,
+          "prompt": "El primer tramo de la salida en un viraje de procedimiento de aeroaplicación se realiza.",
+          "choices": [
+            "Virando a favor del viento.",
+            "Virando en contra del viento.",
+            "En ascenso con las alas niveladas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-054",
+          "chapter": 1,
+          "number": 54,
+          "sourceNumber": 54,
+          "prompt": "El tamaño de gotas más adecuado para un fungicida estará comprendido entre",
+          "choices": [
+            "200 a 300 micrones",
+            "50 a 100 micrones",
+            "100 a 200 micrones"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-055",
+          "chapter": 1,
+          "number": 55,
+          "sourceNumber": 55,
+          "prompt": "El tamaño de la gota en un pico Tee Jeet depende fundamentalmente de",
+          "choices": [
+            "Tamaño de la pastilla.",
+            "El difusor.",
+            "La presión."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-056",
+          "chapter": 1,
+          "number": 56,
+          "sourceNumber": 56,
+          "prompt": "El tránsito de aeronaves por el territorio argentino es",
+          "choices": [
+            "Restringido sólo a quienes tienen permiso previo.",
+            "Libre, salvo cuando se halla limitado por seguridad nacional, interés público o defensa.",
+            "Libre sólo para las aeronaves extranjeras de pasajeros."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-057",
+          "chapter": 1,
+          "number": 57,
+          "sourceNumber": 57,
+          "prompt": "En la República Argentina el organismo encargado de investigar los accidentes es",
+          "choices": [
+            "Región Aérea Centro (Ezeiza).",
+            "La Junta de Investigaciones de Accidentes de Aviación Civil.",
+            "Los peritos Aeronáuticos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-058",
+          "chapter": 1,
+          "number": 58,
+          "sourceNumber": 58,
+          "prompt": "En qué orden de insectos, las hembras estériles poseen un aparato ovipositor transformado en aguijón.",
+          "choices": [
+            "Homópteros.",
+            "Himenópteros.",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-059",
+          "chapter": 1,
+          "number": 59,
+          "sourceNumber": 59,
+          "prompt": "En que orden der insectos las hembras esteriles poseen un aparato ovipositor transformado en aguijon ¿",
+          "choices": [
+            "a- Homopteros",
+            "b- Himenopteros",
+            "c- Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-060",
+          "chapter": 1,
+          "number": 60,
+          "sourceNumber": 60,
+          "prompt": "En toda investigación de accidentes existe una relación entre",
+          "choices": [
+            "El hombre, la meteorología y la psicología.",
+            "Hombre – máquina – medio ambiente.",
+            "Hombre – salud – investigación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-061",
+          "chapter": 1,
+          "number": 61,
+          "sourceNumber": 61,
+          "prompt": "En un atomizador el control del caudal depende de",
+          "choices": [
+            "Angulo de ataque de las palas",
+            "Presión",
+            "Posición del VRU página 8 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-062",
+          "chapter": 1,
+          "number": 62,
+          "sourceNumber": 62,
+          "prompt": "En una bomba eólica para abrir y cerrar la salida de producto es más efectivo",
+          "choices": [
+            "Freno eléctrico",
+            "Freno mecánico",
+            "Llave de tres vías"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-063",
+          "chapter": 1,
+          "number": 63,
+          "sourceNumber": 63,
+          "prompt": "Eq. Los picos Tee jeet metálicos están compuestos por",
+          "choices": [
+            "Cuerpo, válvula antigoteo, difusor.",
+            "Cuerpo, válvula antigoteo, difusor, pastilla",
+            "Cuerpo, válvula, antigoteo, difusor, pastilla, filtro"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-064",
+          "chapter": 1,
+          "number": 64,
+          "sourceNumber": 64,
+          "prompt": "f.ch.14 El aspirante a rendir una licencia deberá: Tener conocimiento que será sometido a un examen teórico de conocimientos conforme al curso que ha desarrollado.Poseer el Libro de Vuelo actualizado y la certificación por el Instructor de Vuelo actuante que tiene la experiencia requerida por estas regulaciones para tal examen.",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-065",
+          "chapter": 1,
+          "number": 65,
+          "sourceNumber": 65,
+          "prompt": "La acción fundamental de la prevención de accidentes es detectar los peligros potenciales.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-066",
+          "chapter": 1,
+          "number": 66,
+          "sourceNumber": 66,
+          "prompt": "La altura de aplicación es variable principalmente por",
+          "choices": [
+            "Tipo de producto",
+            "Caudal",
+            "Viento"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-067",
+          "chapter": 1,
+          "number": 67,
+          "sourceNumber": 67,
+          "prompt": "La Arritmia es un trastorno de la frecuencia cardiaca (pulso) o del ritmo cardíaco, como latidos demasiado rápidos, demasiado lentos o con un patrón irregular",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-068",
+          "chapter": 1,
+          "number": 68,
+          "sourceNumber": 68,
+          "prompt": "La autonomía de un avión se mide en",
+          "choices": [
+            "Unidades de peso de combustible.",
+            "Unidades de volumen de combustible y Distancia.",
+            "Tiempo de vuelo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-069",
+          "chapter": 1,
+          "number": 69,
+          "sourceNumber": 69,
+          "prompt": "La barra de luces del banderillero satelital, para mayor seguridad es conveniente instalarla en",
+          "choices": [
+            "Dentro de la cabina",
+            "En la trompa del avión",
+            "Es indiferente"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-070",
+          "chapter": 1,
+          "number": 70,
+          "sourceNumber": 70,
+          "prompt": "La Cantidad de picos en cada barra, modifica",
+          "choices": [
+            "Ancho efectivo de trabajo.",
+            "Control de la deriva.",
+            "Uniformidad en la aplicación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-071",
+          "chapter": 1,
+          "number": 71,
+          "sourceNumber": 71,
+          "prompt": "La distancia para la aplicación entre un herbicida total y un cultivo sensible esta mas afectada por",
+          "choices": [
+            "Tipo de producto",
+            "Caudal",
+            "Dirección y velocidad de viento"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-072",
+          "chapter": 1,
+          "number": 72,
+          "sourceNumber": 72,
+          "prompt": "La droga CARBENDAZIM es un",
+          "choices": [
+            "Insecticida",
+            "Herbicida",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": null,
+          "confidence": "review",
+          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-073",
+          "chapter": 1,
+          "number": 73,
+          "sourceNumber": 73,
+          "prompt": "La droga denominada METSULFURON es un",
+          "choices": [
+            "Insecticida",
+            "Fungicida",
+            "Herbicida selectivo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-074",
+          "chapter": 1,
+          "number": 74,
+          "sourceNumber": 74,
+          "prompt": "La embolia gaseosa es provocada por",
+          "choices": [
+            "La formación de burbujas de aire, compuestas sobre todo de nitrógeno, en los tejidos y en la sangre.",
+            "La altura excesiva de vuelo.",
+            "Todas las anteriores son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-075",
+          "chapter": 1,
+          "number": 75,
+          "sourceNumber": 75,
+          "prompt": "La evaporación se ve más afectada por",
+          "choices": [
+            "Altura de densidad",
+            "Altura de vuelo",
+            "Porcentaje de humedad"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-076",
+          "chapter": 1,
+          "number": 76,
+          "sourceNumber": 76,
+          "prompt": "La filosofía de la prevención presenta ciertos aspectos",
+          "choices": [
+            "Aspecto Moral.",
+            "Aspecto Material.",
+            "Ambas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-077",
+          "chapter": 1,
+          "number": 77,
+          "sourceNumber": 77,
+          "prompt": "La función de la hoja es",
+          "choices": [
+            "a- Realizar la fotosíntesis usando nutrientes disueltos en agua , Co 2 del aires clorofila , luz del sol Ademas realiza evapora transpiración y respiración",
+            "b- Realiza transpiración , evaporación transportando los nutrientes disueltos en agua desde las raíces hacia arriba",
+            "c- Ninguna es correcta página 10 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-078",
+          "chapter": 1,
+          "number": 78,
+          "sourceNumber": 78,
+          "prompt": "La hipoxia es",
+          "choices": [
+            "Falta de oxígeno en la sangre, en las células o en los tejidos corporales.",
+            "Un estado de saturación de oxígeno en la sangre, células y tejidos del organismo, con compro-miso de la función de éstos.",
+            "Una reacción en la sangre producida por la escasez de oxígeno."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-079",
+          "chapter": 1,
+          "number": 79,
+          "sourceNumber": 79,
+          "prompt": "La instalación de un solo filtro en el equipo es conveniente colocarlo en",
+          "choices": [
+            "A la salida de la tolva y antes de la bomba",
+            "a la salida de la bomba y antes de la llave de tres vías",
+            "a la salida de la llave de tres vías y antes de la barra"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-080",
+          "chapter": 1,
+          "number": 80,
+          "sourceNumber": 80,
+          "prompt": "La inversión térmica es controlable mediante",
+          "choices": [
+            "La altura de vuelo",
+            "El ancho efectivo de trabajo",
+            "ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-081",
+          "chapter": 1,
+          "number": 81,
+          "sourceNumber": 81,
+          "prompt": "La mayor cantidad de accidentes relacionados con los cables se da",
+          "choices": [
+            "En casos en que se evaluó mal la distancia o posición de los mismos.",
+            "En casos en que se desconocía la existencia de estos.",
+            "En casos en que el piloto conocía la existencia de los cables pero olvidó que estaban allí"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-082",
+          "chapter": 1,
+          "number": 82,
+          "sourceNumber": 82,
+          "prompt": "La mayoría de los accidentes en los aviones equipados con banderillero satelital trabajando en el modo hipódromo ocurren por",
+          "choices": [
+            "Perdida en viraje",
+            "Choque contra obstáculos",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-083",
+          "chapter": 1,
+          "number": 83,
+          "sourceNumber": 83,
+          "prompt": "La mayoría de los insecticidas líquidos encontrados en el mercado son",
+          "choices": [
+            "Suspensiones concentradas.",
+            "Concentrados solubles.",
+            "Concentrados emulsionables"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-084",
+          "chapter": 1,
+          "number": 84,
+          "sourceNumber": 84,
+          "prompt": "La MEDICINA AERONAUTICA tiene un carácter eminentemente preventivo",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-085",
+          "chapter": 1,
+          "number": 85,
+          "sourceNumber": 85,
+          "prompt": "La medicina terapéutica es la rama de la medicina que trata de la prevención de enfermedades. Incluye todas las medidas destinadas a evitar la aparición de la enfermedad (prevención primaria), a parar su proceso (prevención secundaria) y a evitar sus posibles complicaciones",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-086",
+          "chapter": 1,
+          "number": 86,
+          "sourceNumber": 86,
+          "prompt": "La parte del oído más sensible para un piloto es",
+          "choices": [
+            "Conducto auditivo externo.",
+            "Oído medio.",
+            "Oído interno"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-087",
+          "chapter": 1,
+          "number": 87,
+          "sourceNumber": 87,
+          "prompt": "La posición de las barras con respecto al borde de fuga para una adecuada aplicación",
+          "choices": [
+            "Depende del modelo del avión",
+            "Depende del tipo de trabajo a realizar",
+            "Es indistinto"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-088",
+          "chapter": 1,
+          "number": 88,
+          "sourceNumber": 88,
+          "prompt": "La posición de los atomizadores en el borde de fuga del ala para una adecuada aplicación",
+          "choices": [
+            "Es igual para todos los aviones.",
+            "Es distinta para cada avión",
+            "Es distinta para cada ancho de trabajo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-089",
+          "chapter": 1,
+          "number": 89,
+          "sourceNumber": 89,
+          "prompt": "La prevención de accidentes en el trabajo aéreo se realizará",
+          "choices": [
+            "En alguna de sus actividades.",
+            "En forma selectiva.",
+            "En la totalidad de sus actividades"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-090",
+          "chapter": 1,
+          "number": 90,
+          "sourceNumber": 90,
+          "prompt": "La seguridad aérea consiste en reducir los riesgos a un mínimo a través de las medidas necesarias para identificar falencias en los procesos administrativos, de mantenimiento y entrenamiento que pudieran afectar la operación de las aeronaves",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-091",
+          "chapter": 1,
+          "number": 91,
+          "sourceNumber": 91,
+          "prompt": "La sensibilidad de la barra de luces del banderillero satelital depende de",
+          "choices": [
+            "el tipo de cultivo a tratar",
+            "La altura de vuelo",
+            "El valor selectado por el piloto"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-092",
+          "chapter": 1,
+          "number": 92,
+          "sourceNumber": 92,
+          "prompt": "La sustentación y la resistencia al avance",
+          "choices": [
+            "Decrecen en proporción al cuadrado del aumento de la velocidad.",
+            "No guardan relación en su incremento con respecto al de la velocidad.",
+            "Crecen en proporción al cuadrado de la velocidad."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-093",
+          "chapter": 1,
+          "number": 93,
+          "sourceNumber": 93,
+          "prompt": "La última ingesta de alcohol antes de un vuelo es aconsejable hacerla",
+          "choices": [
+            "12 horas antes.",
+            "24 horas antes.",
+            "36 horas antes."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-094",
+          "chapter": 1,
+          "number": 94,
+          "sourceNumber": 94,
+          "prompt": "La velocidad de maniobras de una aeronave es aquella a la que",
+          "choices": [
+            "Se pueden mover los comandos de profundidad y alabeo en todo su recorrido sin comprometer estructuralmente la aeronave.",
+            "No se debería exceder en ningún caso.",
+            "Obtenemos el L/D máximo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-095",
+          "chapter": 1,
+          "number": 95,
+          "sourceNumber": 95,
+          "prompt": "Las hojas están compuestas por",
+          "choices": [
+            "a- Dos entrenudos y vainas",
+            "b- Vaninas nudos y laminas",
+            "c- Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-096",
+          "chapter": 1,
+          "number": 96,
+          "sourceNumber": 96,
+          "prompt": "Las Malezas ocasionan daños a los cultivos por que",
+          "choices": [
+            "a- Los perjudican en su rendimiento",
+            "b- Disminuyen el rendimiento , compitiendo por luz , agua , nutrientes y espacio",
+            "c- Se adieren a la lana y pierden valor los campos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-097",
+          "chapter": 1,
+          "number": 97,
+          "sourceNumber": 97,
+          "prompt": "Las Malezas se propagan por",
+          "choices": [
+            "a- Órganos vegetativos Semillas y órganos vegetativos , Rizomas Tubérculos estolones bulbos y raíces gemiferas",
+            "b- Tuberculos",
+            "c- Ambas a y b"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-098",
+          "chapter": 1,
+          "number": 98,
+          "sourceNumber": 98,
+          "prompt": "Las acciones de emergencia para reducir los efectos de las lesiones y estabilizar el estado del accidentado se denominan.",
+          "choices": [
+            "Tratamientos médicos.",
+            "Atención médica.",
+            "Primeros Auxilios."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-099",
+          "chapter": 1,
+          "number": 99,
+          "sourceNumber": 99,
+          "prompt": "Las bombas eólicas requieren mantenimiento preventivo",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-100",
+          "chapter": 1,
+          "number": 100,
+          "sourceNumber": 100,
+          "prompt": "Las bombas hidráulicas accionadas por el motor del avión (ej.: avión C-188) requieren respecto de las bombas eólicas un mantenimiento",
+          "choices": [
+            "Mayor",
+            "Menor",
+            "Igual"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-101",
+          "chapter": 1,
+          "number": 101,
+          "sourceNumber": 101,
+          "prompt": "Las condiciones de hiperventilación son más factibles cuando se vuela en estado de tensión o de gran altitud",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-102",
+          "chapter": 1,
+          "number": 102,
+          "sourceNumber": 102,
+          "prompt": "Las gramíneas (ejem.: sorgo de Alepo) en un cultivo de soja son consideradas malezas",
+          "choices": [
+            "Verdadero",
+            "página 13 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b) Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-103",
+          "chapter": 1,
+          "number": 103,
+          "sourceNumber": 103,
+          "prompt": "Las mezclas de fungicidas con insecticidas",
+          "choices": [
+            "Se pueden hacer",
+            "No se pueden hacer",
+            "Se pueden hacer con un adecuado manejo previo de carga y agitación"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-104",
+          "chapter": 1,
+          "number": 104,
+          "sourceNumber": 104,
+          "prompt": "Las ninfas sin alas desarrolladas se las considera insectos de Metarmorfosis gradual en estadio juvenil",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-105",
+          "chapter": 1,
+          "number": 105,
+          "sourceNumber": 105,
+          "prompt": "Las ninfas sin alas desarrolladas se las considera insectos de metamorfosis gradual en estadio juvenil.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-106",
+          "chapter": 1,
+          "number": 106,
+          "sourceNumber": 106,
+          "prompt": "Las tarjetas hidro sensibles sirven para verificar",
+          "choices": [
+            "Caudal",
+            "Cantidad y tamaño de gotas",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-107",
+          "chapter": 1,
+          "number": 107,
+          "sourceNumber": 107,
+          "prompt": "LG ¿El código aeronáutico (LEY 17.285) rige la aeronáutica civil en el territorio de la Republica Argentina, sus aguas jurisdiccionales y el espacio aéreo que los cubre?",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-108",
+          "chapter": 1,
+          "number": 108,
+          "sourceNumber": 108,
+          "prompt": "LG Ninguna aeronave volara sin estar provista de certificados de matriculación y aeronavegabilidad y de los libros de abordo que establezca la reglamentación respectiva.",
+          "choices": [
+            "VERDADERO",
+            "FALSO"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-109",
+          "chapter": 1,
+          "number": 109,
+          "sourceNumber": 109,
+          "prompt": "LG Según lo indicado en el Código Aeronáutico, completar la siguiente definición. Las aeronaves deben estar equipadas con aparatos radioeléctricos para comunicación y estos poseer licencia expedida por la autoridad competente; y",
+          "choices": [
+            "La autoridad aeronáutica determinara que aeronaves podrán ser exceptuadas de poseer dicho equipo.",
+            "La autoridad aeronáutica determinara que aeronaves no podrán ser exceptuadas de poseer dicho equipo.",
+            "La autoridad aeronáutica indica que todas las aeronaves deben poseer dicho equipo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-110",
+          "chapter": 1,
+          "number": 110,
+          "sourceNumber": 110,
+          "prompt": "LG Según lo indicado en el Código Aeronáutico, completar la siguiente definición. Las infracciones a las disposiciones del código aeronáutico, las leyes de política aérea y sus reglamentaciones, y demás normas que dicte la autoridad aeronáutica que no importen delito, serán determinadas por el poder ejecutivo nacional y sancionadas con APERCIBIMIENTO O MULTA",
+          "choices": [
+            "Inhabilitación temporaria de hasta (4) años o definitiva, de las facultades conferidas por los certificados de idoneidad aeronáutica.",
+            "Para titulares de certificados de idoneidad para el ejercicio de funciones aeronáuticas hasta la suma de cuatro millones de pesos ($4.000.000).",
+            "A y B son correctas. página 14 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-111",
+          "chapter": 1,
+          "number": 111,
+          "sourceNumber": 111,
+          "prompt": "Los hemipteros tienen un tipo de Mitad de alas",
+          "choices": [
+            "a- Verdadero",
+            "b- Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-112",
+          "chapter": 1,
+          "number": 112,
+          "sourceNumber": 112,
+          "prompt": "Los diferentes orificios de un pico CP varían",
+          "choices": [
+            "Presión",
+            "Caudal",
+            "Ancho efectivo de trabajo"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-113",
+          "chapter": 1,
+          "number": 113,
+          "sourceNumber": 113,
+          "prompt": "Los fungicidas requieren en su aplicación con respecto a los herbicidas",
+          "choices": [
+            "Mas gotas por cm2",
+            "Menos gotas por cm2",
+            "Es indistinto"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-114",
+          "chapter": 1,
+          "number": 114,
+          "sourceNumber": 114,
+          "prompt": "Los fungicidas según su campo de aplicación pueden aplicarse en",
+          "choices": [
+            "Semillas",
+            "Suelo",
+            "Todas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-115",
+          "chapter": 1,
+          "number": 115,
+          "sourceNumber": 115,
+          "prompt": "Los gusanos blancos son gorgojos.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-116",
+          "chapter": 1,
+          "number": 116,
+          "sourceNumber": 116,
+          "prompt": "Los hemípteros tienen un tipo de mitad de alas.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-117",
+          "chapter": 1,
+          "number": 117,
+          "sourceNumber": 117,
+          "prompt": "Los herbicidas por su comportamiento en la plata se clasifican en",
+          "choices": [
+            "a- Selectivos y no selectivos",
+            "b- Sistemicos y de contacto",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-118",
+          "chapter": 1,
+          "number": 118,
+          "sourceNumber": 118,
+          "prompt": "Los herbicidas totales por su acción en la planta son productos",
+          "choices": [
+            "Sistémicos",
+            "De contacto",
+            "A y B son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-119",
+          "chapter": 1,
+          "number": 119,
+          "sourceNumber": 119,
+          "prompt": "Los herbicidas por su comportamiento en la planta se clasifican en",
+          "choices": [
+            "Selectivos y no selectivos.",
+            "página 15 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b) Sistémicos y de contacto.",
+            "Selectivos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-120",
+          "chapter": 1,
+          "number": 120,
+          "sourceNumber": 120,
+          "prompt": "Los herbicidas selectivos de trigo pueden afectar a las pasturas de hoja ancha",
+          "choices": [
+            "si",
+            "no",
+            "en ningún caso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-121",
+          "chapter": 1,
+          "number": 121,
+          "sourceNumber": 121,
+          "prompt": "Los insecticidas de última generación en su gran mayoría",
+          "choices": [
+            "Tienen poder residual",
+            "No tienen poder residual",
+            "Ninguna es correcta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-122",
+          "chapter": 1,
+          "number": 122,
+          "sourceNumber": 122,
+          "prompt": "Los insecticidas se clasifican en",
+          "choices": [
+            "Triazoles – siliconados – reactivos",
+            "Clorados – fosforados –piretroides",
+            "Biorracionales – carbamatos – fluoruros"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-123",
+          "chapter": 1,
+          "number": 123,
+          "sourceNumber": 123,
+          "prompt": "Los productos denominados piretroides por su acción en la planta, en su mayoría son",
+          "choices": [
+            "Sistémicos",
+            "De contacto",
+            "A y B son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-124",
+          "chapter": 1,
+          "number": 124,
+          "sourceNumber": 124,
+          "prompt": "Orden de aplicación de primeros auxilios",
+          "choices": [
+            "Inmovilizar las fracturas - Controlar hemorragias - Respiración artificial y masaje cardíaco - Proteger heridas o quemaduras - Tratar el shock - Transportar al lesionado.",
+            "Proteger heridas o quemaduras - Tratar el shock - Transportar al lesionado - Controlar hemo-rragias - Respiración artificial y masaje cardíaco - Inmovilizar las fracturas.",
+            "Respiración artificial y masaje cardíaco - Controlar hemorragias - Proteger heridas o quemaduras - Inmovilizar las fracturas - Tratar el shock – Transportar al lesionado."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-125",
+          "chapter": 1,
+          "number": 125,
+          "sourceNumber": 125,
+          "prompt": "Otro de los efectos del tabaco sobre el rendimiento de las tripulaciones de vuelo radica en aumentar los efectos de la hipoxia, ya que el monóxido de carbono desplaza al oxígeno en su unión a la hemoglobina",
+          "choices": [
+            "Verdadero.",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-126",
+          "chapter": 1,
+          "number": 126,
+          "sourceNumber": 126,
+          "prompt": "Para aumentar el caudal en un pico Tee Jeet",
+          "choices": [
+            "Aumento la presión.",
+            "Pongo una pastilla de mayor tamaño",
+            "Pongo un difusor mas grande."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-127",
+          "chapter": 1,
+          "number": 127,
+          "sourceNumber": 127,
+          "prompt": "Para aumentar el tamaño de la gota en un atomizador rotativo deberemos.",
+          "choices": [
+            "Aumentar el ángulo de ataque de las palas.",
+            "Reducir el ángulo de ataque de las palas.",
+            "Reducir el orificio de la válvula reguladora de volumen."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-128",
+          "chapter": 1,
+          "number": 128,
+          "sourceNumber": 128,
+          "prompt": "Para la aplicación de herbicidas totales con viento calmo es conveniente",
+          "choices": [
+            "Utilizar un ancho menor",
+            "Utilizar una altura mayor",
+            "A y B son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-129",
+          "chapter": 1,
+          "number": 129,
+          "sourceNumber": 129,
+          "prompt": "Para lograr una sustentación igual a cero en un perfil plano-convexo se deberá enfrentar a la corriente de aire con",
+          "choices": [
+            "Un ángulo de ataque positivo.",
+            "Un ángulo de ataque neutro (0?)",
+            "Un ángulo de ataque negativo."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-130",
+          "chapter": 1,
+          "number": 130,
+          "sourceNumber": 130,
+          "prompt": "Para modificar el caudal aplicado manteniendo la presión constante modifico",
+          "choices": [
+            "La altura",
+            "El ancho de trabajo",
+            "Ambas son correctas"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-131",
+          "chapter": 1,
+          "number": 131,
+          "sourceNumber": 131,
+          "prompt": "Para modificar el caudal manteniendo el ancho de trabajo constante",
+          "choices": [
+            "Vario las RPM del motor",
+            "Vario la altura",
+            "Vario la Presión"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-132",
+          "chapter": 1,
+          "number": 132,
+          "sourceNumber": 132,
+          "prompt": "Para realizar un trabajo de herbicida en trigo colocaría",
+          "choices": [
+            "Gota Fina",
+            "Gota media",
+            "Gota gruesa"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-133",
+          "chapter": 1,
+          "number": 133,
+          "sourceNumber": 133,
+          "prompt": "Para realizar un trabajo de insecticida en girasol, con picos CP colocaría",
+          "choices": [
+            "Gota fina",
+            "Gota media",
+            "Gota gruesa"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-134",
+          "chapter": 1,
+          "number": 134,
+          "sourceNumber": 134,
+          "prompt": "Para realizar una aplicación de fertilizante sólido se deberá volar a una altura",
+          "choices": [
+            "Inferior a la de una siembra de semillas livianas.",
+            "Igual a la de una siembra de semillas livianas.",
+            "Superior a la de una siembra de semillas livianas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-135",
+          "chapter": 1,
+          "number": 135,
+          "sourceNumber": 135,
+          "prompt": "Para reducir el tamaño de la gota con un pico hidráulico.",
+          "choices": [
+            "Se deberá seleccionar una pastilla con un orificio menor.",
+            "Se deberá seleccionar un núcleo de mayor caudal.",
+            "Se deberá enfrentar el pico a la corriente de aire."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-136",
+          "chapter": 1,
+          "number": 136,
+          "sourceNumber": 136,
+          "prompt": "Para un trabajo de insecticida en girasol que combinación pastilla/difusor sera la mas adecuada",
+          "choices": [
+            "D1-45.",
+            "D6-45",
+            "D2-25"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-137",
+          "chapter": 1,
+          "number": 137,
+          "sourceNumber": 137,
+          "prompt": "Para un vuelo VFR debemos conservar una reserva de combustible",
+          "choices": [
+            "No inferior a 20 minutos.",
+            "No superior a 1 hora. Del orden del 20% del tiempo estimado de vuelo.",
+            "Del orden del 20% del tiempo estimado de vuelo, pero no inferior a los 45 minutos."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-138",
+          "chapter": 1,
+          "number": 138,
+          "sourceNumber": 138,
+          "prompt": "Prodriamos definir Maleza como",
+          "choices": [
+            "Toda planta que crece sin haber sido sembrada , se propaga naturalmente y ocaciona un perjuicio",
+            "Toda planta sin haber sido sembrada",
+            "Toda planta"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-139",
+          "chapter": 1,
+          "number": 139,
+          "sourceNumber": 139,
+          "prompt": "Qué se entiende por HIPOGLUCEMIA?",
+          "choices": [
+            "Es la enfermedad causada por un desorden de nutrición y que se caracteriza por una concentra-ción excesiva de azúcar en la sangre.",
+            "Es una disminución del nivel de azúcar en la sangre, traduciéndose en una menor cantidad de energía circulante para desarrollar eficientemente cualquier función.",
+            "Es el aumento de la glucosa en sangre por encima de los niveles normales."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-140",
+          "chapter": 1,
+          "number": 140,
+          "sourceNumber": 140,
+          "prompt": "Saliendo de la pasada deberemos tomar más tiempo para iniciar el viraje de procedimiento",
+          "choices": [
+            "Cuando la componente de viento sea de cola.",
+            "Cuando la componente de viento sea de frente.",
+            "Cuando la componente de viento sea bien perpendicular."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-141",
+          "chapter": 1,
+          "number": 141,
+          "sourceNumber": 141,
+          "prompt": "Se entiende por resistencia parásita a la producida por",
+          "choices": [
+            "La propia sustentación.",
+            "La fricción de todas las superficies expuestas a la corriente de aire.",
+            "La interferencia entre las superficies de vuelo y el fuselaje o entres las superficies entre sí."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-142",
+          "chapter": 1,
+          "number": 142,
+          "sourceNumber": 142,
+          "prompt": "Si científicamente se definen los siguientes Perciolos Vaina y lamina , se estaría hablando de",
+          "choices": [
+            "a- Maleza",
+            "b- Planta",
+            "c- Hoja página 18 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-143",
+          "chapter": 1,
+          "number": 143,
+          "sourceNumber": 143,
+          "prompt": "Si el lote es muy angosto y hay viento fuerte, el patrón de trabajo ideal será",
+          "choices": [
+            "Ida y vuelta o paralelo.",
+            "En circuito hipódromo o carrusel.",
+            "Cerrando."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-144",
+          "chapter": 1,
+          "number": 144,
+          "sourceNumber": 144,
+          "prompt": "Si el viento predominante genera que para las pasadas me quede el sol de frente",
+          "choices": [
+            "Realizo el trabajo más tarde",
+            "Lo hago igual",
+            "Hago el trabajo con viento de frente y derivando cuando lo tenga de cola"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-145",
+          "chapter": 1,
+          "number": 145,
+          "sourceNumber": 145,
+          "prompt": "Si en la condición ancho 25 mts. Presión 30 lbs. Velocidad 100 mph aplico un caudal de 4 lts x ha. Manteniendo las demás condiciones constantes a 18 mts. Aplicare",
+          "choices": [
+            "2 lts x ha",
+            "5,5 lts x ha",
+            "10 lts. X ha"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-146",
+          "chapter": 1,
+          "number": 146,
+          "sourceNumber": 146,
+          "prompt": "Si en una pasada la presión se cae a CERO",
+          "choices": [
+            "Se termino el producto",
+            "Se taparon los picos",
+            "Se rompió una manguera que una la T a una de las barras"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-147",
+          "chapter": 1,
+          "number": 147,
+          "sourceNumber": 147,
+          "prompt": "Si en una pasada una paloma arranca un atomizador y la barra queda perdiendo, la presión",
+          "choices": [
+            "Sube",
+            "Baja",
+            "No varía"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-148",
+          "chapter": 1,
+          "number": 148,
+          "sourceNumber": 148,
+          "prompt": "Si la hélice de una bomba eólica se coloca accidentalmente al revés",
+          "choices": [
+            "gira",
+            "no gira",
+            "gira pero no genera presión"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-149",
+          "chapter": 1,
+          "number": 149,
+          "sourceNumber": 149,
+          "prompt": "Si tenemos como freno de la bomba eólica un freno electromagnético.¿Que precaución debemos tomar para realizar un ferry?",
+          "choices": [
+            "Contar con un juego extra de fusibles para el freno. .",
+            "Llevar la tolva con una cantidad de agua apropiada para que la bomba no trabaje en seco.",
+            "Atar la paleta con una soga o cable y liberar el freno previamente a la partida"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-150",
+          "chapter": 1,
+          "number": 150,
+          "sourceNumber": 150,
+          "prompt": "Si tiene un aparato bucal masticador y son apodas es",
+          "choices": [
+            "a- Lepidopteros",
+            "b- Diptero página 19 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "c- Gusano del desierto"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-151",
+          "chapter": 1,
+          "number": 151,
+          "sourceNumber": 151,
+          "prompt": "Si tiene que realizar un trabajo en un lote de 15 has. En forma de triangulo que modo de trabajo utilizaría en el banderillero satelital.",
+          "choices": [
+            "Ida y vuelta",
+            "Hipódromo",
+            "Carrera rápida"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-152",
+          "chapter": 1,
+          "number": 152,
+          "sourceNumber": 152,
+          "prompt": "Si tiene un aparato bucal masticador y son apodas es",
+          "choices": [
+            "Lepidópteros.",
+            "Dípteros.",
+            "Gusano del desierto."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-153",
+          "chapter": 1,
+          "number": 153,
+          "sourceNumber": 153,
+          "prompt": "Si un determinado factor ha demostrado ser capaz de producir un accidente, mientras no se elimine o modifique dicho factor, el ACCIDENTE tendera a repetirse.",
+          "choices": [
+            "Verdadero.",
+            "Falso."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-154",
+          "chapter": 1,
+          "number": 154,
+          "sourceNumber": 154,
+          "prompt": "Si una persona presenta Cianosis en labios y uñas (color azulado) ¿Qué le está sucediendo?",
+          "choices": [
+            "Está sufriendo un Paro Respiratorio.",
+            "Está sufriendo un Paro Cardio Respiratorio.",
+            "Está sufriendo un Pico de Stress."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-155",
+          "chapter": 1,
+          "number": 155,
+          "sourceNumber": 155,
+          "prompt": "Si Usted está siendo afectado durante un largo período con un cuadro de fatiga, la misma se clasifica como",
+          "choices": [
+            "Aguda.",
+            "Crónica.",
+            "Psicológica."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-156",
+          "chapter": 1,
+          "number": 156,
+          "sourceNumber": 156,
+          "prompt": "Un aeródromo es público",
+          "choices": [
+            "Cuando está destinado al uso público.",
+            "Cuando no es privado.",
+            "Cuando su dueño es el Estado Nacional."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-157",
+          "chapter": 1,
+          "number": 157,
+          "sourceNumber": 157,
+          "prompt": "Un agotamiento de las reservas de energía del cuerpo, que lo lleva a un rendimiento inferior que el habitual se conoce como",
+          "choices": [
+            "Hipoxia.",
+            "Disbarismo.",
+            "Fatiga."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-158",
+          "chapter": 1,
+          "number": 158,
+          "sourceNumber": 158,
+          "prompt": "Un aumento brusco del ángulo de ataque",
+          "choices": [
+            "Puede llegar a producir una entrada en pérdida aún en caso de estar volando por encima de la velocidad de pérdida.",
+            "No puede llegar a producir una entrada en pérdida en ningún caso si se está volando por encima de la velocidad de pérdida. página 20 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal",
+            "Si se está volando por encima de la velocidad de pérdida, reduce tanto la velocidad que en un momento el avión entra en pérdida."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-159",
+          "chapter": 1,
+          "number": 159,
+          "sourceNumber": 159,
+          "prompt": "Un avión en vuelo recto y nivelado, está sometido a un factor de carga de",
+          "choices": [
+            "0 G.",
+            "1 G.",
+            "–1G."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-160",
+          "chapter": 1,
+          "number": 160,
+          "sourceNumber": 160,
+          "prompt": "Un endoesqueleto compuesto por quitina es",
+          "choices": [
+            "a- una estructura animal",
+            "b- un insecto",
+            "c- un endoesqueleto con huesos calsificados"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-161",
+          "chapter": 1,
+          "number": 161,
+          "sourceNumber": 161,
+          "prompt": "Un endoesqueleto compuesto por quitina es",
+          "choices": [
+            "Una estructura animal.",
+            "Un insecto.",
+            "Un endoesqueleto con huesos calcificados."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-162",
+          "chapter": 1,
+          "number": 162,
+          "sourceNumber": 162,
+          "prompt": "Un pico CP original cuantos orificios tiene",
+          "choices": [
+            "2",
+            "3",
+            "4"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-163",
+          "chapter": 1,
+          "number": 163,
+          "sourceNumber": 163,
+          "prompt": "Un piloto con un tratamiento por alergia que esté tomando antihistamínicos puede producir alguno de los siguientes efectos secundarios",
+          "choices": [
+            "Dolores de cabeza.",
+            "Alteraciones en vista y oídos.",
+            "Somnolencia."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-164",
+          "chapter": 1,
+          "number": 164,
+          "sourceNumber": 164,
+          "prompt": "Una intoxicación se produce por exposición, ingestión, inyección o inhalación de una sustancia tóxica. Un toxico es",
+          "choices": [
+            "Una sustancia venenosa o que produce efectos nocivos sobre el organismo.",
+            "Cualquier sustancia sólida, líquida o gaseosa que en una concentración determinada puede dañar a los seres vivos.",
+            "Todas las anteriores son correctas."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-165",
+          "chapter": 1,
+          "number": 165,
+          "sourceNumber": 165,
+          "prompt": "Una RCP es",
+          "choices": [
+            "La ventilación asistida en una persona que ha dejado o se le dificulta respirar.",
+            "Una combinación de respiraciones con masaje cardíaco externo.",
+            "Un método útil en casos de ahogo, ya que permite una libre salida de fluidos por la boca."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-166",
+          "chapter": 1,
+          "number": 166,
+          "sourceNumber": 166,
+          "prompt": "Una semilla esta compuesta por",
+          "choices": [
+            "a- Nudos sustancias de reserva y tegumento de protección",
+            "página 21 / 22 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal b- Raíces ,tallos y sustancias de reserva",
+            "c- Entrenudos"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-167",
+          "chapter": 1,
+          "number": 167,
+          "sourceNumber": 167,
+          "prompt": "Una suspensión concentrada se puede mezclar con gasoil",
+          "choices": [
+            "No",
+            "Si",
+            "Solo en premezcla"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-168",
+          "chapter": 1,
+          "number": 168,
+          "sourceNumber": 168,
+          "prompt": "Uno de los efectos del tabaco sobre el rendimiento de las tripulaciones de vuelo radica en",
+          "choices": [
+            "Disminuye la frecuencia cardíaca.",
+            "Disminuye la tensión arterial. .",
+            "Disminuye la tolerancia a las aceleraciones"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-169",
+          "chapter": 1,
+          "number": 169,
+          "sourceNumber": 169,
+          "prompt": "Uno de los elementos más importantes para frenar la cadena de errores es",
+          "choices": [
+            "El buen funcionamiento del sistema.",
+            "La acertada decisión.",
+            "La comunicación."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-170",
+          "chapter": 1,
+          "number": 170,
+          "sourceNumber": 170,
+          "prompt": "Utilizando atomizadores la llave de tres vías regula la presión",
+          "choices": [
+            "Verdadero",
+            "Falso"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b"
+          ],
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        },
+        {
+          "id": "aeroaplicador-01-171",
+          "chapter": 1,
+          "number": 171,
+          "sourceNumber": 171,
+          "prompt": "Volar durante las pasadas con viento de cola produce un efecto",
+          "choices": [
+            "Inestabilizante.",
+            "Estabilzante.",
+            "Indiferente. página 22 / 22 Powered by TCExam (www.tcexam.org)"
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
+        }
+      ]
+    }
+  ],
+  "figureSourceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf"
+}

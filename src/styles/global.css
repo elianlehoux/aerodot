@@ -1,0 +1,84 @@
+*{box-sizing:border-box}
+/* Inter se sirve desde el sitio. El fallback con métricas parecidas evita el salto
+   cuando la fuente todavía no llegó. */
+@font-face{
+  font-family:Inter;
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url('/fonts/inter-latin.woff2') format('woff2');
+}
+@font-face{
+  font-family:Inter;
+  font-style:italic;
+  font-weight:100 900;
+  font-display:swap;
+  src:url('/fonts/inter-latin-italic.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Inter Fallback';
+  src:local('Arial');
+  ascent-override:90.2%;
+  descent-override:22.48%;
+  line-gap-override:0%;
+  size-adjust:107.4%;
+}
+:root{
+  color-scheme:dark;
+  --paper:#1b1a18;
+  --card:#22201d;
+  --ink:#fdfcfc;
+  --graphite:#e7e3df;
+  --muted:#b9b3ac;
+  --ash:#a8a29a;
+  --line:#3b3834;
+  --taupe:#292724;
+  --stone:#403d38;
+  --blue:#fdfcfc;
+  --blue-soft:#34312d;
+  --violet-spark:#0447ff;
+  --ember:#ff4704;
+  --accent:#0447ff;
+  --note:#292724;
+  --sans:'Inter','Inter Fallback',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  /* No hay una tipografia display aparte: el sitio entero usa Inter. El token queda como
+     alias de --sans para que las ~15 reglas que lo usan sean explicitas sobre la intencion. */
+  --display:var(--sans);
+  /* Inter no tiene version condensada ni serif propia en este proyecto; --serif quedo sin uso. */
+  /* El mono es el stack del sistema. Antes declaraba 'Geist Mono', que nunca se cargo, asi que
+     el codigo de licencia, el indice y el timer caian al stack local y cambiaban entre sistemas. */
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  --page-max:1280px;
+  --radius-input:4px;
+  --radius-small:10px;
+  --radius-card:20px;
+  --radius-large:24px;
+  --radius-button:9999px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+html[data-theme="light"]{
+  color-scheme:light;
+  --paper:#fdfcfc;
+  --card:#fdfcfc;
+  --ink:#000;
+  --graphite:#44403b;
+  --muted:#635e57;
+  --ash:#6f6a63;
+  --line:#ebe8e4;
+  --taupe:#f5f3f1;
+  --stone:#ebe8e4;
+  --blue:#000;
+  --blue-soft:#f5f3f1;
+  --note:#f5f3f1;
+}
+body{min-width:320px;margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.5;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+::placeholder{color:var(--muted);opacity:1}
+button{color:inherit}
+[hidden]{display:none!important}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+[tabindex="-1"]:focus{outline:2px solid var(--ink);outline-offset:5px}
+.skip-link{position:fixed;z-index:100;top:12px;left:12px;padding:10px 16px;transform:translateY(-160%);border:1px solid var(--line);border-radius:var(--radius-button);background:var(--paper);color:var(--ink);font-size:14px;text-decoration:none}
+.skip-link:focus{transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

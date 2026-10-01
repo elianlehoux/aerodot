@@ -1,0 +1,228 @@
+---
+import { reportAccessKey } from '../data/report.js';
+---
+<div id="report-point" class="report-point" hidden>
+  <p>Tocá el párrafo o el diagrama donde está el error.</p>
+  <button type="button" data-report-whole>Es de toda la página</button>
+  <button type="button" data-report-point-cancel>Cancelar</button>
+</div>
+<dialog id="report-dialog" class="report-dialog" closedby="any" aria-labelledby="report-title">
+  <form id="report-form">
+    <h2 id="report-title">Reportar un error</h2>
+    <blockquote id="report-quote" class="report-quote"></blockquote>
+    <label class="report-field" for="report-note">Comentario</label>
+    <textarea id="report-note" name="comment" required maxlength="1500" rows="4" aria-errormessage="report-note-error" placeholder="Contá qué está mal."></textarea>
+    <p id="report-note-error" class="report-error"><span aria-hidden="true">!</span> Escribí el comentario.</p>
+    <input class="report-honeypot" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <p id="report-status" class="report-status" aria-live="polite"></p>
+    <div class="report-actions">
+      <button class="button-quiet" type="button" data-report-cancel>Cancelar</button>
+      <button class="button-primary" type="submit" id="report-submit">Enviar</button>
+    </div>
+  </form>
+  <div id="report-thanks" hidden>
+    <h2 id="report-thanks-title">Gracias por colaborar</h2>
+    <p>Gracias por colaborar con la comunidad aeronáutica para hacer los contenidos mejores. Tu reporte va a ser analizado.</p>
+    <button class="button-primary" type="button" data-report-done>Listo</button>
+  </div>
+</dialog>
+<script is:inline define:vars={{ reportAccessKey }}>
+  const pointBar = document.querySelector('#report-point');
+  const dialog = document.querySelector('#report-dialog');
+  const form = document.querySelector('#report-form');
+  const thanks = document.querySelector('#report-thanks');
+  const quote = document.querySelector('#report-quote');
+  const note = document.querySelector('#report-note');
+  const statusEl = document.querySelector('#report-status');
+  const submitButton = document.querySelector('#report-submit');
+  let sourceButton = null;
+  let pending = { excerpt: '', where: '', ref: '' };
+  let pointing = false;
+  let busy = false;
+
+  const clearChosen = () => document.querySelector('.is-report-chosen')?.classList.remove('is-report-chosen');
+
+  const setPointing = (on) => {
+    pointing = on;
+    document.documentElement.classList.toggle('is-reporting', on);
+    pointBar.hidden = !on;
+    if (!on) return;
+    pointBar.querySelector('[data-report-point-cancel]').focus({ preventScroll: true });
+  };
+
+  const remember = (source) => {
+    pending = {
+      excerpt: source.dataset.reportExcerpt || '',
+      where: source.dataset.reportWhere || document.title,
+      ref: source.dataset.reportRef || `${location.pathname}${location.hash}`,
+    };
+  };
+
+  const openReport = () => {
+    setPointing(false);
+    const resetDialog = () => {
+      form.hidden = false;
+      thanks.hidden = true;
+      form.reset();
+      note.removeAttribute('aria-invalid');
+      statusEl.textContent = '';
+      dialog.setAttribute('aria-labelledby', 'report-title');
+    };
+    resetDialog();
+    quote.textContent = pending.excerpt;
+    quote.scrollTop = 0;
+    if (!dialog.open) dialog.showModal();
+    dialog.scrollTop = 0;
+    note.focus({ preventScroll: true });
+  };
+
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+    if (target.closest('#report-dialog')) return;
+    const page = target.closest('[data-report-page]');
+    if (page) {
+      event.preventDefault();
+      sourceButton = page;
+      clearChosen();
+      if (page.hasAttribute('data-report-direct')) {
+        remember(page);
+        openReport();
+        return;
+      }
+      if (pointing) {
+        setPointing(false);
+        return;
+      }
+      pending = {
+        excerpt: `Toda la página: ${page.dataset.reportExcerpt || document.title}`,
+        where: page.dataset.reportWhere || document.title,
+        ref: page.dataset.reportRef || location.pathname,
+      };
+      setPointing(true);
+      return;
+    }
+    if (!pointing || target.closest('#report-point')) return;
+    const block = target.closest('[data-report-target]');
+    if (!block) return;
+    event.preventDefault();
+    clearChosen();
+    block.classList.add('is-report-chosen');
+    pending = {
+      excerpt: (block.dataset.reportExcerpt || block.innerText).replace(/[ \t]+\n/g, '\n').trim(),
+      where: block.dataset.reportWhere || pending.where,
+      ref: block.dataset.reportRef || pending.ref,
+    };
+    openReport();
+  });
+
+  pointBar.querySelector('[data-report-whole]').addEventListener('click', () => openReport());
+  pointBar.querySelector('[data-report-point-cancel]').addEventListener('click', () => {
+    setPointing(false);
+    clearChosen();
+    if (sourceButton?.isConnected) sourceButton.focus({ preventScroll: true });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !pointing || dialog.open) return;
+    setPointing(false);
+    clearChosen();
+    if (sourceButton?.isConnected) sourceButton.focus({ preventScroll: true });
+  });
+
+  const finishDialog = () => {
+    clearChosen();
+    form.hidden = false;
+    thanks.hidden = true;
+    form.reset();
+    note.removeAttribute('aria-invalid');
+    statusEl.textContent = '';
+    dialog.setAttribute('aria-labelledby', 'report-title');
+    const returnTo = sourceButton;
+    if (returnTo instanceof HTMLElement && returnTo.isConnected) setTimeout(() => returnTo.focus({ preventScroll: true }), 0);
+  };
+  // Un solo manejador: 'close' y 'toggle'(closed) disparaban los dos finishDialog en el mismo
+  // dismissal, con reset y restauracion de foco duplicados.
+  dialog.addEventListener('close', finishDialog);
+
+  if (!('closedBy' in HTMLDialogElement.prototype)) {
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      const inside = rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+        && rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
+      if (!inside) dialog.close();
+    });
+  }
+
+  dialog.addEventListener('click', (event) => {
+    const closer = event.target instanceof Element ? event.target.closest('[data-report-cancel], [data-report-done]') : null;
+    if (!closer) return;
+    event.preventDefault();
+    dialog.close();
+  });
+
+  const syncAria = () => {
+    if (note.checkValidity()) note.removeAttribute('aria-invalid');
+    else note.setAttribute('aria-invalid', 'true');
+  };
+  note.addEventListener('invalid', () => syncAria());
+  note.addEventListener('input', () => {
+    if (note.checkValidity()) note.removeAttribute('aria-invalid');
+  });
+
+  const showThanks = () => {
+    form.hidden = true;
+    thanks.hidden = false;
+    dialog.setAttribute('aria-labelledby', 'report-thanks-title');
+    thanks.querySelector('[data-report-done]').focus({ preventScroll: true });
+  };
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.checkValidity()) {
+      syncAria();
+      note.reportValidity();
+      return;
+    }
+    if (busy) return;
+    if (!reportAccessKey) {
+      statusEl.textContent = 'No se pudo enviar el aviso.';
+      return;
+    }
+    busy = true;
+    submitButton.disabled = true;
+    statusEl.textContent = 'Enviando…';
+    const message = [
+      `Dónde: ${pending.where}`,
+      `Referencia: ${pending.ref}`,
+      `Página: ${location.href}`,
+      '',
+      'Fragmento:',
+      pending.excerpt,
+      '',
+      'Comentario:',
+      note.value.trim(),
+    ].join('\n');
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: reportAccessKey,
+          subject: `Aviso de error · ${pending.where}`.slice(0, 140),
+          from_name: 'Altura',
+          message,
+          botcheck: form.elements.botcheck?.value || '',
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok || data.success === false) throw new Error('send');
+      showThanks();
+    } catch {
+      statusEl.textContent = 'No se pudo enviar el aviso. Probá de nuevo en un momento.';
+    }
+    busy = false;
+    submitButton.disabled = false;
+  });
+</script>

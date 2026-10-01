@@ -1,0 +1,609 @@
+---
+const { type, reportWhere, reportRef, instance } = Astro.props;
+// Un diagrama puede repetirse dentro del mismo capitulo (p. ej. carb-ice x4 en motopropulsor).
+// Los ids se derivan de la instancia, no solo del tipo, para que titulo, descripcion,
+// pie y marcadores SVG sean unicos en la pagina.
+const uid = instance;
+const captions = {
+  forces: 'Esquema conceptual de fuerzas en vuelo recto y nivelado, sin aceleración. En otras maniobras el balance y la orientación cambian.',
+  'turn-load': 'Viraje coordinado y nivelado idealizado: la sustentación se inclina y su componente vertical sostiene el peso.',
+  'pitot-static': 'Relación funcional simplificada entre pitot, toma estática e instrumentos. La instalación real depende del avión.',
+  'weight-balance': 'Ejemplo aritmético ilustrativo de datum, brazos, cargas y centro de gravedad; no son datos de una aeronave.',
+  'wind-triangle': 'Suma vectorial conceptual: velocidad verdadera más viento (movimiento de la masa de aire hacia donde sopla) da la velocidad respecto del suelo.',
+  'traffic-pattern': 'Circuito ilustrativo: las flechas muestran la trayectoria de la aeronave, no la dirección meteorológica del viento. Lado, altura, entrada y comunicaciones se confirman para cada aeródromo.',
+  'decision-loop': 'Ciclo didáctico para observar, evaluar, elegir, actuar y revisar una decisión.',
+  'electrical-system': 'Diagrama conceptual de fuentes, barra eléctrica y cargas; la arquitectura real varía entre aeronaves.',
+  'fuel-system': 'Recorrido funcional genérico del combustible; bombas, selectores y componentes dependen de la aeronave.',
+  flightpath: 'Actitud, trayectoria y ángulo de ataque son magnitudes relacionadas pero distintas; esquema lateral sin escala.',
+  'landing-approach': 'Vista lateral conceptual de una aeronave en descenso hacia una pista; no prescribe senda, altura, velocidad ni punto de toma.',
+  airfoil: 'Perfil simplificado: el ángulo de ataque se mide entre la cuerda y el viento relativo. La curva de la derecha muestra la forma típica del coeficiente de sustentación, no un ángulo para copiar.',
+  'carb-ice': 'En el venturi bajan la presión y la temperatura, y la vaporización del combustible enfría más. El hielo puede formarse aunque el aire exterior esté sobre 0 °C.',
+  atmosphere: 'Modelo ISA de estudio: 15 °C y 1013,25 hPa al nivel del mar, y unos 6,5 °C menos cada 1000 m en la troposfera. No es el estado de la atmósfera de un día real.',
+  front: 'Corte idealizado de un frente frío. El aire frío avanza como una cuña y obliga al aire más cálido a ascender. La nubosidad y la hora reales salen del pronóstico.',
+  'density-altitude': 'La altitud de densidad corrige la altitud de presión por la temperatura. Más calor que la estándar equivale, para la performance, a estar más alto.',
+  'vx-vy': 'Vx gana más altura por distancia recorrida. Vy gana más altura por minuto, pero más lejos. Los valores numéricos están en el manual del avión.',
+  'right-of-way': 'Sección 91.113 de la RAAC Parte 91: convergencia, aproximación de frente y alcance. En el aeródromo se suman las cesiones de la Sección 91.128. Ver y evitar sigue en pie.',
+  axes: 'Los tres ejes pasan por el centro de gravedad. Cada uno nombra un giro y, en forma principal, un mando. Los movimientos reales se combinan.',
+  imsafe: 'Seis preguntas de autoevaluación antes de volar. No es una norma argentina ni un certificado médico: si hay duda, la decisión se toma en tierra.',
+  'hypoxia-types': 'Cuatro caminos distintos hacia la falta de oxígeno en los tejidos. La altitud es solo uno de ellos.',
+  priority: 'Orden de entrenamiento ante una anormalidad: primero el control de la aeronave, después una trayectoria alcanzable y entonces la comunicación.',
+  metar: 'Ejemplo armado para leer el orden de un METAR. No es una observación emitida por el SMN ni una condición para volar.',
+  'cg-stability': 'En un avión de cola convencional, la cola suele producir una fuerza hacia abajo para equilibrar el momento. Adelantar o atrasar el CG cambia cuánta fuerza hace falta y cómo responde el avión.',
+  stability: 'Tres respuestas de una parcela de aire que sube y se enfría. El dibujo compara la parcela con el aire que la rodea. No es el perfil de temperatura de un día real.',
+  papi: 'PAPI de cuatro luces en la instalación más habitual: dos blancas y dos rojas indican la senda publicada. Más blanco es alto. Más rojo es bajo.',
+  'ground-reference': 'Curso rectangular visto desde arriba. Con viento desde la izquierda, el viraje a favor del viento pide más inclinación para que la trayectoria sobre el suelo siga el rectángulo.',
+  'risk-matrix': 'Dos preguntas juntas: qué tan probable y qué tan grave. La esquina de alta probabilidad y alta gravedad es la que se resuelve en tierra.',
+};
+const title = {
+  forces: 'Cuatro fuerzas principales sobre el avión',
+  'turn-load': 'Componentes de la sustentación en un viraje',
+  'pitot-static': 'Esquema pitot-estático',
+  'weight-balance': 'Datum, brazos y centro de gravedad',
+  'wind-triangle': 'Triángulo de velocidades',
+  'traffic-pattern': 'Secuencia ilustrativa de un circuito de tránsito',
+  'decision-loop': 'Ciclo de toma de decisiones',
+  'electrical-system': 'Fuentes y cargas eléctricas',
+  'fuel-system': 'Recorrido conceptual del combustible',
+  flightpath: 'Actitud, trayectoria y ángulo de ataque',
+  'landing-approach': 'Trayectoria conceptual de aproximación visual',
+  airfoil: 'Ángulo de ataque y curva de sustentación',
+  'carb-ice': 'Por qué el carburador puede formar hielo',
+  atmosphere: 'Atmósfera estándar, en corte',
+  front: 'Corte de un frente frío',
+  'density-altitude': 'De la presión a la altitud de densidad',
+  'vx-vy': 'Mejor ángulo y mejor régimen',
+  'right-of-way': 'Tres geometrías de prioridad',
+  axes: 'Ejes y giros del avión',
+  imsafe: 'Chequeo IMSAFE',
+  'hypoxia-types': 'Cuatro tipos de hipoxia',
+  priority: 'Orden de atención en una emergencia',
+  metar: 'Cómo se lee un METAR',
+  'cg-stability': 'Centro de gravedad y equilibrio longitudinal',
+  stability: 'Estable, neutro e inestable',
+  papi: 'Luces del PAPI en la senda',
+  'ground-reference': 'Curso rectangular y viento',
+  'risk-matrix': 'Probabilidad y gravedad',
+};
+const caption = captions[type];
+const diagramTitle = title[type];
+---
+
+{caption && <figure class="study-diagram" data-report-target data-report-excerpt={`${diagramTitle}. ${caption}`} data-report-where={reportWhere} data-report-ref={reportRef} aria-labelledby={`diagram-caption-${uid}`}>
+  {type === 'forces' && <svg viewBox="0 0 620 280" role="img" aria-labelledby={`diagram-title-forces-${uid} diagram-desc-forces-${uid}`}>
+    <title id={`diagram-title-forces-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-forces-${uid}`}>Sustentación hacia arriba, peso hacia abajo, tracción hacia adelante y resistencia hacia atrás alrededor de una aeronave simplificada.</desc>
+    <defs><marker id={`arrow-forces-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <path d="M235 143H393L430 150L393 157H235L196 175L184 169L211 150L184 131L196 125Z" class="aircraft" />
+    <path d="M293 143L332 105L347 106L332 149M293 157L332 194L347 193L332 151" class="aircraft" />
+    <line x1="309" y1="133" x2="309" y2="54" class="force force-blue" marker-end="url(#arrow-forces-${uid})" />
+    <line x1="309" y1="166" x2="309" y2="231" class="force force-muted" marker-end="url(#arrow-forces-${uid})" />
+    <line x1="420" y1="151" x2="530" y2="151" class="force force-blue" marker-end="url(#arrow-forces-${uid})" />
+    <line x1="197" y1="151" x2="86" y2="151" class="force force-muted" marker-end="url(#arrow-forces-${uid})" />
+    <text x="309" y="39" text-anchor="middle" class="label label-blue">Sustentación</text>
+    <text x="309" y="252" text-anchor="middle" class="label">Peso</text>
+    <text x="526" y="137" text-anchor="end" class="label label-blue">Tracción</text>
+    <text x="91" y="137" class="label">Resistencia</text>
+    <text x="310" y="275" text-anchor="middle" class="small">Vectores ilustrativos; no están dibujados a escala.</text>
+  </svg>}
+
+  {type === 'turn-load' && <svg viewBox="0 0 620 270" role="img" aria-labelledby={`diagram-title-turn-${uid} diagram-desc-turn-${uid}`}>
+    <title id={`diagram-title-turn-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-turn-${uid}`}>Desde el centro de gravedad, el peso apunta hacia abajo. La sustentación en un viraje se inclina respecto de la vertical; su componente vertical equilibra el peso.</desc>
+    <defs><marker id={`arrow-turn-${uid}`} markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="currentColor" /></marker></defs>
+    <line x1="300" y1="68" x2="300" y2="216" class="guide" />
+    <line x1="300" y1="142" x2="300" y2="217" class="force force-muted" marker-end="url(#arrow-turn-${uid})" />
+    <line x1="300" y1="142" x2="300" y2="68" class="force force-muted" stroke-dasharray="5 6" marker-end="url(#arrow-turn-${uid})" />
+    <line x1="300" y1="142" x2="430" y2="67" class="force force-blue" marker-end="url(#arrow-turn-${uid})" />
+    <path d="M300 93 A49 49 0 0 1 342 117" class="angle" />
+    <circle cx="300" cy="142" r="5" class="center" />
+    <text x="313" y="205" class="label">Peso (W)</text>
+    <text x="314" y="80" class="label">Componente vertical</text>
+    <text x="431" y="61" class="label label-blue">Sustentación (L)</text>
+    <text x="346" y="103" class="label label-blue">φ</text>
+    <text x="300" y="250" text-anchor="middle" class="caption">En vuelo nivelado idealizado: L · cos(φ) = W</text>
+  </svg>}
+
+  {type === 'pitot-static' && <svg viewBox="0 0 720 300" role="img" aria-labelledby={`diagram-title-pitot-${uid} diagram-desc-pitot-${uid}`}>
+    <title id={`diagram-title-pitot-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-pitot-${uid}`}>El tubo pitot lleva presión total al velocímetro. La presión estática alimenta velocímetro, altímetro y variómetro.</desc>
+    <defs>
+      <marker id={`arrow-pitot-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker>
+    </defs>
+    <rect x="35" y="36" width="164" height="70" rx="8" class="node" />
+    <text x="117" y="65" text-anchor="middle" class="label">Pitot</text>
+    <text x="117" y="86" text-anchor="middle" class="small">presión total</text>
+    <rect x="35" y="194" width="164" height="70" rx="8" class="node" />
+    <text x="117" y="223" text-anchor="middle" class="label">Toma estática</text>
+    <text x="117" y="244" text-anchor="middle" class="small">presión estática</text>
+    <rect x="285" y="86" width="177" height="112" rx="8" class="node node-accent" />
+    <text x="373" y="126" text-anchor="middle" class="label">Velocímetro</text>
+    <text x="373" y="151" text-anchor="middle" class="small">pitot + estática</text>
+    <text x="373" y="172" text-anchor="middle" class="small">presión dinámica</text>
+    <rect x="535" y="38" width="150" height="74" rx="8" class="node" />
+    <text x="610" y="69" text-anchor="middle" class="label">Altímetro</text>
+    <text x="610" y="91" text-anchor="middle" class="small">presión estática</text>
+    <rect x="535" y="190" width="150" height="74" rx="8" class="node" />
+    <text x="610" y="221" text-anchor="middle" class="label">Variómetro</text>
+    <text x="610" y="243" text-anchor="middle" class="small">cambio de estática</text>
+    <path d="M199 70H242V113H285" class="pipe pipe-blue" marker-end="url(#arrow-pitot-${uid})" />
+    <path d="M199 229H242V171H285" class="pipe" marker-end="url(#arrow-pitot-${uid})" />
+    <path d="M199 229H500V75H535" class="pipe" marker-end="url(#arrow-pitot-${uid})" />
+    <path d="M199 229H500V227H535" class="pipe" marker-end="url(#arrow-pitot-${uid})" />
+  </svg>}
+
+  {type === 'weight-balance' && <svg viewBox="0 0 720 245" role="img" aria-labelledby={`diagram-title-balance-${uid} diagram-desc-balance-${uid}`}>
+    <title id={`diagram-title-balance-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-balance-${uid}`}>Una línea de referencia marca el datum. Las distancias desde el datum son brazos; el centro de gravedad resulta de peso total y momento total. El signo del brazo y del momento depende de la convención de datum del fabricante.</desc>
+    <defs><marker id={`arrow-balance-${uid}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="currentColor" /></marker></defs>
+    <line x1="80" y1="161" x2="655" y2="161" class="axis" />
+    <line x1="98" y1="75" x2="98" y2="185" class="datum" />
+    <text x="98" y="57" text-anchor="middle" class="label">Datum</text>
+    <circle cx="148" cy="161" r="8" class="load-point" />
+    <line x1="148" y1="93" x2="148" y2="161" class="guide" />
+    <text x="148" y="78" text-anchor="middle" class="label">A · 400 kg · 0,20 m</text>
+    <circle cx="398" cy="161" r="8" class="load-point" />
+    <line x1="398" y1="93" x2="398" y2="161" class="guide" />
+    <text x="398" y="78" text-anchor="middle" class="label">B · 200 kg · 1,20 m</text>
+    <circle cx="231" cy="161" r="9" class="cg-point" />
+    <text x="231" y="204" text-anchor="middle" class="label label-blue">CG · 0,53 m</text>
+    <line x1="98" y1="218" x2="231" y2="218" class="arm" marker-end="url(#arrow-balance-${uid})" />
+    <text x="166" y="239" text-anchor="middle" class="small">Brazo desde el datum</text>
+    <text x="545" y="239" text-anchor="middle" class="small">Signo según la convención del datum</text>
+  </svg>}
+
+  {type === 'wind-triangle' && <svg viewBox="0 0 620 290" role="img" aria-labelledby={`diagram-title-wind-${uid} diagram-desc-wind-${uid}`}>
+    <title id={`diagram-title-wind-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-wind-${uid}`}>Vector de velocidad verdadera desde el origen, vector viento desde su punta y vector resultante de velocidad respecto del suelo.</desc>
+    <defs><marker id={`arrow-wind-blue-${uid}`} markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="currentColor" /></marker></defs>
+    <line x1="98" y1="215" x2="365" y2="215" class="guide" />
+    <line x1="110" y1="215" x2="330" y2="96" class="vector vector-blue" marker-end="url(#arrow-wind-blue-${uid})" />
+    <line x1="330" y1="96" x2="482" y2="171" class="vector vector-muted" marker-end="url(#arrow-wind-blue-${uid})" />
+    <line x1="110" y1="215" x2="482" y2="171" class="vector vector-dark" marker-end="url(#arrow-wind-blue-${uid})" />
+    <circle cx="110" cy="215" r="4" class="center" />
+    <circle cx="330" cy="96" r="4" class="center" />
+    <circle cx="482" cy="171" r="4" class="center" />
+    <text x="194" y="139" class="label label-blue">TAS</text>
+    <text x="389" y="103" class="label">Viento</text>
+    <text x="389" y="122" class="small">masa de aire · hacia donde sopla</text>
+    <text x="278" y="219" class="label">GS / derrota</text>
+    <text x="310" y="266" text-anchor="middle" class="caption">V⃗GS = V⃗TAS + V⃗viento</text>
+  </svg>}
+
+  {type === 'traffic-pattern' && <svg viewBox="0 0 720 280" role="img" aria-labelledby={`diagram-title-pattern-${uid} diagram-desc-pattern-${uid}`}>
+    <title id={`diagram-title-pattern-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-pattern-${uid}`}>Diagrama rectangular conceptual con tramo de salida o viento en cara, viento cruzado, viento en cola, básica y final. Las flechas son trayectorias de la aeronave, no la dirección del viento meteorológico.</desc>
+    <defs><marker id={`arrow-pattern-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <rect x="86" y="183" width="520" height="31" rx="3" class="runway" />
+    <line x1="101" y1="199" x2="591" y2="199" class="runway-mark" />
+    <path d="M150 180H480" class="route" marker-end="url(#arrow-pattern-${uid})" />
+    <path d="M490 171V118" class="route" marker-end="url(#arrow-pattern-${uid})" />
+    <path d="M478 106H117" class="route" marker-end="url(#arrow-pattern-${uid})" />
+    <path d="M108 115V175Q95 191 81 199" class="route" />
+    <path d="M31 199H78" class="route" marker-end="url(#arrow-pattern-${uid})" />
+    <text x="325" y="168" text-anchor="middle" class="label">Salida · viento en cara</text>
+    <text x="500" y="148" class="label">Cruzado</text>
+    <text x="310" y="89" text-anchor="middle" class="label">Viento en cola</text>
+    <text x="59" y="153" class="label">Básica</text>
+    <text x="44" y="223" class="label label-blue">Final</text>
+    <text x="598" y="237" class="small">Pista</text>
+  </svg>}
+
+  {type === 'decision-loop' && <svg viewBox="0 0 720 235" role="img" aria-labelledby={`diagram-title-decision-${uid} diagram-desc-decision-${uid}`}>
+    <title id={`diagram-title-decision-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-decision-${uid}`}>Cinco pasos conectados: observar, evaluar, elegir, actuar y revisar; la revisión inicia una nueva observación.</desc>
+    <defs><marker id={`arrow-decision-${uid}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="currentColor" /></marker></defs>
+    <rect x="24" y="72" width="116" height="60" rx="7" class="node" />
+    <rect x="166" y="72" width="116" height="60" rx="7" class="node" />
+    <rect x="308" y="72" width="116" height="60" rx="7" class="node node-accent" />
+    <rect x="450" y="72" width="116" height="60" rx="7" class="node" />
+    <rect x="592" y="72" width="104" height="60" rx="7" class="node" />
+    <text x="82" y="107" text-anchor="middle" class="label">Observar</text>
+    <text x="224" y="107" text-anchor="middle" class="label">Evaluar</text>
+    <text x="366" y="107" text-anchor="middle" class="label label-blue">Elegir</text>
+    <text x="508" y="107" text-anchor="middle" class="label">Actuar</text>
+    <text x="644" y="107" text-anchor="middle" class="label">Revisar</text>
+    <path d="M140 102H161M282 102H303M424 102H445M566 102H587" class="pipe" marker-end="url(#arrow-decision-${uid})" />
+    <path d="M644 139V183H82V139" class="pipe pipe-blue" marker-end="url(#arrow-decision-${uid})" />
+    <text x="363" y="215" text-anchor="middle" class="small">Volvé a observar cuando cambie la situación o después de actuar.</text>
+  </svg>}
+
+  {type === 'electrical-system' && <svg viewBox="0 0 760 270" role="img" aria-labelledby={`diagram-title-electrical-${uid} diagram-desc-electrical-${uid}`}>
+    <title id={`diagram-title-electrical-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-electrical-${uid}`}>La batería y el alternador se conectan, a través de protecciones y controles que varían según el avión, con una barra que alimenta instrumentos, luces y comunicaciones.</desc>
+    <defs><marker id={`arrow-electrical-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <rect x="28" y="35" width="166" height="68" rx="8" class="node" />
+    <text x="111" y="65" text-anchor="middle" class="label">Batería</text>
+    <text x="111" y="86" text-anchor="middle" class="small">energía almacenada</text>
+    <rect x="28" y="166" width="166" height="68" rx="8" class="node" />
+    <text x="111" y="196" text-anchor="middle" class="label">Alternador</text>
+    <text x="111" y="217" text-anchor="middle" class="small">con motor en marcha*</text>
+    <rect x="274" y="94" width="190" height="82" rx="8" class="node node-accent" />
+    <text x="369" y="127" text-anchor="middle" class="label label-blue">Barra eléctrica</text>
+    <text x="369" y="150" text-anchor="middle" class="small">protecciones / mandos*</text>
+    <rect x="548" y="25" width="180" height="58" rx="8" class="node" />
+    <rect x="548" y="106" width="180" height="58" rx="8" class="node" />
+    <rect x="548" y="187" width="180" height="58" rx="8" class="node" />
+    <text x="638" y="60" text-anchor="middle" class="label">Instrumentos</text>
+    <text x="638" y="141" text-anchor="middle" class="label">Comunicaciones</text>
+    <text x="638" y="222" text-anchor="middle" class="label">Luces y otros equipos</text>
+    <path d="M194 69H233V119H274" class="pipe" marker-end="url(#arrow-electrical-${uid})" />
+    <path d="M194 200H233V151H274" class="pipe pipe-blue" marker-end="url(#arrow-electrical-${uid})" />
+    <path d="M464 113H508V54H548" class="pipe" marker-end="url(#arrow-electrical-${uid})" />
+    <path d="M464 135H548" class="pipe" marker-end="url(#arrow-electrical-${uid})" />
+    <path d="M464 157H508V216H548" class="pipe" marker-end="url(#arrow-electrical-${uid})" />
+    <text x="379" y="264" text-anchor="middle" class="small">* Componentes, redundancia y lógica de carga dependen del diseño.</text>
+  </svg>}
+
+  {type === 'fuel-system' && <svg viewBox="0 0 760 250" role="img" aria-labelledby={`diagram-title-fuel-${uid} diagram-desc-fuel-${uid}`}>
+    <title id={`diagram-title-fuel-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-fuel-${uid}`}>Flujo conceptual desde depósitos hacia selector, filtrado y alimentación, dosificación y motor. La instalación puede variar y no todos los aviones tienen los mismos componentes.</desc>
+    <defs><marker id={`arrow-fuel-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <rect x="20" y="77" width="140" height="78" rx="8" class="node" />
+    <text x="90" y="109" text-anchor="middle" class="label">Depósitos</text>
+    <text x="90" y="132" text-anchor="middle" class="small">cantidad / calidad</text>
+    <rect x="195" y="77" width="140" height="78" rx="8" class="node" />
+    <text x="265" y="109" text-anchor="middle" class="label">Selector</text>
+    <text x="265" y="132" text-anchor="middle" class="small">si está instalado</text>
+    <rect x="370" y="77" width="145" height="78" rx="8" class="node node-accent" />
+    <text x="442" y="109" text-anchor="middle" class="label label-blue">Filtrado / bomba</text>
+    <text x="442" y="132" text-anchor="middle" class="small">arquitectura variable</text>
+    <rect x="550" y="77" width="94" height="78" rx="8" class="node" />
+    <text x="597" y="109" text-anchor="middle" class="label">Dosificación</text>
+    <text x="597" y="132" text-anchor="middle" class="small">carburador / inyección</text>
+    <rect x="674" y="77" width="66" height="78" rx="8" class="node" />
+    <text x="707" y="122" text-anchor="middle" class="label">Motor</text>
+    <path d="M160 116H195M335 116H370M515 116H550M644 116H674" class="pipe pipe-blue" marker-end="url(#arrow-fuel-${uid})" />
+    <text x="380" y="202" text-anchor="middle" class="small">Esquema funcional, no plano de tuberías ni lista de inspección.</text>
+    <text x="380" y="224" text-anchor="middle" class="small">La selección y el drenaje se verifican con el POH/AFM y la lista del avión.</text>
+  </svg>}
+
+  {type === 'flightpath' && <svg viewBox="0 0 720 280" role="img" aria-labelledby={`diagram-title-flightpath-${uid} diagram-desc-flightpath-${uid}`}>
+    <title id={`diagram-title-flightpath-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-flightpath-${uid}`}>Una cuerda de ala de referencia está inclinada respecto del horizonte y de la trayectoria. El ángulo entre la cuerda y el viento relativo representa el ángulo de ataque; todos los ángulos son ilustrativos.</desc>
+    <defs><marker id={`arrow-flightpath-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <line x1="52" y1="216" x2="668" y2="216" class="guide" />
+    <text x="65" y="240" class="small">Horizonte</text>
+    <line x1="130" y1="190" x2="570" y2="136" class="vector vector-blue" marker-end="url(#arrow-flightpath-${uid})" />
+    <text x="474" y="126" class="label label-blue">Trayectoria</text>
+    <line x1="130" y1="190" x2="520" y2="48" class="arm" />
+    <path d="M130 190L230 153L263 142L237 164L133 197Z" class="aircraft" />
+    <path d="M229 178 A100 100 0 0 0 224 156" class="angle" />
+    <text x="239" y="166" class="label label-blue">α</text>
+    <text x="386" y="83" class="label">Cuerda de referencia</text>
+    <text x="112" y="266" class="small">Viento relativo: sentido opuesto a la trayectoria · α: ángulo de ataque</text>
+    <text x="546" y="240" class="small">No está a escala</text>
+  </svg>}
+
+  {type === 'landing-approach' && <svg viewBox="0 0 720 280" role="img" aria-labelledby={`diagram-title-landing-${uid} diagram-desc-landing-${uid}`}>
+    <title id={`diagram-title-landing-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-landing-${uid}`}>Una trayectoria esquemática, sin escala geométrica, llega al entorno del umbral. No representa una senda, altura, velocidad ni punto prescripto de toma.</desc>
+    <defs><marker id={`arrow-landing-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <line x1="35" y1="213" x2="692" y2="213" class="guide" />
+    <rect x="427" y="188" width="264" height="40" rx="2" class="runway" />
+    <line x1="447" y1="208" x2="676" y2="208" class="runway-mark" />
+    <line x1="427" y1="188" x2="427" y2="228" class="datum" />
+    <path d="M78 161L427 184" class="route" marker-end="url(#arrow-landing-${uid})" />
+    <path d="M270 172L335 189L382 187L362 176L337 174L321 160L312 162L315 176L287 168Z" class="aircraft" />
+    <line x1="250" y1="156" x2="366" y2="185" class="vector vector-blue" marker-end="url(#arrow-landing-${uid})" />
+    <text x="116" y="143" class="label label-blue">Trayectoria ilustrativa · geometría no a escala</text>
+    <text x="421" y="255" class="small">Umbral</text>
+    <text x="561" y="255" text-anchor="middle" class="label">Pista</text>
+    <text x="126" y="244" class="small">Perfil conceptual · sin valores operativos</text>
+  </svg>}
+
+  {type === 'airfoil' && <svg viewBox="0 0 720 300" role="img" aria-labelledby={`diagram-title-airfoil-${uid} diagram-desc-airfoil-${uid}`}>
+    <title id={`diagram-title-airfoil-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-airfoil-${uid}`}>Un perfil con la cuerda inclinada respecto de un viento relativo horizontal. Arriba hay menor presión y abajo mayor presión. A la derecha, una curva de coeficiente de sustentación que sube con el ángulo de ataque y cae después del máximo.</desc>
+    <defs><marker id={`arrow-airfoil-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <line x1="28" y1="176" x2="214" y2="176" class="vector vector-blue" marker-end="url(#arrow-airfoil-${uid})" />
+    <text x="34" y="162" class="label label-blue">Viento relativo</text>
+    <path d="M214 150C268 86 360 78 452 108C520 130 566 156 592 176C548 190 470 202 386 196C300 190 246 176 214 150Z" class="aircraft" />
+    <line x1="214" y1="150" x2="592" y2="176" class="guide" />
+    <path d="M250 176A36 36 0 0 0 246 158" class="angle" />
+    <text x="262" y="168" class="label label-blue">α</text>
+    <text x="430" y="78" text-anchor="middle" class="label">Cuerda</text>
+    <text x="390" y="128" text-anchor="middle" class="small">extradós · menor presión</text>
+    <text x="400" y="214" text-anchor="middle" class="small">intradós · mayor presión</text>
+    <line x1="612" y1="48" x2="612" y2="214" class="axis" />
+    <line x1="612" y1="214" x2="708" y2="214" class="axis" />
+    <path d="M624 196C640 150 658 78 676 70C688 74 696 108 702 132" class="vector vector-blue" />
+    <circle cx="676" cy="70" r="4" class="center" />
+    <text x="612" y="40" class="small">CL</text>
+    <text x="676" y="236" text-anchor="middle" class="small">α</text>
+    <text x="676" y="58" text-anchor="middle" class="small">CL máx.</text>
+    <text x="360" y="276" text-anchor="middle" class="caption">Después del máximo, más ángulo ya no da más sustentación: es la pérdida.</text>
+  </svg>}
+
+  {type === 'carb-ice' && <svg viewBox="0 0 720 250" role="img" aria-labelledby={`diagram-title-carb-${uid} diagram-desc-carb-${uid}`}>
+    <title id={`diagram-title-carb-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-carb-${uid}`}>El aire entra, se acelera en el venturi y se mezcla con combustible que se vaporiza. Esa zona se enfría. El hielo puede estrechar el paso junto a la mariposa antes de llegar al motor.</desc>
+    <defs><marker id={`arrow-carb-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <rect x="24" y="78" width="130" height="72" rx="8" class="node" />
+    <text x="89" y="108" text-anchor="middle" class="label">Aire</text>
+    <text x="89" y="128" text-anchor="middle" class="small">temperatura exterior</text>
+    <rect x="196" y="64" width="150" height="100" rx="8" class="node node-accent" />
+    <text x="271" y="100" text-anchor="middle" class="label label-blue">Venturi</text>
+    <text x="271" y="122" text-anchor="middle" class="small">baja la presión</text>
+    <text x="271" y="142" text-anchor="middle" class="small">baja la temperatura</text>
+    <rect x="388" y="78" width="140" height="72" rx="8" class="node" />
+    <text x="458" y="108" text-anchor="middle" class="label">Mariposa</text>
+    <text x="458" y="128" text-anchor="middle" class="small">puede acumular hielo</text>
+    <rect x="570" y="78" width="124" height="72" rx="8" class="node" />
+    <text x="632" y="120" text-anchor="middle" class="label">Motor</text>
+    <path d="M154 114H196M346 114H388M528 114H570" class="pipe pipe-blue" marker-end="url(#arrow-carb-${uid})" />
+    <text x="360" y="214" text-anchor="middle" class="small">El combustible se vaporiza y absorbe calor: el enfriamiento no depende solo del aire exterior.</text>
+  </svg>}
+
+  {type === 'atmosphere' && <svg viewBox="0 0 720 280" role="img" aria-labelledby={`diagram-title-atmo-${uid} diagram-desc-atmo-${uid}`}>
+    <title id={`diagram-title-atmo-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-atmo-${uid}`}>Una columna de altura. Abajo, nivel del mar con 15 grados y 1013 hectopascales. La temperatura disminuye hasta la tropopausa, cerca de 11 kilómetros. La presión disminuye en toda la columna y más rápido cerca del suelo.</desc>
+    <line x1="168" y1="36" x2="168" y2="228" class="axis" />
+    <line x1="150" y1="214" x2="186" y2="214" class="datum" />
+    <line x1="154" y1="120" x2="182" y2="120" class="guide" />
+    <line x1="154" y1="52" x2="182" y2="52" class="guide" />
+    <text x="148" y="218" text-anchor="end" class="label">Nivel del mar</text>
+    <text x="148" y="200" text-anchor="end" class="small">15 °C · 1013 hPa</text>
+    <text x="196" y="124" class="label">Troposfera</text>
+    <text x="196" y="144" class="small">cerca de −6,5 °C cada 1000 m</text>
+    <text x="196" y="56" class="label label-blue">Tropopausa · ~11 km</text>
+    <text x="196" y="76" class="small">después, el modelo deja de enfriar igual</text>
+    <text x="360" y="258" text-anchor="middle" class="caption">1 hPa cerca del suelo equivale a unos 27–30 ft. Más arriba, esa equivalencia cambia.</text>
+  </svg>}
+
+  {type === 'front' && <svg viewBox="0 0 720 260" role="img" aria-labelledby={`diagram-title-front-${uid} diagram-desc-front-${uid}`}>
+    <title id={`diagram-title-front-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-front-${uid}`}>Una cuña de aire frío avanza y levanta el aire más cálido a lo largo de una pendiente. Sobre esa pendiente hay nubosidad de desarrollo. El esquema no tiene escala ni horario.</desc>
+    <defs><marker id={`arrow-front-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <line x1="36" y1="198" x2="684" y2="198" class="axis" />
+    <polygon points="48,198 330,198 48,78" class="node" />
+    <path d="M70 150C140 92 230 70 330 58C390 86 430 130 470 168" class="guide" />
+    <path d="M150 118C190 96 240 88 300 92C270 112 210 124 160 132Z" class="aircraft" />
+    <path d="M250 86C300 62 360 64 410 90C370 104 310 108 258 100Z" class="aircraft" />
+    <line x1="80" y1="186" x2="210" y2="186" class="vector vector-blue" marker-end="url(#arrow-front-${uid})" />
+    <text x="118" y="168" class="label label-blue">Aire frío</text>
+    <text x="470" y="150" class="label">Aire cálido</text>
+    <text x="250" y="54" class="small">ascenso y nubes</text>
+    <text x="360" y="236" text-anchor="middle" class="caption">El frente frío suele concentrar el cambio en una franja más estrecha que el frente cálido.</text>
+  </svg>}
+
+  {type === 'density-altitude' && <svg viewBox="0 0 720 230" role="img" aria-labelledby={`diagram-title-density-${uid} diagram-desc-density-${uid}`}>
+    <title id={`diagram-title-density-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-density-${uid}`}>Cadena de cuatro pasos: altitud de presión, temperatura comparada con la estándar, altitud de densidad y el efecto típico en la carrera y el ascenso.</desc>
+    <defs><marker id={`arrow-density-${uid}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="currentColor" /></marker></defs>
+    <rect x="16" y="58" width="150" height="78" rx="8" class="node" />
+    <text x="91" y="90" text-anchor="middle" class="label">Altitud</text>
+    <text x="91" y="110" text-anchor="middle" class="label">de presión</text>
+    <rect x="196" y="58" width="150" height="78" rx="8" class="node" />
+    <text x="271" y="90" text-anchor="middle" class="label">Temperatura</text>
+    <text x="271" y="110" text-anchor="middle" class="small">¿sobre la ISA?</text>
+    <rect x="376" y="48" width="160" height="98" rx="8" class="node node-accent" />
+    <text x="456" y="86" text-anchor="middle" class="label label-blue">Altitud</text>
+    <text x="456" y="108" text-anchor="middle" class="label label-blue">de densidad</text>
+    <rect x="566" y="58" width="138" height="78" rx="8" class="node" />
+    <text x="635" y="90" text-anchor="middle" class="label">Más carrera</text>
+    <text x="635" y="110" text-anchor="middle" class="small">menos ascenso</text>
+    <path d="M166 97H196M346 97H376M536 97H566" class="pipe pipe-blue" marker-end="url(#arrow-density-${uid})" />
+    <text x="360" y="188" text-anchor="middle" class="small">Regla didáctica, no tabla del avión: del orden de 120 ft de altitud de densidad por cada °C sobre la ISA.</text>
+  </svg>}
+
+  {type === 'vx-vy' && <svg viewBox="0 0 720 270" role="img" aria-labelledby={`diagram-title-vx-${uid} diagram-desc-vx-${uid}`}>
+    <title id={`diagram-title-vx-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-vx-${uid}`}>Dos curvas de altura contra distancia. La de Vx sube más empinada. La de Vy es más tendida: gana altura más rápido en el tiempo, pero queda más lejos del punto de partida.</desc>
+    <line x1="80" y1="214" x2="660" y2="214" class="axis" />
+    <line x1="80" y1="214" x2="80" y2="28" class="axis" />
+    <path d="M80 214C180 150 240 70 300 48" class="vector vector-blue" />
+    <path d="M80 214C260 190 420 120 620 56" class="vector vector-dark" />
+    <text x="250" y="40" class="label label-blue">Vx · mejor ángulo</text>
+    <text x="470" y="48" class="label">Vy · mejor régimen</text>
+    <text x="660" y="236" text-anchor="end" class="small">distancia</text>
+    <text x="92" y="42" class="small">altura</text>
+    <text x="360" y="258" text-anchor="middle" class="caption">Cerca de un obstáculo importa el ángulo. Con el obstáculo atrás, suele importar el régimen.</text>
+  </svg>}
+
+  {type === 'right-of-way' && <svg viewBox="0 0 720 250" role="img" aria-labelledby={`diagram-title-row-${uid} diagram-desc-row-${uid}`}>
+    <title id={`diagram-title-row-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-row-${uid}`}>Tres vistas desde arriba. En convergencia cede quien tiene a la otra aeronave a su derecha. De frente, las dos viran a su derecha. En alcance, se pasa por la derecha y la aeronave alcanzada mantiene la prioridad.</desc>
+    <defs><marker id={`arrow-row-${uid}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="currentColor" /></marker></defs>
+    <rect x="16" y="28" width="220" height="168" rx="8" class="node" />
+    <rect x="250" y="28" width="220" height="168" rx="8" class="node" />
+    <rect x="484" y="28" width="220" height="168" rx="8" class="node" />
+    <text x="126" y="52" text-anchor="middle" class="label">Convergencia</text>
+    <text x="360" y="52" text-anchor="middle" class="label">De frente</text>
+    <text x="594" y="52" text-anchor="middle" class="label">Alcance</text>
+    <line x1="70" y1="150" x2="150" y2="100" class="vector vector-blue" marker-end="url(#arrow-row-${uid})" />
+    <line x1="160" y1="160" x2="110" y2="110" class="vector vector-muted" marker-end="url(#arrow-row-${uid})" />
+    <text x="126" y="178" text-anchor="middle" class="small">cede quien la ve a su derecha</text>
+    <line x1="300" y1="150" x2="360" y2="110" class="vector vector-blue" marker-end="url(#arrow-row-${uid})" />
+    <line x1="420" y1="150" x2="360" y2="110" class="vector vector-muted" marker-end="url(#arrow-row-${uid})" />
+    <text x="360" y="178" text-anchor="middle" class="small">las dos, a su derecha</text>
+    <line x1="560" y1="150" x2="640" y2="150" class="vector vector-muted" marker-end="url(#arrow-row-${uid})" />
+    <line x1="520" y1="128" x2="630" y2="108" class="vector vector-blue" marker-end="url(#arrow-row-${uid})" />
+    <text x="594" y="178" text-anchor="middle" class="small">se pasa por la derecha</text>
+  </svg>}
+
+  {type === 'axes' && <svg viewBox="0 0 720 260" role="img" aria-labelledby={`diagram-title-axes-${uid} diagram-desc-axes-${uid}`}>
+    <title id={`diagram-title-axes-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-axes-${uid}`}>Vista lateral de un avión con tres ejes por el centro de gravedad: longitudinal para el alabeo, lateral para el cabeceo y vertical para la guiñada.</desc>
+    <defs><marker id={`arrow-axes-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <path d="M250 132H470L520 142L470 152H250L198 176L182 168L220 142L182 116L198 108Z" class="aircraft" />
+    <path d="M330 132L390 78L412 80L390 140M330 152L390 206L412 204L390 144" class="aircraft" />
+    <line x1="150" y1="142" x2="560" y2="142" class="vector vector-blue" marker-end="url(#arrow-axes-${uid})" />
+    <line x1="360" y1="142" x2="360" y2="36" class="force force-muted" marker-end="url(#arrow-axes-${uid})" />
+    <circle cx="360" cy="142" r="7" class="center" />
+    <text x="548" y="128" text-anchor="end" class="label label-blue">Longitudinal · alabeo</text>
+    <text x="372" y="48" class="label">Vertical · guiñada</text>
+    <text x="378" y="164" class="label">Lateral · cabeceo</text>
+    <text x="378" y="182" class="small">sale del plano del dibujo</text>
+    <text x="360" y="236" text-anchor="middle" class="caption">Alerones, elevador y timón son los mandos principales, no los únicos efectos.</text>
+  </svg>}
+
+  {type === 'imsafe' && <svg viewBox="0 0 720 220" role="img" aria-labelledby={`diagram-title-imsafe-${uid} diagram-desc-imsafe-${uid}`}>
+    <title id={`diagram-title-imsafe-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-imsafe-${uid}`}>Seis casillas: enfermedad, medicación, estrés, alcohol, fatiga y emoción. Cada una pregunta por un factor que puede reducir atención o juicio.</desc>
+    <rect x="16" y="28" width="220" height="70" rx="8" class="node" /><text x="126" y="58" text-anchor="middle" class="label">I · Enfermedad</text><text x="126" y="78" text-anchor="middle" class="small">¿baja mi rendimiento?</text>
+    <rect x="250" y="28" width="220" height="70" rx="8" class="node" /><text x="360" y="58" text-anchor="middle" class="label">M · Medicación</text><text x="360" y="78" text-anchor="middle" class="small">¿está permitida?</text>
+    <rect x="484" y="28" width="220" height="70" rx="8" class="node" /><text x="594" y="58" text-anchor="middle" class="label">S · Estrés</text><text x="594" y="78" text-anchor="middle" class="small">¿me cierra la atención?</text>
+    <rect x="16" y="114" width="220" height="70" rx="8" class="node" /><text x="126" y="144" text-anchor="middle" class="label">A · Alcohol</text><text x="126" y="164" text-anchor="middle" class="small">¿sigue el efecto?</text>
+    <rect x="250" y="114" width="220" height="70" rx="8" class="node node-accent" /><text x="360" y="144" text-anchor="middle" class="label label-blue">F · Fatiga</text><text x="360" y="164" text-anchor="middle" class="small">¿dormí lo necesario?</text>
+    <rect x="484" y="114" width="220" height="70" rx="8" class="node" /><text x="594" y="144" text-anchor="middle" class="label">E · Emoción</text><text x="594" y="164" text-anchor="middle" class="small">¿ocupa mi cabeza?</text>
+  </svg>}
+
+  {type === 'hypoxia-types' && <svg viewBox="0 0 720 230" role="img" aria-labelledby={`diagram-title-hypoxia-${uid} diagram-desc-hypoxia-${uid}`}>
+    <title id={`diagram-title-hypoxia-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-hypoxia-${uid}`}>Cuatro tipos: hipóxica por el aire en altitud, hipémica por la sangre, de estancamiento por la circulación y histotóxica cuando el tejido no usa el oxígeno.</desc>
+    <rect x="24" y="46" width="158" height="120" rx="8" class="node node-accent" /><text x="103" y="86" text-anchor="middle" class="label label-blue">Hipóxica</text><text x="103" y="112" text-anchor="middle" class="small">menos oxígeno</text><text x="103" y="130" text-anchor="middle" class="small">en el aire</text>
+    <rect x="198" y="46" width="158" height="120" rx="8" class="node" /><text x="277" y="86" text-anchor="middle" class="label">Hipémica</text><text x="277" y="112" text-anchor="middle" class="small">la sangre transporta</text><text x="277" y="130" text-anchor="middle" class="small">menos · CO, anemia</text>
+    <rect x="372" y="46" width="158" height="120" rx="8" class="node" /><text x="451" y="86" text-anchor="middle" class="label">Estancamiento</text><text x="451" y="112" text-anchor="middle" class="small">la sangre no llega</text><text x="451" y="130" text-anchor="middle" class="small">G · circulación</text>
+    <rect x="546" y="46" width="150" height="120" rx="8" class="node" /><text x="621" y="86" text-anchor="middle" class="label">Histotóxica</text><text x="621" y="112" text-anchor="middle" class="small">el tejido no lo usa</text><text x="621" y="130" text-anchor="middle" class="small">alcohol · tóxicos</text>
+    <text x="360" y="204" text-anchor="middle" class="caption">El juicio suele fallar antes de que la persona note el problema.</text>
+  </svg>}
+
+  {type === 'priority' && <svg viewBox="0 0 720 210" role="img" aria-labelledby={`diagram-title-priority-${uid} diagram-desc-priority-${uid}`}>
+    <title id={`diagram-title-priority-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-priority-${uid}`}>Tres pasos en orden: controlar la aeronave, elegir una trayectoria alcanzable y comunicar. La comunicación no reemplaza el control.</desc>
+    <defs><marker id={`arrow-priority-${uid}`} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="currentColor" /></marker></defs>
+    <rect x="24" y="48" width="190" height="96" rx="8" class="node node-accent" /><text x="119" y="86" text-anchor="middle" class="label label-blue">1 · Controlar</text><text x="119" y="110" text-anchor="middle" class="small">actitud, velocidad</text>
+    <rect x="264" y="48" width="190" height="96" rx="8" class="node" /><text x="359" y="86" text-anchor="middle" class="label">2 · Orientar</text><text x="359" y="110" text-anchor="middle" class="small">una opción alcanzable</text>
+    <rect x="504" y="48" width="190" height="96" rx="8" class="node" /><text x="599" y="86" text-anchor="middle" class="label">3 · Comunicar</text><text x="599" y="110" text-anchor="middle" class="small">posición e intención</text>
+    <path d="M214 96H264M454 96H504" class="pipe pipe-blue" marker-end="url(#arrow-priority-${uid})" />
+    <text x="360" y="182" text-anchor="middle" class="caption">Es un orden para entrenar la atención, no un artículo de la RAAC.</text>
+  </svg>}
+
+  {type === 'metar' && <svg viewBox="0 0 760 230" role="img" aria-labelledby={`diagram-title-metar-${uid} diagram-desc-metar-${uid}`}>
+    <title id={`diagram-title-metar-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-metar-${uid}`}>Siete grupos de un METAR de ejemplo: lugar, fecha y hora, viento, visibilidad, nubes, temperatura y rocío, y presión QNH.</desc>
+    <rect x="12" y="36" width="92" height="64" rx="8" class="node" /><text x="58" y="64" text-anchor="middle" class="label">SAEZ</text><text x="58" y="84" text-anchor="middle" class="small">lugar</text>
+    <rect x="114" y="36" width="110" height="64" rx="8" class="node" /><text x="169" y="64" text-anchor="middle" class="label">301200Z</text><text x="169" y="84" text-anchor="middle" class="small">día 30 · 12:00 UTC</text>
+    <rect x="234" y="36" width="110" height="64" rx="8" class="node" /><text x="289" y="64" text-anchor="middle" class="label">18012KT</text><text x="289" y="84" text-anchor="middle" class="small">180° · 12 kt</text>
+    <rect x="354" y="36" width="80" height="64" rx="8" class="node" /><text x="394" y="64" text-anchor="middle" class="label">9999</text><text x="394" y="84" text-anchor="middle" class="small">≥ 10 km</text>
+    <rect x="444" y="36" width="100" height="64" rx="8" class="node node-accent" /><text x="494" y="64" text-anchor="middle" class="label label-blue">FEW030</text><text x="494" y="84" text-anchor="middle" class="small">pocas · 3000 ft</text>
+    <rect x="554" y="36" width="86" height="64" rx="8" class="node" /><text x="597" y="64" text-anchor="middle" class="label">22/14</text><text x="597" y="84" text-anchor="middle" class="small">°C · rocío</text>
+    <rect x="650" y="36" width="96" height="64" rx="8" class="node" /><text x="698" y="64" text-anchor="middle" class="label">Q1016</text><text x="698" y="84" text-anchor="middle" class="small">QNH hPa</text>
+    <text x="380" y="150" text-anchor="middle" class="small">FEW, SCT, BKN y OVC cuentan octas. BKN u OVC definen techo.</text>
+    <text x="380" y="176" text-anchor="middle" class="small">22/14: faltan 8 °C para la saturación. Una diferencia chica favorece niebla o nubes bajas.</text>
+    <text x="380" y="208" text-anchor="middle" class="caption">Ejemplo didáctico. Leé siempre la hora, la validez y la enmienda del producto real.</text>
+  </svg>}
+
+  {type === 'cg-stability' && <svg viewBox="0 0 720 250" role="img" aria-labelledby={`diagram-title-cg-${uid} diagram-desc-cg-${uid}`}>
+    <title id={`diagram-title-cg-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-cg-${uid}`}>Dos situaciones de un avión con cola convencional. Con el centro de gravedad adelantado hace falta más fuerza hacia abajo en la cola y la respuesta es más estable. Con el centro atrasado, la cola corrige menos y la estabilidad longitudinal baja.</desc>
+    <defs><marker id={`arrow-cg-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <path d="M70 118H210L246 126L210 134H70L40 150L28 144L52 126L28 108L40 102Z" class="aircraft" />
+    <line x1="150" y1="108" x2="150" y2="62" class="force force-blue" marker-end="url(#arrow-cg-${uid})" />
+    <line x1="230" y1="126" x2="230" y2="168" class="force force-muted" marker-end="url(#arrow-cg-${uid})" />
+    <circle cx="118" cy="126" r="5" class="cg-point" />
+    <text x="150" y="52" text-anchor="middle" class="small">sustentación</text>
+    <text x="150" y="196" text-anchor="middle" class="label label-blue">CG adelante</text>
+    <text x="150" y="216" text-anchor="middle" class="small">más estable · más fuerza de cola</text>
+    <path d="M430 118H570L606 126L570 134H430L400 150L388 144L412 126L388 108L400 102Z" class="aircraft" />
+    <line x1="510" y1="108" x2="510" y2="62" class="force force-blue" marker-end="url(#arrow-cg-${uid})" />
+    <line x1="590" y1="126" x2="590" y2="156" class="force force-muted" marker-end="url(#arrow-cg-${uid})" />
+    <circle cx="534" cy="126" r="5" class="cg-point" />
+    <text x="510" y="196" text-anchor="middle" class="label">CG atrás</text>
+    <text x="510" y="216" text-anchor="middle" class="small">menos estable · responde más</text>
+    <text x="360" y="244" text-anchor="middle" class="caption">Los límites del manual ya incluyen ese margen. El esquema no los reemplaza.</text>
+  </svg>}
+
+  {type === 'stability' && <svg viewBox="0 0 640 230" role="img" aria-labelledby={`diagram-title-stability-${uid} diagram-desc-stability-${uid}`}>
+    <title id={`diagram-title-stability-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-stability-${uid}`}>Tres columnas. En aire estable la parcela sube y vuelve a bajar. En aire neutro se queda donde la soltaste. En aire inestable sigue subiendo.</desc>
+    <defs><marker id={`arrow-stability-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <line x1="110" y1="40" x2="110" y2="168" class="guide" />
+    <path d="M110 150 V78" class="force force-blue" marker-end="url(#arrow-stability-${uid})" />
+    <path d="M128 96 V150" class="force force-muted" marker-end="url(#arrow-stability-${uid})" />
+    <circle cx="110" cy="150" r="7" class="cg-point" />
+    <text x="110" y="196" text-anchor="middle" class="label">Estable</text>
+    <text x="110" y="216" text-anchor="middle" class="small">sube y vuelve</text>
+    <line x1="320" y1="40" x2="320" y2="168" class="guide" />
+    <path d="M320 150 V96" class="force force-blue" marker-end="url(#arrow-stability-${uid})" />
+    <circle cx="320" cy="96" r="7" class="cg-point" />
+    <text x="320" y="196" text-anchor="middle" class="label">Neutro</text>
+    <text x="320" y="216" text-anchor="middle" class="small">se queda</text>
+    <line x1="530" y1="40" x2="530" y2="168" class="guide" />
+    <path d="M530 150 V48" class="force force-blue" marker-end="url(#arrow-stability-${uid})" />
+    <circle cx="530" cy="48" r="7" class="cg-point" />
+    <text x="530" y="196" text-anchor="middle" class="label">Inestable</text>
+    <text x="530" y="216" text-anchor="middle" class="small">sigue subiendo</text>
+  </svg>}
+
+  {type === 'papi' && <svg viewBox="0 0 640 200" role="img" aria-labelledby={`diagram-title-papi-${uid} diagram-desc-papi-${uid}`}>
+    <title id={`diagram-title-papi-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-papi-${uid}`}>Cuatro luces en fila. Las dos de la izquierda están blancas y las dos de la derecha rojas, la combinación habitual de senda correcta.</desc>
+    <rect x="70" y="48" width="100" height="64" rx="10" fill="#f4f1ec" stroke="currentColor" />
+    <rect x="190" y="48" width="100" height="64" rx="10" fill="#f4f1ec" stroke="currentColor" />
+    <rect x="310" y="48" width="100" height="64" rx="10" fill="#c23b2e" stroke="currentColor" />
+    <rect x="430" y="48" width="100" height="64" rx="10" fill="#c23b2e" stroke="currentColor" />
+    <text x="300" y="154" text-anchor="middle" class="label">En la senda</text>
+    <text x="300" y="178" text-anchor="middle" class="small">Más luces blancas: alto. Más luces rojas: bajo.</text>
+  </svg>}
+
+  {type === 'ground-reference' && <svg viewBox="0 0 640 250" role="img" aria-labelledby={`diagram-title-ground-${uid} diagram-desc-ground-${uid}`}>
+    <title id={`diagram-title-ground-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-ground-${uid}`}>Un rectángulo de trayectoria sobre el suelo y una flecha de viento desde la izquierda. El tramo de viento en cola está marcado como el que pide más inclinación al virar.</desc>
+    <defs><marker id={`arrow-ground-${uid}`} markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="currentColor" /></marker></defs>
+    <rect x="170" y="46" width="300" height="140" rx="28" class="route" />
+    <path d="M48 116 H132" class="force force-muted" marker-end="url(#arrow-ground-${uid})" />
+    <text x="90" y="104" text-anchor="middle" class="small">viento</text>
+    <text x="320" y="78" text-anchor="middle" class="small">viento en cara · menos banco</text>
+    <text x="320" y="168" text-anchor="middle" class="label-blue">viento en cola · más banco</text>
+    <text x="320" y="222" text-anchor="middle" class="small">La figura es la trayectoria sobre el suelo, no un circuito de aeródromo.</text>
+  </svg>}
+
+  {type === 'risk-matrix' && <svg viewBox="0 0 640 230" role="img" aria-labelledby={`diagram-title-risk-${uid} diagram-desc-risk-${uid}`}>
+    <title id={`diagram-title-risk-${uid}`}>{diagramTitle}</title>
+    <desc id={`diagram-desc-risk-${uid}`}>Una grilla de tres por tres. Las columnas aumentan la gravedad y las filas aumentan la probabilidad. La celda de arriba a la derecha está marcada como la que se resuelve antes de salir.</desc>
+    <text x="336" y="28" text-anchor="middle" class="small">gravedad →</text>
+    <rect x="150" y="48" width="88" height="46" class="node" />
+    <rect x="246" y="48" width="88" height="46" class="node" />
+    <rect x="342" y="48" width="88" height="46" class="node-accent" />
+    <rect x="150" y="102" width="88" height="46" class="node" />
+    <rect x="246" y="102" width="88" height="46" class="node" />
+    <rect x="342" y="102" width="88" height="46" class="node" />
+    <rect x="150" y="156" width="88" height="46" class="node" />
+    <rect x="246" y="156" width="88" height="46" class="node" />
+    <rect x="342" y="156" width="88" height="46" class="node" />
+    <text x="386" y="76" text-anchor="middle" class="label-blue">resolvé</text>
+    <text x="118" y="76" text-anchor="end" class="small">alta</text>
+    <text x="118" y="130" text-anchor="end" class="small">media</text>
+    <text x="118" y="184" text-anchor="end" class="small">baja</text>
+    <text x="194" y="220" text-anchor="middle" class="small">baja</text>
+    <text x="290" y="220" text-anchor="middle" class="small">media</text>
+    <text x="386" y="220" text-anchor="middle" class="small">alta</text>
+  </svg>}
+
+  <figcaption id={`diagram-caption-${uid}`}><strong>{diagramTitle}.</strong>{` ${caption}`}</figcaption>
+</figure>}
+
+<style>
+  .study-diagram{position:relative;--blue:var(--violet-spark);--blue-soft:rgba(4,71,255,.08);margin:28px 0 25px;padding:18px 18px 14px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe);}
+  .study-diagram svg{display:block;width:100%;height:auto;color:var(--ink);overflow:visible;}
+  .study-diagram .force,.study-diagram .vector,.study-diagram .pipe,.study-diagram .arm,.study-diagram .route{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+  .study-diagram .force-blue,.study-diagram .vector-blue,.study-diagram .pipe-blue{color:var(--blue);stroke:var(--blue);}
+  .study-diagram .force-muted,.study-diagram .vector-muted,.study-diagram .guide{color:#96918a;stroke:#96918a;}
+  .study-diagram .aircraft{fill:var(--taupe);stroke:var(--ink);stroke-width:2;stroke-linejoin:round;}
+  .study-diagram .vector-dark{color:#282722;stroke:#282722;}
+  .study-diagram .guide{stroke-dasharray:5 7;stroke-width:1.4;}
+  .study-diagram .angle{fill:none;stroke:var(--blue);stroke-width:1.8;}
+  .study-diagram .center{fill:var(--ink);}
+  .study-diagram .node{fill:var(--taupe);stroke:var(--line);stroke-width:1.3;}
+  .study-diagram .node-accent{fill:var(--blue-soft);stroke:rgba(4,71,255,.2);}
+  .study-diagram .label{fill:var(--ink);font:500 14px var(--sans);}
+  .study-diagram .label-blue{fill:var(--blue);font:500 14px var(--sans);}
+  .study-diagram .small{fill:var(--muted);font:400 12px var(--sans);}
+  .study-diagram .caption{fill:var(--muted);font:400 12px var(--sans);}
+  .study-diagram .datum{stroke:var(--blue);stroke-width:2;}
+  .study-diagram .axis{stroke:#77736e;stroke-width:2;}
+  .study-diagram .load-point{fill:#79746d;}
+  .study-diagram .cg-point{fill:var(--blue);}
+  .study-diagram .runway{fill:#30302d;}
+  .study-diagram .runway-mark{stroke:#fff;stroke-width:2;stroke-dasharray:16 12;}
+  .study-diagram .route{stroke:var(--blue);stroke-width:2.4;stroke-dasharray:6 5;}
+  .study-diagram figcaption{margin:12px 0 0;color:var(--muted);font-size:13px;line-height:1.55;}
+  .study-diagram figcaption strong{color:var(--ink);font-weight:600;}
+  @media(max-width:520px){.study-diagram{margin:22px -4px;padding:13px 10px 11px}.study-diagram .label,.study-diagram .label-blue{font-size:13px}.study-diagram .small{font-size:12px}.study-diagram figcaption{font-size:12px}}
+  html[data-theme="dark"] .study-diagram .node{fill:var(--taupe);stroke:var(--line);}
+  html[data-theme="dark"] .study-diagram .node-accent{fill:var(--blue-soft);stroke:rgba(4,71,255,.34);}
+  html[data-theme="dark"] .study-diagram .label{fill:var(--ink);}
+  html[data-theme="dark"] .study-diagram .label-blue{fill:#b7c4ff;}
+  html[data-theme="dark"] .study-diagram .runway{fill:#575550;}
+</style>

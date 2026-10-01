@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+---
+<BaseLayout title="No encontramos esta página — Altura" description="Volvé a la biblioteca de aviación o buscá una práctica por licencia.">
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav />
+  </header>
+  <main class="not-found" id="main-content" tabindex="-1">
+    <p class="eyebrow">Rumbo no encontrado</p>
+    <h1>Esta página<br/><em>no está en el mapa.</em></h1>
+    <p>El enlace puede haber cambiado. Volvé a los temas de estudio o elegí una licencia para practicar.</p>
+    <div class="not-found-actions">
+      <a class="button-primary" href="/temas">Ir a la biblioteca <span aria-hidden="true">→</span></a>
+      <a class="button-quiet" href="/examenes">Ver exámenes <span aria-hidden="true">↗</span></a>
+    </div>
+  </main>
+  <footer class="home-footer study-foot">
+    <BrandMark />
+    <span>Material complementario para estudiar aviación.</span>
+    <a href="/">Volver al inicio ↗</a>
+  </footer>
+</BaseLayout>
