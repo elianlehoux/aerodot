@@ -86,21 +86,28 @@ const mountStudyProgress = () => {
     const completeButton = event.target.closest('[data-complete]');
     if (!stateButton && !completeButton) return;
     map = readMap();
+    let slug;
+    let nextStatus;
     if (stateButton) {
-      const slug = stateButton.closest('[data-study-slug]')?.dataset.studySlug;
-      const next = stateButton.dataset.studyState;
-      if (!slug || (next !== 'none' && next !== 'curso' && next !== 'listo')) return;
-      if (next === 'none') delete map[slug];
-      else map[slug] = next;
+      slug = stateButton.closest('[data-study-slug]')?.dataset.studySlug;
+      nextStatus = stateButton.dataset.studyState;
+      if (!slug || (nextStatus !== 'none' && nextStatus !== 'curso' && nextStatus !== 'listo')) return;
+      if (nextStatus === 'none') delete map[slug];
+      else map[slug] = nextStatus;
     } else {
-      const slug = completeButton.dataset.complete;
+      slug = completeButton.dataset.complete;
       if (!slug) return;
-      if (statusOf(map, slug) === 'listo') delete map[slug];
-      else map[slug] = 'listo';
+      nextStatus = statusOf(map, slug) === 'listo' ? 'none' : 'listo';
+      if (nextStatus === 'none') delete map[slug];
+      else map[slug] = nextStatus;
     }
     try {
       writeMap(map);
       paint(map);
+      window.posthog?.capture('study_chapter_status_changed', {
+        chapter_slug: slug,
+        status: nextStatus,
+      });
     } catch {
       showSaveError(stateButton || completeButton);
     }

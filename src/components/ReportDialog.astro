@@ -218,6 +218,7 @@ import { reportAccessKey } from '../data/report.js';
       });
       const data = await response.json();
       if (!response.ok || data.success === false) throw new Error('send');
+      window.posthog?.capture('content_report_submitted');
       showThanks();
     } catch {
       statusEl.textContent = 'No se pudo enviar el aviso. Probá de nuevo en un momento.';

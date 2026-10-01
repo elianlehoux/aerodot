@@ -84,13 +84,14 @@ const articleCopyText = [
   <script>
     import '../../scripts/study-progress.js';
   </script>
-  <script is:inline define:vars={{articleCopyText}}>
+  <script is:inline define:vars={{articleCopyText, chapterSlug: chapter.slug}}>
     const copyButton=document.querySelector('[data-copy-page]');
     const copyStatus=document.querySelector('[data-copy-status]');
     copyButton.addEventListener('click',async()=>{
       copyStatus.textContent='';
       try {
         await navigator.clipboard.writeText(articleCopyText);
+        window.posthog?.capture('study_page_copied', { chapter_slug: chapterSlug });
         copyStatus.textContent='Página copiada.';
       } catch {
         copyStatus.textContent='No se pudo copiar. Revisá los permisos del navegador.';

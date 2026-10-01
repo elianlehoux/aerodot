@@ -64,6 +64,11 @@ let timerId = null;
 let timerStartedAt = null;
 const storageKey = `altura:practice-missed:${licenseSlug}`;
 
+const practiceLogger = {
+  info: (message, attributes) => window.posthog?.logger?.info(message, { log_source: 'practice_session', ...attributes }),
+  warn: (message, attributes) => window.posthog?.logger?.warn(message, { log_source: 'practice_session', ...attributes }),
+};
+
 const pad = (value) => String(value).padStart(2, '0');
 const formatElapsed = (milliseconds) => {
   const totalSeconds = Math.floor(milliseconds / 1000);
@@ -284,6 +289,13 @@ const choose = (choiceIndex) => {
   const scoreable = isScoreableQuestion(q);
   const correct = known && choiceIndex === q.answerIndex;
   answers[index] = { question: q, choiceIndex, known, scoreable, correct };
+  window.posthog?.capture('practice_question_answered', {
+    license_slug: licenseSlug,
+    mode,
+    response: choiceIndex === null ? 'skipped' : 'answered',
+    scoreable,
+    is_correct: scoreable ? correct : undefined,
+  });
   liveScore();
   if (scoreable && !mock) updateMissed(q, !correct);
   refreshReviewButton();
@@ -374,6 +386,17 @@ const showResults = () => {
   document.querySelector('#resultTitle').textContent = isMock ? 'Simulacro terminado.' : 'Sesión completada.';
   const scored = correct + wrong;
   const percentage = scored ? Math.round((correct / scored) * 100) : 0;
+  const completion = {
+    license_slug: licenseSlug,
+    mode,
+    question_count: answers.length,
+    correct_count: correct,
+    incorrect_count: wrong,
+    review_count: review,
+    score_percentage: percentage,
+  };
+  window.posthog?.capture('learning_session_completed', completion);
+  practiceLogger.info('learning session completed', completion);
   document.querySelector('#resultSummary').textContent = isMock
     // El porcentaje va siempre: antes solo aparecia cuando no habia ninguna pregunta sin
     // puntuar, asi que el mismo modo daba dos formatos distintos de resumen.
@@ -404,6 +427,12 @@ const begin = async (selected, selectedMode) => {
     announceNoQuestions(mode === 'mock'
       ? 'No hay preguntas con clave verificada para esa combinación. Probá con «Todos los temas».'
       : 'Ese tema no tiene preguntas en este banco. Probá con «Todos los temas».');
+    practiceLogger.warn('learning session could not start', {
+      license_slug: licenseSlug,
+      mode,
+      selected_chapter: selected === 'all' ? undefined : Number(selected),
+      reason: 'empty_question_pool',
+    });
     return;
   }
   queue = pool;
@@ -418,6 +447,14 @@ const begin = async (selected, selectedMode) => {
     ? `EXAMEN DE PRUEBA · ${queue.length} PREGUNTAS`
     : 'PRÁCTICA · CORRECCIÓN INMEDIATA';
   if (mode === 'mock') startTimer();
+  const session = {
+    license_slug: licenseSlug,
+    mode,
+    question_count: queue.length,
+    chapter: selected === 'all' ? undefined : Number(selected),
+  };
+  window.posthog?.capture('learning_session_started', session);
+  practiceLogger.info('learning session started', session);
   setQuestion();
 };
 
@@ -461,11 +498,18 @@ document.querySelector('#retryWrong').addEventListener('click', () => {
   clearResultTime();
   queue = shuffle(wrong);
   resetSession();
-  mode = 'practice';
+  mode = 'review_incorrect';
   results.hidden = true;
   quiz.hidden = false;
   setTakingExam(true);
   document.querySelector('#quizMode').textContent = 'REPASO DE ERRORES';
+  const session = {
+    license_slug: licenseSlug,
+    mode,
+    question_count: queue.length,
+  };
+  window.posthog?.capture('learning_session_started', session);
+  practiceLogger.info('learning session started', session);
   setQuestion();
 });
 document.querySelector('#startReview').addEventListener('click', async (event) => {
@@ -487,12 +531,19 @@ document.querySelector('#startReview').addEventListener('click', async (event) =
   clearResultTime();
   queue = shuffle(questions);
   resetSession();
-  mode = 'practice';
+  mode = 'review_missed';
   startPanel.hidden = true;
   results.hidden = true;
   quiz.hidden = false;
   setTakingExam(true);
   document.querySelector('#quizMode').textContent = 'REPASO · PREGUNTAS MARCADAS';
+  const session = {
+    license_slug: licenseSlug,
+    mode,
+    question_count: queue.length,
+  };
+  window.posthog?.capture('learning_session_started', session);
+  practiceLogger.info('learning session started', session);
   setQuestion();
 });
 

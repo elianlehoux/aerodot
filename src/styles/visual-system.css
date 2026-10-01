@@ -5,8 +5,9 @@
 .site-header nav>a:hover,.site-header nav>a[aria-current="page"]{background:var(--taupe);color:var(--ink)}
 .site-header nav>a[aria-current="page"]{font-weight:500}
 .site-header nav .header-cta{border-color:var(--line);color:var(--ink)}
-.wordmark{display:inline-flex;align-items:baseline;color:var(--ink);font:500 19px/1 var(--sans);letter-spacing:-.055em;text-decoration:none}
-.wordmark-icon{display:none}
+.wordmark{display:inline-flex;align-items:center;gap:9px;color:var(--ink);font:500 19px/1 var(--sans);letter-spacing:-.055em;text-decoration:none;transition:opacity .15s ease}
+.wordmark:hover{opacity:.85}
+.wordmark-icon{display:inline-block;width:28px;height:28px;border-radius:6px;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 1px var(--line)}
 .wordmark-dot{color:inherit}
 .study-header{height:58px}
 .ld-dn{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:62px;height:34px;margin:0 0 0 8px;padding:0;border:1px solid var(--line);border-radius:var(--radius-button);background:var(--taupe);cursor:pointer;transition:background .16s ease,border-color .16s ease}
@@ -22,6 +23,7 @@
 .back-to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .home-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px;padding:18px clamp(20px,5vw,64px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 .home-footer .wordmark{font-size:17px}
+.home-footer .wordmark .wordmark-icon{width:22px;height:22px;border-radius:5px}
 .home-footer>a,.home-footer div a{color:var(--graphite);text-decoration:none}
 .home-footer>a:hover,.home-footer div a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .home-footer small{max-width:520px;font-size:12px;line-height:1.5}
@@ -454,7 +456,8 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
   .source-strip>span{flex-basis:auto}
 }
 @media(max-width:400px){
-  .wordmark{font-size:17px}
+  .wordmark{font-size:17px;gap:7px}
+  .wordmark-icon{width:24px;height:24px;border-radius:5px}
   .site-header nav>a{padding:0 8px;font-size:14px}
   .ld-dn{margin-left:3px}
   .home-cta-primary,.button-quiet,.button-primary{min-height:42px;padding-right:14px;padding-left:14px;font-size:13px}
