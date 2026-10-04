@@ -41,6 +41,7 @@ const additions = {
       'Guiñada adversa y coordinación',
       'La guiñada adversa es una tendencia del morro a girar al lado contrario del alabeo que se inicia. Al bajar un alerón, aumenta la sustentación de esa ala, pero también puede aumentar su resistencia.\n\nEsa diferencia de resistencia tira del morro en sentido opuesto al giro buscado. El piloto coordina con el timón de dirección y observa la bola del inclinómetro, si está instalada. Una hélice también puede producir otras tendencias de guiñada, sobre todo al cambiar potencia. En el examen, no confundas esos efectos con la guiñada adversa causada por los alerones.',
       'La resistencia desigual de los alerones puede tirar el morro contra el giro que empezás.',
+      'adverse-yaw',
     ],
     [
       'Indicios de pérdida y margen de velocidad',
@@ -113,11 +114,13 @@ const additions = {
       'Altitud barométrica, nivel de vuelo y transición',
       'El altímetro barométrico convierte la presión estática en una indicación de altura. QNH es el reglaje de presión que hace que en tierra indique aproximadamente la elevación del aeródromo sobre el nivel medio del mar.\n\nCon la presión estándar (1013,25 hPa), el altímetro indica niveles de vuelo. La altitud de transición es la altura a la que, al subir, cambiás a ese ajuste estándar. Al descender, al pasar el nivel de transición, volvés a QNH. La altitud de presión y la de densidad son valores de cálculo distintos. En Argentina, los valores de transición se consultan en la AIP vigente.',
       'El ajuste cambia la referencia del altímetro; la presión estándar sirve para expresar niveles de vuelo.',
+      'altimeter-transition',
     ],
     [
       'Marcas de velocidad y límites del instrumento',
       'Algunos anemómetros tienen arcos y líneas de color que resumen rangos de velocidad. En muchos aviones livianos, el blanco se relaciona con flaps y el verde con operación normal. El arco amarillo es de precaución: se usa solo con aire calmo. La línea roja marca VNE (velocidad que nunca se debe exceder).\n\nEl variómetro indica ascenso o descenso. El aire entra a su cámara por una pequeña fuga calibrada, que hace que tarde unos segundos en estabilizarse: primero muestra la tendencia y después el valor. En cabina, leé los instrumentos junto con las limitaciones del manual de vuelo aprobado.',
       'Los colores resumen límites y rangos; no reemplazan las condiciones que los acompañan.',
+      'airspeed-arcs',
     ],
     [
       'Deriva del indicador de dirección',
@@ -284,6 +287,7 @@ const newChapters = [
         'Virajes coordinados, resbale y derrape',
         'En un viraje, la inclinación de las alas ayuda a cambiar la dirección. Coordinado significa que el avión no se desplaza de costado de forma apreciable; la bola del inclinómetro ayuda a verlo.\n\nEn un viraje descoordinado, en un resbale la nariz gira poco para esa inclinación y la bola cae hacia adentro; en un derrape, la nariz gira de más y la bola se va hacia afuera. El resbale también puede hacerse a propósito para perder altura o corregir viento cruzado. Una carga mayor puede acercar el ala a la pérdida.',
         'Inclinación y guiñada deben acompañarse; la bola ayuda a comprobarlo.',
+        'slip-skid',
       ],
       [
         'Vuelo lento y margen respecto de la pérdida',
