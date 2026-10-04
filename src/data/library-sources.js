@@ -1,4 +1,4 @@
-export const sourcesReviewedOn = '30 de septiembre de 2026';
+export const sourcesReviewedOn = '2 de octubre de 2026';
 
 export const librarySources = {
   manualVuelo: {

@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { LEGAL } from '../data/legal.js';
+---
+<BaseLayout title={`Términos y condiciones — ${LEGAL.brand}`} description="Términos y condiciones de uso del sitio Aerodot, biblioteca abierta y gratuita de aviación.">
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav />
+  </header>
+  <main class="legal-page" id="main-content" tabindex="-1">
+    <a class="back-link" href="/">← Inicio</a>
+    <p class="eyebrow">Última actualización: {LEGAL.lastUpdated}</p>
+    <h1>Términos y condiciones</h1>
+
+    <aside class="legal-tldr" aria-label="Resumen rápido">
+      <p><strong>En corto</strong></p>
+      <ul>
+        <li>{LEGAL.brand} es una biblioteca gratuita de aviación; no reemplaza la instrucción en un centro habilitado.</li>
+        <li>No estamos afiliados ni avalados por ANAC, FAA ni ningún organismo oficial.</li>
+        <li>El contenido puede tener errores o estar desactualizado — nunca lo uses para tomar decisiones operativas de vuelo.</li>
+        <li>Las preguntas de exámenes reproducen cuestionarios públicos de ANAC y pueden no reflejar la normativa vigente.</li>
+        <li>Podés usar el material para estudiar y citarlo con enlace; no para revenderlo.</li>
+      </ul>
+    </aside>
+
+    <section>
+      <h2 id="que-es">Qué es {LEGAL.brand}</h2>
+      <p>{LEGAL.brand} es un sitio web educativo, gratuito y de acceso libre que reúne material de estudio para los exámenes teóricos de licencias aeronáuticas de ANAC Argentina. No tiene cuentas, no cobra suscripción y no ofrece instrucción de vuelo.</p>
+    </section>
+
+    <section>
+      <h2 id="sin-afiliacion">Sin afiliación ni aval oficial</h2>
+      <p>{LEGAL.brand} <strong>no está afiliado, asociado ni avalado</strong> por la Administración Nacional de Aviación Civil (ANAC), la Federal Aviation Administration (FAA) ni por ningún otro organismo gubernamental, centro de instrucción o empresa del sector aeronáutico.</p>
+      <p>Los nombres, siglas y logotipos de esos organismos se mencionan únicamente con fines informativos.</p>
+    </section>
+
+    <section>
+      <h2 id="alcance">Alcance del material</h2>
+      <p>Todo el contenido de {LEGAL.brand} es <strong>complementario</strong>. No reemplaza:</p>
+      <ul>
+        <li>La instrucción en un centro de instrucción habilitado por ANAC.</li>
+        <li>El manual de vuelo del avión (AFM/POH).</li>
+        <li>La normativa aeronáutica vigente: las Regulaciones Argentinas de Aviación Civil (RAAC), la Publicación de Información Aeronáutica (AIP) y las resoluciones de ANAC que las modifican.</li>
+      </ul>
+      <p>Ante cualquier discrepancia, <strong>prevalece siempre la normativa vigente</strong>.</p>
+    </section>
+
+    <section>
+      <h2 id="errores">Posibles errores y desactualización</h2>
+      <p>La normativa aeronáutica cambia con frecuencia (por ejemplo, la Res. ANAC 311/2026). {LEGAL.brand} puede contener errores, datos incompletos o información que ya no refleja las reglas vigentes.</p>
+      <p><strong>Nunca uses este sitio para tomar decisiones operativas reales de vuelo.</strong> Consultá siempre la fuente oficial vigente y a tu instructor.</p>
+    </section>
+
+    <section>
+      <h2 id="examenes">Preguntas de exámenes</h2>
+      <p>Las preguntas de práctica reproducen cuestionarios que ANAC pone a disposición del público. Pueden no reflejar la normativa vigente, contener errores de origen o diferir de las preguntas del examen real.</p>
+    </section>
+
+    <section>
+      <h2 id="fuentes">Fuentes de terceros</h2>
+      <p>{LEGAL.brand} utiliza material de fuentes públicas de terceros. Cada fuente pertenece a sus respectivos autores o entidades:</p>
+      <ul>
+        <li><strong>Handbooks de la FAA</strong> (Pilot's Handbook of Aeronautical Knowledge, Airplane Flying Handbook, etc.): obras de dominio público del gobierno de los Estados Unidos.</li>
+        <li><strong>RAAC y AIP</strong>: normativa pública de ANAC.</li>
+        <li><strong>Cuestionarios de ANAC</strong>: bancos de preguntas publicados por el organismo.</li>
+      </ul>
+      <p>Si creés que algún contenido infringe tus derechos, escribinos a <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="propiedad">Contenido propio y uso permitido</h2>
+      <p>Los textos explicativos, diagramas y la estructura del sitio que no provienen de las fuentes indicadas arriba son contenido original de {LEGAL.brand}.</p>
+      <p>Podés:</p>
+      <ul>
+        <li>Usar el material para tu estudio personal.</li>
+        <li>Citar fragmentos con un enlace al sitio.</li>
+      </ul>
+      <p>No podés:</p>
+      <ul>
+        <li>Revender, redistribuir o presentar el contenido como propio sin autorización.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="enlaces">Enlaces externos y Cafecito</h2>
+      <p>{LEGAL.brand} puede incluir enlaces a sitios de terceros. No controlamos esos sitios ni somos responsables por su contenido.</p>
+      <p>El sitio ofrece un enlace a <strong>Cafecito</strong> para recibir aportes voluntarios. Un aporte a través de Cafecito es una <strong>donación</strong>: no constituye una compra de servicio, no genera derecho a prestación alguna y no establece una relación contractual de consumo. Los datos que proporcionés en Cafecito son tratados por esa plataforma según su propia política de privacidad.</p>
+    </section>
+
+    <section>
+      <h2 id="responsabilidad">Limitación de responsabilidad</h2>
+      <p>En la máxima medida que permita la legislación argentina vigente, {LEGAL.brand} se proporciona «tal como está» y «según disponibilidad», sin garantías de ningún tipo, expresas o implícitas.</p>
+      <p>{LEGAL.brand} no será responsable por daños directos, indirectos, incidentales o consecuentes que deriven del uso o la imposibilidad de uso del sitio o de su contenido, incluyendo —sin limitación— decisiones basadas en información publicada aquí.</p>
+    </section>
+
+    <section>
+      <h2 id="cambios">Cambios a estos términos</h2>
+      <p>Podemos modificar estos términos en cualquier momento. Cuando lo hagamos, actualizaremos la fecha de «Última actualización» al comienzo de esta página. El uso continuado del sitio después de un cambio implica la aceptación de los nuevos términos.</p>
+    </section>
+
+    <section>
+      <h2 id="ley">Ley aplicable</h2>
+      <p>Estos términos se rigen por las leyes de la República Argentina. Cualquier controversia será sometida a la jurisdicción de los tribunales ordinarios competentes de la Ciudad Autónoma de Buenos Aires, salvo que una norma de orden público disponga otra cosa.</p>
+    </section>
+
+    <section>
+      <h2 id="contacto">Contacto</h2>
+      <p>Para consultas sobre estos términos, escribinos a <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a>.</p>
+    </section>
+  </main>
+  <SiteFooter>
+    <BrandMark />
+    <span>Material complementario de estudio.</span>
+    <a href="/">Volver al inicio ↗</a>
+  </SiteFooter>
+</BaseLayout>

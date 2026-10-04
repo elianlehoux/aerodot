@@ -1,5 +1,6 @@
 ---
-import { reportAccessKey } from '../data/report.js';
+import { LEGAL } from '../data/legal.js';
+const reportEmail = LEGAL.contactEmail;
 ---
 <div id="report-point" class="report-point" hidden>
   <p>Tocá el párrafo o el diagrama donde está el error.</p>
@@ -13,20 +14,21 @@ import { reportAccessKey } from '../data/report.js';
     <label class="report-field" for="report-note">Comentario</label>
     <textarea id="report-note" name="comment" required maxlength="1500" rows="4" aria-errormessage="report-note-error" placeholder="Contá qué está mal."></textarea>
     <p id="report-note-error" class="report-error"><span aria-hidden="true">!</span> Escribí el comentario.</p>
-    <input class="report-honeypot" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <p class="report-hint">Al tocar «Abrir mail» se abre tu correo con el mensaje listo para {reportEmail}. Solo tenés que enviarlo.</p>
     <p id="report-status" class="report-status" aria-live="polite"></p>
     <div class="report-actions">
       <button class="button-quiet" type="button" data-report-cancel>Cancelar</button>
-      <button class="button-primary" type="submit" id="report-submit">Enviar</button>
+      <button class="button-primary" type="submit" id="report-submit">Abrir mail</button>
     </div>
   </form>
   <div id="report-thanks" hidden>
     <h2 id="report-thanks-title">Gracias por colaborar</h2>
-    <p>Gracias por colaborar con la comunidad aeronáutica para hacer los contenidos mejores. Tu reporte va a ser analizado.</p>
+    <p>Gracias por colaborar con la comunidad aeronáutica para hacer los contenidos mejores. Enviá el mail que se abrió y lo vamos a revisar.</p>
+    <p class="report-hint">¿No se abrió tu correo? Escribinos a <a href={`mailto:${reportEmail}`}>{reportEmail}</a>.</p>
     <button class="button-primary" type="button" data-report-done>Listo</button>
   </div>
 </dialog>
-<script is:inline define:vars={{ reportAccessKey }}>
+<script is:inline define:vars={{ reportEmail }}>
   const pointBar = document.querySelector('#report-point');
   const dialog = document.querySelector('#report-dialog');
   const form = document.querySelector('#report-form');
@@ -34,11 +36,10 @@ import { reportAccessKey } from '../data/report.js';
   const quote = document.querySelector('#report-quote');
   const note = document.querySelector('#report-note');
   const statusEl = document.querySelector('#report-status');
-  const submitButton = document.querySelector('#report-submit');
   let sourceButton = null;
   let pending = { excerpt: '', where: '', ref: '' };
   let pointing = false;
-  let busy = false;
+
 
   const clearChosen = () => document.querySelector('.is-report-chosen')?.classList.remove('is-report-chosen');
 
@@ -178,52 +179,30 @@ import { reportAccessKey } from '../data/report.js';
     thanks.querySelector('[data-report-done]').focus({ preventScroll: true });
   };
 
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!form.checkValidity()) {
       syncAria();
       note.reportValidity();
       return;
     }
-    if (busy) return;
-    if (!reportAccessKey) {
-      statusEl.textContent = 'No se pudo enviar el aviso.';
-      return;
-    }
-    busy = true;
-    submitButton.disabled = true;
-    statusEl.textContent = 'Enviando…';
-    const message = [
+    // Mailto directo: sin servicios externos. Se recorta el fragmento para no superar el largo
+    // de URL que aceptan algunos clientes de correo.
+    const excerpt = pending.excerpt.length > 600 ? `${pending.excerpt.slice(0, 600)}…` : pending.excerpt;
+    const body = [
       `Dónde: ${pending.where}`,
       `Referencia: ${pending.ref}`,
       `Página: ${location.href}`,
       '',
       'Fragmento:',
-      pending.excerpt,
+      excerpt,
       '',
       'Comentario:',
       note.value.trim(),
     ].join('\n');
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: reportAccessKey,
-          subject: `Aviso de error · ${pending.where}`.slice(0, 140),
-          from_name: 'Aerodot',
-          message,
-          botcheck: form.elements.botcheck?.value || '',
-        }),
-      });
-      const data = await response.json();
-      if (!response.ok || data.success === false) throw new Error('send');
-      window.posthog?.capture('content_report_submitted');
-      showThanks();
-    } catch {
-      statusEl.textContent = 'No se pudo enviar el aviso. Probá de nuevo en un momento.';
-    }
-    busy = false;
-    submitButton.disabled = false;
+    const subject = `Aviso de error · ${pending.where}`.slice(0, 140);
+    window.location.href = `mailto:${reportEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.posthog?.capture('content_report_mail_opened');
+    showThanks();
   });
 </script>

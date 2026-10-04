@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { LEGAL } from '../data/legal.js';
+---
+<BaseLayout title={`Privacidad y cookies — ${LEGAL.brand}`} description="Política de privacidad y cookies de Aerodot. Qué datos se recopilan, cómo se usan y cómo ejercer tus derechos.">
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav />
+  </header>
+  <main class="legal-page" id="main-content" tabindex="-1">
+    <a class="back-link" href="/">← Inicio</a>
+    <p class="eyebrow">Última actualización: {LEGAL.lastUpdated}</p>
+    <h1>Privacidad y cookies</h1>
+
+    <aside class="legal-tldr" aria-label="Resumen rápido">
+      <p><strong>En corto</strong></p>
+      <ul>
+        <li>No hay cuentas ni registro; no te pedimos nombre ni mail.</li>
+        <li>Tu progreso de estudio se guarda solo en tu navegador (localStorage) y nunca sale de tu dispositivo.</li>
+        <li>Usamos PostHog para analítica básica (páginas vistas, clics, errores); podés desactivarlo desde esta página.</li>
+        <li>No vendemos datos ni hacemos publicidad.</li>
+        <li>Podés ejercer tus derechos de acceso, rectificación y supresión escribiendo a <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a>.</li>
+      </ul>
+    </aside>
+
+    <section>
+      <h2 id="responsable">Responsable</h2>
+      <p>El responsable del tratamiento de datos es <strong>{LEGAL.brand}</strong>. Contacto: <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="sin-cuentas">Sin cuentas ni registro</h2>
+      <p>{LEGAL.brand} no requiere crear una cuenta. No te pedimos nombre, dirección de correo electrónico ni ningún otro dato identificatorio para usar el sitio.</p>
+    </section>
+
+    <section>
+      <h2 id="localstorage">Datos guardados en tu navegador</h2>
+      <p>El progreso de estudio, las respuestas de prácticas de exámenes y la preferencia de tema claro/oscuro se guardan <strong>únicamente en tu navegador</strong> mediante <code>localStorage</code> (claves con prefijo <code>aerodot:*</code>).</p>
+      <ul>
+        <li>Estos datos <strong>no se envían a ningún servidor</strong> de {LEGAL.brand} ni de terceros.</li>
+        <li>Se eliminan cuando borrás los datos del sitio desde la configuración de tu navegador.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="analitica">Analítica — PostHog</h2>
+      <p>Usamos <strong>PostHog</strong> (servidores en EE.&nbsp;UU., <code>us.i.posthog.com</code>) para entender cómo se usa el sitio y mejorar el contenido. PostHog recopila:</p>
+      <ul>
+        <li>Páginas vistas y URL de referencia.</li>
+        <li>Clics e interacciones (autocapture).</li>
+        <li>Datos técnicos del dispositivo y navegador (sistema operativo, tipo de navegador, tamaño de pantalla).</li>
+        <li>Ubicación geográfica aproximada derivada de la dirección IP.</li>
+        <li>Errores de la página (si ocurren).</li>
+      </ul>
+      <p>PostHog utiliza cookies y almacenamiento local propios para reconocer visitas de forma <strong>seudónima</strong> (sin identificarte por nombre ni correo).</p>
+      <p><strong>Finalidad:</strong> entender qué secciones se usan más, detectar errores y mejorar el contenido.</p>
+      <p><strong>No vendemos datos ni hacemos publicidad.</strong></p>
+      <p>Esta analítica implica una <strong>transferencia internacional de datos a Estados Unidos</strong>, donde se alojan los servidores de PostHog.</p>
+    </section>
+
+    <section>
+      <h2 id="desactivar">Desactivar la analítica</h2>
+      <p>Podés desactivar o reactivar la recopilación de PostHog en cualquier momento con este botón:</p>
+      <div class="analytics-toggle" role="status" aria-live="polite">
+        <p class="analytics-status" id="analyticsStatus">Cargando estado…</p>
+        <button class="button-quiet analytics-btn" type="button" id="analyticsToggle" disabled>
+          Cargando…
+        </button>
+      </div>
+      <script is:inline>
+        (() => {
+          const btn = document.getElementById('analyticsToggle');
+          const status = document.getElementById('analyticsStatus');
+          if (!btn || !status) return;
+
+          function update() {
+            if (typeof window.posthog === 'undefined' || !window.posthog) {
+              status.textContent = 'La analítica ya está inactiva en este navegador (posiblemente por un bloqueador de contenido).';
+              btn.textContent = 'No se necesita acción';
+              btn.disabled = true;
+              return;
+            }
+            const optedOut = window.posthog.has_opted_out_capturing?.();
+            if (optedOut) {
+              status.textContent = 'La analítica está desactivada.';
+              btn.textContent = 'Activar la analítica';
+            } else {
+              status.textContent = 'La analítica está activada.';
+              btn.textContent = 'Desactivar la analítica';
+            }
+            btn.disabled = false;
+          }
+
+          btn.addEventListener('click', () => {
+            if (!window.posthog) return;
+            const optedOut = window.posthog.has_opted_out_capturing?.();
+            if (optedOut) {
+              window.posthog.opt_in_capturing?.();
+            } else {
+              window.posthog.opt_out_capturing?.();
+            }
+            update();
+          });
+
+          // PostHog puede cargar después; reintentamos brevemente.
+          let tries = 0;
+          const interval = setInterval(() => {
+            update();
+            tries++;
+            if (window.posthog || tries >= 20) clearInterval(interval);
+          }, 250);
+          update();
+        })();
+      </script>
+    </section>
+
+    <section>
+      <h2 id="reportar">Formulario «Reportar un error»</h2>
+      <p>El botón «Reportar un error» no envía nada por su cuenta: abre <strong>tu programa de correo</strong> con un mensaje ya armado para {LEGAL.contactEmail}. El mail sale solo si vos lo enviás. Contiene:</p>
+      <ul>
+        <li>El fragmento de texto que señalaste.</li>
+        <li>El comentario que escribas.</li>
+        <li>La página y la referencia donde se encuentra el fragmento.</li>
+      </ul>
+      <p>Como lo mandás desde tu casilla, vamos a ver <strong>tu dirección de correo</strong> (y el nombre que tenga configurado). La usamos solo para revisar el reporte y, si hace falta, responderte. No la sumamos a listas ni la compartimos. Podés pedir que borremos ese mail escribiendo a la misma dirección.</p>
+      <p>Por favor, no incluyas otros datos personales (DNI, teléfono) en el comentario.</p>
+    </section>
+
+    <section>
+      <h2 id="alojamiento">Alojamiento — Vercel</h2>
+      <p>El sitio se aloja en <strong>Vercel</strong>. Como parte del funcionamiento normal del servicio, Vercel procesa registros técnicos del servidor que pueden incluir:</p>
+      <ul>
+        <li>Dirección IP.</li>
+        <li>Fecha y hora de la solicitud.</li>
+        <li>Tipo de navegador (<em>User-Agent</em>).</li>
+      </ul>
+      <p>Estos registros los procesa Vercel para operar el servicio, según su propia política de privacidad.</p>
+    </section>
+
+    <section>
+      <h2 id="cafecito">Enlace a Cafecito</h2>
+      <p>Si decidís hacer una donación voluntaria a través de <strong>Cafecito</strong>, los datos que proporciones en esa plataforma son tratados por Cafecito bajo su propia política de privacidad. {LEGAL.brand} solo ve lo que Cafecito comparte con quien recibe el aporte, como el nombre y el mensaje que elijas dejar, y no lo usa para otra cosa que agradecerte. No vemos tus datos de pago.</p>
+    </section>
+
+    <section>
+      <h2 id="base-legal">Base legal del tratamiento</h2>
+      <p>La base del tratamiento es:</p>
+      <ul>
+        <li><strong>Consentimiento</strong> al usar el sitio.</li>
+        <li><strong>Interés legítimo</strong> en mejorar el servicio y corregir errores.</li>
+      </ul>
+      <p>Los datos de analítica se conservan por un <strong>período limitado</strong> y se eliminan cuando dejan de ser necesarios para los fines indicados.</p>
+    </section>
+
+    <section>
+      <h2 id="derechos">Tus derechos</h2>
+      <p>De acuerdo con los artículos 14 a 16 de la <strong>Ley 25.326 de Protección de Datos Personales</strong>, tenés derecho a:</p>
+      <ul>
+        <li><strong>Acceder</strong> a los datos personales que tengamos sobre vos.</li>
+        <li><strong>Rectificar</strong> datos inexactos.</li>
+        <li><strong>Suprimir</strong> (eliminar) datos que no deban tratarse.</li>
+      </ul>
+      <p>Para ejercer estos derechos, escribí a <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a>. El derecho de acceso es gratuito y se puede ejercer en intervalos no menores a seis meses, salvo que acredites un interés legítimo.</p>
+    </section>
+
+    <section>
+      <h2 id="aaip">Autoridad de control</h2>
+      <blockquote class="legal-mandatory">
+        <p>La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales.</p>
+      </blockquote>
+    </section>
+
+    <section>
+      <h2 id="menores">Menores</h2>
+      <p>{LEGAL.brand} es un sitio educativo apto para cualquier edad. No recolectamos datos identificatorios de menores a sabiendas. Si sos padre, madre o tutor/a y creés que un menor nos proporcionó datos personales, contactanos a <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a> y los eliminaremos.</p>
+    </section>
+
+    <section>
+      <h2 id="cambios">Cambios a esta política</h2>
+      <p>Podemos actualizar esta política en cualquier momento. Cuando lo hagamos, modificaremos la fecha de «Última actualización» al comienzo de la página. El uso continuado del sitio después de un cambio implica la aceptación de la nueva política.</p>
+    </section>
+
+    <section>
+      <h2 id="contacto">Contacto</h2>
+      <p>Para consultas sobre privacidad, escribinos a <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a>.</p>
+    </section>
+  </main>
+  <SiteFooter>
+    <BrandMark />
+    <span>Material complementario de estudio.</span>
+    <a href="/">Volver al inicio ↗</a>
+  </SiteFooter>
+</BaseLayout>

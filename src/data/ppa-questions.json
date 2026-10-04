@@ -3176,7 +3176,7 @@
           "figure": null,
           "answerIndex": 2,
           "confidence": "medium",
-          "explanation": "En aproximación de frente ambas aeronaves alteran su rumbo hacia la derecha, dejando al menos 150 m."
+          "explanation": "El cuestionario ANAC marca que ambas aeronaves viran a la derecha cuando se aproximan de frente. Ojo: desde el 22-05-2026 (Res. ANAC 311/2026), la RAAC ya no fija una distancia mínima de 150 m para este caso."
         },
         {
           "id": "ppa-4-21",
@@ -3260,7 +3260,7 @@
           "figure": null,
           "answerIndex": 0,
           "confidence": "medium",
-          "explanation": "Regla general (RAAC 91.119 a): altura que permita un aterrizaje de emergencia sin peligro para personas o bienes."
+          "explanation": "El cuestionario marca una altura que permita aterrizar ante una falla de motor sin poner en riesgo a personas o bienes en superficie. Ojo: desde el 22-05-2026 (Res. ANAC 311/2026), la 91.119 formula estas alturas para vuelos VFR y exige evitar peligro excesivo, no garantizar riesgo cero."
         },
         {
           "id": "ppa-4-25",
@@ -3281,7 +3281,7 @@
           "figure": null,
           "answerIndex": 2,
           "confidence": "medium",
-          "explanation": "Sobre aglomeraciones: 1.000 pies (300 m) sobre el obstáculo más alto en un radio de 600 m."
+          "explanation": "El cuestionario marca 1.000 pies (300 m) sobre el obstáculo más alto dentro de 600 m al volar sobre una aglomeración. Ojo: desde el 22-05-2026 (Res. ANAC 311/2026), la 91.119 limita estas alturas mínimas a vuelos VFR; esa cifra y ese radio se mantienen."
         },
         {
           "id": "ppa-4-26",
@@ -3302,7 +3302,7 @@
           "figure": null,
           "answerIndex": 1,
           "confidence": "medium",
-          "explanation": "Fuera de las áreas congestionadas: al menos 500 pies sobre la tierra o el agua."
+          "explanation": "El cuestionario marca 500 pies sobre tierra o agua como regla general fuera de aglomeraciones. Ojo: desde el 22-05-2026 (Res. ANAC 311/2026), la 91.119 permite otra altura en zonas poco pobladas o aguas abiertas si se mantiene una distancia mayor de 500 pies de cualquier persona, embarcación, vehículo o estructura."
         },
         {
           "id": "ppa-4-27",
@@ -3323,7 +3323,7 @@
           "figure": null,
           "answerIndex": 2,
           "confidence": "medium",
-          "explanation": "Sobre áreas sensibles al ruido: 3.000 pies sobre el obstáculo más alto dentro de 2 millas náuticas en la trayectoria prevista."
+          "explanation": "El cuestionario ANAC marca 3.000 pies sobre el obstáculo más alto dentro de 2 millas náuticas. Ojo: desde el 22-05-2026 (Res. ANAC 311/2026), esa regla ya no figura en la 91.119 vigente; esta respuesta se mantiene solo porque así aparece en el cuestionario oficial."
         },
         {
           "id": "ppa-4-28",
@@ -3442,7 +3442,7 @@
           "figure": null,
           "answerIndex": 1,
           "confidence": "high",
-          "explanation": "Entrada recomendada a 45 grados del punto medio del tramo a favor del viento, a la altitud del circuito."
+          "explanation": "El cuestionario ANAC pide entrar a 45° por el punto medio del tramo a favor del viento, a la altura del circuito. Ojo: desde el 22-05-2026 (Res. ANAC 311/2026), la 91.128 habla de un ingreso aproximado a 45° respecto de la trayectoria del tramo inicial; el punto medio es lo que pide este cuestionario."
         },
         {
           "id": "ppa-5-03",

@@ -26,6 +26,12 @@ const formatLesson = (lesson) => {
   )).join('\n\n');
   return `## ${lesson[0]}\n\n${body}\n\n**Idea para recordar:** ${lesson[2]}`;
 };
+const rememberLines = (text) => text.split(/(?<=\.)\s+/).map((sentence) => {
+  const separator = sentence.indexOf(':');
+  return separator > 0 && separator <= 30
+    ? { label: sentence.slice(0, separator + 1), detail: sentence.slice(separator + 1) }
+    : { detail: sentence };
+});
 const articleCopyText = [
   `# ${chapter.title}`,
   chapter.intro,
@@ -65,7 +71,7 @@ const articleCopyText = [
           return us
             ? <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{text}</p></aside>
             : <p data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{text}</p>;
-        })}{lesson[3] && <StudyDiagram type={lesson[3]} instance={`${chapter.slug}-l${i + 1}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />}<aside class="learning-note" data-report-target data-report-where={`Idea para recordar · ${place}`} data-report-ref={ref}><span>IDEA PARA RECORDAR</span><p>{lesson[2]}</p></aside></section>;
+        })}{lesson[3] && <StudyDiagram type={lesson[3]} instance={`${chapter.slug}-l${i + 1}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />}<aside class="learning-note" data-report-target data-report-where={`Idea para recordar · ${place}`} data-report-ref={ref}><span>IDEA PARA RECORDAR</span><p>{rememberLines(lesson[2]).map(({ label, detail }) => <span class="learning-note-line">{label && <strong>{label}</strong>}{detail}</span>)}</p></aside></section>;
       })}
       <div class="study-report">
         <button class="button-quiet" type="button" data-report-page data-report-where={chapter.title} data-report-ref={`/estudiar/${chapter.slug}`} data-report-excerpt={chapter.title}>Reportar un error de contenido</button>
