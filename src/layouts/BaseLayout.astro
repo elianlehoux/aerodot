@@ -7,9 +7,35 @@ import PostHog from '../components/posthog.astro';
 interface Props {
   title?: string;
   description?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
 }
 
-const { title = 'Aerodot — aprender aviación, paso a paso', description = 'Aprendé los fundamentos de la aviación, paso a paso y en lenguaje claro.' } = Astro.props;
+const {
+  title = 'Aerodot — Biblioteca de Aviación y Simulador de Exámenes ANAC',
+  description = 'Aprendé los fundamentos de la aviación, paso a paso y en lenguaje claro. Practicá con bancos de preguntas de exámenes ANAC en Argentina.',
+  ogType = 'website',
+  jsonLd,
+} = Astro.props;
+
+const siteOrigin = (Astro.site ? Astro.site.toString() : 'https://aerodot.app').replace(/\/$/, '');
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImageUrl = new URL('/logo.png', siteOrigin).href;
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteOrigin}/#website`,
+      url: siteOrigin,
+      name: 'Aerodot',
+      description: 'Biblioteca abierta de aviación y práctica de exámenes por licencia en Argentina.',
+      inLanguage: 'es-AR',
+    },
+    ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
+  ],
+};
 ---
 <!doctype html>
 <html lang="es">
@@ -18,7 +44,29 @@ const { title = 'Aerodot — aprender aviación, paso a paso', description = 'Ap
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#1b1a18" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="e3f28597bbbdc0a5" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="color-scheme" content="light dark" />
+
+    <!-- Open Graph / Redes Sociales (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:site_name" content="Aerodot" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Datos estructurados Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
     <script is:inline>
       (() => {
         try {
@@ -35,7 +83,6 @@ const { title = 'Aerodot — aprender aviación, paso a paso', description = 'Ap
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta property="og:image" content="/logo.png" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
     <PostHog />

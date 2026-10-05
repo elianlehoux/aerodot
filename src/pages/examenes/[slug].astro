@@ -53,9 +53,26 @@ const regulatoryReferenceUrl = license.regulatoryReferenceUrl
   ?? 'https://docs.anac.gob.ar/index.php/s/PtMG8j8sFeRyren/download/RAAC%20PARTE%2061.pdf';
 const regulatoryReferenceTitle = license.regulatoryReferenceTitle
   ?? 'RAAC Parte 61 vigente';
+
+const pageTitle = `Examen ANAC ${license.title} (${license.code}) — Simulador de Práctica | Aerodot`;
+const pageDescription = `Practicá para rendir ${license.title} (${license.code}) en Argentina. Banco de ${allQuestions.length} preguntas ${license.practiceOnly ? 'con explicaciones técnicas' : 'del cuestionario oficial ANAC'}, simulacro cronometrado y sin registro.`;
+
+const examJsonLd = {
+  '@type': 'LearningResource',
+  name: `Simulador de Examen ANAC: ${license.title} (${license.code})`,
+  description: pageDescription,
+  learningResourceType: 'Assessment / Quiz',
+  educationalLevel: 'Pilot Certification',
+  inLanguage: 'es-AR',
+  isAccessibleForFree: true,
+  provider: {
+    '@type': 'Organization',
+    name: 'Aerodot',
+  },
+};
 ---
 
-<BaseLayout title={`${license.title} — Exámenes — Aerodot`} description={`Preguntas de práctica para ${license.title}.`}>
+<BaseLayout title={pageTitle} description={pageDescription} jsonLd={examJsonLd}>
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav current="examenes" />

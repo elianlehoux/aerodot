@@ -10,3 +10,6 @@ skills-lock.json
 
 .vercel
 .env
+
+# Reels de lanzamiento: se arman en local y no se publican.
+reel/

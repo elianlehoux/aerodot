@@ -20,6 +20,7 @@
     "posthog-js": "^1.435.6"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^6.0.0"
   }
 }

@@ -40,8 +40,23 @@ const articleCopyText = [
     ? `## Fuentes\n\n${sortedSources.map((source) => `- [${source.title}](${source.url}) — ${kindLabel(source)}`).join('\n')}`
     : '',
 ].filter(Boolean).join('\n\n');
+
+const pageTitle = `${chapter.title} — Teoría Aeronáutica y Fundamentos | Aerodot`;
+const trimmedIntro = chapter.intro.length > 130 ? `${chapter.intro.slice(0, 130)}...` : chapter.intro;
+const pageDescription = `${trimmedIntro} Lección técnica con conceptos clave, normativa RAAC y manuales de vuelo.`;
+
+const articleJsonLd = {
+  '@type': 'Article',
+  headline: `${chapter.title} — Teoría de Aviación`,
+  description: chapter.intro,
+  inLanguage: 'es-AR',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Aerodot',
+  },
+};
 ---
-<BaseLayout title={`${chapter.title} — Aerodot`} description={chapter.intro}>
+<BaseLayout title={pageTitle} description={pageDescription} ogType="article" jsonLd={articleJsonLd}>
   <header class="site-header study-header"><BrandMark /><SiteNav current="biblioteca" /></header>
   <div class="library-shell">
   <LibrarySidebar activeSlug={chapter.slug} />

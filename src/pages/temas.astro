@@ -9,7 +9,10 @@ import { chapters } from '../data/library-course.js';
 const chapterBySlug = Object.fromEntries(chapters.map((chapter) => [chapter.slug, chapter]));
 const groups = getLibraryNav();
 ---
-<BaseLayout title="Temas de aviación — Aerodot" description="Explorá trece temas de aviación: vuelo, aeronave, meteorología, operación, navegación y factores humanos.">
+<BaseLayout
+  title="Biblioteca y Teoría de Aviación — Manuales y RAAC Explicados | Aerodot"
+  description="Manual teórico aeronáutico paso a paso: aerodinámica, meteorología, navegación, motopropulsor, instrumentos y normativa RAAC vigente. Gratis y en lenguaje claro."
+>
   <header class="site-header study-header library-header">
     <BrandMark />
     <SiteNav current="biblioteca" />

@@ -21,7 +21,10 @@ const listed = groupedExams.flatMap((group) => group.items);
 const metaFor = (license) => (license.available ? '' : 'Próximamente');
 ---
 
-<BaseLayout title="Exámenes — Aerodot" description="Practicá exámenes teóricos por licencia aeronáutica en Argentina.">
+<BaseLayout
+  title="Simulador de Exámenes ANAC Argentina — Práctica por Licencia | Aerodot"
+  description="Prepará tu examen teórico aeronáutico: Piloto Privado (PPA), Comercial (PCA-HVI), Instructor (IVA), Planeador y más. Bancos de preguntas oficiales y simulacros gratis."
+>
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav current="examenes" />
