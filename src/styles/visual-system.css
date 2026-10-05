@@ -23,13 +23,18 @@
 .back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
 .back-to-top:hover{background:var(--graphite)}
 .back-to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.home-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px;padding:18px clamp(20px,5vw,64px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.home-footer{display:flex;flex-direction:column;gap:14px;padding:20px clamp(20px,5vw,64px) calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.footer-top,.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px 24px}
+.footer-main{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-width:0}
+.footer-bottom{padding-top:14px;border-top:1px solid var(--line)}
+.footer-note{min-width:0}
+.footer-note:empty{display:none}
+.footer-bottom .footer-legal{margin-left:auto}
 .home-footer .wordmark{font-size:17px}
 .home-footer .wordmark .wordmark-icon{width:22px;height:22px;border-radius:5px}
-.home-footer>a,.home-footer div a{color:var(--graphite);text-decoration:none}
-.home-footer>a:hover,.home-footer div a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.home-footer small{max-width:520px;font-size:12px;line-height:1.5}
-.study-foot{min-height:70px}
+.footer-main a{color:var(--graphite);text-decoration:none}
+.footer-main a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.home-footer small{display:block;max-width:90ch;font-size:12px;line-height:1.5}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .footer-support{display:inline-flex;flex:0 0 auto;align-items:center;gap:10px;min-height:44px;padding:6px 14px 6px 12px;border:1px solid var(--line);border-radius:var(--radius-button);background:var(--paper);color:var(--ink);text-decoration:none}
 a.footer-support,a.footer-support:hover{color:var(--ink);text-decoration:none}
@@ -59,7 +64,6 @@ html[data-theme="light"] .home-page{background:radial-gradient(ellipse 61% 125% 
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
 .home-cta-primary{min-height:46px;padding:0 18px}
 .button-quiet{min-height:46px}
-.home-footer small{margin-left:auto;text-align:right}
 
 /* Library navigation and reading layout. */
 /* Dos columnas: sidebar + lectura. El rail de capitulo se posiciona con position:fixed
@@ -421,9 +425,10 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
   .home-hero-simple .hero-copy h1{max-width:570px;font-size:clamp(40px,10vw,50px)}
   .hero-lede{max-width:48ch;font-size:15px}
   .hero-actions{align-items:flex-start;flex-direction:column}
-  .home-footer{flex-wrap:wrap;min-height:66px;padding:17px 20px}
-  .home-footer small{flex-basis:100%;margin:0;text-align:left}
-  .footer-support{flex-basis:auto;justify-content:flex-start;max-width:calc(100% - 56px)}
+  .home-footer{padding:18px 20px calc(16px + env(safe-area-inset-bottom))}
+  .footer-top,.footer-bottom{flex-direction:column;align-items:flex-start}
+  .footer-support{max-width:calc(100% - 56px)}
+  .footer-bottom .footer-legal{margin-left:0}
   dialog.report-dialog[open]{width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:20px 16px calc(16px + env(safe-area-inset-bottom));border-radius:18px}
   .report-dialog h2{font-size:28px}
   .report-quote{max-height:96px}
@@ -521,3 +526,16 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
   .analytics-toggle{padding:14px 16px;border-radius:16px}
   .footer-legal{gap:10px}
 }
+
+/* Preguntas frecuentes (exámenes y camino) */
+.faq-block{margin-top:64px;padding-top:8px}
+.faq-block>h2{margin:0 0 12px;color:var(--ink);font:300 clamp(28px,3vw,36px)/1.15 var(--display);letter-spacing:-.02em}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{display:flex;justify-content:space-between;gap:16px;padding:18px 0;color:var(--ink);font-size:17px;font-weight:500;line-height:1.4;cursor:pointer;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';flex:none;color:var(--muted);font-weight:300;font-size:22px;line-height:1}
+.faq-item[open] summary::after{content:'−'}
+.faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.faq-item p{max-width:68ch;margin:0 0 20px;color:var(--graphite);font-size:16px;line-height:1.65}
+.exam-practice-page.is-taking-exam>.faq-block{display:none}

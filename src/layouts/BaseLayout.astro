@@ -9,6 +9,7 @@ interface Props {
   description?: string;
   ogType?: 'website' | 'article';
   jsonLd?: Record<string, any> | Array<Record<string, any>>;
+  noindex?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   description = 'Aprendé los fundamentos de la aviación, paso a paso y en lenguaje claro. Practicá con bancos de preguntas de exámenes ANAC en Argentina.',
   ogType = 'website',
   jsonLd,
+  noindex = false,
 } = Astro.props;
 
 const siteOrigin = (Astro.site ? Astro.site.toString() : 'https://aerodot.app').replace(/\/$/, '');
@@ -44,7 +46,7 @@ const schemaData = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#1b1a18" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
     <meta name="google-site-verification" content="e3f28597bbbdc0a5" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="color-scheme" content="light dark" />
@@ -83,6 +85,12 @@ const schemaData = {
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Aerodot" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="application-name" content="Aerodot" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-latin-italic.woff2" as="font" type="font/woff2" crossorigin />
     <PostHog />
@@ -136,5 +144,12 @@ const schemaData = {
         updateVisibility();
       })();
     </script>
+    {import.meta.env.PROD && <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => { /* El sitio funciona igual sin modo offline. */ });
+        });
+      }
+    </script>}
   </body>
 </html>

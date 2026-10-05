@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<BaseLayout title="Sin conexión — Aerodot" description="Esta página todavía no está guardada en el dispositivo." noindex>
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav />
+  </header>
+  <main class="not-found" id="main-content" tabindex="-1">
+    <p class="eyebrow">Sin señal</p>
+    <h1>Estás sin conexión<br/><em>y esta página no está guardada.</em></h1>
+    <p>Las páginas que ya abriste siguen disponibles, igual que los exámenes que practicaste en este dispositivo. Tu progreso se guarda acá y no se pierde.</p>
+    <div class="not-found-actions">
+      <a class="button-primary" href="/examenes">Ver exámenes <span aria-hidden="true">→</span></a>
+      <a class="button-quiet" href="/">Ir al inicio <span aria-hidden="true">↗</span></a>
+    </div>
+  </main>
+  <SiteFooter>
+    <BrandMark />
+    <span>Cuando vuelva la señal, recargá la página.</span>
+  </SiteFooter>
+</BaseLayout>

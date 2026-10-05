@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import BrandMark from '../../components/BrandMark.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import FaqList from '../../components/FaqList.astro';
+import { faqJsonLd } from '../../data/faq.js';
 import { licenses } from '../../data/licenses.js';
 import { isScoreableQuestion, allQuestionsOf, scoreableCount, mockSizeOf } from '../../data/question-utils.js';
 import ppaBank from '../../data/ppa-questions.json';
@@ -54,8 +56,44 @@ const regulatoryReferenceUrl = license.regulatoryReferenceUrl
 const regulatoryReferenceTitle = license.regulatoryReferenceTitle
   ?? 'RAAC Parte 61 vigente';
 
-const pageTitle = `Examen ANAC ${license.title} (${license.code}) — Simulador de Práctica | Aerodot`;
-const pageDescription = `Practicá para rendir ${license.title} (${license.code}) en Argentina. Banco de ${allQuestions.length} preguntas ${license.practiceOnly ? 'con explicaciones técnicas' : 'del cuestionario oficial ANAC'}, simulacro cronometrado y sin registro.`;
+const pageTitle = `Examen ANAC ${license.code}: Simulador y Preguntas · ${license.title} | Aerodot`;
+
+const figureQuestions = allQuestions.filter((question) => question.figure);
+const figuresShown = figureQuestions.filter((question) => Array.isArray(question.images) && question.images.length).length;
+
+const figureClause = figureQuestions.length
+  ? (figuresShown === figureQuestions.length ? ' Incluye las figuras del examen.' : ' Con acceso a las figuras del anexo ANAC.')
+  : '';
+const pageDescription = `Practicá para rendir ${license.title} (${license.code}) en Argentina. Banco de ${allQuestions.length} preguntas ${license.practiceOnly ? 'con explicaciones técnicas' : 'del cuestionario oficial ANAC'}, simulacro cronometrado y sin registro.${figureClause}`;
+
+const faqItems = [
+  {
+    question: `¿Cómo es el examen teórico ${license.code} de ANAC?`,
+    answer: license.practiceOnly
+      ? `ANAC publica la referencia del examen de ${license.title} en su índice de exámenes. Esta práctica usa ${allQuestions.length} preguntas originales de Aerodot y el examen de prueba elige hasta ${mockSize} al azar. No reproduce el examen oficial.`
+      : `ANAC informa ${license.testSize} preguntas en TCEXAM y 75% para aprobar. El examen de prueba de Aerodot elige ${mockSize} al azar entre las que tienen la opción marcada, con cronómetro. Confirmá el formato de tu evaluación con ANAC.`,
+  },
+  {
+    question: `¿De dónde salen las preguntas del simulador ${license.code}?`,
+    answer: license.practiceOnly
+      ? `Son preguntas originales de estudio, con explicación. ${license.sourceNote}`
+      : `Del cuestionario público de ANAC (${license.sourceLabel}). Hay ${allQuestions.length} preguntas: ${verifiedQuestions} con la opción marcada y ${reviewQuestions} en revisión, que se pueden leer pero no suman puntaje. ${license.sourceNote}`,
+  },
+  ...(figureQuestions.length ? [{
+    question: `¿Están las figuras del examen ${license.code}?`,
+    answer: figuresShown === figureQuestions.length
+      ? `Sí. Las ${figureQuestions.length} preguntas que remiten a una figura la muestran junto al enunciado.`
+      : `${figureQuestions.length} preguntas remiten a figuras del cuestionario. ${figuresShown ? `${figuresShown} ya muestran la figura junto al enunciado; en las demás` : 'En cada una'} hay un enlace directo al anexo oficial de figuras de ANAC.`,
+  }] : []),
+  {
+    question: '¿En qué se diferencia de estudiar con el PDF de ANAC o con un test de Daypo?',
+    answer: `${license.practiceOnly ? 'Este banco es propio y el material de ANAC está enlazado para contrastar.' : 'El PDF de ANAC es la fuente, y está enlazado en esta página.'} Aerodot cambia la forma de practicar: preguntas por tema, examen de prueba cronometrado, corrección inmediata y repaso de tus errores. ${license.practiceOnly ? '' : 'Las preguntas sin clave confirmada quedan fuera del puntaje en vez de darse por buenas. '}En los tests armados por usuarios no siempre se sabe de qué versión del cuestionario salen. No hace falta cuenta y no hay publicidad.`,
+  },
+  {
+    question: '¿Puedo practicar desde el celular y sin conexión?',
+    answer: 'Sí. Instalá Aerodot desde el navegador: en Android, «Instalar app»; en iPhone, Compartir y «Agregar a inicio». Los exámenes que ya practicaste en ese dispositivo quedan guardados y funcionan sin señal. Tu progreso y tus errores se guardan en el dispositivo, sin cuenta.',
+  },
+];
 
 const examJsonLd = {
   '@type': 'LearningResource',
@@ -72,7 +110,7 @@ const examJsonLd = {
 };
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} jsonLd={examJsonLd}>
+<BaseLayout title={pageTitle} description={pageDescription} jsonLd={[examJsonLd, faqJsonLd(faqItems)]}>
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav current="examenes" />
@@ -175,6 +213,8 @@ const examJsonLd = {
       <a href="https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-44-2025-408483/texto" target="_blank" rel="noreferrer">Resolución ANAC 44/2025 · bancos alternativos ↗</a>
       <p>{license.practiceOnly ? 'Las preguntas de Aerodot son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.' : 'Herramienta independiente de estudio. Las preguntas con clave pendiente quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
     </section>
+
+    <FaqList title={`Preguntas sobre el examen ${license.code}`} items={faqItems} />
   </main>
 
   <SiteFooter>

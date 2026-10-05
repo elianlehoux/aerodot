@@ -47,10 +47,21 @@ const ensureBank = () => {
       bank = bankModule.default;
       chapters = bank.chapters;
       allQuestions = chapters.flatMap((chapter) => chapter.questions);
+    }).catch((error) => {
+      // Sin señal el import falla: se vuelve a intentar en el próximo clic en vez de quedar roto.
+      bankReady = null;
+      throw error;
     });
   }
   return bankReady;
 };
+// Con el service worker activo (sitio instalado o visita repetida), el banco se baja en un
+// momento libre: así el examen que abriste queda listo para practicar sin conexión.
+if (navigator.serviceWorker?.controller && !navigator.connection?.saveData) {
+  const warm = () => ensureBank().catch(() => {});
+  if ('requestIdleCallback' in window) requestIdleCallback(warm, { timeout: 4000 });
+  else setTimeout(warm, 2000);
+}
 // isScoreableQuestion viene de question-utils.js: la misma regla que usa la pagina al
 // calcular en build el tamano anunciado del examen.
 
@@ -419,8 +430,15 @@ const showResults = () => {
   scrollExamIntoView(results);
 };
 
+const bankUnavailable = 'No se pudo cargar el banco de preguntas. Revisá la conexión y probá de nuevo: una vez cargado, queda guardado para practicar sin señal.';
+
 const begin = async (selected, selectedMode) => {
-  await ensureBank();
+  try {
+    await ensureBank();
+  } catch {
+    announceNoQuestions(bankUnavailable);
+    return;
+  }
   mode = selectedMode;
   let pool = selected === 'all' ? allQuestions : allQuestions.filter((question) => question.chapter === Number(selected));
   if (mode === 'mock') pool = shuffle(pool.filter(isScoreableQuestion)).slice(0, testSize);
@@ -519,6 +537,9 @@ document.querySelector('#startReview').addEventListener('click', async (event) =
   button.disabled = true;
   try {
     await ensureBank();
+  } catch {
+    announceNoQuestions(bankUnavailable);
+    return;
   } finally {
     button.disabled = false;
   }

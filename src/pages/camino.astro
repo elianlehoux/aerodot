@@ -3,11 +3,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BrandMark from '../components/BrandMark.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import FaqList from '../components/FaqList.astro';
+import { faqJsonLd } from '../data/faq.js';
 import { pathChanges, pathInstruments, pathReviewedOn, pathRules, pathSideDoors, pathSteps } from '../data/pilot-path.js';
+
+// Las respuestas salen de los mismos datos que la página: si cambia una hora en
+// pilot-path.js, cambia también acá y en el JSON-LD.
+const totalOf = (id) => pathSteps.find((step) => step.id === id)?.facts?.find((fact) => fact.label === 'Total')?.text;
+const paragraphOf = (id, prefix) => pathSteps.find((step) => step.id === id)?.paragraphs?.find((paragraph) => paragraph.startsWith(prefix));
+const hoursQuestion = (id, name) => {
+  const total = totalOf(id);
+  if (!total) return [];
+  const extra = [paragraphOf(id, 'Edad'), paragraphOf(id, 'La enmienda de mayo')?.split('. ')[0].concat('.')].filter(Boolean).join(' ');
+  return [{ question: `¿Cuántas horas de vuelo se necesitan para ser ${name} en Argentina?`, answer: `${total}${extra ? ` ${extra}` : ''} El detalle por sección de la RAAC Parte 61 está en esta página.` }];
+};
+const faqItems = [
+  {
+    question: '¿Cuáles son las etapas para ser piloto en Argentina?',
+    answer: `En avión, el recorrido habitual es: ${pathSteps.filter((step) => !['lsa', 'rpas'].includes(step.id)).map((step) => step.title.replace(', avión', '').toLowerCase()).join(', ')}. Cada paso tiene su teórico ante la ANAC y su prueba de vuelo, según la RAAC Parte 61.`,
+  },
+  ...hoursQuestion('privado', 'piloto privado de avión (PPA)'),
+  ...hoursQuestion('comercial', 'piloto comercial de avión'),
+  ...hoursQuestion('tla', 'piloto de línea aérea (TLA)'),
+  {
+    question: '¿Qué RAAC Parte 61 está vigente en 2026?',
+    answer: `La Edición VI (Resolución ANAC 65/2026, de enero de 2026) con la enmienda de la Resolución 292/2026, del 13 de mayo. Hay que leer las dos juntas. Esta página se revisó el ${pathReviewedOn}.`,
+  },
+  {
+    question: '¿Dónde practico el examen teórico de la ANAC?',
+    answer: 'En la sección Exámenes de Aerodot hay simuladores gratis con los cuestionarios públicos de ANAC: piloto privado (PPA), comercial con instrumentos (PCA-HVI), instructor (IVA) y más.',
+  },
+];
 ---
 <BaseLayout
   title="Cómo ser Piloto en Argentina: Carrera, Licencias y Horas (RAAC 61) | Aerodot"
   description="Guía completa para ser piloto en Argentina: Alumno, Privado (PPA), Comercial (PCA), Instructor y Línea Aérea. Requisitos de horas y normativa RAAC 61 actualizada."
+  jsonLd={faqJsonLd(faqItems)}
 >
   <header class="site-header study-header">
     <BrandMark />
@@ -29,6 +60,7 @@ import { pathChanges, pathInstruments, pathReviewedOn, pathRules, pathSideDoors,
       {pathSteps.map((step) => <a href={`#${step.id}`}>{step.title}</a>)}
       <a href="#lsa">Deportiva liviana</a>
       <a href="#rpas">Piloto a distancia</a>
+      <a href="#preguntas-frecuentes">Preguntas frecuentes</a>
     </nav>
 
     <section class="path-block" id="fuentes-norma">
@@ -87,6 +119,8 @@ import { pathChanges, pathInstruments, pathReviewedOn, pathRules, pathSideDoors,
         </ul>}
       </article>)}
     </section>
+
+    <FaqList items={faqItems} />
   </main>
   <SiteFooter>
     <BrandMark />
