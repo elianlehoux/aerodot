@@ -1,4 +1,6 @@
 ---
+import GitHubLink from './GitHubLink.astro';
+
 interface Props {
   variant?: 'home' | 'study';
 }
@@ -10,7 +12,7 @@ const { variant = 'study' } = Astro.props;
   <nav class="footer-legal" aria-label="Legal">
     <a href="/terminos">Términos</a>
     <a href="/privacidad">Privacidad</a>
-    <a href="https://github.com/elianlehoux/aerodot" target="_blank" rel="noreferrer">Código<span class="visually-hidden">. Se abre en una pestaña nueva.</span></a>
+    <GitHubLink />
   </nav>
   <a class="footer-support" href="https://cafecito.app/aerodot" target="_blank" rel="noreferrer">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
