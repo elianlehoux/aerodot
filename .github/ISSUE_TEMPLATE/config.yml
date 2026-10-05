@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Duda de estudio
+    url: https://github.com/elianlehoux/aerodot/discussions
+    about: Si la pregunta es de aviación y el sitio no está mal, abrí una discusión.
+  - name: Vulnerabilidad
+    url: https://github.com/elianlehoux/aerodot/security/policy
+    about: No publiques el detalle en un issue. Escribí a elian.developer@gmail.com.

@@ -1,0 +1,24 @@
+name: Propuesta
+description: Una licencia que falta, una herramienta o un cambio que no es una corrección.
+title: "Propuesta: "
+labels: ["propuesta"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Qué problema viste
+    validations:
+      required: true
+  - type: textarea
+    id: cambio
+    attributes:
+      label: Qué cambiarías
+    validations:
+      required: true
+  - type: textarea
+    id: fuente
+    attributes:
+      label: Fuente, si el cambio trae datos nuevos
+      description: Si no hay datos normativos, dejalo vacío.
+    validations:
+      required: false

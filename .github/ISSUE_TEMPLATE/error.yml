@@ -1,0 +1,32 @@
+name: Error del sitio
+description: Una página no carga, un botón no hace lo que dice, o el build se rompe.
+title: "Error: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: que
+    attributes:
+      label: Qué pasó
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Qué esperabas
+    validations:
+      required: true
+  - type: input
+    id: donde
+    attributes:
+      label: Dónde
+      description: Ruta, navegador y si fue en el celular o en la compu.
+      placeholder: /examenes/ppa · Safari · iPhone
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Cómo reproducirlo
+      description: Los pasos, en orden.
+    validations:
+      required: false

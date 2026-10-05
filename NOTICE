@@ -1,0 +1,20 @@
+Aerodot
+Copyright (c) 2026 Elian Lehoux
+
+El código, los textos explicativos originales, los diagramas propios y la
+estructura del sitio están bajo la licencia MIT (archivo LICENSE).
+
+Esa licencia no cubre el material de terceros que está en el repositorio:
+
+- src/data/exam-banks/ y las figuras en public/exam-figures/ reproducen
+  cuestionarios que ANAC publica. Siguen perteneciendo a sus autores.
+  No se reescriben ni se relicencian.
+- Los handbooks de la FAA citados como fuente son obras del gobierno de
+  los Estados Unidos.
+- La normativa (RAAC, AIP, resoluciones) se cita; el texto oficial no es
+  de este repositorio.
+- public/fonts/ contiene Inter, de The Inter Project Authors, bajo la
+  SIL Open Font License 1.1. El texto está en public/fonts/LICENSE.txt.
+
+Aerodot no está afiliado ni avalado por ANAC, la FAA ni ningún centro
+de instrucción. El material es de estudio. No sirve para decidir un vuelo.

@@ -1,6 +1,14 @@
 {
   "name": "aerodot",
   "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elianlehoux/aerodot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elianlehoux/aerodot/issues"
+  },
   "type": "module",
   "scripts": {
     "dev": "astro dev",

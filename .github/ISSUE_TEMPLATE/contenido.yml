@@ -1,0 +1,37 @@
+name: Error de contenido
+description: Un dato, una explicación o una pregunta está mal o desactualizada.
+title: "Contenido: "
+labels: ["contenido"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Esto no reemplaza la norma ni a tu instructor. Si el dato va a usarse en un vuelo, la fuente oficial manda.
+  - type: input
+    id: pagina
+    attributes:
+      label: Dónde
+      description: Ruta o URL. Por ejemplo /estudiar/meteorologia o /examenes/ppa.
+      placeholder: /estudiar/meteorologia
+    validations:
+      required: true
+  - type: textarea
+    id: ahora
+    attributes:
+      label: Qué dice ahora
+    validations:
+      required: true
+  - type: textarea
+    id: deberia
+    attributes:
+      label: Qué debería decir
+    validations:
+      required: true
+  - type: input
+    id: fuente
+    attributes:
+      label: Fuente
+      description: Enlace a la RAAC, la resolución, el AIP o la página de ANAC.
+      placeholder: https://
+    validations:
+      required: true
