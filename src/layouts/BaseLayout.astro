@@ -135,9 +135,15 @@ const schemaData = {
         if (!control) return;
 
         const footer = document.querySelector('.home-footer');
+        const narrow = window.matchMedia('(max-width: 680px)');
         const updateVisibility = () => {
-          // Cuando el footer entra en pantalla, el botón sube con él para no taparle los links.
-          const lift = footer ? Math.max(0, window.innerHeight - footer.getBoundingClientRect().top) : 0;
+          // Cuando el footer entra en pantalla, el botón sube lo justo para no taparle los links:
+          // en celular se apoya sobre la fila legal (al lado del botón de Cafecito, que deja ese
+          // hueco libre); en escritorio, sobre el borde del footer.
+          const anchor = footer && (narrow.matches ? footer.querySelector('.footer-bottom') : footer);
+          const baseGap = 28;
+          const gap = 12;
+          const lift = anchor ? Math.max(0, window.innerHeight - anchor.getBoundingClientRect().top + gap - baseGap) : 0;
           document.documentElement.style.setProperty('--footer-lift', `${Math.round(lift)}px`);
           const visible = window.scrollY > 320 || document.activeElement === control;
           control.classList.toggle('is-visible', visible);
