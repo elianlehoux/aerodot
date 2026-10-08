@@ -1,5 +1,4 @@
 ---
-import GitHubLink from './GitHubLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
@@ -11,6 +10,5 @@ const { current = null } = Astro.props;
 <nav aria-label="Navegación principal">
   <a href="/temas" aria-current={current === 'biblioteca' ? 'page' : undefined}>Biblioteca</a>
   <a href="/examenes" aria-current={current === 'examenes' ? 'page' : undefined}>Exámenes</a>
-  <GitHubLink />
   <ThemeToggle />
 </nav>

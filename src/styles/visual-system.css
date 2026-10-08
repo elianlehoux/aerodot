@@ -19,7 +19,7 @@
 .ld-dn[aria-checked="true"] .theme-toggle-indicator{transform:translateX(28px)}
 .theme-icon{position:relative;z-index:1;width:16px;height:16px;stroke:var(--muted);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .16s ease}
 .ld-dn[aria-checked="false"] .theme-icon-sun,.ld-dn[aria-checked="true"] .theme-icon-moon{stroke:var(--ink)}
-.back-to-top{position:fixed;z-index:30;right:20px;bottom:20px;display:grid;width:42px;height:42px;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--ink);color:var(--paper);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .16s ease,transform .16s ease,background .16s ease}
+.back-to-top{position:fixed;z-index:30;right:20px;bottom:calc(28px + env(safe-area-inset-bottom) + var(--footer-lift,0px));display:grid;width:42px;height:42px;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--ink);color:var(--paper);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .16s ease,transform .16s ease,background .16s ease}
 .back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
 .back-to-top:hover{background:var(--graphite)}
 .back-to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -484,6 +484,13 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
   .practice-start-actions button{width:100%}
   .result-stats div{padding-right:6px;padding-left:6px}
 }
+@media(max-width:380px){
+  /* Marca + Biblioteca + Exámenes + tema entran en una fila desde 360 px (Android común). */
+  .site-header{padding-right:14px;padding-left:14px}
+  .site-header nav{gap:0}
+  .site-header nav>a{padding:0 6px;font-size:13px}
+  .ld-dn{margin-left:2px}
+}
 @media(prefers-reduced-motion:reduce){
   .site-header nav>a,.ld-dn .theme-toggle-indicator,.back-to-top,.button-primary,.button-light,.button-quiet,.home-cta-primary,.library-copy-page,.topic-link,.topic-arrow,.sidebar-chevron,.library-sidebar,.exam-license-row,.quiz-progress i,.answer-option,.page-report{transition:none}
 }
@@ -536,6 +543,37 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:'+';flex:none;color:var(--muted);font-weight:300;font-size:22px;line-height:1}
 .faq-item[open] summary::after{content:'−'}
-.faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .faq-item p{max-width:68ch;margin:0 0 20px;color:var(--graphite);font-size:16px;line-height:1.65}
 .exam-practice-page.is-taking-exam>.faq-block{display:none}
+
+/* Instalar como app: chip flotante (izquierda, el botón de volver arriba vive a la derecha) */
+.install-chip{position:fixed;z-index:40;left:20px;bottom:calc(20px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;max-width:420px;padding:10px 10px 10px 10px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--card) 82%,transparent);color:var(--ink);box-shadow:0 18px 40px -18px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.02) inset;backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);opacity:0;transform:translateY(14px) scale(.98);transition:opacity .22s ease,transform .32s cubic-bezier(.2,.8,.2,1)}
+.install-chip.is-visible{opacity:1;transform:none}
+.install-chip[hidden]{display:none}
+html[data-theme="light"] .install-chip{box-shadow:0 18px 40px -20px rgba(20,18,15,.28)}
+.install-chip-icon{flex:none;width:40px;height:40px;border-radius:10px;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.install-chip-copy{display:flex;flex:1;flex-direction:column;gap:1px;min-width:0}
+.install-chip-copy strong{font-size:14px;font-weight:500;line-height:1.3}
+.install-chip-copy span{color:var(--muted);font-size:12.5px;line-height:1.4}
+.install-chip-copy b{color:var(--ink);font-weight:500}
+.install-share{display:inline-block;width:15px;height:15px;margin:0 1px -3px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.install-chip-action{flex:none;min-height:34px;margin-left:4px;padding:0 14px;border:0;border-radius:var(--radius-button);background:var(--ink);color:var(--paper);font:500 13px/1 var(--sans);cursor:pointer;transition:background .15s ease,transform .15s ease}
+.install-chip-action:hover{background:var(--graphite)}
+.install-chip-action:active{transform:translateY(1px)}
+.install-chip-close{flex:none;display:grid;width:30px;height:30px;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer;transition:background .15s ease,color .15s ease}
+.install-chip-close:hover{background:var(--taupe);color:var(--ink)}
+.install-chip-close svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+html:has(.is-taking-exam) .install-chip,html:has(dialog[open]) .install-chip{display:none}
+.footer-install{display:inline-flex;align-items:center;gap:5px;padding:0;border:0;background:none;color:var(--muted);font:inherit;font-size:12px;white-space:nowrap;cursor:pointer}
+.footer-install[hidden]{display:none}
+.footer-install:hover{color:var(--ink)}
+.footer-install svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:680px){
+  .install-chip{left:12px;right:12px;max-width:none;gap:10px;padding:8px;transition:opacity .22s ease,transform .32s cubic-bezier(.2,.8,.2,1),bottom .22s ease}
+  html:has(.back-to-top.is-visible) .install-chip{bottom:calc(82px + env(safe-area-inset-bottom) + var(--footer-lift,0px))}
+  .install-chip-icon{width:36px;height:36px;border-radius:9px}
+  .install-chip-copy span{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .install-chip{transition:none;transform:none}
+}

@@ -1,0 +1,117 @@
+---
+/**
+ * Invitación a instalar Aerodot como app. Aparece sola desde la segunda página vista, se puede
+ * cerrar (vuelve a las 3 semanas) y nunca dentro de un examen en curso. En Android y en
+ * escritorio abre el diálogo del navegador; en iPhone, Safari no lo permite y se muestran los
+ * pasos. El botón «Instalar app» del footer usa la misma lógica y queda siempre disponible.
+ */
+---
+<aside class="install-chip" id="installChip" aria-label="Instalar Aerodot" hidden>
+  <img class="install-chip-icon" src="/icons/icon-192.png" alt="" width="40" height="40" />
+  <div class="install-chip-copy">
+    <strong>Aerodot como app</strong>
+    <span id="installHint">Practicá exámenes sin señal.</span>
+  </div>
+  <button class="install-chip-action" type="button" id="installAction">Instalar</button>
+  <button class="install-chip-close" type="button" id="installClose" aria-label="No mostrar por ahora">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg>
+  </button>
+</aside>
+<script is:inline>
+  (() => {
+    const chip = document.getElementById('installChip');
+    if (!chip) return;
+    const action = document.getElementById('installAction');
+    const hint = document.getElementById('installHint');
+    const close = document.getElementById('installClose');
+    const footerButtons = () => document.querySelectorAll('[data-install-app]');
+
+    const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+    if (standalone) return;
+
+    const ua = navigator.userAgent;
+    const isIOS = /iphone|ipad|ipod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    const DISMISS_KEY = 'aerodot:install-dismissed';
+    const VIEWS_KEY = 'aerodot:pageviews';
+    const read = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
+    const write = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Sin storage: se vuelve a ofrecer. */ } };
+    const track = (event, props) => window.posthog?.capture(event, { platform: isIOS ? 'ios' : 'prompt', ...props });
+
+    const views = Number(read(VIEWS_KEY) || 0) + 1;
+    write(VIEWS_KEY, String(views));
+    const dismissedAt = Number(read(DISMISS_KEY) || 0);
+    const recentlyDismissed = Date.now() - dismissedAt < 21 * 24 * 60 * 60 * 1000;
+
+    let deferred = null;
+
+    const showIOSSteps = () => {
+      chip.classList.add('is-steps');
+      hint.innerHTML = 'Tocá <svg class="install-share" viewBox="0 0 24 24" aria-label="Compartir" role="img"><path d="M12 3v12M8 7l4-4 4 4M6 11H5v10h14V11h-1" /></svg> Compartir y después <b>Agregar a inicio</b>.';
+      action.hidden = true;
+    };
+
+    const open = (reason) => {
+      chip.hidden = false;
+      requestAnimationFrame(() => chip.classList.add('is-visible'));
+      track('install_prompt_shown', { reason });
+    };
+
+    const hide = () => {
+      chip.classList.remove('is-visible');
+      setTimeout(() => { chip.hidden = true; }, 220);
+    };
+
+    const install = async (source) => {
+      if (deferred) {
+        deferred.prompt();
+        const { outcome } = await deferred.userChoice;
+        track('install_prompt_choice', { outcome, source });
+        deferred = null;
+        if (outcome === 'accepted') {
+          hide();
+          footerButtons().forEach((button) => { button.hidden = true; });
+        }
+      } else if (isIOS) {
+        showIOSSteps();
+        if (chip.hidden) open(source);
+      }
+    };
+
+    const enableFooter = () => footerButtons().forEach((button) => {
+      button.hidden = false;
+      button.addEventListener('click', () => install('footer'));
+    });
+
+    const maybeAutoShow = () => {
+      if (views >= 2 && !recentlyDismissed) setTimeout(() => open('auto'), 1800);
+    };
+
+    action.addEventListener('click', () => install('chip'));
+    close.addEventListener('click', () => {
+      write(DISMISS_KEY, String(Date.now()));
+      track('install_prompt_dismissed');
+      hide();
+    });
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      const first = !deferred;
+      deferred = event;
+      if (first) {
+        enableFooter();
+        maybeAutoShow();
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      track('app_installed');
+      hide();
+      footerButtons().forEach((button) => { button.hidden = true; });
+    });
+
+    if (isIOS) {
+      enableFooter();
+      maybeAutoShow();
+    }
+  })();
+</script>

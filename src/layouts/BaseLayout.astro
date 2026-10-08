@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '../styles/visual-system.css';
 import ReportDialog from '../components/ReportDialog.astro';
+import InstallPrompt from '../components/InstallPrompt.astro';
 import PostHog from '../components/posthog.astro';
 
 interface Props {
@@ -99,6 +100,7 @@ const schemaData = {
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <slot />
     <ReportDialog />
+    <InstallPrompt />
     <a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba" aria-hidden="true" tabindex="-1">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5m-6 6 6-6 6 6" /></svg>
     </a>
@@ -132,7 +134,11 @@ const schemaData = {
         const control = document.querySelector('.back-to-top');
         if (!control) return;
 
+        const footer = document.querySelector('.home-footer');
         const updateVisibility = () => {
+          // Cuando el footer entra en pantalla, el botón sube con él para no taparle los links.
+          const lift = footer ? Math.max(0, window.innerHeight - footer.getBoundingClientRect().top) : 0;
+          document.documentElement.style.setProperty('--footer-lift', `${Math.round(lift)}px`);
           const visible = window.scrollY > 320 || document.activeElement === control;
           control.classList.toggle('is-visible', visible);
           control.setAttribute('aria-hidden', String(!visible));
@@ -140,6 +146,7 @@ const schemaData = {
         };
 
         window.addEventListener('scroll', updateVisibility, { passive: true });
+        window.addEventListener('resize', updateVisibility, { passive: true });
         control.addEventListener('blur', updateVisibility);
         updateVisibility();
       })();
