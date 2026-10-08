@@ -3834,9 +3834,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/etvi-20140916.pdf",
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
@@ -5112,9 +5112,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/etvi-20140916.pdf",
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
@@ -5560,9 +5560,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/etvi-20140916.pdf",
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
@@ -9103,6 +9103,64 @@
           "id": "etvi-01-399",
           "chapter": 1,
           "number": 399,
+          "sourceNumber": 402,
+          "prompt": "NAV: Sobre el siguiente grafico calcular la componente para el despegue con viento a 60° de 18 Kt de intensidad.",
+          "choices": [
+            "20 Kt de viento de frente y 15 Kt de cruzado.",
+            "16 Kt de viento de frente y 10 Kt de viento cruzado.",
+            "16Kt de viento cruzado y 10 Kt de frente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/etvi-20140916.pdf",
+          "referenceTitle": "Cuestionario público ANAC · ETVI",
+          "images": [
+            {
+              "src": "/exam-figures/etvi/wind-60.jpg",
+              "width": 610,
+              "height": 547
+            }
+          ]
+        },
+        {
+          "id": "etvi-01-400",
+          "chapter": 1,
+          "number": 400,
+          "sourceNumber": 403,
+          "prompt": "NAV:Sobre el siguiente grafico calcular la componente para el despegue con viento a 25° de 18 Kt de intensidad.",
+          "choices": [
+            "16 kt de viento cruzado y 9 Kt de viento de frente",
+            "9 Kt de viento cruzado y 16 Kt de viento de frente.",
+            "19 Kt de viento cruzado y 16 Kt de viento de frente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/etvi-20140916.pdf",
+          "referenceTitle": "Cuestionario público ANAC · ETVI",
+          "images": [
+            {
+              "src": "/exam-figures/etvi/wind-25.jpg",
+              "width": 620,
+              "height": 505
+            }
+          ]
+        },
+        {
+          "id": "etvi-01-401",
+          "chapter": 1,
+          "number": 401,
           "sourceNumber": 404,
           "prompt": "Para alcanzar una mejor calidad en la instrucción, deberá cerciorarse de adaptar su instrucción a la experiencia del estudiante y así lograr un canal de comunicación efectivo.",
           "choices": [
@@ -9120,9 +9178,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-400",
+          "id": "etvi-01-402",
           "chapter": 1,
-          "number": 400,
+          "number": 402,
           "sourceNumber": 405,
           "prompt": "Para conseguir un alcance máximo, ¿un avión debe volar la máxima distancia posible con el combustible disponible?",
           "choices": [
@@ -9140,9 +9198,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-401",
+          "id": "etvi-01-403",
           "chapter": 1,
-          "number": 401,
+          "number": 403,
           "sourceNumber": 406,
           "prompt": "Para el llenado de un Plan de Vuelo (FPL) y las referencias a horas de estima de arribo a un punto (ETA) o partida (ETD), ¿cómo se refieren las horas?.",
           "choices": [
@@ -9162,15 +9220,15 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-402",
+          "id": "etvi-01-404",
           "chapter": 1,
-          "number": 402,
+          "number": 404,
           "sourceNumber": 407,
-          "prompt": "NAV:Sobre el siguiente grafico calcular la componente para el despegue con viento a 25° de 18 Kt de intensidad. Para lograr una sustentación igual a cero en un perfil plano-convexo se deberá enfrentar a la corriente de aire con",
+          "prompt": "Para lograr una sustentación igual a cero en un perfil plano-convexo se deberá enfrentar a la corriente de aire con:",
           "choices": [
             "Un ángulo de ataque positivo.",
             "Un ángulo de ataque neutro (0?)",
-            "Un ángulo de ataque negativo. página 78 / 102 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal"
+            "Un ángulo de ataque negativo."
           ],
           "printedOptionLabels": [
             "a",
@@ -9184,9 +9242,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-403",
+          "id": "etvi-01-405",
           "chapter": 1,
-          "number": 403,
+          "number": 405,
           "sourceNumber": 408,
           "prompt": "PC asegurarse de llevar a bordo de la aeronave las cartas de ruta y aproximacion es responsabilidad de",
           "choices": [
@@ -9206,9 +9264,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-404",
+          "id": "etvi-01-406",
           "chapter": 1,
-          "number": 404,
+          "number": 406,
           "sourceNumber": 409,
           "prompt": "PC El Indicador de senda de planeo PAPI usa luces instaladas,estas indican que si la aproximación esta dentro de la senda de planeo (on glide) en la siguiente combinación de luces recibira desde la cabina la confirmación con",
           "choices": [
@@ -9228,9 +9286,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-405",
+          "id": "etvi-01-407",
           "chapter": 1,
-          "number": 405,
+          "number": 407,
           "sourceNumber": 410,
           "prompt": "PC El piloto estará mas vulnerable a la desorientación espacial cuando",
           "choices": [
@@ -9250,9 +9308,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-406",
+          "id": "etvi-01-408",
           "chapter": 1,
-          "number": 406,
+          "number": 408,
           "sourceNumber": 411,
           "prompt": "PC Que el aeropuerto reporte condiciones de viento de mas de una direccion en diferentes intensidades es señal que",
           "choices": [
@@ -9272,9 +9330,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-407",
+          "id": "etvi-01-409",
           "chapter": 1,
-          "number": 407,
+          "number": 409,
           "sourceNumber": 412,
           "prompt": "PC- Seria prioritario dar aviso al servicio de transito aéreo del mínimo nivel de combustible.",
           "choices": [
@@ -9294,9 +9352,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-408",
+          "id": "etvi-01-410",
           "chapter": 1,
-          "number": 408,
+          "number": 410,
           "sourceNumber": 413,
           "prompt": "PC.VI 1.Sobre la carta de aproximacion SAZM la frecuencia de ILS esta designada como",
           "choices": [
@@ -9323,9 +9381,9 @@
           ]
         },
         {
-          "id": "etvi-01-409",
+          "id": "etvi-01-411",
           "chapter": 1,
-          "number": 409,
+          "number": 411,
           "sourceNumber": 414,
           "prompt": "PCVI Bajo que minima condicion sera necesario declarar la emergencia en vuelo.",
           "choices": [
@@ -9345,9 +9403,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-410",
+          "id": "etvi-01-412",
           "chapter": 1,
-          "number": 410,
+          "number": 412,
           "sourceNumber": 415,
           "prompt": "PCVI El codigo correspondiente a falla en las comunicaciones en el transpondedor es",
           "choices": [
@@ -9367,9 +9425,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-411",
+          "id": "etvi-01-413",
           "chapter": 1,
-          "number": 411,
+          "number": 413,
           "sourceNumber": 416,
           "prompt": "PCVI La espera mas baja para la carta IAC 1 SAZM se encuentra.",
           "choices": [
@@ -9396,9 +9454,9 @@
           ]
         },
         {
-          "id": "etvi-01-412",
+          "id": "etvi-01-414",
           "chapter": 1,
-          "number": 412,
+          "number": 414,
           "sourceNumber": 417,
           "prompt": "PCVI-2 En la aproximación final con curso de ingreso y en descenso sobre la IAC 1 SAZM, usted registra sobre la milla 6 una variación en el indicador de senda de planeo producto de una falla en el instrumento ILS instalado en su aeronave. El procedimiento continuara sobre los mínimos establecidos como",
           "choices": [
@@ -9425,9 +9483,9 @@
           ]
         },
         {
-          "id": "etvi-01-413",
+          "id": "etvi-01-415",
           "chapter": 1,
-          "number": 413,
+          "number": 415,
           "sourceNumber": 418,
           "prompt": "PCVI: Con destino MDP ingresando por el Radial 240 usted realizara la IAC N° 1 de SAZM. Para completar el procedimiento de aproximacion por instrumentos se debera tener en cuenta",
           "choices": [
@@ -9454,9 +9512,9 @@
           ]
         },
         {
-          "id": "etvi-01-414",
+          "id": "etvi-01-416",
           "chapter": 1,
-          "number": 414,
+          "number": 416,
           "sourceNumber": 419,
           "prompt": "PCVI: Dentro de la altitud mínima de sector de seguridad entre 180° y 360° se encuentra el obstáculo de mayor altitud y este es de",
           "choices": [
@@ -9483,9 +9541,9 @@
           ]
         },
         {
-          "id": "etvi-01-415",
+          "id": "etvi-01-417",
           "chapter": 1,
-          "number": 415,
+          "number": 417,
           "sourceNumber": 420,
           "prompt": "PCVI: En el panel hay un instrumento de comportamiento que no condice con la perfomance de ascenso por izquierda con una inclinacion de 30°, el instrumento que esta dando informacion erronea es",
           "choices": [
@@ -9512,9 +9570,9 @@
           ]
         },
         {
-          "id": "etvi-01-416",
+          "id": "etvi-01-418",
           "chapter": 1,
-          "number": 416,
+          "number": 418,
           "sourceNumber": 421,
           "prompt": "PCVI: La IAC N°1 de SAZM es una IAC",
           "choices": [
@@ -9534,9 +9592,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-417",
+          "id": "etvi-01-419",
           "chapter": 1,
-          "number": 417,
+          "number": 419,
           "sourceNumber": 422,
           "prompt": "PCVI: Para una aproximacion con una Ground Speed de 120 Kt el tiempo entre OM y MM de 3 Millas sera de",
           "choices": [
@@ -9563,9 +9621,9 @@
           ]
         },
         {
-          "id": "etvi-01-418",
+          "id": "etvi-01-420",
           "chapter": 1,
-          "number": 418,
+          "number": 420,
           "sourceNumber": 423,
           "prompt": "PCVI: Para una aproximacion con una Ground Speed de 90 Kt el tiempo entre OM y MM de 3 Millas sera de",
           "choices": [
@@ -9592,9 +9650,9 @@
           ]
         },
         {
-          "id": "etvi-01-419",
+          "id": "etvi-01-421",
           "chapter": 1,
-          "number": 419,
+          "number": 421,
           "sourceNumber": 424,
           "prompt": "PCVI.- Señale la opcion correcta de la siguientes afirmaciones sobre procedimiento publicado para la IAC numero 1 de SAZM",
           "choices": [
@@ -9621,9 +9679,9 @@
           ]
         },
         {
-          "id": "etvi-01-420",
+          "id": "etvi-01-422",
           "chapter": 1,
-          "number": 420,
+          "number": 422,
           "sourceNumber": 425,
           "prompt": "RAAC Los Servicios de Tránsito Aéreo, constituyen servicios esenciales para la gestión, seguridad y eficiencia de los vuelos, debiendo cumplir los siguientes objetivos",
           "choices": [
@@ -9643,9 +9701,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-421",
+          "id": "etvi-01-423",
           "chapter": 1,
-          "number": 421,
+          "number": 423,
           "sourceNumber": 426,
           "prompt": "Se denomina ruta o curso a la proyección sobre la superficie terrestre del movimiento de una aeronave, medido con respecto a una referencia cualquiera",
           "choices": [
@@ -9663,9 +9721,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-422",
+          "id": "etvi-01-424",
           "chapter": 1,
-          "number": 422,
+          "number": 424,
           "sourceNumber": 427,
           "prompt": "Se entiende por resistencia parásita a la producida por",
           "choices": [
@@ -9685,9 +9743,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-423",
+          "id": "etvi-01-425",
           "chapter": 1,
-          "number": 423,
+          "number": 425,
           "sourceNumber": 428,
           "prompt": "Se llama Punto Crítico (PC) o Punto Equidistante en Tiempo (PET),",
           "choices": [
@@ -9707,9 +9765,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-424",
+          "id": "etvi-01-426",
           "chapter": 1,
-          "number": 424,
+          "number": 426,
           "sourceNumber": 429,
           "prompt": "Señale la opcion correcta de la siguientes afirmaciones sobre procedimiento publicado para la IAC numero 1 de SAZM",
           "choices": [
@@ -9736,9 +9794,9 @@
           ]
         },
         {
-          "id": "etvi-01-425",
+          "id": "etvi-01-427",
           "chapter": 1,
-          "number": 425,
+          "number": 427,
           "sourceNumber": 430,
           "prompt": "Si el viento fuera nulo, la velocidad del avión con respecto al suelo (velocidad absoluta) ó Ground Speed (GS) sería la misma que respecto al aire.",
           "choices": [
@@ -9756,9 +9814,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-426",
+          "id": "etvi-01-428",
           "chapter": 1,
-          "number": 426,
+          "number": 428,
           "sourceNumber": 431,
           "prompt": "Si en Navegación Aérea nos referimos al término “Longitud”, ¿a cuáles de los siguientes puntos se está haciendo referencia?.",
           "choices": [
@@ -9778,9 +9836,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-427",
+          "id": "etvi-01-429",
           "chapter": 1,
-          "number": 427,
+          "number": 429,
           "sourceNumber": 432,
           "prompt": "Si un determinado factor ha demostrado ser capaz de producir un accidente, mientras no se elimine o modifique dicho factor, el ACCIDENTE tendera a repetirse.",
           "choices": [
@@ -9798,9 +9856,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-428",
+          "id": "etvi-01-430",
           "chapter": 1,
-          "number": 428,
+          "number": 430,
           "sourceNumber": 433,
           "prompt": "Si un piloto está efectuando una aproximación ILS a la pista 13 del Aeropuerto de Mar del Plata y en su CDI / HSI aparece la bandera de mal funcionamiento del CDI / LLZ ¿qué acción debe tomar?",
           "choices": [
@@ -9820,9 +9878,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-429",
+          "id": "etvi-01-431",
           "chapter": 1,
-          "number": 429,
+          "number": 431,
           "sourceNumber": 434,
           "prompt": "STA- Los Servicios de control de Area y Aproximación, se establecen fundamentalmente por la existencia del transito",
           "choices": [
@@ -9842,9 +9900,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-430",
+          "id": "etvi-01-432",
           "chapter": 1,
-          "number": 430,
+          "number": 432,
           "sourceNumber": 435,
           "prompt": "STA-29) En un vuelo no controlado de que forma se obtiene separación",
           "choices": [
@@ -9864,9 +9922,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-431",
+          "id": "etvi-01-433",
           "chapter": 1,
-          "number": 431,
+          "number": 433,
           "sourceNumber": 436,
           "prompt": "Un aumento brusco del ángulo de ataque",
           "choices": [
@@ -9886,9 +9944,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-432",
+          "id": "etvi-01-434",
           "chapter": 1,
-          "number": 432,
+          "number": 434,
           "sourceNumber": 437,
           "prompt": "Una vez que se ha establecido que el rumbo magnético (MH) entre dos puntos es 057º, ¿cuál será el rumbo compás si nuestra brújula tiene un desvío de 2º E?.",
           "choices": [
@@ -9908,9 +9966,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-433",
+          "id": "etvi-01-435",
           "chapter": 1,
-          "number": 433,
+          "number": 435,
           "sourceNumber": 438,
           "prompt": "Uno de los elementos más importantes para frenar la cadena de errores es",
           "choices": [
@@ -9930,9 +9988,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-434",
+          "id": "etvi-01-436",
           "chapter": 1,
-          "number": 434,
+          "number": 436,
           "sourceNumber": 439,
           "prompt": "Usted debe realizar un vuelo entre el punto A y el Punto B, por lo tanto sitúa los mismos en una carta visual, traza su ruta sobre la misma y determina el rumbo geográfico 295º (TH = 295º). Si la declinación publicada en la carta es 15º W ¿cuál será el rumbo magnético ó MH?.",
           "choices": [
@@ -9952,9 +10010,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-435",
+          "id": "etvi-01-437",
           "chapter": 1,
-          "number": 435,
+          "number": 437,
           "sourceNumber": 440,
           "prompt": "Vxinstrum: El Horizonte artificial indica",
           "choices": [
@@ -9981,9 +10039,9 @@
           ]
         },
         {
-          "id": "etvi-01-436",
+          "id": "etvi-01-438",
           "chapter": 1,
-          "number": 436,
+          "number": 438,
           "sourceNumber": 441,
           "prompt": "2.14.2 De los Organismos que actuarán en carácter de Autoridades competentes en sus respectivas áreas de responsabilidad surgen de.",
           "choices": [
@@ -10003,9 +10061,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-437",
+          "id": "etvi-01-439",
           "chapter": 1,
-          "number": 437,
+          "number": 439,
           "sourceNumber": 443,
           "prompt": "204.- ¿Cuál es el propósito de los flaps de borde de ataque (leading –edge flaps)?",
           "choices": [
@@ -10025,9 +10083,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-438",
+          "id": "etvi-01-440",
           "chapter": 1,
-          "number": 438,
+          "number": 440,
           "sourceNumber": 444,
           "prompt": "205.- ¿Cuál es el propósito de los slats de borde de ataque (leading –edge slats) en alas de gran performance?",
           "choices": [
@@ -10047,9 +10105,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-439",
+          "id": "etvi-01-441",
           "chapter": 1,
-          "number": 439,
+          "number": 441,
           "sourceNumber": 445,
           "prompt": "228.- El factor de carga es la sustentación generada por las alas de una aeronave en un tiempo determinado",
           "choices": [
@@ -10069,9 +10127,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-440",
+          "id": "etvi-01-442",
           "chapter": 1,
-          "number": 440,
+          "number": 442,
           "sourceNumber": 446,
           "prompt": "229.- Al recuperarse rápido de un descenso en picada, los efectos del factor de carga harán que la velocidad de pérdida",
           "choices": [
@@ -10091,9 +10149,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-441",
+          "id": "etvi-01-443",
           "chapter": 1,
-          "number": 441,
+          "number": 443,
           "sourceNumber": 447,
           "prompt": "231.- Al mantener un ángulo de banqueo y altitud constantes en un viraje coordinado, un incremento en la velocidad",
           "choices": [
@@ -10113,9 +10171,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-442",
+          "id": "etvi-01-444",
           "chapter": 1,
-          "number": 442,
+          "number": 444,
           "sourceNumber": 448,
           "prompt": "239.- Se define la VNE como aquella velocidad en la que",
           "choices": [
@@ -10135,9 +10193,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-443",
+          "id": "etvi-01-445",
           "chapter": 1,
-          "number": 443,
+          "number": 445,
           "sourceNumber": 449,
           "prompt": "252.- ¿En qué punto de la pista se debe planificar el ascenso para evitar los posibles efectos de una estela turbulenta proveniente de una aeronave grande a reacción que acaba de aterrizar antes que usted despegue?",
           "choices": [
@@ -10157,9 +10215,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-444",
+          "id": "etvi-01-446",
           "chapter": 1,
-          "number": 444,
+          "number": 446,
           "sourceNumber": 450,
           "prompt": "El instructor de vuelo debe instruir al alumno sobre la toma de decisiones aeronauticas cuando",
           "choices": [
@@ -10179,9 +10237,9 @@
           "referenceTitle": "Cuestionario público ANAC · ETVI"
         },
         {
-          "id": "etvi-01-445",
+          "id": "etvi-01-447",
           "chapter": 1,
-          "number": 445,
+          "number": 447,
           "sourceNumber": 451,
           "prompt": "PCVI El panel de instrumentos indica que",
           "choices": [

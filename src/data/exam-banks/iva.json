@@ -1464,7 +1464,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "iva-01-066",
@@ -1849,7 +1856,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "iva-01-083",
@@ -2278,7 +2292,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "iva-01-102",
@@ -2619,7 +2640,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "iva-01-117",
@@ -4184,9 +4212,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-2015.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
@@ -7229,9 +7257,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-2015.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
@@ -8326,9 +8354,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-2015.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
@@ -11127,7 +11155,14 @@
           "figure": {
             "number": 48,
             "label": "48"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/48.jpg",
+              "width": 822,
+              "height": 847
+            }
+          ]
         },
         {
           "id": "iva-01-486",
@@ -11512,7 +11547,14 @@
           "figure": {
             "number": 48,
             "label": "48"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/48.jpg",
+              "width": 822,
+              "height": 847
+            }
+          ]
         },
         {
           "id": "iva-01-503",
@@ -11875,7 +11917,14 @@
           "figure": {
             "number": 48,
             "label": "48"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/48.jpg",
+              "width": 822,
+              "height": 847
+            }
+          ]
         },
         {
           "id": "iva-01-519",
@@ -14424,6 +14473,64 @@
           "id": "iva-01-634",
           "chapter": 1,
           "number": 634,
+          "sourceNumber": 637,
+          "prompt": "NAV: Sobre el siguiente grafico calcular la componente para el despegue con viento a 60° de 18 Kt de intensidad.",
+          "choices": [
+            "20 Kt de viento de frente y 15 Kt de cruzado.",
+            "16 Kt de viento de frente y 10 Kt de viento cruzado.",
+            "16Kt de viento cruzado y 10 Kt de frente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-2015.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión",
+          "images": [
+            {
+              "src": "/exam-figures/iva/wind-60.jpg",
+              "width": 610,
+              "height": 547
+            }
+          ]
+        },
+        {
+          "id": "iva-01-635",
+          "chapter": 1,
+          "number": 635,
+          "sourceNumber": 638,
+          "prompt": "NAV:Sobre el siguiente grafico calcular la componente para el despegue con viento a 25° de 18 Kt de intensidad.",
+          "choices": [
+            "16 kt de viento cruzado y 9 Kt de viento de frente",
+            "9 Kt de viento cruzado y 16 Kt de viento de frente.",
+            "19 Kt de viento cruzado y 16 Kt de viento de frente."
+          ],
+          "printedOptionLabels": [
+            "a",
+            "b",
+            "c"
+          ],
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
+          "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-2015.pdf",
+          "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión",
+          "images": [
+            {
+              "src": "/exam-figures/iva/wind-25.jpg",
+              "width": 620,
+              "height": 505
+            }
+          ]
+        },
+        {
+          "id": "iva-01-636",
+          "chapter": 1,
+          "number": 636,
           "sourceNumber": 639,
           "prompt": "Para alcanzar una mejor calidad en la instrucción, deberá cerciorarse de adaptar su instrucción a la experiencia del estudiante y así lograr un canal de comunicación efectivo.",
           "choices": [
@@ -14441,9 +14548,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-635",
+          "id": "iva-01-637",
           "chapter": 1,
-          "number": 635,
+          "number": 637,
           "sourceNumber": 640,
           "prompt": "Para conseguir un alcance máximo, ¿un avión debe volar la máxima distancia posible con el combustible disponible?",
           "choices": [
@@ -14461,9 +14568,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-636",
+          "id": "iva-01-638",
           "chapter": 1,
-          "number": 636,
+          "number": 638,
           "sourceNumber": 641,
           "prompt": "Para el llenado de un Plan de Vuelo (FPL) y las referencias a horas de estima de arribo a un punto (ETA) o partida (ETD), ¿cómo se refieren las horas?.",
           "choices": [
@@ -14483,11 +14590,11 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-637",
+          "id": "iva-01-639",
           "chapter": 1,
-          "number": 637,
+          "number": 639,
           "sourceNumber": 642,
-          "prompt": "NAV:Sobre el siguiente grafico calcular la componente para el despegue con viento a 25° de 18 Kt de intensidad. Para obtener alcance máximo el piloto debe reducir la potencia y la velocidad a medida que se consume combustible",
+          "prompt": "Para obtener alcance máximo el piloto debe reducir la potencia y la velocidad a medida que se consume combustible",
           "choices": [
             "Verdadero.",
             "Falso."
@@ -14503,9 +14610,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-638",
+          "id": "iva-01-640",
           "chapter": 1,
-          "number": 638,
+          "number": 640,
           "sourceNumber": 643,
           "prompt": "Para obtener una autorización para vuelo solo de alumno piloto, toda persona deberá: Tener 16 años y 9 meses de edad para la obtención de la autorización para vuelo solo de alumno piloto privado de avión, helicóptero, giroplano y aeróstato (globo libre). En el caso que el alumno sea menor de edad se requerirá",
           "choices": [
@@ -14525,9 +14632,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-639",
+          "id": "iva-01-641",
           "chapter": 1,
-          "number": 639,
+          "number": 641,
           "sourceNumber": 644,
           "prompt": "PC -En zonas próximas al litoral marítimo, el calentamiento solar suele producir nubes de tormenta de origen convectivo generalmente por",
           "choices": [
@@ -14547,9 +14654,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-640",
+          "id": "iva-01-642",
           "chapter": 1,
-          "number": 640,
+          "number": 642,
           "sourceNumber": 645,
           "prompt": "PC 3)Si volamos un nivel de vuelo determinado (p.e. FL 050) y volamos en una zona de baja pre-sión o de aire frío, la altura real de vuelo es superior a la indicada",
           "choices": [
@@ -14567,9 +14674,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-641",
+          "id": "iva-01-643",
           "chapter": 1,
-          "number": 641,
+          "number": 643,
           "sourceNumber": 646,
           "prompt": "Pc 5)Las causa de la formación de nubes se deben a los siguientes procesos",
           "choices": [
@@ -14589,9 +14696,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-642",
+          "id": "iva-01-644",
           "chapter": 1,
-          "number": 642,
+          "number": 644,
           "sourceNumber": 647,
           "prompt": "pc 7) La característica sobresaliente de la etapa de desarrollo de las tormentas es que prevalecen solamente corrientes ascendentes dentro de la nube",
           "choices": [
@@ -14609,9 +14716,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-643",
+          "id": "iva-01-645",
           "chapter": 1,
-          "number": 643,
+          "number": 645,
           "sourceNumber": 648,
           "prompt": "PC asegurarse de llevar a bordo de la aeronave las cartas de ruta y aproximacion es responsabilidad de",
           "choices": [
@@ -14631,9 +14738,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-644",
+          "id": "iva-01-646",
           "chapter": 1,
-          "number": 644,
+          "number": 646,
           "sourceNumber": 649,
           "prompt": "PC De las opciones señalar la decodificacion correcta :METAR SABE 311900Z 34009KT 9999 FEW025 32/23 Q1004 =",
           "choices": [
@@ -14653,9 +14760,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-645",
+          "id": "iva-01-647",
           "chapter": 1,
-          "number": 645,
+          "number": 647,
           "sourceNumber": 650,
           "prompt": "PC El Indicador de senda de planeo PAPI usa luces instaladas,estas indican que si la aproximación esta dentro de la senda de planeo (on glide) en la siguiente combinación de luces recibira desde la cabina la confirmación con",
           "choices": [
@@ -14675,9 +14782,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-646",
+          "id": "iva-01-648",
           "chapter": 1,
-          "number": 646,
+          "number": 648,
           "sourceNumber": 651,
           "prompt": "PC El piloto estará mas vulnerable a la desorientación espacial cuando",
           "choices": [
@@ -14697,9 +14804,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-647",
+          "id": "iva-01-649",
           "chapter": 1,
-          "number": 647,
+          "number": 649,
           "sourceNumber": 652,
           "prompt": "PC Que el aeropuerto reporte condiciones de viento de mas de una direccion en diferentes intensidades es señal que",
           "choices": [
@@ -14719,9 +14826,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-648",
+          "id": "iva-01-650",
           "chapter": 1,
-          "number": 648,
+          "number": 650,
           "sourceNumber": 653,
           "prompt": "PC- Seria prioritario dar aviso al servicio de transito aéreo del mínimo nivel de combustible.",
           "choices": [
@@ -14741,9 +14848,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-649",
+          "id": "iva-01-651",
           "chapter": 1,
-          "number": 649,
+          "number": 651,
           "sourceNumber": 654,
           "prompt": "PC-Cuando en una tormenta se forma el típico yunque, se puede decir que la tormenta está en su fase de disipación",
           "choices": [
@@ -14761,9 +14868,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-650",
+          "id": "iva-01-652",
           "chapter": 1,
-          "number": 650,
+          "number": 652,
           "sourceNumber": 655,
           "prompt": "PC-Cuando en una tormenta se forma el típico yunque, se puede decir que la tormenta está en su fase de",
           "choices": [
@@ -14783,9 +14890,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-651",
+          "id": "iva-01-653",
           "chapter": 1,
-          "number": 651,
+          "number": 653,
           "sourceNumber": 656,
           "prompt": "PC-El pasaje de una tormenta eléctrica origina variaciones bruscas y marcadas en la presión ob-servada en la superficie. La secuencia característica es",
           "choices": [
@@ -14805,9 +14912,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-652",
+          "id": "iva-01-654",
           "chapter": 1,
-          "number": 652,
+          "number": 654,
           "sourceNumber": 657,
           "prompt": "PC-Los efectos del hielo sobre las aeronaves se pueden resumir en",
           "choices": [
@@ -14827,9 +14934,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-653",
+          "id": "iva-01-655",
           "chapter": 1,
-          "number": 653,
+          "number": 655,
           "sourceNumber": 658,
           "prompt": "PC-Un frente frío es un fenómeno que se desplaza más lento que un frente caliente.",
           "choices": [
@@ -14847,9 +14954,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-654",
+          "id": "iva-01-656",
           "chapter": 1,
-          "number": 654,
+          "number": 656,
           "sourceNumber": 659,
           "prompt": "PC: Cual de los siguientes mensajes codificados corresponde al METAR de Comodoro Rivadavia indicando vientos del sector noroeste con rafagas que llegan a los 30 KT y 17 grados de temperatura",
           "choices": [
@@ -14869,9 +14976,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-655",
+          "id": "iva-01-657",
           "chapter": 1,
-          "number": 655,
+          "number": 657,
           "sourceNumber": 660,
           "prompt": "PC.2)Si volamos un nivel de vuelo determinado (p.e. FL 040) y volamos en una zona de alta pre-sión o de aire caliente, la altura real de vuelo es superior a la indicada",
           "choices": [
@@ -14889,9 +14996,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-656",
+          "id": "iva-01-658",
           "chapter": 1,
-          "number": 656,
+          "number": 658,
           "sourceNumber": 661,
           "prompt": "PC.VI 1.Sobre la carta de aproximacion SAZM la frecuencia de ILS esta designada como",
           "choices": [
@@ -14918,9 +15025,9 @@
           ]
         },
         {
-          "id": "iva-01-657",
+          "id": "iva-01-659",
           "chapter": 1,
-          "number": 657,
+          "number": 659,
           "sourceNumber": 662,
           "prompt": "PCVI Bajo que minima condicion sera necesario declarar la emergencia en vuelo.",
           "choices": [
@@ -14940,9 +15047,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-658",
+          "id": "iva-01-660",
           "chapter": 1,
-          "number": 658,
+          "number": 660,
           "sourceNumber": 663,
           "prompt": "PCVI El codigo correspondiente a falla en las comunicaciones en el transpondedor es",
           "choices": [
@@ -14962,9 +15069,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-659",
+          "id": "iva-01-661",
           "chapter": 1,
-          "number": 659,
+          "number": 661,
           "sourceNumber": 664,
           "prompt": "PCVI La espera mas baja para la carta IAC 1 SAZM se encuentra.",
           "choices": [
@@ -14991,9 +15098,9 @@
           ]
         },
         {
-          "id": "iva-01-660",
+          "id": "iva-01-662",
           "chapter": 1,
-          "number": 660,
+          "number": 662,
           "sourceNumber": 665,
           "prompt": "PCVI-2 En la aproximación final con curso de ingreso y en descenso sobre la IAC 1 SAZM, usted registra sobre la milla 6 una variación en el indicador de senda de planeo producto de una falla en el instrumento ILS instalado en su aeronave. El procedimiento continuara sobre los mínimos establecidos como",
           "choices": [
@@ -15020,9 +15127,9 @@
           ]
         },
         {
-          "id": "iva-01-661",
+          "id": "iva-01-663",
           "chapter": 1,
-          "number": 661,
+          "number": 663,
           "sourceNumber": 666,
           "prompt": "PCVI: Con destino MDP ingresando por el Radial 240 usted realizara la IAC N° 1 de SAZM. Para completar el procedimiento de aproximacion por instrumentos se debera tener en cuenta",
           "choices": [
@@ -15049,9 +15156,9 @@
           ]
         },
         {
-          "id": "iva-01-662",
+          "id": "iva-01-664",
           "chapter": 1,
-          "number": 662,
+          "number": 664,
           "sourceNumber": 667,
           "prompt": "PCVI: Dentro de la altitud mínima de sector de seguridad entre 180° y 360° se encuentra el obstáculo de mayor altitud y este es de",
           "choices": [
@@ -15078,9 +15185,9 @@
           ]
         },
         {
-          "id": "iva-01-663",
+          "id": "iva-01-665",
           "chapter": 1,
-          "number": 663,
+          "number": 665,
           "sourceNumber": 668,
           "prompt": "PCVI: En el panel hay un instrumento de comportamiento que no condice con la perfomance de ascenso por izquierda con una inclinacion de 30°, el instrumento que esta dando informacion erronea es",
           "choices": [
@@ -15107,9 +15214,9 @@
           ]
         },
         {
-          "id": "iva-01-664",
+          "id": "iva-01-666",
           "chapter": 1,
-          "number": 664,
+          "number": 666,
           "sourceNumber": 669,
           "prompt": "PCVI: La IAC N°1 de SAZM es una IAC",
           "choices": [
@@ -15129,9 +15236,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-665",
+          "id": "iva-01-667",
           "chapter": 1,
-          "number": 665,
+          "number": 667,
           "sourceNumber": 670,
           "prompt": "PCVI: Para una aproximacion con una Ground Speed de 120 Kt el tiempo entre OM y MM de 3 Millas sera de",
           "choices": [
@@ -15158,9 +15265,9 @@
           ]
         },
         {
-          "id": "iva-01-666",
+          "id": "iva-01-668",
           "chapter": 1,
-          "number": 666,
+          "number": 668,
           "sourceNumber": 671,
           "prompt": "PCVI: Para una aproximacion con una Ground Speed de 90 Kt el tiempo entre OM y MM de 3 Millas sera de",
           "choices": [
@@ -15187,9 +15294,9 @@
           ]
         },
         {
-          "id": "iva-01-667",
+          "id": "iva-01-669",
           "chapter": 1,
-          "number": 667,
+          "number": 669,
           "sourceNumber": 672,
           "prompt": "PCVI.- Señale la opcion correcta de la siguientes afirmaciones sobre procedimiento publicado para la IAC numero 1 de SAZM",
           "choices": [
@@ -15216,9 +15323,9 @@
           ]
         },
         {
-          "id": "iva-01-668",
+          "id": "iva-01-670",
           "chapter": 1,
-          "number": 668,
+          "number": 670,
           "sourceNumber": 673,
           "prompt": "PPANAV. En la aproximacion al aerodromo usted encuentra una de las pistas en uso clausurada, esta sera la pista",
           "choices": [
@@ -15245,9 +15352,9 @@
           ]
         },
         {
-          "id": "iva-01-669",
+          "id": "iva-01-671",
           "chapter": 1,
-          "number": 669,
+          "number": 671,
           "sourceNumber": 674,
           "prompt": "RAAC Los Servicios de Tránsito Aéreo, constituyen servicios esenciales para la gestión, seguridad y eficiencia de los vuelos, debiendo cumplir los siguientes objetivos",
           "choices": [
@@ -15267,9 +15374,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-670",
+          "id": "iva-01-672",
           "chapter": 1,
-          "number": 670,
+          "number": 672,
           "sourceNumber": 675,
           "prompt": "Se denomina ruta o curso a la proyección sobre la superficie terrestre del movimiento de una aeronave, medido con respecto a una referencia cualquiera",
           "choices": [
@@ -15287,9 +15394,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-671",
+          "id": "iva-01-673",
           "chapter": 1,
-          "number": 671,
+          "number": 673,
           "sourceNumber": 676,
           "prompt": "Se llama Punto Crítico (PC) o Punto Equidistante en Tiempo (PET),",
           "choices": [
@@ -15309,9 +15416,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-672",
+          "id": "iva-01-674",
           "chapter": 1,
-          "number": 672,
+          "number": 674,
           "sourceNumber": 677,
           "prompt": "Señale la opcion correcta de la siguientes afirmaciones sobre procedimiento publicado para la IAC numero 1 de SAZM",
           "choices": [
@@ -15338,9 +15445,9 @@
           ]
         },
         {
-          "id": "iva-01-673",
+          "id": "iva-01-675",
           "chapter": 1,
-          "number": 673,
+          "number": 675,
           "sourceNumber": 678,
           "prompt": "Si el viento fuera nulo, la velocidad del avión con respecto al suelo (velocidad absoluta) ó Ground Speed (GS) sería la misma que respecto al aire.",
           "choices": [
@@ -15358,9 +15465,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-674",
+          "id": "iva-01-676",
           "chapter": 1,
-          "number": 674,
+          "number": 676,
           "sourceNumber": 679,
           "prompt": "Si en Navegación Aérea nos referimos al término “Longitud”, ¿a cuáles de los siguientes puntos se está haciendo referencia?.",
           "choices": [
@@ -15380,9 +15487,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-675",
+          "id": "iva-01-677",
           "chapter": 1,
-          "number": 675,
+          "number": 677,
           "sourceNumber": 680,
           "prompt": "Si un piloto está efectuando una aproximación ILS a la pista 13 del Aeropuerto de Mar del Plata y en su CDI / HSI aparece la bandera de mal funcionamiento del CDI / LLZ ¿qué acción debe tomar?",
           "choices": [
@@ -15402,9 +15509,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-676",
+          "id": "iva-01-678",
           "chapter": 1,
-          "number": 676,
+          "number": 678,
           "sourceNumber": 681,
           "prompt": "STA- Los Servicios de control de Area y Aproximación, se establecen fundamentalmente por la existencia del transito",
           "choices": [
@@ -15424,9 +15531,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-677",
+          "id": "iva-01-679",
           "chapter": 1,
-          "number": 677,
+          "number": 679,
           "sourceNumber": 682,
           "prompt": "STA-29) En un vuelo no controlado de que forma se obtiene separación",
           "choices": [
@@ -15446,9 +15553,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-678",
+          "id": "iva-01-680",
           "chapter": 1,
-          "number": 678,
+          "number": 680,
           "sourceNumber": 683,
           "prompt": "Una vez que se ha establecido que el rumbo magnético (MH) entre dos puntos es 057º, ¿cuál será el rumbo compás si nuestra brújula tiene un desvío de 2º E?.",
           "choices": [
@@ -15468,9 +15575,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-679",
+          "id": "iva-01-681",
           "chapter": 1,
-          "number": 679,
+          "number": 681,
           "sourceNumber": 684,
           "prompt": "Usted debe realizar un vuelo entre el punto A y el Punto B, por lo tanto sitúa los mismos en una carta visual, traza su ruta sobre la misma y determina el rumbo geográfico 295º (TH = 295º). Si la declinación publicada en la carta es 15º W ¿cuál será el rumbo magnético ó MH?.",
           "choices": [
@@ -15490,9 +15597,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-680",
+          "id": "iva-01-682",
           "chapter": 1,
-          "number": 680,
+          "number": 682,
           "sourceNumber": 685,
           "prompt": "Vxinstrum: El Horizonte artificial indica",
           "choices": [
@@ -15519,9 +15626,9 @@
           ]
         },
         {
-          "id": "iva-01-681",
+          "id": "iva-01-683",
           "chapter": 1,
-          "number": 681,
+          "number": 683,
           "sourceNumber": 686,
           "prompt": "2.14.2 De los Organismos que actuarán en carácter de Autoridades competentes en sus respectivas áreas de responsabilidad surgen de.",
           "choices": [
@@ -15541,9 +15648,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-682",
+          "id": "iva-01-684",
           "chapter": 1,
-          "number": 682,
+          "number": 684,
           "sourceNumber": 688,
           "prompt": "12.- Ajustar el control de la mezcla",
           "choices": [
@@ -15563,9 +15670,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-683",
+          "id": "iva-01-685",
           "chapter": 1,
-          "number": 683,
+          "number": 685,
           "sourceNumber": 689,
           "prompt": "19.- ¿Cuál es el uno de los efectos que puede causar aplicar aire caliente al carburador?",
           "choices": [
@@ -15585,9 +15692,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-684",
+          "id": "iva-01-686",
           "chapter": 1,
-          "number": 684,
+          "number": 686,
           "sourceNumber": 690,
           "prompt": "204.- ¿Cuál es el propósito de los flaps de borde de ataque (leading –edge flaps)?",
           "choices": [
@@ -15607,9 +15714,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-685",
+          "id": "iva-01-687",
           "chapter": 1,
-          "number": 685,
+          "number": 687,
           "sourceNumber": 691,
           "prompt": "205.- ¿Cuál es el propósito de los slats de borde de ataque (leading –edge slats) en alas de gran performance?",
           "choices": [
@@ -15629,9 +15736,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-686",
+          "id": "iva-01-688",
           "chapter": 1,
-          "number": 686,
+          "number": 688,
           "sourceNumber": 692,
           "prompt": "22.- Se puede producir la detonación debido a",
           "choices": [
@@ -15651,9 +15758,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-687",
+          "id": "iva-01-689",
           "chapter": 1,
-          "number": 687,
+          "number": 689,
           "sourceNumber": 693,
           "prompt": "228.- El factor de carga es la sustentación generada por las alas de una aeronave en un tiempo determinado",
           "choices": [
@@ -15673,9 +15780,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-688",
+          "id": "iva-01-690",
           "chapter": 1,
-          "number": 688,
+          "number": 690,
           "sourceNumber": 694,
           "prompt": "229.- Al recuperarse rápido de un descenso en picada, los efectos del factor de carga harán que la velocidad de pérdida",
           "choices": [
@@ -15695,9 +15802,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-689",
+          "id": "iva-01-691",
           "chapter": 1,
-          "number": 689,
+          "number": 691,
           "sourceNumber": 695,
           "prompt": "231.- Al mantener un ángulo de banqueo y altitud constantes en un viraje coordinado, un incremento en la velocidad",
           "choices": [
@@ -15717,9 +15824,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-690",
+          "id": "iva-01-692",
           "chapter": 1,
-          "number": 690,
+          "number": 692,
           "sourceNumber": 696,
           "prompt": "234.- ¿En cuál de las siguientes maniobras se puede operar una aeronave si su categoría operacional es calificada como utilitario?",
           "choices": [
@@ -15739,9 +15846,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-691",
+          "id": "iva-01-693",
           "chapter": 1,
-          "number": 691,
+          "number": 693,
           "sourceNumber": 697,
           "prompt": "239.- Se define la VNE como aquella velocidad en la que",
           "choices": [
@@ -15761,9 +15868,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-692",
+          "id": "iva-01-694",
           "chapter": 1,
-          "number": 692,
+          "number": 694,
           "sourceNumber": 698,
           "prompt": "252.- ¿En qué punto de la pista se debe planificar el ascenso para evitar los posibles efectos de una estela turbulenta proveniente de una aeronave grande a reacción que acaba de aterrizar antes que usted despegue?",
           "choices": [
@@ -15783,9 +15890,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-693",
+          "id": "iva-01-695",
           "chapter": 1,
-          "number": 693,
+          "number": 695,
           "sourceNumber": 699,
           "prompt": "27.- Una indicación de temperatura de aceite de motor anormalmente alta puede deberse a",
           "choices": [
@@ -15805,9 +15912,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-694",
+          "id": "iva-01-696",
           "chapter": 1,
-          "number": 694,
+          "number": 696,
           "sourceNumber": 700,
           "prompt": "6.- (Refiérase a la Figura 5-4) La ilustración A indica que la aeronave se encuentra",
           "choices": [
@@ -15827,13 +15934,20 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión",
           "figure": {
             "number": 5,
-            "label": "5"
-          }
+            "label": "5-4"
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/48.jpg",
+              "width": 822,
+              "height": 847
+            }
+          ]
         },
         {
-          "id": "iva-01-695",
+          "id": "iva-01-697",
           "chapter": 1,
-          "number": 695,
+          "number": 697,
           "sourceNumber": 701,
           "prompt": "75.- En el hemisferio sur, cuando se vuela hacia un área de baja presión, la dirección y velocidad del viento serán",
           "choices": [
@@ -15853,9 +15967,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-696",
+          "id": "iva-01-698",
           "chapter": 1,
-          "number": 696,
+          "number": 698,
           "sourceNumber": 702,
           "prompt": "8.- (Refiérase a la Figura 5-4) Durante la aproximación final a una pista de aterrizaje equipada con un VASI estándar de dos barras, las luces se ven tal como se muestra en la ilustración B. Esto significa que la aeronave se encuentra",
           "choices": [
@@ -15875,13 +15989,20 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión",
           "figure": {
             "number": 5,
-            "label": "5"
-          }
+            "label": "5-4"
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/48.jpg",
+              "width": 822,
+              "height": 847
+            }
+          ]
         },
         {
-          "id": "iva-01-697",
+          "id": "iva-01-699",
           "chapter": 1,
-          "number": 697,
+          "number": 699,
           "sourceNumber": 703,
           "prompt": "El instructor de vuelo debe instruir al alumno sobre la toma de decisiones aeronauticas cuando",
           "choices": [
@@ -15901,9 +16022,9 @@
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de avión"
         },
         {
-          "id": "iva-01-698",
+          "id": "iva-01-700",
           "chapter": 1,
-          "number": 698,
+          "number": 700,
           "sourceNumber": 704,
           "prompt": "PCVI El panel de instrumentos indica que",
           "choices": [

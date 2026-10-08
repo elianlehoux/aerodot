@@ -242,7 +242,7 @@ const setQuestion = () => {
   figureNotice.hidden = true;
   figureNotice.replaceChildren();
   if (q.figure && figureImages.length === 0) {
-    const annexUrl = bank.figureSourceUrl || 'https://www.anac.gov.ar/anac/web/uploads/pers_aeron/examenes/ppa/anexo-figuras-para-las-preguntas-ppa.pdf';
+    const annexUrl = bank.figureSourceUrl || 'https://www.argentina.gob.ar/sites/default/files/2021/05/anexo-figuras-para-las-preguntas-ppa.pdf';
     const isAnnex = annexUrl.includes('anexo');
     figureNotice.append(document.createTextNode(`Esta pregunta refiere a la Figura ${figureLabel}. `));
     const figureLink = document.createElement('a');
@@ -251,6 +251,7 @@ const setQuestion = () => {
     figureLink.rel = 'noreferrer';
     figureLink.textContent = isAnnex ? 'Abrir anexo oficial ↗' : 'Abrir el cuestionario ↗';
     figureNotice.append(figureLink);
+    figureNotice.hidden = false;
   } else if (figureLabel && figureImages.length) {
     figureNotice.hidden = false;
     figureNotice.textContent = `Figura ${figureLabel}.`;

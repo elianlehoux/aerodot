@@ -99,7 +99,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "riva-01-005",
@@ -365,7 +372,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "riva-01-017",
@@ -391,7 +405,14 @@
           "figure": {
             "number": 9,
             "label": "9"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/9.jpg",
+              "width": 534,
+              "height": 534
+            }
+          ]
         },
         {
           "id": "riva-01-018",
@@ -547,9 +568,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
           "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
         },
@@ -945,9 +966,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
           "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
         },
@@ -1083,9 +1104,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El cuestionario público de ANAC marca esta opción. La publicación avisa que el banco puede ampliarse o modificarse; contrastá la norma vigente antes de aplicar una regla.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
           "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
         },

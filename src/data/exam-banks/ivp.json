@@ -1779,7 +1779,14 @@
           "figure": {
             "number": 1,
             "label": "1"
-          }
+          },
+          "images": [
+            {
+              "src": "/exam-figures/ppa/1.jpg",
+              "width": 793,
+              "height": 511
+            }
+          ]
         }
       ]
     }
