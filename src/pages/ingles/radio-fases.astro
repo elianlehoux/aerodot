@@ -20,6 +20,11 @@ const pieces = (text: string, key?: string) => {
   return [{ text: text.slice(0, at) }, { text: key, hl: true }, { text: text.slice(at + key.length) }].filter((part) => part.text);
 };
 const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' ? 'Vos' : line.unit ?? 'Laguna Tower');
+// Nombre accesible del botón: lo visible (mapLabel) tiene que estar dentro del nombre (WCAG 2.5.3).
+const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
+  const name = `${index + 1}. ${phase.es}`;
+  return phase.es.toLowerCase().includes(phase.mapLabel.toLowerCase()) ? name : `${name} (${phase.mapLabel})`;
+};
 ---
 <EnglishShell
   title="Radio por fase de vuelo — Inglés aeronáutico | Aerodot"
@@ -61,7 +66,7 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
       <ol class="rf-map-list" role="list">
         {radioPhases.map((phase, index) => (
           <li class="rf-stop" style={`--rf-alt:${altitude[phase.id as keyof typeof altitude]}`}>
-            <button class="rf-stop-button" type="button" aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`rf-${phase.id}`} aria-label={`${index + 1}. ${phase.es}`} title={phase.es} data-rf-pick={phase.id}>
+            <button class="rf-stop-button" type="button" aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`rf-${phase.id}`} aria-label={stopName(phase, index)} data-rf-pick={phase.id}>
               <span class="rf-stop-n" aria-hidden="true">{index + 1}</span>
               <span class="rf-stop-name" aria-hidden="true">{phase.mapLabel}</span>
             </button>
