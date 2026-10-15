@@ -327,7 +327,7 @@ export const phoneticAlphabet = [
   ['T', 'Tango', 'TAN-GO'],
   ['U', 'Uniform', 'IU-NI-FORM'],
   ['V', 'Victor', 'VIC-TOR'],
-  ['W', 'Whisky', 'UIS-KI'],
+  ['W', 'Whiskey', 'UIS-KI'],
   ['X', 'X-ray', 'EKS-REI'],
   ['Y', 'Yankee', 'IAN-KI'],
   ['Z', 'Zulu', 'ZU-LU'],
