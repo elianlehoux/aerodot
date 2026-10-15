@@ -45,6 +45,11 @@ const pageTitle = `${chapter.title} — Teoría Aeronáutica y Fundamentos | Aer
 const trimmedIntro = chapter.intro.length > 130 ? `${chapter.intro.slice(0, 130)}...` : chapter.intro;
 const pageDescription = `${trimmedIntro} Lección técnica con conceptos clave, normativa RAAC y manuales de vuelo.`;
 
+const englishBridge = {
+  'operaciones-aerodromo': { href: '/ingles/aerodromo', label: 'Estas palabras, en inglés' },
+  meteorologia: { href: '/ingles/atis', label: 'Leer un ATIS en inglés' },
+}[chapter.slug];
+
 const articleJsonLd = {
   '@type': 'Article',
   headline: `${chapter.title} — Teoría de Aviación`,
@@ -96,7 +101,7 @@ const articleJsonLd = {
         <p>Primero las oficiales argentinas y después el material de contraste. Contrastá normativa y procedimientos vigentes antes de aplicarlos.</p>
         <ul>{sortedSources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a><small>{kindLabel(source)}</small></li>)}</ul>
       </section>}
-      <section class="chapter-finish"><h2>¿Te queda claro?</h2><p>{chapter.examChapterId ? `Marcá el tema como estudiado. Forma parte del temario del ${EXAM_LINK_LABEL}, así que podés practicar sus preguntas.` : `Marcá el tema como estudiado. ${LIBRARY_ONLY_REASON}`}</p><div><button class="button-primary" type="button" data-complete={chapter.slug} aria-pressed="false"><span data-complete-label>Marcar como estudiado</span> <span aria-hidden="true">✓</span></button>{chapter.examChapterId ? <a class="button-quiet" href={`/examenes/ppa?chapter=${chapter.examChapterId}`}>Practicar preguntas de este tema <span>→</span></a> : <a class="button-quiet" href="/temas">Volver al índice de temas <span>→</span></a>}</div><p class="saved-state" aria-live="polite"></p></section>
+      <section class="chapter-finish"><h2>¿Te queda claro?</h2><p>{chapter.examChapterId ? `Marcá el tema como estudiado. Forma parte del temario del ${EXAM_LINK_LABEL}, así que podés practicar sus preguntas.` : `Marcá el tema como estudiado. ${LIBRARY_ONLY_REASON}`}</p><div><button class="button-primary" type="button" data-complete={chapter.slug} aria-pressed="false"><span data-complete-label>Marcar como estudiado</span> <span aria-hidden="true">✓</span></button>{chapter.examChapterId ? <a class="button-quiet" href={`/examenes/ppa?chapter=${chapter.examChapterId}`}>Practicar preguntas de este tema <span>→</span></a> : <a class="button-quiet" href="/temas">Volver al índice de temas <span>→</span></a>}{englishBridge && <a class="button-quiet" href={englishBridge.href}>{englishBridge.label} <span>→</span></a>}</div><p class="saved-state" aria-live="polite"></p></section>
       <nav class="chapter-pagination">{previous ? <a href={`/estudiar/${previous.slug}`}><small>← ANTERIOR</small><b>{previous.title}</b></a> : <span></span>}{next ? <a class="next-chapter" href={`/estudiar/${next.slug}`}><small>SIGUIENTE →</small><b>{next.title}</b></a> : <a class="next-chapter" href="/examenes"><small>PRÓXIMO PASO →</small><b>Ir a exámenes</b></a>}</nav>
       <p class="progress-notice" data-progress-notice aria-live="polite"></p>
     </article></div>
