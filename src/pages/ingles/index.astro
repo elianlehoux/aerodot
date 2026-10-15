@@ -102,7 +102,7 @@ const phases = englishPhases.map((phase) => ({ ...phase, sections: englishSectio
                       <g class="ea-sun"><circle cx="156" cy="38" r="13" />{Array.from({ length: 8 }, (_, index) => <line x1={156 + Math.cos(index * Math.PI / 4) * 19} y1={38 + Math.sin(index * Math.PI / 4) * 19} x2={156 + Math.cos(index * Math.PI / 4) * 26} y2={38 + Math.sin(index * Math.PI / 4) * 26} />)}</g>
                       <g class="ea-cloud"><rect x="62" y="44" width="104" height="22" rx="11" /><circle cx="88" cy="46" r="17" /><circle cx="118" cy="38" r="23" /><circle cx="146" cy="49" r="15" /></g>
                       {[84, 104, 124, 144].map((x, index) => <line class="ea-drop" x1={x} y1="74" x2={x - 4} y2="88" style={`--d:${index * 0.22}s`} />)}
-                      <text class="ea-metar" x="120" y="108" text-anchor="middle">13008KT 9999 FEW030</text>
+                      <text class="ea-metar" x="120" y="108" text-anchor="middle" lang="en">few · three thousand</text>
                     </svg>
                   )}
                 </span>
