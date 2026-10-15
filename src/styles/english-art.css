@@ -50,8 +50,20 @@ html[data-theme="light"] .ea-art{--ea-asphalt-a:#5d5953;--ea-asphalt-b:#4f4b45;-
 @keyframes ea-rain{from{transform:translateY(-4px);opacity:0}30%{opacity:.9}to{transform:translateY(8px);opacity:0}}
 @keyframes ea-spin{to{transform:rotate(360deg)}}
 
+/* Frases de supervivencia */
+.ea-sv-bubble{fill:var(--paper);stroke:var(--muted);stroke-width:1.4;stroke-linejoin:round}
+.ea-sv-bubble.is-reply{fill:color-mix(in srgb,var(--accent) 16%,var(--paper));stroke:var(--accent)}
+.ea-sv-text{fill:var(--ink);font:500 17px/1 var(--sans);letter-spacing:-.01em;text-anchor:middle;dominant-baseline:central}
+.ea-sv-ask,.ea-sv-answer{transform-box:fill-box}
+.ea-sv-ask{transform-origin:20% 100%}
+.ea-sv-answer{transform-origin:80% 100%}
+.topic-card:hover .ea-sv-ask,.topic-card:focus-visible .ea-sv-ask{animation:ea-sv-pop 2.4s ease-in-out infinite}
+.topic-card:hover .ea-sv-answer,.topic-card:focus-visible .ea-sv-answer{animation:ea-sv-pop 2.4s ease-in-out infinite;animation-delay:.6s}
+@keyframes ea-sv-pop{0%,100%{transform:scale(1)}15%{transform:scale(1.06)}30%{transform:scale(1)}}
+
 @media(prefers-reduced-motion:reduce){
   .topic-card:hover .ea-drop,.topic-card:hover .ea-sun{animation:none}
   .topic-card:hover .ea-ac-move,.topic-card:hover .ea-ac-prop{animation:none}
   .topic-card:hover .ea-plane,.topic-card:hover .ea-sound,.topic-card:hover .ea-bar{animation:none}
+  .topic-card .ea-sv-ask,.topic-card .ea-sv-answer{animation:none!important}
 }

@@ -49,6 +49,18 @@ const phases = englishPhases.map((phase) => {
             <li data-english-slug={section.slug}>
               <a class="topic-card" href={section.href}>
                 <span class="topic-art" aria-hidden="true">
+                  {section.slug === 'supervivencia' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <g class="ea-sv-ask">
+                        <path class="ea-sv-bubble" d="M30 18 H128 Q140 18 140 30 V50 Q140 62 128 62 H54 L40 74 L42 62 H30 Q18 62 18 50 V30 Q18 18 30 18 Z" />
+                        <text class="ea-sv-text" x="79" y="40" lang="en">say again</text>
+                      </g>
+                      <g class="ea-sv-answer">
+                        <path class="ea-sv-bubble is-reply" d="M120 58 H210 Q222 58 222 70 V90 Q222 102 210 102 H198 L200 114 L186 102 H120 Q108 102 108 90 V70 Q108 58 120 58 Z" />
+                        <text class="ea-sv-text is-reply" x="165" y="80" lang="en">roger</text>
+                      </g>
+                    </svg>
+                  )}
                   {section.slug === 'aerodromo' && (
                     <svg class="ea-art" viewBox="0 0 240 120">
                       <defs>

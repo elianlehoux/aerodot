@@ -19,7 +19,7 @@ export const englishPhases = [
 
 /** Todos los módulos. Los que tienen href ya están hechos; el resto aparece como próximamente. */
 export const englishSections = [
-  { phase: 'base', title: 'Frases de supervivencia', blurb: 'Say again, speak slower, unable: qué decir cuando no entendiste.' },
+  { slug: 'supervivencia', phase: 'base', title: 'Frases de supervivencia', blurb: 'Qué decir cuando no entendiste, no podés o te equivocaste.', href: '/ingles/supervivencia' },
   { slug: 'numeros', phase: 'base', title: 'Números y alfabeto', blurb: 'Cifras y letras como se dicen por radio.', href: '/ingles/numeros' },
   { slug: 'aerodromo', phase: 'base', title: 'El aeródromo', blurb: 'Pista, rodaje, plataforma y circuito.', href: '/ingles/aerodromo' },
   { slug: 'aeronave', phase: 'base', title: 'La aeronave', blurb: 'Partes, instrumentos y fallas.', href: '/ingles/aeronave' },

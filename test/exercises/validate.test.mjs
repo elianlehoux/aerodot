@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
-import { weatherSet } from '../../src/data/english-sets.js';
+import { survivalSet, weatherSet } from '../../src/data/english-sets.js';
+import { survivalCall, survivalGroups } from '../../src/data/english-survival.js';
 
 const good = () => ({
   id: 's1', slug: 'tiempo', title: 'Decilo',
@@ -71,4 +72,32 @@ test('passMark: si está, debe ser un número entre 0 (exclusivo) y 1', () => {
 
 test('el set publicado de Tiempo es válido', () => {
   assert.deepEqual(validateSet(weatherSet), []);
+});
+
+test('el set de supervivencia que se publica es válido', () => {
+  assert.deepEqual(validateSet(survivalSet), []);
+  assert.equal(survivalSet.id, 'survival-say');
+  assert.equal(survivalSet.slug, 'supervivencia');
+  assert.deepEqual(survivalSet.items.map((item) => item.id), ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10']);
+});
+
+test('supervivencia: las cifras de say van en palabras y cada grupo tiene de 3 a 6 frases con id únicos', () => {
+  const phrases = survivalGroups.flatMap((group) => [...group.phrases, ...(group.aside ? [group.aside] : [])]);
+  const says = [
+    ...phrases.map((phrase) => phrase.say),
+    ...survivalCall.map((line) => line.say),
+    ...survivalSet.items.map((item) => item.say).filter((say) => say !== undefined),
+  ];
+  for (const say of says) {
+    assert.ok(typeof say === 'string' && say.trim(), 'say vacío');
+    assert.doesNotMatch(say, /[0-9]/, `say con cifras: ${say}`);
+  }
+  for (const group of survivalGroups) {
+    assert.ok(group.phrases.length >= 3 && group.phrases.length <= 6, `${group.id}: ${group.phrases.length} frases`);
+    for (const phrase of group.phrases) {
+      for (const field of ['id', 'en', 'es', 'say', 'body', 'use']) assert.ok(phrase[field]?.trim(), `${group.id}: falta ${field}`);
+    }
+  }
+  const ids = phrases.map((phrase) => phrase.id);
+  assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
 });
