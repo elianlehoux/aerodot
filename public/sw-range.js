@@ -1,7 +1,7 @@
 /* Sirve una respuesta guardada completa como 206 cuando el navegador pide un rango (iOS lo hace con el audio). */
 self.rangeResponse = async (request, cached) => {
-  // Un solo rango; si viene vacío, con otra unidad o con varios tramos, se devuelve el archivo completo.
-  const match = /^bytes=(\d*)-(\d*)$/.exec(request.headers.get('range') || '');
+  // Un solo rango (la unidad no distingue mayúsculas); si viene vacío, con otra unidad o con varios tramos, se devuelve el archivo completo.
+  const match = /^bytes=(\d*)-(\d*)$/i.exec(request.headers.get('range') || '');
   if (!match || (match[1] === '' && match[2] === '')) return cached;
   const buffer = await cached.arrayBuffer();
   const size = buffer.byteLength;

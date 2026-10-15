@@ -77,3 +77,9 @@ test('sin Content-Type guardado usa audio/mpeg', async () => {
   assert.equal(res.headers.get('Content-Type'), 'audio/mpeg');
   assert.deepEqual(await bytes(res), [1, 2]);
 });
+
+test('la unidad del rango no distingue mayúsculas', async () => {
+  const res = await rangeResponse(req('Bytes=2-3'), cached());
+  assert.equal(res.status, 206);
+  assert.deepEqual(await bytes(res), [2, 3]);
+});
