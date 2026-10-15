@@ -2,6 +2,7 @@
  * El armador del mensaje de emergencia (/ingles/emergencias).
  * buildMessage es lógica pura (la usan los tests); mountEmergency conecta la cinta y el armador con la página.
  */
+import { mountPiecePicker } from './piece-picker.js';
 import { composeMessage, emergencyIntentions, emergencyLevels, emergencyNatures, emergencyPositions } from '../data/english-emergency.js';
 
 /**
@@ -29,26 +30,26 @@ const el = (tag, props = {}, text = '') => {
   return node;
 };
 
-/** La cinta: un grupo de radios, una pieza a la vez. Sin JavaScript se ven todas. */
-const mountRibbon = (root) => {
-  const radios = [...root.querySelectorAll('[data-em-piece-pick]')];
-  const panels = [...root.querySelectorAll('[data-em-panel]')];
-  const chunks = [...root.querySelectorAll('[data-em-chunk]')];
-  const select = (id) => {
-    panels.forEach((panel) => { panel.hidden = panel.dataset.emPanel !== id; });
-    chunks.forEach((chunk) => chunk.classList.toggle('is-on', chunk.dataset.emChunk === id));
-  };
-  radios.forEach((radio) => radio.addEventListener('change', () => { if (radio.checked) select(radio.value); }));
-  select(radios.find((radio) => radio.checked)?.value ?? 'signal');
-};
-
-/** El armador: radios nativos (teclado y toque), el mensaje en una región aria-live y el botón de audio. */
+/**
+ * El armador: radios nativos (teclado y toque), el mensaje y el botón de audio.
+ * El mensaje entero se ve y se escucha con el botón; la región aria-live solo avisa que cambió,
+ * para no releer una frase larga en cada toque.
+ */
 const mountBuilder = (root) => {
   const form = root.querySelector('[data-em-form]');
   const output = root.querySelector('[data-em-output]');
   const play = root.querySelector('[data-em-play]');
   const notes = [...root.querySelectorAll('[data-em-note]')];
+  const status = root.querySelector('[data-em-status]');
   if (!form || !output) return;
+  let timer;
+  /* Se vacía y se vuelve a escribir para que el lector anuncie también el segundo cambio seguido. */
+  const announce = () => {
+    if (!status) return;
+    clearTimeout(timer);
+    status.textContent = '';
+    timer = setTimeout(() => { status.textContent = 'Mensaje actualizado.'; }, 150);
+  };
   const picked = (name) => form.querySelector(`input[name="${name}"]:checked`)?.value;
 
   /* Las opciones que no van con el nivel elegido (data-levels) quedan desactivadas. */
@@ -91,14 +92,14 @@ const mountBuilder = (root) => {
     notes.forEach((entry) => { entry.hidden = entry.dataset.emNote !== picked('em-nature'); });
   };
 
-  form.addEventListener('change', render);
+  form.addEventListener('change', () => { render(); announce(); });
   form.addEventListener('submit', (event) => event.preventDefault());
   render();
 };
 
 export const mountEmergency = () => {
   const ribbon = document.querySelector('[data-em-ribbon]');
-  if (ribbon) mountRibbon(ribbon);
+  if (ribbon) mountPiecePicker(ribbon, { pick: 'em-piece-pick', panel: 'em-panel', chunk: 'em-chunk' });
   const builder = document.querySelector('[data-em-builder]');
   if (builder) mountBuilder(builder);
 };

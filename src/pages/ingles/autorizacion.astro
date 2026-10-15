@@ -167,6 +167,7 @@ import '../../styles/english-clearance.css';
   <EnglishFinish slug="autorizacion" where="Autorización y colación" />
   <script>
     import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountPiecePicker } from '../../scripts/piece-picker.js';
     import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
     mountEnglishProgress();
@@ -176,16 +177,6 @@ import '../../styles/english-clearance.css';
 
     /* CRAFT: un grupo de radios, una letra a la vez. Sin JavaScript se ven todas las piezas. */
     const craft = document.querySelector('[data-cl-craft]');
-    if (craft) {
-      const radios = [...craft.querySelectorAll<HTMLInputElement>('[data-cl-part]')];
-      const panels = [...craft.querySelectorAll<HTMLElement>('[data-cl-panel]')];
-      const pieces = [...craft.querySelectorAll<HTMLElement>('[data-cl-piece]')];
-      const select = (id: string) => {
-        panels.forEach((panel) => { panel.hidden = panel.dataset.clPanel !== id; });
-        pieces.forEach((piece) => piece.classList.toggle('is-on', piece.dataset.clPiece === id));
-      };
-      radios.forEach((radio) => radio.addEventListener('change', () => { if (radio.checked) select(radio.value); }));
-      select(radios.find((radio) => radio.checked)?.value ?? 'c');
-    }
+    if (craft) mountPiecePicker(craft, { pick: 'cl-part', panel: 'cl-panel', chunk: 'cl-piece' });
   </script>
 </EnglishShell>
