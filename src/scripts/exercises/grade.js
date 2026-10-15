@@ -49,6 +49,9 @@ export const feedbackLead = (item, correct) => (correct ? 'Bien.' : item.lead ??
 /** Un set con track: false es una práctica de apoyo: aprobarlo no marca el tema como listo. */
 export const tracksProgress = (set) => set?.track !== false;
 
+/** El orden de las preguntas: mezcladas, salvo un set con shuffle: false (por ejemplo, casos numerados). */
+export const playOrder = (set, rand = Math.random) => (set.shuffle === false ? [...set.items] : shuffle(set.items, rand));
+
 export const summarize = (results, passMark = 0.75) => {
   const total = results.length;
   const correct = results.filter(Boolean).length;

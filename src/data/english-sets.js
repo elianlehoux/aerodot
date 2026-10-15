@@ -76,11 +76,13 @@ const hearbackItem = (entry, prompt) => ({
 /**
  * Encontrá el error: una pregunta por cada caso de la página (las burbujas están arriba).
  * No marca el tema como listo (track: false): eso lo hace la práctica del final.
+ * Las preguntas van en orden (shuffle: false): cada una nombra su caso, numerado arriba.
  */
 export const hearbackSet = {
   id: 'hearback-cases',
   slug: 'autorizacion',
   track: false,
+  shuffle: false,
   title: 'Encontrá el error',
   lede: 'El controlador también escucha la colación: así se agarra un error a tiempo. Pero no te confíes: si el controlador no corrige, no quiere decir que hayas colacionado bien. Ante la duda, pedí confirmación (*confirm*). En cada caso hay un solo dato mal repetido: escuchá o leé y elegí cuál es.',
   items: hearbackCases.map((entry, index) => hearbackItem(entry, `Caso ${index + 1}. ¿Qué dato colacionó mal el piloto?`)),

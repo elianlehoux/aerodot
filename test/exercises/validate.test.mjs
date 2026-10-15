@@ -73,6 +73,41 @@ test('passMark: si está, debe ser un número entre 0 (exclusivo) y 1', () => {
   }
 });
 
+test('shuffle: si está, debe ser true o false', () => {
+  for (const ok of [true, false]) {
+    const s = good(); s.shuffle = ok;
+    assert.deepEqual(validateSet(s), []);
+  }
+  for (const bad of ['no', 0, null]) {
+    const s = good(); s.shuffle = bad;
+    assert.ok(validateSet(s).some((e) => e.includes('shuffle')), `debería rechazar ${JSON.stringify(bad)}`);
+  }
+});
+
+test('el set de los casos de hearback va en orden: sus preguntas dicen Caso 1, 2, 3', () => {
+  assert.equal(hearbackSet.shuffle, false);
+  hearbackSet.items.forEach((item, index) => assert.match(item.prompt, new RegExp(`^Caso ${index + 1}\\.`)));
+});
+
+test('lo que se muestra tal cual en inglés no lleva asteriscos', () => {
+  const cases = [
+    ['options', (s) => { s.items[0].options = ['*x*', 'y']; }],
+    ['sentence', (s) => { s.items[2].sentence = 'Cloud ___ at *two* thousand'; }],
+    ['answers', (s) => { s.items[2].answers = ['*broken*']; }],
+    ['tokens', (s) => { s.items[3].tokens = ['*in*', 'the', 'vicinity']; s.items[3].answer = ['*in*', 'the', 'vicinity']; }],
+    ['answer', (s) => { s.items[3].tokens = ['in', 'the', 'vicinity', '*']; s.items[3].answer = ['in', 'the', 'vicinity', '*']; }],
+    ['alternatives', (s) => { s.items[3].tokens = ['in', 'the', 'vic*']; s.items[3].answer = ['in', 'the', 'vic*']; s.items[3].alternatives = [['the', 'in', 'vic*']]; }],
+  ];
+  for (const [field, spoil] of cases) {
+    const s = good(); spoil(s);
+    assert.ok(validateSet(s).some((e) => e.includes(field) && e.includes('asterisco')), `debería rechazar * en ${field}`);
+  }
+});
+
+test('ningún set publicado lleva asteriscos en lo que se muestra tal cual', () => {
+  for (const set of [weatherSet, survivalSet, clearanceSet, hearbackSet, emergencySet, radioPhasesSet]) assert.deepEqual(validateSet(set), [], set.id);
+});
+
 test('el set publicado de Tiempo es válido', () => {
   assert.deepEqual(validateSet(weatherSet), []);
 });

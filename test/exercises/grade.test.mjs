@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { feedbackLead, gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize, tracksProgress } from '../../src/scripts/exercises/grade.js';
+import { feedbackLead, gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, playOrder, shuffle, summarize, tracksProgress } from '../../src/scripts/exercises/grade.js';
 
 test('normalize ignora mayúsculas, espacios, acentos y puntuación', () => {
   assert.equal(normalize('  Broken '), 'broken');
@@ -68,4 +68,15 @@ test('tracksProgress: solo track: false deja de marcar el tema', () => {
   assert.equal(tracksProgress({}), true);
   assert.equal(tracksProgress({ track: true }), true);
   assert.equal(tracksProgress({ track: false }), false);
+});
+
+test('playOrder: mezcla salvo con shuffle: false, y nunca cambia el set', () => {
+  const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
+  const reverse = () => 0;
+  assert.deepEqual(playOrder({ items, shuffle: false }, reverse).map((item) => item.id), ['a', 'b', 'c']);
+  assert.deepEqual(playOrder({ items }, reverse).map((item) => item.id), ['b', 'c', 'a']);
+  assert.deepEqual(playOrder({ items, shuffle: true }, reverse).map((item) => item.id), ['b', 'c', 'a']);
+  const kept = { items, shuffle: false };
+  assert.notEqual(playOrder(kept), items, 'devuelve una copia');
+  assert.deepEqual(items.map((item) => item.id), ['a', 'b', 'c']);
 });

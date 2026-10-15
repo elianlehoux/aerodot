@@ -1,4 +1,4 @@
-import { feedbackLead, gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize, tracksProgress } from './grade.js';
+import { feedbackLead, gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, playOrder, shuffle, summarize, tracksProgress } from './grade.js';
 import { validateSet } from './validate.js';
 import { splitMixed } from '../mixed.js';
 import { markEnglishReady } from '../english.js';
@@ -124,7 +124,7 @@ const runSet = (root, set) => {
 
   /* moveFocus solo cuando responde a un clic: al cargar la página no hay que robar el foco ni mover el scroll. */
   const start = (moveFocus = false) => {
-    items = shuffle(set.items);
+    items = playOrder(set);
     results = [];
     index = 0;
     show(moveFocus);

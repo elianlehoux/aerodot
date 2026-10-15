@@ -4,12 +4,18 @@ const TYPES = ['mcq', 'tf', 'gap', 'order'];
 const isText = (value) => typeof value === 'string' && value.trim() !== '';
 const isTexts = (value, min) => Array.isArray(value) && value.length >= min && value.every(isText);
 const key = (tokens) => [...tokens].sort().join('\u0000');
+/* Opciones, fichas y frases se muestran tal cual con lang="en": un asterisco ahí saldría escrito. */
+const VERBATIM = ['options', 'tokens', 'answer', 'alternatives', 'sentence', 'answers'];
+const hasStar = (value) => (Array.isArray(value) ? value.some(hasStar) : typeof value === 'string' && value.includes('*'));
 
 const checkItem = (item, where) => {
   const errors = [];
   if (!isText(item.prompt)) errors.push(`${where}: falta prompt.`);
   for (const field of ['prompt', 'explain']) {
     if (isText(item[field]) && hasUnmatchedMarker(item[field])) errors.push(`${where}: ${field} tiene un asterisco sin pareja.`);
+  }
+  for (const field of VERBATIM) {
+    if (hasStar(item[field])) errors.push(`${where}: ${field} tiene un asterisco; ahí el texto se muestra tal cual.`);
   }
   if (item.lead !== undefined && !isText(item.lead)) errors.push(`${where}: lead debe ser un texto no vacío.`);
   if (item.type === 'mcq') {
@@ -44,6 +50,7 @@ export const validateSet = (set) => {
   }
   if (isText(set.lede) && hasUnmatchedMarker(set.lede)) errors.push(`${id}: lede tiene un asterisco sin pareja.`);
   if (set.track !== undefined && typeof set.track !== 'boolean') errors.push(`${id}: track debe ser true o false.`);
+  if (set.shuffle !== undefined && typeof set.shuffle !== 'boolean') errors.push(`${id}: shuffle debe ser true o false.`);
   if (!Array.isArray(set.items) || set.items.length === 0) return [...errors, `${id}: items está vacío.`];
   const seen = new Set();
   set.items.forEach((item, index) => {
