@@ -91,3 +91,14 @@ html[data-theme="light"] .ea-em-wave{stroke:#b33a09}
 @media(prefers-reduced-motion:reduce){
   .topic-card .ea-em-wave{animation:none!important}
 }
+
+/* Radio por fase de vuelo: el perfil del vuelo, con una parada por fase y el despegue destacado */
+.ea-rf-ground{fill:none;stroke:var(--line);stroke-width:2;stroke-linecap:round}
+.ea-rf-path{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:5 4}
+.ea-rf-stop{fill:var(--paper);stroke:var(--muted);stroke-width:1.6;transform-box:fill-box;transform-origin:center}
+.ea-rf-stop.is-key{fill:var(--accent);stroke:var(--accent)}
+.topic-card:hover .ea-rf-stop,.topic-card:focus-visible .ea-rf-stop{animation:ea-rf-blink 2.4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ea-rf-blink{0%,30%,100%{transform:scale(1)}15%{transform:scale(1.35)}}
+@media(prefers-reduced-motion:reduce){
+  .topic-card .ea-rf-stop{animation:none!important}
+}

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
-import { clearanceSet, emergencySet, hearbackSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
+import { clearanceSet, emergencySet, hearbackSet, radioPhasesSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
 import { clearanceExamples, clearanceParts, craftExample, hearbackCases, hearbackDrills, readbackItems } from '../../src/data/english-clearance.js';
 import { normalize } from '../../src/scripts/exercises/grade.js';
 import { survivalCall, survivalGroups } from '../../src/data/english-survival.js';
@@ -302,4 +302,18 @@ test('emergencias: cada situación de Mayday o Pan Pan declara la respuesta corr
   }
   const prompts = situations.map((item) => item.prompt);
   assert.equal(new Set(prompts).size, prompts.length, 'situaciones repetidas');
+});
+
+/* ---- Radio por fase de vuelo ---- */
+
+test('el set de radio por fase que se publica es válido y tiene ids únicos', () => {
+  assert.deepEqual(validateSet(radioPhasesSet), []);
+  assert.equal(radioPhasesSet.id, 'radio-say');
+  assert.equal(radioPhasesSet.slug, 'radio-fases');
+  const ids = radioPhasesSet.items.map((item) => item.id);
+  assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
+  for (const item of radioPhasesSet.items) {
+    assert.ok(typeof item.phase === 'string' && item.phase.trim(), `${item.id}: falta la fase`);
+    if (item.say !== undefined) assert.doesNotMatch(item.say, /[0-9]/, `${item.id}: say con cifras`);
+  }
 });

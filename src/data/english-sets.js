@@ -168,3 +168,70 @@ export const emergencySet = {
       explain: 'Así lo dice SERA.13005: 7700 emergencia, 7600 falla de comunicaciones y 7500 interferencia ilícita.' },
   ],
 };
+
+/** Los nombres en inglés de cuatro fases (los de english-phases.js): opciones de la pregunta “¿en qué fase?”. */
+const PHASE_NAMES = ['Start up', 'Taxi', 'Holding point', 'Take-off'];
+
+/**
+ * Radio por fase de vuelo. En prompt y explain, el inglés va entre asteriscos (ver scripts/mixed.js).
+ * Cada ítem declara phase (el id de la fase en english-phases.js). pick marca “elegí la frase”: la clave
+ * sale del diálogo de esa fase. ask: 'phase' marca la pregunta de en qué fase se dice algo.
+ * Las opciones incorrectas son los errores típicos: decir *take-off* antes de la autorización, contestar
+ * *roger* o *wilco* a lo que se colaciona, llamar *initial* a la inicial o traducir «pista libre».
+ */
+export const radioPhasesSet = {
+  id: 'radio-say',
+  slug: 'radio-fases',
+  title: 'Hablá en cada fase',
+  lede: 'Doce preguntas del circuito en Laguna: armá colaciones, elegí la frase justa y decidí qué se colaciona.',
+  items: [
+    { id: 'r1', type: 'order', phase: 'aterrizaje',
+      prompt: 'La torre te dice “*LV-DEM, runway one three, cleared to land, surface wind one four zero degrees eight knots.*” Armá tu colación.',
+      tokens: ['runway', 'one three', 'cleared', 'to', 'land', 'LV-DEM'],
+      answer: ['runway', 'one three', 'cleared', 'to', 'land', 'LV-DEM'],
+      alternatives: [['cleared', 'to', 'land', 'runway', 'one three', 'LV-DEM']],
+      explain: 'Repetís la pista y la autorización, y terminás con tu distintivo. El viento no se colaciona.' },
+    { id: 'r2', type: 'order', phase: 'estacionamiento',
+      prompt: 'Rodaje te dice “*LV-DEM, Laguna Ground, taxi to the flying club via taxiway Bravo.*” Armá tu colación.',
+      tokens: ['taxi', 'to the flying club', 'via', 'taxiway Bravo', 'LV-DEM'],
+      answer: ['taxi', 'to the flying club', 'via', 'taxiway Bravo', 'LV-DEM'],
+      explain: 'Repetís el rodaje como te lo dieron y tu distintivo va al final.' },
+    { id: 'r3', type: 'mcq', phase: 'punto-de-espera', pick: true,
+      prompt: 'Terminaste la prueba de motor en el punto de espera y estás listo para salir. ¿Qué le decís a la torre?',
+      options: ['Laguna Tower, LV-DEM, ready for departure', 'Laguna Tower, LV-DEM, ready for take-off', 'Laguna Tower, LV-DEM, ready to go', 'Laguna Tower, LV-DEM, request take-off now'], answer: 0,
+      explain: 'Según el manual británico (CAP 413), *take-off* se dice solo en la autorización de despegue o al cancelarla; antes se dice *departure*.' },
+    { id: 'r4', type: 'mcq', phase: 'despegue', pick: true,
+      prompt: 'La torre te dice “*LV-DEM, runway one three, line up and wait.*” ¿Qué contestás?',
+      options: ['Runway one three, line up and wait, LV-DEM', 'Roger, LV-DEM', 'Wilco, LV-DEM', 'Runway one three, cleared for take-off, LV-DEM'], answer: 0,
+      explain: 'Entrar a la pista se colaciona entero: *roger* o *wilco* no alcanzan. Y *line up and wait* no te autoriza a despegar.' },
+    { id: 'r5', type: 'mcq', phase: 'circuito', pick: true,
+      prompt: 'Llegaste al tramo que en Argentina llamamos «inicial». ¿Qué decís?',
+      options: ['LV-DEM, downwind', 'LV-DEM, initial', 'LV-DEM, base', 'LV-DEM, crosswind'], answer: 0,
+      explain: 'La inicial es *downwind*. La palabra *initial* suele referirse a otra cosa, como la aproximación inicial.' },
+    { id: 'r6', type: 'mcq', phase: 'estacionamiento', pick: true,
+      prompt: 'Dejaste la pista y cambiaste a la frecuencia de rodaje. ¿Qué decís?',
+      options: ['Laguna Ground, LV-DEM, runway free', 'Laguna Ground, LV-DEM, runway vacated', 'Laguna Ground, LV-DEM, out of the runway', 'Laguna Ground, LV-DEM, landed'], answer: 1,
+      explain: 'Se dice *runway vacated*. *Runway free* es la traducción de «pista libre», pero no es fraseología.' },
+    { id: 'r7', type: 'gap', phase: 'aterrizaje',
+      prompt: 'Estás en final, la pista todavía está ocupada y la torre no te autoriza a aterrizar: te dice que sigas. Completá la palabra.',
+      sentence: 'LV-DEM, ___ approach', answers: ['continue'],
+      explain: '*Continue approach* no te autoriza a aterrizar: esperás el *cleared to land* o hacés *go around*.' },
+    { id: 'r8', type: 'gap', phase: 'puesta-en-marcha',
+      prompt: 'Rodaje te da permiso para poner en marcha. Completá la palabra que usa.',
+      sentence: 'LV-DEM, start up ___', answers: ['approved'],
+      explain: 'Es *approved*: permiso para lo que pediste. *Cleared* se guarda para las autorizaciones.' },
+    { id: 'r9', type: 'tf', phase: 'punto-de-espera',
+      prompt: 'A “*LV-DEM, hold position*” alcanza con contestar “*Wilco, LV-DEM*”.', answer: false,
+      explain: 'Contestás *holding* y tu distintivo: el manual británico (CAP 413) dice que *roger* o *wilco* no alcanzan.' },
+    { id: 'r10', type: 'tf', phase: 'aterrizaje',
+      prompt: '“*Continue approach*” te autoriza a aterrizar.', say: 'Continue approach', answer: false,
+      explain: 'Seguís la aproximación, pero para aterrizar necesitás *cleared to land*.' },
+    { id: 'r11', type: 'tf', phase: 'punto-de-espera',
+      prompt: 'Cuando te dicen “*contact Laguna Tower one one eight decimal three*”, colacionás la frecuencia.', answer: true,
+      explain: 'Las frecuencias nuevas están en la lista de lo que se colaciona siempre: *Laguna Tower one one eight decimal three, LV-DEM*.' },
+    { id: 'r12', type: 'mcq', phase: 'puesta-en-marcha', ask: 'phase',
+      prompt: '¿En qué fase escuchás “*LV-DEM, start up approved*”? Elegila por su nombre en inglés.',
+      options: PHASE_NAMES, answer: 0, lead: 'La fase es:',
+      explain: 'Es la puesta en marcha (*start up*): el permiso para encender el motor, antes de pedir rodaje.' },
+  ],
+};

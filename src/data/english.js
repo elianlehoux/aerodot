@@ -27,7 +27,7 @@ export const englishSections = [
 
   { slug: 'atis', phase: 'comunicaciones', title: 'El ATIS', blurb: 'El parte grabado antes de llamar a la torre.', href: '/ingles/atis' },
   { slug: 'autorizacion', phase: 'comunicaciones', title: 'Autorización y colación', blurb: 'Qué te autorizan, cómo lo repetís y cómo se detecta un error.', href: '/ingles/autorizacion' },
-  { phase: 'comunicaciones', title: 'Radio por fase de vuelo', blurb: 'De la puesta en marcha a la final: qué se dice en cada tramo.' },
+  { slug: 'radio-fases', phase: 'comunicaciones', title: 'Radio por fase de vuelo', blurb: 'De la puesta en marcha a la final: qué se dice en cada tramo.', href: '/ingles/radio-fases' },
 
   { slug: 'emergencias', phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Aviar, navegar, comunicar: el mensaje de emergencia paso a paso.', href: '/ingles/emergencias' },
 
