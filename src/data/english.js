@@ -29,7 +29,7 @@ export const englishSections = [
   { slug: 'autorizacion', phase: 'comunicaciones', title: 'Autorización y colación', blurb: 'Qué te autorizan, cómo lo repetís y cómo se detecta un error.', href: '/ingles/autorizacion' },
   { phase: 'comunicaciones', title: 'Radio por fase de vuelo', blurb: 'De la puesta en marcha a la final: qué se dice en cada tramo.' },
 
-  { phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Aviar, navegar, comunicar: el mensaje de emergencia paso a paso.' },
+  { slug: 'emergencias', phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Aviar, navegar, comunicar: el mensaje de emergencia paso a paso.', href: '/ingles/emergencias' },
 
   { phase: 'anormal', title: 'Vocabulario de accidentes', blurb: 'Las palabras para nombrar qué pasó.' },
   { phase: 'anormal', title: 'Contalo en pasado', blurb: 'Relatar un incidente con los tiempos verbales correctos.' },

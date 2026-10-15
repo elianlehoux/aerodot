@@ -122,3 +122,49 @@ export const clearanceSet = {
       explain: 'El ajuste del altímetro se colaciona: *roger* o *copied* no lo reemplazan. Y sin tu distintivo, la torre no sabe quién colacionó.' },
   ],
 };
+
+/** Las cuatro señales que se ofrecen en cada situación: solo dos son señales de la radio. */
+const SIGNALS = ['MAYDAY, MAYDAY, MAYDAY', 'PAN PAN, PAN PAN, PAN PAN', 'Emergency, emergency, emergency', 'Help, help, help'];
+
+/** Una situación de socorro o urgencia: level declara la clave y explain, el porqué. */
+const situation = (id, level, prompt, explain) => ({
+  id, type: 'mcq', level, prompt, options: SIGNALS, answer: level === 'mayday' ? 0 : 1, explain,
+});
+
+/**
+ * Mayday y Pan Pan. En prompt y explain, el inglés va entre asteriscos (ver scripts/mixed.js).
+ * Las opciones incorrectas son los errores típicos: confundir socorro con urgencia, decir *emergency*
+ * o *help* en lugar de la señal, o nombrar el problema sin decir cuál es.
+ */
+export const emergencySet = {
+  id: 'emergency-say',
+  slug: 'emergencias',
+  title: 'Declaralo bien',
+  lede: 'Diez preguntas: socorro o urgencia, el orden del mensaje y los códigos del transpondedor.',
+  items: [
+    { id: 'e1', type: 'order', prompt: 'Se te detuvo el motor y vas a hacer un aterrizaje forzoso. Ordená el mensaje de socorro.',
+      tokens: ['MAYDAY MAYDAY MAYDAY', 'Laguna Tower', 'LV-DEM', 'engine failure', 'intend forced landing', 'five miles south of Laguna', 'two thousand feet heading three six zero'],
+      answer: ['MAYDAY MAYDAY MAYDAY', 'Laguna Tower', 'LV-DEM', 'engine failure', 'intend forced landing', 'five miles south of Laguna', 'two thousand feet heading three six zero'],
+      explain: 'La señal, la estación, tu distintivo, qué pasa, qué vas a hacer y dónde estás, con altura y rumbo (SERA.14095).' },
+    situation('e2', 'mayday', 'Se detuvo el motor en crucero y no vuelve a arrancar. Vas a aterrizar en un campo. ¿Con qué empezás la llamada?',
+      'Es socorro: un peligro grave e inminente y necesitás ayuda ya. *Emergency* y *help* no son las señales de la radio.'),
+    situation('e3', 'panpan', 'Un pasajero se descompone. Está consciente y estable, y querés aterrizar cuanto antes en Laguna. ¿Con qué empezás?',
+      'Es urgencia: está en juego la seguridad de una persona a bordo, pero no necesitás ayuda inmediata. Si empeora y su vida corre peligro, pasás a *MAYDAY*.'),
+    situation('e4', 'mayday', 'Sale humo y ves llamas debajo del panel de instrumentos. ¿Con qué empezás?',
+      'El fuego a bordo es un peligro grave e inminente: socorro.'),
+    situation('e5', 'panpan', 'El motor funciona irregular y pierde algunas vueltas, pero mantenés la altura y no necesitás ayuda inmediata. Querés volver a Santa Brisa. ¿Con qué empezás?',
+      'La seguridad del avión está comprometida, pero no necesitás ayuda inmediata: urgencia. Si el motor se detiene, pasás a *MAYDAY*.'),
+    { id: 'e6', type: 'mcq', nature: true, prompt: 'Se te detuvo el motor. ¿Qué frase dice mejor qué pasa?',
+      options: ['The engine has a problem', 'Engine failure', 'Failure of the motor', 'Engine is no good'], answer: 1,
+      explain: '*Engine failure* dice qué pasó, corto. *The engine has a problem* no dice cuál, y el motor del avión es *engine*, no *motor*.' },
+    { id: 'e7', type: 'gap', prompt: 'Falta la palabra que anuncia lo que vas a hacer.',
+      sentence: 'MAYDAY, MAYDAY, MAYDAY, Laguna Tower, LV-DEM, fire on board, ___ to land at Laguna', answers: ['intend'],
+      explain: 'Tu intención se anuncia con *intend*: *intend to land at Laguna*.' },
+    { id: 'e8', type: 'tf', prompt: 'La señal de socorro se dice tres veces: “*MAYDAY, MAYDAY, MAYDAY*”.', say: 'Mayday, mayday, mayday', answer: true,
+      explain: 'La norma europea (SERA.14095) dice «preferiblemente tres veces», y lo mismo para *PAN PAN*.' },
+    { id: 'e9', type: 'tf', prompt: 'El código 7600 en el transpondedor indica una emergencia.', answer: false,
+      explain: 'La emergencia es el 7700. El 7600 indica falla de comunicaciones (SERA.13005).' },
+    { id: 'e10', type: 'tf', prompt: 'El código 7500 indica interferencia ilícita, por ejemplo un secuestro.', answer: true,
+      explain: 'Así lo dice SERA.13005: 7700 emergencia, 7600 falla de comunicaciones y 7500 interferencia ilícita.' },
+  ],
+};

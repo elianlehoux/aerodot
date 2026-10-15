@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
-import { clearanceSet, hearbackSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
+import { clearanceSet, emergencySet, hearbackSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
 import { clearanceExamples, clearanceParts, craftExample, hearbackCases, hearbackDrills, readbackItems } from '../../src/data/english-clearance.js';
 import { normalize } from '../../src/scripts/exercises/grade.js';
 import { survivalCall, survivalGroups } from '../../src/data/english-survival.js';
@@ -260,4 +260,46 @@ test('hearback: las preguntas de los casos usan un lead neutro', () => {
   for (const item of [...hearbackSet.items, ...clearanceSet.items.filter((entry) => entry.id.startsWith('hb-'))]) {
     assert.ok(item.lead?.trim(), `${item.id} sin lead`);
   }
+});
+
+/* ---- Mayday y Pan Pan ---- */
+
+test('el set de emergencias que se publica es válido y tiene los tipos que pide el módulo', () => {
+  assert.deepEqual(validateSet(emergencySet), []);
+  assert.equal(emergencySet.id, 'emergency-say');
+  assert.equal(emergencySet.slug, 'emergencias');
+  assert.equal(emergencySet.items.length, 10);
+  const ids = emergencySet.items.map((item) => item.id);
+  assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
+  const count = (type) => emergencySet.items.filter((item) => item.type === type).length;
+  assert.ok(count('order') >= 1 && count('gap') >= 1 && count('tf') >= 2 && count('mcq') >= 4);
+  const order = emergencySet.items.find((item) => item.type === 'order');
+  assert.ok(order.tokens.length >= 6 && order.tokens.length <= 7, 'el mensaje para ordenar tiene de 6 a 7 fichas');
+  assert.match(order.answer[0], /^MAYDAY/, 'el mensaje arranca con la señal');
+  assert.ok(emergencySet.items.some((item) => item.nature === true && item.type === 'mcq'), 'falta el ítem de la frase de naturaleza');
+});
+
+test('emergencias: ningún say del set tiene cifras', () => {
+  for (const item of emergencySet.items) {
+    if (item.say === undefined) continue;
+    assert.ok(typeof item.say === 'string' && item.say.trim(), `${item.id}: say vacío`);
+    assert.doesNotMatch(item.say, /[0-9]/, `${item.id}: say con cifras`);
+  }
+});
+
+test('emergencias: cada situación de Mayday o Pan Pan declara la respuesta correcta y por qué', () => {
+  const situations = emergencySet.items.filter((item) => item.level);
+  assert.ok(situations.length >= 3, 'hacen falta al menos tres situaciones');
+  assert.ok(situations.some((item) => item.level === 'mayday') && situations.some((item) => item.level === 'panpan'), 'tiene que haber de los dos niveles');
+  const signal = { mayday: /^MAYDAY/, panpan: /^PAN PAN/ };
+  for (const item of situations) {
+    assert.equal(item.type, 'mcq', `${item.id}: una situación es mcq`);
+    assert.ok(['mayday', 'panpan'].includes(item.level), `${item.id}: level inválido`);
+    assert.match(item.options[item.answer], signal[item.level], `${item.id}: la clave no es ${item.level}`);
+    const other = item.level === 'mayday' ? signal.panpan : signal.mayday;
+    assert.ok(item.options.some((option) => other.test(option)), `${item.id}: falta el otro nivel entre las opciones`);
+    assert.ok(item.explain?.trim(), `${item.id}: falta el porqué`);
+  }
+  const prompts = situations.map((item) => item.prompt);
+  assert.equal(new Set(prompts).size, prompts.length, 'situaciones repetidas');
 });

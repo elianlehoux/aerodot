@@ -78,3 +78,16 @@ html[data-theme="light"] .ea-art{--ea-asphalt-a:#5d5953;--ea-asphalt-b:#4f4b45;-
 @media(prefers-reduced-motion:reduce){
   .topic-card .ea-cl-box{animation:none!important}
 }
+
+/* Mayday y Pan Pan: el transpondedor en 7700, con la señal que sale */
+.ea-em-box{fill:var(--paper);stroke:var(--muted);stroke-width:1.4}
+.ea-em-label{fill:var(--muted);font:600 9px/1 var(--sans);letter-spacing:.12em;dominant-baseline:central}
+.ea-em-code{fill:var(--ember);font:500 30px/1 var(--mono);letter-spacing:.08em;text-anchor:middle;dominant-baseline:central}
+html[data-theme="light"] .ea-em-code{fill:#b33a09}
+.ea-em-wave{fill:none;stroke:var(--ember);stroke-width:2.2;stroke-linecap:round;opacity:.75}
+html[data-theme="light"] .ea-em-wave{stroke:#b33a09}
+.topic-card:hover .ea-em-wave,.topic-card:focus-visible .ea-em-wave{animation:ea-em-pulse 1.4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ea-em-pulse{0%,100%{opacity:.2}40%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .topic-card .ea-em-wave{animation:none!important}
+}
