@@ -326,6 +326,40 @@ export const mountReveals = () => {
   });
 };
 
+/**
+ * Índice de la página (el rail .study-page-toc): abierto en pantalla ancha, plegable en el celular.
+ * Saca los enlaces cuya sección no está o quedó oculta y marca la sección que estás leyendo.
+ */
+export const mountPageToc = (selector) => {
+  const toc = document.querySelector(selector);
+  if (!toc) return;
+  const wide = window.matchMedia('(min-width: 1181px)');
+  const sync = () => {
+    if (wide.matches) toc.open = true;
+    toc.querySelector('summary').tabIndex = wide.matches ? -1 : 0;
+  };
+  sync();
+  wide.addEventListener('change', sync);
+  const links = [...toc.querySelectorAll('nav a')].filter((link) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target && !target.closest('[hidden]')) return true;
+    link.hidden = true;
+    return false;
+  });
+  const targets = links.map((link) => document.querySelector(link.getAttribute('href')));
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (!visible) return;
+      links.forEach((link) => {
+        if (link.hash === `#${visible.target.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-12% 0px -72% 0px', threshold: 0 });
+    targets.forEach((target) => observer.observe(target));
+  }
+};
+
 const shuffle = (list) => {
   const copy = [...list];
   for (let index = copy.length - 1; index > 0; index -= 1) {

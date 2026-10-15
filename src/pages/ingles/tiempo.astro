@@ -118,7 +118,7 @@ import '../../styles/english-weather.css';
 
   <EnglishFinish slug="tiempo" where="El tiempo" />
   <script>
-    import { mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
     import { mountWeather } from '../../scripts/weather.js';
     import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
@@ -127,33 +127,6 @@ import '../../styles/english-weather.css';
     mountWeather();
     mountExerciseSets();
 
-    // Guía lateral: abierta en pantalla ancha, plegable en el celular. Marca la sección que estás leyendo.
-    const toc = document.querySelector('[data-wx-toc]');
-    const wide = window.matchMedia('(min-width: 1181px)');
-    const sync = () => {
-      if (wide.matches) toc.open = true;
-      toc.querySelector('summary').tabIndex = wide.matches ? -1 : 0;
-    };
-    sync();
-    wide.addEventListener('change', sync);
-    // Si una sección no está (o quedó oculta, como un set inválido), su enlace se saca del índice.
-    const links = [...toc.querySelectorAll('nav a')].filter((link) => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target && !target.closest('[hidden]')) return true;
-      link.hidden = true;
-      return false;
-    });
-    const targets = links.map((link) => document.querySelector(link.getAttribute('href')));
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-        if (!visible) return;
-        links.forEach((link) => {
-          if (link.hash === `#${visible.target.id}`) link.setAttribute('aria-current', 'location');
-          else link.removeAttribute('aria-current');
-        });
-      }, { rootMargin: '-12% 0px -72% 0px', threshold: 0 });
-      targets.forEach((target) => observer.observe(target));
-    }
+    mountPageToc('[data-wx-toc]');
   </script>
 </EnglishShell>

@@ -160,6 +160,10 @@ html[data-theme="light"] .field-svg{--fs-dot:#e1ddd7;--fs-strip:#eeebe6;--fs-asp
 .quiz-feedback[data-state="bad"]::before{content:"✕ ";color:var(--en-bad);font-weight:600}
 [data-quiz-next]{margin-top:14px}
 
+/* La guía lateral usa el rail de la biblioteca (.study-page-toc); acá solo se le reserva lugar. */
+.english-page:has(.study-page-toc){width:min(1280px,100%);padding-right:230px}
+@media(max-width:1180px){.english-page:has(.study-page-toc){padding-right:34px}}
+@media(max-width:860px){.english-page:has(.study-page-toc){padding-right:20px}}
 .radio-block{margin-top:48px}
 .radio-block>p{max-width:62ch;margin:8px 0 0;color:var(--muted);font-size:15px;line-height:1.55}
 .flip-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 0;padding:0;list-style:none}

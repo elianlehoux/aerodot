@@ -1,5 +1,6 @@
 import { gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize } from './grade.js';
 import { validateSet } from './validate.js';
+import { splitMixed } from '../mixed.js';
 import { markEnglishReady } from '../english.js';
 
 const el = (tag, props = {}, ...children) => {
@@ -13,6 +14,9 @@ const el = (tag, props = {}, ...children) => {
   children.flat().forEach((child) => child != null && node.append(child));
   return node;
 };
+
+/* Texto en español con inglés entre asteriscos: los trozos en inglés van en un span con lang="en". */
+const inline = (text) => splitMixed(text).map((part) => (part.en ? el('span', { lang: 'en', text: part.text }) : part.text));
 
 /* Cada builder recibe (item, change, submit) y devuelve { node, value(), lock() }. value() es undefined hasta que haya respuesta. */
 
@@ -133,7 +137,7 @@ const runSet = (root, set) => {
     if (index >= items.length) { finish(); return; }
     const item = items[index];
     const progress = dots();
-    const prompt = el('p', { class: 'ex-prompt', tabindex: '-1', text: item.prompt });
+    const prompt = el('p', { class: 'ex-prompt', tabindex: '-1' }, inline(item.prompt));
     const feedback = el('p', { class: 'ex-feedback', 'aria-live': 'polite' });
     const check = el('button', { class: 'button-primary', type: 'button', disabled: true, text: 'Corregir' });
     const next = el('button', { class: 'button-primary', type: 'button', hidden: true, text: index === items.length - 1 ? 'Ver resultado' : 'Siguiente' });
@@ -151,14 +155,14 @@ const runSet = (root, set) => {
       check.hidden = true;
       next.hidden = false;
       feedback.className = `ex-feedback ${verdict.correct ? 'is-ok' : 'is-bad'}`;
-      const explain = item.explain ? ` ${item.explain}` : '';
+      const explain = item.explain ? [' ', ...inline(item.explain)] : [];
       if (item.type === 'tf') {
         /* En verdadero o falso no hay frase que decir: se da la respuesta correcta. */
-        feedback.replaceChildren(verdict.correct ? 'Bien. ' : '', el('b', { text: item.answer ? 'Es verdadero.' : 'Es falso.' }), explain);
+        feedback.replaceChildren(verdict.correct ? 'Bien. ' : '', el('b', { text: item.answer ? 'Es verdadero.' : 'Es falso.' }), ...explain);
       } else {
         /* En los huecos se muestra la frase entera, no solo la palabra que faltaba. */
         const phrase = item.type === 'gap' ? item.sentence.replace('___', verdict.expected) : verdict.expected;
-        feedback.replaceChildren(verdict.correct ? 'Bien.' : 'Se dice:', ' ', el('b', { lang: 'en', text: phrase }), explain);
+        feedback.replaceChildren(verdict.correct ? 'Bien.' : 'Se dice:', ' ', el('b', { lang: 'en', text: phrase }), ...explain);
       }
       next.focus();
     });

@@ -1,10 +1,5 @@
 /* Frases de supervivencia (/ingles/supervivencia). Usa las piezas de english.css: radio-block, flip, en-say. */
 
-/* La guía lateral usa el rail de la biblioteca (.study-page-toc); acá solo se le reserva lugar. */
-.english-page:has(.study-page-toc){width:min(1280px,100%);padding-right:230px}
-@media(max-width:1180px){.english-page:has(.study-page-toc){padding-right:34px}}
-@media(max-width:860px){.english-page:has(.study-page-toc){padding-right:20px}}
-
 /* En esta página, los botones de audio y de dar vuelta llegan a 48 px para el dedo. */
 .english-page .en-say.is-quiet{width:48px;min-height:48px}
 .english-page .flip-toggle{min-height:48px;padding:14px 0 0}
@@ -16,8 +11,7 @@
 .sv-tag{align-self:flex-start;margin-bottom:8px;padding:4px 8px;border:1px solid var(--line);border-radius:var(--radius-button);color:var(--graphite);font:500 12px/1 var(--sans);letter-spacing:.04em}
 
 /* Una llamada con problemas: burbujas alternadas torre / piloto. El subrayado del resaltado pasa 3:1 en los dos temas. */
-.english-page{--sv-hl-line:#7f9cff}
-html[data-theme="light"] .english-page{--sv-hl-line:var(--accent)}
+.english-page{--sv-hl-line:color-mix(in srgb,var(--accent) 50%,var(--ink))}
 .sv-call{display:grid;gap:14px;max-width:760px;margin:22px 0 0;padding:0;list-style:none}
 .sv-line{display:grid;gap:6px;max-width:min(560px,92%);animation:pop .25s ease both}
 .sv-line.is-pilot{justify-self:end;justify-items:end;text-align:right}

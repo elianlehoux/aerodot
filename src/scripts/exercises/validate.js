@@ -1,3 +1,5 @@
+import { hasUnmatchedMarker } from '../mixed.js';
+
 const TYPES = ['mcq', 'tf', 'gap', 'order'];
 const isText = (value) => typeof value === 'string' && value.trim() !== '';
 const isTexts = (value, min) => Array.isArray(value) && value.length >= min && value.every(isText);
@@ -6,6 +8,9 @@ const key = (tokens) => [...tokens].sort().join('\u0000');
 const checkItem = (item, where) => {
   const errors = [];
   if (!isText(item.prompt)) errors.push(`${where}: falta prompt.`);
+  for (const field of ['prompt', 'explain']) {
+    if (isText(item[field]) && hasUnmatchedMarker(item[field])) errors.push(`${where}: ${field} tiene un asterisco sin pareja.`);
+  }
   if (item.type === 'mcq') {
     if (!isTexts(item.options, 2)) errors.push(`${where}: options necesita al menos 2 textos.`);
     else if (!Number.isInteger(item.answer) || item.answer < 0 || item.answer >= item.options.length) errors.push(`${where}: answer fuera de rango.`);

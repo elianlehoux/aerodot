@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
 import { survivalSet, weatherSet } from '../../src/data/english-sets.js';
 import { survivalCall, survivalGroups } from '../../src/data/english-survival.js';
+import { hasUnmatchedMarker } from '../../src/scripts/mixed.js';
 
 const good = () => ({
   id: 's1', slug: 'tiempo', title: 'Decilo',
@@ -100,4 +101,28 @@ test('supervivencia: las cifras de say van en palabras y cada grupo tiene de 3 a
   }
   const ids = phrases.map((phrase) => phrase.id);
   assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
+});
+
+test('prompt y explain: un asterisco sin pareja es un error', () => {
+  const prompt = good(); prompt.items[0].prompt = 'Se dice *say again';
+  assert.ok(validateSet(prompt).some((e) => e.includes('asterisco')));
+  const explain = good(); explain.items[1].explain = '*Roger* no es *wilco';
+  assert.ok(validateSet(explain).some((e) => e.includes('asterisco')));
+  const ok = good(); ok.items[1].prompt = '*Roger* no es *wilco*'; ok.items[1].explain = 'Es *wilco*.';
+  assert.deepEqual(validateSet(ok), []);
+});
+
+test('supervivencia: en la llamada, lo que se lee y lo que dice la voz son la misma frase', () => {
+  for (const line of survivalCall) {
+    const shown = line.parts.map((part) => part.text).join('').replaceAll('LV-DEM', 'Lima Victor Delta Echo Mike');
+    assert.equal(shown, line.say);
+  }
+});
+
+test('supervivencia: los asteriscos del inglés en los textos en español van de a pares', () => {
+  const texts = [
+    ...survivalGroups.flatMap((group) => [group.lede, ...[...group.phrases, ...(group.aside ? [group.aside] : [])].map((phrase) => phrase.body)]),
+    ...survivalCall.map((line) => line.note),
+  ];
+  for (const text of texts) assert.equal(hasUnmatchedMarker(text), false, text);
 });
