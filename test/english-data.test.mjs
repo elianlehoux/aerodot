@@ -60,3 +60,8 @@ test('englishNeighbors sigue el orden de englishTopics', () => {
 test('englishReadySlugs son los slugs de englishTopics', () => {
   assert.deepEqual(englishReadySlugs, englishTopics.map((topic) => topic.slug));
 });
+
+test('Comunicaciones anuncia lo que falta después del circuito: en ruta y aproximación, y falla de comunicaciones', () => {
+  const soon = englishSections.filter((section) => section.phase === 'comunicaciones' && !section.href).map((section) => section.title);
+  assert.deepEqual(soon, ['En ruta y aproximación', 'Falla de comunicaciones']);
+});
