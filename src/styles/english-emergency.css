@@ -14,7 +14,7 @@ html[data-theme="light"] .english-page{--em-signal:#b33a09;--em-station:#835b00;
 [data-em-tone="extra"]{--em-tone:var(--em-extra)}
 
 .em-label{display:block;color:var(--muted);font:500 12px/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
-.en-block-lede em,.em-rules em,.em-panel-body em,.em-note em{font-style:italic;color:var(--ink)}
+.en-block-lede em,.em-panel-body em,.em-note em{font-style:italic;color:var(--ink)}
 
 /* (1) Primero volás: tres peldaños que bajan hacia la derecha */
 .em-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;max-width:820px;margin:22px 0 0;padding:0;list-style:none}
