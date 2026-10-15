@@ -148,13 +148,17 @@ const examJsonLd = {
       <aside class="exam-reference">
         <span>REFERENCIA ANAC</span>
         <strong>{mockSize} preguntas</strong>
-        <p>{license.practiceOnly
-          ? `El banco disponible tiene ${allQuestions.length} preguntas originales; el simulacro selecciona hasta ${mockSize} al azar. No reproduce el examen oficial ni permite inferir aprobación.`
-          : mockCapped
-            ? `Este banco tiene ${verifiedQuestions} de sus ${allQuestions.length} preguntas con la opción marcada, así que el simulacro toma ${mockSize} y no ${license.testSize}. ANAC informa ${license.testSize} preguntas en su evaluación: la diferencia son preguntas que este banco todavía no puede puntuar.`
-            : `El simulacro elige ${mockSize} preguntas al azar entre las que tienen opción marcada. ANAC informa 100 preguntas en TCEXAM, 50 en la rehabilitación de instructor, y 75% para aprobar. Confirmá el formato de tu evaluación.`}</p>
-        <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">{license.sourceLabel} ↗</a>
-        <small>{license.sourceNote}</small>
+        <p>Preguntas al azar para practicar el examen.</p>
+        <details class="more-info">
+          <summary>Más info</summary>
+          <p>{license.practiceOnly
+            ? `El banco disponible tiene ${allQuestions.length} preguntas originales; el simulacro selecciona hasta ${mockSize} al azar. No reproduce el examen oficial ni permite inferir aprobación.`
+            : mockCapped
+              ? `Este banco tiene ${verifiedQuestions} de sus ${allQuestions.length} preguntas con la opción marcada, así que el simulacro toma ${mockSize} y no ${license.testSize}. ANAC informa ${license.testSize} preguntas en su evaluación: la diferencia son preguntas que este banco todavía no puede puntuar.`
+              : `El simulacro elige ${mockSize} preguntas al azar entre las que tienen opción marcada. ANAC informa 100 preguntas en TCEXAM, 50 en la rehabilitación de instructor, y 75% para aprobar. Confirmá el formato de tu evaluación.`}</p>
+          <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">{license.sourceLabel} ↗</a>
+          <small>{license.sourceNote}</small>
+        </details>
       </aside>
     </section>
 
@@ -205,14 +209,14 @@ const examJsonLd = {
       <div id="resultReviewList" class="review-list"></div>
     </section>
 
-    <section class="source-strip">
-      <span>FUENTES Y ALCANCE</span>
+    <details class="source-strip">
+      <summary>Fuentes y alcance</summary>
       {license.sourcePdfUrl && <a href={license.sourcePdfUrl} target="_blank" rel="noreferrer">Abrir cuestionario público de referencia ↗</a>}
       <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">Página de exámenes ANAC ↗</a>
       <a href={regulatoryReferenceUrl} target="_blank" rel="noreferrer">Consultar {regulatoryReferenceTitle} ↗</a>
       <a href="https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-44-2025-408483/texto" target="_blank" rel="noreferrer">Resolución ANAC 44/2025 · bancos alternativos ↗</a>
       <p>{license.practiceOnly ? 'Las preguntas de Aerodot son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.' : 'Herramienta independiente de estudio. Las preguntas con clave pendiente quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
-    </section>
+    </details>
 
     <FaqList title={`Preguntas sobre el examen ${license.code}`} items={faqItems} />
   </main>
