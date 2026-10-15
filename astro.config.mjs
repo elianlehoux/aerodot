@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
@@ -26,7 +26,10 @@ const pwa = () => ({
         hash.update(html);
         for (const [, ref] of html.matchAll(/(?:href|src)="(\/(?:_assets|fonts)\/[^"#?]+)"/g)) assets.add(ref);
       }
-      const precache = [...precachePages, ...[...assets].sort()];
+      // Los ATIS grabados también quedan offline (las páginas los piden por JS, no aparecen en el HTML).
+      const audioDir = `${outDir}/audio/atis`;
+      const audio = (await readdir(audioDir).catch(() => [])).filter((name) => name.endsWith('.mp3')).map((name) => `/audio/atis/${name}`);
+      const precache = [...precachePages, ...[...assets].sort(), ...audio.sort()];
       const swPath = `${outDir}/sw.js`;
       const source = await readFile(swPath, 'utf8');
       const buildId = hash.update(String(Date.now())).digest('hex').slice(0, 12);

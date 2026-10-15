@@ -8,11 +8,14 @@
  * Estrategias:
  * - Páginas: red primero, y si no hay señal, la copia guardada o /offline.
  * - /_assets/ (nombres con hash, inmutables) y fuentes: caché primero.
+ * - /audio/: caché primero por ruta; si el navegador pide un rango (iOS), se recorta lo guardado
+ *   con rangeResponse (sw-range.js). Las respuestas 206 de la red no se guardan.
  * - Resto del mismo origen (figuras, íconos, manifest): se sirve lo guardado y se actualiza
  *   en segundo plano, así una figura corregida con el mismo nombre llega en la visita siguiente.
  * Las peticiones a otros orígenes (PostHog, ANAC) no pasan por acá.
  */
 const BUILD_ID = '__BUILD_ID__';
+importScripts('/sw-range.js');
 const PRECACHE = self.__PRECACHE__ || ['/', '/offline'];
 
 const PRECACHE_NAME = `aerodot-precache-${BUILD_ID}`;
@@ -41,7 +44,7 @@ self.addEventListener('install', (event) => {
     await Promise.all(PRECACHE.map(async (path) => {
       try {
         const response = await fetch(path, { cache: 'reload' });
-        if (response.ok) await cache.put(path.startsWith('/_assets/') ? path : pageKey(path), response);
+        if (response.ok) await cache.put(/^\/(_assets|audio)\//.test(path) ? path : pageKey(path), response);
       } catch { /* Se guarda en la próxima visita. */ }
     }));
     await self.skipWaiting();
@@ -87,7 +90,8 @@ const handleImmutable = async (event) => {
 const handleRevalidate = async (event) => {
   const cached = await caches.match(event.request);
   const network = fetch(event.request).then((response) => {
-    if (response.ok) {
+    // Solo 200: cache.put rechaza las respuestas parciales (206).
+    if (response.status === 200) {
       const copy = response.clone();
       caches.open(ASSETS_NAME).then((cache) => cache.put(event.request, copy)).then(() => trim(ASSETS_NAME, MAX_ASSETS));
     }
@@ -100,6 +104,23 @@ const handleRevalidate = async (event) => {
   return network;
 };
 
+const handleAudio = async (event) => {
+  const key = new URL(event.request.url).pathname;
+  const cached = await caches.match(key);
+  if (cached) return self.rangeResponse(event.request, cached);
+  try {
+    const response = await fetch(event.request);
+    // Una respuesta 206 (pedido con Range) es parcial: no se guarda.
+    if (response.status === 200) {
+      const copy = response.clone();
+      event.waitUntil(caches.open(ASSETS_NAME).then((cache) => cache.put(key, copy)).then(() => trim(ASSETS_NAME, MAX_ASSETS)));
+    }
+    return response;
+  } catch {
+    return new Response('Sin conexión', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+  }
+};
+
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
@@ -109,6 +130,8 @@ self.addEventListener('fetch', (event) => {
 
   if (request.mode === 'navigate') {
     event.respondWith(handlePage(event));
+  } else if (/^\/audio\//.test(url.pathname)) {
+    event.respondWith(handleAudio(event));
   } else if (/^\/(_assets|fonts)\//.test(url.pathname)) {
     event.respondWith(handleImmutable(event));
   } else {
