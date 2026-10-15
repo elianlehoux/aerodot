@@ -1,0 +1,107 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+
+const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 'Nubes', 'Temp. / rocío', 'QNH', 'Frec. torre', 'Obs.'];
+---
+<EnglishShell
+  title="El ATIS — Inglés aeronáutico | Aerodot"
+  description="Practicá el ATIS como se hace de verdad: escuchalo, anotalo en papel y recién después mirá el texto. Audios generados y grabados, con faja para imprimir."
+>
+  <a class="back-link" href="/ingles">← Inglés</a>
+  <p class="eyebrow">En el aire</p>
+  <h1>El ATIS.</h1>
+  <p class="en-deck">Es la grabación que escuchás antes de llamar a la torre. Nadie la anota en el celular: se anota en papel. Escuchala, copiá en una faja y recién cuando termines mirá el texto y corregí.</p>
+
+  <div class="atis-practice" data-atis>
+    <div class="atis-bar">
+      <div class="seg" role="group" aria-label="Tipo de audio">
+        <button type="button" data-atis-source="random" aria-pressed="true">Aleatorio</button>
+        <button type="button" data-atis-source="recorded" aria-pressed="false">Grabados</button>
+      </div>
+      <p class="atis-bar-note">Aleatorio: un ATIS nuevo cada vez, con la voz de tu navegador. Grabados: ocho audios con efecto de radio.</p>
+    </div>
+    <div class="atis-pick" data-atis-pick role="group" aria-label="Elegí un audio" hidden></div>
+
+    <div class="atis-layout">
+      <section class="atis-radio" data-atis-player data-playing="false" data-text="false" aria-labelledby="parte">
+        <div class="atis-head">
+          <div>
+            <p class="card-kicker">ATIS de práctica</p>
+            <h2 id="parte">Escuchá</h2>
+          </div>
+          <span class="atis-live" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="atis-controls">
+          <button class="button-primary atis-play" type="button" data-atis-play>
+            <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path class="icon-play" d="M6 4l10 6-10 6z" fill="currentColor"/><path class="icon-stop" d="M5 5h10v10H5z" fill="currentColor"/></svg>
+            <span data-atis-play-label>Escuchar el ATIS</span>
+          </button>
+          <button class="chip-toggle" type="button" data-atis-slow aria-pressed="false">Más lento</button>
+          <button class="chip-toggle" type="button" data-atis-show-text aria-pressed="false">Ver el texto</button>
+        </div>
+        <div class="atis-progress" data-atis-progress aria-hidden="true"><i></i></div>
+        <p class="atis-meta" data-atis-meta aria-live="polite"></p>
+        <p class="atis-status" data-atis-status aria-live="polite"></p>
+        <div class="atis-blind">
+          <p>El texto está oculto. Escuchá todas las veces que quieras y anotá en papel.</p>
+        </div>
+        <ol class="atis-read" data-atis-read></ol>
+      </section>
+
+      <section class="atis-strip" aria-labelledby="anota">
+        <div class="strip-head">
+          <h2 id="anota">Anotá</h2>
+        </div>
+        <ol class="atis-steps">
+          <li>Escuchá el ATIS y anotalo en una hoja, como en el aire: letra, hora, pista, viento, visibilidad, nubes, temperatura, rocío y QNH.</li>
+          <li>Escuchalo otra vez para completar lo que te faltó.</li>
+          <li>Cuando termines, mostrá la respuesta y marcá lo que tenías bien.</li>
+        </ol>
+        <div class="atis-actions">
+          <button class="button-primary" type="button" data-atis-reveal disabled>Ya anoté: mostrar la respuesta</button>
+          <button class="button-quiet" type="button" data-atis-print>Imprimir la faja</button>
+        </div>
+
+        <div class="atis-revealed" data-atis-revealed hidden>
+          <div class="strip-head">
+            <h3>Lo que había que anotar</h3>
+            <span class="atis-score" data-atis-score aria-live="polite"></span>
+          </div>
+          <ul class="atis-key" data-atis-key role="list"></ul>
+          <p class="atis-verdict" data-atis-verdict aria-live="polite"></p>
+          <div class="atis-actions">
+            <button class="button-primary" type="button" data-atis-next>Otro ATIS</button>
+            <button class="button-quiet" type="button" data-atis-again>Escuchar otra vez</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="atis-paper" aria-labelledby="faja">
+      <h2 id="faja">La faja</h2>
+      <p class="atis-paper-note">Imprimila o copiala a mano. Lo importante es tener un orden fijo para anotar.</p>
+      {[0, 1, 2, 3].map((copy) => (
+        <div class="paper-copy" aria-hidden={copy ? 'true' : undefined}>
+          <p class="paper-title">ATIS · Aeródromo ________________ · Información ____</p>
+          <div class="paper-grid">
+            {paperRows.map((row) => (
+              <div class={`paper-cell${row === 'Obs.' ? ' is-wide' : ''}`}><span>{row}</span></div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+    <noscript><p>Para escuchar y corregir hace falta JavaScript.</p></noscript>
+  </div>
+
+  <p class="en-sources">Los aeródromos y los datos son inventados: no son partes reales. Las voces son sintéticas.</p>
+
+  <EnglishFinish slug="atis" where="El ATIS" />
+  <script>
+    import { mountAtis, mountEnglishProgress, mountListen } from '../../scripts/english.js';
+    mountListen();
+    mountEnglishProgress();
+    mountAtis();
+  </script>
+</EnglishShell>

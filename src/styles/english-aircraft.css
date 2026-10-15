@@ -1,0 +1,79 @@
+/* La aeronave: tres dibujos del mismo avión, con el lenguaje del plano del aeródromo. */
+.ac-svg{--ac-line:color-mix(in srgb,var(--ink) 58%,transparent);--ac-dial:#1f1e1c;--ac-ink:#efebe3;--ac-board:#2f2d2a;--ac-glare:#1c1b19;--ac-radio:#252320;display:block;width:100%;height:auto}
+html[data-theme="light"] .ac-svg{--ac-board:#57534d;--ac-glare:#3a3733;--ac-radio:#3a3733}
+.ac-svg *{pointer-events:none}
+.ac-svg .hit{pointer-events:all}
+.ac-grid-dot{fill:var(--line)}
+.ac-view{display:none}
+.ac-view.is-on{display:inline}
+.ac-caption{fill:var(--muted);font:600 11px/1 var(--mono);letter-spacing:.12em}
+.ac-caption.is-soft{fill:var(--ash);font-weight:500;opacity:.7}
+.ac-notetext{fill:var(--ash);font:600 10px/1 var(--mono);letter-spacing:.1em}
+
+/* Por fuera */
+.ac-shadow{fill:color-mix(in srgb,var(--ink) 8%,transparent)}
+.ac-groundline{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:2 7;stroke-linecap:round}
+.ac-body,.ac-soft,.ac-soft2,.ac-edge,.ac-glass,.ac-gear,.ac-prop,.ac-cap-fuel{stroke:var(--ac-line);stroke-width:2;stroke-linejoin:round}
+.ac-body{fill:color-mix(in srgb,var(--ink) 13%,var(--paper))}
+.ac-soft{fill:color-mix(in srgb,var(--ink) 22%,var(--paper))}
+.ac-soft2{fill:color-mix(in srgb,var(--ink) 36%,var(--paper))}
+.ac-edge{fill:color-mix(in srgb,var(--ink) 30%,var(--paper));stroke-width:1.5}
+.ac-move{fill:color-mix(in srgb,var(--accent) 38%,var(--paper));stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.ac-glass{fill:color-mix(in srgb,var(--accent) 16%,var(--taupe));stroke-width:1.6}
+.ac-line{fill:none;stroke:var(--ac-line);stroke-width:1.6;stroke-linecap:round}
+.ac-handle{fill:var(--ac-line)}
+.ac-gear{fill:#2d2b28}
+.ac-hub{fill:#b9b4a9}
+.ac-prop{fill:#34322e;stroke-width:1.5}
+.ac-regtext{fill:var(--ac-line);font:700 17px/1 var(--sans);letter-spacing:.08em}
+.ac-tip-g{fill:color-mix(in srgb,#3fb26b 55%,var(--paper));stroke:var(--ac-line);stroke-width:2;stroke-linejoin:round}
+.ac-tip-r{fill:color-mix(in srgb,#e0503f 55%,var(--paper));stroke:var(--ac-line);stroke-width:2;stroke-linejoin:round}
+.ac-cap-fuel{fill:color-mix(in srgb,var(--ink) 28%,var(--paper));stroke-width:1.6}
+.ac-pitot{fill:var(--ink)}
+
+/* La cabina */
+.ac-board{fill:var(--ac-board);stroke:color-mix(in srgb,var(--ink) 15%,transparent);stroke-width:1.5}
+.ac-glare{fill:var(--ac-glare)}
+.ac-bezel{fill:#6a655d;stroke:#2c2a27;stroke-width:2}
+.ac-dial{fill:var(--ac-dial)}
+.ac-tick{fill:none;stroke:var(--ac-ink);stroke-width:1.6;stroke-linecap:round}
+.ac-tick.is-red{stroke:#e0503f;stroke-width:3.4}
+.ac-gtext{fill:var(--ac-ink);font:600 9px/1 var(--sans);letter-spacing:.04em;text-anchor:middle;dominant-baseline:central}
+.ac-gtext.is-left{text-anchor:start}
+.ac-needle{fill:none;stroke:#f7f3ea;stroke-width:2.6;stroke-linecap:round}
+.ac-needle.is-short{stroke-width:4.6}
+.ac-cap{fill:#d8d3c8}
+.ac-arc-g{fill:none;stroke:#46b36b;stroke-width:4}
+.ac-arc-w{fill:none;stroke:#f5f1e8;stroke-width:3}
+.ac-sky{fill:#5a8fc7}
+.ac-earth{fill:#8a6a44}
+.ac-horizon{fill:none;stroke:#fff;stroke-width:1.6}
+.ac-symbol{fill:none;stroke:#f2b84b;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ac-symbol.is-fill{fill:#f2b84b;stroke:none}
+.ac-tube{fill:none;stroke:#8d887e;stroke-width:7;stroke-linecap:round}
+.ac-ball{fill:#f7f3ea}
+.ac-bar{fill:none;stroke:color-mix(in srgb,var(--ac-ink) 40%,transparent);stroke-width:3;stroke-linecap:round}
+.ac-radio{fill:var(--ac-radio);stroke:#4a4741;stroke-width:1.5}
+.ac-lcd{fill:#0f2a1a}
+.ac-lcdtext{fill:#7dffa8;font:600 14px/1 var(--mono);text-anchor:middle;dominant-baseline:central}
+.ac-knob-s{fill:#3f3c37;stroke:#6f6a61;stroke-width:1.5}
+.ac-toggle{fill:none;stroke:#cfc9bd;stroke-width:4;stroke-linecap:round}
+.ac-knob{fill:#14130f;stroke:#6f6a61;stroke-width:1.5}
+.ac-knob.is-red{fill:#c4382c}
+.ac-yoke{fill:#3c3935;stroke:#7a756b;stroke-width:2;stroke-linejoin:round}
+.ac-column{fill:#3a3733;stroke:#7a756b;stroke-width:1.5}
+
+/* Lo que se mueve, mientras está elegido */
+@keyframes ac-squeeze{50%{transform:scaleX(.35)}}
+@keyframes ac-wobble{25%{transform:rotate(var(--sw,14deg))}75%{transform:rotate(calc(var(--sw,14deg) * -1))}}
+@keyframes ac-spin{50%{transform:scaleY(.14)}}
+.is-moving[data-anim="squeeze"]{animation:ac-squeeze 1.5s ease-in-out infinite}
+.is-moving[data-anim="wobble"]{animation:ac-wobble 2.4s ease-in-out infinite}
+.is-moving[data-anim="spin"]{animation:ac-spin .45s ease-in-out infinite}
+
+.word-moves{display:flex;gap:8px;align-items:baseline;margin:12px 0 0;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--ink);font-size:14px;line-height:1.5}
+.word-moves span{color:var(--accent);font-weight:700}
+
+@media(prefers-reduced-motion:reduce){
+  .is-moving{animation:none!important}
+}

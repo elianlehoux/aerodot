@@ -1,0 +1,153 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import { englishPhases, englishReadySlugs, englishRoles, englishSections, raac61Href } from '../../data/english.js';
+import '../../styles/english-art.css';
+
+/* Dibujos de las tarjetas, en unidades del viewBox de 240 × 120. */
+
+// Circuito por izquierda de la pista 13. Arranca en el despegue, hacia el este.
+const circuitPath = 'M 30 76 H 210 Q 218 76 218 68 V 34 Q 218 26 210 26 H 30 Q 22 26 22 34 V 68 Q 22 76 30 76 Z';
+
+// Onda del parte: pocas barras, gruesas. Las primeras ya sonaron.
+const waveHeights = [14, 26, 40, 30, 18, 34, 48, 36, 22, 12, 28, 42, 32, 20, 30, 16];
+const waveBars = waveHeights.map((height, index) => ({
+  x: 70 + index * 9.4,
+  height,
+  played: index < 6,
+  delay: ((index * 37) % 11) / 10,
+}));
+
+const phases = englishPhases.map((phase) => ({ ...phase, sections: englishSections.filter((section) => section.phase === phase.id) }));
+---
+<EnglishShell
+  title="Inglés aeronáutico — Palabras, partes y el oral | Aerodot"
+  description="Aprendé el inglés de la aviación: el aeródromo, los números de la radio y el ATIS. Práctica independiente, en español, para preparar el nivel 4 de la RAAC 61.165."
+>
+  <section class="en-hero">
+    <h1>Inglés aeronáutico</h1>
+    <div class="en-meter" data-english-count={englishReadySlugs.join(' ')} aria-live="polite" hidden>
+      <span class="en-meter-bar" aria-hidden="true"><i></i></span>
+      <span data-english-count-text></span>
+    </div>
+    <p class="en-disclaimer">Práctica independiente. No reemplaza la evaluación de la ANAC ni acredita un nivel.</p>
+  </section>
+
+  <div class="seg en-filter" role="group" aria-label="Mostrar temas para" data-english-filter>
+    <button type="button" data-role="" aria-pressed="true">Todos</button>
+    {englishRoles.map((role) => <button type="button" data-role={role.id} aria-pressed="false">{role.label}</button>)}
+  </div>
+
+  {phases.map((phase) => (
+    <section class="en-phase" data-phase aria-labelledby={`fase-${phase.id}`}>
+      <h2 id={`fase-${phase.id}`}>{phase.title}</h2>
+      {phase.lede && (
+        <p class="en-phase-lede">
+          {phase.lede}
+          {phase.id === 'oral' && <> <a href={raac61Href}>Índice de las RAAC ↗</a> <a href="/camino">Cómo figura en la licencia ↗</a></>}
+        </p>
+      )}
+      <ul class="topic-grid">
+        {phase.sections.map((section) => (
+          <li data-roles={section.roles.join(' ')} data-english-slug={section.slug}>
+            {section.href ? (
+              <a class="topic-card" href={section.href}>
+                <span class="topic-art" aria-hidden="true">
+                  {section.slug === 'aerodromo' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <defs>
+                        <linearGradient id="ea-asphalt" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" class="ea-asphalt-top" />
+                          <stop offset="1" class="ea-asphalt-bottom" />
+                        </linearGradient>
+                      </defs>
+                      <g transform="translate(0 8)">
+                      <path class="ea-circuit" d={circuitPath} />
+                      <rect class="ea-runway" x="40" y="66" width="160" height="20" rx="2" />
+                      <path class="ea-paint" d="M45 69h12M45 72h12M45 75h12M45 77h12M45 80h12M45 83h12" />
+                      <text class="ea-designator" x="66" y="76" transform="rotate(90 66 76)">13</text>
+                      <path class="ea-centerline" d="M80 76 H194" />
+                      <path class="ea-plane" style={`offset-path: path('${circuitPath}')`} d="M6 0C6-.7 5.2-1 4-1H1.2L-1.6-6.2H-3L-1.6-1H-4.4L-5.6-3H-6.5L-5.8 0-6.5 3H-5.6L-4.4 1H-1.6L-3 6.2H-1.6L1.2 1H4C5.2 1 6 .7 6 0Z" />
+                      </g>
+                    </svg>
+                  )}
+                  {section.slug === 'numeros' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <text class="ea-digit" x="98" y="84" text-anchor="end">3</text>
+                      <text class="ea-word" x="114" y="62">three</text>
+                      <text class="ea-sound" x="115" y="84">/tree/</text>
+                    </svg>
+                  )}
+                  {section.slug === 'aeronave' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <path class="ea-ac-wing" d="M98 60 L102 14 H134 L140 60 L140 60 L134 106 H102 Z" />
+                      <path class="ea-ac-body" d="M30 60 Q30 54 38 54 H150 L214 57 V63 L150 66 H38 Q30 66 30 60 Z" />
+                      <path class="ea-ac-tail" d="M186 60 L192 40 H206 V80 H192 Z" />
+                      <path class="ea-ac-move" style="transform-origin:128px 0px" d="M120 22 H138 L140 44 H123 Z" />
+                      <path class="ea-ac-move" style="transform-origin:128px 0px" d="M120 98 H138 L140 76 H123 Z" />
+                      <path class="ea-ac-move ea-ac-tailmove" style="transform-origin:206px 0px" d="M206 40 H214 V80 H206 Z" />
+                      <rect class="ea-ac-prop" x="22" y="34" width="5" height="52" rx="2.5" />
+                    </svg>
+                  )}
+                  {section.slug === 'atis' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <circle class="ea-badge" cx="38" cy="60" r="14" />
+                      <text class="ea-badge-letter" x="38" y="60">B</text>
+                      {waveBars.map((bar) => (
+                        <rect class:list={['ea-bar', { 'is-played': bar.played }]} x={bar.x} y={60 - bar.height / 2} width="5" height={bar.height} rx="2.5" style={`--d:${bar.delay}s`} />
+                      ))}
+                    </svg>
+                  )}
+                  {section.slug === 'tiempo' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <g class="ea-sun"><circle cx="156" cy="38" r="13" />{Array.from({ length: 8 }, (_, index) => <line x1={156 + Math.cos(index * Math.PI / 4) * 19} y1={38 + Math.sin(index * Math.PI / 4) * 19} x2={156 + Math.cos(index * Math.PI / 4) * 26} y2={38 + Math.sin(index * Math.PI / 4) * 26} />)}</g>
+                      <g class="ea-cloud"><rect x="62" y="44" width="104" height="22" rx="11" /><circle cx="88" cy="46" r="17" /><circle cx="118" cy="38" r="23" /><circle cx="146" cy="49" r="15" /></g>
+                      {[84, 104, 124, 144].map((x, index) => <line class="ea-drop" x1={x} y1="74" x2={x - 4} y2="88" style={`--d:${index * 0.22}s`} />)}
+                      <text class="ea-metar" x="120" y="108" text-anchor="middle">13008KT 9999 FEW030</text>
+                    </svg>
+                  )}
+                </span>
+                <span class="topic-title">{section.title}</span>
+                <span class="topic-blurb">{section.blurb}</span>
+                <span class="topic-foot">
+                  <span class="topic-state" data-english-badge hidden>✓ Listo</span>
+                  <span class="topic-go" data-english-start>Empezar</span>
+                  <span class="topic-arrow" aria-hidden="true">→</span>
+                </span>
+              </a>
+            ) : (
+              <div class="topic-card is-soon">
+                <span class="topic-title">{section.title}</span>
+                <span class="topic-blurb">{section.blurb}</span>
+                <span class="topic-foot">Próximamente</span>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <p class="en-sources">
+    Los números y el alfabeto son los de la radiotelefonía de la OACI. El nivel 4 está en la RAAC 61.165.
+    Laguna y la matrícula LV-DEM son de práctica: no son un aeródromo ni un avión reales. El audio usa la voz de tu navegador.
+  </p>
+  <script>
+    import { mountEnglishProgress, mountListen } from '../../scripts/english.js';
+    mountListen();
+    mountEnglishProgress();
+
+    // Filtro por rol: esconde los temas que no son para ese rol, y las fases que quedan vacías.
+    const filter = document.querySelector('[data-english-filter]');
+    const buttons = [...filter.querySelectorAll('[data-role]')];
+    const phases = [...document.querySelectorAll('[data-phase]')];
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const role = button.dataset.role;
+      buttons.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+      phases.forEach((phase) => {
+        const items = [...phase.querySelectorAll('[data-roles]')];
+        items.forEach((item) => { item.hidden = Boolean(role) && !item.dataset.roles.split(' ').includes(role); });
+        phase.hidden = items.every((item) => item.hidden);
+      });
+    }));
+  </script>
+</EnglishShell>

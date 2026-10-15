@@ -484,8 +484,17 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
   .practice-start-actions button{width:100%}
   .result-stats div{padding-right:6px;padding-left:6px}
 }
+@media(max-width:540px){
+  /* Con 3 enlaces + tema no entra el nombre: queda solo el ícono y todo en una fila. */
+  .site-header{flex-wrap:nowrap;height:calc(56px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);padding-bottom:0}
+  .site-header .wordmark-name,.site-header .wordmark-dot{display:none}
+  .site-header nav{flex-wrap:nowrap;margin-left:auto}
+}
+@media(max-width:340px){
+  .site-header{flex-wrap:wrap;height:auto;padding-top:calc(4px + env(safe-area-inset-top,0px));padding-bottom:4px}
+  .site-header nav{flex:1 0 100%;justify-content:flex-start;margin-left:-6px}
+}
 @media(max-width:380px){
-  /* Marca + Biblioteca + Exámenes + tema entran en una fila desde 360 px (Android común). */
   .site-header{padding-right:14px;padding-left:14px}
   .site-header nav{gap:0}
   .site-header nav>a{padding:0 6px;font-size:13px}
@@ -577,3 +586,12 @@ html:has(.is-taking-exam) .install-chip,html:has(dialog[open]) .install-chip{dis
 @media(prefers-reduced-motion:reduce){
   .install-chip{transition:none;transform:none}
 }
+
+.more-info>summary,.source-strip>summary{cursor:pointer;list-style:none;color:var(--muted);font-size:12px;font-weight:500}
+.more-info>summary::-webkit-details-marker,.source-strip>summary::-webkit-details-marker{display:none}
+.more-info>summary::after,.source-strip>summary::after{content:" +"}
+.more-info[open]>summary::after,.source-strip[open]>summary::after{content:" −"}
+.more-info>summary{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.more-info[open]>summary{margin-bottom:10px}
+.source-strip:not([open]){padding:14px 0}
+.source-strip[open]>summary{flex:0 0 100%}
