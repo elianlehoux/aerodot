@@ -98,7 +98,7 @@ import '../../styles/english-weather.css';
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{item.en}</h3>
-            <EnglishSay text={item.say} label={`Escuchar ${item.en}`} quiet />
+            <EnglishSay text={item.say} label={`Escuchar *${item.en}*`} quiet />
           </div>
           <p class="flip-say" lang="en">“{item.display ?? item.say}”</p>
           <div class="flip-back" id={`flip-${item.id}`} hidden>

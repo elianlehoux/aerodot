@@ -132,7 +132,7 @@ const steps = [
             </p>
             <div class="em-panel-piece">
               <p lang="en">“{piece.example}”</p>
-              <EnglishSay text={piece.say} label={piece.official ? `Escuchar la pieza ${index + 1}: ${piece.en}` : `Escuchar lo que se suele agregar: ${piece.en}`} quiet />
+              <EnglishSay text={piece.say} label={piece.official ? `Escuchar la pieza ${index + 1}: *${piece.en}*` : `Escuchar lo que se suele agregar: *${piece.en}*`} quiet />
             </div>
             <p class="em-panel-body">{splitMixed(piece.hint).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
           </div>

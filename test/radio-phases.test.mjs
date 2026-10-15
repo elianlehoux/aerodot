@@ -13,7 +13,7 @@ const phrases = radioPhases.flatMap((phase) => phase.phrases);
 test('radio por fase: las ocho fases existen, en orden y con ids únicos', () => {
   assert.deepEqual(radioPhases.map((phase) => phase.id), PHASE_IDS);
   for (const phase of radioPhases) {
-    for (const field of ['id', 'es', 'en', 'summary', 'listen']) assert.ok(phase[field]?.trim(), `${phase.id}: falta ${field}`);
+    for (const field of ['id', 'mapLabel', 'es', 'en', 'summary', 'listen']) assert.ok(phase[field]?.trim(), `${phase.id}: falta ${field}`);
   }
 });
 
@@ -117,8 +117,8 @@ test('radio por fase: elegí la frase en tres fases distintas, con la clave toma
   assert.equal(new Set(picks.map((item) => item.phase)).size >= 3, true, 'hacen falta tres fases distintas');
   for (const item of picks) {
     assert.equal(item.type, 'mcq', `${item.id}: pick es mcq`);
-    const said = phaseOf(item.phase).lines.map((line) => normalize(line.text)).join(' | ');
-    assert.ok(said.includes(normalize(item.options[item.answer])), `${item.id}: la clave no está en el diálogo de ${item.phase}`);
+    const key = normalize(item.options[item.answer]);
+    assert.ok(phaseOf(item.phase).lines.some((line) => normalize(line.text).includes(key)), `${item.id}: la clave no está en una línea del diálogo de ${item.phase}`);
     assert.ok(item.explain?.trim(), `${item.id}: falta el porqué`);
   }
 });

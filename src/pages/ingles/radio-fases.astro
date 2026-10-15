@@ -46,7 +46,7 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
     <p>En todo el vuelo se repite una regla para ubicar tu distintivo (<em lang="en">callsign</em>). El control lo dice al principio. Vos también, cuando traés algo nuevo o pedís algo. Cuando colacionás o acusás recibo, primero repetís el mensaje y tu distintivo va al final.</p>
     <p>Así lo enseña el manual de radio de la CAA británica (CAP 413) y así lo usamos acá. La norma europea (SERA.14055) solo pide que la colación lleve el distintivo, sin fijar dónde; en los ejemplos de EE. UU. muchas veces va al principio.</p>
     <ul class="rf-rule" role="list">
-      <li><span class="rf-rule-who">Laguna Tower</span><span lang="en"><b>LV-DEM</b>, runway one three, cleared to land.</span></li>
+      <li><span class="rf-rule-who" lang="en">Laguna Tower</span><span lang="en"><b>LV-DEM</b>, runway one three, cleared to land.</span></li>
       <li><span class="rf-rule-who">Vos llamás</span><span lang="en"><b>LV-DEM</b>, downwind.</span></li>
       <li><span class="rf-rule-who">Vos colacionás</span><span lang="en">Runway one three, cleared to land, <b>LV-DEM</b>.</span></li>
     </ul>
@@ -56,14 +56,14 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
     <h2 id="fases">El vuelo, fase por fase</h2>
     <p class="en-block-lede">Ocho fases de un circuito de tránsito VFR en un aeródromo con torre. Primero hablás con rodaje (<span lang="en">Laguna Ground</span>), después con la torre (<span lang="en">Laguna Tower</span>) y al final otra vez con rodaje. En cada fase, lo resaltado es la frase clave.</p>
 
-    <div class="rf-map" role="group" aria-label="Fases del vuelo" data-rf-map hidden>
-      <p class="rf-map-hint" id="rf-map-hint">Elegí una fase. Con el teclado, las flechas pasan de una a otra.</p>
+    <div class="rf-map" role="group" aria-label="Fases del vuelo" aria-describedby="rf-map-hint" data-rf-map hidden>
+      <p class="rf-map-hint" id="rf-map-hint">Elegí una fase. Con el teclado, las flechas pasan de una a otra y Tab sale del mapa.</p>
       <ol class="rf-map-list" role="list">
         {radioPhases.map((phase, index) => (
           <li class="rf-stop" style={`--rf-alt:${altitude[phase.id as keyof typeof altitude]}`}>
-            <button class="rf-stop-button" type="button" aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`rf-${phase.id}`} aria-describedby="rf-map-hint" data-rf-pick={phase.id}>
+            <button class="rf-stop-button" type="button" aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`rf-${phase.id}`} aria-label={`${index + 1}. ${phase.es}`} title={phase.es} data-rf-pick={phase.id}>
               <span class="rf-stop-n" aria-hidden="true">{index + 1}</span>
-              <span class="rf-stop-name">{phase.es}</span>
+              <span class="rf-stop-name" aria-hidden="true">{phase.mapLabel}</span>
             </button>
           </li>
         ))}
@@ -86,7 +86,7 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
                 <span class="sv-who">{line.who === 'pilot' ? <>Vos · {kindLabel[line.kind as keyof typeof kindLabel]}</> : <span lang="en">{speaker(line)}</span>}</span>
                 <div class="sv-bubble">
                   <p lang="en">{pieces(line.text, line.key).map((part) => part.hl ? <mark class="sv-hl">{part.text}</mark> : part.text)}</p>
-                  <EnglishSay text={line.say} label={`${line.who === 'pilot' ? 'Escuchar tu llamada' : `Escuchar a ${speaker(line)}`}, mensaje ${n + 1}: ${phase.es}`} quiet />
+                  <EnglishSay text={line.say} label={`${line.who === 'pilot' ? 'Escuchar tu llamada' : `Escuchar a *${speaker(line)}*`}, mensaje ${n + 1}: ${phase.es.toLowerCase()}`} quiet />
                 </div>
                 {line.note && <p class="sv-note">{splitMixed(line.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>}
               </li>
@@ -101,7 +101,7 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
               <li class="flip" data-flip>
                 <div class="word-head">
                   <h5 class="rf-card-en" lang="en">{item.en}</h5>
-                  <EnglishSay text={item.say} label={`Escuchar la frase ${item.en}`} quiet />
+                  <EnglishSay text={item.say} label={`Escuchar la frase *${item.en}*`} quiet />
                 </div>
                 <p class="flip-say" lang="en">“{item.use}”</p>
                 <div class="flip-back" id={`flip-${item.id}`} hidden>
@@ -139,7 +139,8 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
 
     /*
      * El selector de fases: un grupo de botones que se marcan con aria-pressed (uno a la vez).
-     * Tab entra y sale del grupo, las flechas, Inicio y Fin pasan de una fase a otra, y Espacio o Enter eligen.
+     * Tabulación itinerante: Tab entra al botón elegido y sale del grupo; las flechas, Inicio y Fin pasan de una fase a otra
+     * (y la eligen), y Espacio o Enter eligen.
      * Sin JavaScript el mapa queda oculto y se leen las ocho fases una debajo de la otra.
      * La fase elegida queda en la dirección (#rf-…) mientras dure la visita: no se guarda nada.
      */
@@ -149,8 +150,13 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
       const buttons = [...map.querySelectorAll<HTMLButtonElement>('[data-rf-pick]')];
       const panels = [...flight.querySelectorAll<HTMLElement>('[data-rf-panel]')];
       const ids = buttons.map((button) => button.dataset.rfPick ?? '');
+      /* Tabulación itinerante: solo la fase elegida entra en el orden de Tab; las flechas mueven dentro del grupo. */
       const select = (id: string, focusPanel = false) => {
-        buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.rfPick === id)));
+        buttons.forEach((button) => {
+          const on = button.dataset.rfPick === id;
+          button.setAttribute('aria-pressed', String(on));
+          button.tabIndex = on ? 0 : -1;
+        });
         panels.forEach((panel) => { panel.hidden = panel.dataset.rfPanel !== id; });
         try { history.replaceState(null, '', `#rf-${id}`); } catch { /* sin historial */ }
         if (focusPanel) flight.querySelector<HTMLElement>(`#rf-${id}-title`)?.focus({ preventScroll: true });
@@ -180,7 +186,10 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
       map.hidden = false;
       if (ids.includes(fromHash)) select(fromHash);
       else {
-        buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === 0)));
+        buttons.forEach((button, index) => {
+          button.setAttribute('aria-pressed', String(index === 0));
+          button.tabIndex = index === 0 ? 0 : -1;
+        });
         panels.forEach((panel, index) => { panel.hidden = index !== 0; });
       }
     }

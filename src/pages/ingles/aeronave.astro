@@ -100,7 +100,7 @@ const views = aircraftViews.map((view) => {
             <p class="card-kicker">{word.es}</p>
             <div class="word-head">
               <h2 lang="en">{word.en}</h2>
-              <EnglishSay text={word.en} label={`Escuchar ${word.en}`} quiet />
+              <EnglishSay text={word.en} label={`Escuchar *${word.en}*`} quiet />
             </div>
             <p class="word-body">{word.body}</p>
             {word.moves && <p class="word-moves"><span aria-hidden="true">↻</span> {word.moves}</p>}
@@ -145,7 +145,7 @@ const views = aircraftViews.map((view) => {
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{fault.en}</h3>
-            <EnglishSay text={fault.say} label={`Escuchar ${fault.say}`} quiet />
+            <EnglishSay text={fault.say} label={`Escuchar *${fault.say}*`} quiet />
           </div>
           <p class="flip-say" lang="en">“{fault.say}”</p>
           <div class="flip-back" id={`flip-${fault.id}`} hidden>

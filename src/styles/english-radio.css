@@ -23,7 +23,7 @@
 .rf-stop-button[aria-pressed="true"]{border:2px solid var(--rf-ring);padding:9px 3px 11px;background:color-mix(in srgb,var(--accent) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--rf-ring);font-weight:600}
 .rf-stop-n{display:inline-grid;place-items:center;width:26px;height:26px;border:1px solid var(--muted);border-radius:50%;background:var(--taupe);font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums}
 .rf-stop-button[aria-pressed="true"] .rf-stop-n{border-color:var(--rf-ring);background:var(--rf-ring);color:var(--paper)}
-.rf-stop-name{overflow-wrap:anywhere;hyphens:auto}
+.rf-stop-name{white-space:nowrap}
 /* La línea del perfil: tierra abajo, el circuito arriba. Es decorativa: el número y el nombre ya dicen el orden. */
 .rf-map-list::before{content:"";position:absolute;left:6%;right:6%;bottom:-8px;height:2px;border-radius:2px;background:var(--line)}
 
@@ -56,8 +56,10 @@
 @media(max-width:680px){
   .rf-map{padding:12px}
   .rf-map-list{gap:6px}
-  .rf-stop-button{padding:8px 2px 10px;font-size:11.5px}
-  .rf-stop-button[aria-pressed="true"]{padding:7px 1px 9px}
+  .rf-map-hint{margin-bottom:8px}
+  .rf-stop-button{gap:4px;padding:6px 2px 8px;font-size:12px}
+  .rf-stop-button[aria-pressed="true"]{padding:5px 1px 7px}
+  .rf-stop-n{width:22px;height:22px;font-size:12px}
   .rf-rule li{grid-template-columns:minmax(0,1fr)}
   .rf-panel-title{font-size:21px}
 }

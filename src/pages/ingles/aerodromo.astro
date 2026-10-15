@@ -173,7 +173,7 @@ import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
             <p class="card-kicker">{word.es}</p>
             <div class="word-head">
               <h2 lang="en">{word.en}</h2>
-              <EnglishSay text={word.en} label={`Escuchar ${word.en}`} quiet />
+              <EnglishSay text={word.en} label={`Escuchar *${word.en}*`} quiet />
             </div>
             <p class="word-body">{word.body}</p>
             <div class="word-say">
@@ -218,7 +218,7 @@ import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{word.en}</h3>
-            <EnglishSay text={word.say} label={`Escuchar ${word.say}`} quiet />
+            <EnglishSay text={word.say} label={`Escuchar *${word.say}*`} quiet />
           </div>
           <p class="flip-say" lang="en">“{word.say}”</p>
           <div class="flip-back" id={`flip-${word.id}`} hidden>
