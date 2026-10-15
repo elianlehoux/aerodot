@@ -46,6 +46,7 @@ const who = { tower: 'Torre', pilot: 'Vos' };
             <div class="flip-back" id={`flip-${item.id}`} hidden>
               <p class="flip-es">{item.es}</p>
               <p>{splitMixed(item.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+              {item.link && <p class="sv-link"><a href={item.link.href}>{item.link.text}</a></p>}
             </div>
             <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${item.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
           </li>
@@ -73,7 +74,7 @@ const who = { tower: 'Torre', pilot: 'Vos' };
 
   <ExerciseSet set={survivalSet} />
 
-  <p class="en-sources">Los significados siguen la tabla de palabras y frases normalizadas de la OACI (Anexo 10, Vol. II, cap. 5) y la fraseología del Doc 4444, cap. 12; el uso de EE. UU., el Glosario Piloto/Controlador de la FAA. El aeródromo Laguna, la matrícula LV-DEM y los números de los ejemplos son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">Los significados siguen la tabla de palabras y frases normalizadas de la OACI (Anexo 10, Vol. II, cap. 5) y la fraseología del Doc 4444, cap. 12; el uso de EE. UU., el Glosario Piloto/Controlador de la FAA. <span lang="en">Please spell</span> es lenguaje claro: <span lang="en">spell</span> no figura en esa tabla, ni en la de SERA (Tabla S14-4) ni en el glosario de la FAA; el manual británico (CAP 413) la incluye solo entre las palabras de uso militar. El aeródromo Laguna, la matrícula LV-DEM y los números de los ejemplos son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
 
   <EnglishFinish slug="supervivencia" where="Frases de supervivencia" />
   <script>

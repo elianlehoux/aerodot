@@ -145,7 +145,8 @@ export const emergencyPositions = [
 ];
 
 /** Lo que se suele agregar al final. */
-export const emergencyExtra = { en: 'two persons on board, endurance one hour', es: 'Personas a bordo y autonomía' };
+/* Solo las personas a bordo: con un aterrizaje forzoso en curso, la autonomía no le sirve a nadie. */
+export const emergencyExtra = { en: 'two persons on board', es: 'Personas a bordo' };
 
 /** La estación y el distintivo de práctica. */
 export const emergencyStation = 'Laguna Tower';

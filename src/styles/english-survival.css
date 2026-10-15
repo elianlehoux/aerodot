@@ -6,8 +6,10 @@
 .radio-block>p em,.flip-back em,.sv-note em{font-style:italic;color:var(--ink)}
 .flip-say{overflow-wrap:anywhere}
 
-/* La tarjeta aparte, con el uso de EE. UU. */
+/* Las tarjetas aparte: el uso de EE. UU. y el lenguaje claro (no está en la tabla de palabras normalizadas). */
 .sv-aside{border-style:dashed}
+.flip-back .sv-link{margin-top:10px}
+.sv-link a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .sv-tag{align-self:flex-start;margin-bottom:8px;padding:4px 8px;border:1px solid var(--line);border-radius:var(--radius-button);color:var(--graphite);font:500 12px/1 var(--sans);letter-spacing:.04em}
 
 /* Una llamada con problemas: burbujas alternadas torre / piloto. El subrayado del resaltado pasa 3:1 en los dos temas. */

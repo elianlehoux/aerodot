@@ -140,6 +140,16 @@ test('supervivencia: las cifras de say van en palabras y cada grupo tiene de 3 a
   assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
 });
 
+test('supervivencia: spell va en No entendí como lenguaje claro, con el alfabeto a mano', () => {
+  const group = survivalGroups.find((entry) => entry.id === 'no-entendi');
+  const spell = group.phrases.find((phrase) => phrase.id === 'spell');
+  assert.ok(spell, 'falta la tarjeta de spell');
+  assert.equal(spell.tag, 'Lenguaje claro');
+  assert.match(spell.body, /no está en la tabla de palabras normalizadas/i);
+  assert.equal(spell.link?.href, '/ingles/numeros');
+  assert.ok(spell.link?.text?.trim());
+});
+
 test('prompt y explain: un asterisco sin pareja es un error', () => {
   const prompt = good(); prompt.items[0].prompt = 'Se dice *say again';
   assert.ok(validateSet(prompt).some((e) => e.includes('asterisco')));

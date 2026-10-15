@@ -162,3 +162,9 @@ test('emergencias: los asteriscos del inglés en los textos en español van de a
   ];
   for (const text of texts) assert.equal(hasUnmatchedMarker(text), false, text);
 });
+
+test('el ejemplo de aterrizaje forzoso agrega solo las personas a bordo: no promete una hora de autonomía', () => {
+  assert.equal(emergencyExtra.en, 'two persons on board');
+  assert.doesNotMatch(emergencyExample.text, /endurance/);
+  assert.match(emergencyExample.text, /two persons on board\.$/);
+});

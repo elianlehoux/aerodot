@@ -7,6 +7,8 @@
  * En body, lede y note, las palabras en inglés van entre asteriscos: la página les pone lang="en".
  * Cada frase: en (cómo se escribe), es (su nombre en español), say (lo que lee la voz, sin
  * cifras), body (qué significa y cuándo se usa) y use (un ejemplo corto en contexto).
+ * Opcionales: tag (una etiqueta, por ejemplo la de lenguaje claro: no está en la tabla de palabras
+ * normalizadas) y link ({ href, text }, un enlace al pie de la explicación).
  * Laguna y LV-DEM son de práctica. Se escribe three, four, five y nine (ver english.js).
  */
 
@@ -41,6 +43,16 @@ export const survivalGroups = [
         say: `${DEM}, say again, speak slower.`,
         use: 'LV-DEM, say again, speak slower.',
         body: 'Pedís que bajen la velocidad al hablar. Sirve cuando el mensaje llega todo junto y no alcanzás a anotarlo.',
+      },
+      {
+        id: 'spell',
+        tag: 'Lenguaje claro',
+        en: 'please spell',
+        es: 'deletreá, por favor',
+        say: `${DEM}, please spell the name of the reporting point.`,
+        use: 'LV-DEM, please spell the name of the reporting point.',
+        body: 'No está en la tabla de palabras normalizadas: es lenguaje claro, y se usa cuando no hay una frase normalizada. Pedís que te deletreen un nombre que no conocés, como un punto de notificación, y te lo dicen letra por letra con el alfabeto fonético.',
+        link: { href: '/ingles/numeros', text: 'Repasá el alfabeto fonético' },
       },
       {
         id: 'words-twice',
