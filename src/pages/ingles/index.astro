@@ -61,6 +61,18 @@ const phases = englishPhases.map((phase) => {
                       </g>
                     </svg>
                   )}
+                  {section.slug === 'autorizacion' && (
+                    <svg class="ea-art" viewBox="0 0 240 120">
+                      <g lang="en">
+                        {['C', 'R', 'A', 'F', 'T'].map((letter, index) => (
+                          <g class:list={['ea-cl-box', { 'is-key': letter === 'A' }]} style={`--d:${index * 0.12}s`}>
+                            <rect x={16 + index * 43} y="36" width="35" height="48" rx="8" />
+                            <text x={33.5 + index * 43} y="60">{letter}</text>
+                          </g>
+                        ))}
+                      </g>
+                    </svg>
+                  )}
                   {section.slug === 'aerodromo' && (
                     <svg class="ea-art" viewBox="0 0 240 120">
                       <defs>

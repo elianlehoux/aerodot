@@ -1,5 +1,7 @@
 /** Sets de ejercicios del motor. Esquema en src/scripts/exercises/validate.js. */
 
+import { hearbackCases, hearbackDrills } from './english-clearance.js';
+
 /** Cómo se dice el tiempo por radio. */
 export const weatherSet = {
   id: 'weather-say',
@@ -57,5 +59,65 @@ export const survivalSet = {
       options: ['Hold on', 'Standby', 'Wait me', 'Roger'], answer: 1 },
     { id: 's10', type: 'tf', prompt: 'Un “*roger*” alcanza para responder una autorización que hay que colacionar.', answer: false,
       explain: 'Las partes de seguridad de una autorización se colacionan. *Roger* no las reemplaza.' },
+  ],
+};
+
+/** Una pregunta de hearback: el dato mal colacionado es la opción que el caso declara en wrong.label. */
+const hearbackItem = (entry, prompt) => ({
+  id: entry.id,
+  type: 'mcq',
+  prompt,
+  options: entry.options,
+  answer: entry.options.indexOf(entry.wrong.label),
+  explain: entry.explain,
+});
+
+/**
+ * Encontrá el error: una pregunta por cada caso de la página (las burbujas están arriba).
+ * No marca el tema como listo (track: false): eso lo hace la práctica del final.
+ */
+export const hearbackSet = {
+  id: 'hearback-cases',
+  slug: 'autorizacion',
+  track: false,
+  title: 'Encontrá el error',
+  lede: 'El controlador también escucha la colación: así se agarra un error a tiempo. En cada caso hay un solo dato mal repetido. Escuchá o leé y elegí cuál es.',
+  items: hearbackCases.map((entry, index) => hearbackItem(entry, `Caso ${index + 1}. ¿Qué dato colacionó mal el piloto?`)),
+};
+
+/**
+ * Autorización y colación. En prompt y explain, el inglés va entre asteriscos (ver scripts/mixed.js).
+ * Las opciones incorrectas son los errores típicos: contestar *roger*, olvidar el distintivo,
+ * tomar *line up and wait* como permiso para despegar o colacionar la información.
+ */
+export const clearanceSet = {
+  id: 'clearance-say',
+  slug: 'autorizacion',
+  title: 'Colacioná bien',
+  lede: 'Diez mensajes de la torre. Armá la colación, encontrá el dato mal repetido y decidí qué se colaciona.',
+  items: [
+    { id: 'c1', type: 'order', prompt: 'La torre te dice “*LV-DEM, runway one three, cleared for take-off.*” Armá tu colación.',
+      tokens: ['runway', 'one three', 'cleared', 'for', 'take-off', 'LV-DEM'],
+      answer: ['runway', 'one three', 'cleared', 'for', 'take-off', 'LV-DEM'],
+      alternatives: [['cleared', 'for', 'take-off', 'runway', 'one three', 'LV-DEM']],
+      explain: 'Repetís la pista y la autorización, y terminás con tu distintivo.' },
+    ...hearbackDrills.map((entry) => hearbackItem(entry,
+      `Torre: “*${entry.tower}*” Piloto: “*${entry.pilot}*” ¿Qué dato colacionó mal el piloto?`)),
+    { id: 'c5', type: 'gap', prompt: 'El código de transpondedor que te asignaron es 4521. Completá la pieza que falta en tu colación.',
+      sentence: 'Squawk ___, LV-DEM', answers: ['four five two one', '4521'],
+      explain: 'Este código se dice cifra por cifra: *four five two one*.' },
+    { id: 'c6', type: 'tf', prompt: 'En la colación, primero repetís el mensaje y al final va tu distintivo: “*Runway one three, cleared to land, LV-DEM.*”',
+      say: 'Runway one three, cleared to land, Lima Victor Delta Echo Mike.', answer: true,
+      explain: 'Así lo indica el manual de radio británico (CAP 413): la torre te nombra primero y vos terminás con tu distintivo.' },
+    { id: 'c7', type: 'tf', prompt: 'El viento que te pasa la torre (“*wind one four zero degrees eight knots*”) está en la lista de lo que se colaciona siempre.',
+      say: 'Wind one four zero degrees eight knots', answer: false,
+      explain: 'El viento es información y no está en la lista. Si no lo entendiste, pedí *say again*.' },
+    { id: 'c8', type: 'tf', prompt: 'El código de transpondedor (*squawk*) está en la lista de lo que se colaciona siempre.', answer: true,
+      explain: 'Los códigos SSR están en la lista, junto con la pista en uso, el QNH y las instrucciones de nivel, rumbo y velocidad.' },
+    { id: 'c9', type: 'tf', prompt: '“*Line up and wait*” te autoriza a despegar.', say: 'Line up and wait', answer: false,
+      explain: 'Te alineás en la pista y esperás. Para despegar necesitás *cleared for take-off*.' },
+    { id: 'c10', type: 'mcq', prompt: 'La torre te dice “*LV-DEM, QNH one zero one three.*” ¿Qué contestás?',
+      options: ['QNH one zero one three, LV-DEM', 'Roger, LV-DEM', 'QNH one zero one three', 'Copied, LV-DEM'], answer: 0,
+      explain: 'El ajuste del altímetro se colaciona: *roger* o *copied* no lo reemplazan. Y sin tu distintivo, la torre no sabe quién colacionó.' },
   ],
 };

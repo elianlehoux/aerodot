@@ -184,7 +184,8 @@ const runSet = (root, set) => {
       el('p', { class: 'quiz-verdict', text: passed ? 'Lo tenés.' : 'Casi. Repasá las frases y probá de nuevo.' }),
       el('div', { class: 'ex-actions' }, again)));
     score.focus();
-    if (passed) {
+    /* track: false es una práctica de apoyo: aprobarla no marca el tema como listo. */
+    if (passed && set.track !== false) {
       try { markEnglishReady(set.slug); } catch { /* sin avance guardado */ }
     }
   };

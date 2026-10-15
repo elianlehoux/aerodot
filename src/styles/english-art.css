@@ -67,3 +67,14 @@ html[data-theme="light"] .ea-art{--ea-asphalt-a:#5d5953;--ea-asphalt-b:#4f4b45;-
   .topic-card:hover .ea-plane,.topic-card:hover .ea-sound,.topic-card:hover .ea-bar{animation:none}
   .topic-card .ea-sv-ask,.topic-card .ea-sv-answer{animation:none!important}
 }
+
+/* Autorización y colación: las cinco piezas de CRAFT, con la A destacada */
+.ea-cl-box rect{fill:var(--paper);stroke:var(--muted);stroke-width:1.4}
+.ea-cl-box text{fill:var(--ink);font:600 22px/1 var(--sans);text-anchor:middle;dominant-baseline:central}
+.ea-cl-box.is-key rect{fill:color-mix(in srgb,var(--accent) 22%,var(--paper));stroke:var(--accent);stroke-width:2}
+.ea-cl-box{transform-box:fill-box;transform-origin:center}
+.topic-card:hover .ea-cl-box,.topic-card:focus-visible .ea-cl-box{animation:ea-cl-step 1.8s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ea-cl-step{0%,60%,100%{transform:translateY(0)}20%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){
+  .topic-card .ea-cl-box{animation:none!important}
+}

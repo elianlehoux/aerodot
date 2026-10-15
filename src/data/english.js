@@ -26,7 +26,7 @@ export const englishSections = [
   { slug: 'tiempo', phase: 'base', title: 'El tiempo', blurb: 'Cómo se dicen las nubes y los fenómenos por radio.', href: '/ingles/tiempo' },
 
   { slug: 'atis', phase: 'comunicaciones', title: 'El ATIS', blurb: 'El parte grabado antes de llamar a la torre.', href: '/ingles/atis' },
-  { phase: 'comunicaciones', title: 'Autorización y colación', blurb: 'Qué te autorizan, cómo lo repetís y cómo se detecta un error.' },
+  { slug: 'autorizacion', phase: 'comunicaciones', title: 'Autorización y colación', blurb: 'Qué te autorizan, cómo lo repetís y cómo se detecta un error.', href: '/ingles/autorizacion' },
   { phase: 'comunicaciones', title: 'Radio por fase de vuelo', blurb: 'De la puesta en marcha a la final: qué se dice en cada tramo.' },
 
   { phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Aviar, navegar, comunicar: el mensaje de emergencia paso a paso.' },

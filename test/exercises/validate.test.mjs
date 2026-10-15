@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
-import { survivalSet, weatherSet } from '../../src/data/english-sets.js';
+import { clearanceSet, hearbackSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
+import { clearanceExamples, clearanceParts, craftExample, hearbackCases, hearbackDrills, readbackItems } from '../../src/data/english-clearance.js';
+import { normalize } from '../../src/scripts/exercises/grade.js';
 import { survivalCall, survivalGroups } from '../../src/data/english-survival.js';
 import { hasUnmatchedMarker } from '../../src/scripts/mixed.js';
 
@@ -125,4 +127,120 @@ test('supervivencia: los asteriscos del inglés en los textos en español van de
     ...survivalCall.map((line) => line.note),
   ];
   for (const text of texts) assert.equal(hasUnmatchedMarker(text), false, text);
+});
+
+/* ---- Autorización y colación ---- */
+
+test('track: si está, debe ser true o false', () => {
+  const ok = good(); ok.track = false;
+  assert.deepEqual(validateSet(ok), []);
+  const bad = good(); bad.track = 'no';
+  assert.ok(validateSet(bad).some((e) => e.includes('track')));
+});
+
+test('el set de autorización que se publica es válido y tiene los tipos que pide el módulo', () => {
+  assert.deepEqual(validateSet(clearanceSet), []);
+  assert.equal(clearanceSet.id, 'clearance-say');
+  assert.equal(clearanceSet.slug, 'autorizacion');
+  assert.equal(clearanceSet.items.length, 10);
+  const count = (type) => clearanceSet.items.filter((item) => item.type === type).length;
+  assert.ok(count('order') >= 1 && count('gap') >= 1 && count('tf') >= 1);
+  const order = clearanceSet.items.find((item) => item.type === 'order');
+  assert.ok(order.tokens.length >= 5 && order.tokens.length <= 7, 'la colación para armar tiene de 5 a 7 fichas');
+  assert.equal(order.answer.at(-1), 'LV-DEM', 'la colación termina con el distintivo');
+  for (const drill of hearbackDrills) {
+    const item = clearanceSet.items.find((entry) => entry.id === drill.id);
+    assert.ok(item, `falta el ítem del caso ${drill.id}`);
+    assert.equal(item.type, 'mcq');
+    assert.equal(item.options[item.answer], drill.wrong.label);
+  }
+  assert.equal(hearbackDrills.length, 3);
+});
+
+test('el set de los casos de hearback es válido, no marca el tema y cada mcq apunta al dato mal colacionado', () => {
+  assert.deepEqual(validateSet(hearbackSet), []);
+  assert.equal(hearbackSet.track, false);
+  assert.equal(hearbackCases.length, 3);
+  assert.equal(hearbackSet.items.length, hearbackCases.length);
+  hearbackCases.forEach((entry, index) => {
+    const item = hearbackSet.items[index];
+    assert.equal(item.type, 'mcq');
+    assert.equal(item.options[item.answer], entry.wrong.label);
+  });
+});
+
+/** Palabras comparables, sin el distintivo: la torre lo dice primero y el piloto al final. */
+const words = (text) => normalize(text).split(' ').filter((word) => word && word !== 'lv-dem');
+const indexOf = (list, part) => list.findIndex((_, i) => part.every((word, j) => list[i + j] === word));
+
+test('hearback: la colación difiere de lo que dijo la torre solo en el dato que el caso declara', () => {
+  for (const entry of [...hearbackCases, ...hearbackDrills]) {
+    assert.match(entry.tower, /^LV-DEM, /, `${entry.id}: la torre empieza por el distintivo`);
+    assert.match(entry.pilot, /, LV-DEM\.$/, `${entry.id}: la colación termina con el distintivo`);
+    const tower = words(entry.tower);
+    const pilot = words(entry.pilot);
+    const towerField = words(entry.wrong.tower);
+    const pilotField = words(entry.wrong.pilot);
+    assert.notDeepEqual(towerField, pilotField, `${entry.id}: el dato mal colacionado tiene que ser distinto`);
+    const at = indexOf(tower, towerField);
+    assert.ok(at >= 0, `${entry.id}: la torre no dice "${entry.wrong.tower}"`);
+    assert.deepEqual(pilot.slice(at, at + pilotField.length), pilotField, `${entry.id}: el piloto no dice "${entry.wrong.pilot}" en el mismo lugar`);
+    const restTower = [...tower.slice(0, at), ...tower.slice(at + towerField.length)];
+    const restPilot = [...pilot.slice(0, at), ...pilot.slice(at + pilotField.length)];
+    assert.deepEqual(restPilot, restTower, `${entry.id}: hay otra diferencia además de ${entry.wrong.label}`);
+  }
+});
+
+test('autorización: las cifras de say van en palabras', () => {
+  const says = [
+    craftExample.say, craftExample.readbackSay,
+    ...clearanceParts.map((part) => part.say),
+    ...clearanceExamples.flatMap((card) => [card.say, card.replySay]),
+    ...[...hearbackCases, ...hearbackDrills].flatMap((entry) => [entry.towerSay, entry.pilotSay]),
+    ...readbackItems.filter((item) => item.en).map((item) => item.say),
+    ...[...clearanceSet.items, ...hearbackSet.items].map((item) => item.say).filter((say) => say !== undefined),
+  ];
+  for (const say of says) {
+    assert.ok(typeof say === 'string' && say.trim(), 'say vacío');
+    assert.doesNotMatch(say, /[0-9]/, `say con cifras: ${say}`);
+  }
+});
+
+test('autorización: CRAFT son cinco piezas y el ejemplo se arma con ellas', () => {
+  assert.deepEqual(clearanceParts.map((part) => part.letter), ['C', 'R', 'A', 'F', 'T']);
+  for (const part of clearanceParts) {
+    for (const field of ['id', 'letter', 'en', 'es', 'piece', 'say', 'body']) assert.ok(part[field]?.trim(), `${part.id}: falta ${field}`);
+    const pieces = craftExample.parts.filter((chunk) => chunk.part === part.id);
+    assert.equal(pieces.length, 1, `${part.id}: la pieza aparece una vez en el ejemplo`);
+    assert.equal(pieces[0].text, part.piece);
+  }
+  const shown = craftExample.parts.map((chunk) => chunk.text).join('');
+  assert.equal(shown, craftExample.text);
+  assert.equal(shown.replaceAll('LV-DEM', 'Lima Victor Delta Echo Mike'), craftExample.say);
+  assert.match(craftExample.text, /^LV-DEM, /);
+  assert.match(craftExample.readback, /, LV-DEM\.$/);
+  assert.equal(craftExample.readback.replaceAll('LV-DEM', 'Lima Victor Delta Echo Mike'), craftExample.readbackSay);
+});
+
+test('autorización: las tarjetas del circuito, la lista y los asteriscos', () => {
+  const ids = clearanceExamples.map((card) => card.id);
+  assert.equal(new Set(ids).size, ids.length);
+  for (const card of clearanceExamples) {
+    for (const field of ['id', 'en', 'es', 'kind', 'tower', 'say', 'reply', 'replySay', 'body']) assert.ok(card[field]?.trim(), `${card.id}: falta ${field}`);
+    assert.match(card.tower, /^LV-DEM, /, `${card.id}: la torre empieza por el distintivo`);
+    assert.match(card.reply, /, LV-DEM\.$/, `${card.id}: la respuesta termina con el distintivo`);
+    assert.equal(card.tower.replaceAll('LV-DEM', 'Lima Victor Delta Echo Mike'), card.say);
+    assert.equal(card.reply.replaceAll('LV-DEM', 'Lima Victor Delta Echo Mike'), card.replySay);
+  }
+  assert.ok(clearanceExamples.some((card) => card.en === 'report downwind' && card.body.includes('inicial')));
+  const texts = [
+    ...clearanceParts.map((part) => part.body),
+    ...clearanceExamples.map((card) => card.body),
+    ...readbackItems.map((item) => item.es),
+    ...[...hearbackCases, ...hearbackDrills].map((entry) => entry.explain),
+  ];
+  for (const text of texts) {
+    assert.ok(text?.trim(), 'texto vacío');
+    assert.equal(hasUnmatchedMarker(text), false, text);
+  }
 });
