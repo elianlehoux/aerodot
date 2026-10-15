@@ -1,4 +1,4 @@
-import { gradeChoice, gradeGap, gradeOrder, gradeTf, shuffle, summarize } from './grade.js';
+import { gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize } from './grade.js';
 import { validateSet } from './validate.js';
 import { markEnglishReady } from '../english.js';
 
@@ -49,7 +49,7 @@ const buildTf = (item, change) => {
 
 const buildGap = (item, change, submit) => {
   const [before, after] = item.sentence.split('___');
-  const input = el('input', { class: 'ex-input', type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': 'Palabra que falta', lang: 'en' });
+  const input = el('input', { class: 'ex-input', type: 'text', autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', enterkeyhint: 'done', spellcheck: 'false', 'aria-label': 'Palabra que falta', lang: 'en' });
   input.addEventListener('input', change);
   input.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter') return;
@@ -91,7 +91,12 @@ const buildOrder = (item, change) => {
       return chip;
     }));
   };
-  bank.push(...shuffle(item.tokens));
+  /* Si la mezcla sale ya resuelta, se vuelve a mezclar (con tope, por si todas las fichas son iguales). */
+  const text = (tokens) => tokens.map(normalize).join(' ');
+  const solved = text(item.answer);
+  let mixed = shuffle(item.tokens);
+  for (let tries = 0; item.tokens.length > 1 && text(mixed) === solved && tries < 10; tries += 1) mixed = shuffle(item.tokens);
+  bank.push(...mixed);
   paint();
   return {
     node: el('div', { class: 'ex-order' }, builtRow, bankRow),
@@ -153,22 +158,25 @@ const runSet = (root, set) => {
     });
     next.addEventListener('click', () => { index += 1; show(true); });
 
-    stage.replaceChildren(el('div', { class: 'ex-card' }, progress, say, prompt, built.node, feedback, el('div', { class: 'ex-actions' }, check, next)));
+    const position = el('p', { class: 'visually-hidden', text: `Pregunta ${index + 1} de ${items.length}` });
+    stage.replaceChildren(el('div', { class: 'ex-card' }, position, progress, say, prompt, built.node, feedback, el('div', { class: 'ex-actions' }, check, next)));
     if (moveFocus) prompt.focus();
   };
 
   const finish = () => {
     const { correct, total, passed } = summarize(results, set.passMark);
-    if (passed) markEnglishReady(set.slug);
     const score = el('p', { class: 'quiz-score', tabindex: '-1', text: `${correct} de ${total}` });
     const again = el('button', { class: 'button-primary', type: 'button', text: 'Otra vez' });
     again.addEventListener('click', () => start(true));
     stage.replaceChildren(el('div', { class: 'ex-card ex-done' },
       el('p', { class: 'card-kicker', text: 'Al primer intento' }),
       score,
-      el('p', { class: 'quiz-verdict', text: passed ? 'Lo tenés. Tema guardado como listo.' : 'Casi. Repasá las frases y probá de nuevo.' }),
+      el('p', { class: 'quiz-verdict', text: passed ? 'Lo tenés.' : 'Casi. Repasá las frases y probá de nuevo.' }),
       el('div', { class: 'ex-actions' }, again)));
     score.focus();
+    if (passed) {
+      try { markEnglishReady(set.slug); } catch { /* sin avance guardado */ }
+    }
   };
 
   start();
@@ -181,7 +189,8 @@ export const mountExerciseSets = () => {
     let set;
     try {
       set = JSON.parse(root.querySelector('[data-exercise-json]')?.textContent ?? '');
-    } catch {
+    } catch (error) {
+      console.error('Set de ejercicios ilegible:', error);
       root.hidden = true;
       return;
     }

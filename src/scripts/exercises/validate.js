@@ -33,6 +33,9 @@ export const validateSet = (set) => {
   if (!isText(set.id)) errors.push('Falta set.id.');
   if (!isText(set.slug)) errors.push(`${id}: falta slug.`);
   if (!isText(set.title)) errors.push(`${id}: falta title.`);
+  if (set.passMark !== undefined && !(typeof set.passMark === 'number' && set.passMark > 0 && set.passMark <= 1)) {
+    errors.push(`${id}: passMark debe ser un número entre 0 (exclusivo) y 1.`);
+  }
   if (!Array.isArray(set.items) || set.items.length === 0) return [...errors, `${id}: items está vacío.`];
   const seen = new Set();
   set.items.forEach((item, index) => {

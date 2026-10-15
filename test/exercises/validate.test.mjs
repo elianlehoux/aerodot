@@ -56,3 +56,14 @@ test('order: alternatives debe ser una lista de órdenes con las mismas fichas',
   const tokens = good(); tokens.items[3].alternatives = [['in', 'the']];
   assert.ok(validateSet(tokens).some((e) => e.includes('alternatives')));
 });
+
+test('passMark: si está, debe ser un número entre 0 (exclusivo) y 1', () => {
+  for (const bad of [null, '0.5', 0, 1.5]) {
+    const s = good(); s.passMark = bad;
+    assert.ok(validateSet(s).some((e) => e.includes('passMark')), `debería rechazar ${JSON.stringify(bad)}`);
+  }
+  for (const ok of [0.5, 1, undefined]) {
+    const s = good(); if (ok !== undefined) s.passMark = ok;
+    assert.deepEqual(validateSet(s), []);
+  }
+});
