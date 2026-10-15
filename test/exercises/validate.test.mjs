@@ -110,7 +110,9 @@ test('prompt y explain: un asterisco sin pareja es un error', () => {
   assert.ok(validateSet(prompt).some((e) => e.includes('asterisco')));
   const explain = good(); explain.items[1].explain = '*Roger* no es *wilco';
   assert.ok(validateSet(explain).some((e) => e.includes('asterisco')));
-  const ok = good(); ok.items[1].prompt = '*Roger* no es *wilco*'; ok.items[1].explain = 'Es *wilco*.';
+  const lede = good(); lede.lede = 'Pedí *confirm';
+  assert.ok(validateSet(lede).some((e) => e.includes('lede') && e.includes('asterisco')));
+  const ok = good(); ok.items[1].prompt = '*Roger* no es *wilco*'; ok.items[1].explain = 'Es *wilco*.'; ok.lede = 'Pedí *confirm*.';
   assert.deepEqual(validateSet(ok), []);
 });
 

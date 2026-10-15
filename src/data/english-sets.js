@@ -95,7 +95,7 @@ export const clearanceSet = {
   id: 'clearance-say',
   slug: 'autorizacion',
   title: 'Colacioná bien',
-  lede: 'Diez mensajes de la torre. Armá la colación, encontrá el dato mal repetido y decidí qué se colaciona.',
+  lede: 'Diez mensajes del control. Armá la colación, encontrá el dato mal repetido y decidí qué se colaciona.',
   items: [
     { id: 'c1', type: 'order', prompt: 'La torre te dice “*LV-DEM, runway one three, cleared for take-off.*” Armá tu colación.',
       tokens: ['runway', 'one three', 'cleared', 'for', 'take-off', 'LV-DEM'],
