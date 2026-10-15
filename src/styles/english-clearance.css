@@ -3,7 +3,6 @@
 /* Un color por pieza de CRAFT. Como texto y borde pasan 4,5:1 sobre el papel en los dos temas. */
 .english-page{
   --cl-c:#ff9a5c;--cl-r:#e6b545;--cl-a:#5fd39a;--cl-f:#93abff;--cl-t:#ec9bd8;
-  --cl-ring:color-mix(in srgb,var(--accent) 50%,var(--ink));
 }
 html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#11703a;--cl-f:#0447ff;--cl-t:#9a1aa6}
 [data-cl-tone="c"]{--cl-tone:var(--cl-c)}
@@ -12,8 +11,7 @@ html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#117
 [data-cl-tone="f"]{--cl-tone:var(--cl-f)}
 [data-cl-tone="t"]{--cl-tone:var(--cl-t)}
 
-.radio-block>p+p{margin-top:10px}
-.cl-tag-clear{border-color:var(--cl-ring);color:var(--ink)}
+.cl-tag-clear{border-color:var(--en-ring);color:var(--ink)}
 .cl-reply{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
 .cl-reply p{min-width:0;overflow-wrap:anywhere}
 .cl-reply-label{display:block;margin-bottom:2px;color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
@@ -27,7 +25,7 @@ html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#117
 .cl-part{position:relative;display:grid;justify-items:center;gap:4px;min-height:72px;padding:10px 4px;border:2px solid var(--cl-tone);border-radius:14px;background:var(--paper);color:var(--ink);font:500 12px/1.2 var(--sans);cursor:pointer;transition:background .15s ease}
 .cl-radio{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
 .cl-part:hover{background:color-mix(in srgb,var(--cl-tone) 10%,var(--paper))}
-.cl-part:has(.cl-radio:focus-visible){outline:3px solid var(--cl-ring);outline-offset:2px}
+.cl-part:has(.cl-radio:focus-visible){outline:3px solid var(--en-ring);outline-offset:2px}
 .cl-part:has(.cl-radio:checked){background:color-mix(in srgb,var(--cl-tone) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--cl-tone)}
 .cl-letter{color:var(--cl-tone);font:600 26px/1 var(--sans)}
 .cl-part-name{text-align:center;overflow-wrap:anywhere}
@@ -44,8 +42,7 @@ html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#117
 .cl-panel-piece{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
 .cl-panel-piece p{min-width:0;margin:0;color:var(--ink);font-size:16px;font-weight:500;overflow-wrap:anywhere}
 .cl-panel-body{margin:6px 0 0;color:var(--graphite);font-size:14px;line-height:1.5}
-.cl-panel-body em,.cl-list em,.cl-rules em{font-style:italic;color:var(--ink)}
-.cl-note{margin:12px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
+.cl-panel-body em,.cl-list em{font-style:italic;color:var(--ink)}
 
 /* Qué se colaciona siempre */
 .cl-list{display:grid;gap:8px;max-width:760px;margin:18px 0 0;padding:0;list-style:none;counter-reset:cl}
@@ -54,7 +51,6 @@ html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#117
 .cl-list p{margin:0;color:var(--ink);font-size:15px;line-height:1.5}
 .cl-list-example{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:14px}
 .cl-list-example span{min-width:0;overflow-wrap:anywhere}
-.cl-rules{display:grid;gap:8px;max-width:760px;margin:16px 0 0;padding:0 0 0 18px;color:var(--graphite);font-size:15px;line-height:1.55}
 
 /* Encontrá el error: los casos van dentro del set, antes de las preguntas */
 .cl-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 22px;padding:0;list-style:none}

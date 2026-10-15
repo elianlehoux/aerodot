@@ -1,4 +1,5 @@
-.english-page{--en-ok:var(--accent);--en-bad:var(--ember);width:min(1120px,100%);margin:0 auto;padding:44px 34px 84px}
+/* --en-ring: el anillo de foco, de la pieza elegida y del subrayado del resaltado; pasa 3:1 sobre el papel en los dos temas. */
+.english-page{--en-ok:var(--accent);--en-bad:var(--ember);--en-ring:color-mix(in srgb,var(--accent) 50%,var(--ink));width:min(1120px,100%);margin:0 auto;padding:44px 34px 84px}
 .english-page h1{margin:12px 0 13px;color:var(--ink);font:300 clamp(40px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.025em;text-wrap:balance}
 .english-page h1 em{font:inherit;font-style:italic}
 .english-page h2{margin:0;color:var(--ink);font:300 clamp(26px,3vw,32px)/1.18 var(--display);letter-spacing:-.02em}
@@ -166,6 +167,11 @@ html[data-theme="light"] .field-svg{--fs-dot:#e1ddd7;--fs-strip:#eeebe6;--fs-asp
 @media(max-width:860px){.english-page:has(.study-page-toc){padding-right:20px}}
 .radio-block{margin-top:48px}
 .radio-block>p{max-width:62ch;margin:8px 0 0;color:var(--muted);font-size:15px;line-height:1.55}
+.radio-block>p+p{margin-top:10px}
+/* Reglas cortas en lista y aclaraciones al pie de un bloque (autorización, emergencias). */
+.en-rules{display:grid;gap:8px;max-width:760px;margin:16px 0 0;padding:0 0 0 18px;color:var(--graphite);font-size:15px;line-height:1.55}
+.en-rules em{font-style:italic;color:var(--ink)}
+.en-note{margin:12px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
 .flip-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 0;padding:0;list-style:none}
 .flip{display:flex;flex-direction:column;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--paper);transition:border-color .2s ease,background .2s ease}
 .flip.is-open{border-color:var(--ink);background:var(--taupe)}

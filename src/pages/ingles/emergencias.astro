@@ -87,7 +87,7 @@ const steps = [
         </li>
       ))}
     </ul>
-    <ul class="cl-rules em-rules" role="list">
+    <ul class="en-rules em-rules" role="list">
       <li>Cada <em lang="en">pan</em> se pronuncia como la palabra francesa «panne» (avería).</li>
       <li>Si una urgencia se vuelve un peligro grave o inminente y necesitás ayuda inmediata, ya es socorro: <em lang="en">MAYDAY</em>. Si el problema resulta menos grave de lo que pensabas, podés cancelar la emergencia: <em lang="en">cancel MAYDAY</em>.</li>
       <li><em lang="en">PAN PAN MEDICAL</em> no es para un pasajero descompuesto: anuncia un transporte sanitario protegido por los Convenios de Ginebra. Para alguien que se siente mal a bordo, usás <em lang="en">PAN PAN</em> o, si su vida corre peligro, <em lang="en">MAYDAY</em>.</li>
@@ -138,7 +138,7 @@ const steps = [
           </div>
         ))}
       </div>
-      <p class="cl-note">Para la urgencia el orden es el mismo, con <span lang="en">PAN PAN</span> al principio.</p>
+      <p class="en-note">Para la urgencia el orden es el mismo, con <span lang="en">PAN PAN</span> al principio.</p>
     </div>
   </section>
 
@@ -213,7 +213,7 @@ const steps = [
       {emergencyNatures.filter((nature) => nature.note).map((nature) => (
         <p class="em-note" data-em-note={nature.id} hidden={nature.id !== 'engine-failure'}>{splitMixed(nature.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
       ))}
-      <p class="cl-note">Laguna, Santa Brisa, las distancias, las alturas y los rumbos son de práctica.</p>
+      <p class="en-note">Laguna, Santa Brisa, las distancias, las alturas y los rumbos son de práctica.</p>
     </div>
   </section>
 

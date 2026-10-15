@@ -1,15 +1,13 @@
 /* Radio por fase de vuelo (/ingles/radio-fases). Usa flip, en-say, radio-block y las burbujas sv- de english-survival.css. */
 
-/* El anillo del foco y de la fase elegida: el mismo de Autorización, pasa 3:1 sobre el papel en los dos temas. */
-.english-page{--rf-ring:color-mix(in srgb,var(--accent) 50%,var(--ink))}
-.radio-block>p+p{margin-top:10px}
+/* El anillo del foco y de la fase elegida es --en-ring (english.css): pasa 3:1 sobre el papel en los dos temas. */
 .rf-summary em,.rf-listen em,.rf-call .sv-note em,.radio-block>p em{font-style:italic;color:var(--ink)}
 
 /* Quién habla primero: tres ejemplos con el distintivo en negrita */
 .rf-rule{display:grid;gap:8px;max-width:760px;margin:18px 0 0;padding:0;list-style:none}
 .rf-rule li{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:baseline;gap:4px 14px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.5}
 .rf-rule li span[lang]{overflow-wrap:anywhere}
-.rf-rule b{font-weight:600;box-shadow:inset 0 -2px 0 var(--rf-ring)}
+.rf-rule b{font-weight:600;box-shadow:inset 0 -2px 0 var(--en-ring)}
 .rf-rule-who{color:var(--muted);font:500 12px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 
 /* El mapa: un perfil del vuelo, en tierra, subiendo y en el circuito. Cada parada es un botón de 48 px o más. */
@@ -19,10 +17,10 @@
 .rf-stop{display:flex;min-width:0;padding-top:calc((2 - var(--rf-alt)) * 22px)}
 .rf-stop-button{position:relative;display:grid;justify-items:center;align-content:start;gap:6px;width:100%;min-height:48px;padding:10px 4px 12px;border:1px solid var(--muted);border-radius:14px;background:var(--paper);color:var(--ink);font:500 12px/1.25 var(--sans);text-align:center;cursor:pointer;transition:background .15s ease}
 .rf-stop-button:hover{background:color-mix(in srgb,var(--accent) 6%,var(--paper))}
-.rf-stop-button:focus-visible{outline:3px solid var(--rf-ring);outline-offset:2px}
-.rf-stop-button[aria-pressed="true"]{border:2px solid var(--rf-ring);padding:9px 3px 11px;background:color-mix(in srgb,var(--accent) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--rf-ring);font-weight:600}
+.rf-stop-button:focus-visible{outline:3px solid var(--en-ring);outline-offset:2px}
+.rf-stop-button[aria-pressed="true"]{border:2px solid var(--en-ring);padding:9px 3px 11px;background:color-mix(in srgb,var(--accent) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--en-ring);font-weight:600}
 .rf-stop-n{display:inline-grid;place-items:center;width:26px;height:26px;border:1px solid var(--muted);border-radius:50%;background:var(--taupe);font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums}
-.rf-stop-button[aria-pressed="true"] .rf-stop-n{border-color:var(--rf-ring);background:var(--rf-ring);color:var(--paper)}
+.rf-stop-button[aria-pressed="true"] .rf-stop-n{border-color:var(--en-ring);background:var(--en-ring);color:var(--paper)}
 .rf-stop-name{white-space:nowrap}
 /* La línea del perfil: tierra abajo, el circuito arriba. Es decorativa: el número y el nombre ya dicen el orden. */
 .rf-map-list::before{content:"";position:absolute;left:6%;right:6%;bottom:-8px;height:2px;border-radius:2px;background:var(--line)}
@@ -33,14 +31,14 @@
 .rf-panel[hidden]{display:none}
 .rf-panel-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0;color:var(--ink);font:400 24px/1.2 var(--display);letter-spacing:-.01em;scroll-margin-top:96px}
 .rf-panel-title:focus{outline:none}
-.rf-panel-title:focus-visible{outline:3px solid var(--rf-ring);outline-offset:4px;border-radius:6px}
+.rf-panel-title:focus-visible{outline:3px solid var(--en-ring);outline-offset:4px;border-radius:6px}
 .rf-panel-n{display:inline-grid;align-self:center;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 14px/1 var(--sans)}
 .rf-panel-en{color:var(--muted);font:500 13px/1.2 var(--sans);letter-spacing:.04em;text-transform:uppercase}
 .rf-summary{max-width:62ch;margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.55}
 .rf-call{margin-top:18px}
 .rf-call .sv-who{text-transform:none;letter-spacing:.02em;font-size:13px}
 .rf-call .sv-who span[lang]{text-transform:none}
-.rf-listen{max-width:760px;margin:20px 0 0;padding:14px 16px;border-left:4px solid var(--rf-ring);border-radius:4px 14px 14px 4px;background:var(--taupe);color:var(--graphite);font-size:15px;line-height:1.55}
+.rf-listen{max-width:760px;margin:20px 0 0;padding:14px 16px;border-left:4px solid var(--en-ring);border-radius:4px 14px 14px 4px;background:var(--taupe);color:var(--graphite);font-size:15px;line-height:1.55}
 .rf-listen-label{display:block;margin-bottom:4px;color:var(--ink);font:600 12px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .rf-cards-title{margin:26px 0 0;color:var(--muted);font:500 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .rf-flip-grid{margin-top:12px}
