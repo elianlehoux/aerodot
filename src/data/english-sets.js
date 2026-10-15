@@ -16,7 +16,7 @@ export const weatherSet = {
     { id: 'w4', type: 'gap', prompt: 'Nubes fragmentadas a dos mil pies.', say: 'Cloud broken at two thousand feet',
       sentence: 'Cloud ___ at two thousand feet', answers: ['broken'] },
     { id: 'w5', type: 'order', prompt: 'Hay tormenta eléctrica en las cercanías del aeródromo.', say: 'Thunderstorm in the vicinity',
-      tokens: ['Thunderstorm', 'in', 'the', 'vicinity'], answer: ['Thunderstorm', 'in', 'the', 'vicinity'] },
+      tokens: ['thunderstorm', 'in', 'the', 'vicinity'], answer: ['thunderstorm', 'in', 'the', 'vicinity'] },
     { id: 'w6', type: 'tf', prompt: 'Por radio, un QNH de 1013 se dice “one zero one three”.', answer: true },
     { id: 'w7', type: 'mcq', prompt: 'Querés avisar que se reportó cortante de viento en final.', say: 'Windshear reported on final',
       options: ['Wind cut on the end', 'Windshear reported on final', 'Final has wind change report', 'Shear of wind is final'], answer: 1 },
