@@ -2,7 +2,7 @@
 import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
-  current?: 'biblioteca' | 'examenes' | 'ingles' | 'plan' | null;
+  current?: 'biblioteca' | 'examenes' | 'ingles' | null;
 }
 
 const { current = null } = Astro.props;
@@ -11,6 +11,6 @@ const { current = null } = Astro.props;
   <a href="/temas" aria-current={current === 'biblioteca' ? 'page' : undefined}>Biblioteca</a>
   <a href="/examenes" aria-current={current === 'examenes' ? 'page' : undefined}>Exámenes</a>
   <a href="/ingles" aria-current={current === 'ingles' ? 'page' : undefined}>Inglés</a>
-  <a href="/plan" aria-current={current === 'plan' ? 'page' : undefined}>Plan</a>
+  <a href="https://aerodot-plan.vercel.app">Plan</a>
   <ThemeToggle />
 </nav>

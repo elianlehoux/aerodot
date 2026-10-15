@@ -17,7 +17,6 @@
     "test": "node --test"
   },
   "dependencies": {
-    "pdf-lib": "^1.17.1",
     "posthog-js": "^1.435.6"
   },
   "devDependencies": {

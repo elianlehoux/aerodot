@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const site = process.env.PUBLIC_SITE_URL || 'https://aerodot.app';
 
 /** Páginas que quedan disponibles sin conexión desde la primera visita. */
-const precachePages = ['/', '/examenes', '/camino', '/temas', '/ingles', '/ingles/aerodromo', '/ingles/numeros', '/ingles/atis', '/ingles/tiempo', '/ingles/aeronave', '/plan', '/plan/editar', '/offline'];
+const precachePages = ['/', '/examenes', '/camino', '/temas', '/ingles', '/ingles/aerodromo', '/ingles/numeros', '/ingles/atis', '/ingles/tiempo', '/ingles/aeronave', '/offline'];
 
 /**
  * Completa dist/sw.js después del build: un BUILD_ID nuevo (para que el navegador instale la
