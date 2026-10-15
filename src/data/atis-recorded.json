@@ -1,0 +1,601 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "src": "/audio/atis/atis-1.mp3",
+      "voice": "Daniel",
+      "duration": 33.8,
+      "atis": {
+        "name": "Pampa Norte",
+        "letter": 13,
+        "time": "2015",
+        "runway": "18",
+        "wind": {
+          "dir": 170,
+          "spd": 9,
+          "gust": 0
+        },
+        "qnh": 1010,
+        "weather": null,
+        "vis": {
+          "km": 6
+        },
+        "clouds": [
+          {
+            "type": "FEW",
+            "feet": 2500
+          }
+        ],
+        "temp": 10,
+        "dew": 8,
+        "remark": {
+          "en": "Taxiway Charlie closed.",
+          "es": "Calle de rodaje C cerrada"
+        }
+      },
+      "cues": [
+        [
+          0.5,
+          2.93
+        ],
+        [
+          3.48,
+          5.76
+        ],
+        [
+          6.31,
+          8.1
+        ],
+        [
+          8.65,
+          12.12
+        ],
+        [
+          12.67,
+          15.03
+        ],
+        [
+          15.58,
+          19.11
+        ],
+        [
+          19.66,
+          21.37
+        ],
+        [
+          21.92,
+          23.54
+        ],
+        [
+          24.09,
+          26.59
+        ],
+        [
+          27.14,
+          29.15
+        ],
+        [
+          29.7,
+          33.29
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "src": "/audio/atis/atis-2.mp3",
+      "voice": "Samantha",
+      "duration": 30.8,
+      "atis": {
+        "name": "Laguna",
+        "letter": 2,
+        "time": "0630",
+        "runway": "02",
+        "wind": {
+          "dir": 50,
+          "spd": 16,
+          "gust": 0
+        },
+        "qnh": 1017,
+        "weather": null,
+        "vis": {
+          "km": 8
+        },
+        "clouds": [
+          {
+            "type": "SCT",
+            "feet": 2500
+          },
+          {
+            "type": "BKN",
+            "feet": 4500
+          }
+        ],
+        "temp": 15,
+        "dew": 13,
+        "remark": null
+      },
+      "cues": [
+        [
+          0.5,
+          2.23
+        ],
+        [
+          2.78,
+          4.69
+        ],
+        [
+          5.24,
+          7.09
+        ],
+        [
+          7.64,
+          11.02
+        ],
+        [
+          11.57,
+          13.39
+        ],
+        [
+          13.94,
+          19.98
+        ],
+        [
+          20.53,
+          22.02
+        ],
+        [
+          22.57,
+          23.87
+        ],
+        [
+          24.42,
+          26.53
+        ],
+        [
+          27.08,
+          30.22
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "src": "/audio/atis/atis-3.mp3",
+      "voice": "Karen",
+      "duration": 29.9,
+      "atis": {
+        "name": "Monte Claro",
+        "letter": 13,
+        "time": "0815",
+        "runway": "05",
+        "wind": {
+          "dir": 40,
+          "spd": 5,
+          "gust": 0
+        },
+        "qnh": 1014,
+        "cavok": true,
+        "temp": 18,
+        "dew": 12,
+        "remark": {
+          "en": "Caution, birds in the vicinity of the aerodrome.",
+          "es": "Precaución: aves cerca del aeródromo"
+        }
+      },
+      "cues": [
+        [
+          0.5,
+          3
+        ],
+        [
+          3.55,
+          5.61
+        ],
+        [
+          6.16,
+          8.34
+        ],
+        [
+          8.89,
+          12.49
+        ],
+        [
+          13.04,
+          14.15
+        ],
+        [
+          14.7,
+          16.21
+        ],
+        [
+          16.76,
+          18.29
+        ],
+        [
+          18.84,
+          21.22
+        ],
+        [
+          21.77,
+          25.09
+        ],
+        [
+          25.64,
+          29.32
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "src": "/audio/atis/atis-4.mp3",
+      "voice": "Reed",
+      "duration": 30.1,
+      "atis": {
+        "name": "Costa Azul",
+        "letter": 13,
+        "time": "2030",
+        "runway": "20",
+        "wind": {
+          "dir": 210,
+          "spd": 10,
+          "gust": 0
+        },
+        "qnh": 1019,
+        "cavok": true,
+        "temp": 32,
+        "dew": 27,
+        "remark": null
+      },
+      "cues": [
+        [
+          0.5,
+          3.41
+        ],
+        [
+          3.96,
+          6.61
+        ],
+        [
+          7.16,
+          9.62
+        ],
+        [
+          10.17,
+          14.26
+        ],
+        [
+          14.81,
+          16.33
+        ],
+        [
+          16.88,
+          18.73
+        ],
+        [
+          19.28,
+          21.27
+        ],
+        [
+          21.82,
+          24.6
+        ],
+        [
+          25.15,
+          29.57
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "src": "/audio/atis/atis-5.mp3",
+      "voice": "Moira",
+      "duration": 38,
+      "atis": {
+        "name": "Puerto Sur",
+        "letter": 17,
+        "time": "1730",
+        "runway": "27",
+        "wind": {
+          "dir": 260,
+          "spd": 22,
+          "gust": 0
+        },
+        "qnh": 1011,
+        "weather": null,
+        "vis": {
+          "km": 10
+        },
+        "clouds": [
+          {
+            "type": "BKN",
+            "feet": 1000
+          },
+          {
+            "type": "OVC",
+            "feet": 2500
+          }
+        ],
+        "temp": 25,
+        "dew": 20,
+        "remark": {
+          "en": "Caution, birds in the vicinity of the aerodrome.",
+          "es": "Precaución: aves cerca del aeródromo"
+        }
+      },
+      "cues": [
+        [
+          0.5,
+          3.03
+        ],
+        [
+          3.58,
+          5.59
+        ],
+        [
+          6.14,
+          8.06
+        ],
+        [
+          8.61,
+          12.12
+        ],
+        [
+          12.67,
+          15.18
+        ],
+        [
+          15.73,
+          21.83
+        ],
+        [
+          22.38,
+          24.13
+        ],
+        [
+          24.68,
+          26.31
+        ],
+        [
+          26.86,
+          29.17
+        ],
+        [
+          29.72,
+          33.1
+        ],
+        [
+          33.65,
+          37.45
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "src": "/audio/atis/atis-6.mp3",
+      "voice": "Daniel",
+      "duration": 27.5,
+      "atis": {
+        "name": "Laguna",
+        "letter": 19,
+        "time": "2015",
+        "runway": "23",
+        "wind": {
+          "dir": 200,
+          "spd": 8,
+          "gust": 0
+        },
+        "qnh": 1030,
+        "cavok": true,
+        "temp": 19,
+        "dew": 12,
+        "remark": {
+          "en": "Expect runway change after one six zero zero.",
+          "es": "Se espera cambio de pista después de las 1600"
+        }
+      },
+      "cues": [
+        [
+          0.5,
+          2.35
+        ],
+        [
+          2.9,
+          4.98
+        ],
+        [
+          5.53,
+          7.25
+        ],
+        [
+          7.8,
+          10.81
+        ],
+        [
+          11.36,
+          12.38
+        ],
+        [
+          12.93,
+          14.33
+        ],
+        [
+          14.88,
+          16.37
+        ],
+        [
+          16.92,
+          19.17
+        ],
+        [
+          19.72,
+          23.21
+        ],
+        [
+          23.76,
+          26.98
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "src": "/audio/atis/atis-7.mp3",
+      "voice": "Samantha",
+      "duration": 32.1,
+      "atis": {
+        "name": "Pampa Norte",
+        "letter": 10,
+        "time": "1945",
+        "runway": "31",
+        "wind": {
+          "dir": 270,
+          "spd": 17,
+          "gust": 0
+        },
+        "qnh": 1020,
+        "weather": null,
+        "vis": {
+          "km": 10
+        },
+        "clouds": [
+          {
+            "type": "BKN",
+            "feet": 3000
+          },
+          {
+            "type": "BKN",
+            "feet": 4000
+          }
+        ],
+        "temp": 21,
+        "dew": 12,
+        "remark": {
+          "en": "Taxiway Charlie closed.",
+          "es": "Calle de rodaje C cerrada"
+        }
+      },
+      "cues": [
+        [
+          0.5,
+          2.62
+        ],
+        [
+          3.17,
+          5.12
+        ],
+        [
+          5.67,
+          7.35
+        ],
+        [
+          7.9,
+          11.25
+        ],
+        [
+          11.8,
+          14.04
+        ],
+        [
+          14.59,
+          19.03
+        ],
+        [
+          19.58,
+          20.96
+        ],
+        [
+          21.51,
+          22.8
+        ],
+        [
+          23.35,
+          25.49
+        ],
+        [
+          26.04,
+          27.8
+        ],
+        [
+          28.35,
+          31.57
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "src": "/audio/atis/atis-8.mp3",
+      "voice": "Karen",
+      "duration": 27.7,
+      "atis": {
+        "name": "Valle Alto",
+        "letter": 20,
+        "time": "0815",
+        "runway": "18",
+        "wind": {
+          "calm": true
+        },
+        "qnh": 1011,
+        "weather": {
+          "en": "fog",
+          "es": "FG"
+        },
+        "vis": {
+          "km": 2
+        },
+        "clouds": [
+          {
+            "type": "SCT",
+            "feet": 1500
+          }
+        ],
+        "temp": 11,
+        "dew": 8,
+        "remark": null
+      },
+      "cues": [
+        [
+          0.5,
+          2.76
+        ],
+        [
+          3.31,
+          5.19
+        ],
+        [
+          5.74,
+          7.39
+        ],
+        [
+          7.94,
+          8.84
+        ],
+        [
+          9.39,
+          11.31
+        ],
+        [
+          11.86,
+          12.72
+        ],
+        [
+          13.27,
+          16.58
+        ],
+        [
+          17.13,
+          18.47
+        ],
+        [
+          19.02,
+          20.6
+        ],
+        [
+          21.15,
+          23.19
+        ],
+        [
+          23.74,
+          27.13
+        ]
+      ]
+    }
+  ]
+}

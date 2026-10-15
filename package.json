@@ -13,10 +13,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "node --test"
   },
   "dependencies": {
-    "cursor-agent": "^1.0.3",
     "posthog-js": "^1.435.6"
   },
   "devDependencies": {

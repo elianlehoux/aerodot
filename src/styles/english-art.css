@@ -1,0 +1,104 @@
+/* Dibujos de las tarjetas de /ingles. Una idea por tarjeta, con el mismo lenguaje que el plano del aeródromo. */
+.ea-art{--ea-asphalt-a:#45423d;--ea-asphalt-b:#393632;--ea-paint:#f1eee8;display:block;width:100%;height:100%;overflow:visible}
+html[data-theme="light"] .ea-art{--ea-asphalt-a:#5d5953;--ea-asphalt-b:#4f4b45;--ea-paint:#fff}
+
+/* El aeródromo */
+.ea-asphalt-top{stop-color:var(--ea-asphalt-a)}
+.ea-asphalt-bottom{stop-color:var(--ea-asphalt-b)}
+.ea-runway{fill:url(#ea-asphalt)}
+.ea-paint{fill:none;stroke:var(--ea-paint);stroke-width:1.4}
+.ea-designator{fill:var(--ea-paint);font:700 9px/1 var(--sans);text-anchor:middle;dominant-baseline:central}
+.ea-centerline{fill:none;stroke:var(--ea-paint);stroke-width:1.2;stroke-dasharray:7 5}
+.ea-circuit{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round;opacity:.85}
+.ea-plane{offset-rotate:auto;offset-distance:69%;offset-anchor:0 0;transform:scale(1.35);fill:var(--accent);stroke:var(--taupe);stroke-width:1.2;paint-order:stroke}
+.topic-card:hover .ea-plane,.topic-card:focus-visible .ea-plane{animation:ea-fly 6s linear infinite}
+@keyframes ea-fly{from{offset-distance:69%}to{offset-distance:169%}}
+
+/* Números */
+.ea-digit{fill:var(--ink);font:200 76px/1 var(--sans);letter-spacing:-.04em}
+.ea-word{fill:var(--ink);font:300 28px/1 var(--sans);letter-spacing:-.02em}
+.ea-sound{fill:var(--accent);font:500 13px/1 var(--mono);transition:opacity .3s ease}
+.topic-card:hover .ea-sound{animation:ea-say 1.4s ease-in-out infinite}
+@keyframes ea-say{50%{opacity:.35}}
+
+/* El ATIS */
+.ea-badge{fill:var(--accent)}
+.ea-badge-letter{fill:#fff;font:600 15px/1 var(--sans);text-anchor:middle;dominant-baseline:central}
+.ea-bar{fill:var(--muted);opacity:.4;transform-box:fill-box;transform-origin:center}
+.ea-bar.is-played{fill:var(--accent);opacity:1}
+.topic-card:hover .ea-bar{animation:ea-wave .8s ease-in-out infinite alternate;animation-delay:calc(var(--d) * -1)}
+@keyframes ea-wave{to{transform:scaleY(.45)}}
+
+/* La aeronave */
+.ea-ac-wing,.ea-ac-body,.ea-ac-tail{fill:var(--paper);stroke:var(--muted);stroke-width:1.4;stroke-linejoin:round}
+.ea-ac-body{fill:var(--taupe)}
+.ea-ac-move{fill:color-mix(in srgb,var(--accent) 45%,var(--paper));stroke:var(--accent);stroke-width:1.2;stroke-linejoin:round}
+.ea-ac-prop{fill:var(--muted);transform-box:fill-box;transform-origin:center}
+.topic-card:hover .ea-ac-move{animation:ea-flap 1.4s ease-in-out infinite}
+.topic-card:hover .ea-ac-prop{animation:ea-prop .4s ease-in-out infinite alternate}
+@keyframes ea-flap{50%{transform:scaleX(.4)}}
+@keyframes ea-prop{to{transform:scaleY(.2)}}
+
+/* El tiempo */
+.ea-sun circle{fill:#e6b545}
+.ea-sun line{stroke:#e6b545;stroke-width:2;stroke-linecap:round}
+.ea-cloud{fill:var(--muted)}
+.ea-drop{stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;opacity:.7}
+.ea-metar{fill:var(--muted);font:500 11px/1 var(--mono);letter-spacing:.06em}
+.topic-card:hover .ea-drop{animation:ea-rain .7s linear infinite;animation-delay:calc(var(--d) * -1)}
+.topic-card:hover .ea-sun{animation:ea-spin 12s linear infinite;transform-origin:156px 38px}
+@keyframes ea-rain{from{transform:translateY(-4px);opacity:0}30%{opacity:.9}to{transform:translateY(8px);opacity:0}}
+@keyframes ea-spin{to{transform:rotate(360deg)}}
+
+/* Frases de supervivencia */
+.ea-sv-bubble{fill:var(--paper);stroke:var(--muted);stroke-width:1.4;stroke-linejoin:round}
+.ea-sv-bubble.is-reply{fill:color-mix(in srgb,var(--accent) 16%,var(--paper));stroke:var(--accent)}
+.ea-sv-text{fill:var(--ink);font:500 17px/1 var(--sans);letter-spacing:-.01em;text-anchor:middle;dominant-baseline:central}
+.ea-sv-ask,.ea-sv-answer{transform-box:fill-box}
+.ea-sv-ask{transform-origin:20% 100%}
+.ea-sv-answer{transform-origin:80% 100%}
+.topic-card:hover .ea-sv-ask,.topic-card:focus-visible .ea-sv-ask{animation:ea-sv-pop 2.4s ease-in-out infinite}
+.topic-card:hover .ea-sv-answer,.topic-card:focus-visible .ea-sv-answer{animation:ea-sv-pop 2.4s ease-in-out infinite;animation-delay:.6s}
+@keyframes ea-sv-pop{0%,100%{transform:scale(1)}15%{transform:scale(1.06)}30%{transform:scale(1)}}
+
+@media(prefers-reduced-motion:reduce){
+  .topic-card:hover .ea-drop,.topic-card:hover .ea-sun{animation:none}
+  .topic-card:hover .ea-ac-move,.topic-card:hover .ea-ac-prop{animation:none}
+  .topic-card:hover .ea-plane,.topic-card:hover .ea-sound,.topic-card:hover .ea-bar{animation:none}
+  .topic-card .ea-sv-ask,.topic-card .ea-sv-answer{animation:none!important}
+}
+
+/* Autorización y colación: las cinco piezas de CRAFT, con la A destacada */
+.ea-cl-box rect{fill:var(--paper);stroke:var(--muted);stroke-width:1.4}
+.ea-cl-box text{fill:var(--ink);font:600 22px/1 var(--sans);text-anchor:middle;dominant-baseline:central}
+.ea-cl-box.is-key rect{fill:color-mix(in srgb,var(--accent) 22%,var(--paper));stroke:var(--accent);stroke-width:2}
+.ea-cl-box{transform-box:fill-box;transform-origin:center}
+.topic-card:hover .ea-cl-box,.topic-card:focus-visible .ea-cl-box{animation:ea-cl-step 1.8s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ea-cl-step{0%,60%,100%{transform:translateY(0)}20%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){
+  .topic-card .ea-cl-box{animation:none!important}
+}
+
+/* Mayday y Pan Pan: el transpondedor en 7700, con la señal que sale */
+.ea-em-box{fill:var(--paper);stroke:var(--muted);stroke-width:1.4}
+.ea-em-label{fill:var(--muted);font:600 9px/1 var(--sans);letter-spacing:.12em;dominant-baseline:central}
+.ea-em-code{fill:var(--ember);font:500 30px/1 var(--mono);letter-spacing:.08em;text-anchor:middle;dominant-baseline:central}
+html[data-theme="light"] .ea-em-code{fill:#b33a09}
+.ea-em-wave{fill:none;stroke:var(--ember);stroke-width:2.2;stroke-linecap:round;opacity:.75}
+html[data-theme="light"] .ea-em-wave{stroke:#b33a09}
+.topic-card:hover .ea-em-wave,.topic-card:focus-visible .ea-em-wave{animation:ea-em-pulse 1.4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ea-em-pulse{0%,100%{opacity:.2}40%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .topic-card .ea-em-wave{animation:none!important}
+}
+
+/* Radio por fase de vuelo: el perfil del vuelo, con una parada por fase y el despegue destacado */
+.ea-rf-ground{fill:none;stroke:var(--line);stroke-width:2;stroke-linecap:round}
+.ea-rf-path{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:5 4}
+.ea-rf-stop{fill:var(--paper);stroke:var(--muted);stroke-width:1.6;transform-box:fill-box;transform-origin:center}
+.ea-rf-stop.is-key{fill:var(--accent);stroke:var(--accent)}
+.topic-card:hover .ea-rf-stop,.topic-card:focus-visible .ea-rf-stop{animation:ea-rf-blink 2.4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes ea-rf-blink{0%,30%,100%{transform:scale(1)}15%{transform:scale(1.35)}}
+@media(prefers-reduced-motion:reduce){
+  .topic-card .ea-rf-stop{animation:none!important}
+}

@@ -1,0 +1,169 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import { aircraftFaults, aircraftWords } from '../../data/english.js';
+import { aircraftViews } from '../../data/aircraft-views.js';
+import '../../styles/english-aircraft.css';
+
+const first = aircraftViews[0];
+
+/* Cada capa con nombre se dibuja una vez, y de la misma forma se resalta y se toca. */
+const views = aircraftViews.map((view) => {
+  const layers = view.layers.map((layer, index) => {
+    const key = `ac-${view.id}-${index}`;
+    const list = (shape) => (Array.isArray(shape) ? shape : shape ? [shape] : []);
+    const style = layer.move
+      ? `transform-origin:${layer.move.origin[0]}px ${layer.move.origin[1]}px${layer.move.sw ? `;--sw:${layer.move.sw}deg` : ''}`
+      : undefined;
+    return { ...layer, key, shapes: list(layer.d), hitShapes: list(layer.hit ?? layer.d), style };
+  });
+  const named = layers.filter((layer) => layer.word);
+  return { ...view, layers, named, hits: [...named].sort((a, b) => (a.z ?? 0) - (b.z ?? 0)) };
+});
+---
+<EnglishShell
+  title="La aeronave — Inglés aeronáutico | Aerodot"
+  description="Las partes del avión, los instrumentos de la cabina y las fallas, en inglés: tocás una pieza, ves cómo se llama, la escuchás y la ves moverse."
+>
+  <a class="back-link" href="/ingles">← Inglés</a>
+  <p class="eyebrow">Base</p>
+  <h1>La aeronave.</h1>
+  <p class="en-deck">Tocá una pieza para ver cómo se llama en inglés y escucharla. Cambiá de vista para ver el avión de costado, desde arriba y por dentro. Lo que se mueve va en color. Cuando lo tengas, ponete a prueba.</p>
+
+  <div class="field ac-field" data-field>
+    <div class="field-bar">
+      <div class="seg" role="group" aria-label="Modo">
+        <button type="button" data-field-mode="explore" aria-pressed="true">Explorar</button>
+        <button type="button" data-field-mode="quiz" aria-pressed="false">Prueba</button>
+      </div>
+      <div class="seg" role="group" aria-label="Vista del avión" data-view-tabs>
+        {views.map((view) => <button type="button" data-view-tab={view.id} aria-pressed={view.id === first.id ? 'true' : 'false'}>{view.label}</button>)}
+      </div>
+    </div>
+
+    <div class="field-layout">
+      <div class="field-main">
+        <div class="field-stage ac-stage" data-field-stage data-mode="explore">
+          <svg class="ac-svg" viewBox="0 0 840 480" role="group" aria-label="Dibujo del avión de práctica">
+            <defs>
+              <pattern id="ac-grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" class="ac-grid-dot" /></pattern>
+              {views.map((view) => view.layers.map((layer) => (
+                <>
+                  {layer.shapes.length > 0 && (layer.word
+                    ? layer.shapes.length > 1
+                      ? <g id={layer.key}>{layer.shapes.map((d) => <path d={d} />)}</g>
+                      : <path id={layer.key} d={layer.shapes[0]} />
+                    : null)}
+                  {layer.word && layer.hit && (layer.hitShapes.length > 1
+                    ? <g id={`${layer.key}h`}>{layer.hitShapes.map((d) => <path d={d} />)}</g>
+                    : <path id={`${layer.key}h`} d={layer.hitShapes[0]} />)}
+                </>
+              )))}
+            </defs>
+            <rect width="840" height="480" fill="url(#ac-grid)" />
+            {views.map((view) => (
+              <g class:list={['ac-view', { 'is-on': view.id === first.id }]} data-view={view.id} data-view-label={view.label}>
+                <text class="ac-caption" x="24" y="34">{view.caption}</text>
+                <text class="ac-caption is-soft" x="24" y="52">AVIÓN DE PRÁCTICA</text>
+                {view.layers.map((layer) => (
+                  <>
+                    {layer.word
+                      ? <use href={`#${layer.key}`} class={layer.cls} data-move={layer.move ? layer.word : undefined} data-anim={layer.move?.anim} style={layer.style} />
+                      : layer.html
+                        ? <g class={layer.cls} set:html={layer.html} />
+                        : layer.shapes.map((d) => <path class={layer.cls} d={d} />)}
+                    {layer.word && layer.html && <g class="ac-detail" set:html={layer.html} />}
+                  </>
+                ))}
+                <g class="ac-marks" aria-hidden="true">
+                  {view.named.map((layer) => <use href={`#${layer.key}`} class="hl" data-hl={layer.word} />)}
+                </g>
+                <g class="ac-hits">
+                  {view.hits.map((layer) => <use href={`#${layer.key}${layer.hit ? 'h' : ''}`} class="hit" data-word={layer.word} />)}
+                </g>
+              </g>
+            ))}
+          </svg>
+          <p class="field-tag" data-field-tag lang="en" aria-hidden="true" hidden></p>
+        </div>
+        <ul class="word-chips" data-word-chips role="list" aria-label="Las piezas del dibujo">
+          {aircraftWords.map((word) => (
+            <li><button type="button" lang="en" data-word-chip={word.id} aria-controls={`word-${word.id}`} aria-pressed={word.id === 'fuselage' ? 'true' : 'false'}>{word.en}</button></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="word-stack" data-explore-panel aria-live="polite">
+        {aircraftWords.map((word) => (
+          <article id={`word-${word.id}`} data-word-panel={word.id} hidden={word.id === 'fuselage' ? undefined : true}>
+            <p class="card-kicker">{word.es}</p>
+            <div class="word-head">
+              <h2 lang="en">{word.en}</h2>
+              <EnglishSay text={word.en} label={`Escuchar *${word.en}*`} quiet />
+            </div>
+            <p class="word-body">{word.body}</p>
+            {word.moves && <p class="word-moves"><span aria-hidden="true">↻</span> {word.moves}</p>}
+            <div class="word-say">
+              <p lang="en">“{word.say}”</p>
+              <EnglishSay text={word.say} label="Escuchar la frase" />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="word-stack quiz-panel" data-quiz-panel hidden>
+        <div class="quiz-dots" data-quiz-dots aria-hidden="true"></div>
+        <div data-quiz-ask>
+          <p class="card-kicker" data-quiz-count>Pregunta 1</p>
+          <p class="quiz-prompt" data-quiz-prompt></p>
+          <div class="word-head">
+            <h2 data-quiz-term></h2>
+            <EnglishSay label="Escuchar" quiet data-quiz-say />
+          </div>
+          <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          <button class="button-primary" type="button" data-quiz-next hidden>Siguiente</button>
+        </div>
+        <div class="quiz-done" data-quiz-done hidden>
+          <p class="card-kicker">Resultado</p>
+          <p class="quiz-score" data-quiz-score></p>
+          <p class="quiz-verdict" data-quiz-verdict aria-live="polite"></p>
+          <div class="quiz-actions">
+            <button class="button-primary" type="button" data-quiz-restart>Otra vez</button>
+            <button class="button-quiet" type="button" data-quiz-explore>Volver a explorar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="radio-block" aria-labelledby="fallas">
+    <h2 id="fallas">Cuando algo falla</h2>
+    <p>Son las frases que se dicen cuando algo no anda. Escuchalas y adiviná qué significan antes de darlas vuelta.</p>
+    <ul class="flip-grid" role="list">
+      {aircraftFaults.map((fault) => (
+        <li class="flip" data-flip>
+          <div class="word-head">
+            <h3 lang="en">{fault.en}</h3>
+            <EnglishSay text={fault.say} label={`Escuchar *${fault.say}*`} quiet />
+          </div>
+          <p class="flip-say" lang="en">“{fault.say}”</p>
+          <div class="flip-back" id={`flip-${fault.id}`} hidden>
+            <p class="flip-es">{fault.es}</p>
+            <p>{fault.body}</p>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${fault.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <EnglishFinish slug="aeronave" where="La aeronave" />
+  <script>
+    import { mountAircraft, mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    mountListen();
+    mountEnglishProgress();
+    mountAircraft();
+    mountReveals();
+  </script>
+</EnglishShell>

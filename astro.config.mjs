@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const site = process.env.PUBLIC_SITE_URL || 'https://aerodot.app';
 
 /** Páginas que quedan disponibles sin conexión desde la primera visita. */
-const precachePages = ['/', '/examenes', '/camino', '/temas', '/offline'];
+const precachePages = ['/', '/examenes', '/camino', '/temas', '/ingles', '/ingles/supervivencia', '/ingles/aerodromo', '/ingles/numeros', '/ingles/atis', '/ingles/autorizacion', '/ingles/tiempo', '/ingles/aeronave', '/ingles/emergencias', '/ingles/radio-fases', '/offline'];
 
 /**
  * Completa dist/sw.js después del build: un BUILD_ID nuevo (para que el navegador instale la
@@ -26,7 +26,10 @@ const pwa = () => ({
         hash.update(html);
         for (const [, ref] of html.matchAll(/(?:href|src)="(\/(?:_assets|fonts)\/[^"#?]+)"/g)) assets.add(ref);
       }
-      const precache = [...precachePages, ...[...assets].sort()];
+      // Los ATIS grabados también quedan offline (las páginas los piden por JS, no aparecen en el HTML).
+      const audioDir = `${outDir}/audio/atis`;
+      const audio = (await readdir(audioDir).catch(() => [])).filter((name) => name.endsWith('.mp3')).map((name) => `/audio/atis/${name}`);
+      const precache = [...precachePages, ...[...assets].sort(), ...audio.sort()];
       const swPath = `${outDir}/sw.js`;
       const source = await readFile(swPath, 'utf8');
       const buildId = hash.update(String(Date.now())).digest('hex').slice(0, 12);

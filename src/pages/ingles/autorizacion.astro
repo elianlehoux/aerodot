@@ -1,0 +1,182 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { clearanceSet, hearbackSet } from '../../data/english-sets.js';
+import { clearanceExamples, clearanceParts, craftExample, hearbackCases, readbackItems } from '../../data/english-clearance.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-clearance.css';
+---
+<EnglishShell
+  title="Autorización y colación — Inglés aeronáutico | Aerodot"
+  description="Qué te autoriza la torre, qué se colaciona siempre en inglés aeronáutico y cómo se detecta un error en la colación. Con audio, casos y práctica."
+>
+  <a class="back-link" href="/ingles">← Inglés</a>
+  <p class="eyebrow">Comunicaciones</p>
+  <h1>Autorización y colación.</h1>
+  <p class="en-deck">Escuchar bien, repetir lo importante y terminar con tu matrícula.</p>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-cl-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#autorizan">Qué te autorizan</a>
+        <a href="#craft">Las partes de una autorización</a>
+        <a href="#colacion">Qué se repite siempre</a>
+        <a href={`#${hearbackSet.id}-title`}>{hearbackSet.title}</a>
+        <a href={`#${clearanceSet.id}-title`}>{clearanceSet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  <!-- (a) Autorización e instrucción, y las del circuito -->
+  <section class="radio-block" aria-labelledby="autorizan">
+    <h2 id="autorizan">Qué te autorizan</h2>
+    <p>Una autorización (<em lang="en">clearance</em>) es el permiso del control para que sigas bajo las condiciones que te nombra. Las de despegue, aterrizaje y ruta llevan la palabra <em lang="en">cleared</em>, que quiere decir eso: autorizado a seguir en las condiciones que te dicen.</p>
+    <p>Una instrucción te pide una acción concreta: detenerte, alinearte, avisar. <em lang="en">Line up and wait</em>, <em lang="en">hold short</em> o <em lang="en">continue approach</em> son instrucciones y no te autorizan a despegar ni a aterrizar.</p>
+    <ul class="flip-grid cl-flip-grid" role="list">
+      {clearanceExamples.map((card) => (
+        <li class="flip" data-flip>
+          <span class:list={['sv-tag', { 'cl-tag-clear': card.kind === 'Autorización' }]}>{card.kind}</span>
+          <div class="word-head">
+            <h3 lang="en">{card.en}</h3>
+            <EnglishSay text={card.say} label={`Escuchar a la torre: ${card.es}`} quiet />
+          </div>
+          <p class="flip-say" lang="en">“{card.tower}”</p>
+          <div class="flip-back" id={`flip-${card.id}`} hidden>
+            <p class="flip-es">{card.es}</p>
+            <p>{splitMixed(card.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+            <div class="cl-reply">
+              <p><span class="cl-reply-label">Contestás</span> <span lang="en">“{card.reply}”</span></p>
+              <EnglishSay text={card.replySay} label={`Escuchar tu respuesta: ${card.es}`} quiet />
+            </div>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${card.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- (b) CRAFT -->
+  <section class="en-block" aria-labelledby="craft">
+    <h2 id="craft">Las partes de una autorización</h2>
+    <p class="en-block-lede">Antes de un vuelo IFR, la autorización de ruta llega en un solo mensaje largo. Para no perder piezas se usa <b lang="en">CRAFT</b>, una regla mnemotécnica muy difundida; no es una norma de la OACI. Tocá cada letra para ver su pieza en el ejemplo.</p>
+    <div class="cl-craft" data-cl-craft>
+      <fieldset class="cl-parts">
+        <legend class="visually-hidden">Las cinco piezas de CRAFT</legend>
+        <div class="cl-parts-row">
+          {clearanceParts.map((part, index) => (
+            <label class="cl-part" data-cl-tone={part.id}>
+              <input class="cl-radio" type="radio" name="cl-part" value={part.id} checked={index === 0} data-cl-part={part.id} />
+              <span class="cl-letter" lang="en">{part.letter}</span>
+              <span class="cl-part-name">{part.es}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <p class="cl-example-label">La torre</p>
+      <div class="cl-example">
+        <p lang="en">{craftExample.parts.map((chunk) => chunk.part
+          ? <span class="cl-piece" data-cl-piece={chunk.part} data-cl-tone={chunk.part}>{chunk.text}</span>
+          : chunk.text)}</p>
+        <EnglishSay text={craftExample.say} label="Escuchar la autorización completa" quiet />
+      </div>
+
+      <div class="cl-panels">
+        {clearanceParts.map((part) => (
+          <div class="cl-panel" id={`cl-panel-${part.id}`} data-cl-panel={part.id} data-cl-tone={part.id}>
+            <p class="cl-panel-head"><b lang="en">{part.letter} · {part.en}</b> <span>{part.es}</span></p>
+            <div class="cl-panel-piece">
+              <p lang="en">“{part.piece}”</p>
+              <EnglishSay text={part.say} label={`Escuchar la pieza ${part.letter}`} quiet />
+            </div>
+            <p class="cl-panel-body">{splitMixed(part.body).map((piece) => piece.en ? <em lang="en">{piece.text}</em> : piece.text)}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="cl-example-label">Tu colación</p>
+      <div class="cl-example is-readback">
+        <p lang="en">{craftExample.readback}</p>
+        <EnglishSay text={craftExample.readbackSay} label="Escuchar tu colación" quiet />
+      </div>
+      <p class="en-note">Santa Brisa, la ruta, la frecuencia y el código son de práctica. El orden de las piezas puede cambiar según el país y el mensaje.</p>
+    </div>
+  </section>
+
+  <!-- (c) Qué se colaciona siempre -->
+  <section class="en-block" aria-labelledby="colacion">
+    <h2 id="colacion">Qué se repite siempre</h2>
+    <p class="en-block-lede">Colacionar no es repetir todo: es devolver las partes de seguridad del mensaje para que el controlador compruebe que las entendiste. Esto se colaciona siempre:</p>
+    <ol class="cl-list" role="list">
+      {readbackItems.map((item, index) => (
+        <li>
+          <p>{splitMixed(item.es).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          {item.en && (
+            <div class="cl-list-example">
+              <span lang="en">{item.en}</span>
+              <EnglishSay text={item.say} label={`Escuchar el ejemplo ${index + 1}`} quiet />
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+    <ul class="en-rules" role="list">
+      <li>Las demás autorizaciones e instrucciones, incluidas las condicionales y las de rodaje, se colacionan o se contestan de forma que quede claro que las entendiste y las vas a cumplir.</li>
+      <li>La información, como el viento, no se colaciona (CAP 413): si no la entendiste, pedís <em lang="en">say again</em>.</li>
+      <li><em lang="en">Roger</em> o <em lang="en">wilco</em> no reemplazan una colación.</li>
+      <li>La colación lleva siempre tu distintivo de llamada (SERA.14055). El manual de radio británico (CAP 413) lo pone al final: primero repetís, después te nombrás. Es la forma que usamos acá; en EE. UU. también lo vas a escuchar al principio.</li>
+    </ul>
+  </section>
+
+  <!-- (d) Hearback -->
+  <ExerciseSet set={hearbackSet}>
+    <ol class="cl-cases" role="list">
+      {hearbackCases.map((entry, index) => (
+        <li class="cl-case">
+          <h3>Caso {index + 1}</h3>
+          <ol class="sv-call" role="list">
+            <li class="sv-line is-tower">
+              <span class="sv-who">Control</span>
+              <div class="sv-bubble">
+                <p lang="en">{entry.tower}</p>
+                <EnglishSay text={entry.towerSay} label={`Escuchar al control, caso ${index + 1}`} quiet />
+              </div>
+            </li>
+            <li class="sv-line is-pilot">
+              <span class="sv-who">Piloto</span>
+              <div class="sv-bubble">
+                <p lang="en">{entry.pilot}</p>
+                <EnglishSay text={entry.pilotSay} label={`Escuchar al piloto, caso ${index + 1}`} quiet />
+              </div>
+            </li>
+          </ol>
+        </li>
+      ))}
+    </ol>
+  </ExerciseSet>
+
+  <!-- (e) Práctica -->
+  <ExerciseSet set={clearanceSet} />
+
+  <p class="en-sources">Qué se colaciona siempre y qué lleva una autorización siguen el reglamento europeo SERA (UE 923/2012, SERA.8015), que toma la norma de la OACI; las palabras normalizadas, la tabla de la OACI (Anexo 10, Vol. II, cap. 5), tal como la publica SERA.14045 (Tabla S14-4). El lugar del distintivo y la fraseología del circuito siguen el manual de radiotelefonía de la CAA británica (CAP 413); los nombres de las piezas, la orden 7110.65 de la FAA (4-2-1); el uso de EE. UU., el AIM y el Glosario Piloto/Controlador de la FAA. CRAFT es una regla mnemotécnica, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras (frecuencias, códigos, QNH, altitudes) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="autorizacion" where="Autorización y colación" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountPiecePicker } from '../../scripts/piece-picker.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountReveals();
+    mountExerciseSets();
+    mountPageToc('[data-cl-toc]');
+
+    /* CRAFT: un grupo de radios, una letra a la vez. Sin JavaScript se ven todas las piezas. */
+    const craft = document.querySelector('[data-cl-craft]');
+    if (craft) mountPiecePicker(craft, { pick: 'cl-part', panel: 'cl-panel', chunk: 'cl-piece' });
+  </script>
+</EnglishShell>

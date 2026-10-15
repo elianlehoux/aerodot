@@ -1,0 +1,260 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { emergencySet } from '../../data/english-sets.js';
+import {
+  emergencyCallsign,
+  emergencyExample,
+  emergencyExtra,
+  emergencyIntentions,
+  emergencyLevels,
+  emergencyNatures,
+  emergencyOrder,
+  emergencyPositions,
+  emergencyStation,
+  squawkCodes,
+} from '../../data/english-emergency.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-emergency.css';
+
+/* Lo que se ve antes de que cargue el script: el mismo mensaje de ejemplo de la cinta. */
+const initial = emergencyExample;
+const steps = [
+  { en: 'Aviate', es: 'Aviar', body: 'Primero, el avión: mantené el control, la actitud, la velocidad y la altura.' },
+  { en: 'Navigate', es: 'Navegar', body: 'Después, saber dónde estás, hacia dónde vas y elegir dónde aterrizar.' },
+  { en: 'Communicate', es: 'Comunicar', body: 'Recién entonces, la radio: un mensaje corto y en orden.' },
+];
+---
+<EnglishShell
+  title="Mayday y Pan Pan — Inglés aeronáutico | Aerodot"
+  description="Cuándo es socorro y cuándo urgencia, el mensaje de emergencia en inglés en el orden de la norma y los códigos 7700, 7600 y 7500. Con audio, un armador de mensajes y práctica."
+>
+  <a class="back-link" href="/ingles">← Inglés</a>
+  <p class="eyebrow">Emergencias</p>
+  <h1>Mayday y Pan Pan.</h1>
+  <p class="en-deck">Qué decir cuando algo sale mal y en qué orden.</p>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-em-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#primero">Primero volás</a>
+        <a href="#nivel">Mayday o Pan Pan</a>
+        <a href="#mensaje">El mensaje, pieza por pieza</a>
+        <a href="#armador">Armá tu mensaje</a>
+        <a href="#codigos">Los códigos del transpondedor</a>
+        <a href={`#${emergencySet.id}-title`}>{emergencySet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  <!-- (1) Aviar, navegar, comunicar -->
+  <section class="en-block" aria-labelledby="primero">
+    <h2 id="primero">Primero volás</h2>
+    <p class="en-block-lede">Cuando algo sale mal, la radio no va primero. Las prioridades se ordenan en tres palabras: <em lang="en">aviate, navigate, communicate</em>. Es una regla práctica que se enseña en la instrucción, no una norma.</p>
+    <ol class="em-steps" role="list">
+      {steps.map((step, index) => (
+        <li class="em-step" style={`--em-i:${index}`}>
+          <span class="em-step-n" aria-hidden="true">{index + 1}</span>
+          <p class="em-step-head"><b lang="en">{step.en}</b> <span>{step.es}</span></p>
+          <p class="em-step-body">{step.body}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- (2) Socorro o urgencia -->
+  <section class="en-block" aria-labelledby="nivel">
+    <h2 id="nivel">Mayday o Pan Pan</h2>
+    <p class="en-block-lede">Hay dos niveles de emergencia, y cada uno abre el mensaje con su señal. La norma pide decirla «preferiblemente» tres veces.</p>
+    <ul class="em-levels" role="list">
+      {emergencyLevels.map((level) => (
+        <li class="em-level" data-em-level={level.id}>
+          <span class="sv-tag">{level.es}</span>
+          <div class="word-head">
+            <h3 lang="en">{level.en}</h3>
+            <EnglishSay text={level.say} label={`Escuchar la señal de ${level.es.toLowerCase()}`} quiet />
+          </div>
+          <p class="em-level-body">{level.body}</p>
+          <p class="em-level-when"><span class="em-label">Por ejemplo</span> {level.when}</p>
+          <div class="em-level-example">
+            <p lang="en">{level.example}</p>
+            <EnglishSay text={level.exampleSay} label={`Escuchar el mensaje de ejemplo de ${level.es.toLowerCase()}`} quiet />
+          </div>
+        </li>
+      ))}
+    </ul>
+    <ul class="en-rules em-rules" role="list">
+      <li>Cada <em lang="en">pan</em> se pronuncia como la palabra francesa «panne» (avería).</li>
+      <li>Si una urgencia se vuelve un peligro grave o inminente y necesitás ayuda inmediata, ya es socorro: <em lang="en">MAYDAY</em>. Si el problema resulta menos grave de lo que pensabas, podés cancelar la emergencia: <em lang="en">cancel MAYDAY</em>.</li>
+      <li><em lang="en">PAN PAN MEDICAL</em> no es para un pasajero descompuesto: anuncia un transporte sanitario protegido por los Convenios de Ginebra. Para alguien que se siente mal a bordo, usás <em lang="en">PAN PAN</em> o, si su vida corre peligro, <em lang="en">MAYDAY</em>.</li>
+    </ul>
+  </section>
+
+  <!-- (3) La cinta: las piezas en el orden de la norma -->
+  <section class="en-block" aria-labelledby="mensaje">
+    <h2 id="mensaje">El mensaje, pieza por pieza</h2>
+    <p class="en-block-lede">Después de la señal, el mensaje lleva todas las piezas que puedas decir y, si se puede, en este orden. Tocá cada pieza para verla en el ejemplo.</p>
+    <div class="em-ribbon" data-em-ribbon>
+      <fieldset class="em-pieces">
+        <legend class="visually-hidden">Las piezas del mensaje de socorro, en orden</legend>
+        <div class="em-pieces-row">
+          {emergencyOrder.map((piece, index) => (
+            <label class:list={['em-piece', { 'is-extra': !piece.official }]} data-em-tone={piece.id}>
+              <input class="em-radio" type="radio" name="em-piece" value={piece.id} checked={index === 0} data-em-piece-pick />
+              <span class="em-piece-n">{piece.official ? index + 1 : '+'}</span>
+              <span class="em-piece-name">{piece.es}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <p class="em-label em-example-label">El ejemplo: motor detenido</p>
+      <div class="em-example">
+        <p lang="en">{emergencyExample.parts.map((part, index) => (
+          <>
+            <span class="em-chunk" data-em-chunk={part.id} data-em-tone={part.id}>{part.text}</span>{index < emergencyExample.parts.length - 1 ? ', ' : '.'}
+          </>
+        ))}</p>
+        <EnglishSay text={emergencyExample.say} label="Escuchar el mensaje de ejemplo completo" quiet />
+      </div>
+
+      <div class="em-panels">
+        {emergencyOrder.map((piece, index) => (
+          <div class="em-panel" data-em-panel={piece.id} data-em-tone={piece.id}>
+            <p class="em-panel-head">
+              <b>{piece.official ? `${index + 1}. ` : ''}{piece.es}</b>
+              <span lang="en">{piece.en}</span>
+              <span class:list={['em-badge', { 'is-extra': !piece.official }]}>{piece.official ? 'Lo pide la norma' : 'Se suele agregar'}</span>
+            </p>
+            <div class="em-panel-piece">
+              <p lang="en">“{piece.example}”</p>
+              <EnglishSay text={piece.say} label={piece.official ? `Escuchar la pieza ${index + 1}: *${piece.en}*` : `Escuchar lo que se suele agregar: *${piece.en}*`} quiet />
+            </div>
+            <p class="em-panel-body">{splitMixed(piece.hint).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          </div>
+        ))}
+      </div>
+      <p class="en-note">Para la urgencia el orden es el mismo, con <span lang="en">PAN PAN</span> al principio.</p>
+    </div>
+  </section>
+
+  <!-- (3b) El armador -->
+  <section class="en-block" aria-labelledby="armador">
+    <h2 id="armador">Armá tu mensaje</h2>
+    <p class="en-block-lede">Elegí el nivel, qué pasa, qué vas a hacer y dónde estás. El mensaje se arma solo, en el orden de la norma, con cada pieza de su color.</p>
+    <div class="em-builder" data-em-builder>
+      <form class="em-form" data-em-form data-station={emergencyStation} data-callsign={emergencyCallsign} data-extra={emergencyExtra.en}>
+        <fieldset class="em-group">
+          <legend>Nivel</legend>
+          <div class="em-opts">
+            {emergencyLevels.map((level, index) => (
+              <label class="em-opt">
+                <input type="radio" name="em-level" value={level.id} checked={index === 0} />
+                <span><b lang="en">{level.en}</b> {level.es.toLowerCase()}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="em-group">
+          <legend>Qué pasa</legend>
+          <div class="em-opts">
+            {emergencyNatures.map((nature) => (
+              <label class:list={['em-opt', { 'is-off': !nature.levels.includes('mayday') }]}>
+                <input type="radio" name="em-nature" value={nature.id} data-levels={nature.levels.join(' ')} checked={nature.id === 'engine-failure'} disabled={!nature.levels.includes('mayday')} />
+                <span>{nature.es} <i lang="en">{nature.en}</i></span>
+              </label>
+            ))}
+          </div>
+          <p class="em-hint">Lo que no va con el nivel elegido queda apagado. Lo que decide es si necesitás ayuda inmediata: con un monomotor, el motor detenido, el fuego a bordo y el aterrizaje forzoso son socorro. La falla de radio no está: para eso existe el <a href="#codigos">código 7600 del transpondedor</a>.</p>
+        </fieldset>
+        <fieldset class="em-group">
+          <legend>Qué vas a hacer</legend>
+          <div class="em-opts">
+            {emergencyIntentions.map((intention) => (
+              <label class:list={['em-opt', { 'is-off': !intention.levels.includes('mayday') }]}>
+                <input type="radio" name="em-intention" value={intention.id} data-levels={intention.levels.join(' ')} checked={intention.id === 'forced-landing'} />
+                <span>{intention.es}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="em-group">
+          <legend>Dónde estás</legend>
+          <div class="em-opts">
+            {emergencyPositions.map((position) => (
+              <label class="em-opt">
+                <input type="radio" name="em-position" value={position.id} checked={position.id === 'south'} />
+                <span>{position.es}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <label class="em-opt em-check">
+          <input type="checkbox" name="em-extra" checked />
+          <span>Agregar lo que se suele agregar: {emergencyExtra.es.toLowerCase()}</span>
+        </label>
+      </form>
+
+      <p class="em-label">Tu mensaje</p>
+      <div class="em-example em-out">
+        <div class="em-out-text" data-em-output>
+          <p lang="en">{initial.parts.map((part, index) => (
+            <>
+              <span class="em-chunk" data-em-tone={part.id}>{part.text}</span>{index < initial.parts.length - 1 ? ', ' : '.'}
+            </>
+          ))}</p>
+        </div>
+        <EnglishSay text={initial.say} label="Escuchar el mensaje armado" quiet data-em-play />
+      </div>
+      <p class="visually-hidden" data-em-status aria-live="polite"></p>
+      {emergencyNatures.filter((nature) => nature.note).map((nature) => (
+        <p class="em-note" data-em-note={nature.id} hidden={nature.id !== 'engine-failure'}>{splitMixed(nature.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+      ))}
+      <p class="en-note">Laguna, Santa Brisa, las distancias, las alturas y los rumbos son de práctica.</p>
+    </div>
+  </section>
+
+  <!-- (4) Los códigos del transpondedor -->
+  <section class="radio-block" aria-labelledby="codigos">
+    <h2 id="codigos">Los códigos del transpondedor</h2>
+    <p>Tres códigos dicen lo que pasa sin hablar. En la pantalla del controlador aparecen con un aviso especial.</p>
+    <ul class="flip-grid em-codes" role="list">
+      {squawkCodes.map((code) => (
+        <li class="flip" data-flip>
+          <div class="word-head">
+            <h3 class="em-code">{code.code}</h3>
+            <EnglishSay text={code.say} label={`Escuchar el código ${code.code}`} quiet />
+          </div>
+          <p class="flip-say" lang="en">{code.en}</p>
+          <div class="flip-back" id={`flip-sq-${code.code}`} hidden>
+            <p class="flip-es">{code.es}</p>
+            <p>{splitMixed(code.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-sq-${code.code}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- (5) Práctica -->
+  <ExerciseSet set={emergencySet} />
+
+  <p class="en-sources">Las definiciones de socorro y urgencia, la señal tres veces y el orden de las piezas siguen el reglamento europeo SERA (UE 923/2012, SERA.14095), que toma la norma de la OACI (Anexo 10, Vol. II, cap. 5); los códigos 7700, 7600 y 7500, SERA.13005. Lo que se suele agregar al final, <span lang="en">MAYDAY FUEL</span> y <span lang="en">PAN PAN MEDICAL</span> siguen el manual de radiotelefonía de la CAA británica (CAP 413, cap. 8); el uso de EE. UU., el AIM de la FAA (6-3). Aviar, navegar, comunicar es una regla práctica de instrucción, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras de los mensajes (distancias, alturas, rumbos) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="emergencias" where="Mayday y Pan Pan" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    import { mountEmergency } from '../../scripts/emergency.js';
+    mountListen();
+    mountEnglishProgress();
+    mountReveals();
+    mountExerciseSets();
+    mountEmergency();
+    mountPageToc('[data-em-toc]');
+  </script>
+</EnglishShell>

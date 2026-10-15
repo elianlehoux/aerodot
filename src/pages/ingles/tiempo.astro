@@ -1,0 +1,132 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { weatherSet } from '../../data/english-sets.js';
+import { cloudAmounts, wxCommon, weatherRadio } from '../../data/weather.js';
+import '../../styles/english-weather.css';
+---
+<EnglishShell
+  title="El tiempo por radio — Inglés aeronáutico | Aerodot"
+  description="Cómo se dicen por radio, en inglés aeronáutico, las nubes y los fenómenos. Dibujos para tocar, audio y una práctica corta."
+>
+  <a class="back-link" href="/ingles">← Inglés</a>
+  <p class="eyebrow">Base</p>
+  <h1>El tiempo por radio.</h1>
+  <p class="en-deck">Las nubes y los fenómenos por radio: qué palabras usar y cómo se dicen.</p>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-wx-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#nubes">Las nubes</a>
+        <a href="#fenomenos">Los fenómenos</a>
+        <a href="#frecuencia">En la radio</a>
+        <a href={`#${weatherSet.id}-title`}>Decilo en la radio</a>
+      </nav>
+    </details>
+  </aside>
+
+  <!-- 1 · Nubes -->
+  <section class="en-block" data-wc aria-labelledby="nubes">
+    <h2 id="nubes">Las nubes: cuánto cielo y a qué altura</h2>
+    <p class="en-block-lede">El cielo se mide en <b>octas</b>: ocho partes. Cubrí el cielo, mové la altura y escuchá cómo se dice la capa.</p>
+    <div class="wc-card">
+      <div class="wc-controls">
+        <div class="seg is-wrap" role="group" aria-label="Cuánto cielo cubren" data-wc-amounts>
+          <button type="button" data-wc-amount="SKC" aria-pressed="false">Despejado</button>
+          {cloudAmounts.map((item) => <button type="button" data-wc-amount={item.id} aria-pressed="false"><span lang="en">{item.id}</span> · {item.es}</button>)}
+        </div>
+      </div>
+      <div class="wc-grid">
+        <figure class="wc-fig">
+          <div class="wc-pie" data-wc-pie></div>
+          <figcaption>El cielo, visto desde abajo</figcaption>
+        </figure>
+        <figure class="wc-fig">
+          <div class="wc-side" data-wc-side></div>
+          <figcaption>La altura de la capa</figcaption>
+        </figure>
+        <div class="wc-result">
+          <label class="wc-slider">
+            <span>Altura sobre el terreno <b data-wc-height-text>1.200 ft</b></span>
+            <input type="range" min="2" max="60" step="1" value="12" data-wc-height aria-label="Altura de la capa, en cientos de pies" />
+          </label>
+          <div class="wc-out" data-wc-out aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Fenómenos -->
+  <section class="en-block" data-wp aria-labelledby="fenomenos">
+    <h2 id="fenomenos">Los fenómenos: lo que cae y lo que tapa</h2>
+    <p class="en-block-lede">Se dice en orden: <b>intensidad, descriptor y fenómeno</b>. Combiná las piezas y escuchá cómo suena.</p>
+    <div class="wp-card">
+      <div class="wp-controls">
+        <div class="wp-group"><span class="wp-label">1 · Intensidad</span><div class="seg is-wrap" role="group" aria-label="Intensidad" data-wp-intensity></div></div>
+        <div class="wp-group"><span class="wp-label">2 · Descriptor</span><div class="seg is-wrap" role="group" aria-label="Descriptor" data-wp-descriptor></div></div>
+        <div class="wp-group"><span class="wp-label">3 · Fenómeno</span><div class="wp-chips" role="group" aria-label="Fenómeno" data-wp-phenomenon></div></div>
+      </div>
+      <div class="wp-result">
+        <div class="wp-art" data-wp-art></div>
+        <div class="wp-out" data-wp-out aria-live="polite"></div>
+      </div>
+      <p class="wp-hint" data-wp-hint></p>
+    </div>
+    <h3 class="wx-sub">Los de siempre</h3>
+    <ul class="digit-grid wx-tiles" role="list">
+      {wxCommon.map((item) => (
+        <li>
+          <button class="tile" type="button" data-say={item.en} aria-label={`${item.code}: ${item.en}, ${item.es}`}>
+            <b lang="en">{item.code}</b>
+            <span lang="en">{item.en}</span>
+            <small>{item.es}</small>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 3 · Radio -->
+  <section class="radio-block" aria-labelledby="frecuencia">
+    <h2 id="frecuencia">En la radio</h2>
+    <p>Lo que se pide, se avisa o se escucha sobre el tiempo. Adiviná el significado antes de darla vuelta.</p>
+    <ul class="flip-grid" role="list">
+      {weatherRadio.map((item) => (
+        <li class="flip" data-flip>
+          <div class="word-head">
+            <h3 lang="en">{item.en}</h3>
+            <EnglishSay text={item.say} label={`Escuchar *${item.en}*`} quiet />
+          </div>
+          <p class="flip-say" lang="en">“{item.display ?? item.say}”</p>
+          <div class="flip-back" id={`flip-${item.id}`} hidden>
+            <p class="flip-es">{item.es}</p>
+            <p>{item.body}</p>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${item.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 4 · Práctica -->
+  <ExerciseSet set={weatherSet} />
+
+  <p class="en-sources">El aeródromo Laguna y las frases son de práctica: no se usan para volar. Para volar, el tiempo se consulta en los productos vigentes del SMN. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="tiempo" where="El tiempo" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountWeather } from '../../scripts/weather.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountReveals();
+    mountWeather();
+    mountExerciseSets();
+
+    mountPageToc('[data-wx-toc]');
+  </script>
+</EnglishShell>

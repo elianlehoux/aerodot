@@ -1,0 +1,90 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { survivalSet } from '../../data/english-sets.js';
+import { survivalCall, survivalGroups } from '../../data/english-survival.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+
+const who = { tower: 'Torre', pilot: 'Vos' };
+---
+<EnglishShell
+  title="Frases de supervivencia — Inglés aeronáutico | Aerodot"
+  description="Qué decir por radio, en inglés aeronáutico, cuando no entendiste, no podés o te equivocaste. Tarjetas con audio, una llamada de ejemplo y una práctica corta."
+>
+  <a class="back-link" href="/ingles">← Inglés</a>
+  <p class="eyebrow">Base</p>
+  <h1>Frases de supervivencia.</h1>
+  <p class="en-deck">Las palabras que más vas a usar cuando algo no sale bien: no entendiste, no podés o te equivocaste.</p>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-sv-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        {survivalGroups.map((group) => <a href={`#${group.id}`}>{group.title}</a>)}
+        <a href="#llamada">Una llamada con problemas</a>
+        <a href={`#${survivalSet.id}-title`}>{survivalSet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  {survivalGroups.map((group) => (
+    <section class="radio-block" aria-labelledby={group.id}>
+      <h2 id={group.id}>{group.title}</h2>
+      <p>{splitMixed(group.lede).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+      <ul class="flip-grid" role="list">
+        {[...group.phrases, ...(group.aside ? [group.aside] : [])].map((item) => (
+          <li class:list={['flip', { 'sv-aside': item.tag }]} data-flip>
+            {item.tag && <span class="sv-tag">{item.tag}</span>}
+            <div class="word-head">
+              <h3 lang="en">{item.en}</h3>
+              <EnglishSay text={item.say} label={`Escuchar *${item.en}*`} quiet />
+            </div>
+            <p class="flip-say" lang="en">“{item.use}”</p>
+            <div class="flip-back" id={`flip-${item.id}`} hidden>
+              <p class="flip-es">{item.es}</p>
+              <p>{splitMixed(item.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+              {item.link && <p class="sv-link"><a href={item.link.href}>{item.link.text}</a></p>}
+            </div>
+            <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${item.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <section class="en-block" aria-labelledby="llamada">
+    <h2 id="llamada">Una llamada con problemas</h2>
+    <p class="en-block-lede">Rodaje en Laguna. Se pierde un pedazo, se colaciona mal y se corrige. Lo resaltado son las frases de supervivencia.</p>
+    <ol class="sv-call" role="list">
+      {survivalCall.map((line, index) => (
+        <li class:list={['sv-line', `is-${line.who}`]}>
+          <span class="sv-who">{who[line.who]}</span>
+          <div class="sv-bubble">
+            <p lang="en">{line.parts.map((part) => part.hl ? <mark class="sv-hl">{part.text}</mark> : part.text)}</p>
+            <EnglishSay text={line.say} label={`${line.who === 'tower' ? 'Escuchar a la torre' : 'Escuchar tu llamada'}, mensaje ${index + 1}`} quiet />
+          </div>
+          <p class="sv-note">{splitMixed(line.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <ExerciseSet set={survivalSet} />
+
+  <p class="en-sources">Los significados siguen la tabla de palabras y frases normalizadas de la OACI (Anexo 10, Vol. II, cap. 5) y la fraseología del Doc 4444, cap. 12; el uso de EE. UU., el Glosario Piloto/Controlador de la FAA. <span lang="en">Please spell</span> es lenguaje claro: <span lang="en">spell</span> no figura en esa tabla, ni en la de SERA (Tabla S14-4) ni en el glosario de la FAA; el manual británico (CAP 413) la incluye solo entre las palabras de uso militar. El aeródromo Laguna, la matrícula LV-DEM y los números de los ejemplos son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="supervivencia" where="Frases de supervivencia" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountReveals();
+    mountExerciseSets();
+
+    mountPageToc('[data-sv-toc]');
+  </script>
+</EnglishShell>

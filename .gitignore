@@ -13,3 +13,6 @@ skills-lock.json
 
 # Reels de lanzamiento: se arman en local y no se publican.
 reel/
+
+.playwright-mcp/
+.superpowers/

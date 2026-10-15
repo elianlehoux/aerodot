@@ -1,0 +1,45 @@
+.ex-set [hidden]{display:none!important}
+.ex-card{display:grid;gap:14px;padding:18px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--card)}
+.ex-dots{display:flex;flex-wrap:wrap;gap:6px}
+.ex-dots span{box-sizing:border-box;width:10px;height:10px;border-radius:50%;background:var(--line)}
+.ex-dots .is-now{background:transparent;border:2px solid var(--accent)}
+.ex-dots .is-ok{background:var(--en-ok,var(--accent))}
+.ex-dots .is-bad{background:var(--en-bad,var(--ember))}
+.ex-prompt{margin:0;font-size:1.05rem;line-height:1.45;color:var(--ink)}
+.ex-prompt:focus,.ex-done .quiz-score:focus{outline:none}
+.ex-say{justify-self:start}
+.en-no-speech .ex-say{display:none!important}
+.ex-options{display:grid;gap:10px}
+.ex-options-row{grid-template-columns:1fr 1fr}
+.ex-option{min-height:48px;padding:12px 14px;text-align:left;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);cursor:pointer}
+.ex-options-row .ex-option{text-align:center}
+/* La seleccion mezcla el acento con tinta para pasar 3:1 contra la tarjeta en los dos temas (WCAG 1.4.11). */
+.ex-set{--ex-sel:color-mix(in srgb,var(--accent) 70%,var(--ink))}
+.ex-option[aria-pressed="true"]{border-color:var(--ex-sel);box-shadow:0 0 0 2px var(--ex-sel);background:color-mix(in srgb,var(--accent) 12%,var(--paper))}
+.ex-option:disabled{opacity:.7;cursor:default}
+.ex-sentence{margin:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:1.05rem;color:var(--ink)}
+.ex-input{min-height:48px;min-width:8ch;flex:1 1 8ch;padding:10px 12px;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-button)}
+.ex-input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.ex-order{display:grid;gap:12px}
+.ex-built,.ex-bank{display:flex;flex-wrap:wrap;gap:8px;min-height:56px;padding:10px;border:1px dashed var(--line);border-radius:var(--radius-card)}
+.ex-bank{border-style:solid}
+.ex-chip{min-height:48px;padding:8px 14px;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-button);cursor:pointer}
+.ex-chip.is-built{border-color:var(--ex-sel)}
+.ex-chip:disabled{cursor:default}
+.ex-option:focus-visible,.ex-chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ex-feedback{min-height:1.4em;margin:0;color:var(--muted)}
+/* El texto va en tinta para que se lea en los dos temas; el estado lo marcan el signo y el borde, no el color del texto. */
+/* El color de estado se mezcla con tinta para pasar 3:1 contra la tarjeta en los dos temas. */
+.ex-feedback.is-ok{--ex-state:color-mix(in srgb,var(--en-ok,var(--accent)) 70%,var(--ink))}
+.ex-feedback.is-bad{--ex-state:color-mix(in srgb,var(--en-bad,var(--ember)) 70%,var(--ink))}
+.ex-feedback.is-ok,.ex-feedback.is-bad{padding-left:12px;border-left:3px solid var(--ex-state);color:var(--ink)}
+.ex-feedback.is-ok::before,.ex-feedback.is-bad::before{color:var(--ex-state);font-weight:700;font-size:1.15em}
+.ex-feedback.is-ok::before{content:"✓ "}
+.ex-feedback.is-bad::before{content:"✕ "}
+.ex-actions{display:flex;flex-wrap:wrap;gap:10px}
+.ex-actions>*{flex:1 1 140px}
+.ex-actions .button-primary,.ex-actions .button-quiet,.ex-set .ex-say{min-height:48px}
+.ex-set .ex-actions .button-primary:focus-visible,.ex-set .ex-actions .button-quiet:focus-visible,.ex-set .ex-say:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ex-done .quiz-score{margin:0;color:var(--ink);font:300 clamp(44px,12vw,64px)/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:no-preference){.ex-option,.ex-chip{transition:border-color .15s,box-shadow .15s}}
+@media (min-width:541px){.ex-actions>*{flex:0 0 auto}}
