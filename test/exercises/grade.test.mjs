@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize } from '../../src/scripts/exercises/grade.js';
+import { feedbackLead, gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize, tracksProgress } from '../../src/scripts/exercises/grade.js';
 
 test('normalize ignora mayúsculas, espacios, acentos y puntuación', () => {
   assert.equal(normalize('  Broken '), 'broken');
@@ -55,4 +55,17 @@ test('shuffle devuelve una copia con los mismos elementos y respeta rand', () =>
   assert.notEqual(out, source);
   assert.deepEqual([...out].sort(), source);
   assert.deepEqual(source, [1, 2, 3, 4, 5]);
+});
+
+test('feedbackLead: Bien. si acierta; si no, lead o "Se dice:"', () => {
+  assert.equal(feedbackLead({}, true), 'Bien.');
+  assert.equal(feedbackLead({ lead: 'Era:' }, true), 'Bien.');
+  assert.equal(feedbackLead({}, false), 'Se dice:');
+  assert.equal(feedbackLead({ lead: 'Era:' }, false), 'Era:');
+});
+
+test('tracksProgress: solo track: false deja de marcar el tema', () => {
+  assert.equal(tracksProgress({}), true);
+  assert.equal(tracksProgress({ track: true }), true);
+  assert.equal(tracksProgress({ track: false }), false);
 });

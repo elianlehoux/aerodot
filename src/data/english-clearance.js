@@ -3,7 +3,8 @@
  *
  * Fuentes (los textos en español son propios):
  * - Qué se colaciona siempre: SERA.8015 (e), Reglamento (UE) 923/2012, que traspone la norma de la OACI.
- * - Contenido de una autorización: SERA.8015 (d); los nombres en inglés, AIM 4-4-3 de la FAA.
+ * - Contenido de una autorización: SERA.8015 (d); los nombres en inglés, FAA JO 7110.65, 4-2-1
+ *   (Clearance limit, Route, Altitude data, Frequency and beacon code).
  * - Orden del distintivo (la torre lo dice primero; la colación termina con él): CAP 413 de la CAA
  *   británica, 2.49. Que la colación lleve el distintivo: SERA.14055 (c).
  * - Fraseología del circuito: CAP 413, cap. 4, y el Glosario Piloto/Controlador de la FAA.
@@ -150,7 +151,7 @@ const circuit = [
     kind: 'Instrucción',
     tower: 'LV-DEM, report downwind.',
     reply: 'Wilco, LV-DEM.',
-    body: 'Te piden que avises cuando llegues a la inicial: el tramo que en inglés se llama *downwind*. Contestás *wilco* y, al llegar, llamás: *LV-DEM, downwind*.',
+    body: 'Te piden que avises cuando llegues a ese tramo. En español de Argentina el tramo se llama «inicial»; en inglés es *downwind*. La palabra inglesa *initial* suele referirse a otra cosa (por ejemplo, la aproximación inicial), así que no la uses para el circuito. Contestás *wilco* y, al llegar, llamás: *LV-DEM, downwind*.',
   },
 ];
 
@@ -188,7 +189,7 @@ export const hearbackCases = [
     pilot: 'Climb to altitude four thousand feet, squawk four two five one, LV-DEM.',
     wrong: { label: 'Squawk', tower: 'four five two one', pilot: 'four two five one' },
     options: ['Altitude', 'Squawk', 'Callsign', NOTHING],
-    explain: 'El código quedó con dos cifras cambiadas: *four two five one* en lugar de *four five two one*. El distintivo al final está bien: así se colaciona.',
+    explain: 'El código quedó con dos cifras cambiadas: *four two five one* en lugar de *four five two one*. El distintivo al final está bien: así lo pide el manual británico (CAP 413).',
   },
   {
     id: 'case-qnh',
@@ -196,7 +197,7 @@ export const hearbackCases = [
     pilot: 'Taxi to holding point runway one three, QNH one zero one three, LV-DEM.',
     wrong: { label: 'QNH', tower: 'one zero zero three', pilot: 'one zero one three' },
     options: ['Runway', 'QNH', 'Holding point', NOTHING],
-    explain: 'La torre dijo *one zero zero three* y se colacionó *one zero one three*: es fácil que la costumbre lleve al valor de la atmósfera estándar.',
+    explain: 'La torre dijo *one zero zero three* y se colacionó *one zero one three*, el valor estándar. La corrección es *negative* y el valor correcto: *LV-DEM, negative, QNH one zero zero three*.',
   },
   {
     id: 'case-runway',
@@ -232,6 +233,6 @@ export const hearbackDrills = [
     pilot: 'Descend to altitude two thousand feet, QNH one zero one five, LV-DEM.',
     wrong: { label: 'Altitude', tower: 'three thousand', pilot: 'two thousand' },
     options: ['Altitude', 'QNH', 'Callsign', NOTHING],
-    explain: 'La torre dijo *three thousand feet* y se colacionó *two thousand*. El QNH está bien.',
+    explain: 'El controlador dijo *three thousand feet* y se colacionó *two thousand*. El QNH está bien.',
   },
 ].map(withVoice);

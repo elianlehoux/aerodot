@@ -69,6 +69,7 @@ const hearbackItem = (entry, prompt) => ({
   prompt,
   options: entry.options,
   answer: entry.options.indexOf(entry.wrong.label),
+  lead: 'El dato mal colacionado era:',
   explain: entry.explain,
 });
 
@@ -81,7 +82,7 @@ export const hearbackSet = {
   slug: 'autorizacion',
   track: false,
   title: 'Encontrá el error',
-  lede: 'El controlador también escucha la colación: así se agarra un error a tiempo. En cada caso hay un solo dato mal repetido. Escuchá o leé y elegí cuál es.',
+  lede: 'El controlador también escucha la colación: así se agarra un error a tiempo. Pero no te confíes: si el controlador no corrige, no quiere decir que hayas colacionado bien. Ante la duda, pedí confirmación (*confirm*). En cada caso hay un solo dato mal repetido: escuchá o leé y elegí cuál es.',
   items: hearbackCases.map((entry, index) => hearbackItem(entry, `Caso ${index + 1}. ¿Qué dato colacionó mal el piloto?`)),
 };
 
@@ -102,7 +103,7 @@ export const clearanceSet = {
       alternatives: [['cleared', 'for', 'take-off', 'runway', 'one three', 'LV-DEM']],
       explain: 'Repetís la pista y la autorización, y terminás con tu distintivo.' },
     ...hearbackDrills.map((entry) => hearbackItem(entry,
-      `Torre: “*${entry.tower}*” Piloto: “*${entry.pilot}*” ¿Qué dato colacionó mal el piloto?`)),
+      `Control: “*${entry.tower}*” Piloto: “*${entry.pilot}*” ¿Qué dato colacionó mal el piloto?`)),
     { id: 'c5', type: 'gap', prompt: 'El código de transpondedor que te asignaron es 4521. Completá la pieza que falta en tu colación.',
       sentence: 'Squawk ___, LV-DEM', answers: ['four five two one', '4521'],
       explain: 'Este código se dice cifra por cifra: *four five two one*.' },

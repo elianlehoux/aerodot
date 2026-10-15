@@ -1,4 +1,4 @@
-import { gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize } from './grade.js';
+import { feedbackLead, gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize, tracksProgress } from './grade.js';
 import { validateSet } from './validate.js';
 import { splitMixed } from '../mixed.js';
 import { markEnglishReady } from '../english.js';
@@ -162,7 +162,7 @@ const runSet = (root, set) => {
       } else {
         /* En los huecos se muestra la frase entera, no solo la palabra que faltaba. */
         const phrase = item.type === 'gap' ? item.sentence.replace('___', verdict.expected) : verdict.expected;
-        feedback.replaceChildren(verdict.correct ? 'Bien.' : 'Se dice:', ' ', el('b', { lang: 'en', text: phrase }), ...explain);
+        feedback.replaceChildren(feedbackLead(item, verdict.correct), ' ', el('b', { lang: 'en', text: phrase }), ...explain);
       }
       next.focus();
     });
@@ -184,8 +184,7 @@ const runSet = (root, set) => {
       el('p', { class: 'quiz-verdict', text: passed ? 'Lo tenés.' : 'Casi. Repasá las frases y probá de nuevo.' }),
       el('div', { class: 'ex-actions' }, again)));
     score.focus();
-    /* track: false es una práctica de apoyo: aprobarla no marca el tema como listo. */
-    if (passed && set.track !== false) {
+    if (passed && tracksProgress(set)) {
       try { markEnglishReady(set.slug); } catch { /* sin avance guardado */ }
     }
   };

@@ -64,14 +64,18 @@ import '../../styles/english-clearance.css';
     <h2 id="craft">Las partes de una autorización</h2>
     <p class="en-block-lede">Antes de un vuelo IFR, la autorización de ruta llega en un solo mensaje largo. Para no perder piezas se usa <b lang="en">CRAFT</b>, una regla mnemotécnica muy difundida; no es una norma de la OACI. Tocá cada letra para ver su pieza en el ejemplo.</p>
     <div class="cl-craft" data-cl-craft>
-      <div class="cl-parts" role="group" aria-label="Las cinco piezas de CRAFT">
-        {clearanceParts.map((part) => (
-          <button class="cl-part" type="button" data-cl-part={part.id} data-cl-tone={part.id} aria-pressed="false" aria-controls={`cl-panel-${part.id}`}>
-            <span class="cl-letter" lang="en">{part.letter}</span>
-            <span class="cl-part-name">{part.es}</span>
-          </button>
-        ))}
-      </div>
+      <fieldset class="cl-parts">
+        <legend class="visually-hidden">Las cinco piezas de CRAFT</legend>
+        <div class="cl-parts-row">
+          {clearanceParts.map((part, index) => (
+            <label class="cl-part" data-cl-tone={part.id}>
+              <input class="cl-radio" type="radio" name="cl-part" value={part.id} checked={index === 0} data-cl-part={part.id} />
+              <span class="cl-letter" lang="en">{part.letter}</span>
+              <span class="cl-part-name">{part.es}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       <p class="cl-example-label">La torre</p>
       <div class="cl-example">
@@ -81,7 +85,7 @@ import '../../styles/english-clearance.css';
         <EnglishSay text={craftExample.say} label="Escuchar la autorización completa" quiet />
       </div>
 
-      <div class="cl-panels" aria-live="polite">
+      <div class="cl-panels">
         {clearanceParts.map((part) => (
           <div class="cl-panel" id={`cl-panel-${part.id}`} data-cl-panel={part.id} data-cl-tone={part.id}>
             <p class="cl-panel-head"><b lang="en">{part.letter} · {part.en}</b> <span>{part.es}</span></p>
@@ -122,9 +126,9 @@ import '../../styles/english-clearance.css';
     </ol>
     <ul class="cl-rules" role="list">
       <li>Las demás autorizaciones e instrucciones, incluidas las condicionales y las de rodaje, se colacionan o se contestan de forma que quede claro que las entendiste y las vas a cumplir.</li>
-      <li>La información, como el viento, no se colaciona: si no la entendiste, pedís <em lang="en">say again</em>.</li>
+      <li>La información, como el viento, no se colaciona (CAP 413): si no la entendiste, pedís <em lang="en">say again</em>.</li>
       <li><em lang="en">Roger</em> o <em lang="en">wilco</em> no reemplazan una colación.</li>
-      <li>La colación lleva siempre tu distintivo de llamada, y va al final: primero repetís, después te nombrás.</li>
+      <li>La colación lleva siempre tu distintivo de llamada (SERA.14055). El manual de radio británico (CAP 413) lo pone al final: primero repetís, después te nombrás. Es la forma que usamos acá; en EE. UU. también lo vas a escuchar al principio.</li>
     </ul>
   </section>
 
@@ -136,10 +140,10 @@ import '../../styles/english-clearance.css';
           <h3>Caso {index + 1}</h3>
           <ol class="sv-call" role="list">
             <li class="sv-line is-tower">
-              <span class="sv-who">Torre</span>
+              <span class="sv-who">Control</span>
               <div class="sv-bubble">
                 <p lang="en">{entry.tower}</p>
-                <EnglishSay text={entry.towerSay} label={`Escuchar a la torre, caso ${index + 1}`} quiet />
+                <EnglishSay text={entry.towerSay} label={`Escuchar al control, caso ${index + 1}`} quiet />
               </div>
             </li>
             <li class="sv-line is-pilot">
@@ -158,7 +162,7 @@ import '../../styles/english-clearance.css';
   <!-- (e) Práctica -->
   <ExerciseSet set={clearanceSet} />
 
-  <p class="en-sources">Qué se colaciona siempre y qué lleva una autorización siguen el reglamento europeo SERA (UE 923/2012, SERA.8015), que toma la norma de la OACI; las palabras normalizadas, la tabla de la OACI (Anexo 10, Vol. II, cap. 5). El lugar del distintivo y la fraseología del circuito siguen el manual de radiotelefonía de la CAA británica (CAP 413); los nombres de las piezas y el uso de EE. UU., el AIM y el Glosario Piloto/Controlador de la FAA. CRAFT es una regla mnemotécnica, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras (frecuencias, códigos, QNH, altitudes) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">Qué se colaciona siempre y qué lleva una autorización siguen el reglamento europeo SERA (UE 923/2012, SERA.8015), que toma la norma de la OACI; las palabras normalizadas, la tabla de la OACI (Anexo 10, Vol. II, cap. 5), tal como la publica SERA.14045 (Tabla S14-4). El lugar del distintivo y la fraseología del circuito siguen el manual de radiotelefonía de la CAA británica (CAP 413); los nombres de las piezas, la orden 7110.65 de la FAA (4-2-1); el uso de EE. UU., el AIM y el Glosario Piloto/Controlador de la FAA. CRAFT es una regla mnemotécnica, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras (frecuencias, códigos, QNH, altitudes) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
 
   <EnglishFinish slug="autorizacion" where="Autorización y colación" />
   <script>
@@ -170,19 +174,18 @@ import '../../styles/english-clearance.css';
     mountExerciseSets();
     mountPageToc('[data-cl-toc]');
 
-    /* CRAFT: una letra a la vez. Sin JavaScript se ven todas las piezas. */
+    /* CRAFT: un grupo de radios, una letra a la vez. Sin JavaScript se ven todas las piezas. */
     const craft = document.querySelector('[data-cl-craft]');
     if (craft) {
-      const buttons = [...craft.querySelectorAll<HTMLButtonElement>('[data-cl-part]')];
+      const radios = [...craft.querySelectorAll<HTMLInputElement>('[data-cl-part]')];
       const panels = [...craft.querySelectorAll<HTMLElement>('[data-cl-panel]')];
       const pieces = [...craft.querySelectorAll<HTMLElement>('[data-cl-piece]')];
       const select = (id: string) => {
-        buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.clPart === id)));
         panels.forEach((panel) => { panel.hidden = panel.dataset.clPanel !== id; });
         pieces.forEach((piece) => piece.classList.toggle('is-on', piece.dataset.clPiece === id));
       };
-      buttons.forEach((button) => button.addEventListener('click', () => select(button.dataset.clPart ?? 'c')));
-      select('c');
+      radios.forEach((radio) => radio.addEventListener('change', () => { if (radio.checked) select(radio.value); }));
+      select(radios.find((radio) => radio.checked)?.value ?? 'c');
     }
   </script>
 </EnglishShell>

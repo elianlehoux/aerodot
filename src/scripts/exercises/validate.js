@@ -11,6 +11,7 @@ const checkItem = (item, where) => {
   for (const field of ['prompt', 'explain']) {
     if (isText(item[field]) && hasUnmatchedMarker(item[field])) errors.push(`${where}: ${field} tiene un asterisco sin pareja.`);
   }
+  if (item.lead !== undefined && !isText(item.lead)) errors.push(`${where}: lead debe ser un texto no vacío.`);
   if (item.type === 'mcq') {
     if (!isTexts(item.options, 2)) errors.push(`${where}: options necesita al menos 2 textos.`);
     else if (!Number.isInteger(item.answer) || item.answer < 0 || item.answer >= item.options.length) errors.push(`${where}: answer fuera de rango.`);

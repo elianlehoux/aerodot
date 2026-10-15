@@ -1,5 +1,6 @@
 ---
 import '../styles/english-exercises.css';
+import { splitMixed } from '../scripts/mixed.js';
 
 interface Props {
   set: { id: string; title: string; lede?: string; [key: string]: unknown };
@@ -10,7 +11,7 @@ const json = JSON.stringify(set).replace(/</g, '\\u003c');
 ---
 <section class="en-block ex-set" data-exercise-set aria-labelledby={`${set.id}-title`}>
   <h2 id={`${set.id}-title`}>{set.title}</h2>
-  {set.lede && <p class="en-block-lede">{set.lede}</p>}
+  {set.lede && <p class="en-block-lede">{splitMixed(set.lede).map((part) => part.en ? <span lang="en">{part.text}</span> : part.text)}</p>}
   <slot />
   <div class="ex-stage" data-exercise-stage></div>
   <script is:inline type="application/json" data-exercise-json set:html={json}></script>

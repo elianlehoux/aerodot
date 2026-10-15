@@ -244,3 +244,18 @@ test('autorización: las tarjetas del circuito, la lista y los asteriscos', () =
     assert.equal(hasUnmatchedMarker(text), false, text);
   }
 });
+
+test('lead: si está, debe ser un texto no vacío', () => {
+  const ok = good(); ok.items[0].lead = 'Era:';
+  assert.deepEqual(validateSet(ok), []);
+  for (const bad of ['', '  ', 3]) {
+    const s = good(); s.items[0].lead = bad;
+    assert.ok(validateSet(s).some((e) => e.includes('lead')), `debería rechazar ${JSON.stringify(bad)}`);
+  }
+});
+
+test('hearback: las preguntas de los casos usan un lead neutro', () => {
+  for (const item of [...hearbackSet.items, ...clearanceSet.items.filter((entry) => entry.id.startsWith('hb-'))]) {
+    assert.ok(item.lead?.trim(), `${item.id} sin lead`);
+  }
+});

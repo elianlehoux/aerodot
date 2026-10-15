@@ -21,11 +21,14 @@ html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#117
 
 /* CRAFT */
 .cl-craft{margin-top:18px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe)}
-.cl-parts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
-.cl-part{display:grid;justify-items:center;gap:4px;min-height:72px;padding:10px 4px;border:2px solid var(--cl-tone);border-radius:14px;background:var(--paper);color:var(--ink);font:500 12px/1.2 var(--sans);cursor:pointer;transition:background .15s ease,transform .15s ease}
+/* Un grupo de radios nativo: el input queda invisible y la etiqueta es la casilla. */
+.cl-parts{min-width:0;margin:0;padding:0;border:0}
+.cl-parts-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.cl-part{position:relative;display:grid;justify-items:center;gap:4px;min-height:72px;padding:10px 4px;border:2px solid var(--cl-tone);border-radius:14px;background:var(--paper);color:var(--ink);font:500 12px/1.2 var(--sans);cursor:pointer;transition:background .15s ease}
+.cl-radio{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
 .cl-part:hover{background:color-mix(in srgb,var(--cl-tone) 10%,var(--paper))}
-.cl-part:focus-visible{outline:3px solid var(--cl-ring);outline-offset:2px}
-.cl-part[aria-pressed="true"]{background:color-mix(in srgb,var(--cl-tone) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--cl-tone)}
+.cl-part:has(.cl-radio:focus-visible){outline:3px solid var(--cl-ring);outline-offset:2px}
+.cl-part:has(.cl-radio:checked){background:color-mix(in srgb,var(--cl-tone) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--cl-tone)}
 .cl-letter{color:var(--cl-tone);font:600 26px/1 var(--sans)}
 .cl-part-name{text-align:center;overflow-wrap:anywhere}
 .cl-example-label{margin:20px 0 6px;color:var(--muted);font:500 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
@@ -70,7 +73,7 @@ html[data-theme="light"] .english-page{--cl-c:#b33a09;--cl-r:#835b00;--cl-a:#117
 @media(max-width:680px){
   .cl-flip-grid{grid-template-columns:minmax(0,1fr)}
   .cl-craft{padding:14px}
-  .cl-parts{gap:6px}
+  .cl-parts-row{gap:6px}
   /* En el celular cada casilla muestra solo la letra; el nombre queda para el lector de pantalla y aparece en el panel. */
   .cl-part{min-height:56px;padding:8px 2px}
   .cl-part-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
