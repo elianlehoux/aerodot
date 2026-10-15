@@ -206,6 +206,11 @@ export const mountExerciseSets = () => {
       root.hidden = true;
       return;
     }
-    runSet(root, set);
+    try {
+      runSet(root, set);
+    } catch (error) {
+      console.error('Set de ejercicios con error:', error);
+      root.hidden = true;
+    }
   });
 };
