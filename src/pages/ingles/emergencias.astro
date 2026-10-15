@@ -23,8 +23,8 @@ import '../../styles/english-emergency.css';
 /* Lo que se ve antes de que cargue el script: el mismo mensaje de ejemplo de la cinta. */
 const initial = emergencyExample;
 const steps = [
-  { en: 'Aviate', es: 'Aviar', body: 'Primero, el avión: mantené el control, la velocidad y buscá dónde aterrizar.' },
-  { en: 'Navigate', es: 'Navegar', body: 'Después, saber dónde estás y hacia dónde vas.' },
+  { en: 'Aviate', es: 'Aviar', body: 'Primero, el avión: mantené el control, la actitud, la velocidad y la altura.' },
+  { en: 'Navigate', es: 'Navegar', body: 'Después, saber dónde estás, hacia dónde vas y elegir dónde aterrizar.' },
   { en: 'Communicate', es: 'Comunicar', body: 'Recién entonces, la radio: un mensaje corto y en orden.' },
 ];
 ---
@@ -89,7 +89,7 @@ const steps = [
     </ul>
     <ul class="cl-rules em-rules" role="list">
       <li>Cada <em lang="en">pan</em> se pronuncia como la palabra francesa «panne» (avería).</li>
-      <li>Si una urgencia se vuelve un peligro grave e inminente, ya es socorro: <em lang="en">MAYDAY</em>. Si el problema resulta menos grave de lo que pensabas, podés cancelar la emergencia: <em lang="en">cancel MAYDAY</em>.</li>
+      <li>Si una urgencia se vuelve un peligro grave o inminente y necesitás ayuda inmediata, ya es socorro: <em lang="en">MAYDAY</em>. Si el problema resulta menos grave de lo que pensabas, podés cancelar la emergencia: <em lang="en">cancel MAYDAY</em>.</li>
       <li><em lang="en">PAN PAN MEDICAL</em> no es para un pasajero descompuesto: anuncia un transporte sanitario protegido por los Convenios de Ginebra. Para alguien que se siente mal a bordo, usás <em lang="en">PAN PAN</em> o, si su vida corre peligro, <em lang="en">MAYDAY</em>.</li>
     </ul>
   </section>
@@ -132,7 +132,7 @@ const steps = [
             </p>
             <div class="em-panel-piece">
               <p lang="en">“{piece.example}”</p>
-              <EnglishSay text={piece.say} label={`Escuchar la pieza ${index + 1}: ${piece.en}`} quiet />
+              <EnglishSay text={piece.say} label={piece.official ? `Escuchar la pieza ${index + 1}: ${piece.en}` : `Escuchar lo que se suele agregar: ${piece.en}`} quiet />
             </div>
             <p class="em-panel-body">{splitMixed(piece.hint).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
           </div>
@@ -169,7 +169,7 @@ const steps = [
               </label>
             ))}
           </div>
-          <p class="em-hint">Lo que no va con el nivel elegido queda apagado: con <span lang="en">PAN PAN</span> se apagan el motor detenido y el aterrizaje forzoso, que son socorro. La falla de radio no está: si no podés hablar, avisás con el transpondedor (<a href="#codigos">7600</a>).</p>
+          <p class="em-hint">Lo que no va con el nivel elegido queda apagado. Lo que decide es si necesitás ayuda inmediata: con un monomotor, el motor detenido, el fuego a bordo y el aterrizaje forzoso son socorro. La falla de radio no está: para eso existe el <a href="#codigos">código 7600 del transpondedor</a>.</p>
         </fieldset>
         <fieldset class="em-group">
           <legend>Qué vas a hacer</legend>

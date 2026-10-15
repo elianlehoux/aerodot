@@ -2,7 +2,7 @@
  * El armador del mensaje de emergencia (/ingles/emergencias).
  * buildMessage es lógica pura (la usan los tests); mountEmergency conecta la cinta y el armador con la página.
  */
-import { composeMessage, emergencyIntentions, emergencyLevels, emergencyNatures } from '../data/english-emergency.js';
+import { composeMessage, emergencyIntentions, emergencyLevels, emergencyNatures, emergencyPositions } from '../data/english-emergency.js';
 
 /**
  * Arma el mensaje en el orden de la norma. Devuelve { text, say, parts } y no toca el DOM.
@@ -16,6 +16,8 @@ export const buildMessage = ({ level, station = '', callsign = '', nature, inten
   if (!nature || !found) throw new Error(`Falta la naturaleza o no existe: "${nature ?? ''}".`);
   if (!found.levels.includes(level)) throw new Error(`La naturaleza "${nature}" no corresponde al nivel ${level}.`);
   const plan = emergencyIntentions.find((entry) => entry.id === intention);
+  if (intention && !plan) throw new Error(`La intención no existe: "${intention}".`);
+  if (position && !emergencyPositions.some((entry) => entry.id === position)) throw new Error(`La posición no existe: "${position}".`);
   if (plan && !plan.levels.includes(level)) throw new Error(`La intención "${intention}" no corresponde al nivel ${level}.`);
   return composeMessage({ level, station, callsign, nature, intention, position, extra });
 };

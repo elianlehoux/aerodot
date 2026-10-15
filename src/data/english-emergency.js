@@ -82,14 +82,14 @@ const order = [
     en: 'intention of the pilot-in-command',
     es: 'Qué vas a hacer',
     official: true,
-    hint: 'Tu intención: aterrizar en un aeródromo, hacer un aterrizaje forzoso o volver. Se anuncia con *intend*.',
+    hint: 'Tu intención: aterrizar en un aeródromo, hacer un aterrizaje forzoso o volver. Se suele anunciar con *intend*.',
   },
   {
     id: 'position',
     en: 'present position, level and heading',
     es: 'Dónde estás',
     official: true,
-    hint: 'Posición, altura y rumbo. Si no sabés dónde estás, la última posición que conocés.',
+    hint: 'Posición, nivel o altitud y rumbo. Si no sabés dónde estás, la última posición que conocés.',
   },
   {
     id: 'extra',
@@ -100,16 +100,19 @@ const order = [
   },
 ];
 
-/** Qué pasa. levels: con qué señal se dice; note, una aclaración que muestra el armador. */
+/**
+ * Qué pasa. levels: con qué señal se puede decir (lo que decide es si necesitás ayuda inmediata,
+ * SERA.14095 (a)(1)); note, una aclaración que muestra el armador.
+ */
 export const emergencyNatures = [
-  { id: 'engine-failure', en: 'engine failure', es: 'Motor detenido', levels: ['mayday'] },
+  { id: 'engine-failure', en: 'engine failure', es: 'Motor detenido (monomotor)', levels: ['mayday'] },
   { id: 'fire', en: 'fire on board', es: 'Fuego a bordo', levels: ['mayday'] },
   {
     id: 'fuel',
     en: 'low fuel',
     es: 'Poco combustible',
     levels: ['mayday'],
-    note: 'Por combustible, el manual británico (CAP 413) declara la emergencia con *MAYDAY* (o *MAYDAY FUEL*). *Minimum fuel* es solo un aviso: no es una emergencia y no te da prioridad.',
+    note: 'Por combustible, el manual británico (CAP 413) declara la emergencia con *MAYDAY* (o *MAYDAY FUEL*). *Minimum fuel* es solo un aviso: no es una emergencia y no te garantiza prioridad; el control puede preguntarte si querés declarar la emergencia.',
   },
   {
     id: 'medical',
@@ -118,7 +121,13 @@ export const emergencyNatures = [
     levels: ['mayday', 'panpan'],
     note: 'Si la persona está estable, es urgencia (*PAN PAN*). Si su vida corre peligro y necesita ayuda ya, es socorro (*MAYDAY*).',
   },
-  { id: 'rough-engine', en: 'rough running engine', es: 'Motor irregular', levels: ['panpan'] },
+  {
+    id: 'rough-engine',
+    en: 'rough running engine',
+    es: 'Motor irregular',
+    levels: ['panpan', 'mayday'],
+    note: 'Si el motor irregular te sigue sosteniendo, es urgencia (*PAN PAN*). Si perdés altura y vas a tener que aterrizar donde puedas, es socorro (*MAYDAY*). Ante la duda, declarala: si después resulta menos grave, la cancelás.',
+  },
 ];
 
 /** Qué vas a hacer. levels: con qué señal tiene sentido (un aterrizaje forzoso es socorro). */
@@ -183,7 +192,9 @@ export const emergencyExample = composeMessage(exampleChoice);
 /** Los elementos con el trozo del ejemplo y su audio. */
 export const emergencyOrder = order.map((piece) => {
   const text = emergencyExample.parts.find((part) => part.id === piece.id).text;
-  return { ...piece, example: text, say: spoken(text) };
+  /* La señal se lee en minúsculas, como en el armador, para que la voz no la deletree. */
+  const say = piece.id === 'signal' ? emergencyLevels[0].say : spoken(text);
+  return { ...piece, example: text, say };
 });
 
 /** Un ejemplo completo por nivel, para las tarjetas comparadas. */
@@ -210,7 +221,7 @@ export const squawkCodes = [
     en: 'Radio failure',
     es: 'Falla de comunicaciones',
     say: 'seven six zero zero',
-    body: 'Indica que perdiste la radio. Por eso la falla de radio no está en el armador: si no podés hablar, avisás con el transpondedor.',
+    body: 'Indica una falla de radiocomunicaciones: puede que no transmitas, que no recibas, o las dos cosas. Por eso la falla de radio no está en el armador: el aviso va por el transpondedor.',
   },
   {
     code: '7500',

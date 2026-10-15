@@ -89,6 +89,23 @@ test('buildMessage lanza un error claro si falta el nivel o la naturaleza, o si 
   assert.throws(() => buildMessage({ ...base, nature: 'xyz' }), /naturaleza/);
   assert.throws(() => buildMessage({ ...base, level: 'panpan', nature: 'fire' }), /no corresponde/);
   assert.throws(() => buildMessage({ ...base, level: 'panpan', nature: 'rough-engine', intention: 'forced-landing' }), /no corresponde/);
+  assert.throws(() => buildMessage({ ...base, level: 'panpan', nature: 'fuel', intention: 'return' }), /no corresponde/);
+  assert.throws(() => buildMessage({ ...base, level: 'panpan', nature: 'engine-failure', intention: 'return' }), /no corresponde/);
+});
+
+test('el motor irregular vale con las dos señales; combustible, fuego y aterrizaje forzoso solo con MAYDAY', () => {
+  assert.doesNotThrow(() => buildMessage({ ...base, level: 'panpan', nature: 'rough-engine', intention: 'return' }));
+  assert.doesNotThrow(() => buildMessage({ ...base, level: 'mayday', nature: 'rough-engine' }));
+  for (const id of ['fuel', 'fire', 'engine-failure']) {
+    assert.deepEqual(emergencyNatures.find((nature) => nature.id === id).levels, ['mayday'], id);
+  }
+  assert.deepEqual(emergencyIntentions.find((intention) => intention.id === 'forced-landing').levels, ['mayday']);
+  assert.ok(emergencyNatures.find((nature) => nature.id === 'rough-engine').note?.trim(), 'el motor irregular explica cuándo es cada uno');
+});
+
+test('buildMessage lanza un error claro si la intención o la posición no existen', () => {
+  assert.throws(() => buildMessage({ ...base, intention: 'xyz' }), /intención/);
+  assert.throws(() => buildMessage({ ...base, position: 'xyz' }), /posición/);
 });
 
 test('los dos niveles, las opciones del armador y los códigos tienen todos sus campos', () => {
@@ -128,6 +145,7 @@ test('emergencias: las cifras de say van en palabras y los códigos se dicen cif
 });
 
 test('emergencias: el ejemplo de la cinta es el mensaje del armador y cada pieza tiene su trozo', () => {
+  assert.equal(emergencyOrder.find((piece) => piece.id === 'signal').say, 'Mayday, mayday, mayday.', 'la voz lee la señal en minúsculas');
   for (const piece of emergencyOrder) {
     const part = emergencyExample.parts.find((entry) => entry.id === piece.id);
     assert.ok(part, `${piece.id}: falta en el ejemplo`);
