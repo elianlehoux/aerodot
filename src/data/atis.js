@@ -133,7 +133,7 @@ export const atisLines = (atis) => {
     lines.push({ id: 'cavok', text: 'CAVOK.', label: 'Visibilidad, tiempo y nubes', value: 'CAVOK (10 km o más, sin tiempo, sin nubes bajo 5000 ft)' });
   } else {
     const km = atis.vis.km;
-    lines.push({ id: 'vis', text: `Visibility ${digits(km)} ${km === 1 ? 'kilometer' : 'kilometers'}.`, label: 'Visibilidad', value: `${km} km` });
+    lines.push({ id: 'vis', text: `Visibility ${digits(km)} ${km === 1 ? 'kilometre' : 'kilometres'}.`, label: 'Visibilidad', value: `${km} km` });
     if (atis.weather) lines.push({ id: 'weather', text: `Weather ${atis.weather.en}.`, label: 'Tiempo presente', value: atis.weather.es });
     lines.push({
       id: 'sky',

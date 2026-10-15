@@ -41,8 +41,7 @@ export const englishSections = [
   { slug: 'atis', phase: 'base', roles: PA, title: 'El ATIS', blurb: 'El parte grabado antes de llamar a la torre.', href: '/ingles/atis' },
 
   { slug: 'aeronave', phase: 'antes', roles: ['piloto', 'tcp'], title: 'La aeronave', blurb: 'Partes, instrumentos y fallas.', href: '/ingles/aeronave' },
-  { slug: 'tiempo', phase: 'antes', roles: PA, title: 'El tiempo', blurb: 'Cómo se dicen las nubes, los fenómenos y el viento por radio.', href: '/ingles/tiempo' },
-  { phase: 'antes', roles: PA, title: 'NOTAM y documentos', blurb: 'Avisos y publicaciones, leídos en inglés.' },
+  { slug: 'tiempo', phase: 'antes', roles: PA, title: 'El tiempo', blurb: 'Cómo se dicen las nubes y los fenómenos por radio.', href: '/ingles/tiempo' },
 
   { phase: 'tierra', roles: PA, title: 'La autorización', blurb: 'Copiarla y colacionarla.' },
   { phase: 'tierra', roles: PA, title: 'Puesta en marcha y rodaje', blurb: 'Hold short, give way y follow.' },
