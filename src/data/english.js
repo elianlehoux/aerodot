@@ -4,71 +4,41 @@
  * Laguna y la matrícula LV-DEM son de práctica: no son un aeródromo, un parte ni un avión reales.
  * La fraseología sigue el uso de la OACI en radiotelefonía (pista en dos cifras, viento y QNH
  * cifra por cifra). Se escribe three, four, five y nine; por radio suenan
- * tree, fower, fife y niner, y eso es lo que muestra el campo sound y lo que dice la voz. El nivel 4 está en la RAAC 61.165.
+ * tree, fower, fife y niner, y eso es lo que muestra el campo sound y lo que dice la voz.
  */
 
-export const raac61Href = 'https://www.argentina.gob.ar/anac/resoluciones-disposiciones-y-otras-normas-aeronauticas/raac';
-
-/** Para quién es cada tema. El filtro de la página de inglés usa estas claves. */
-export const englishRoles = [
-  { id: 'piloto', label: 'Piloto' },
-  { id: 'tcp', label: 'TCP' },
-  { id: 'atc', label: 'Controlador' },
-];
-
-/** Fases en que se agrupan los temas, en el orden de la página. */
+/** Los seis pasos del recorrido, en el orden de la página. step es el número que se muestra. */
 export const englishPhases = [
-  { id: 'base', title: 'La base' },
-  { id: 'antes', title: 'Antes de volar' },
-  { id: 'tierra', title: 'En tierra' },
-  { id: 'vuelo', title: 'En vuelo' },
-  { id: 'anormal', title: 'Fuera de lo normal' },
-  { id: 'cabina', title: 'En la cabina de pasajeros' },
-  { id: 'control', title: 'Del lado del control' },
-  {
-    id: 'oral',
-    title: 'El oral',
-    lede: 'La evaluación de inglés de la RAAC 61.165. El mínimo para volar donde la radio no es en español es el nivel 4. Se revalida cada 3 años. El 5, cada 6. El 6 no se vuelve a evaluar.',
-  },
+  { id: 'base', step: 1, title: 'Base', lede: 'Las palabras y los números que usás en cada llamada.' },
+  { id: 'comunicaciones', step: 2, title: 'Comunicaciones', lede: 'Escuchar, entender y responder en la frecuencia.' },
+  { id: 'emergencias', step: 3, title: 'Emergencias', lede: 'Qué decir cuando algo sale mal, y en qué orden.' },
+  { id: 'anormal', step: 4, title: 'Situación anormal', lede: 'Nombrar y contar lo que pasó cuando no fue una operación normal.' },
+  { id: 'comunicarla', step: 5, title: 'Comunicarla', lede: 'El mismo hecho se dice distinto según quién escucha.' },
+  { id: 'historia', step: 6, title: 'Contá tu historia', lede: 'Tu propia historia, en inglés. Es opcional.' },
 ];
 
-const PA = ['piloto', 'atc'];
-
-/** Todos los temas. Los que tienen href ya están hechos; el resto aparece como próximamente. */
+/** Todos los módulos. Los que tienen href ya están hechos; el resto aparece como próximamente. */
 export const englishSections = [
-  { slug: 'aerodromo', phase: 'base', roles: PA, title: 'El aeródromo', blurb: 'Pista, rodaje, plataforma y circuito.', href: '/ingles/aerodromo' },
-  { slug: 'numeros', phase: 'base', roles: PA, title: 'Números y alfabeto', blurb: 'Cifras y letras como se dicen por radio.', href: '/ingles/numeros' },
-  { slug: 'atis', phase: 'base', roles: PA, title: 'El ATIS', blurb: 'El parte grabado antes de llamar a la torre.', href: '/ingles/atis' },
+  { phase: 'base', title: 'Frases de supervivencia', blurb: 'Say again, speak slower, unable: qué decir cuando no entendiste.' },
+  { slug: 'numeros', phase: 'base', title: 'Números y alfabeto', blurb: 'Cifras y letras como se dicen por radio.', href: '/ingles/numeros' },
+  { slug: 'aerodromo', phase: 'base', title: 'El aeródromo', blurb: 'Pista, rodaje, plataforma y circuito.', href: '/ingles/aerodromo' },
+  { slug: 'aeronave', phase: 'base', title: 'La aeronave', blurb: 'Partes, instrumentos y fallas.', href: '/ingles/aeronave' },
+  { slug: 'tiempo', phase: 'base', title: 'El tiempo', blurb: 'Cómo se dicen las nubes y los fenómenos por radio.', href: '/ingles/tiempo' },
 
-  { slug: 'aeronave', phase: 'antes', roles: ['piloto', 'tcp'], title: 'La aeronave', blurb: 'Partes, instrumentos y fallas.', href: '/ingles/aeronave' },
-  { slug: 'tiempo', phase: 'antes', roles: PA, title: 'El tiempo', blurb: 'Cómo se dicen las nubes y los fenómenos por radio.', href: '/ingles/tiempo' },
+  { slug: 'atis', phase: 'comunicaciones', title: 'El ATIS', blurb: 'El parte grabado antes de llamar a la torre.', href: '/ingles/atis' },
+  { phase: 'comunicaciones', title: 'Autorización y colación', blurb: 'Qué te autorizan, cómo lo repetís y cómo se detecta un error.' },
+  { phase: 'comunicaciones', title: 'Radio por fase de vuelo', blurb: 'De la puesta en marcha a la final: qué se dice en cada tramo.' },
 
-  { phase: 'tierra', roles: PA, title: 'La autorización', blurb: 'Copiarla y colacionarla.' },
-  { phase: 'tierra', roles: PA, title: 'Puesta en marcha y rodaje', blurb: 'Hold short, give way y follow.' },
-  { phase: 'tierra', roles: PA, title: 'El despegue', blurb: 'Line up, condicionales y cleared for take-off.' },
+  { phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Aviar, navegar, comunicar: el mensaje de emergencia paso a paso.' },
 
-  { phase: 'vuelo', roles: PA, title: 'Salida y ascenso', blurb: 'Rumbos, niveles y la primera llamada.' },
-  { phase: 'vuelo', roles: PA, title: 'En ruta', blurb: 'Posición, niveles, transponder y cambio de frecuencia.' },
-  { phase: 'vuelo', roles: PA, title: 'El tiempo en vuelo', blurb: 'Desvíos, turbulencia y reportes de piloto.' },
-  { phase: 'vuelo', roles: PA, title: 'Llegada y aproximación', blurb: 'Vectores, ILS y go-around.' },
+  { phase: 'anormal', title: 'Vocabulario de accidentes', blurb: 'Las palabras para nombrar qué pasó.' },
+  { phase: 'anormal', title: 'Contalo en pasado', blurb: 'Relatar un incidente con los tiempos verbales correctos.' },
+  { phase: 'anormal', title: 'Describí la foto', blurb: 'Qué ves, dónde y qué está pasando.' },
+  { phase: 'anormal', title: 'Línea de tiempo', blurb: 'Ordenar un incidente real, paso por paso.' },
 
-  { phase: 'anormal', roles: ['piloto', 'tcp', 'atc'], title: 'Emergencias', blurb: 'Mayday, Pan Pan, motor, humo, médica y combustible.' },
-  { phase: 'anormal', roles: PA, title: 'Falla de comunicaciones', blurb: 'Qué se hace y qué se dice sin radio.' },
-  { phase: 'anormal', roles: PA, title: 'Malentendidos', blurb: 'Say again, confirm y corregir una colación.' },
+  { phase: 'comunicarla', title: 'Un evento, tres públicos', blurb: 'El mismo hecho contado a ATC, a Operaciones y a los pasajeros.' },
 
-  { phase: 'cabina', roles: ['tcp'], title: 'Anuncios a los pasajeros', blurb: 'Bienvenida, cinturones, demoras y llegada.' },
-  { phase: 'cabina', roles: ['tcp', 'piloto'], title: 'Hablar con la cabina de mando', blurb: 'Avisos y novedades entre tripulantes.' },
-  { phase: 'cabina', roles: ['tcp'], title: 'Seguridad y evacuación', blurb: 'Las órdenes, cortas y en voz alta.' },
-  { phase: 'cabina', roles: ['tcp'], title: 'Primeros auxilios', blurb: 'Describir qué le pasa a un pasajero.' },
-
-  { phase: 'control', roles: ['atc'], title: 'Vigilancia', blurb: 'Identificar, vectorear y separar.' },
-  { phase: 'control', roles: ['atc'], title: 'Coordinación', blurb: 'Entre dependencias, por teléfono y por frecuencia.' },
-
-  { phase: 'oral', roles: PA, title: 'Presentarte', blurb: 'Licencia, horas y experiencia.' },
-  { phase: 'oral', roles: PA, title: 'Describir una escena', blurb: 'Quién, dónde, qué pasa y qué decidís.' },
-  { phase: 'oral', roles: PA, title: 'Escuchar y contar', blurb: 'Un audio, y contarlo con tus palabras.' },
-  { phase: 'oral', roles: PA, title: 'Una situación no rutinaria', blurb: 'Cuando la frase hecha no alcanza.' },
-  { phase: 'oral', roles: PA, title: 'Los seis criterios', blurb: 'Qué evalúa la OACI y cómo estás vos.' },
+  { phase: 'historia', title: 'Preguntas de entrevista', blurb: 'Contá quién sos y qué hacés, en inglés. Opcional.' },
 ];
 
 /** Los temas que ya están hechos, en orden. Arman la paginación entre temas. */

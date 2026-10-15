@@ -46,15 +46,17 @@
 .converter-input:focus-visible,.en-input:focus-visible{border-color:var(--accent);outline:2px solid color-mix(in srgb,var(--accent) 30%,transparent);outline-offset:1px}
 @keyframes pop{from{opacity:0;transform:translateY(4px) scale(.96)}}
 
-.en-filter{margin-top:36px}
 .en-phase{margin-top:48px}
+.en-phase-head{display:flex;align-items:center;gap:12px}
+.en-step{display:inline-grid;flex:none;place-items:center;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;color:var(--ink);font:500 14px/1 var(--display);font-variant-numeric:tabular-nums}
 .en-phase h2{margin:0}
 .en-phase-lede{max-width:70ch;margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
-.en-phase-lede a{margin-left:10px;color:var(--ink);text-underline-offset:3px}
-.topic-card.is-soon{padding:18px;background:transparent;border-style:dashed}
-.topic-card.is-soon:hover{border-color:var(--line);transform:none;box-shadow:none}
-.topic-card.is-soon .topic-title{margin-top:0;color:var(--graphite);font-size:19px}
-.topic-card.is-soon .topic-foot{color:var(--ash);font-size:12px;font-weight:500;padding-top:14px}
+.en-soon-block{margin-top:24px}
+.en-soon{display:grid;grid-template-columns:minmax(0,1fr);column-gap:24px;margin:8px 0 0;padding:0;list-style:none}
+.en-soon li{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-top:1px solid var(--line)}
+.en-soon-title{color:var(--graphite);font-size:15px;font-weight:500;line-height:1.35}
+.en-soon-blurb{color:var(--muted);font-size:14px;line-height:1.5}
+@media(min-width:640px){.en-soon{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:20px 0 0;padding:0;list-style:none}
 .topic-card{display:flex;flex-direction:column;height:100%;padding:14px 14px 18px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--paper);color:var(--ink);text-decoration:none;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
 .topic-card:hover{border-color:var(--muted);transform:translateY(-2px);box-shadow:0 12px 30px -18px rgba(0,0,0,.5)}

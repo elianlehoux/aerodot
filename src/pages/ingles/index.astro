@@ -1,6 +1,6 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
-import { englishPhases, englishReadySlugs, englishRoles, englishSections, raac61Href } from '../../data/english.js';
+import { englishPhases, englishReadySlugs, englishSections } from '../../data/english.js';
 import '../../styles/english-art.css';
 
 /* Dibujos de las tarjetas, en unidades del viewBox de 240 × 120. */
@@ -17,14 +17,18 @@ const waveBars = waveHeights.map((height, index) => ({
   delay: ((index * 37) % 11) / 10,
 }));
 
-const phases = englishPhases.map((phase) => ({ ...phase, sections: englishSections.filter((section) => section.phase === phase.id) }));
+const phases = englishPhases.map((phase) => {
+  const sections = englishSections.filter((section) => section.phase === phase.id);
+  return { ...phase, ready: sections.filter((section) => section.href), soon: sections.filter((section) => !section.href) };
+});
 ---
 <EnglishShell
-  title="Inglés aeronáutico — Palabras, partes y el oral | Aerodot"
-  description="Aprendé el inglés de la aviación: el aeródromo, los números de la radio y el ATIS. Práctica independiente, en español, para preparar el nivel 4 de la RAAC 61.165."
+  title="Inglés aeronáutico — Cómo se dice por radio | Aerodot"
+  description="Aprendé a decirlo en inglés: números y alfabeto, el aeródromo, el ATIS, las autorizaciones y las emergencias. Práctica independiente, en español, con audio."
 >
   <section class="en-hero">
     <h1>Inglés aeronáutico</h1>
+    <p class="en-deck">Seis pasos para aprender cómo se dice, no la teoría. Cada módulo se escucha, se toca y se practica.</p>
     <div class="en-meter" data-english-count={englishReadySlugs.join(' ')} aria-live="polite" hidden>
       <span class="en-meter-bar" aria-hidden="true"><i></i></span>
       <span data-english-count-text></span>
@@ -32,24 +36,17 @@ const phases = englishPhases.map((phase) => ({ ...phase, sections: englishSectio
     <p class="en-disclaimer">Práctica independiente. No reemplaza la evaluación de la ANAC ni acredita un nivel.</p>
   </section>
 
-  <div class="seg en-filter" role="group" aria-label="Mostrar temas para" data-english-filter>
-    <button type="button" data-role="" aria-pressed="true">Todos</button>
-    {englishRoles.map((role) => <button type="button" data-role={role.id} aria-pressed="false">{role.label}</button>)}
-  </div>
-
   {phases.map((phase) => (
-    <section class="en-phase" data-phase aria-labelledby={`fase-${phase.id}`}>
-      <h2 id={`fase-${phase.id}`}>{phase.title}</h2>
-      {phase.lede && (
-        <p class="en-phase-lede">
-          {phase.lede}
-          {phase.id === 'oral' && <> <a href={raac61Href}>Índice de las RAAC ↗</a> <a href="/camino">Cómo figura en la licencia ↗</a></>}
-        </p>
-      )}
-      <ul class="topic-grid">
-        {phase.sections.map((section) => (
-          <li data-roles={section.roles.join(' ')} data-english-slug={section.slug}>
-            {section.href ? (
+    <section class="en-phase" aria-labelledby={`fase-${phase.id}`}>
+      <div class="en-phase-head">
+        <span class="en-step" aria-hidden="true">{phase.step}</span>
+        <h2 id={`fase-${phase.id}`}><span class="visually-hidden">Paso {phase.step} · </span>{phase.title}</h2>
+      </div>
+      <p class="en-phase-lede">{phase.lede}</p>
+      {phase.ready.length > 0 && (
+        <ul class="topic-grid">
+          {phase.ready.map((section) => (
+            <li data-english-slug={section.slug}>
               <a class="topic-card" href={section.href}>
                 <span class="topic-art" aria-hidden="true">
                   {section.slug === 'aerodromo' && (
@@ -114,40 +111,33 @@ const phases = englishPhases.map((phase) => ({ ...phase, sections: englishSectio
                   <span class="topic-arrow" aria-hidden="true">→</span>
                 </span>
               </a>
-            ) : (
-              <div class="topic-card is-soon">
-                <span class="topic-title">{section.title}</span>
-                <span class="topic-blurb">{section.blurb}</span>
-                <span class="topic-foot">Próximamente</span>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      )}
+      {phase.soon.length > 0 && (
+        <div class="en-soon-block">
+          <h3 class="card-kicker">Próximamente</h3>
+          <ul class="en-soon">
+            {phase.soon.map((section) => (
+              <li>
+                <span class="en-soon-title">{section.title}</span>
+                <span class="en-soon-blurb">{section.blurb}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   ))}
 
   <p class="en-sources">
-    Los números y el alfabeto son los de la radiotelefonía de la OACI. El nivel 4 está en la RAAC 61.165.
+    Los números y el alfabeto son los de la radiotelefonía de la OACI.
     Laguna y la matrícula LV-DEM son de práctica: no son un aeródromo ni un avión reales. Los ATIS grabados llevan efecto de radio; el resto de los audios usa la voz de tu navegador.
   </p>
   <script>
     import { mountEnglishProgress, mountListen } from '../../scripts/english.js';
     mountListen();
     mountEnglishProgress();
-
-    // Filtro por rol: esconde los temas que no son para ese rol, y las fases que quedan vacías.
-    const filter = document.querySelector('[data-english-filter]');
-    const buttons = [...filter.querySelectorAll('[data-role]')];
-    const phases = [...document.querySelectorAll('[data-phase]')];
-    buttons.forEach((button) => button.addEventListener('click', () => {
-      const role = button.dataset.role;
-      buttons.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
-      phases.forEach((phase) => {
-        const items = [...phase.querySelectorAll('[data-roles]')];
-        items.forEach((item) => { item.hidden = Boolean(role) && !item.dataset.roles.split(' ').includes(role); });
-        phase.hidden = items.every((item) => item.hidden);
-      });
-    }));
   </script>
 </EnglishShell>
