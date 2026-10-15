@@ -18,9 +18,10 @@ npm run dev
 
 ```bash
 npm run build
+npm test
 ```
 
-Ese build es la verificación. No hay suite de tests.
+El build y los tests son la verificación. `npm test` corre una suite chica con `node --test`: cubre la corrección y validación de los ejercicios de inglés y la lógica de rangos del service worker.
 
 ## Dónde está cada cosa
 
