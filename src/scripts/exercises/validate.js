@@ -17,6 +17,10 @@ const checkItem = (item, where) => {
   } else if (item.type === 'order') {
     if (!isTexts(item.tokens, 2)) errors.push(`${where}: tokens necesita al menos 2 fichas.`);
     else if (!isTexts(item.answer, 1) || key(item.answer) !== key(item.tokens)) errors.push(`${where}: answer debe usar las mismas fichas que tokens.`);
+    if (item.alternatives !== undefined && (!Array.isArray(item.alternatives)
+      || !item.alternatives.every((alt) => isTexts(alt, 1) && key(alt) === key(item.tokens)))) {
+      errors.push(`${where}: alternatives debe ser una lista de órdenes con las mismas fichas que tokens.`);
+    }
   }
   return errors;
 };

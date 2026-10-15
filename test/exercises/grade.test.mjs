@@ -8,6 +8,12 @@ test('normalize ignora mayúsculas, espacios, acentos y puntuación', () => {
   assert.equal(normalize('Ceiling, broken!'), 'ceiling broken');
 });
 
+test('normalize quita acentos y unifica apóstrofos tipográficos', () => {
+  assert.equal(normalize('\u00c1nimo, \u00d1and\u00fa'), 'animo nandu');
+  assert.equal(normalize('Don\u2019t'), normalize("don't"));
+  assert.equal(normalize('\u2018twas'), normalize("'twas"));
+});
+
 test('gradeGap acepta cualquier respuesta válida', () => {
   const item = { answers: ['one five', 'fifteen'] };
   assert.deepEqual(gradeGap(item, ' One  Five '), { correct: true, expected: 'one five' });

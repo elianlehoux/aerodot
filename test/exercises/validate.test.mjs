@@ -45,3 +45,14 @@ test('order: la respuesta debe usar las mismas fichas', () => {
   const t = good(); t.items[3].answer = ['the', 'in', 'vicinity'];
   assert.deepEqual(validateSet(t), []);
 });
+
+test('order: alternatives debe ser una lista de órdenes con las mismas fichas', () => {
+  const ok = good(); ok.items[3].alternatives = [['the', 'vicinity', 'in']];
+  assert.deepEqual(validateSet(ok), []);
+  const notArray = good(); notArray.items[3].alternatives = 'x';
+  assert.ok(validateSet(notArray).some((e) => e.includes('alternatives')));
+  const entry = good(); entry.items[3].alternatives = [null];
+  assert.ok(validateSet(entry).some((e) => e.includes('alternatives')));
+  const tokens = good(); tokens.items[3].alternatives = [['in', 'the']];
+  assert.ok(validateSet(tokens).some((e) => e.includes('alternatives')));
+});
