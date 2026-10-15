@@ -1,0 +1,52 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { gradeChoice, gradeGap, gradeOrder, gradeTf, normalize, shuffle, summarize } from '../../src/scripts/exercises/grade.js';
+
+test('normalize ignora mayúsculas, espacios, acentos y puntuación', () => {
+  assert.equal(normalize('  Broken '), 'broken');
+  assert.equal(normalize('Hold   SHORT.'), 'hold short');
+  assert.equal(normalize('Ceiling, broken!'), 'ceiling broken');
+});
+
+test('gradeGap acepta cualquier respuesta válida', () => {
+  const item = { answers: ['one five', 'fifteen'] };
+  assert.deepEqual(gradeGap(item, ' One  Five '), { correct: true, expected: 'one five' });
+  assert.equal(gradeGap(item, 'Fifteen').correct, true);
+  assert.equal(gradeGap(item, 'five').correct, false);
+  assert.equal(gradeGap(item, '').correct, false);
+});
+
+test('gradeChoice compara por índice y devuelve el texto esperado', () => {
+  const item = { options: ['a', 'b', 'c'], answer: 1 };
+  assert.deepEqual(gradeChoice(item, 1), { correct: true, expected: 'b' });
+  assert.equal(gradeChoice(item, 0).correct, false);
+});
+
+test('gradeTf compara booleanos', () => {
+  assert.deepEqual(gradeTf({ answer: true }, true), { correct: true, expected: 'Verdadero' });
+  assert.deepEqual(gradeTf({ answer: false }, true), { correct: false, expected: 'Falso' });
+});
+
+test('gradeOrder compara por texto y admite alternativas y fichas repetidas', () => {
+  const item = { answer: ['one', 'one', 'zero'], alternatives: [['one', 'zero', 'one']] };
+  assert.equal(gradeOrder(item, ['one', 'one', 'zero']).correct, true);
+  assert.equal(gradeOrder(item, ['One', 'zero', 'one']).correct, true);
+  assert.equal(gradeOrder(item, ['zero', 'one', 'one']).correct, false);
+  assert.equal(gradeOrder(item, ['one', 'one']).correct, false);
+  assert.equal(gradeOrder(item, ['one', 'one', 'zero']).expected, 'one one zero');
+});
+
+test('summarize usa 0.75 por defecto y no aprueba un set vacío', () => {
+  assert.deepEqual(summarize([true, true, true, false]), { correct: 3, total: 4, passed: true });
+  assert.deepEqual(summarize([true, false, false, false]), { correct: 1, total: 4, passed: false });
+  assert.deepEqual(summarize([]), { correct: 0, total: 0, passed: false });
+  assert.equal(summarize([true, false], 0.5).passed, true);
+});
+
+test('shuffle devuelve una copia con los mismos elementos y respeta rand', () => {
+  const source = [1, 2, 3, 4, 5];
+  const out = shuffle(source, () => 0);
+  assert.notEqual(out, source);
+  assert.deepEqual([...out].sort(), source);
+  assert.deepEqual(source, [1, 2, 3, 4, 5]);
+});
