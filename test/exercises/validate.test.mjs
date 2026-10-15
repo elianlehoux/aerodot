@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
+import { weatherSet } from '../../src/data/english-sets.js';
 
 const good = () => ({
   id: 's1', slug: 'tiempo', title: 'Decilo',
@@ -66,4 +67,8 @@ test('passMark: si está, debe ser un número entre 0 (exclusivo) y 1', () => {
     const s = good(); if (ok !== undefined) s.passMark = ok;
     assert.deepEqual(validateSet(s), []);
   }
+});
+
+test('el set publicado de Tiempo es válido', () => {
+  assert.deepEqual(validateSet(weatherSet), []);
 });
