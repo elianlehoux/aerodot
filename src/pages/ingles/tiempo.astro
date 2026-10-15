@@ -2,75 +2,36 @@
 import EnglishShell from '../../components/EnglishShell.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { weatherSet } from '../../data/english-sets.js';
 import { cloudAmounts, wxCommon, weatherRadio } from '../../data/weather.js';
 import '../../styles/english-weather.css';
 ---
 <EnglishShell
-  title="El tiempo — Inglés aeronáutico | Aerodot"
-  description="Aprendé a leer el METAR y el TAF en inglés: viento, visibilidad, nubes, fenómenos y cómo se dice cada grupo por radio. Dibujos interactivos, práctica y audio."
+  title="El tiempo por radio — Inglés aeronáutico | Aerodot"
+  description="Cómo se dicen por radio, en inglés aeronáutico, las nubes, los fenómenos y el viento. Dibujos para tocar, audio y una práctica corta."
 >
   <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Antes de volar</p>
-  <h1>El tiempo.</h1>
-  <p class="en-deck">Un parte del tiempo se lee siempre en el mismo orden. Tocá cada grupo y mirá qué cambia en el dibujo. Escuchá cómo se dice y, al final, ponete a prueba.</p>
+  <h1>El tiempo por radio.</h1>
+  <p class="en-deck">Las nubes, los fenómenos y el viento por radio: qué palabras usar y cómo se dicen.</p>
 
   <aside class="library-toc study-page-toc" aria-label="Índice de la página">
     <details class="chapter-toc" data-wx-toc open>
       <summary>En esta página</summary>
       <nav aria-label="Secciones del tema">
-        <a href="#parte">El METAR</a>
         <a href="#nubes">Las nubes</a>
         <a href="#fenomenos">Los fenómenos</a>
-        <a href="#pronostico">El TAF</a>
         <a href="#frecuencia">En la radio</a>
-        <a href="#prueba">Prueba</a>
+        <a href={`#${weatherSet.id}-title`}>Decilo en la radio</a>
       </nav>
     </details>
   </aside>
 
-  <!-- 1 · METAR -->
-  <section class="en-block wx-reader" data-wx-reader aria-labelledby="parte">
-    <h2 id="parte">El METAR: el tiempo de ahora</h2>
-    <p class="en-block-lede">Es el parte de lo que hay en el aeródromo. Se lee de izquierda a derecha: <b>lugar, hora, viento, visibilidad, tiempo, nubes, temperatura y presión</b>. Elegí un día y tocá los grupos.</p>
-
-    <div class="wx-bar">
-      <div class="seg is-wrap" role="group" aria-label="Elegí un día" data-wx-presets></div>
-      <p class="wx-note" data-wx-note aria-live="polite"></p>
-    </div>
-
-    <div class="wx-token-wrap">
-      <div class="wx-tokens" data-wx-tokens role="group" aria-label="Los grupos del parte"></div>
-      <EnglishSay label="Escuchar todo el parte" data-wx-all />
-    </div>
-
-    <div class="wx-layout">
-      <div class="wx-stage">
-        <div class="wx-sky" data-wx-sky></div>
-        <div class="wx-dials">
-          <button class="wx-dial" type="button" data-wx-dial="wind" aria-label="Ver el viento">
-            <span class="card-kicker">Viento y pista</span>
-            <div data-wx-dial-body></div>
-          </button>
-          <button class="wx-dial" type="button" data-wx-dial="temp" aria-label="Ver la temperatura y el rocío">
-            <span class="card-kicker">Temperatura y rocío</span>
-            <div data-wx-dial-body></div>
-          </button>
-          <button class="wx-dial" type="button" data-wx-dial="qnh" aria-label="Ver la presión">
-            <span class="card-kicker">Presión (QNH)</span>
-            <div data-wx-dial-body></div>
-          </button>
-        </div>
-      </div>
-      <aside class="word-stack wx-panel" data-wx-panel aria-live="polite"></aside>
-    </div>
-    <noscript><p class="wx-noscript">Para tocar el parte y ver el dibujo hace falta JavaScript.</p></noscript>
-    <p class="en-sources">SAXL es un aeródromo de práctica: no existe y los partes son inventados. En Estados Unidos el METAR usa millas (SM) y la presión en pulgadas (A2992). Acá van en metros y hectopascales, como en la OACI.</p>
-  </section>
-
-  <!-- 2 · Nubes -->
+  <!-- 1 · Nubes -->
   <section class="en-block" data-wc aria-labelledby="nubes">
     <h2 id="nubes">Las nubes: cuánto cielo y a qué altura</h2>
-    <p class="en-block-lede">El cielo se mide en <b>octas</b>: ocho partes. Tocá los gajos para cubrirlo y mirá cómo cambia la palabra. Después movés la altura.</p>
+    <p class="en-block-lede">El cielo se mide en <b>octas</b>: ocho partes. Cubrí el cielo, mové la altura y escuchá cómo se dice la capa.</p>
     <div class="wc-card">
       <div class="wc-controls">
         <div class="seg is-wrap" role="group" aria-label="Cuánto cielo cubren" data-wc-amounts>
@@ -98,10 +59,10 @@ import '../../styles/english-weather.css';
     </div>
   </section>
 
-  <!-- 3 · Fenómenos -->
+  <!-- 2 · Fenómenos -->
   <section class="en-block" data-wp aria-labelledby="fenomenos">
     <h2 id="fenomenos">Los fenómenos: lo que cae y lo que tapa</h2>
-    <p class="en-block-lede">Un fenómeno se arma con piezas: <b>intensidad + descriptor + fenómeno</b>. Probá combinar. Las que no existen se apagan solas.</p>
+    <p class="en-block-lede">Se dice en orden: <b>intensidad, descriptor y fenómeno</b>. Combiná las piezas y escuchá cómo suena.</p>
     <div class="wp-card">
       <div class="wp-controls">
         <div class="wp-group"><span class="wp-label">1 · Intensidad</span><div class="seg is-wrap" role="group" aria-label="Intensidad" data-wp-intensity></div></div>
@@ -128,23 +89,7 @@ import '../../styles/english-weather.css';
     </ul>
   </section>
 
-  <!-- 4 · TAF -->
-  <section class="en-block" data-wt aria-labelledby="pronostico">
-    <h2 id="pronostico">El TAF: el tiempo que viene</h2>
-    <p class="en-block-lede">El TAF usa el mismo código que el METAR, pero mira hacia adelante. Lo que cambia es <b>cómo y cuándo</b>. Tocá cada fila y movés la hora para ver qué dice el pronóstico.</p>
-    <p class="wt-raw"><code lang="en" data-wt-code></code></p>
-    <div class="wt-card">
-      <div class="wt-board" data-wt-board></div>
-      <label class="wt-scrub">
-        <span>¿Qué dice el parte a las <b data-wt-clock></b>?</span>
-        <input type="range" min="0" max="24" step="1" value="6" data-wt-time aria-label="Hora del pronóstico" />
-      </label>
-      <ul class="wt-now" data-wt-now aria-live="polite"></ul>
-    </div>
-    <aside class="word-stack wt-panel" data-wt-panel aria-live="polite"></aside>
-  </section>
-
-  <!-- 5 · Radio -->
+  <!-- 3 · Radio -->
   <section class="radio-block" aria-labelledby="frecuencia">
     <h2 id="frecuencia">En la radio</h2>
     <p>Lo que se pide, se avisa o se escucha sobre el tiempo. Adiviná el significado antes de darla vuelta.</p>
@@ -166,42 +111,21 @@ import '../../styles/english-weather.css';
     </ul>
   </section>
 
-  <!-- 6 · Prueba -->
-  <section class="en-block wq" data-wq aria-labelledby="prueba">
-    <h2 id="prueba">Ponete a prueba</h2>
-    <p class="en-block-lede">Ocho preguntas mezcladas: algunas se leen, otras se escuchan. Con 6 bien, ya lo tenés.</p>
-    <div class="word-stack wq-card">
-      <div class="quiz-dots" data-wq-dots aria-hidden="true"></div>
-      <div data-wq-ask>
-        <p class="card-kicker" data-wq-count>Pregunta 1</p>
-        <p class="quiz-prompt" data-wq-prompt></p>
-        <div class="wq-stage" data-wq-stage></div>
-        <div class="wq-options" data-wq-options role="group" aria-label="Opciones"></div>
-        <p class="quiz-feedback" data-wq-feedback aria-live="polite"></p>
-        <button class="button-primary" type="button" data-wq-next hidden>Siguiente</button>
-      </div>
-      <div class="quiz-done" data-wq-done hidden>
-        <p class="card-kicker">Resultado</p>
-        <p class="quiz-score" data-wq-score></p>
-        <p class="quiz-verdict" data-wq-verdict aria-live="polite"></p>
-        <div class="quiz-actions">
-          <button class="button-primary" type="button" data-wq-restart>Otra vez</button>
-          <a class="button-quiet" href="#parte">Volver al METAR</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 4 · Práctica -->
+  <ExerciseSet set={weatherSet} />
 
-  <p class="en-sources">Los partes y el aeródromo SAXL son inventados: no se usan para volar. Para volar, el tiempo se consulta en los productos vigentes del SMN. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">El aeródromo Laguna y las frases son de práctica: no se usan para volar. Para volar, el tiempo se consulta en los productos vigentes del SMN. El audio usa la voz de tu navegador.</p>
 
   <EnglishFinish slug="tiempo" where="El tiempo" />
   <script>
     import { mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
     import { mountWeather } from '../../scripts/weather.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
     mountEnglishProgress();
     mountReveals();
     mountWeather();
+    mountExerciseSets();
 
     // Guía lateral: abierta en pantalla ancha, plegable en el celular. Marca la sección que estás leyendo.
     const toc = document.querySelector('[data-wx-toc]');
