@@ -33,7 +33,7 @@ export const wxIntensity = [
 
 export const wxDescriptors = [
   { id: '', label: 'Ninguno', en: '', es: '' },
-  { id: 'SH', label: 'SH · chubascos', en: 'showers of', es: 'chubascos de', hint: 'Lluvia que empieza y termina de golpe, de nubes de tormenta.' },
+  { id: 'SH', label: 'SH · chubascos', en: 'showers of', es: 'chubascos de', hint: 'Precipitación que empieza y termina de golpe, de nubes de tormenta.' },
   { id: 'TS', label: 'TS · tormenta', en: 'thunderstorm with', es: 'tormenta con', hint: 'Hay rayos y truenos.' },
   { id: 'FZ', label: 'FZ · congelante', en: 'freezing', es: 'congelante', hint: 'Se congela al tocar algo: hielo en el avión.' },
   { id: 'BC', label: 'BC · bancos', en: 'patches of', es: 'bancos de', hint: 'Cubre parte del aeródromo, no todo.' },
@@ -79,5 +79,5 @@ export const weatherRadio = [
   { id: 'vis', en: 'visibility reduced', es: 'Visibilidad reducida', say: 'Visibility two thousand metres in fog.', body: 'Después de visibility va el valor en metros, y después la causa.' },
   { id: 'ceiling', en: 'ceiling', es: 'Techo', say: 'Ceiling one thousand two hundred feet.', body: 'La altura de la capa más baja de nubes rotas o cubiertas.' },
   { id: 'windshear', en: 'windshear', es: 'Cizalladura', say: 'Windshear reported on final runway one three.', body: 'Un cambio fuerte y repentino del viento. Se avisa en final o en el despegue.' },
-  { id: 'vicinity', en: 'thunderstorm in the vicinity', es: 'Tormenta en las cercanías', say: 'Thunderstorm in the vicinity of the aerodrome.', body: 'En un METAR aparece como VCTS: entre 8 y 16 km del aeródromo.' },
+  { id: 'vicinity', en: 'thunderstorm in the vicinity', es: 'Tormenta en las cercanías', say: 'Thunderstorm in the vicinity of the aerodrome.', body: 'Vicinity quiere decir cerca, no encima: entre 8 y 16 km del aeródromo. Se dice después del fenómeno.' },
 ];

@@ -136,8 +136,14 @@ import '../../styles/english-weather.css';
     };
     sync();
     wide.addEventListener('change', sync);
-    const links = [...toc.querySelectorAll('nav a')];
-    const targets = links.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    // Si una sección no está (o quedó oculta, como un set inválido), su enlace se saca del índice.
+    const links = [...toc.querySelectorAll('nav a')].filter((link) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target && !target.closest('[hidden]')) return true;
+      link.hidden = true;
+      return false;
+    });
+    const targets = links.map((link) => document.querySelector(link.getAttribute('href')));
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];

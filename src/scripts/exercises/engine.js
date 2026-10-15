@@ -151,9 +151,15 @@ const runSet = (root, set) => {
       check.hidden = true;
       next.hidden = false;
       feedback.className = `ex-feedback ${verdict.correct ? 'is-ok' : 'is-bad'}`;
-      const lead = verdict.correct ? 'Bien.' : 'Se dice:';
-      const expectedLang = item.type === 'tf' ? undefined : 'en';
-      feedback.replaceChildren(lead, ' ', el('b', { lang: expectedLang, text: verdict.expected }), item.explain ? ` ${item.explain}` : '');
+      const explain = item.explain ? ` ${item.explain}` : '';
+      if (item.type === 'tf') {
+        /* En verdadero o falso no hay frase que decir: se da la respuesta correcta. */
+        feedback.replaceChildren(verdict.correct ? 'Bien. ' : '', el('b', { text: item.answer ? 'Es verdadero.' : 'Es falso.' }), explain);
+      } else {
+        /* En los huecos se muestra la frase entera, no solo la palabra que faltaba. */
+        const phrase = item.type === 'gap' ? item.sentence.replace('___', verdict.expected) : verdict.expected;
+        feedback.replaceChildren(verdict.correct ? 'Bien.' : 'Se dice:', ' ', el('b', { lang: 'en', text: phrase }), explain);
+      }
       next.focus();
     });
     next.addEventListener('click', () => { index += 1; show(true); });

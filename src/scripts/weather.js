@@ -74,7 +74,7 @@ const mountClouds = () => {
       button.setAttribute('aria-pressed', String(amount ? amount.id === button.dataset.wcAmount : target === 0));
     });
     if (!amount) {
-      out.innerHTML = `<p class="card-kicker">El código</p><div class="wx-code"><code lang="en">SKC</code></div><p class="wx-es">Cielo despejado. En un parte también se ve NSC (sin nubes significativas) o CAVOK.</p><div class="word-say"><p lang="en">“sky clear”</p>${sayButton('sky clear')}</div>`;
+      out.innerHTML = `<p class="card-kicker">El código</p><div class="wx-code"><code lang="en">SKC</code></div><p class="wx-es">Cielo despejado. Si hay nubes pero ninguna importa, por radio vas a escuchar <span lang="en">“no significant cloud”</span>.</p><div class="word-say"><p lang="en">“sky clear”</p>${sayButton('sky clear')}</div>`;
       return;
     }
     const code = `${amount.id}${pad(height, 3)}`;
