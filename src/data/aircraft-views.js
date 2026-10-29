@@ -7,7 +7,8 @@
  *   { cls, html }            dibujo suelto en SVG a mano
  *   { word, cls, d, ... }    pieza que se toca: d dibuja, resalta y recibe el toque
  * Opciones de una pieza: hit (zona para tocar, si la pieza es chica), z (qué zona queda arriba),
- * html (detalles encima), move ({ anim, origin, sw }: cómo se mueve al elegirla).
+ * html (detalles encima), move ({ anim, origin, sw, hk }: cómo se mueve al elegirla; hk es lo que se inclina
+ * la bisagra, en grados, para que una pieza de bisagra oblicua se encoja sin despegarse de ella).
  */
 
 const circle = (cx, cy, r) => `M${cx - r} ${cy}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0Z`;
@@ -65,7 +66,25 @@ const plane = (cx, cy, scale = 1) => {
   return `M${points.map(([x, y]) => `${round(cx + x * scale)} ${round(cy + y * scale)}`).join('L')}Z`;
 };
 
+/* ───────────── Proporciones ─────────────
+ * Las vistas de costado y de arriba se dibujan con las medidas de una foto de un monomotor de ala alta
+ * (tipo Cessna 172) y se llevan al viewBox con estas dos escalas.
+ */
+
+const PAIR = /(-?\d+(?:\.\d+)?)[ ,](-?\d+(?:\.\d+)?)/g;
+const fit = (fx, fy) => (d) => d.replace(PAIR, (_, x, y) => `${fx(+x)} ${fy(+y)}`);
+/** Espeja un dibujo respecto del eje del avión (y = 410). */
+const mirror = (d) => d.replace(PAIR, (_, x, y) => `${x} ${820 - +y}`);
+
 /* ───────────── De costado ───────────── */
+
+const SIDE = 0.65;
+const sx = (x) => round(70 + (x - 75) * SIDE);
+const sy = (y) => round(400 - (467 - y) * SIDE);
+const S = fit(sx, sy);
+const sCircle = (cx, cy, r) => circle(sx(cx), sy(cy), round(r * SIDE));
+const sBox = (x, y, w, h, r = 0) => box(sx(x), sy(y), round(w * SIDE), round(h * SIDE), r);
+const sHub = (cx, cy, r) => `<circle class="ac-hub" cx="${sx(cx)}" cy="${sy(cy)}" r="${round(r * SIDE)}"/>`;
 
 const sideLayers = [
   { cls: 'ac-shadow', d: 'M100 404a330 7 0 1 0 660 0a330 7 0 1 0 -660 0Z' },
@@ -74,191 +93,218 @@ const sideLayers = [
   {
     word: 'maingear',
     cls: 'ac-gear',
-    d: ['M382 326L406 326L402 372L388 372Z', circle(395, 374, 26)],
-    hit: box(366, 336, 58, 66, 8),
+    d: [S('M492 384 L516 384 L512 414 L497 414 Z'), sCircle(502, 438, 29)],
+    hit: sBox(470, 380, 64, 90, 8),
     z: 3,
-    html: '<circle class="ac-hub" cx="395" cy="374" r="10"/>',
+    html: sHub(502, 438, 11),
   },
   {
     word: 'nosegear',
     cls: 'ac-gear',
-    d: ['M185 328L201 328L197 378L189 378Z', circle(193, 380, 20)],
-    hit: box(168, 336, 50, 66, 8),
+    d: [S('M232 384 L248 384 L246 420 L236 420 Z'), sCircle(240, 445, 22)],
+    hit: sBox(212, 380, 56, 90, 8),
     z: 3,
-    html: '<circle class="ac-hub" cx="193" cy="380" r="7"/>',
+    html: sHub(240, 445, 8),
   },
   {
     word: 'propeller',
     cls: 'ac-prop',
-    d: box(108, 198, 12, 192, 6),
-    hit: box(96, 190, 36, 212),
+    d: S('M97 152 Q101 146 105 152 L107 271 L105 392 Q101 398 97 392 L95 271 Z'),
+    hit: sBox(84, 138, 34, 270),
     z: 1,
-    move: { anim: 'spin', origin: [114, 294] },
+    move: { anim: 'spin', origin: [sx(101), sy(271)] },
   },
 
   {
     word: 'fuselage',
     cls: 'ac-body',
-    d: 'M235 258L300 256L345 214L470 208Q512 210 530 226L735 270V304L560 326L235 332Z',
+    d: S('M112 258 Q125 245 160 243 L268 237 L296 236 L342 200 L640 206 Q672 218 700 243 L850 262 L1100 287 L1100 297 L950 303 Q800 345 640 372 L520 382 L260 384 Q190 380 150 345 Q112 300 112 258 Z'),
     z: 0,
   },
   {
     word: 'cowling',
-    cls: 'ac-soft',
-    d: 'M135 262L235 258V332L135 326Q118 322 118 294Q118 266 135 262Z',
+    cls: 'ac-cowl',
+    d: S('M112 258 Q125 245 160 243 L268 237 L268 384 L260 384 Q190 380 150 345 Q112 300 112 258 Z'),
     z: 2,
-    html: '<path class="ac-line" d="M203 278V314M212 278V314M221 278V314"/>',
+    html: `<path class="ac-line" d="${S('M268 237 L268 382')}"/><path class="ac-line" d="${S('M205 352 L245 360 M210 344 L250 352')}"/>`,
   },
   {
     word: 'spinner',
     cls: 'ac-soft2',
-    d: 'M121 276Q94 294 121 312Z',
-    hit: box(86, 264, 48, 60, 12),
+    d: S('M75 271 Q92 258 114 254 L114 288 Q92 284 75 271 Z'),
+    hit: sBox(70, 250, 48, 42, 10),
     z: 5,
   },
   {
     word: 'door',
     cls: 'ac-soft',
-    d: 'M372 211L474 208L482 318L372 321Z',
+    d: S('M388 220 L514 220 L518 354 L392 354 Z'),
     z: 2,
-    html: '<path class="ac-glass" d="M380 217L468 214L470 256L380 256Z"/><rect class="ac-handle" x="446" y="284" width="18" height="5" rx="2.5"/>',
+    html: `<path class="ac-glass" d="${S('M402 230 Q402 226 408 226 L494 226 Q500 226 500 232 L502 262 Q502 266 497 266 L408 266 Q403 266 403 262 Z')}"/><rect class="ac-handle" x="${sx(488)}" y="${sy(300)}" width="${round(22 * SIDE)}" height="${round(6 * SIDE)}" rx="2"/>`,
   },
-  { cls: 'ac-glass', d: 'M486 213Q510 215 524 229L500 256L486 256Z' },
+  { cls: 'ac-glass', d: S('M540 230 Q540 226 546 226 L612 226 Q618 226 620 232 L628 262 Q629 266 624 266 L546 266 Q541 266 541 262 Z') },
   {
     word: 'windshield',
     cls: 'ac-glass',
-    d: 'M303 254L345 214L368 213V254Z',
-    hit: box(296, 206, 76, 54, 6),
+    d: S('M292 240 Q316 218 338 209 L362 209 L362 254 L300 248 Z'),
+    hit: sBox(284, 200, 84, 60, 6),
     z: 4,
   },
+  { cls: 'ac-soft', d: S('M364 214 L380 214 L376 382 L362 382 Z') },
   {
     word: 'wing',
     cls: 'ac-body',
-    d: 'M338 200Q352 190 392 190L478 195Q486 200 478 205L338 207Q332 204 338 200Z',
-    hit: box(322, 180, 176, 34, 8),
+    d: S('M246 200 Q248 186 300 183 L600 191 Q664 196 664 204 Q650 214 600 214 L300 215 Q246 214 246 200 Z'),
+    hit: sBox(240, 176, 430, 46, 8),
     z: 2,
   },
 
-  { word: 'fin', cls: 'ac-body', d: 'M612 244L690 150H716V266Z', z: 2 },
+  { word: 'fin', cls: 'ac-body', d: S('M862 262 Q1000 252 1052 150 L1085 94 L1118 94 L1092 287 L960 291 Z'), z: 2 },
   {
     word: 'rudder',
     cls: 'ac-move',
-    d: 'M716 150L746 152L752 270L716 266Z',
+    d: S('M1118 94 L1152 96 L1108 287 L1092 287 Z'),
+    hit: sBox(1086, 88, 72, 204, 6),
     z: 4,
-    move: { anim: 'squeeze', origin: [716, 210] },
+    move: { anim: 'squeeze', origin: [sx(1112.5), sy(190)], hk: -3 },
   },
   {
     word: 'hstab',
     cls: 'ac-body',
-    d: 'M642 284Q634 287 642 290L718 292V281Z',
-    hit: box(626, 268, 94, 36, 8),
+    d: S('M956 285 Q1060 287 1172 293 L1176 297 Q1060 302 956 303 Z'),
+    hit: sBox(950, 274, 230, 38, 8),
     z: 4,
   },
   {
     word: 'elevator',
     cls: 'ac-move',
-    d: 'M718 281L756 283.5V289.5L718 292Z',
-    hit: box(714, 270, 56, 34, 8),
+    d: S('M1104 292 L1172 293 L1176 297 L1104 300 Z'),
+    hit: sBox(1098, 278, 86, 34, 8),
     z: 5,
-    move: { anim: 'wobble', origin: [718, 286.5], sw: 22 },
+    move: { anim: 'wobble', origin: [sx(1104), sy(296)], sw: 22 },
   },
 
-  { cls: 'ac-reg', html: '<text class="ac-regtext" x="556" y="290">LV-DEM</text>' },
+  { cls: 'ac-reg', html: `<text class="ac-regtext" x="${sx(715)}" y="${sy(314)}">LV-DEM</text>` },
 ];
 
 /* ───────────── Desde arriba ───────────── */
 
-const topFuselage = 'M118 212L216 206Q240 200 300 198L470 200Q520 204 600 224L742 233V247L600 256Q520 276 470 280L300 282Q240 280 216 274L118 268Q100 266 100 240Q100 214 118 212Z';
+const TOP = 0.6;
+const tx = (x) => round(270 + (x - 140) * TOP);
+const ty = (y) => round(240 + (y - 410) * TOP);
+const T = fit(tx, ty);
+const both = (d) => [T(d), T(mirror(d))];
+const tCircle = (cx, cy, r) => circle(tx(cx), ty(cy), round(r * TOP));
+const tBox = (x, y, w, h, r = 0) => box(tx(x), ty(y), round(w * TOP), round(h * TOP), r);
+
+const wingTop = 'M262 68 L322 68 Q334 70 336 84 L360 260 L368 376 L368 444 L360 560 L336 736 Q334 750 322 752 L262 752 Q250 752 250 740 L250 80 Q250 68 262 68 Z';
+const tipTop = 'M250 82 Q250 68 262 68 L322 68 Q334 70 336 84 L333 102 L251 102 Z';
 
 const topLayers = [
-  { cls: 'ac-prop', d: box(84, 145, 12, 190, 6) },
-  { word: 'fuselage', cls: 'ac-body', d: topFuselage, z: 0 },
+  { cls: 'ac-prop', d: T('M138 350 Q141 346 144 350 L145 410 L144 470 Q141 474 138 470 L137 410 Z') },
+  {
+    word: 'fuselage',
+    cls: 'ac-body',
+    d: T('M162 386 Q150 410 162 434 L200 440 L250 441 L368 446 L430 433 L600 414 L604 410 L600 406 L430 387 L368 374 L250 379 L200 380 Z'),
+    z: 0,
+  },
   {
     word: 'cowling',
-    cls: 'ac-soft',
-    d: 'M118 212L216 206V274L118 268Q100 266 100 240Q100 214 118 212Z',
+    cls: 'ac-cowl',
+    d: T('M162 386 Q150 410 162 434 L200 440 L250 441 L250 379 L200 380 Z'),
     z: 1,
+    html: `<path class="ac-line" d="${T('M250 379 L250 441')}"/>`,
   },
-  { cls: 'ac-soft2', d: circle(104, 240, 9) },
-  { cls: 'ac-glass', d: 'M228 214Q250 240 228 266L248 266Q268 240 248 214Z' },
+  { cls: 'ac-soft2', d: tCircle(143, 410, 8) },
+  { cls: 'ac-glass', d: T('M226 388 Q246 410 226 432 L250 438 L250 382 Z') },
+  { cls: 'ac-glass', d: both('M384 382 Q400 384 402 394 L400 404 L386 404 Z') },
 
   {
     word: 'hstab',
     cls: 'ac-body',
-    d: 'M650 228L664 192Q668 188 676 188H706V292H676Q668 292 664 288L650 252Z',
+    d: T('M548 408 L534 318 Q534 308 544 306 L598 306 L598 514 L544 514 Q534 512 534 502 L548 412 Z'),
     z: 2,
   },
   {
     word: 'elevator',
     cls: 'ac-move',
-    d: box(706, 190, 40, 100),
+    d: T('M570 306 L598 306 L598 514 L570 514 Z'),
     z: 3,
-    move: { anim: 'squeeze', origin: [706, 240] },
+    move: { anim: 'squeeze', origin: [tx(570), ty(410)] },
   },
-  { cls: 'ac-soft2', d: box(640, 237, 104, 6, 3) },
+  { cls: 'ac-soft2', d: T('M540 407 L604 407 L604 413 L540 413 Z') },
 
-  {
-    word: 'wing',
-    cls: 'ac-body',
-    d: 'M300 200L304 40Q304 30 314 30H410Q420 30 420 40L440 200V280L420 440Q420 450 410 450H314Q304 450 304 440L300 280Z',
-    z: 1,
-  },
+  { word: 'wing', cls: 'ac-body', d: T(wingTop), z: 1 },
   {
     word: 'leadingedge',
     cls: 'ac-edge',
-    d: ['M300 200L304 40H318L314 200Z', 'M300 280L304 440H318L314 280Z'],
+    d: both('M250 82 Q250 70 262 68 L268 68 L268 376 L250 376 Z'),
     z: 2,
   },
   {
     word: 'flap',
     cls: 'ac-move',
-    d: ['M394 120H430L439.5 196H403.5Z', 'M394 360H430L439.5 284H403.5Z'],
+    d: T('M343 264 L361 264 L367 374 L347 374 Z'),
     z: 3,
-    move: { anim: 'squeeze', origin: [398, 0] },
+    move: { anim: 'squeeze', origin: [tx(343), ty(264)], hk: 2.1 },
+  },
+  {
+    word: 'flap',
+    cls: 'ac-move',
+    d: T(mirror('M343 264 L361 264 L367 374 L347 374 Z')),
+    z: 3,
+    move: { anim: 'squeeze', origin: [tx(343), ty(556)], hk: -2.1 },
   },
   {
     word: 'aileron',
     cls: 'ac-move',
-    d: ['M387.25 66H423.25L429.5 116H393.5Z', 'M387.25 414H423.25L429.5 364H393.5Z'],
+    d: T('M318 102 L337 102 L360 260 L341 260 Z'),
     z: 3,
-    move: { anim: 'squeeze', origin: [390, 0] },
+    move: { anim: 'squeeze', origin: [tx(318), ty(102)], hk: 8.3 },
+  },
+  {
+    word: 'aileron',
+    cls: 'ac-move',
+    d: T(mirror('M318 102 L337 102 L360 260 L341 260 Z')),
+    z: 3,
+    move: { anim: 'squeeze', origin: [tx(318), ty(718)], hk: -8.3 },
   },
   {
     word: 'wingtip',
     cls: 'ac-tip-g',
-    d: 'M303.5 62L304 40Q304 30 314 30H410Q420 30 420 40L422.75 62Z',
-    hit: box(298, 22, 132, 46, 8),
+    d: T(tipTop),
+    hit: tBox(244, 60, 100, 52, 8),
     z: 4,
   },
   {
     word: 'wingtip',
     cls: 'ac-tip-r',
-    d: 'M303.5 418L304 440Q304 450 314 450H410Q420 450 420 440L422.75 418Z',
-    hit: box(298, 412, 132, 46, 8),
+    d: T(mirror(tipTop)),
+    hit: tBox(244, 708, 100, 52, 8),
     z: 4,
   },
   {
     word: 'fuelcap',
     cls: 'ac-cap-fuel',
-    d: [circle(336, 100, 9), circle(336, 380, 9)],
-    hit: [circle(336, 100, 26), circle(336, 380, 26)],
+    d: [tCircle(277, 355, 6), tCircle(277, 465, 6)],
+    hit: [tCircle(277, 355, 22), tCircle(277, 465, 22)],
     z: 5,
   },
   {
     word: 'pitot',
     cls: 'ac-pitot',
-    d: box(280, 377, 28, 7, 3.5),
-    hit: circle(294, 380, 34),
+    d: tBox(228, 556, 26, 8, 4),
+    hit: tCircle(240, 560, 32),
     z: 6,
   },
-  { cls: 'ac-note', html: '<text class="ac-notetext" x="470" y="44">DERECHA · luz verde</text><text class="ac-notetext" x="470" y="446">IZQUIERDA · luz roja</text>' },
+  { cls: 'ac-note', html: '<text class="ac-notetext" x="440" y="44">DERECHA · luz verde</text><text class="ac-notetext" x="440" y="446">IZQUIERDA · luz roja</text>' },
 ];
 
 /* ───────────── La cabina ───────────── */
 
 const panelLayers = [
   { word: 'panel', cls: 'ac-board', d: box(40, 70, 760, 326, 26), z: 0 },
-  { cls: 'ac-glare', d: 'M30 92Q30 30 420 26Q810 30 810 92L800 98Q420 60 40 98Z' },
+  { cls: 'ac-glare', d: 'M34 94Q34 64 420 62Q806 64 806 94L798 99Q420 84 42 99Z' },
 
   gauge('asi', 170, 160, `${arc(170, 160, 37, 66, 232, 'ac-arc-g')}${arc(170, 160, 41, 40, 66, 'ac-arc-w')}${ticks(170, 160, 43, 37, 40, 320, 14)}${label(170, 184, 'KT')}${needle(170, 160, 33, 118, 'asi', { sw: 12 })}`),
   gauge('attitude', 290, 160, `<g transform="rotate(-9 290 160)"><g data-move="attitude" data-anim="wobble" style="transform-origin:290px 160px;--sw:12deg"><path class="ac-sky" d="M250 160A40 40 0 0 1 330 160Z"/><path class="ac-earth" d="M250 160A40 40 0 0 0 330 160Z"/><path class="ac-horizon" d="M250 160H330"/></g></g>${ticks(290, 160, 43, 39, -60, 60, 6)}<path class="ac-symbol" d="M262 166H280L290 174L300 166H318"/>`),

@@ -37,13 +37,13 @@ const articleCopyText = [
   chapter.intro,
   ...chapter.lessons.map(formatLesson),
   sortedSources.length
-    ? `## Fuentes\n\n${sortedSources.map((source) => `- [${source.title}](${source.url}) — ${kindLabel(source)}`).join('\n')}`
+    ? `## Fuentes\n\n${sortedSources.map((source) => `- [${source.title}](${source.url}): ${kindLabel(source)}`).join('\n')}`
     : '',
 ].filter(Boolean).join('\n\n');
 
-const pageTitle = `${chapter.title} — Teoría Aeronáutica y Fundamentos | Aerodot`;
+const pageTitle = `${chapter.title}: teoría aeronáutica y fundamentos | Aerodot`;
 const trimmedIntro = chapter.intro.length > 130 ? `${chapter.intro.slice(0, 130)}...` : chapter.intro;
-const pageDescription = `${trimmedIntro} Lección técnica con conceptos clave, normativa RAAC y manuales de vuelo.`;
+const pageDescription = `${trimmedIntro} Lección con fuentes de normativa RAAC y manuales de vuelo.`;
 
 const englishBridge = {
   'operaciones-aerodromo': { href: '/ingles/aerodromo', label: 'Estas palabras, en inglés' },
@@ -52,7 +52,7 @@ const englishBridge = {
 
 const articleJsonLd = {
   '@type': 'Article',
-  headline: `${chapter.title} — Teoría de Aviación`,
+  headline: `${chapter.title}: teoría de aviación`,
   description: chapter.intro,
   inLanguage: 'es-AR',
   publisher: {
@@ -69,7 +69,7 @@ const articleJsonLd = {
     <section class="study-intro"><p class="eyebrow">Biblioteca abierta</p><h1>{chapter.title}<span>.</span></h1><p class="study-deck" data-report-target data-report-where={`${chapter.title} · introducción`} data-report-ref={`/estudiar/${chapter.slug}`}>{chapter.intro}</p></section>
     <aside class="library-toc study-page-toc" aria-label="Índice del capítulo">
       <button class="library-copy-page" type="button" data-copy-page>
-        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="2.5" width="8" height="10" rx="1.5"></rect><path d="M10.5 13.5H3.8A1.3 1.3 0 0 1 2.5 12.2V5.5"></path></svg>
+        <animate-icons name="copy" size="14"></animate-icons>
         <span>Copiar página</span>
       </button>
       <span class="library-copy-status" data-copy-status aria-live="polite"></span>

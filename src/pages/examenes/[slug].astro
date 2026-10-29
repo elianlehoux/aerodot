@@ -6,7 +6,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import FaqList from '../../components/FaqList.astro';
 import { faqJsonLd } from '../../data/faq.js';
 import { licenses } from '../../data/licenses.js';
-import { isScoreableQuestion, allQuestionsOf, scoreableCount, mockSizeOf } from '../../data/question-utils.js';
+import { allQuestionsOf, scoreableCount, mockSizeOf } from '../../data/question-utils.js';
 import ppaBank from '../../data/ppa-questions.json';
 import pcaHviBank from '../../data/exam-banks/pca-hvi.json';
 import tlaBank from '../../data/exam-banks/tla.json';
@@ -50,7 +50,6 @@ const allQuestions = allQuestionsOf(bank);
 const verifiedQuestions = scoreableCount(bank);
 const reviewQuestions = allQuestions.length - verifiedQuestions;
 const mockSize = mockSizeOf(bank, license.testSize);
-const mockCapped = mockSize < license.testSize;
 const regulatoryReferenceUrl = license.regulatoryReferenceUrl
   ?? 'https://docs.anac.gob.ar/index.php/s/PtMG8j8sFeRyren/download/RAAC%20PARTE%2061.pdf';
 const regulatoryReferenceTitle = license.regulatoryReferenceTitle
@@ -71,13 +70,15 @@ const faqItems = [
     question: `¿Cómo es el examen teórico ${license.code} de ANAC?`,
     answer: license.practiceOnly
       ? `ANAC publica la referencia del examen de ${license.title} en su índice de exámenes. Esta práctica usa ${allQuestions.length} preguntas originales de Aerodot y el examen de prueba elige hasta ${mockSize} al azar. No reproduce el examen oficial.`
-      : `ANAC informa ${license.testSize} preguntas en TCEXAM y 75% para aprobar. El examen de prueba de Aerodot elige ${mockSize} al azar entre las que tienen la opción marcada, con cronómetro. Confirmá el formato de tu evaluación con ANAC.`,
+      : `ANAC informa ${license.testSize} preguntas en TCEXAM y 75% para aprobar. El examen de prueba de Aerodot elige ${mockSize} al azar, con cronómetro. Confirmá el formato de tu evaluación con ANAC.`,
   },
   {
     question: `¿De dónde salen las preguntas del simulador ${license.code}?`,
     answer: license.practiceOnly
       ? `Son preguntas originales de estudio, con explicación. ${license.sourceNote}`
-      : `Del cuestionario público de ANAC (${license.sourceLabel}). Hay ${allQuestions.length} preguntas: ${verifiedQuestions} con la opción marcada y ${reviewQuestions} en revisión, que se pueden leer pero no suman puntaje. ${license.sourceNote}`,
+      : reviewQuestions
+        ? `Del cuestionario público de ANAC (${license.sourceLabel}). Hay ${allQuestions.length} preguntas: ${verifiedQuestions} con opción marcada y ${reviewQuestions} sin marca en el PDF, que se pueden leer pero no suman puntaje. ${license.sourceNote}`
+        : `Del cuestionario público de ANAC (${license.sourceLabel}). Hay ${allQuestions.length} preguntas. ${license.sourceNote}`,
   },
   ...(figureQuestions.length ? [{
     question: `¿Están las figuras del examen ${license.code}?`,
@@ -87,7 +88,7 @@ const faqItems = [
   }] : []),
   {
     question: '¿En qué se diferencia de estudiar con el PDF de ANAC o con un test de Daypo?',
-    answer: `${license.practiceOnly ? 'Este banco es propio y el material de ANAC está enlazado para contrastar.' : 'El PDF de ANAC es la fuente, y está enlazado en esta página.'} Aerodot cambia la forma de practicar: preguntas por tema, examen de prueba cronometrado, corrección inmediata y repaso de tus errores. ${license.practiceOnly ? '' : 'Las preguntas sin clave confirmada quedan fuera del puntaje en vez de darse por buenas. '}En los tests armados por usuarios no siempre se sabe de qué versión del cuestionario salen. No hace falta cuenta y no hay publicidad.`,
+    answer: `${license.practiceOnly ? 'Este banco es propio y el material de ANAC está enlazado para contrastar.' : 'El PDF de ANAC es la fuente, y está enlazado en esta página.'} Aerodot cambia la forma de practicar: preguntas por tema, examen de prueba cronometrado, corrección inmediata y repaso de tus errores.${reviewQuestions && !license.practiceOnly ? ' Las preguntas sin opción marcada en el PDF quedan fuera del puntaje.' : ''} En los tests armados por usuarios no siempre se sabe de qué versión del cuestionario salen. No hace falta cuenta y no hay publicidad.`,
   },
   {
     question: '¿Puedo practicar desde el celular y sin conexión?',
@@ -139,27 +140,10 @@ const examJsonLd = {
           <button class="button-quiet" id="startMock">Examen de prueba <span>↗</span></button>
           <button class="button-quiet" id="startReview" hidden>Repasar mis errores <span>↻</span></button>
         </div>
-        <p id="bankStatus" class="bank-status">{isPpa
-          ? `${allQuestions.length} preguntas · ${verifiedQuestions} con clave contrastada · ${reviewQuestions} en revisión.`
-          : license.practiceOnly
-            ? `${allQuestions.length} preguntas propias · ${verifiedQuestions} con clave y explicación.`
-            : `${allQuestions.length} preguntas del cuestionario público · ${verifiedQuestions} con la opción marcada · ${reviewQuestions} sin marca legible.`}</p>
+        <p id="bankStatus" class="bank-status">{reviewQuestions
+          ? `${allQuestions.length} preguntas · ${verifiedQuestions} con respuesta · ${reviewQuestions} sin opción marcada, no suman puntaje.`
+          : `${allQuestions.length} preguntas.`}</p>
       </div>
-      <aside class="exam-reference">
-        <span>REFERENCIA ANAC</span>
-        <strong>{mockSize} preguntas</strong>
-        <p>Preguntas al azar para practicar el examen.</p>
-        <details class="more-info">
-          <summary>Más info</summary>
-          <p>{license.practiceOnly
-            ? `El banco disponible tiene ${allQuestions.length} preguntas originales; el simulacro selecciona hasta ${mockSize} al azar. No reproduce el examen oficial ni permite inferir aprobación.`
-            : mockCapped
-              ? `Este banco tiene ${verifiedQuestions} de sus ${allQuestions.length} preguntas con la opción marcada, así que el simulacro toma ${mockSize} y no ${license.testSize}. ANAC informa ${license.testSize} preguntas en su evaluación: la diferencia son preguntas que este banco todavía no puede puntuar.`
-              : `El simulacro elige ${mockSize} preguntas al azar entre las que tienen opción marcada. ANAC informa 100 preguntas en TCEXAM, 50 en la rehabilitación de instructor, y 75% para aprobar. Confirmá el formato de tu evaluación.`}</p>
-          <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">{license.sourceLabel} ↗</a>
-          <small>{license.sourceNote}</small>
-        </details>
-      </aside>
     </section>
 
     <section id="quiz" class="practice-quiz" hidden>
@@ -199,7 +183,7 @@ const examJsonLd = {
       <p id="resultTime" class="result-time" hidden></p>
       <div class="result-stats">
         <div><strong id="resultCorrect">0</strong><span>correctas</span></div>
-        <div><strong id="resultReview">0</strong><span>en revisión · sin puntuar</span></div>
+        <div id="resultReviewStat"><strong id="resultReview">0</strong><span>sin opción marcada</span></div>
         <div><strong id="resultWrong">0</strong><span>incorrectas o saltadas</span></div>
       </div>
       <div class="result-actions">
@@ -215,7 +199,11 @@ const examJsonLd = {
       <a href={license.sourcePageUrl} target="_blank" rel="noreferrer">Página de exámenes ANAC ↗</a>
       <a href={regulatoryReferenceUrl} target="_blank" rel="noreferrer">Consultar {regulatoryReferenceTitle} ↗</a>
       <a href="https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-44-2025-408483/texto" target="_blank" rel="noreferrer">Resolución ANAC 44/2025 · bancos alternativos ↗</a>
-      <p>{license.practiceOnly ? 'Las preguntas de Aerodot son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.' : 'Herramienta independiente de estudio. Las preguntas con clave pendiente quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
+      <p>{license.practiceOnly
+        ? 'Las preguntas de Aerodot son originales, de estudio y no oficiales. Las páginas y cuestionarios ANAC son referencias temáticas; varios tienen fecha anterior y pueden cambiar.'
+        : reviewQuestions
+          ? 'Herramienta independiente de estudio. Las preguntas sin opción marcada en el PDF quedan fuera del puntaje. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'
+          : 'Herramienta independiente de estudio. Contrastá normativa y procedimientos vigentes antes de aplicarlos.'}</p>
     </details>
 
     <FaqList title={`Preguntas sobre el examen ${license.code}`} items={faqItems} />

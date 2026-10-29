@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateSet } from '../../src/scripts/exercises/validate.js';
-import { clearanceSet, emergencySet, hearbackSet, radioPhasesSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
+import { aerodromeSet, aircraftSet, clearanceSet, emergencySet, hearbackSet, radioPhasesSet, survivalSet, weatherSet } from '../../src/data/english-sets.js';
 import { clearanceExamples, clearanceParts, craftExample, hearbackCases, hearbackDrills, readbackItems } from '../../src/data/english-clearance.js';
 import { normalize } from '../../src/scripts/exercises/grade.js';
-import { survivalCall, survivalGroups } from '../../src/data/english-survival.js';
+import { survivalGroups } from '../../src/data/english-survival.js';
 import { hasUnmatchedMarker } from '../../src/scripts/mixed.js';
 
 const good = () => ({
@@ -105,7 +105,7 @@ test('lo que se muestra tal cual en inglés no lleva asteriscos', () => {
 });
 
 test('ningún set publicado lleva asteriscos en lo que se muestra tal cual', () => {
-  for (const set of [weatherSet, survivalSet, clearanceSet, hearbackSet, emergencySet, radioPhasesSet]) assert.deepEqual(validateSet(set), [], set.id);
+  for (const set of [weatherSet, survivalSet, clearanceSet, hearbackSet, emergencySet, radioPhasesSet, aerodromeSet, aircraftSet]) assert.deepEqual(validateSet(set), [], set.id);
 });
 
 test('el set publicado de Tiempo es válido', () => {
@@ -123,7 +123,6 @@ test('supervivencia: las cifras de say van en palabras y cada grupo tiene de 3 a
   const phrases = survivalGroups.flatMap((group) => [...group.phrases, ...(group.aside ? [group.aside] : [])]);
   const says = [
     ...phrases.map((phrase) => phrase.say),
-    ...survivalCall.map((line) => line.say),
     ...survivalSet.items.map((item) => item.say).filter((say) => say !== undefined),
   ];
   for (const say of says) {
@@ -140,11 +139,11 @@ test('supervivencia: las cifras de say van en palabras y cada grupo tiene de 3 a
   assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
 });
 
-test('supervivencia: spell va en No entendí como lenguaje claro, con el alfabeto a mano', () => {
+test('supervivencia: spell queda en No entendí y enlaza el alfabeto', () => {
   const group = survivalGroups.find((entry) => entry.id === 'no-entendi');
   const spell = group.phrases.find((phrase) => phrase.id === 'spell');
-  assert.ok(spell, 'falta la tarjeta de spell');
-  assert.equal(spell.tag, 'Lenguaje claro');
+  assert.ok(spell, 'falta la frase de spell');
+  assert.equal(spell.tag, undefined);
   assert.match(spell.body, /no está en la tabla de palabras normalizadas/i);
   assert.equal(spell.link?.href, '/ingles/numeros');
   assert.ok(spell.link?.text?.trim());
@@ -161,22 +160,14 @@ test('prompt y explain: un asterisco sin pareja es un error', () => {
   assert.deepEqual(validateSet(ok), []);
 });
 
-test('supervivencia: en la llamada, lo que se lee y lo que dice la voz son la misma frase', () => {
-  for (const line of survivalCall) {
-    const shown = line.parts.map((part) => part.text).join('').replaceAll('LV-DEM', 'Lima Victor Delta Echo Mike');
-    assert.equal(shown, line.say);
-  }
-});
-
 test('supervivencia: los asteriscos del inglés en los textos en español van de a pares', () => {
   const texts = [
     ...survivalGroups.flatMap((group) => [group.lede, ...[...group.phrases, ...(group.aside ? [group.aside] : [])].map((phrase) => phrase.body)]),
-    ...survivalCall.map((line) => line.note),
   ];
   for (const text of texts) assert.equal(hasUnmatchedMarker(text), false, text);
 });
 
-/* ---- Autorización y colación ---- */
+/* ---- Autorizaciones ---- */
 
 test('track: si está, debe ser true o false', () => {
   const ok = good(); ok.track = false;
@@ -193,8 +184,8 @@ test('el set de autorización que se publica es válido y tiene los tipos que pi
   const count = (type) => clearanceSet.items.filter((item) => item.type === type).length;
   assert.ok(count('order') >= 1 && count('gap') >= 1 && count('tf') >= 1);
   const order = clearanceSet.items.find((item) => item.type === 'order');
-  assert.ok(order.tokens.length >= 5 && order.tokens.length <= 7, 'la colación para armar tiene de 5 a 7 fichas');
-  assert.equal(order.answer.at(-1), 'LV-DEM', 'la colación termina con el distintivo');
+  assert.ok(order.tokens.length >= 5 && order.tokens.length <= 7, 'la repetición para armar tiene de 5 a 7 fichas');
+  assert.equal(order.answer.at(-1), 'LV-DEM', 'la repetición termina con el distintivo');
   for (const drill of hearbackDrills) {
     const item = clearanceSet.items.find((entry) => entry.id === drill.id);
     assert.ok(item, `falta el ítem del caso ${drill.id}`);
@@ -204,7 +195,7 @@ test('el set de autorización que se publica es válido y tiene los tipos que pi
   assert.equal(hearbackDrills.length, 3);
 });
 
-test('el set de los casos de hearback es válido, no marca el tema y cada mcq apunta al dato mal colacionado', () => {
+test('el set de los casos de hearback es válido, no marca el tema y cada mcq apunta al dato mal repetido', () => {
   assert.deepEqual(validateSet(hearbackSet), []);
   assert.equal(hearbackSet.track, false);
   assert.equal(hearbackCases.length, 3);
@@ -220,15 +211,15 @@ test('el set de los casos de hearback es válido, no marca el tema y cada mcq ap
 const words = (text) => normalize(text).split(' ').filter((word) => word && word !== 'lv-dem');
 const indexOf = (list, part) => list.findIndex((_, i) => part.every((word, j) => list[i + j] === word));
 
-test('hearback: la colación difiere de lo que dijo la torre solo en el dato que el caso declara', () => {
+test('hearback: la repetición difiere de lo que dijo la torre solo en el dato que el caso declara', () => {
   for (const entry of [...hearbackCases, ...hearbackDrills]) {
     assert.match(entry.tower, /^LV-DEM, /, `${entry.id}: la torre empieza por el distintivo`);
-    assert.match(entry.pilot, /, LV-DEM\.$/, `${entry.id}: la colación termina con el distintivo`);
+    assert.match(entry.pilot, /, LV-DEM\.$/, `${entry.id}: la repetición termina con el distintivo`);
     const tower = words(entry.tower);
     const pilot = words(entry.pilot);
     const towerField = words(entry.wrong.tower);
     const pilotField = words(entry.wrong.pilot);
-    assert.notDeepEqual(towerField, pilotField, `${entry.id}: el dato mal colacionado tiene que ser distinto`);
+    assert.notDeepEqual(towerField, pilotField, `${entry.id}: el dato mal repetido tiene que ser distinto`);
     const at = indexOf(tower, towerField);
     assert.ok(at >= 0, `${entry.id}: la torre no dice "${entry.wrong.tower}"`);
     assert.deepEqual(pilot.slice(at, at + pilotField.length), pilotField, `${entry.id}: el piloto no dice "${entry.wrong.pilot}" en el mismo lugar`);

@@ -14,7 +14,7 @@ const $ = (root, name) => root.querySelector(`[data-${name}]`);
 const rad = (deg) => (deg * Math.PI) / 180;
 const pad = (value, size) => String(value).padStart(size, '0');
 
-const sayButton = (text, label = 'Escuchar', quiet = false) => `<button class="en-say${quiet ? ' is-quiet' : ''}" type="button" data-say="${esc(text)}"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3 8v4h3l4 3.5v-11L6 8H3Z" fill="currentColor"/><path class="say-wave" d="M13 7.2a4 4 0 0 1 0 5.6M15.2 5a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span${quiet ? ' class="visually-hidden"' : ''}>${esc(label)}</span></button>`;
+const sayButton = (text, label = 'Escuchar', quiet = false) => `<button class="en-say${quiet ? ' is-quiet' : ''}" type="button" data-say="${esc(text)}"><animate-icons name="volume-2" size="16"></animate-icons><span${quiet ? ' class="visually-hidden"' : ''}>${esc(label)}</span></button>`;
 
 /** Una nube de dibujo: la usa el corte lateral de las nubes. */
 const blob = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-38" y="-16" width="82" height="16" rx="8"/><circle cx="-16" cy="-18" r="15"/><circle cx="6" cy="-27" r="21"/><circle cx="29" cy="-17" r="13"/></g>`;

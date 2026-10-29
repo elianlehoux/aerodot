@@ -9,19 +9,19 @@ El sitio explica los temas y deja practicar con bancos de preguntas. No reemplaz
 Hace falta Node 22.
 
 ```bash
-npm install
+pnpm install
 cp .env.example .env
-npm run dev
+pnpm dev
 ```
 
 `.env` no se sube. Los valores de ejemplo alcanzan para levantar el sitio en local. PostHog solo recibe eventos si ponés un token real.
 
 ```bash
-npm run build
-npm test
+pnpm build
+pnpm test
 ```
 
-El build y los tests son la verificación. `npm test` corre una suite chica con `node --test`: cubre la corrección y validación de los ejercicios de inglés y la lógica de rangos del service worker.
+El build y los tests son la verificación. `pnpm test` corre una suite chica con `node --test`: cubre la corrección y validación de los ejercicios de inglés y la lógica de rangos del service worker.
 
 ## Dónde está cada cosa
 
@@ -43,4 +43,4 @@ Un dato normativo nuevo entra con la fuente al lado. Si la fuente no está, el d
 
 Código y textos originales: [MIT](LICENSE).
 
-Cuestionarios y figuras de ANAC, handbooks de la FAA y la fuente Inter quedan fuera de esa licencia. El detalle está en [NOTICE](NOTICE).
+Cuestionarios y figuras de ANAC, handbooks de la FAA y las fuentes Newsreader y Source Sans 3 quedan fuera de esa licencia. El detalle está en [NOTICE](NOTICE).

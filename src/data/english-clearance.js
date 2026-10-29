@@ -1,12 +1,12 @@
 /**
- * Autorización y colación: qué te autorizan, qué se repite siempre y cómo se encuentra un error.
+ * Autorizaciones: qué te autorizan, qué se repite siempre y cómo se encuentra un error.
  *
  * Fuentes (los textos en español son propios):
- * - Qué se colaciona siempre: SERA.8015 (e), Reglamento (UE) 923/2012, que traspone la norma de la OACI.
+ * - Qué se repite siempre: SERA.8015 (e), Reglamento (UE) 923/2012, que traspone la norma de la OACI.
  * - Contenido de una autorización: SERA.8015 (d); los nombres en inglés, FAA JO 7110.65, 4-2-1
  *   (Clearance limit, Route, Altitude data, Frequency and beacon code).
- * - Orden del distintivo (la torre lo dice primero; la colación termina con él): CAP 413 de la CAA
- *   británica, 2.49. Que la colación lleve el distintivo: SERA.14055 (c).
+ * - Orden del distintivo (la torre lo dice primero; la repetición termina con él): CAP 413 de la CAA
+ *   británica, 2.49. Que la repetición lleve el distintivo: SERA.14055 (c).
  * - Fraseología del circuito: CAP 413, cap. 4, y el Glosario Piloto/Controlador de la FAA.
  * CRAFT es una regla mnemotécnica de uso difundido, no una norma de la OACI.
  *
@@ -47,7 +47,7 @@ export const clearanceParts = [
     es: 'Altitud o nivel',
     piece: 'climb to altitude four thousand feet',
     say: 'Climb to altitude four thousand feet.',
-    body: 'A qué altitud o nivel subís. Las instrucciones de nivel están en la lista de lo que se colaciona siempre.',
+    body: 'A qué altitud o nivel subís. Las instrucciones de nivel están en la lista de lo que se repite siempre.',
   },
   {
     id: 'f',
@@ -56,7 +56,7 @@ export const clearanceParts = [
     es: 'Frecuencia',
     piece: 'departure frequency one two zero decimal four',
     say: 'Departure frequency one two zero decimal four.',
-    body: 'En qué frecuencia vas a hablar después de despegar. Una frecuencia nueva también se colaciona.',
+    body: 'En qué frecuencia vas a hablar después de despegar. Una frecuencia nueva también se repite.',
   },
   {
     id: 't',
@@ -65,11 +65,11 @@ export const clearanceParts = [
     es: 'Transpondedor',
     piece: 'squawk four five two one',
     say: 'Squawk four five two one.',
-    body: 'El código que ponés en el transpondedor: *squawk* y las cuatro cifras. Los códigos SSR se colacionan siempre.',
+    body: 'El código que ponés en el transpondedor: *squawk* y las cuatro cifras. Los códigos SSR se repiten siempre.',
   },
 ];
 
-/** Una autorización de ruta IFR de práctica, armada con las cinco piezas, y su colación. */
+/** Una autorización de ruta IFR de práctica, armada con las cinco piezas, y su repetición. */
 const craftParts = [
   { text: 'LV-DEM, ' },
   { text: 'cleared to Santa Brisa', part: 'c' },
@@ -106,7 +106,7 @@ const circuit = [
     kind: 'Autorización',
     tower: 'LV-DEM, runway one three, cleared to land.',
     reply: 'Runway one three, cleared to land, LV-DEM.',
-    body: 'Te autorizan a aterrizar en esa pista. Se colaciona con el número de pista. Si no la escuchaste, no aterrizás: seguís la aproximación o hacés *go around*.',
+    body: 'Te autorizan a aterrizar en esa pista. Se repite con el número de pista. Sin esta autorización no aterrizás: seguís la aproximación o hacés *go around*.',
   },
   {
     id: 'cleared-for-take-off',
@@ -124,7 +124,7 @@ const circuit = [
     kind: 'Instrucción',
     tower: 'LV-DEM, line up and wait runway one three.',
     reply: 'Line up and wait runway one three, LV-DEM.',
-    body: 'Entrás a la pista y te alineás, pero no despegás: no es una autorización de despegue. Esperás el *cleared for take-off*. Como te hace entrar a la pista, se colaciona.',
+    body: 'Entrás a la pista y te alineás, pero no despegás: no es una autorización de despegue. Esperás el *cleared for take-off*. Como la instrucción te hace entrar a la pista, se repite.',
   },
   {
     id: 'hold-short',
@@ -133,7 +133,7 @@ const circuit = [
     kind: 'Instrucción',
     tower: 'LV-DEM, hold short of runway one three.',
     reply: 'Holding short of runway one three, LV-DEM.',
-    body: 'Te detenés antes de llegar al lugar que te nombran, casi siempre una pista. Se colaciona; en el manual británico (CAP 413), con *holding short*, porque *roger* o *wilco* no alcanzan.',
+    body: 'Te detenés antes de llegar al lugar que te nombran, casi siempre una pista. Se repite. En el manual británico (CAP 413) se repite con *holding short*, porque *roger* o *wilco* no alcanzan.',
   },
   {
     id: 'continue-approach',
@@ -151,20 +151,19 @@ const circuit = [
     kind: 'Instrucción',
     tower: 'LV-DEM, report downwind.',
     reply: 'Wilco, LV-DEM.',
-    body: 'Te piden que avises cuando llegues a ese tramo. En español de Argentina el tramo se llama «inicial»; en inglés es *downwind*. La palabra inglesa *initial* suele referirse a otra cosa (por ejemplo, la aproximación inicial), así que no la uses para el circuito. Contestás *wilco* y, al llegar, llamás: *LV-DEM, downwind*.',
+    body: 'Te piden que avises cuando llegues a ese tramo. En español de Argentina el tramo se llama «inicial». En inglés es *downwind*. La palabra inglesa *initial* suele referirse a otra cosa (por ejemplo, la aproximación inicial), así que no la uses para el circuito. Contestás *wilco* y, al llegar, llamás: *LV-DEM, downwind*.',
   },
 ];
 
 export const clearanceExamples = circuit.map((card) => ({ ...card, say: spoken(card.tower), replySay: spoken(card.reply) }));
 
 /**
- * Qué se colaciona siempre, según SERA.8015 (e) (la lista de la OACI).
+ * Qué se repite siempre, según SERA.8015 (e) (la lista de la OACI).
  * en: un ejemplo de lo que repetís; el último ítem no lleva ejemplo.
  */
 export const readbackItems = [
   { id: 'route', es: 'Las autorizaciones de ruta (*route clearances*).', en: 'Cleared to Santa Brisa via route Delta' },
-  { id: 'runway-ops', es: 'Las autorizaciones e instrucciones para entrar, aterrizar, despegar, detenerte antes (*hold short*), cruzar, rodar o retroceder (*backtrack*) en cualquier pista.', en: 'Line up and wait runway one three' },
-  { id: 'runway', es: 'La pista en uso.', en: 'Runway one three' },
+  { id: 'runway-ops', es: 'La pista en uso y las instrucciones para entrar, aterrizar, despegar, detenerte antes (*hold short*), cruzar, rodar o retroceder (*backtrack*) en cualquier pista.', en: 'Line up and wait runway one three' },
   { id: 'altimeter', es: 'El ajuste del altímetro.', en: 'QNH one zero one three' },
   { id: 'ssr', es: 'Los códigos SSR del transpondedor.', en: 'Squawk four five two one' },
   { id: 'frequency', es: 'Las frecuencias nuevas que te asignan.', en: 'Laguna Approach one one nine decimal seven' },
@@ -173,7 +172,7 @@ export const readbackItems = [
 ].map((item) => (item.en ? { ...item, say: item.en } : item));
 
 /**
- * Casos de hearback: la colación tiene un solo dato mal.
+ * Casos de hearback: la repetición tiene un solo dato mal.
  * wrong declara cuál: label es la opción correcta de la pregunta; tower y pilot, lo que dijo cada uno.
  * El test compara palabra por palabra y exige que esa sea la única diferencia.
  */
@@ -197,7 +196,7 @@ export const hearbackCases = [
     pilot: 'Taxi to holding point runway one three, QNH one zero one three, LV-DEM.',
     wrong: { label: 'QNH', tower: 'one zero zero three', pilot: 'one zero one three' },
     options: ['Runway', 'QNH', 'Holding point', NOTHING],
-    explain: 'La torre dijo *one zero zero three* y se colacionó *one zero one three*, el valor estándar. La corrección es *negative* y el valor correcto: *LV-DEM, negative, QNH one zero zero three*.',
+    explain: 'La torre dijo *one zero zero three* y el piloto repitió *one zero one three*, el valor estándar. La corrección es *negative* y el valor correcto: *LV-DEM, negative, QNH one zero zero three*.',
   },
   {
     id: 'case-runway',
@@ -205,7 +204,7 @@ export const hearbackCases = [
     pilot: 'Runway three one, cleared to land, LV-DEM.',
     wrong: { label: 'Runway', tower: 'one three', pilot: 'three one' },
     options: ['Runway', 'Cleared to land', 'Callsign', NOTHING],
-    explain: 'La pista es la *one three* y se colacionó *three one*: la cabecera opuesta. La autorización está bien repetida.',
+    explain: 'La pista es la *one three* y el piloto repitió *three one*: la cabecera opuesta. La autorización está bien repetida.',
   },
 ].map(withVoice);
 
@@ -233,6 +232,6 @@ export const hearbackDrills = [
     pilot: 'Descend to altitude two thousand feet, QNH one zero one five, LV-DEM.',
     wrong: { label: 'Altitude', tower: 'three thousand', pilot: 'two thousand' },
     options: ['Altitude', 'QNH', 'Callsign', NOTHING],
-    explain: 'El controlador dijo *three thousand feet* y se colacionó *two thousand*. El QNH está bien.',
+    explain: 'El controlador dijo *three thousand feet* y el piloto repitió *two thousand*. El QNH está bien.',
   },
 ].map(withVoice);

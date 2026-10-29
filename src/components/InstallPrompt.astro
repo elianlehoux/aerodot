@@ -14,7 +14,7 @@
   </div>
   <button class="install-chip-action" type="button" id="installAction">Instalar</button>
   <button class="install-chip-close" type="button" id="installClose" aria-label="No mostrar por ahora">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg>
+    <animate-icons name="x" size="15"></animate-icons>
   </button>
 </aside>
 <script is:inline>
@@ -46,7 +46,7 @@
 
     const showIOSSteps = () => {
       chip.classList.add('is-steps');
-      hint.innerHTML = 'Tocá <svg class="install-share" viewBox="0 0 24 24" aria-label="Compartir" role="img"><path d="M12 3v12M8 7l4-4 4 4M6 11H5v10h14V11h-1" /></svg> Compartir y después <b>Agregar a inicio</b>.';
+      hint.innerHTML = 'Tocá <animate-icons name="share" size="15" class="install-share"></animate-icons> Compartir y después <b>Agregar a inicio</b>.';
       action.hidden = true;
     };
 

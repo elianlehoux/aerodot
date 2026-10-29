@@ -1,0 +1,65 @@
+/* En ruta y aproximación (/ingles/en-ruta) y Falla de comunicaciones (/ingles/falla-radio).
+   Usan flip, en-say, radio-block y las burbujas sv- de english-survival.css. El anillo es --en-ring (english.css). */
+.er-cards{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:22px}
+.radio-block>.sv-call{margin-top:20px}
+.er-call .sv-who{font-size:13px;letter-spacing:.02em;text-transform:none}
+
+/* Los pasos de la falla de radio */
+.fr-steps{display:grid;max-width:760px;margin:18px 0 0;padding:0;list-style:none;counter-reset:fr}
+.fr-step{position:relative;padding:16px 0 18px 48px;border-top:1px solid var(--line);counter-increment:fr}
+.fr-step:last-child{border-bottom:1px solid var(--line)}
+.fr-step::before{content:counter(fr);position:absolute;left:0;top:16px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 14px/1 var(--sans)}
+.fr-step h3{margin:0;font:520 20px/1.25 var(--display);letter-spacing:-.01em}
+.fr-step p{max-width:62ch;margin:6px 0 0;color:var(--graphite);font-size:15px;line-height:1.55}
+.fr-step em{font-style:italic;color:var(--ink)}
+
+/* Transmitir a ciegas: la frase de apertura lleva el acento */
+.fr-blind-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.fr-blind{display:flex;flex-direction:column;min-width:0;padding:18px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--paper)}
+.fr-blind h3{margin:0;font:520 20px/1.25 var(--display);letter-spacing:-.01em}
+.fr-blind-es{margin:4px 0 0;color:var(--ink);font-size:15px;font-weight:500}
+.fr-blind-when{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+.fr-parts{display:grid;gap:12px;margin:16px 0 18px;padding:0;list-style:none}
+.fr-parts li{display:grid;gap:2px;padding-left:12px;border-left:3px solid var(--line)}
+.fr-parts li:first-child{border-left-color:var(--accent)}
+.fr-part-label{color:var(--muted);font-size:13px;font-weight:500}
+.fr-part-text{color:var(--ink);font-size:15px;line-height:1.45;overflow-wrap:anywhere}
+.fr-blind .en-say{align-self:flex-start;margin-top:auto}
+
+/* Las luces. Fijo se ve lleno; con destellos lleva un anillo y titila, así que no depende del movimiento ni del color. */
+.fr-table-wrap{margin-top:18px}
+.fr-lights{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+.fr-lights th,.fr-lights td{padding:14px 16px 14px 0;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.fr-lights thead th{padding-top:0;border-top:0;color:var(--muted);font-size:13px;font-weight:500}
+.fr-lights tbody th{width:27%;color:var(--ink);font-weight:600}
+.fr-lights td{color:var(--graphite)}
+.fr-lights tbody tr:last-child>*{border-bottom:1px solid var(--line)}
+.fr-lamp{display:inline-block;width:16px;height:16px;margin-right:10px;border:1px solid transparent;border-radius:50%;background:var(--lamp);vertical-align:-2px}
+.fr-lamp.is-green{--lamp:var(--sig-green)}
+.fr-lamp.is-red{--lamp:var(--sig-red)}
+.fr-lamp.is-white{--lamp:var(--sig-white);border-color:var(--muted)}
+.fr-lamp.is-flash{box-shadow:0 0 0 3px color-mix(in srgb,var(--lamp) 30%,transparent)}
+@media(prefers-reduced-motion:no-preference){
+  .fr-lamp.is-flash{animation:fr-flash 1.4s steps(1) infinite}
+}
+@keyframes fr-flash{50%{opacity:.45}}
+.fr-sub{margin:36px 0 0;font:520 20px/1.25 var(--display);letter-spacing:-.01em}
+.fr-acks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;max-width:860px;margin:10px 0 0}
+.fr-acks div{padding:12px 0;border-top:1px solid var(--line)}
+.fr-acks dt{color:var(--ink);font-size:15px;font-weight:600}
+.fr-acks dd{margin:4px 0 0;color:var(--graphite);font-size:15px;line-height:1.5}
+
+@media(max-width:900px){
+  .fr-blind-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:680px){
+  .fr-acks{grid-template-columns:minmax(0,1fr)}
+  /* En el celular la tabla se apila: una luz y debajo qué significa en vuelo y en tierra. */
+  .fr-lights thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .fr-lights,.fr-lights tbody,.fr-lights tr,.fr-lights th,.fr-lights td{display:block}
+  .fr-lights tbody th{width:auto;padding:14px 0 4px}
+  .fr-lights td{padding:2px 0;border-top:0}
+  .fr-lights td::before{content:attr(data-label) ": ";color:var(--muted);font-weight:500}
+  .fr-lights tbody tr:last-child>*{border-bottom:0}
+  .fr-lights tbody tr:last-child td:last-child{padding-bottom:14px;border-bottom:1px solid var(--line)}
+}

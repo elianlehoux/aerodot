@@ -6,9 +6,9 @@ import { englishNeighbors, englishPhases, englishReadySlugs, englishSections, en
 const root = new URL('../', import.meta.url);
 const withHref = englishSections.filter((section) => section.href);
 
-test('las fases son los seis pasos del recorrido, en orden', () => {
-  assert.deepEqual(englishPhases.map((phase) => phase.id), ['base', 'comunicaciones', 'emergencias', 'anormal', 'comunicarla', 'historia']);
-  assert.deepEqual(englishPhases.map((phase) => phase.step), [1, 2, 3, 4, 5, 6]);
+test('las fases son los cuatro pasos del recorrido, en orden', () => {
+  assert.deepEqual(englishPhases.map((phase) => phase.id), ['base', 'comunicaciones', 'emergencias', 'relato']);
+  assert.deepEqual(englishPhases.map((phase) => phase.step), [1, 2, 3, 4]);
   for (const phase of englishPhases) {
     assert.ok(phase.title, `${phase.id} sin título`);
     assert.ok(phase.lede, `${phase.id} sin lede`);
@@ -61,7 +61,17 @@ test('englishReadySlugs son los slugs de englishTopics', () => {
   assert.deepEqual(englishReadySlugs, englishTopics.map((topic) => topic.slug));
 });
 
-test('Comunicaciones anuncia lo que falta después del circuito: en ruta y aproximación, y falla de comunicaciones', () => {
-  const soon = englishSections.filter((section) => section.phase === 'comunicaciones' && !section.href).map((section) => section.title);
-  assert.deepEqual(soon, ['En ruta y aproximación', 'Falla de comunicaciones']);
+test('el recorrido está completo: toda sección tiene su página y todo paso tiene módulos', () => {
+  assert.equal(englishSections.length, withHref.length, 'queda una sección sin href');
+  for (const phase of englishPhases) {
+    assert.ok(englishSections.some((section) => section.phase === phase.id), `${phase.id} no tiene módulos`);
+  }
+  assert.deepEqual(
+    englishSections.filter((section) => section.phase === 'comunicaciones').map((section) => section.slug),
+    ['atis', 'autorizacion', 'radio-fases', 'en-ruta', 'falla-radio'],
+  );
+  assert.deepEqual(
+    englishSections.filter((section) => section.phase === 'relato').map((section) => section.slug),
+    ['incidentes', 'tres-publicos'],
+  );
 });

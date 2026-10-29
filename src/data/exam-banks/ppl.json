@@ -1937,9 +1937,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "La resultante aerodinámica es la suma de sustentación y resistencia. El peso y la tracción son las otras fuerzas del vuelo, no las que arman esa resultante.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
           "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
         },
@@ -2267,9 +2267,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "En el circuito de aeródromo los virajes son por izquierda, salvo que la carta o el servicio indiquen lo contrario.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-ppl-julio-2014.pdf",
           "referenceTitle": "Cuestionario público ANAC · Piloto de planeador"
         },

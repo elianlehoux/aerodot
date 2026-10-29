@@ -18,3 +18,10 @@ export const splitMixed = (value) => {
 
 /** true si hay un asterisco sin pareja. */
 export const hasUnmatchedMarker = (value) => (String(value ?? '').split('*').length - 1) % 2 === 1;
+
+/** Parte una línea en lo de antes, la frase clave (hl) y lo de después. Sin clave, o si no está, devuelve la línea entera. */
+export const splitKey = (text, key) => {
+  const at = key ? text.indexOf(key) : -1;
+  if (at < 0) return [{ text }];
+  return [{ text: text.slice(0, at) }, { text: key, hl: true }, { text: text.slice(at + key.length) }].filter((part) => part.text);
+};

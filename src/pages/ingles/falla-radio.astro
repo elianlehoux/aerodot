@@ -1,0 +1,115 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { radioFailSet } from '../../data/english-sets.js';
+import { blindMessages, failSteps, lightAcks, lightSignals } from '../../data/english-radiofail.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-comms.css';
+---
+<EnglishShell
+  title="Falla de radio: inglés aeronáutico | Aerodot"
+  description="Qué hacer y qué decir en inglés cuando la radio falla: el código 7600, la transmisión a ciegas y las señales luminosas de la torre. Con audio y una práctica corta."
+>
+  <p class="eyebrow">Comunicaciones</p>
+  <h1>Falla de radio.</h1>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-fr-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#pasos">Qué hacés, en orden</a>
+        <a href="#ciegas">Transmitir a ciegas</a>
+        <a href="#luces">Las señales de la torre</a>
+        <a href={`#${radioFailSet.id}-title`}>{radioFailSet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  <section class="radio-block" aria-labelledby="pasos">
+    <h2 id="pasos">Qué hacés, en orden</h2>
+    <p>Cuatro pasos. El primero es el de siempre, volar el avión.</p>
+    <ol class="fr-steps" role="list">
+      {failSteps.map((step) => (
+        <li class="fr-step">
+          <h3>{step.title}</h3>
+          <p>{splitMixed(step.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="radio-block" aria-labelledby="ciegas">
+    <h2 id="ciegas">Transmitir a ciegas</h2>
+    <p>Hay dos situaciones y cada una tiene su frase de apertura. Después va siempre el mismo mensaje corto.</p>
+    <div class="fr-blind-grid">
+      {blindMessages.map((message) => (
+        <article class="fr-blind" aria-labelledby={`fr-${message.id}`}>
+          <h3 id={`fr-${message.id}`} lang="en">{message.en}</h3>
+          <p class="fr-blind-es">{message.es}</p>
+          <p class="fr-blind-when">{message.when}</p>
+          <ol class="fr-parts" role="list">
+            {message.parts.map((part) => (
+              <li>
+                <span class="fr-part-label">{part.label}</span>
+                <span class="fr-part-text" lang="en">{part.text}</span>
+              </li>
+            ))}
+          </ol>
+          <EnglishSay text={message.say} label={`Escuchar el mensaje completo: *${message.en.toLowerCase()}*`} />
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="radio-block" aria-labelledby="luces">
+    <h2 id="luces">Las señales de la torre</h2>
+    <p>Si la torre ve que no hablás, te manda una luz. El significado cambia según estés en vuelo o en tierra.</p>
+    <div class="fr-table-wrap">
+      <table class="fr-lights" role="table">
+        <caption class="visually-hidden">Señales luminosas del control de aeródromo y qué significan para un avión en vuelo y para uno en tierra</caption>
+        <thead role="rowgroup">
+          <tr role="row"><th scope="col" role="columnheader">La luz</th><th scope="col" role="columnheader">En vuelo</th><th scope="col" role="columnheader">En tierra</th></tr>
+        </thead>
+        <tbody role="rowgroup">
+          {lightSignals.map((signal) => (
+            <tr role="row">
+              <th scope="row" role="rowheader">
+                <span class:list={['fr-lamp', `is-${signal.color}`, { 'is-flash': signal.flash }]} aria-hidden="true"></span>
+                {signal.label}
+              </th>
+              <td role="cell" data-label="En vuelo">{signal.air}</td>
+              <td role="cell" data-label="En tierra">{signal.ground}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="fr-sub">Cómo acusás recibo</h3>
+    <dl class="fr-acks">
+      {lightAcks.map((ack) => (
+        <div>
+          <dt>{ack.where}</dt>
+          <dd>{ack.how}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <ExerciseSet set={radioFailSet} />
+
+  <p class="en-sources">La transmisión a ciegas sigue el reglamento europeo SERA (UE 923/2012, SERA.14085). Las señales luminosas y cómo se acusa recibo siguen el Apéndice 1 del mismo reglamento, que toma la tabla del Anexo 2 de la OACI. El código 7600 sigue SERA.13005. Qué hacer en un vuelo en condiciones visuales es la regla general de la OACI: cada país puede agregar detalles y la Unión Europea cambió sus pasos en 2025, así que seguí lo que publique la AIP de tu país y lo que te enseñe tu instructor. Laguna, la matrícula LV-DEM y todas las cifras (distancias, alturas, horas) son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="falla-radio" where="Falla de radio" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountExerciseSets();
+    mountPageToc('[data-fr-toc]');
+  </script>
+</EnglishShell>

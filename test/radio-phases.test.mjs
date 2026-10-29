@@ -63,8 +63,8 @@ test('radio por fase: el distintivo va donde dice la convención (CAP 413 2.49)'
     }
     assert.ok(['call', 'readback'].includes(line.kind), `el piloto declara kind call o readback: ${where}`);
     if (line.kind === 'readback') {
-      assert.match(line.text, /, LV-DEM\.$/, `una colación o acuse termina con el distintivo: ${where}`);
-      assert.doesNotMatch(line.text, /^LV-DEM/, `una colación no empieza con el distintivo: ${where}`);
+      assert.match(line.text, /, LV-DEM\.$/, `una repetición o acuse termina con el distintivo: ${where}`);
+      assert.doesNotMatch(line.text, /^LV-DEM/, `una repetición no empieza con el distintivo: ${where}`);
     } else {
       assert.match(line.text, /^(LV-DEM|Laguna (Tower|Ground), LV-DEM),/, `una llamada nueva empieza con el distintivo: ${where}`);
     }

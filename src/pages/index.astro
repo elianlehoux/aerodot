@@ -5,7 +5,7 @@ import BrandMark from '../components/BrandMark.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 ---
 <BaseLayout
-  title="Aerodot — Biblioteca de Aviación y Exámenes ANAC en Argentina"
+  title="Aerodot: biblioteca de aviación y exámenes ANAC en Argentina"
   description="Estudiá teoría aeronáutica y practicá con simuladores de exámenes ANAC para Piloto Privado (PPA), Comercial (PCA), Instructor y más. Gratis y sin registro."
 >
   <div class="home-page">
@@ -14,19 +14,28 @@ import SiteFooter from '../components/SiteFooter.astro';
       <SiteNav />
     </header>
     <main id="main-content" tabindex="-1">
-      <section class="home-hero home-hero-simple">
-        <div class="hero-copy">
+      <section class="home-hero">
+        <div class="home-intro">
           <h1>Entender la aviación,<br/><em>tema por tema.</em></h1>
-          <p class="hero-lede">Conceptos explicados con claridad y profundidad técnica: consultá lo que necesitás y llevá la práctica hasta el examen.</p>
-          <div class="hero-actions">
-            <a class="home-cta-primary" href="/temas">Explorar la biblioteca <span aria-hidden="true">↗</span></a>
-            <a class="button-quiet" href="/examenes">Practicar exámenes ANAC <span aria-hidden="true">↗</span></a>
-          </div>
+          <p class="hero-lede">Conceptos explicados con claridad y detalle técnico. Consultá lo que necesitás y practicá hasta rendir el examen.</p>
+        </div>
+        <div class="home-doors">
+          <a class="home-door" href="/temas">
+            <strong>Biblioteca de teoría</strong>
+            <span class="home-door-go" aria-hidden="true"><animate-icons name="arrow-right" size="20"></animate-icons></span>
+          </a>
+          <a class="home-door" href="/examenes">
+            <strong>Practicá los exámenes de ANAC</strong>
+            <span class="home-door-go" aria-hidden="true"><animate-icons name="arrow-right" size="20"></animate-icons></span>
+          </a>
+          <a class="home-door" href="/ingles">
+            <strong>Inglés OACI</strong>
+            <span class="home-door-go" aria-hidden="true"><animate-icons name="arrow-right" size="20"></animate-icons></span>
+          </a>
         </div>
       </section>
     </main>
     <SiteFooter variant="home">
-      <a href="/camino">El camino del piloto</a>
       <small slot="note">Material independiente. No reemplaza instrucción, documentación aeronáutica ni normativa vigente.</small>
     </SiteFooter>
   </div>

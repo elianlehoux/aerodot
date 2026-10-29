@@ -8,21 +8,19 @@ import { cloudAmounts, wxCommon, weatherRadio } from '../../data/weather.js';
 import '../../styles/english-weather.css';
 ---
 <EnglishShell
-  title="El tiempo por radio — Inglés aeronáutico | Aerodot"
+  title="Meteorología: inglés aeronáutico | Aerodot"
   description="Cómo se dicen por radio, en inglés aeronáutico, las nubes y los fenómenos. Dibujos para tocar, audio y una práctica corta."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Base</p>
-  <h1>El tiempo por radio.</h1>
-  <p class="en-deck">Las nubes y los fenómenos por radio: qué palabras usar y cómo se dicen.</p>
+  <h1>Meteorología.</h1>
 
   <aside class="library-toc study-page-toc" aria-label="Índice de la página">
     <details class="chapter-toc" data-wx-toc open>
       <summary>En esta página</summary>
       <nav aria-label="Secciones del tema">
-        <a href="#nubes">Las nubes</a>
-        <a href="#fenomenos">Los fenómenos</a>
-        <a href="#frecuencia">En la radio</a>
+        <a href="#nubes" lang="en">Clouds</a>
+        <a href="#fenomenos" lang="en">Weather phenomena</a>
+        <a href="#frecuencia" lang="en">On the radio</a>
         <a href={`#${weatherSet.id}-title`}>Decilo en la radio</a>
       </nav>
     </details>
@@ -30,7 +28,7 @@ import '../../styles/english-weather.css';
 
   <!-- 1 · Nubes -->
   <section class="en-block" data-wc aria-labelledby="nubes">
-    <h2 id="nubes">Las nubes: cuánto cielo y a qué altura</h2>
+    <h2 id="nubes" lang="en">Clouds</h2>
     <p class="en-block-lede">El cielo se mide en <b>octas</b>: ocho partes. Cubrí el cielo, mové la altura y escuchá cómo se dice la capa.</p>
     <div class="wc-card">
       <div class="wc-controls">
@@ -61,7 +59,7 @@ import '../../styles/english-weather.css';
 
   <!-- 2 · Fenómenos -->
   <section class="en-block" data-wp aria-labelledby="fenomenos">
-    <h2 id="fenomenos">Los fenómenos: lo que cae y lo que tapa</h2>
+    <h2 id="fenomenos" lang="en">Weather phenomena</h2>
     <p class="en-block-lede">Se dice en orden: <b>intensidad, descriptor y fenómeno</b>. Combiná las piezas y escuchá cómo suena.</p>
     <div class="wp-card">
       <div class="wp-controls">
@@ -75,7 +73,7 @@ import '../../styles/english-weather.css';
       </div>
       <p class="wp-hint" data-wp-hint></p>
     </div>
-    <h3 class="wx-sub">Los de siempre</h3>
+    <h3 class="wx-sub" lang="en">Common phenomena</h3>
     <ul class="digit-grid wx-tiles" role="list">
       {wxCommon.map((item) => (
         <li>
@@ -91,8 +89,8 @@ import '../../styles/english-weather.css';
 
   <!-- 3 · Radio -->
   <section class="radio-block" aria-labelledby="frecuencia">
-    <h2 id="frecuencia">En la radio</h2>
-    <p>Lo que se pide, se avisa o se escucha sobre el tiempo. Adiviná el significado antes de darla vuelta.</p>
+    <h2 id="frecuencia" lang="en">On the radio</h2>
+    <p>Son las frases que se piden, se avisan o se escuchan sobre el tiempo. Adiviná el significado de cada tarjeta antes de darla vuelta.</p>
     <ul class="flip-grid" role="list">
       {weatherRadio.map((item) => (
         <li class="flip" data-flip>
@@ -114,9 +112,9 @@ import '../../styles/english-weather.css';
   <!-- 4 · Práctica -->
   <ExerciseSet set={weatherSet} />
 
-  <p class="en-sources">El aeródromo Laguna y las frases son de práctica: no se usan para volar. Para volar, el tiempo se consulta en los productos vigentes del SMN. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">El aeródromo Laguna y las frases son de práctica. No se usan para volar. Para volar, el tiempo se consulta en los productos vigentes del SMN. El audio usa la voz de tu navegador.</p>
 
-  <EnglishFinish slug="tiempo" where="El tiempo" />
+  <EnglishFinish slug="tiempo" where="Meteorología" />
   <script>
     import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
     import { mountWeather } from '../../scripts/weather.js';

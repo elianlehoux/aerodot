@@ -7,9 +7,8 @@
  * En body, lede y note, las palabras en inglés van entre asteriscos: la página les pone lang="en".
  * Cada frase: en (cómo se escribe), es (su nombre en español), say (lo que lee la voz, sin
  * cifras), body (qué significa y cuándo se usa) y use (un ejemplo corto en contexto).
- * Opcionales: tag (una etiqueta, por ejemplo la de lenguaje claro: no está en la tabla de palabras
- * normalizadas) y link ({ href, text }, un enlace al pie de la explicación).
- * Laguna y LV-DEM son de práctica. Se escribe three, four, five y nine (ver english.js).
+ * Opcional: link ({ href, text }, un enlace al pie de la explicación).
+ * Ezeiza y LV-DEM son de práctica. Se escribe three, four, five y nine (ver english.js).
  */
 
 const DEM = 'Lima Victor Delta Echo Mike';
@@ -18,7 +17,7 @@ export const survivalGroups = [
   {
     id: 'no-entendi',
     title: 'No entendí',
-    lede: 'Cuando no escuchaste, escuchaste a medias o te hablan muy rápido. Pedir que repitan es normal: adivinar, no.',
+    lede: 'Cuando no escuchaste, escuchaste a medias o te hablan muy rápido. Pedir que repitan es normal. Adivinar no lo es.',
     phrases: [
       {
         id: 'say-again',
@@ -46,7 +45,6 @@ export const survivalGroups = [
       },
       {
         id: 'spell',
-        tag: 'Lenguaje claro',
         en: 'please spell',
         es: 'deletreá, por favor',
         say: `${DEM}, please spell the name of the reporting point.`,
@@ -66,8 +64,8 @@ export const survivalGroups = [
         id: 'how-read',
         en: 'how do you read',
         es: '¿cómo me escuchás?',
-        say: `Laguna Tower, ${DEM}, how do you read?`,
-        use: 'Laguna Tower, LV-DEM, how do you read?',
+        say: `Ezeiza Tower, ${DEM}, how do you read?`,
+        use: 'Ezeiza Tower, LV-DEM, how do you read?',
         body: 'Preguntás qué tan bien llega tu transmisión. Se usa en una prueba de radio o cuando sospechás que tu equipo falla.',
       },
     ],
@@ -83,7 +81,7 @@ export const survivalGroups = [
         es: 'recibido',
         say: `Roger, ${DEM}.`,
         use: 'Roger, LV-DEM.',
-        body: 'Quiere decir que recibiste todo el último mensaje, nada más. No es un sí, no contesta una pregunta de sí o no y no reemplaza la colación.',
+        body: 'Quiere decir que recibiste todo el último mensaje, nada más. No es un sí, no contesta una pregunta de sí o no y no reemplaza repetir lo que te indicaron (*readback*).',
       },
       {
         id: 'wilco',
@@ -91,7 +89,7 @@ export const survivalGroups = [
         es: 'entendido, voy a cumplir',
         say: `Wilco, ${DEM}.`,
         use: 'Wilco, LV-DEM.',
-        body: 'Recibiste el mensaje, lo entendiste y lo vas a cumplir. Ya incluye lo que dice *roger*, así que con *wilco* solo alcanza. Y lo que se colaciona, se colaciona igual: *wilco* no reemplaza la colación.',
+        body: 'Recibiste el mensaje, lo entendiste y lo vas a cumplir. Ya incluye lo que dice *roger*, así que alcanza con *wilco*. Lo que tengas que repetir lo repetís igual: *wilco* no lo reemplaza.',
       },
       {
         id: 'affirm',
@@ -123,7 +121,7 @@ export const survivalGroups = [
         es: 'correcto',
         say: `${DEM}, correct.`,
         use: 'LV-DEM, correct.',
-        body: 'Quiere decir que lo que dijo el otro es cierto o exacto. Por ejemplo, la torre puede decirlo después de tu colación; muchas veces, si la colación está bien, no te dice nada.',
+        body: 'Quiere decir que lo que dijo el otro es cierto o exacto. Por ejemplo, la torre puede decirlo después de que repetís; muchas veces, si está bien, no te dice nada.',
       },
     ],
     /** Tarjeta aparte: el uso de EE. UU. */
@@ -162,8 +160,8 @@ export const survivalGroups = [
         id: 'request',
         en: 'request',
         es: 'solicito',
-        say: `Laguna Tower, ${DEM}, request taxi.`,
-        use: 'Laguna Tower, LV-DEM, request taxi.',
+        say: `Ezeiza Tower, ${DEM}, request taxi.`,
+        use: 'Ezeiza Tower, LV-DEM, request taxi.',
         body: 'Pedís algo: un dato o un permiso. Va adelante de lo que querés obtener.',
       },
     ],
@@ -171,7 +169,7 @@ export const survivalGroups = [
   {
     id: 'corregir',
     title: 'Corregir',
-    lede: 'Equivocarse en la radio pasa. Lo que importa es corregirlo con la palabra justa.',
+    lede: 'Es normal equivocarse en la radio. Corregí el error con la palabra normalizada que corresponde.',
     phrases: [
       {
         id: 'correction',
@@ -192,7 +190,7 @@ export const survivalGroups = [
       {
         id: 'read-back',
         en: 'read back',
-        es: 'colacioná',
+        es: 'repetí lo que recibiste',
         say: `${DEM}, read back.`,
         use: 'LV-DEM, read back.',
         body: 'Te piden que repitas el mensaje, o la parte que nombren, exactamente como lo recibiste.',
@@ -205,6 +203,57 @@ export const survivalGroups = [
         use: 'LV-DEM, disregard.',
         body: 'Pedís que no tengan en cuenta lo que dijiste. Se usa cuando un mensaje salió por error o ya no sirve.',
       },
+    ],
+  },
+];
+
+/**
+ * Tres ejercicios, de menor a mayor dificultad. El contenido es de esta lección:
+ * no se copia de otro curso. Ezeiza y LV-DEM son de práctica.
+ */
+export const survivalSheets = [
+  {
+    id: 'elegir',
+    n: 1,
+    title: 'Elegí la palabra',
+    instruction: 'Elegí la palabra que se dice por radio.',
+    kind: 'select',
+    items: [
+      { id: 'e1', before: 'No escuchaste el último mensaje. ', choices: ['Say again', 'Repeat', 'Roger'], answer: 'Say again', after: '.' },
+      { id: 'e2', before: 'La respuesta es sí. ', choices: ['Affirm', 'Yes', 'Roger'], answer: 'Affirm', after: ', LV-DEM.' },
+      { id: 'e3', before: 'Lo entendiste y lo vas a cumplir. ', choices: ['Wilco', 'Roger', 'Affirm'], answer: 'Wilco', after: ', LV-DEM.' },
+      { id: 'e4', before: 'No podés hacer lo que te piden. ', choices: ['Unable', 'Negative', 'Standby'], answer: 'Unable', after: ', LV-DEM.' },
+      { id: 'e5', before: 'Te equivocaste y das la versión correcta. ', choices: ['Correction', 'Correct', 'Disregard'], answer: 'Correction', after: ', runway one three, LV-DEM.' },
+    ],
+  },
+  {
+    id: 'escribir',
+    n: 2,
+    title: 'Escribí la palabra',
+    instruction: 'Escribí la palabra de la radio. Una sola, como en el ejemplo.',
+    kind: 'write',
+    example: { from: 'Pedís que repitan', to: 'Say again' },
+    items: [
+      { id: 'w1', before: 'El sí de la radio → ', answer: 'Affirm' },
+      { id: 'w2', before: 'El no de la radio → ', answer: 'Negative' },
+      { id: 'w3', before: 'Esperá, te llamo → ', answer: 'Standby' },
+      { id: 'w4', before: 'Ignorá ese mensaje → ', answer: 'Disregard' },
+      { id: 'w5', before: 'Hablá más despacio → speak ', answer: 'slower' },
+    ],
+  },
+  {
+    id: 'dialogo',
+    n: 3,
+    title: 'Completá el diálogo',
+    instruction: 'Completá el intercambio. Una palabra por hueco.',
+    kind: 'dialogue',
+    lines: [
+      { who: 'Torre', chunks: [{ text: 'LV-DEM, taxi to holding point runway one three.' }] },
+      { who: 'Vos', chunks: [{ text: 'LV-DEM, ' }, { blank: 'say again', n: 1 }, { text: ' all after taxi.' }] },
+      { who: 'Torre', chunks: [{ text: 'LV-DEM, taxi to holding point runway one three.' }] },
+      { who: 'Vos', chunks: [{ text: 'Holding point runway three one, ' }, { blank: 'correction', n: 2 }, { text: ', runway one three, LV-DEM.' }] },
+      { who: 'Torre', chunks: [{ text: 'LV-DEM, ' }, { blank: 'standby', n: 3 }, { text: '.' }] },
+      { who: 'Vos', chunks: [{ text: 'Ezeiza Tower, LV-DEM, ' }, { blank: 'request', n: 4 }, { text: ' taxi.' }] },
     ],
   },
 ];
@@ -236,18 +285,18 @@ export const survivalCall = [
     who: 'pilot',
     say: `QNH one zero one six, taxi to holding point runway three one, ${DEM}.`,
     parts: [{ text: 'QNH one zero one six, taxi to holding point runway three one, LV-DEM.' }],
-    note: 'Colacionás, pero cambiaste el número de la pista.',
+    note: 'Repetís, pero cambiaste el número de la pista.',
   },
   {
     who: 'tower',
     say: `${DEM}, negative, I say again, taxi to holding point runway one three.`,
     parts: [{ text: 'LV-DEM, ' }, { text: 'negative', hl: true }, { text: ', ' }, { text: 'I say again', hl: true }, { text: ', taxi to holding point runway one three.' }],
-    note: 'La torre te dice que la colación no es correcta y repite la instrucción entera.',
+    note: 'La torre te dice que lo que repetiste no es correcto y dice otra vez la instrucción entera.',
   },
   {
     who: 'pilot',
     say: `Taxi to holding point runway one three, ${DEM}.`,
     parts: [{ text: 'Taxi to holding point runway one three, LV-DEM.' }],
-    note: 'Colacionás la pista correcta.',
+    note: 'Repetís la pista correcta.',
   },
 ];

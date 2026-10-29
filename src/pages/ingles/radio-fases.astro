@@ -5,20 +5,14 @@ import EnglishSay from '../../components/EnglishSay.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { radioPhasesSet } from '../../data/english-sets.js';
 import { radioPhases } from '../../data/english-phases.js';
-import { splitMixed } from '../../scripts/mixed.js';
+import { splitKey, splitMixed } from '../../scripts/mixed.js';
 import '../../styles/english-survival.css';
 import '../../styles/english-radio.css';
 
 /* Altura de cada fase en el mapa: en tierra, subiendo o bajando, en el circuito. */
 const altitude = { 'puesta-en-marcha': 0, rodaje: 0, 'punto-de-espera': 0, despegue: 1, ascenso: 2, circuito: 2, aterrizaje: 1, estacionamiento: 0 };
-const kindLabel = { call: 'llamás', readback: 'colacionás o acusás' };
+const kindLabel = { call: 'llamás', readback: 'repetís o acusás' };
 
-/** Parte el texto de una línea en lo de antes, la frase clave y lo de después. */
-const pieces = (text: string, key?: string) => {
-  if (!key) return [{ text }];
-  const at = text.indexOf(key);
-  return [{ text: text.slice(0, at) }, { text: key, hl: true }, { text: text.slice(at + key.length) }].filter((part) => part.text);
-};
 const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' ? 'Vos' : line.unit ?? 'Laguna Tower');
 // Nombre accesible del botón: lo visible (mapLabel) tiene que estar dentro del nombre (WCAG 2.5.3).
 const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
@@ -27,13 +21,11 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
 };
 ---
 <EnglishShell
-  title="Radio por fase de vuelo — Inglés aeronáutico | Aerodot"
+  title="Fases de vuelo: inglés aeronáutico | Aerodot"
   description="Qué se dice por radio en inglés en cada fase de un vuelo de circuito VFR: puesta en marcha, rodaje, despegue, circuito y aterrizaje. Diálogos con audio, frases clave y práctica."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Comunicaciones</p>
-  <h1>Radio por fase de vuelo.</h1>
-  <p class="en-deck">Un vuelo de circuito en Laguna, de la puesta en marcha al aeroclub: qué escuchás y qué decís en cada tramo.</p>
+  <h1>Fases de vuelo.</h1>
 
   <aside class="library-toc study-page-toc" aria-label="Índice de la página">
     <details class="chapter-toc" data-rf-toc open>
@@ -48,12 +40,12 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
 
   <section class="radio-block" aria-labelledby="convencion">
     <h2 id="convencion">Quién habla primero</h2>
-    <p>En todo el vuelo se repite una regla para ubicar tu distintivo (<em lang="en">callsign</em>). El control lo dice al principio. Vos también, cuando traés algo nuevo o pedís algo. Cuando colacionás o acusás recibo, primero repetís el mensaje y tu distintivo va al final.</p>
-    <p>Así lo enseña el manual de radio de la CAA británica (CAP 413) y así lo usamos acá. La norma europea (SERA.14055) solo pide que la colación lleve el distintivo, sin fijar dónde; en los ejemplos de EE. UU. muchas veces va al principio.</p>
+    <p>En todo el vuelo se repite una regla para ubicar tu distintivo (<em lang="en">callsign</em>). El control lo dice al principio. Vos también, cuando traés algo nuevo o pedís algo. Cuando repetís un mensaje o acusás recibo, primero va el mensaje y tu distintivo al final.</p>
+    <p>Así lo enseña el manual de radio de la CAA británica (CAP 413) y así lo usamos acá. La norma europea (SERA.14055) solo pide que la repetición lleve el distintivo, sin fijar dónde. En los ejemplos de EE. UU. muchas veces va al principio.</p>
     <ul class="rf-rule" role="list">
       <li><span class="rf-rule-who" lang="en">Laguna Tower</span><span lang="en"><b>LV-DEM</b>, runway one three, cleared to land.</span></li>
       <li><span class="rf-rule-who">Vos llamás</span><span lang="en"><b>LV-DEM</b>, downwind.</span></li>
-      <li><span class="rf-rule-who">Vos colacionás</span><span lang="en">Runway one three, cleared to land, <b>LV-DEM</b>.</span></li>
+      <li><span class="rf-rule-who">Vos repetís</span><span lang="en">Runway one three, cleared to land, <b>LV-DEM</b>.</span></li>
     </ul>
   </section>
 
@@ -90,7 +82,7 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
               <li class:list={['sv-line', `is-${line.who}`]}>
                 <span class="sv-who">{line.who === 'pilot' ? <>Vos · {kindLabel[line.kind as keyof typeof kindLabel]}</> : <span lang="en">{speaker(line)}</span>}</span>
                 <div class="sv-bubble">
-                  <p lang="en">{pieces(line.text, line.key).map((part) => part.hl ? <mark class="sv-hl">{part.text}</mark> : part.text)}</p>
+                  <p lang="en">{splitKey(line.text, line.key).map((part) => part.hl ? <mark class="sv-hl">{part.text}</mark> : part.text)}</p>
                   <EnglishSay text={line.say} label={`${line.who === 'pilot' ? 'Escuchar tu llamada' : `Escuchar a *${speaker(line)}*`}, mensaje ${n + 1}: ${phase.es.toLowerCase()}`} quiet />
                 </div>
                 {line.note && <p class="sv-note">{splitMixed(line.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>}
@@ -130,9 +122,9 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
 
   <ExerciseSet set={radioPhasesSet} />
 
-  <p class="en-sources">La fraseología de cada fase sigue el manual de radiotelefonía de la CAA británica (CAP 413, cap. 4, y los ejemplos del cap. 11), igual que el lugar del distintivo (2.49); qué se colaciona siempre, el reglamento europeo SERA (UE 923/2012, SERA.8015), y la apertura de una comunicación, SERA.14055. Los nombres de los tramos del circuito y el uso de EE. UU. siguen el AIM de la FAA (4-3-3 y 4-3-18) y el Glosario Piloto/Controlador. Laguna, el aeroclub, la matrícula LV-DEM, los otros aviones y todas las cifras (frecuencias, QNH, pista, viento) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">La fraseología de cada fase sigue el manual de radiotelefonía de la CAA británica (CAP 413, cap. 4, y los ejemplos del cap. 11), igual que el lugar del distintivo (2.49). Qué se repite siempre sigue el reglamento europeo SERA (UE 923/2012, SERA.8015) y la apertura de una comunicación sigue SERA.14055. Los nombres de los tramos del circuito y el uso de EE. UU. siguen el AIM de la FAA (4-3-3 y 4-3-18) y el Glosario Piloto/Controlador. Laguna, el aeroclub, la matrícula LV-DEM, los otros aviones y todas las cifras (frecuencias, QNH, pista, viento) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
 
-  <EnglishFinish slug="radio-fases" where="Radio por fase de vuelo" />
+  <EnglishFinish slug="radio-fases" where="Fases de vuelo" />
   <script>
     import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
     import { mountExerciseSets } from '../../scripts/exercises/engine.js';

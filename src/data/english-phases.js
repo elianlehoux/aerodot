@@ -5,8 +5,8 @@
  * - Fraseología de aeródromo: CAP 413 de la CAA británica, ed. 24, cap. 4 (4.9 a 4.68) y los ejemplos
  *   del cap. 11 (figuras 2, 5, 6, 7, 22 y 23).
  * - Lugar del distintivo: CAP 413, 2.49 (la torre lo dice primero; una llamada nueva del piloto
- *   también; la colación o el acuse terminan con él). SERA.14055 solo exige que la colación lo lleve.
- * - Qué se colaciona siempre: SERA.8015 (e).
+ *   también; la repetición o el acuse terminan con él). SERA.14055 solo exige que la repetición lo lleve.
+ * - Qué se repite siempre: SERA.8015 (e).
  * - Uso de EE. UU.: AIM de la FAA, 4-3-3 (tramos del circuito) y 4-3-18 (rodaje y hold short), y el
  *   Glosario Piloto/Controlador.
  *
@@ -36,7 +36,7 @@ const phases = [
     mapLabel: 'Arranque',
     es: 'Puesta en marcha',
     en: 'Start up',
-    summary: 'Antes de encender el motor, probás la radio con rodaje (*Laguna Ground*) y pedís permiso para poner en marcha. Ya escuchaste el ATIS, así que nombrás su letra y el QNH.',
+    summary: 'Antes de poner en marcha el motor, probás la radio con rodaje (*Laguna Ground*) y pedís permiso. Ya escuchaste el ATIS, así que nombrás su letra y el QNH.',
     listen: 'Escuchás *readability five*: te oyen perfecto. Escuchás *start up approved*: podés poner en marcha.',
     lines: [
       { who: 'pilot', kind: 'call', text: 'Laguna Ground, LV-DEM, radio check one two one decimal eight.', key: 'radio check',
@@ -60,7 +60,7 @@ const phases = [
         body: 'Pedís permiso para poner en marcha. En algunos aeródromos se suma dónde estás, la letra del ATIS y el QNH. Con un avión liviano, en muchos aeródromos no se pide permiso: avisás que ponés en marcha o pedís rodaje directamente. Seguí lo que publique el aeródromo.' },
       { id: 'start-up-approved', en: 'start up approved', es: 'puesta en marcha aprobada',
         use: 'LV-DEM, start up approved.',
-        body: 'Te dan permiso para poner en marcha. Se dice *approved* (permiso para lo que propusiste) y no *cleared*, que se guarda para las autorizaciones.' },
+        body: 'Te dan permiso para poner en marcha. Se dice *approved* (permiso para lo que propusiste) y no *cleared*, que se reserva para las autorizaciones.' },
     ],
   },
   {
@@ -68,15 +68,15 @@ const phases = [
     mapLabel: 'Rodaje',
     es: 'Rodaje',
     en: 'Taxi',
-    summary: 'Pedís rodaje y te dan un límite: el punto de espera de la pista, con el camino para llegar. Hasta ahí podés rodar; de ahí no pasás.',
-    listen: 'Escuchás *taxi holding point Alfa one runway one three via taxiway Bravo* y lo colacionás entero, con tu distintivo al final. El viento es información: no se colaciona.',
+    summary: 'Pedís rodaje y te dan un límite: el punto de espera de la pista, con el camino para llegar. Hasta ahí podés rodar. De ahí no pasás.',
+    listen: 'Escuchás *taxi holding point Alfa one runway one three via taxiway Bravo* y lo repetís entero, con tu distintivo al final. El viento es información: no se repite.',
     lines: [
       { who: 'pilot', kind: 'call', text: 'LV-DEM, request taxi for local VFR flight.', key: 'request taxi',
         note: 'Motor en marcha y listo para moverte: pedís rodaje y decís qué vuelo vas a hacer.' },
       { who: 'tower', unit: GROUND, text: 'LV-DEM, taxi holding point Alfa one runway one three via taxiway Bravo.', key: 'taxi holding point Alfa one',
         note: 'El punto de espera Alfa uno de la pista uno tres es tu límite, y llegás por la calle de rodaje Bravo.' },
       { who: 'pilot', kind: 'readback', text: 'Taxi holding point Alfa one runway one three via taxiway Bravo, request surface wind, LV-DEM.',
-        note: 'Colacionás el rodaje entero y, en la misma llamada, pedís el viento actual: puede haber cambiado desde el ATIS. Tu distintivo cierra el mensaje.' },
+        note: 'Repetís el rodaje entero y, en la misma llamada, pedís el viento actual: puede haber cambiado desde el ATIS. Tu distintivo cierra el mensaje.' },
       { who: 'tower', unit: GROUND, text: 'LV-DEM, surface wind one four zero degrees eight knots.', key: 'surface wind',
         note: 'Te dan el viento. Es información: no hace falta repetirlo.' },
     ],
@@ -89,10 +89,10 @@ const phases = [
         body: 'El punto de espera es tu límite: ahí parás hasta que te den otra instrucción. La palabra *cleared* no se usa para rodar. En EE. UU. te dan la pista y el camino, sin nombrar el punto de espera: *runway two seven, taxi via Charlie* (AIM 4-3-18).' },
       { id: 'hold-short', en: 'hold short', es: 'detenete antes de',
         use: 'LV-DEM, hold short of runway one three.',
-        body: 'Te detenés antes de llegar al lugar que te nombran. En el manual británico (CAP 413) se usa poco: donde no hay un punto de espera marcado o para reforzar tu límite. Se colaciona siempre y *roger* o *wilco* no alcanzan: contestás *holding short* con la pista y tu distintivo, por ejemplo *holding short of runway one three, LV-DEM*. En EE. UU. es la forma de frenarte antes de una pista y la colación repite *hold short of* y la pista (AIM 4-3-18).' },
+        body: 'Te detenés antes de llegar al lugar que te nombran. En el manual británico (CAP 413) se usa poco: donde no hay un punto de espera marcado o para reforzar tu límite. Se repite siempre y *roger* o *wilco* no alcanzan: contestás *holding short* con la pista y tu distintivo, por ejemplo *holding short of runway one three, LV-DEM*. En EE. UU. es la forma de detenerte antes de una pista, y la repetición lleva *hold short of* y la pista (AIM 4-3-18).' },
       { id: 'surface-wind', en: 'surface wind', es: 'viento en superficie',
         use: 'LV-DEM, surface wind one four zero degrees eight knots.',
-        body: 'El viento en la pista: de dónde viene, en grados, y su velocidad, en nudos. Es información y no se colaciona; si no lo entendiste, pedís *say again*.' },
+        body: 'El viento en la pista: de dónde viene, en grados, y su velocidad, en nudos. Es información y no se repite. Si no lo entendiste, pedís *say again*.' },
     ],
   },
   {
@@ -101,12 +101,12 @@ const phases = [
     es: 'Punto de espera y prueba de motor',
     en: 'Holding point',
     summary: 'En el punto de espera hacés la prueba de motor y los controles antes de despegar. Rodaje te pasa a la frecuencia de la torre (*Laguna Tower*) y, cuando estás listo, la llamás.',
-    listen: 'Escuchás *contact Laguna Tower* y la frecuencia, y la colacionás. Escuchás *hold position* y contestás *holding*: *wilco* no alcanza.',
+    listen: 'Escuchás *contact Laguna Tower* y la frecuencia, y la repetís. Escuchás *hold position* y contestás *holding*: *wilco* no alcanza.',
     lines: [
       { who: 'tower', unit: GROUND, text: 'LV-DEM, contact Laguna Tower one one eight decimal three.', key: 'contact Laguna Tower',
-        note: 'Llegando al punto de espera, rodaje te pasa a la torre. Tus datos ya se los pasaron.' },
+        note: 'Al llegar al punto de espera, rodaje te pasa a la torre. Rodaje ya le pasó tus datos.' },
       { who: 'pilot', kind: 'readback', text: 'Laguna Tower one one eight decimal three, LV-DEM.',
-        note: 'Una frecuencia nueva se colaciona: la dependencia, la frecuencia y tu distintivo al final.' },
+        note: 'Una frecuencia nueva se repite: la dependencia, la frecuencia y tu distintivo al final.' },
       { who: 'pilot', kind: 'call', text: 'Laguna Tower, LV-DEM, ready for departure.', key: 'ready for departure',
         note: 'Cambiás de frecuencia y hacés la prueba de motor en el punto de espera. Cuando terminás, llamás a la torre: primera llamada, así que va la dependencia y después vos.' },
       { who: 'tower', text: 'LV-DEM, Laguna Tower, hold position, traffic is a Cherokee on final.', key: 'hold position',
@@ -117,7 +117,7 @@ const phases = [
     phrases: [
       { id: 'contact', en: 'contact', es: 'comunicate con',
         use: 'LV-DEM, contact Laguna Tower one one eight decimal three.',
-        body: 'Te pasan a otra dependencia, que ya tiene tus datos. Colacionás la dependencia y la frecuencia: las frecuencias nuevas se colacionan siempre.' },
+        body: 'Te pasan a otra dependencia, que ya tiene tus datos. Repetís la dependencia y la frecuencia: las frecuencias nuevas se repiten siempre.' },
       { id: 'report-ready', en: 'report ready for departure', es: 'avisá cuando estés listo',
         use: 'LV-DEM, report ready for departure.',
         body: 'Muchos aviones hacen la prueba de motor en el punto de espera, así que la torre puede pedirte que avises cuando termines. Contestás *wilco* y después llamás.' },
@@ -126,7 +126,7 @@ const phases = [
         body: 'Avisás que estás listo para despegar. Según el manual británico (CAP 413), acá se dice *departure*: la palabra *take-off* se reserva para la autorización de despegue y para cancelarla.' },
       { id: 'hold-position', en: 'hold position', es: 'mantené posición',
         use: 'LV-DEM, hold position.',
-        body: 'Te quedás donde estás hasta que te den otra instrucción. Contestás *holding* y tu distintivo, como en los ejemplos del manual británico (CAP 413, 2.69); el mismo manual aclara que *roger* o *wilco* no alcanzan para *hold*, *hold position* ni *hold short*.' },
+        body: 'Te quedás donde estás hasta que te den otra instrucción. Contestás *holding* y tu distintivo, como en los ejemplos del manual británico (CAP 413, 2.69). El mismo manual aclara que *roger* o *wilco* no alcanzan para *hold*, *hold position* ni *hold short*.' },
     ],
   },
   {
@@ -134,17 +134,17 @@ const phases = [
     mapLabel: 'Despegue',
     es: 'Despegue',
     en: 'Take-off',
-    summary: 'Entrar a la pista y despegar son dos pasos distintos: primero te alineás y esperás; después llega la autorización de despegue.',
-    listen: 'Escuchás *runway one three, line up and wait* y *runway one three, cleared for take-off*. Las dos se colacionan enteras, con la pista y tu distintivo al final.',
+    summary: 'Entrar a la pista y despegar son dos pasos distintos: primero te alineás y esperás. Después llega la autorización de despegue.',
+    listen: 'Escuchás *runway one three, line up and wait* y *runway one three, cleared for take-off*. Las dos se repiten enteras, con la pista y tu distintivo al final.',
     lines: [
       { who: 'tower', text: 'LV-DEM, runway one three, line up and wait.', key: 'line up and wait',
-        note: 'El Cherokee aterrizó, pero todavía está en la pista. Te dejan entrar y alinearte; no despegar.' },
+        note: 'El Cherokee aterrizó, pero todavía está en la pista. Te dejan entrar y alinearte, no despegar.' },
       { who: 'pilot', kind: 'readback', text: 'Runway one three, line up and wait, LV-DEM.',
-        note: 'Una instrucción para entrar a la pista se colaciona siempre, con el número de pista.' },
+        note: 'Una instrucción para entrar a la pista se repite siempre, con el número de pista.' },
       { who: 'tower', text: 'LV-DEM, runway one three, cleared for take-off.', key: 'cleared for take-off',
         note: 'La pista quedó libre. La torre nombra la pista antes de la autorización.' },
       { who: 'pilot', kind: 'readback', text: 'Runway one three, cleared for take-off, LV-DEM.',
-        note: 'La autorización de despegue se colaciona con la pista. Recién ahora despegás.' },
+        note: 'La autorización de despegue se repite con la pista. Recién ahora despegás.' },
     ],
     phrases: [
       { id: 'line-up-and-wait', en: 'line up and wait', es: 'alineate y esperá',
@@ -152,10 +152,10 @@ const phases = [
         body: 'Entrás a la pista, te alineás y esperás. No es una autorización de despegue. En EE. UU. se usa la misma frase (Glosario Piloto/Controlador de la FAA).' },
       { id: 'cleared-for-take-off', en: 'cleared for take-off', es: 'autorizado a despegar',
         use: 'LV-DEM, runway one three, cleared for take-off.',
-        body: 'Te autorizan a despegar. Va en un mensaje aparte de cualquier otra autorización y se colaciona con la pista.' },
+        body: 'Te autorizan a despegar. Va en un mensaje aparte de cualquier otra autorización y se repite con la pista.' },
       { id: 'runway-first', en: 'runway one three', es: 'pista uno tres',
         use: 'Runway one three, cleared for take-off, LV-DEM.',
-        body: 'Toda instrucción para usar una pista lleva su número, y la torre lo dice antes de la autorización. En la colación también lo repetís, así el controlador comprueba que entendiste la pista correcta.' },
+        body: 'Toda instrucción para usar una pista lleva su número, y la torre lo dice antes de la autorización. Cuando repetís, el número también va, para que el controlador compruebe que entendiste la pista correcta.' },
     ],
   },
   {
@@ -178,13 +178,13 @@ const phases = [
     phrases: [
       { id: 'upwind', en: 'upwind', es: 'tramo de ascenso',
         use: 'LV-DEM, traffic is a Cherokee upwind.',
-        body: 'El tramo recto por la prolongación de la pista, después del despegue. Después viene el tramo perpendicular (*crosswind*) y la inicial (*downwind*). En el AIM de la FAA (4-3-3), la subida recta justo después del despegue se llama *departure* y *upwind* es su continuación sobre la misma línea; el manual británico (CAP 413) usa *upwind* para un avión en ese tramo.' },
+        body: 'El tramo recto por la prolongación de la pista, después del despegue. Después viene el tramo perpendicular (*crosswind*) y la inicial (*downwind*). En el AIM de la FAA (4-3-3), la subida recta justo después del despegue se llama *departure* y *upwind* es su continuación sobre la misma línea. El manual británico (CAP 413) usa *upwind* para un avión en ese tramo.' },
       { id: 'report-downwind', en: 'report downwind', es: 'avisá en la inicial',
         use: 'LV-DEM, report downwind.',
         body: 'Te piden que avises cuando llegues a la inicial. Contestás *wilco* y, al llegar, llamás.' },
       { id: 'traffic', en: 'traffic is…', es: 'tenés tránsito',
         use: 'LV-DEM, traffic is a Tomahawk late downwind.',
-        body: 'La torre te avisa de otro avión: qué tipo es y dónde está. Si lo ves, *traffic in sight*; si todavía no lo ves, contestás *roger* y avisás cuando lo veas (CAP 413, 4.45).' },
+        body: 'La torre te avisa de otro avión: qué tipo es y dónde está. Si lo ves, contestás *traffic in sight*. Si todavía no lo ves, contestás *roger* y avisás cuando lo veas (CAP 413, 4.45).' },
       { id: 'traffic-in-sight', en: 'traffic in sight', es: 'tránsito a la vista',
         use: 'Traffic in sight, LV-DEM.',
         body: 'Ves el avión que te nombraron. Es tu respuesta a un aviso de tránsito, así que tu distintivo va al final.' },
@@ -211,7 +211,7 @@ const phases = [
     phrases: [
       { id: 'downwind', en: 'downwind', es: 'inicial',
         use: 'LV-DEM, downwind.',
-        body: 'En español de Argentina el tramo se llama «inicial»; en inglés es *downwind*. La palabra inglesa *initial* suele referirse a otra cosa (por ejemplo, la aproximación inicial), así que no la uses para el circuito.' },
+        body: 'En español de Argentina el tramo se llama «inicial». En inglés es *downwind*. La palabra inglesa *initial* suele referirse a otra cosa (por ejemplo, la aproximación inicial), así que no la uses para el circuito.' },
       { id: 'late-downwind', en: 'late downwind', es: 'al final de la inicial',
         use: 'LV-DEM, late downwind.',
         body: 'Estás en la inicial pero ya pasaste el extremo de la pista y no habías podido avisar antes.' },
@@ -229,14 +229,14 @@ const phases = [
     es: 'Aterrizaje y pista libre',
     en: 'Landing',
     summary: 'En final avisás y esperás la autorización de aterrizaje. Después de la carrera, la torre te dice por dónde dejar la pista.',
-    listen: 'Escuchás *runway one three, cleared to land* y lo colacionás con la pista. Escuchás *vacate left* y lo repetís.',
+    listen: 'Escuchás *runway one three, cleared to land* y lo repetís con la pista. Escuchás *vacate left* y lo repetís.',
     lines: [
       { who: 'pilot', kind: 'call', text: 'LV-DEM, final.', key: 'final',
         note: 'Viraste a final y avisás, como te pidieron.' },
       { who: 'tower', text: 'LV-DEM, runway one three, cleared to land, surface wind one four zero degrees eight knots.', key: 'cleared to land',
         note: 'El Tomahawk ya dejó la pista: te autorizan a aterrizar y te dan el viento.' },
       { who: 'pilot', kind: 'readback', text: 'Runway one three, cleared to land, LV-DEM.',
-        note: 'Colacionás la pista y la autorización. El viento no se colaciona.' },
+        note: 'Repetís la pista y la autorización. El viento no se repite.' },
       { who: 'tower', text: 'LV-DEM, vacate left.', key: 'vacate left',
         note: 'Terminaste la carrera de aterrizaje. Te indican que dejes la pista hacia la izquierda.' },
       { who: 'pilot', kind: 'readback', text: 'Vacate left, LV-DEM.' },
@@ -244,10 +244,10 @@ const phases = [
     phrases: [
       { id: 'final', en: 'final', es: 'final',
         use: 'LV-DEM, final.',
-        body: 'Avisás que viraste a la final. Ahí es donde se da la autorización de aterrizaje.' },
+        body: 'Avisás que viraste a final. Ahí la torre da la autorización de aterrizaje.' },
       { id: 'cleared-to-land', en: 'cleared to land', es: 'autorizado a aterrizar',
         use: 'LV-DEM, runway one three, cleared to land.',
-        body: 'Te autorizan a aterrizar en esa pista. Se colaciona con el número de pista. Sin esta autorización no aterrizás: seguís la aproximación o hacés *go around*.' },
+        body: 'Te autorizan a aterrizar en esa pista. Se repite con el número de pista. Sin esta autorización no aterrizás: seguís la aproximación o hacés *go around*.' },
       { id: 'continue-approach', en: 'continue approach', es: 'continuá la aproximación',
         use: 'LV-DEM, continue approach.',
         body: 'La pista todavía no está libre: seguís la aproximación, pero no estás autorizado a aterrizar. Esperás el *cleared to land* o hacés *go around*.' },
@@ -262,10 +262,10 @@ const phases = [
     es: 'Estacionamiento',
     en: 'After landing',
     summary: 'Cuando dejás la pista, volvés a la frecuencia de rodaje y rodás hasta el aeroclub. El manual británico no trae una llamada para cuando apagás el motor: por eso el diálogo termina con el rodaje.',
-    listen: 'Escuchás *when vacated contact Ground* y la frecuencia, y la colacionás. Escuchás *taxi to the flying club via taxiway Bravo* y lo colacionás.',
+    listen: 'Escuchás *when vacated contact Ground* y la frecuencia, y la repetís. Escuchás *taxi to the flying club via taxiway Bravo* y lo repetís.',
     lines: [
       { who: 'tower', text: 'LV-DEM, when vacated contact Ground one two one decimal eight.', key: 'when vacated contact Ground',
-        note: 'Primero dejás la pista; recién después cambiás de frecuencia.' },
+        note: 'Primero dejás la pista. Recién después cambiás de frecuencia.' },
       { who: 'pilot', kind: 'readback', text: 'When vacated Ground one two one decimal eight, LV-DEM.' },
       { who: 'pilot', kind: 'call', text: 'Laguna Ground, LV-DEM, runway vacated.', key: 'runway vacated',
         note: 'Ya fuera de la pista, cambiás de frecuencia y llamás a rodaje: primera llamada, así que va la dependencia y después vos.' },
@@ -282,7 +282,7 @@ const phases = [
         body: 'Avisás que ya dejaste la pista. El manual británico (CAP 413) dice *vacated*, no *clear*.' },
       { id: 'taxi-to', en: 'taxi to the flying club', es: 'rodá hasta el aeroclub',
         use: 'LV-DEM, Laguna Ground, taxi to the flying club via taxiway Bravo.',
-        body: 'El rodaje de vuelta, hasta el lugar donde estacionás. Lo colacionás como cualquier instrucción de rodaje.' },
+        body: 'El rodaje de vuelta, hasta el lugar donde estacionás. Lo repetís como cualquier instrucción de rodaje.' },
     ],
   },
 ];

@@ -93,11 +93,22 @@ const synth = typeof window !== 'undefined' && 'speechSynthesis' in window ? win
 let voice = null;
 let speakId = 0;
 
+/* El primer inglés del sistema suele ser una voz compacta y robótica. Se prefiere una de Google o una mejorada. */
+const voiceScore = (item) => {
+  if (!/^en/i.test(item.lang)) return -1;
+  const name = item.name.toLowerCase();
+  let score = /en[-_]gb/i.test(item.lang) ? 12 : 4;
+  if (/google/.test(name)) score += 40;
+  if (/premium|enhanced|natural|neural/.test(name)) score += 28;
+  if (/female|samantha|karen|serena|fiona|moira|kate/.test(name)) score += 6;
+  if (/compact|novelty|bad news|bells|boing|zarvox|whisper/.test(name)) score -= 40;
+  return score;
+};
+
 const pickVoice = () => {
   const voices = synth?.getVoices() ?? [];
-  voice = voices.find((item) => /en[-_]GB/i.test(item.lang))
-    ?? voices.find((item) => /^en/i.test(item.lang))
-    ?? null;
+  voice = voices.reduce((best, item) => (voiceScore(item) > voiceScore(best ?? {}) ? item : best), null);
+  if (voice && voiceScore(voice) < 0) voice = null;
 };
 
 if (synth) {
@@ -129,6 +140,7 @@ export const speak = (text, { rate = 0.92, onend } = {}) => {
   utterance.lang = voice?.lang || 'en-GB';
   if (voice) utterance.voice = voice;
   utterance.rate = rate;
+  utterance.pitch = 1;
   const done = () => {
     if (id === speakId) onend?.();
   };
@@ -148,6 +160,25 @@ const sayFrom = (button, text) => {
 };
 
 let listenMounted = false;
+
+/** Pestañas Ejercicios / Explicación. El panel oculto se conserva, no se desarma. */
+export const mountLessonTabs = () => {
+  document.querySelectorAll('[data-en-tabs]').forEach((wrap) => {
+    if (wrap.dataset.tabsMounted) return;
+    wrap.dataset.tabsMounted = '1';
+    const tabs = [...wrap.querySelectorAll('[role="tab"]')];
+    const panels = [...wrap.querySelectorAll('[role="tabpanel"]')];
+    const show = (id) => {
+      tabs.forEach((tab) => {
+        const on = tab.getAttribute('aria-controls') === id;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach((panel) => { panel.hidden = panel.id !== id; });
+    };
+    tabs.forEach((tab) => tab.addEventListener('click', () => show(tab.getAttribute('aria-controls'))));
+  });
+};
 
 /** Cualquier botón con data-say lee su texto en inglés. */
 export const mountListen = () => {
@@ -1018,6 +1049,10 @@ export const mountAtis = () => {
       const value = document.createElement('strong');
       value.className = 'key-value';
       value.textContent = entry.value;
+      const heard = document.createElement('span');
+      heard.className = 'key-heard';
+      heard.lang = 'en';
+      heard.textContent = entry.text;
       const mine = document.createElement('button');
       mine.type = 'button';
       mine.className = 'chip-toggle key-mine';
@@ -1027,7 +1062,10 @@ export const mountAtis = () => {
         mine.setAttribute('aria-pressed', String(mine.getAttribute('aria-pressed') !== 'true'));
         paintScore();
       });
-      item.append(label, value, mine);
+      const stack = document.createElement('span');
+      stack.className = 'key-stack';
+      stack.append(value, heard);
+      item.append(label, stack, mine);
       keyList.append(item);
     });
   };

@@ -49,6 +49,12 @@ export const librarySources = {
     detail: 'Enmienda de la Parte 91, entre otras normas, que incorpora un marco para ciertas operaciones Bush y STOL. Consultar el texto consolidado y su ámbito de aplicación.',
     kind: 'Argentina',
   },
+  horaOficial: {
+    title: 'Ley 26.350 · Hora oficial',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/135000-139999/136191/norma.htm',
+    detail: 'Fija la hora oficial de invierno en tres horas al oeste de Greenwich (UTC−3) y permite un período estival en UTC−2 si el Poder Ejecutivo fija las fechas.',
+    kind: 'Argentina',
+  },
   aip: {
     title: 'AIS/ANAC · AIP Argentina, enmiendas y NOTAM',
     url: 'https://ais.anac.gob.ar/aip',
@@ -90,6 +96,24 @@ export const librarySources = {
     url: 'https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a',
     detail: 'Herramientas educativas de toma de decisiones, identificación de peligros y mínimos personales. No constituye normativa argentina.',
     kind: 'FAA · fundamentos',
+  },
+  ifh: {
+    title: 'FAA · Instrument Flying Handbook (FAA-H-8083-15B)',
+    url: 'https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/instrument_flying_handbook',
+    detail: 'Viraje estándar, lectura del VOR y del ILS como principios de vuelo por instrumentos. No es normativa argentina. La inclinación del viraje estándar es una estimación.',
+    kind: 'FAA · fundamentos',
+  },
+  elt: {
+    title: 'ANAC · Puntos clave de la RAAC 91.207',
+    url: 'https://www.argentina.gob.ar/anac/puntos-clave-raac-91207',
+    detail: 'Resume la obligación de llevar un transmisor localizador de emergencia en el espacio aéreo argentino, con las excepciones de los párrafos (b), (g) e (i).',
+    kind: 'Argentina',
+  },
+  ssr: {
+    title: 'Anexo 17 · Procedimiento de uso del transpondedor SSR',
+    url: 'https://www.argentina.gob.ar/sites/default/files/anexo-17-seguridad-ed-10-2017.pdf',
+    detail: 'Extracto publicado en Argentina: código 7700 en emergencia y 7500 en interferencia ilícita, salvo que las circunstancias pidan el otro.',
+    kind: 'Argentina',
   },
   weightBalance: {
     title: 'FAA · Weight & Balance Handbook (FAA-H-8083-1B)',

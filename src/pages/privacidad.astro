@@ -5,13 +5,12 @@ import BrandMark from '../components/BrandMark.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { LEGAL } from '../data/legal.js';
 ---
-<BaseLayout title={`Privacidad y cookies — ${LEGAL.brand}`} description="Política de privacidad y cookies de Aerodot. Qué datos se recopilan, cómo se usan y cómo ejercer tus derechos.">
+<BaseLayout title={`Privacidad y cookies | ${LEGAL.brand}`} description="Política de privacidad y cookies de Aerodot. Qué datos se recopilan, cómo se usan y cómo ejercer tus derechos.">
   <header class="site-header study-header">
     <BrandMark />
     <SiteNav />
   </header>
   <main class="legal-page" id="main-content" tabindex="-1">
-    <a class="back-link" href="/">← Inicio</a>
     <p class="eyebrow">Última actualización: {LEGAL.lastUpdated}</p>
     <h1>Privacidad y cookies</h1>
 
@@ -46,7 +45,7 @@ import { LEGAL } from '../data/legal.js';
     </section>
 
     <section>
-      <h2 id="analitica">Analítica — PostHog</h2>
+      <h2 id="analitica">Analítica: PostHog</h2>
       <p>Usamos <strong>PostHog</strong> (servidores en EE.&nbsp;UU., <code>us.i.posthog.com</code>) para entender cómo se usa el sitio y mejorar el contenido. PostHog recopila:</p>
       <ul>
         <li>Páginas vistas y URL de referencia.</li>
@@ -130,7 +129,7 @@ import { LEGAL } from '../data/legal.js';
     </section>
 
     <section>
-      <h2 id="alojamiento">Alojamiento — Vercel</h2>
+      <h2 id="alojamiento">Alojamiento: Vercel</h2>
       <p>El sitio se aloja en <strong>Vercel</strong>. Como parte del funcionamiento normal del servicio, Vercel procesa registros técnicos del servidor que pueden incluir:</p>
       <ul>
         <li>Dirección IP.</li>

@@ -447,9 +447,9 @@
             "c",
             "d"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "Hay techo, y con eso condiciones IMS, cuando una capa cubre más de 4/8 y su base está en 1000 ft o por debajo. Con menos cobertura no hay techo; 1500 ft o 7/8 y 500 ft no son el umbral de la pregunta.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/piloto-combate-de-incendios-forestales.pdf",
           "referenceTitle": "Cuestionario público ANAC · Combate de incendios forestales"
         },

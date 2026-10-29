@@ -31,7 +31,7 @@ export const emergencyLevels = [
     signal: 'MAYDAY, MAYDAY, MAYDAY',
     say: 'Mayday, mayday, mayday.',
     body: 'Estás amenazado por un peligro grave o inminente y necesitás ayuda inmediata.',
-    when: 'El motor se detuvo, hay fuego a bordo, el combustible no alcanza: lo que no puede esperar.',
+    when: 'El motor se detuvo, hay fuego a bordo o el combustible no alcanza. Ninguno puede esperar.',
   },
   {
     id: 'panpan',
@@ -61,14 +61,14 @@ const order = [
     en: 'station addressed',
     es: 'A quién llamás',
     official: true,
-    hint: 'La dependencia con la que estás hablando, en la frecuencia que ya tenés puesta. Si no hay tiempo, se puede saltear.',
+    hint: 'La dependencia con la que estás hablando, en la frecuencia que ya tenés puesta. Si no hay tiempo, podés saltearla.',
   },
   {
     id: 'callsign',
     en: 'aircraft identification',
     es: 'Tu distintivo',
     official: true,
-    hint: 'Va justo después de la estación: acá se sigue el orden del mensaje, no la regla de la colación. El manual británico (CAP 413) y el AIM de la FAA agregan después el tipo de aeronave.',
+    hint: 'Va justo después de la estación. Acá se sigue el orden del mensaje, no la regla de la repetición. El manual británico (CAP 413) y el AIM de la FAA agregan después el tipo de aeronave.',
   },
   {
     id: 'nature',
@@ -89,14 +89,14 @@ const order = [
     en: 'present position, level and heading',
     es: 'Dónde estás',
     official: true,
-    hint: 'Posición, nivel o altitud y rumbo. Si no sabés dónde estás, la última posición que conocés.',
+    hint: 'Posición, nivel o altitud y rumbo. Si no sabés dónde estás, decí la última posición que conocés.',
   },
   {
     id: 'extra',
     en: 'any other useful information',
     es: 'Se suele agregar',
     official: false,
-    hint: 'Personas a bordo y autonomía. Para el socorro, la lista de la norma termina en la posición: esto lo suman el manual británico (CAP 413) y el AIM de la FAA. Para la urgencia, la norma sí lo nombra (*any other useful information*).',
+    hint: 'Personas a bordo y autonomía. Para el socorro, la lista de la norma termina en la posición. Esto lo suman el manual británico (CAP 413) y el AIM de la FAA. Para la urgencia, la norma sí lo nombra (*any other useful information*).',
   },
 ];
 
@@ -112,7 +112,7 @@ export const emergencyNatures = [
     en: 'low fuel',
     es: 'Poco combustible',
     levels: ['mayday'],
-    note: 'Por combustible, el manual británico (CAP 413) declara la emergencia con *MAYDAY* (o *MAYDAY FUEL*). *Minimum fuel* es solo un aviso: no es una emergencia y no te garantiza prioridad; el control puede preguntarte si querés declarar la emergencia.',
+    note: 'Por combustible, el manual británico (CAP 413) declara la emergencia con *MAYDAY* (o *MAYDAY FUEL*). *Minimum fuel* es solo un aviso. No es una emergencia y no te garantiza prioridad. El control puede preguntarte si querés declarar la emergencia.',
   },
   {
     id: 'medical',
@@ -126,7 +126,7 @@ export const emergencyNatures = [
     en: 'rough running engine',
     es: 'Motor irregular',
     levels: ['panpan', 'mayday'],
-    note: 'Si el motor irregular te sigue sosteniendo, es urgencia (*PAN PAN*). Si perdés altura y vas a tener que aterrizar donde puedas, es socorro (*MAYDAY*). Ante la duda, declarala: si después resulta menos grave, la cancelás.',
+    note: 'Si el motor irregular te sigue sosteniendo, es urgencia (*PAN PAN*). Si perdés altura y vas a tener que aterrizar donde puedas, es socorro (*MAYDAY*). Ante la duda, declarala. Si después resulta menos grave, la cancelás.',
   },
 ];
 
@@ -215,20 +215,20 @@ export const squawkCodes = [
     en: 'Emergency',
     es: 'Emergencia',
     say: 'seven seven zero zero',
-    body: 'Indica un estado de emergencia. Si el control ya te dio un código, podés mantenerlo; igual podés poner el 7700 si creés que es lo mejor.',
+    body: 'Indica un estado de emergencia. Si el control ya te dio un código, podés mantenerlo. Aun así podés poner el 7700 si creés que es lo mejor.',
   },
   {
     code: '7600',
     en: 'Radio failure',
-    es: 'Falla de comunicaciones',
+    es: 'Falla de radio',
     say: 'seven six zero zero',
-    body: 'Indica una falla de radiocomunicaciones: puede que no transmitas, que no recibas, o las dos cosas. Por eso la falla de radio no está en el armador: el aviso va por el transpondedor.',
+    body: 'Indica una falla de radio. Puede que no transmitas, que no recibas o las dos cosas. Por eso la falla de radio no está en el armador. El aviso va por el transpondedor.',
   },
   {
     code: '7500',
     en: 'Unlawful interference',
     es: 'Interferencia ilícita',
     say: 'seven five zero zero',
-    body: 'Indica interferencia ilícita, por ejemplo un secuestro. La norma dice que intentás ponerlo; si las circunstancias lo justifican, se usa el 7700.',
+    body: 'Indica interferencia ilícita, por ejemplo un secuestro. La norma dice que intentás ponerlo. Si las circunstancias lo justifican, usás el 7700.',
   },
 ];

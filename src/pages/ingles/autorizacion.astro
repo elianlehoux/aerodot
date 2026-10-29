@@ -10,13 +10,11 @@ import '../../styles/english-survival.css';
 import '../../styles/english-clearance.css';
 ---
 <EnglishShell
-  title="Autorización y colación — Inglés aeronáutico | Aerodot"
-  description="Qué te autoriza la torre, qué se colaciona siempre en inglés aeronáutico y cómo se detecta un error en la colación. Con audio, casos y práctica."
+  title="Autorizaciones: inglés aeronáutico | Aerodot"
+  description="Qué te autoriza la torre, qué se repite siempre en inglés aeronáutico y cómo se detecta un error en la repetición. Con audio, casos y práctica."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Comunicaciones</p>
-  <h1>Autorización y colación.</h1>
-  <p class="en-deck">Escuchar bien, repetir lo importante y terminar con tu matrícula.</p>
+  <h1>Autorizaciones.</h1>
 
   <aside class="library-toc study-page-toc" aria-label="Índice de la página">
     <details class="chapter-toc" data-cl-toc open>
@@ -24,7 +22,7 @@ import '../../styles/english-clearance.css';
       <nav aria-label="Secciones del tema">
         <a href="#autorizan">Qué te autorizan</a>
         <a href="#craft">Las partes de una autorización</a>
-        <a href="#colacion">Qué se repite siempre</a>
+        <a href="#repetir">Qué se repite siempre</a>
         <a href={`#${hearbackSet.id}-title`}>{hearbackSet.title}</a>
         <a href={`#${clearanceSet.id}-title`}>{clearanceSet.title}</a>
       </nav>
@@ -34,7 +32,7 @@ import '../../styles/english-clearance.css';
   <!-- (a) Autorización e instrucción, y las del circuito -->
   <section class="radio-block" aria-labelledby="autorizan">
     <h2 id="autorizan">Qué te autorizan</h2>
-    <p>Una autorización (<em lang="en">clearance</em>) es el permiso del control para que sigas bajo las condiciones que te nombra. Las de despegue, aterrizaje y ruta llevan la palabra <em lang="en">cleared</em>, que quiere decir eso: autorizado a seguir en las condiciones que te dicen.</p>
+    <p>Una autorización (<em lang="en">clearance</em>) es el permiso del control para que sigas bajo las condiciones que te nombra. Las de despegue, aterrizaje y ruta llevan la palabra <em lang="en">cleared</em>, que significa autorizado a seguir en esas condiciones.</p>
     <p>Una instrucción te pide una acción concreta: detenerte, alinearte, avisar. <em lang="en">Line up and wait</em>, <em lang="en">hold short</em> o <em lang="en">continue approach</em> son instrucciones y no te autorizan a despegar ni a aterrizar.</p>
     <ul class="flip-grid cl-flip-grid" role="list">
       {clearanceExamples.map((card) => (
@@ -62,7 +60,7 @@ import '../../styles/english-clearance.css';
   <!-- (b) CRAFT -->
   <section class="en-block" aria-labelledby="craft">
     <h2 id="craft">Las partes de una autorización</h2>
-    <p class="en-block-lede">Antes de un vuelo IFR, la autorización de ruta llega en un solo mensaje largo. Para no perder piezas se usa <b lang="en">CRAFT</b>, una regla mnemotécnica muy difundida; no es una norma de la OACI. Tocá cada letra para ver su pieza en el ejemplo.</p>
+    <p class="en-block-lede">Antes de un vuelo IFR, la autorización de ruta llega en un solo mensaje largo. Para no perder piezas se usa <b lang="en">CRAFT</b>, una regla mnemotécnica muy difundida. No es una norma de la OACI. Tocá cada letra para ver su pieza en el ejemplo.</p>
     <div class="cl-craft" data-cl-craft>
       <fieldset class="cl-parts">
         <legend class="visually-hidden">Las cinco piezas de CRAFT</legend>
@@ -98,19 +96,19 @@ import '../../styles/english-clearance.css';
         ))}
       </div>
 
-      <p class="cl-example-label">Tu colación</p>
+      <p class="cl-example-label">Tu repetición</p>
       <div class="cl-example is-readback">
         <p lang="en">{craftExample.readback}</p>
-        <EnglishSay text={craftExample.readbackSay} label="Escuchar tu colación" quiet />
+        <EnglishSay text={craftExample.readbackSay} label="Escuchar tu repetición" quiet />
       </div>
       <p class="en-note">Santa Brisa, la ruta, la frecuencia y el código son de práctica. El orden de las piezas puede cambiar según el país y el mensaje.</p>
     </div>
   </section>
 
-  <!-- (c) Qué se colaciona siempre -->
-  <section class="en-block" aria-labelledby="colacion">
-    <h2 id="colacion">Qué se repite siempre</h2>
-    <p class="en-block-lede">Colacionar no es repetir todo: es devolver las partes de seguridad del mensaje para que el controlador compruebe que las entendiste. Esto se colaciona siempre:</p>
+  <!-- (c) Qué se repite siempre -->
+  <section class="en-block" aria-labelledby="repetir">
+    <h2 id="repetir">Qué se repite siempre</h2>
+    <p class="en-block-lede">Repetir lo que te autorizan se llama <em lang="en">readback</em>. No es repetir todo: es devolver las partes de seguridad del mensaje para que el controlador compruebe que las entendiste. Esto se repite siempre:</p>
     <ol class="cl-list" role="list">
       {readbackItems.map((item, index) => (
         <li>
@@ -125,10 +123,10 @@ import '../../styles/english-clearance.css';
       ))}
     </ol>
     <ul class="en-rules" role="list">
-      <li>Las demás autorizaciones e instrucciones, incluidas las condicionales y las de rodaje, se colacionan o se contestan de forma que quede claro que las entendiste y las vas a cumplir.</li>
-      <li>La información, como el viento, no se colaciona (CAP 413): si no la entendiste, pedís <em lang="en">say again</em>.</li>
-      <li><em lang="en">Roger</em> o <em lang="en">wilco</em> no reemplazan una colación.</li>
-      <li>La colación lleva siempre tu distintivo de llamada (SERA.14055). El manual de radio británico (CAP 413) lo pone al final: primero repetís, después te nombrás. Es la forma que usamos acá; en EE. UU. también lo vas a escuchar al principio.</li>
+      <li>Las demás autorizaciones e instrucciones, incluidas las condicionales y las de rodaje, se repiten o se contestan de forma que quede claro que las entendiste y las vas a cumplir.</li>
+      <li>La información, como el viento, no se repite (CAP 413): si no la entendiste, pedís <em lang="en">say again</em>.</li>
+      <li><em lang="en">Roger</em> o <em lang="en">wilco</em> no reemplazan una repetición.</li>
+      <li>La repetición lleva siempre tu distintivo (SERA.14055). El manual de radio británico (CAP 413) lo pone al final: primero repetís, después te nombrás. Es la forma que usamos acá. En EE. UU. también lo vas a escuchar al principio.</li>
     </ul>
   </section>
 
@@ -162,9 +160,9 @@ import '../../styles/english-clearance.css';
   <!-- (e) Práctica -->
   <ExerciseSet set={clearanceSet} />
 
-  <p class="en-sources">Qué se colaciona siempre y qué lleva una autorización siguen el reglamento europeo SERA (UE 923/2012, SERA.8015), que toma la norma de la OACI; las palabras normalizadas, la tabla de la OACI (Anexo 10, Vol. II, cap. 5), tal como la publica SERA.14045 (Tabla S14-4). El lugar del distintivo y la fraseología del circuito siguen el manual de radiotelefonía de la CAA británica (CAP 413); los nombres de las piezas, la orden 7110.65 de la FAA (4-2-1); el uso de EE. UU., el AIM y el Glosario Piloto/Controlador de la FAA. CRAFT es una regla mnemotécnica, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras (frecuencias, códigos, QNH, altitudes) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">Qué se repite siempre y qué lleva una autorización siguen el reglamento europeo SERA (UE 923/2012, SERA.8015), que toma la norma de la OACI. Las palabras normalizadas siguen la tabla de la OACI (Anexo 10, Vol. II, cap. 5), tal como la publica SERA.14045 (Tabla S14-4). El lugar del distintivo y la fraseología del circuito siguen el manual de radiotelefonía de la CAA británica (CAP 413). Los nombres de las piezas siguen la orden 7110.65 de la FAA (4-2-1). El uso de EE. UU. sigue el AIM y el Glosario Piloto/Controlador de la FAA. CRAFT es una regla mnemotécnica, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras (frecuencias, códigos, QNH, altitudes) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
 
-  <EnglishFinish slug="autorizacion" where="Autorización y colación" />
+  <EnglishFinish slug="autorizacion" where="Autorizaciones" />
   <script>
     import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
     import { mountPiecePicker } from '../../scripts/piece-picker.js';

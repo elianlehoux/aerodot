@@ -18,7 +18,8 @@ html[data-theme="light"] .ac-svg{--ac-board:#57534d;--ac-glare:#3a3733;--ac-radi
 .ac-soft{fill:color-mix(in srgb,var(--ink) 22%,var(--paper))}
 .ac-soft2{fill:color-mix(in srgb,var(--ink) 36%,var(--paper))}
 .ac-edge{fill:color-mix(in srgb,var(--ink) 30%,var(--paper));stroke-width:1.5}
-.ac-move{fill:color-mix(in srgb,var(--accent) 38%,var(--paper));stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.ac-cowl{fill:color-mix(in srgb,var(--ink) 13%,var(--paper));stroke:none}
+.ac-move{fill:color-mix(in srgb,var(--ink) 22%,var(--paper));stroke:var(--ac-line);stroke-width:2;stroke-linejoin:round}
 .ac-glass{fill:color-mix(in srgb,var(--accent) 16%,var(--taupe));stroke-width:1.6}
 .ac-line{fill:none;stroke:var(--ac-line);stroke-width:1.6;stroke-linecap:round}
 .ac-handle{fill:var(--ac-line)}
@@ -64,7 +65,7 @@ html[data-theme="light"] .ac-svg{--ac-board:#57534d;--ac-glare:#3a3733;--ac-radi
 .ac-column{fill:#3a3733;stroke:#7a756b;stroke-width:1.5}
 
 /* Lo que se mueve, mientras está elegido */
-@keyframes ac-squeeze{50%{transform:scaleX(.35)}}
+@keyframes ac-squeeze{50%{transform:skewX(var(--hk,0deg)) scaleX(.35) skewX(calc(var(--hk,0deg) * -1))}}
 @keyframes ac-wobble{25%{transform:rotate(var(--sw,14deg))}75%{transform:rotate(calc(var(--sw,14deg) * -1))}}
 @keyframes ac-spin{50%{transform:scaleY(.14)}}
 .is-moving[data-anim="squeeze"]{animation:ac-squeeze 1.5s ease-in-out infinite}

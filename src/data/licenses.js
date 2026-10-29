@@ -14,7 +14,7 @@ export const licenses = [
     sourcePageUrl: 'https://www.argentina.gob.ar/anac/personal-aeronautico/examenes/ppa-piloto-privado-de-avion',
     sourcePdfUrl: 'https://www.argentina.gob.ar/sites/default/files/2021/05/preguntas-todos-los-capitulos-ppa.pdf',
     sourceLabel: 'Banco público de preguntas PPA · ANAC',
-    sourceNote: 'Se conserva la selección de preguntas de ANAC. Algunas claves siguen en revisión; la normativa y los materiales publicados pueden cambiar.',
+    sourceNote: 'Se conserva la selección de preguntas de ANAC. La normativa y los materiales publicados pueden cambiar.',
     testSize: 100,
   },
   {
@@ -62,7 +62,7 @@ export const licenses = [
     sourcePageUrl: 'https://www.argentina.gob.ar/anac/examenes/instructor-de-vuelo-helicoptero',
     sourcePdfUrl: 'https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf',
     sourceLabel: 'Cuestionario público IVH · ANAC · Resolución 306/2014',
-    sourceNote: 'Las preguntas salen del cuestionario público. En ese PDF solo algunas traen la opción marcada; las demás se pueden leer y no suman puntaje.',
+    sourceNote: 'Las preguntas salen del cuestionario público de la Resolución 306/2014. ANAC avisa que el banco puede modificarse.',
     testSize: 100,
   },
   {

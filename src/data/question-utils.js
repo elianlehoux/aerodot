@@ -7,10 +7,14 @@
  * anunciado del examen que se served de verdad, asi que vive aqui una sola vez.
  */
 
-/** Una pregunta suma al puntaje si tiene clave entera y la clave esta confirmada. */
+/**
+ * Una pregunta suma al puntaje si tiene una opción marcada dentro de sus alternativas.
+ * `confidence` es una nota editorial y no deja preguntas afuera del simulacro.
+ */
 export function isScoreableQuestion(question) {
-  return Number.isInteger(question?.answerIndex)
-    && (question?.confidence === undefined || question?.confidence === 'high');
+  const index = question?.answerIndex;
+  const count = question?.choices?.length ?? 0;
+  return Number.isInteger(index) && index >= 0 && index < count;
 }
 
 export const allQuestionsOf = (bank) => (bank?.chapters ?? []).flatMap((chapter) => chapter.questions);

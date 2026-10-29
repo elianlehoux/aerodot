@@ -1,0 +1,77 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { audiencesSet } from '../../data/english-sets.js';
+import { audiences } from '../../data/english-audiences.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-story.css';
+---
+<EnglishShell
+  title="Informar un evento: inglés aeronáutico | Aerodot"
+  description="El mismo evento dicho en inglés a la torre, a la empresa y a los pasajeros: qué cambia en las palabras, en el tiempo verbal y en el tono. Con audio y una práctica corta."
+>
+  <p class="eyebrow">Contar lo que pasó</p>
+  <h1>Informar un evento.</h1>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-tp-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#evento">El evento</a>
+        <a href="#publicos">Tres formas de decirlo</a>
+        <a href={`#${audiencesSet.id}-title`}>{audiencesSet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  <section class="radio-block" aria-labelledby="evento">
+    <h2 id="evento">El evento</h2>
+    <p>Volás un circuito local en Laguna. En el ascenso, a dos mil pies, el motor empieza a funcionar irregular. Volvés al aeródromo y aterrizás sin problemas. Nadie se lastima y el avión no sufre daños.</p>
+    <p>Es el mismo evento del módulo anterior. Ahora lo vas a decir tres veces: a la torre mientras pasa, a los pasajeros cuando el avión ya está bajo control y a la empresa cuando terminó.</p>
+  </section>
+
+  <section class="radio-block" aria-labelledby="publicos">
+    <h2 id="publicos">Tres formas de decirlo</h2>
+    <p>Leé las tres de corrido. Fijate qué cambia entre una y otra.</p>
+    <div class="tp-list">
+      {audiences.map((audience) => (
+        <article class="tp-row" aria-labelledby={`tp-${audience.id}`}>
+          <div class="tp-who">
+            <h3 id={`tp-${audience.id}`}>{audience.es}</h3>
+            <p>{audience.when}</p>
+          </div>
+          <ul class="tp-rules" role="list">
+            {audience.rules.map((rule) => (
+              <li>{splitMixed(rule).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</li>
+            ))}
+          </ul>
+          <div class="tp-example">
+            <span class="tp-label">{audience.label}</span>
+            <div class="tp-quote">
+              <p lang="en">{audience.text}</p>
+              <EnglishSay text={audience.say} label={`Escuchar el mensaje para ${audience.es.toLowerCase()}`} quiet />
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="en-note">En un avión chico le hablás directo a tus pasajeros. Son las mismas ideas, sin el <span lang="en">ladies and gentlemen</span>.</p>
+  </section>
+
+  <ExerciseSet set={audiencesSet} />
+
+  <p class="en-sources">El mensaje a la torre sigue el del módulo de Mayday y Pan Pan (SERA.14095). La urgencia con un motor irregular es el mismo caso de ese módulo. El informe a la empresa y el aviso a los pasajeros son ejemplos de práctica y de lenguaje claro. Ningún texto oficial los fija, y tu empresa puede tener su propio formato. El hecho es inventado. Laguna y la matrícula LV-DEM son de práctica. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="tres-publicos" where="Informar un evento" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountExerciseSets();
+    mountPageToc('[data-tp-toc]');
+  </script>
+</EnglishShell>

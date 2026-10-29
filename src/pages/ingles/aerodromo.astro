@@ -2,16 +2,16 @@
 import EnglishShell from '../../components/EnglishShell.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
 import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
+import { aerodromeSet } from '../../data/english-sets.js';
 ---
 <EnglishShell
-  title="El aeródromo — Inglés aeronáutico | Aerodot"
+  title="Aeródromo: inglés aeronáutico | Aerodot"
   description="Las palabras del aeródromo en inglés: pista, calle de rodaje, punto de espera, circuito y las frases que se dicen en la frecuencia."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Base</p>
-  <h1>El aeródromo.</h1>
-  <p class="en-deck">En la radio cada lugar tiene un nombre fijo. Tocá el plano para ver cómo se llama y escucharlo. Cuando lo tengas, ponete a prueba.</p>
+  <h1>Aeródromo.</h1>
 
   <div class="field" data-field>
     <div class="field-bar">
@@ -212,7 +212,7 @@ import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
 
   <section class="radio-block" aria-labelledby="frecuencia">
     <h2 id="frecuencia">En la frecuencia</h2>
-    <p>No son lugares: son lo que se pide o se avisa. Escuchalas y adiviná antes de darlas vuelta.</p>
+    <p>No son lugares. Son lo que se pide o se avisa. Escuchá cada tarjeta y adiviná el significado antes de darla vuelta.</p>
     <ul class="flip-grid" role="list">
       {aerodromeRadio.map((word) => (
         <li class="flip" data-flip>
@@ -231,12 +231,16 @@ import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
     </ul>
   </section>
 
-  <EnglishFinish slug="aerodromo" where="El aeródromo" />
+  <ExerciseSet set={aerodromeSet} />
+
+  <EnglishFinish slug="aerodromo" where="Aeródromo" />
   <script>
     import { mountAerodrome, mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
     mountEnglishProgress();
     mountAerodrome();
     mountReveals();
+    mountExerciseSets();
   </script>
 </EnglishShell>

@@ -31,7 +31,7 @@ export function getLibraryNav() {
  *
  * Es la única secuencia que deben seguir el índice de /temas, el sidebar y la paginación
  * anterior/siguiente de /estudiar/[slug]. Antes esas tres superficies usaban dos órdenes
- * distintos —el de los grupos y el numérico de `chapter.id`— así que "SIGUIENTE" desde un
+ * distintos, el de los grupos y el numérico de `chapter.id`, así que "SIGUIENTE" desde un
  * capítulo no llevaba al tema que el índice mostraba a continuación.
  */
 export function getLibraryOrder() {

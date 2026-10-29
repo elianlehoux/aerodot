@@ -74,3 +74,13 @@ Cada etapa tiene su propio plan de implementación.
 - Qué significa "label" en la lista de vocabulario de accidentes (preguntar a la profesora).
 - Verificación de oído de cualquier audio real usado como clave de corrección.
 - Páginas de vocabulario/gramática que el usuario va a compartir como inspiración.
+
+## 10. Actualización del recorrido (2026-10-22)
+El recorrido de §3 pasó de seis pasos a cuatro, con todos los módulos hechos:
+
+1. **Base**: supervivencia, números y alfabeto, aeródromo, aeronave, tiempo.
+2. **Comunicaciones**: ATIS, autorización y colación, radio por fase de vuelo, en ruta y aproximación (cambio de frecuencia, reporte de posición, ida al aire), falla de comunicaciones (transmitir a ciegas, 7600, señales luminosas).
+3. **Emergencias**: Mayday y Pan Pan.
+4. **Contar lo que pasó**: contá un incidente (accidente, incidente grave e incidente según el Anexo 13, vocabulario y relato en pasado, con la línea de tiempo como ejercicio de ordenar) y un evento, tres públicos (torre, empresa y pasajeros).
+
+Quedan fuera del recorrido, por decisión de simplificar: "Describí la foto" (necesitaba fotos con licencia), "Línea de tiempo" de un incidente real (pasó a ser un ejercicio del módulo de incidentes, con un relato inventado) y "Preguntas de entrevista" (opcional). Los bloques 2 y 3 (vocabulario por rol, inglés general) siguen sin empezar.

@@ -22,7 +22,7 @@ const metaFor = (license) => (license.available ? '' : 'Próximamente');
 ---
 
 <BaseLayout
-  title="Simulador de Exámenes ANAC Argentina — Práctica por Licencia | Aerodot"
+  title="Simulador de exámenes ANAC Argentina: práctica por licencia | Aerodot"
   description="Prepará tu examen teórico aeronáutico: Piloto Privado (PPA), Comercial (PCA-HVI), Instructor (IVA), Planeador y más. Bancos de preguntas oficiales y simulacros gratis."
 >
   <header class="site-header study-header">
@@ -30,15 +30,14 @@ const metaFor = (license) => (license.available ? '' : 'Próximamente');
     <SiteNav current="examenes" />
   </header>
   <main class="exam-hub" id="main-content" tabindex="-1">
-    <a class="back-link" href="/">← Inicio</a>
     <section class="exam-hub-intro">
       <p class="eyebrow">Práctica por licencia</p>
       <h1>Exámenes<br/><em>de práctica.</em></h1>
-      <p>Elegí una licencia y estudiá a tu ritmo.</p>
+      <p>Elegí una licencia y practicá con su banco de preguntas.</p>
     </section>
     <div class="exam-search">
       <label class="exam-search-label" for="licenseSearch">Buscar una licencia</label>
-      <input class="exam-search-input" id="licenseSearch" type="search" placeholder="Ej.: PPA, planeador, instructor…" autocomplete="off" />
+      <input class="exam-search-input" id="licenseSearch" type="search" placeholder="Por ejemplo: PPA, planeador, instructor…" autocomplete="off" />
       <p id="licenseSearchStatus" class="exam-search-status" aria-live="polite">{listed.length} licencias en el índice</p>
     </div>
     {groupedExams.map((group) => (

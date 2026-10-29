@@ -214,7 +214,7 @@ const setQuestion = () => {
   const q = activeQuestion;
   answered = false;
   document.querySelector('#quizCount').textContent = `${String(index + 1).padStart(2, '0')} / ${String(queue.length).padStart(2, '0')}`;
-  document.querySelector('#quizProgress').style.width = `${((index + 1) / queue.length) * 100}%`;
+  document.querySelector('#quizProgress').style.setProperty('--progress', String((index + 1) / queue.length));
   const questionMeta = document.querySelector('#questionMeta');
   const showChapterMeta = mode !== 'mock';
   questionMeta.hidden = !showChapterMeta;
@@ -329,22 +329,17 @@ const choose = (choiceIndex) => {
   feedback.className = `answer-feedback ${!scoreable ? 'feedback-review' : (correct ? 'feedback-correct' : 'feedback-wrong')}`;
 
   const lead = document.createElement('strong');
-  lead.textContent = known
-    ? (!scoreable ? 'Clave publicada en revisión · esta pregunta no suma ni resta.' : choiceIndex === null ? 'Respuesta para repasar.' : correct ? 'Correcto.' : mock ? 'Incorrecto.' : 'Revisemos esta idea.')
-    : 'Respuesta en revisión.';
+  lead.textContent = scoreable
+    ? (choiceIndex === null ? 'Respuesta para repasar.' : correct ? 'Correcto.' : mock ? 'Incorrecto.' : 'Revisemos esta idea.')
+    : 'Esta pregunta no tiene opción marcada, así que no suma puntaje.';
   const message = document.createElement('p');
-  message.textContent = q.explanation || (known ? 'La respuesta se contrastó con la fuente enlazada.' : 'El material disponible no permite confirmar una clave segura. La registramos como pendiente, no como error.');
+  message.textContent = q.explanation || (scoreable ? 'La respuesta está marcada en el cuestionario.' : 'El cuestionario no marca una opción. No la contamos como error.');
   feedback.append(lead, message);
 
   if (known && choiceIndex === null) {
     const answer = document.createElement('p');
     answer.textContent = `Respuesta indicada: ${String.fromCharCode(65 + q.answerIndex)}. ${q.choices[q.answerIndex]}`;
     feedback.append(answer);
-  }
-  if (known && !scoreable) {
-    const evidence = document.createElement('small');
-    evidence.textContent = 'La clave tiene una reserva documental; revisá la fuente antes de tratarla como definitiva.';
-    feedback.append(evidence);
   }
 
   const referenceUrl = q.referenceUrl || bank.answerSourceUrl || bank.sourceUrl;
@@ -397,6 +392,7 @@ const showResults = () => {
   document.querySelector('#resultCorrect').textContent = correct;
   document.querySelector('#resultWrong').textContent = wrong;
   document.querySelector('#resultReview').textContent = review;
+  document.querySelector('#resultReviewStat').hidden = review === 0;
   document.querySelector('#resultTitle').textContent = isMock ? 'Simulacro terminado.' : 'Sesión completada.';
   const scored = correct + wrong;
   const percentage = scored ? Math.round((correct / scored) * 100) : 0;
@@ -411,18 +407,17 @@ const showResults = () => {
   };
   window.posthog?.capture('learning_session_completed', completion);
   practiceLogger.info('learning session completed', completion);
+  const leftOut = review ? ` ${review} no sumaron porque el cuestionario no marca una opción.` : '';
   document.querySelector('#resultSummary').textContent = isMock
-    // El porcentaje va siempre: antes solo aparecia cuando no habia ninguna pregunta sin
-    // puntuar, asi que el mismo modo daba dos formatos distintos de resumen.
-    ? `${percentage}% de aciertos sobre ${scored} preguntas verificadas (${correct} correctas, ${wrong} incorrectas).${review ? ` ${review} quedaron fuera porque su clave falta o sigue en revisión.` : ''}${practiceOnly ? ' Estas preguntas son de estudio y no representan una aprobación oficial.' : ' El 75% es la referencia publicada por ANAC para TCEXAM; confirmá el formato de tu evaluación.'}`
-    : `Respondiste ${answers.length} preguntas.${scored ? ` ${percentage}% de aciertos sobre las ${scored} con clave verificada.` : ''} Las que no tienen clave contrastada o siguen en revisión quedan fuera del resultado.`;
+    ? `${percentage}% de aciertos (${correct} correctas, ${wrong} incorrectas).${leftOut}${practiceOnly ? ' Estas preguntas son de estudio y no representan una aprobación oficial.' : ' El 75% es la referencia publicada por ANAC para TCEXAM; confirmá el formato de tu evaluación.'}`
+    : `Respondiste ${answers.length} preguntas.${scored ? ` ${percentage}% de aciertos (${correct} correctas, ${wrong} incorrectas).` : ''}${leftOut}`;
 
   const reviewList = document.querySelector('#resultReviewList');
   reviewList.replaceChildren();
   answers.filter((answer) => answer && (!answer.scoreable || answer.skipped || !answer.correct)).forEach((answer) => {
     const item = document.createElement('p');
     item.className = 'review-item';
-    const label = !answer.scoreable ? (answer.known ? 'Clave en revisión · sin puntuar' : 'Sin clave verificada · sin puntuar') : answer.skipped ? 'Saltada · repasar' : 'Repasar';
+    const label = !answer.scoreable ? 'Sin opción marcada' : answer.skipped ? 'Saltada · repasar' : 'Repasar';
     item.textContent = `${String(answer.question.chapter).padStart(2, '0')}.${String(answer.question.number).padStart(2, '0')} · ${label} — ${answer.question.prompt}`;
     reviewList.append(item);
   });
@@ -446,7 +441,7 @@ const begin = async (selected, selectedMode) => {
   if (!pool.length) {
     // Antes el boton no hacia nada visible: el pool vacio era un return silencioso.
     announceNoQuestions(mode === 'mock'
-      ? 'No hay preguntas con clave verificada para esa combinación. Probá con «Todos los temas».'
+      ? 'No hay preguntas con opción marcada para esa combinación. Probá con «Todos los temas».'
       : 'Ese tema no tiene preguntas en este banco. Probá con «Todos los temas».');
     practiceLogger.warn('learning session could not start', {
       license_slug: licenseSlug,

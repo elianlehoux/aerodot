@@ -13,8 +13,9 @@ Esa licencia no cubre el material de terceros que está en el repositorio:
   los Estados Unidos.
 - La normativa (RAAC, AIP, resoluciones) se cita; el texto oficial no es
   de este repositorio.
-- public/fonts/ contiene Inter, de The Inter Project Authors, bajo la
-  SIL Open Font License 1.1. El texto está en public/fonts/LICENSE.txt.
+- public/fonts/ contiene Newsreader (The Newsreader Project Authors) y
+  Source Sans 3 (Adobe), ambas bajo la SIL Open Font License 1.1.
+  El texto está en public/fonts/LICENSE.txt.
 
 Aerodot no está afiliado ni avalado por ANAC, la FAA ni ningún centro
 de instrucción. El material es de estudio. No sirve para decidir un vuelo.

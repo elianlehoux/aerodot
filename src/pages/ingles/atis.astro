@@ -5,13 +5,12 @@ import EnglishFinish from '../../components/EnglishFinish.astro';
 const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 'Nubes', 'Temp. / rocío', 'QNH', 'Frec. torre', 'Obs.'];
 ---
 <EnglishShell
-  title="El ATIS — Inglés aeronáutico | Aerodot"
+  title="ATIS: inglés aeronáutico | Aerodot"
   description="Practicá el ATIS como se hace de verdad: escuchalo, anotalo en papel y recién después mirá el texto. Audios generados y grabados, con faja para imprimir."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Comunicaciones</p>
-  <h1>El ATIS.</h1>
-  <p class="en-deck">Es la grabación que escuchás antes de llamar a la torre. Nadie la anota en el celular: se anota en papel. Escuchala, copiá en una faja y recién cuando termines mirá el texto y corregí.</p>
+  <h1>ATIS.</h1>
+  <p class="en-block-lede">Este parte de práctica usa visibilidad en kilómetros y QNH en hectopascales, como en la OACI. En Estados Unidos la visibilidad suele ir en millas terrestres y el altímetro en pulgadas: se dice <em lang="en">altimeter</em>, no QNH. El cierre <em lang="en">advise on initial contact</em> es la fórmula de ese país para decir, en la primera llamada, qué letra copiaste.</p>
 
   <div class="atis-practice" data-atis>
     <div class="atis-bar">
@@ -34,7 +33,7 @@ const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 
         </div>
         <div class="atis-controls">
           <button class="button-primary atis-play" type="button" data-atis-play>
-            <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path class="icon-play" d="M6 4l10 6-10 6z" fill="currentColor"/><path class="icon-stop" d="M5 5h10v10H5z" fill="currentColor"/></svg>
+            <animate-icons class="icon-play" name="play" size="14"></animate-icons><animate-icons class="icon-stop" name="square" size="14"></animate-icons>
             <span data-atis-play-label>Escuchar el ATIS</span>
           </button>
           <button class="chip-toggle" type="button" data-atis-slow aria-pressed="false">Más lento</button>
@@ -54,7 +53,7 @@ const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 
           <h2 id="anota">Anotá</h2>
         </div>
         <ol class="atis-steps">
-          <li>Escuchá el ATIS y anotalo en una hoja, como en el aire: letra, hora, pista, viento, visibilidad, nubes, temperatura, rocío y QNH.</li>
+          <li>Escuchá el ATIS y anotalo en una hoja, como en el aire: letra, hora, pista, viento, visibilidad, tiempo, nubes, temperatura y rocío, QNH, frecuencia de la torre y observaciones.</li>
           <li>Escuchalo otra vez para completar lo que te faltó.</li>
           <li>Cuando termines, mostrá la respuesta y marcá lo que tenías bien.</li>
         </ol>
@@ -95,9 +94,9 @@ const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 
     <noscript><p>Para escuchar y corregir hace falta JavaScript.</p></noscript>
   </div>
 
-  <p class="en-sources">Los aeródromos y los datos son inventados: no son partes reales. Las voces son sintéticas.</p>
+  <p class="en-sources">Los aeródromos y los datos son inventados. No son partes reales. Las voces son sintéticas.</p>
 
-  <EnglishFinish slug="atis" where="El ATIS" />
+  <EnglishFinish slug="atis" where="ATIS" />
   <script>
     import { mountAtis, mountEnglishProgress, mountListen } from '../../scripts/english.js';
     mountListen();

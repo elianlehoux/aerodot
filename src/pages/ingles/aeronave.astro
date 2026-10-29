@@ -2,7 +2,9 @@
 import EnglishShell from '../../components/EnglishShell.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
 import { aircraftFaults, aircraftWords } from '../../data/english.js';
+import { aircraftSet } from '../../data/english-sets.js';
 import { aircraftViews } from '../../data/aircraft-views.js';
 import '../../styles/english-aircraft.css';
 
@@ -14,7 +16,7 @@ const views = aircraftViews.map((view) => {
     const key = `ac-${view.id}-${index}`;
     const list = (shape) => (Array.isArray(shape) ? shape : shape ? [shape] : []);
     const style = layer.move
-      ? `transform-origin:${layer.move.origin[0]}px ${layer.move.origin[1]}px${layer.move.sw ? `;--sw:${layer.move.sw}deg` : ''}`
+      ? `transform-origin:${layer.move.origin[0]}px ${layer.move.origin[1]}px${layer.move.sw ? `;--sw:${layer.move.sw}deg` : ''}${layer.move.hk ? `;--hk:${layer.move.hk}deg` : ''}`
       : undefined;
     return { ...layer, key, shapes: list(layer.d), hitShapes: list(layer.hit ?? layer.d), style };
   });
@@ -23,13 +25,11 @@ const views = aircraftViews.map((view) => {
 });
 ---
 <EnglishShell
-  title="La aeronave — Inglés aeronáutico | Aerodot"
+  title="Aeronave: inglés aeronáutico | Aerodot"
   description="Las partes del avión, los instrumentos de la cabina y las fallas, en inglés: tocás una pieza, ves cómo se llama, la escuchás y la ves moverse."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Base</p>
-  <h1>La aeronave.</h1>
-  <p class="en-deck">Tocá una pieza para ver cómo se llama en inglés y escucharla. Cambiá de vista para ver el avión de costado, desde arriba y por dentro. Lo que se mueve va en color. Cuando lo tengas, ponete a prueba.</p>
+  <h1>Aeronave.</h1>
 
   <div class="field ac-field" data-field>
     <div class="field-bar">
@@ -158,12 +158,16 @@ const views = aircraftViews.map((view) => {
     </ul>
   </section>
 
-  <EnglishFinish slug="aeronave" where="La aeronave" />
+  <ExerciseSet set={aircraftSet} />
+
+  <EnglishFinish slug="aeronave" where="Aeronave" />
   <script>
     import { mountAircraft, mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
     mountEnglishProgress();
     mountAircraft();
     mountReveals();
+    mountExerciseSets();
   </script>
 </EnglishShell>

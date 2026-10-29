@@ -5505,7 +5505,7 @@
           "figure": null,
           "answerIndex": 2,
           "confidence": "review",
-          "explanation": "El análisis de ANAC marca 15 galones, pero la cuenta usa 90 libras (90 ÷ 6 = 15). El enunciado dice 110 libras, y 110 ÷ 6 da 18,3 galones, que no está entre las opciones. Se muestra la opción del análisis y no suma puntaje."
+          "explanation": "El análisis de ANAC marca 15 galones. Esa cuenta usa 90 libras (90 ÷ 6 = 15). El enunciado dice 110 libras, y 110 ÷ 6 da 18,3 galones, que no está entre las opciones. El simulacro toma la opción que marca el análisis."
         },
         {
           "id": "ppa-7-04",

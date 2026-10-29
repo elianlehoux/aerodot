@@ -2,16 +2,16 @@
 import EnglishShell from '../../components/EnglishShell.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
-import { phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../data/english.js';
+import { englishNeighbors, phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../data/english.js';
+
+const nextTopic = englishNeighbors('numeros').next;
 ---
 <EnglishShell
-  title="Números y alfabeto — Inglés aeronáutico | Aerodot"
+  title="Números y alfabeto: inglés aeronáutico | Aerodot"
   description="Cómo se dicen los números y las letras en la radio: three suena tree, five suena fife, nine suena niner y four suena fower. El alfabeto fonético. Conversor, deletreador y práctica para armar la frase en voz alta."
 >
-  <a class="back-link" href="/ingles">← Inglés</a>
   <p class="eyebrow">Base</p>
-  <h1>Números y<br/><em>alfabeto.</em></h1>
-  <p class="en-deck">Por radio, cuatro cifras suenan distinto y las letras se dicen con una palabra fija. Tocá cualquier ficha para escucharla.</p>
+  <h1>Números y alfabeto.</h1>
 
   <section class="en-block" aria-labelledby="cifras">
     <h2 id="cifras">Las cifras</h2>
@@ -41,7 +41,7 @@ import { phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../
 
   <section class="en-block" aria-labelledby="alfabeto">
     <h2 id="alfabeto">El alfabeto</h2>
-    <p class="en-block-lede">Para deletrear una matrícula, una calle de rodaje o un punto. Abajo de cada palabra, una guía para decirla.</p>
+    <p class="en-block-lede">Para deletrear una matrícula, una calle de rodaje o un punto. Debajo de cada palabra hay una guía para decirla.</p>
     <ul class="alpha-grid" role="list">
       {phoneticAlphabet.map(([letter, word, sound]) => (
         <li>
@@ -85,7 +85,7 @@ import { phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../
           <div class="token-row" data-converter-alt-output aria-live="polite"></div>
         </div>
         <p class="converter-alt-note">
-          Allá el altímetro se da en pulgadas de mercurio. No se dice QNH: se dice altimeter y las cuatro cifras, sin el punto.
+          En Estados Unidos el altímetro se da en pulgadas de mercurio. No se dice QNH. Se dice altimeter y las cuatro cifras, sin el punto.
           <EnglishSay label="Escuchar" quiet data-converter-alt-say />
         </p>
       </div>
@@ -121,7 +121,7 @@ import { phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../
       <p class="quiz-verdict">Ya podés decir una pista, una frecuencia o un QNH en voz alta. Tema guardado como listo.</p>
       <div class="quiz-actions">
         <button class="button-primary" type="button" data-drill-restart>Otra vez</button>
-        <a class="button-quiet" href="/ingles/atis">Seguir con el ATIS →</a>
+        <a class="button-quiet" href={nextTopic.href}>Seguir con {nextTopic.title.toLowerCase()} →</a>
       </div>
     </div>
     <noscript><p>La práctica de fichas necesita JavaScript. Las tablas de arriba se leen igual.</p></noscript>

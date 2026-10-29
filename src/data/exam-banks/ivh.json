@@ -27,9 +27,9 @@
             "c",
             "d"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 3,
+          "confidence": "high",
+          "explanation": "Los helipuertos se clasifican en de superficie, elevados, heliplataformas y a bordo de buques. Las otras opciones dejan afuera una de esas clases.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -51,9 +51,9 @@
             "c",
             "d"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El plan de lección sigue preparación, demostración, aplicación y verificación. Ese es el orden en que el alumno ve la maniobra, la practica y se comprueba.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -90,7 +90,7 @@
             "La longitud de las palas del rotor principal",
             "A y B son correctas",
             "La altura de densidad.",
-            "E. Todas son correctas"
+            "Todas son correctas"
           ],
           "printedOptionLabels": [
             "a",
@@ -99,9 +99,9 @@
             "d",
             "e"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 4,
+          "confidence": "high",
+          "explanation": "La VNE baja cuando sube la altura de densidad, cambia con las RPM del rotor y depende de la longitud de pala, que fija la velocidad de punta. Por eso cuentan las tres.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -163,9 +163,9 @@
             "a",
             "b"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "FATO es el área de aproximación final y de despegue. La sigla nombra justo esa superficie del helipuerto.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -229,9 +229,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "La H roja en el centro de una cruz blanca identifica un helipuerto de hospital. No es la marca de una unidad militar ni de un helipuerto privado.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -249,9 +249,9 @@
             "a",
             "b"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "Un helipuerto habilitado declara la distancia de aterrizaje disponible (LDAH) y la de despegue disponible (TODAH). Son las distancias declaradas de la FATO.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -271,9 +271,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "El tracking iguala la sustentación de las palas para que giren en el mismo plano. Igualar el peso es el balanceo, y calibrar los comandos del piloto es otra tarea.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -293,9 +293,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El plato oscilante tiene una parte fija y una que gira, y pasa a las palas el cíclico y el colectivo. Desacoplar el motor es la rueda libre; el embrague es otro mecanismo.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -315,9 +315,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "La rueda libre desacopla el motor de la transmisión cuando el motor se detiene, para que el rotor siga en autorrotación. Reducir RPM es la caja reductora.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -328,7 +328,7 @@
           "sourceNumber": 15,
           "prompt": "IVH 26) Después de un arranque fallido de una turbina se debe realizar un “barridos” o “ventilación” ¿Cuál es el motivo?",
           "choices": [
-            "página 2 / 3 Dirección Nacional de Seguridad Operacional Dirección de Licencias al Personal Azopardo 1405 Capital Federal A. Para armar los temporizadores de arranque.",
+            "Para armar los temporizadores de arranque.",
             "Para recuperar el aceite del motor.",
             "Para evacuar de la cámara de combustión, el combustible que no se quemó y baja el excedente de temperatura.",
             "Ninguna de las anteriores."
@@ -339,9 +339,9 @@
             "c",
             "d"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "Después de un arranque fallido, el barrido saca de la cámara el combustible que no ardió y baja la temperatura que quedó. No rearma temporizadores ni recupera aceite.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -383,9 +383,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El alumno que causa esa dificultad de instrucción es el sabelotodo: discute en vez de aprender la maniobra. El amistoso no es un tipo problemático de la lista.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -405,9 +405,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "Con el alumno antagónico se escuchan sus objeciones y se decide si están justificadas. Hablarle en privado es la recomendación para el que no coopera.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -429,9 +429,9 @@
             "c",
             "d"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "Lo primero del plan es el objetivo de la lección. Los puntos y el orden didáctico se arman después, para llegar a ese objetivo.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         },
@@ -466,16 +466,16 @@
           "choices": [
             "Asignarle mas trabajo.",
             "Hablarle en privado.",
-            "Asignarle tareas más fáciles página 3 / 3 Powered by TCExam (www.tcexam.org)"
+            "Asignarle tareas más fáciles."
           ],
           "printedOptionLabels": [
             "a",
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "Al alumno que no coopera se le habla en privado para ver qué lo frena. Más trabajo o tareas más fáciles no resuelven la falta de cooperación.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/instructor-de-vuelo-helicoptero.pdf",
           "referenceTitle": "Cuestionario público ANAC · Instructor de vuelo de helicóptero"
         }
