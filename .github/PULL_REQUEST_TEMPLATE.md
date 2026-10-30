@@ -13,4 +13,4 @@ Si tocás un dato normativo, una fórmula, una velocidad o una pregunta de exame
 - [ ] Si cambié una lección, seguí `docs/content-style-guide.md` y no toqué ids, slugs ni el orden.
 - [ ] Si toqué un banco de ANAC, no parafraseé el enunciado.
 - [ ] No subí `.env` ni tokens.
-- [ ] `npm run build` pasa.
+- [ ] `pnpm build` pasa.

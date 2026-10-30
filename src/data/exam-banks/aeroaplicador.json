@@ -227,9 +227,9 @@
             "c",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "Más de 100 pulsaciones por minuto es taquicardia. La bradicardia es un pulso bajo y la arritmia es un ritmo irregular, no un umbral de frecuencia.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
           "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
         },
@@ -817,9 +817,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 0,
+          "confidence": "high",
+          "explanation": "En una bomba eólica, las RPM suben según el tipo y la cantidad de palas de su hélice. La posición respecto del fuselaje cambia el flujo que recibe, pero no es lo que fija ese aumento.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
           "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
         },
@@ -1577,9 +1577,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "El carbendazim es un fungicida. No es insecticida ni herbicida, así que ninguna de esas dos clases es correcta.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/modulo-tcexam-aeroaplicador-de-avion-2015-1.pdf",
           "referenceTitle": "Cuestionario público ANAC · Aeroaplicador de avión"
         },

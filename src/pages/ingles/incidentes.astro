@@ -1,0 +1,120 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { incidentSet } from '../../data/english-sets.js';
+import { incidentKinds, incidentStory, incidentTerms, tenseRules } from '../../data/english-incident.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-story.css';
+
+const formName = Object.fromEntries(tenseRules.map((rule) => [rule.id, rule.name]));
+---
+<EnglishShell
+  title="Incidentes: inglés aeronáutico | Aerodot"
+  description="Accidente, incidente grave e incidente en inglés, las palabras para nombrar qué pasó y cómo contarlo en pasado. Con audio y una práctica corta."
+>
+  <p class="eyebrow">Contar lo que pasó</p>
+  <h1>Incidentes.</h1>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-rl-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#tres-palabras">Accidente, incidente grave e incidente</a>
+        <a href="#palabras">Las palabras para nombrar qué pasó</a>
+        <a href="#relato">Contalo en pasado</a>
+        <a href={`#${incidentSet.id}-title`}>{incidentSet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  <section class="radio-block" aria-labelledby="tres-palabras">
+    <h2 id="tres-palabras">Accidente, incidente grave e incidente</h2>
+    <p>Se parecen y no son lo mismo. Las definiciones siguen el Anexo 13 de la OACI y van de la más grave a la menos grave.</p>
+    <ol class="rl-kinds" role="list">
+      {incidentKinds.map((kind) => (
+        <li class="rl-kind">
+          <div class="rl-kind-head">
+            <h3 lang="en">{kind.en}</h3>
+            <span class="rl-kind-es">{kind.es}</span>
+          </div>
+          <p class="rl-kind-body">{kind.body}</p>
+          <div class="rl-example">
+            <p lang="en">“{kind.use}”</p>
+            <EnglishSay text={kind.say} label={`Escuchar el ejemplo de *${kind.en}*`} quiet />
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="radio-block" aria-labelledby="palabras">
+    <h2 id="palabras">Las palabras para nombrar qué pasó</h2>
+    <p>Ocho palabras que aparecen en cualquier relato de un incidente. Dalas vuelta para ver qué quieren decir.</p>
+    <ul class="flip-grid rl-terms" role="list">
+      {incidentTerms.map((term) => (
+        <li class="flip" data-flip>
+          <div class="word-head">
+            <h3 lang="en">{term.en}</h3>
+            <EnglishSay text={term.say} label={`Escuchar el ejemplo de *${term.en}*`} quiet />
+          </div>
+          <p class="flip-say" lang="en">“{term.use}”</p>
+          <div class="flip-back" id={`flip-${term.id}`} hidden>
+            <p class="flip-es">{term.es}</p>
+            <p>{splitMixed(term.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${term.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="radio-block" aria-labelledby="relato">
+    <h2 id="relato">Contalo en pasado</h2>
+    <p>Este incidente inventado en Laguna se cuenta en seis oraciones, en el orden en que pasó. Al lado de cada una está la forma verbal que usa.</p>
+    <ol class="rl-story" role="list">
+      {incidentStory.map((sentence, index) => (
+        <li class="rl-sentence">
+          <span class="rl-n" aria-hidden="true">{index + 1}</span>
+          <div class="rl-sentence-body">
+            <p lang="en">{sentence.text}</p>
+            <span class="rl-form">{formName[sentence.form]}</span>
+          </div>
+          <EnglishSay text={sentence.say} label={`Escuchar la oración ${index + 1} del relato`} quiet />
+        </li>
+      ))}
+    </ol>
+
+    <h3 class="rl-sub">Las tres formas</h3>
+    <ul class="rl-rules" role="list">
+      {tenseRules.map((rule) => (
+        <li class="rl-rule">
+          <p class="rl-rule-name">{rule.name}</p>
+          <h4>{rule.title}</h4>
+          <p class="rl-rule-body">{splitMixed(rule.rule).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          <div class="rl-example">
+            <p lang="en">“{rule.use}”</p>
+            <EnglishSay text={rule.say} label={`Escuchar el ejemplo de ${rule.name.toLowerCase()}`} quiet />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <ExerciseSet set={incidentSet} />
+
+  <p class="en-sources">Las tres definiciones siguen el Anexo 13 de la OACI (investigación de accidentes e incidentes de aviación), dichas con palabras propias. El incidente que se cuenta es inventado y no refleja un hecho real. Laguna y la matrícula LV-DEM son de práctica. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="incidentes" where="Incidentes" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountReveals();
+    mountExerciseSets();
+    mountPageToc('[data-rl-toc]');
+  </script>
+</EnglishShell>

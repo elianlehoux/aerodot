@@ -12963,9 +12963,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "El servicio de rodaje usa la banda de superficie de aeródromo, de 121,6 a 121,975 MHz. De 118 a 121,4 MHz están torre y otros servicios de aeródromo, no el rodaje.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/pc-hvi.pdf",
           "referenceTitle": "Cuestionario público ANAC · Piloto comercial con HVI"
         },
@@ -13835,9 +13835,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "Viento de más de una dirección y con intensidades distintas en el aeropuerto es un aviso de cortante en la aproximación y el aterrizaje. Viento leve y variable es otra condición, de poca intensidad.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/pc-hvi.pdf",
           "referenceTitle": "Cuestionario público ANAC · Piloto comercial con HVI"
         },
@@ -13985,9 +13985,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "Comodoro Rivadavia es SAVC. 290° queda en el sector noroeste, G30 son las ráfagas de 30 kt y 17 es la temperatura. SAWU y SAWE son otras estaciones y no cumplen viento, ráfaga y temperatura juntos.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/pc-hvi.pdf",
           "referenceTitle": "Cuestionario público ANAC · Piloto comercial con HVI"
         },
@@ -15283,9 +15283,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 2,
+          "confidence": "high",
+          "explanation": "En CRM un líder efectivo es asertivo, democrático, proactivo y flexible. Autoritario y rígido cierra la comunicación; servicial y amable no alcanza para conducir la tripulación.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/pc-hvi.pdf",
           "referenceTitle": "Cuestionario público ANAC · Piloto comercial con HVI"
         },

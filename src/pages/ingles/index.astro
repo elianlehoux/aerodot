@@ -1,0 +1,58 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import { englishPhases, englishReadySlugs, englishSections } from '../../data/english.js';
+
+const phases = englishPhases.map((phase) => ({
+  ...phase,
+  modules: englishSections.filter((section) => section.phase === phase.id),
+}));
+---
+<EnglishShell
+  title="Inglés aeronáutico: cómo se dice por radio | Aerodot"
+  description="Aprendé a decirlo en inglés: números y alfabeto, el aeródromo, el ATIS, las autorizaciones, la falla de radio y las emergencias. Práctica independiente, en español, con audio."
+>
+  <section class="en-hero">
+    <h1>Inglés aeronáutico</h1>
+    <div class="en-meter" data-english-count={englishReadySlugs.join(' ')} aria-live="polite" hidden>
+      <span data-english-count-text></span>
+    </div>
+    <p class="en-disclaimer">Práctica independiente. No reemplaza la evaluación de la ANAC ni acredita un nivel.</p>
+  </section>
+
+  {phases.map((phase) => (
+    <section class="en-phase" aria-labelledby={`fase-${phase.id}`}>
+      <div class="en-phase-head">
+        <span class="en-step" aria-hidden="true">{phase.step}</span>
+        <h2 id={`fase-${phase.id}`}><span class="visually-hidden">Paso {phase.step}: </span>{phase.title}</h2>
+      </div>
+      <p class="en-phase-lede">{phase.lede}</p>
+      <ul class="topic-grid">
+        {phase.modules.map((section) => (
+          <li data-english-slug={section.slug}>
+            <a class="topic-card" href={section.href}>
+              <span class="topic-text">
+                <span class="topic-title">{section.title}</span>
+                <span class="topic-blurb">{section.blurb}</span>
+              </span>
+              <span class="topic-foot">
+                <span class="topic-state" data-english-badge hidden>✓ Listo</span>
+                <span class="topic-go" data-english-start>Empezar</span>
+                <span class="topic-arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <p class="en-sources">
+    Los números y el alfabeto son los de la radiotelefonía de la OACI.
+    Laguna y la matrícula LV-DEM son de práctica: no son un aeródromo ni un avión reales. Los ATIS grabados llevan efecto de radio; el resto de los audios usa la voz de tu navegador.
+  </p>
+  <script>
+    import { mountEnglishProgress, mountListen } from '../../scripts/english.js';
+    mountListen();
+    mountEnglishProgress();
+  </script>
+</EnglishShell>

@@ -2127,9 +2127,9 @@
             "b",
             "c"
           ],
-          "answerIndex": null,
-          "confidence": "review",
-          "explanation": "Esta pregunta está en el cuestionario público, pero no se leyó una única opción marcada. No suma puntaje.",
+          "answerIndex": 1,
+          "confidence": "high",
+          "explanation": "La diferencia de presión entre el intradós y el extradós es la sustentación. El centro de presión es el punto donde esa fuerza se aplica, no el nombre del diferencial.",
           "referenceUrl": "https://www.argentina.gob.ar/sites/default/files/2021/05/rehabilitacion-iva.pdf",
           "referenceTitle": "Cuestionario público ANAC · Rehabilitación de instructor de vuelo"
         },

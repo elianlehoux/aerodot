@@ -10,13 +10,16 @@
     "url": "https://github.com/elianlehoux/aerodot/issues"
   },
   "type": "module",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
+    "preinstall": "node -e \"const ua=process.env.npm_config_user_agent||''; if(ua && !ua.startsWith('pnpm')){console.error('Usá pnpm. npm y yarn no instalan este proyecto.'); process.exit(1)}\"",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "node --test"
   },
   "dependencies": {
-    "cursor-agent": "^1.0.3",
+    "@animateicons/vanilla": "^0.2.0",
     "posthog-js": "^1.435.6"
   },
   "devDependencies": {

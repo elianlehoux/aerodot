@@ -1,0 +1,246 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
+import { aerodromeSet } from '../../data/english-sets.js';
+---
+<EnglishShell
+  title="Aeródromo: inglés aeronáutico | Aerodot"
+  description="Las palabras del aeródromo en inglés: pista, calle de rodaje, punto de espera, circuito y las frases que se dicen en la frecuencia."
+>
+  <p class="eyebrow">Base</p>
+  <h1>Aeródromo.</h1>
+
+  <div class="field" data-field>
+    <div class="field-bar">
+      <div class="seg" role="group" aria-label="Modo">
+        <button type="button" data-field-mode="explore" aria-pressed="true">Explorar</button>
+        <button type="button" data-field-mode="quiz" aria-pressed="false">Prueba</button>
+      </div>
+    </div>
+
+    <div class="field-layout">
+      <div class="field-main">
+      <div class="field-stage" data-field-stage data-mode="explore">
+        <svg class="field-svg" viewBox="0 0 840 640" role="group" aria-label="Plano de práctica" aria-describedby="field-desc">
+          <desc id="field-desc">Pista 13/31 con circuito por izquierda, calle de rodaje paralela con tres entradas a la pista, puntos de espera, bahía de espera, intersección, plataforma con dos aviones, hangar, torre y manga.</desc>
+          <defs>
+            <pattern id="fs-grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" class="fs-grid-dot" /></pattern>
+            <linearGradient id="fs-asphalt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fs-asphalt-a" /><stop offset="1" class="fs-asphalt-b" /></linearGradient>
+            <clipPath id="fs-hangar-clip"><path d="M520 562V516C520 494 548 482 580 482C612 482 640 494 640 516V562Z" /></clipPath>
+            <symbol id="fs-plane" viewBox="-20 -20 40 40"><path d="M0-18c1.6 0 2.4 2.6 2.4 6v4.6L19-6.2v4L2.4-.8 2 9.6l6.4 2.4v2.6L.9 13.8 0 16.4l-.9-2.6-7.5.8V12L-2 9.6l-.4-10.4L-19-2.2v-4l16.6-1.2V-12c0-3.4.8-6 2.4-6Z" /></symbol>
+          </defs>
+          <rect class="fs-ground" width="840" height="640" />
+          <rect width="840" height="640" fill="url(#fs-grid)" />
+          <text class="fs-caption" x="24" y="34">LAGUNA · RWY 13/31</text>
+          <text class="fs-caption is-soft" x="24" y="52">PLANO DE PRÁCTICA</text>
+
+          <!-- Circuito por izquierda, al norte de la pista -->
+          <g class="fs-circuit" aria-hidden="true">
+            <path class="fs-leg" d="M692 296H712Q740 296 740 268V168" />
+            <path class="fs-leg" d="M740 168Q740 140 712 140H118" />
+            <path class="fs-leg" d="M118 140Q90 140 90 168V268" />
+            <path class="fs-leg" d="M90 268Q90 296 118 296H204" />
+            <path class="fs-chev" d="M734 224l6-8 6 8" />
+            <path class="fs-chev" d="M452 134l-8 6 8 6" />
+            <path class="fs-chev" d="M84 212l6 8 6-8" />
+            <path class="fs-chev" d="M154 290l8 6-8 6" />
+            <use class="fs-traffic" href="#fs-plane" x="572" y="126" width="28" height="28" transform="rotate(-90 586 140)" />
+          </g>
+
+          <!-- Franja y pista -->
+          <rect class="fs-strip" x="182" y="250" width="536" height="92" rx="6" />
+          <!-- Calle paralela con tres entradas: cabecera 13, centro y cabecera 31 -->
+          <path class="fs-taxi" d="M213 320V450H239V345Q239 320 264 320ZM372 320Q397 320 397 345V500H423V345Q423 320 448 320ZM636 320Q661 320 661 345V450H687V320ZM213 444V454Q213 466 225 466H675Q687 466 687 454V444Z" />
+          <path class="fs-taxi" d="M397 356L368 372Q360 376 360 385V403Q360 412 368 416L397 432Z" />
+          <rect class="fs-runway" x="210" y="272" width="480" height="48" rx="2" />
+          <g class="fs-paint">
+            <path class="fs-edge" d="M214 275.5H686M214 316.5H686" />
+            <path d="M216 277h22v3h-22zM216 283h22v3h-22zM216 289h22v3h-22zM216 300h22v3h-22zM216 306h22v3h-22zM216 312h22v3h-22z" />
+            <path d="M662 277h22v3h-22zM662 283h22v3h-22zM662 289h22v3h-22zM662 300h22v3h-22zM662 306h22v3h-22zM662 312h22v3h-22z" />
+            <text class="fs-designator" x="258" y="296" transform="rotate(90 258 296)">13</text>
+            <text class="fs-designator" x="642" y="296" transform="rotate(-90 642 296)">31</text>
+            <path d="M318 281h38v5h-38zM318 306h38v5h-38zM544 281h38v5h-38zM544 306h38v5h-38z" />
+            <path d="M376 283h18v2h-18zM376 307h18v2h-18zM506 283h18v2h-18zM506 307h18v2h-18z" />
+            <path class="fs-centre" d="M290 296H610" />
+          </g>
+
+          <!-- Marcas de rodaje -->
+          <g class="fs-yellow">
+            <path class="fs-yline" d="M410 498V340Q410 302 448 297H470" />
+            <path class="fs-yline" d="M410 360Q410 372 398 376L384 381Q374 385 374 394Q374 403 384 407L398 412Q410 416 410 428" />
+            <path class="fs-yline" d="M226 322V443Q226 455 238 455H662Q674 455 674 443V322" />
+            <path class="fs-hold" d="M398 349H422M398 353H422M214 349H238M214 353H238M662 349H686M662 353H686" />
+            <path class="fs-hold is-dashed" d="M398 340H422M398 344H422M214 340H238M214 344H238M662 340H686M662 344H686" />
+            <path class="fs-hold is-dashed" d="M429 447V463" />
+            <circle class="fs-ix" cx="410" cy="455" r="3.5" />
+          </g>
+
+          <!-- Bahía de espera: un avión esperando fuera de la calle -->
+          <use class="fs-parked" href="#fs-plane" x="366" y="382" width="24" height="24" />
+
+          <!-- Plataforma, con el hangar parado en el fondo -->
+          <rect class="fs-apron" x="290" y="500" width="360" height="100" rx="6" />
+          <path class="fs-yline is-thin" d="M410 500V512H350V530M410 512H440V530M410 512V586H580V564" />
+          <use class="fs-parked" href="#fs-plane" x="330" y="530" width="40" height="40" />
+          <use class="fs-parked" href="#fs-plane" x="420" y="530" width="40" height="40" />
+
+          <!-- Hangar de techo curvo, con el portón abierto -->
+          <path class="fs-hangar" d="M520 562V516C520 494 548 482 580 482C612 482 640 494 640 516V562Z" />
+          <path class="fs-roof" clip-path="url(#fs-hangar-clip)" d="M530 480V520M540 480V520M550 480V520M560 480V520M570 480V520M580 480V520M590 480V520M600 480V520M610 480V520M620 480V520M630 480V520" />
+          <rect class="fs-interior" x="538" y="520" width="84" height="42" />
+          <path class="fs-roof" d="M538 520V562M622 520V562M534 520H626" />
+          <g class="fs-parked">
+            <rect x="552" y="543" width="56" height="3.5" rx="1.75" />
+            <circle cx="580" cy="545" r="5.5" />
+            <rect x="579" y="531" width="2" height="10" />
+            <rect x="572" y="533" width="16" height="2" rx="1" />
+            <circle cx="571" cy="557" r="2.2" />
+            <circle cx="589" cy="557" r="2.2" />
+            <circle cx="580" cy="557" r="2" />
+          </g>
+
+          <!-- Torre de control -->
+          <rect class="fs-building" x="62" y="478" width="68" height="24" rx="3" />
+          <path class="fs-cab" d="M88 478L90 432H102L104 478Z" />
+          <rect class="fs-cab" x="79" y="430" width="34" height="4" rx="1" />
+          <path class="fs-cab" d="M74 410H118L112 431H80Z" />
+          <path class="fs-glass" d="M77.5 413H114.5L110 428H82Z" />
+          <path class="fs-roof" d="M88 413V428M96 413V428M104 413V428" />
+          <rect class="fs-cab" x="72" y="403" width="48" height="7" rx="2" />
+          <path class="fs-mast" d="M96 403V388" />
+          <circle class="fs-beacon" cx="96" cy="387" r="2.4" />
+
+          <!-- Manga y círculo señalizador -->
+          <circle class="fs-ring" cx="782" cy="400" r="34" />
+          <circle class="fs-pole" cx="782" cy="400" r="3.5" />
+          <path class="fs-sock" d="M785 392L803 394V406L785 408Z" />
+          <path class="fs-sock is-light" d="M803 394L819 396V404L803 406Z" />
+          <path class="fs-sock" d="M819 396L832 397.6V402.4L819 404Z" />
+
+          <!-- Resaltado de la parte elegida -->
+          <g class="fs-hl" aria-hidden="true">
+            <rect class="hl" data-hl="runway" x="205" y="267" width="490" height="58" rx="5" />
+            <rect class="hl" data-hl="designator" x="247" y="283" width="22" height="26" rx="4" />
+            <rect class="hl" data-hl="threshold" x="211" y="272" width="32" height="48" rx="3" />
+            <rect class="hl" data-hl="centre" x="286" y="291" width="328" height="10" rx="5" />
+            <path class="hl" data-hl="taxiway" d="M213 320V450H239V345Q239 320 264 320ZM372 320Q397 320 397 345V500H423V345Q423 320 448 320ZM636 320Q661 320 661 345V450H687V320ZM213 444V454Q213 466 225 466H675Q687 466 687 454V444Z" />
+            <path class="hl" data-hl="holding" d="M213 334h26q4 0 4 4v17q0 4-4 4h-26q-4 0-4-4v-17q0-4 4-4ZM397 334h26q4 0 4 4v17q0 4-4 4h-26q-4 0-4-4v-17q0-4 4-4ZM661 334h26q4 0 4 4v17q0 4-4 4h-26q-4 0-4-4v-17q0-4 4-4Z" />
+            <path class="hl" data-hl="bay" d="M397 356L368 372Q360 376 360 385V403Q360 412 368 416L397 432Z" />
+            <circle class="hl" data-hl="intersection" cx="410" cy="455" r="18" />
+            <path class="hl" data-hl="apron" d="M296 500H518V564H650V594Q650 600 644 600H296Q290 600 290 594V506Q290 500 296 500Z" />
+            <path class="hl" data-hl="hangar" d="M520 562V516C520 494 548 482 580 482C612 482 640 494 640 516V562Z" />
+            <path class="hl" data-hl="tower" d="M62 478h68v24H62zM88 478L90 430H102L104 478ZM72 403h48v7H72zM74 410H118L112 431H80Z" />
+            <circle class="hl" data-hl="windsock" cx="782" cy="400" r="40" />
+            <path class="hl is-leg" data-hl="downwind" d="M740 168Q740 140 712 140H118" />
+            <path class="hl is-leg" data-hl="base" d="M118 140Q90 140 90 168V268" />
+            <path class="hl is-leg" data-hl="final" d="M90 268Q90 296 118 296H204" />
+          </g>
+
+          <!-- Zonas para tocar. Las chicas van al final para quedar arriba. -->
+          <g class="fs-hits">
+            <path class="hit is-leg" data-word="downwind" d="M740 168Q740 140 712 140H118" />
+            <path class="hit is-leg" data-word="base" d="M118 140Q90 140 90 168V268" />
+            <path class="hit is-leg" data-word="final" d="M90 268Q90 296 118 296H204" />
+            <rect class="hit" data-word="runway" x="205" y="267" width="490" height="58" />
+            <path class="hit" data-word="taxiway" d="M213 320V450H239V345Q239 320 264 320ZM372 320Q397 320 397 345V500H423V345Q423 320 448 320ZM636 320Q661 320 661 345V450H687V320ZM213 444V454Q213 466 225 466H675Q687 466 687 454V444Z" />
+            <rect class="hit" data-word="apron" x="290" y="500" width="360" height="100" />
+            <rect class="hit" data-word="hangar" x="514" y="476" width="132" height="90" />
+            <rect class="hit" data-word="tower" x="56" y="380" width="80" height="126" />
+            <circle class="hit" data-word="windsock" cx="782" cy="400" r="44" />
+            <rect class="hit" data-word="bay" x="352" y="356" width="45" height="78" />
+            <rect class="hit" data-word="centre" x="286" y="289" width="328" height="14" />
+            <rect class="hit" data-word="threshold" x="206" y="264" width="38" height="64" />
+            <rect class="hit" data-word="designator" x="244" y="272" width="32" height="48" />
+            <path class="hit" data-word="holding" d="M200 326h52v40h-52ZM384 326h52v40h-52ZM648 326h52v40h-52Z" />
+            <circle class="hit" data-word="intersection" cx="410" cy="455" r="22" />
+          </g>
+        </svg>
+        <p class="field-tag" data-field-tag lang="en" aria-hidden="true" hidden></p>
+      </div>
+      <ul class="word-chips" data-word-chips role="list" aria-label="Las palabras del plano">
+        {aerodromeWords.map((word) => (
+          <li><button type="button" lang="en" data-word-chip={word.id} aria-controls={`word-${word.id}`} aria-pressed={word.id === 'runway' ? 'true' : 'false'}>{word.en}</button></li>
+        ))}
+      </ul>
+      </div>
+
+      <div class="word-stack" data-explore-panel aria-live="polite">
+        {aerodromeWords.map((word) => (
+          <article id={`word-${word.id}`} data-word-panel={word.id} hidden={word.id === 'runway' ? undefined : true}>
+            <p class="card-kicker">{word.es}</p>
+            <div class="word-head">
+              <h2 lang="en">{word.en}</h2>
+              <EnglishSay text={word.en} label={`Escuchar *${word.en}*`} quiet />
+            </div>
+            <p class="word-body">{word.body}</p>
+            <div class="word-say">
+              <p lang="en">“{word.say}”</p>
+              <EnglishSay text={word.say} label="Escuchar la frase" />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="word-stack quiz-panel" data-quiz-panel hidden>
+        <div class="quiz-dots" data-quiz-dots aria-hidden="true"></div>
+        <div data-quiz-ask>
+          <p class="card-kicker" data-quiz-count>Pregunta 1</p>
+          <p class="quiz-prompt" data-quiz-prompt></p>
+          <div class="word-head">
+            <h2 data-quiz-term></h2>
+            <EnglishSay label="Escuchar" quiet data-quiz-say />
+          </div>
+          <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+          <button class="button-primary" type="button" data-quiz-next hidden>Siguiente</button>
+        </div>
+        <div class="quiz-done" data-quiz-done hidden>
+          <p class="card-kicker">Resultado</p>
+          <p class="quiz-score" data-quiz-score></p>
+          <p class="quiz-verdict" data-quiz-verdict aria-live="polite"></p>
+          <div class="quiz-actions">
+            <button class="button-primary" type="button" data-quiz-restart>Otra vez</button>
+            <button class="button-quiet" type="button" data-quiz-explore>Volver a explorar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="radio-block" aria-labelledby="frecuencia">
+    <h2 id="frecuencia">En la frecuencia</h2>
+    <p>No son lugares. Son lo que se pide o se avisa. Escuchá cada tarjeta y adiviná el significado antes de darla vuelta.</p>
+    <ul class="flip-grid" role="list">
+      {aerodromeRadio.map((word) => (
+        <li class="flip" data-flip>
+          <div class="word-head">
+            <h3 lang="en">{word.en}</h3>
+            <EnglishSay text={word.say} label={`Escuchar *${word.say}*`} quiet />
+          </div>
+          <p class="flip-say" lang="en">“{word.say}”</p>
+          <div class="flip-back" id={`flip-${word.id}`} hidden>
+            <p class="flip-es">{word.es}</p>
+            <p>{word.body}</p>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${word.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <ExerciseSet set={aerodromeSet} />
+
+  <EnglishFinish slug="aerodromo" where="Aeródromo" />
+  <script>
+    import { mountAerodrome, mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountAerodrome();
+    mountReveals();
+    mountExerciseSets();
+  </script>
+</EnglishShell>

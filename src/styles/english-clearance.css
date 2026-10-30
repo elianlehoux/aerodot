@@ -1,0 +1,69 @@
+/* Autorizaciones (/ingles/autorizacion). Usa flip, en-say y las burbujas sv- de english-survival.css. */
+
+.cl-tag-clear{border-color:var(--en-ring);color:var(--ink)}
+.cl-reply{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.cl-reply p{min-width:0;overflow-wrap:anywhere}
+.cl-reply-label{display:block;margin-bottom:2px;color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.cl-flip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* CRAFT */
+.cl-craft{margin-top:18px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe)}
+/* Un grupo de radios nativo: el input queda invisible y la etiqueta es la casilla. */
+.cl-parts{min-width:0;margin:0;padding:0;border:0}
+.cl-parts-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.cl-part{position:relative;display:grid;justify-items:center;gap:4px;min-height:72px;padding:10px 4px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);font:500 12px/1.2 var(--sans);cursor:pointer;transition:background .15s ease}
+.cl-radio{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.cl-part:hover{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
+.cl-part:has(.cl-radio:focus-visible){outline:3px solid var(--en-ring);outline-offset:2px}
+.cl-part:has(.cl-radio:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--paper));box-shadow:inset 0 -4px 0 var(--accent)}
+.cl-letter{color:var(--accent);font:600 26px/1 var(--sans)}
+.cl-part-name{text-align:center;overflow-wrap:anywhere}
+.cl-example-label{margin:20px 0 6px;color:var(--muted);font:500 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.cl-example{display:flex;align-items:center;gap:10px;padding:12px 12px 12px 16px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.cl-example.is-readback{border-color:var(--muted)}
+.cl-example p{flex:1;min-width:0;margin:0;color:var(--ink);font-size:16px;line-height:1.7;overflow-wrap:anywhere}
+.cl-piece{padding:1px 2px;border-radius:4px;box-shadow:inset 0 -2px 0 var(--accent);transition:background .15s ease}
+.cl-piece.is-on{background:color-mix(in srgb,var(--accent) 24%,transparent);box-shadow:inset 0 -3px 0 var(--accent);font-weight:600}
+.cl-panels{display:grid;gap:10px;margin-top:12px}
+.cl-panel{padding:14px 16px;border-left:4px solid var(--accent);border-radius:4px 14px 14px 4px;background:var(--paper)}
+.cl-panel-head{margin:0;color:var(--muted);font-size:14px}
+.cl-panel-head b{margin-right:6px;color:var(--ink);font-weight:600}
+.cl-panel-piece{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.cl-panel-piece p{min-width:0;margin:0;color:var(--ink);font-size:16px;font-weight:500;overflow-wrap:anywhere}
+.cl-panel-body{margin:6px 0 0;color:var(--graphite);font-size:14px;line-height:1.5}
+.cl-panel-body em,.cl-list em{font-style:italic;color:var(--ink)}
+
+/* Qué se repite siempre */
+.cl-list{display:grid;gap:8px;max-width:760px;margin:18px 0 0;padding:0;list-style:none;counter-reset:cl}
+.cl-list li{display:grid;gap:6px;padding:12px 14px 12px 50px;border:1px solid var(--line);border-radius:14px;background:var(--paper);position:relative;counter-increment:cl}
+.cl-list li::before{content:counter(cl);position:absolute;left:14px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--taupe);color:var(--ink);font:600 13px/24px var(--sans);text-align:center}
+.cl-list p{margin:0;color:var(--ink);font-size:15px;line-height:1.5}
+.cl-list-example{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:14px}
+.cl-list-example span{min-width:0;overflow-wrap:anywhere}
+
+/* Encontrá el error: los casos van dentro del set, antes de las preguntas */
+.cl-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 22px;padding:0;list-style:none}
+.cl-case{min-width:0;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.cl-case h3{margin:0;font:500 14px/1 var(--sans);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.cl-case .sv-call{margin-top:12px}
+.cl-case .sv-line{max-width:100%}
+
+@media(max-width:1180px){
+  .cl-cases{grid-template-columns:minmax(0,1fr)}
+  .cl-case .sv-line{max-width:min(560px,92%)}
+}
+@media(max-width:900px){
+  .cl-flip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  .cl-flip-grid{grid-template-columns:minmax(0,1fr)}
+  .cl-craft{padding:14px}
+  .cl-parts-row{gap:6px}
+  /* En el celular cada casilla muestra solo la letra; el nombre queda para el lector de pantalla y aparece en el panel. */
+  .cl-part{min-height:56px;padding:8px 2px}
+  .cl-part-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  .cl-case .sv-line{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .cl-part,.cl-piece{transition:none}
+}

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from './SiteNav.astro';
+import BrandMark from './BrandMark.astro';
+import SiteFooter from './SiteFooter.astro';
+import '../styles/english.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav current="ingles" />
+  </header>
+  <main class="english-page" id="main-content" tabindex="-1">
+    <slot />
+  </main>
+  <SiteFooter>
+    <BrandMark />
+    <span>Práctica de inglés aeronáutico. No acredita el nivel de la RAAC 61.165.</span>
+  </SiteFooter>
+</BaseLayout>

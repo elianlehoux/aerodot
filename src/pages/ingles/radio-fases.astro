@@ -1,0 +1,194 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { radioPhasesSet } from '../../data/english-sets.js';
+import { radioPhases } from '../../data/english-phases.js';
+import { splitKey, splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-radio.css';
+
+/* Altura de cada fase en el mapa: en tierra, subiendo o bajando, en el circuito. */
+const altitude = { 'puesta-en-marcha': 0, rodaje: 0, 'punto-de-espera': 0, despegue: 1, ascenso: 2, circuito: 2, aterrizaje: 1, estacionamiento: 0 };
+const kindLabel = { call: 'llamás', readback: 'repetís o acusás' };
+
+const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' ? 'Vos' : line.unit ?? 'Laguna Tower');
+// Nombre accesible del botón: lo visible (mapLabel) tiene que estar dentro del nombre (WCAG 2.5.3).
+const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
+  const name = `${index + 1}. ${phase.es}`;
+  return phase.es.toLowerCase().includes(phase.mapLabel.toLowerCase()) ? name : `${name} (${phase.mapLabel})`;
+};
+---
+<EnglishShell
+  title="Fases de vuelo: inglés aeronáutico | Aerodot"
+  description="Qué se dice por radio en inglés en cada fase de un vuelo de circuito VFR: puesta en marcha, rodaje, despegue, circuito y aterrizaje. Diálogos con audio, frases clave y práctica."
+>
+  <p class="eyebrow">Comunicaciones</p>
+  <h1>Fases de vuelo.</h1>
+
+  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
+    <details class="chapter-toc" data-rf-toc open>
+      <summary>En esta página</summary>
+      <nav aria-label="Secciones del tema">
+        <a href="#convencion">Quién habla primero</a>
+        <a href="#fases">El vuelo, fase por fase</a>
+        <a href={`#${radioPhasesSet.id}-title`}>{radioPhasesSet.title}</a>
+      </nav>
+    </details>
+  </aside>
+
+  <section class="radio-block" aria-labelledby="convencion">
+    <h2 id="convencion">Quién habla primero</h2>
+    <p>En todo el vuelo se repite una regla para ubicar tu distintivo (<em lang="en">callsign</em>). El control lo dice al principio. Vos también, cuando traés algo nuevo o pedís algo. Cuando repetís un mensaje o acusás recibo, primero va el mensaje y tu distintivo al final.</p>
+    <p>Así lo enseña el manual de radio de la CAA británica (CAP 413) y así lo usamos acá. La norma europea (SERA.14055) solo pide que la repetición lleve el distintivo, sin fijar dónde. En los ejemplos de EE. UU. muchas veces va al principio.</p>
+    <ul class="rf-rule" role="list">
+      <li><span class="rf-rule-who" lang="en">Laguna Tower</span><span lang="en"><b>LV-DEM</b>, runway one three, cleared to land.</span></li>
+      <li><span class="rf-rule-who">Vos llamás</span><span lang="en"><b>LV-DEM</b>, downwind.</span></li>
+      <li><span class="rf-rule-who">Vos repetís</span><span lang="en">Runway one three, cleared to land, <b>LV-DEM</b>.</span></li>
+    </ul>
+  </section>
+
+  <section class="en-block" aria-labelledby="fases" data-rf-flight>
+    <h2 id="fases">El vuelo, fase por fase</h2>
+    <p class="en-block-lede">Ocho fases de un circuito de tránsito VFR en un aeródromo con torre. Primero hablás con rodaje (<span lang="en">Laguna Ground</span>), después con la torre (<span lang="en">Laguna Tower</span>) y al final otra vez con rodaje. En cada fase, lo resaltado es la frase clave.</p>
+
+    <div class="rf-map" role="group" aria-label="Fases del vuelo" aria-describedby="rf-map-hint" data-rf-map hidden>
+      <p class="rf-map-hint" id="rf-map-hint">Elegí una fase. Con el teclado, las flechas pasan de una a otra y Tab sale del mapa.</p>
+      <ol class="rf-map-list" role="list">
+        {radioPhases.map((phase, index) => (
+          <li class="rf-stop" style={`--rf-alt:${altitude[phase.id as keyof typeof altitude]}`}>
+            <button class="rf-stop-button" type="button" aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`rf-${phase.id}`} aria-label={stopName(phase, index)} data-rf-pick={phase.id}>
+              <span class="rf-stop-n" aria-hidden="true">{index + 1}</span>
+              <span class="rf-stop-name" aria-hidden="true">{phase.mapLabel}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="rf-panels">
+      {radioPhases.map((phase, index) => (
+        <section class="rf-panel" id={`rf-${phase.id}`} aria-labelledby={`rf-${phase.id}-title`} data-rf-panel={phase.id}>
+          <h3 class="rf-panel-title" id={`rf-${phase.id}-title`}>
+            <span class="rf-panel-n">{index + 1}</span>
+            <span>{phase.es}</span>
+            <span class="rf-panel-en" lang="en">{phase.en}</span>
+          </h3>
+          <p class="rf-summary">{splitMixed(phase.summary).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+
+          <ol class="sv-call rf-call" role="list">
+            {phase.lines.map((line, n) => (
+              <li class:list={['sv-line', `is-${line.who}`]}>
+                <span class="sv-who">{line.who === 'pilot' ? <>Vos · {kindLabel[line.kind as keyof typeof kindLabel]}</> : <span lang="en">{speaker(line)}</span>}</span>
+                <div class="sv-bubble">
+                  <p lang="en">{splitKey(line.text, line.key).map((part) => part.hl ? <mark class="sv-hl">{part.text}</mark> : part.text)}</p>
+                  <EnglishSay text={line.say} label={`${line.who === 'pilot' ? 'Escuchar tu llamada' : `Escuchar a *${speaker(line)}*`}, mensaje ${n + 1}: ${phase.es.toLowerCase()}`} quiet />
+                </div>
+                {line.note && <p class="sv-note">{splitMixed(line.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>}
+              </li>
+            ))}
+          </ol>
+
+          <p class="rf-listen"><span class="rf-listen-label">Qué escuchás y qué respondés</span> {splitMixed(phase.listen).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+
+          <h4 class="rf-cards-title">Frases clave</h4>
+          <ul class="flip-grid rf-flip-grid" role="list">
+            {phase.phrases.map((item) => (
+              <li class="flip" data-flip>
+                <div class="word-head">
+                  <h5 class="rf-card-en" lang="en">{item.en}</h5>
+                  <EnglishSay text={item.say} label={`Escuchar la frase *${item.en}*`} quiet />
+                </div>
+                <p class="flip-say" lang="en">“{item.use}”</p>
+                <div class="flip-back" id={`flip-${item.id}`} hidden>
+                  <p class="flip-es">{item.es}</p>
+                  <p>{splitMixed(item.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+                </div>
+                <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-${item.id}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+              </li>
+            ))}
+          </ul>
+
+          {index < radioPhases.length - 1 && (
+            <button class="button-quiet rf-next" type="button" data-rf-next={radioPhases[index + 1].id} hidden>
+              Siguiente fase: {radioPhases[index + 1].es} →
+            </button>
+          )}
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <ExerciseSet set={radioPhasesSet} />
+
+  <p class="en-sources">La fraseología de cada fase sigue el manual de radiotelefonía de la CAA británica (CAP 413, cap. 4, y los ejemplos del cap. 11), igual que el lugar del distintivo (2.49). Qué se repite siempre sigue el reglamento europeo SERA (UE 923/2012, SERA.8015) y la apertura de una comunicación sigue SERA.14055. Los nombres de los tramos del circuito y el uso de EE. UU. siguen el AIM de la FAA (4-3-3 y 4-3-18) y el Glosario Piloto/Controlador. Laguna, el aeroclub, la matrícula LV-DEM, los otros aviones y todas las cifras (frecuencias, QNH, pista, viento) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="radio-fases" where="Fases de vuelo" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountReveals();
+    mountExerciseSets();
+    mountPageToc('[data-rf-toc]');
+
+    /*
+     * El selector de fases: un grupo de botones que se marcan con aria-pressed (uno a la vez).
+     * Tabulación itinerante: Tab entra al botón elegido y sale del grupo; las flechas, Inicio y Fin pasan de una fase a otra
+     * (y la eligen), y Espacio o Enter eligen.
+     * Sin JavaScript el mapa queda oculto y se leen las ocho fases una debajo de la otra.
+     * La fase elegida queda en la dirección (#rf-…) mientras dure la visita: no se guarda nada.
+     */
+    const flight = document.querySelector<HTMLElement>('[data-rf-flight]');
+    const map = flight?.querySelector<HTMLElement>('[data-rf-map]');
+    if (flight && map) {
+      const buttons = [...map.querySelectorAll<HTMLButtonElement>('[data-rf-pick]')];
+      const panels = [...flight.querySelectorAll<HTMLElement>('[data-rf-panel]')];
+      const ids = buttons.map((button) => button.dataset.rfPick ?? '');
+      /* Tabulación itinerante: solo la fase elegida entra en el orden de Tab; las flechas mueven dentro del grupo. */
+      const select = (id: string, focusPanel = false) => {
+        buttons.forEach((button) => {
+          const on = button.dataset.rfPick === id;
+          button.setAttribute('aria-pressed', String(on));
+          button.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach((panel) => { panel.hidden = panel.dataset.rfPanel !== id; });
+        try { history.replaceState(null, '', `#rf-${id}`); } catch { /* sin historial */ }
+        if (focusPanel) flight.querySelector<HTMLElement>(`#rf-${id}-title`)?.focus({ preventScroll: true });
+      };
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => select(ids[index]));
+        button.addEventListener('keydown', (event) => {
+          const last = buttons.length - 1;
+          const to = { ArrowRight: index + 1, ArrowDown: index + 1, ArrowLeft: index - 1, ArrowUp: index - 1, Home: 0, End: last }[event.key];
+          if (to === undefined) return;
+          event.preventDefault();
+          const next = Math.max(0, Math.min(last, to));
+          buttons[next].focus();
+          select(ids[next]);
+        });
+      });
+      /* El botón del final de cada fase lleva a la siguiente y deja el foco en su título. */
+      flight.querySelectorAll<HTMLButtonElement>('[data-rf-next]').forEach((button) => {
+        button.hidden = false;
+        button.addEventListener('click', () => {
+          select(button.dataset.rfNext ?? ids[0], true);
+          map.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        });
+      });
+      flight.querySelectorAll<HTMLElement>('.rf-panel-title').forEach((title) => { title.tabIndex = -1; });
+      const fromHash = location.hash.startsWith('#rf-') ? location.hash.slice(4) : '';
+      map.hidden = false;
+      if (ids.includes(fromHash)) select(fromHash);
+      else {
+        buttons.forEach((button, index) => {
+          button.setAttribute('aria-pressed', String(index === 0));
+          button.tabIndex = index === 0 ? 0 : -1;
+        });
+        panels.forEach((panel, index) => { panel.hidden = index !== 0; });
+      }
+    }
+  </script>
+</EnglishShell>

@@ -1,0 +1,22 @@
+---
+import { englishNeighbors } from '../data/english.js';
+
+interface Props {
+  slug: string;
+  where: string;
+}
+
+const { slug, where } = Astro.props;
+const { previous, next } = englishNeighbors(slug);
+---
+<section class="en-finish">
+  <button class="button-primary" type="button" data-english-complete={slug} aria-pressed="false">
+    <span data-english-complete-label>Marcar como visto</span>
+  </button>
+  <p class="saved-state" aria-live="polite"></p>
+</section>
+<nav class="chapter-pagination" aria-label="Temas de inglés">
+  {previous ? <a href={previous.href}><small>← ANTERIOR</small><b>{previous.title}</b></a> : <a href="/ingles"><small>← ÍNDICE</small><b>Inglés aeronáutico</b></a>}
+  {next ? <a class="next-chapter" href={next.href}><small>SIGUIENTE →</small><b>{next.title}</b></a> : <a class="next-chapter" href="/ingles"><small>ÍNDICE →</small><b>Volver a Inglés</b></a>}
+</nav>
+<button class="page-report" type="button" data-report-page data-report-where={where} data-report-ref={`/ingles/${slug}`} data-report-excerpt={where}>Avisar un error en esta página</button>

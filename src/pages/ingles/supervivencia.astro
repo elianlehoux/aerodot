@@ -1,0 +1,66 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import { survivalGroups, survivalSheets } from '../../data/english-survival.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+---
+<EnglishShell
+  title="Frases de supervivencia: inglés aeronáutico | Aerodot"
+  description="Qué decir por radio, en inglés aeronáutico, cuando no entendiste, no podés o te equivocaste. Frases con audio y una práctica corta."
+>
+  <p class="eyebrow">Base</p>
+  <h1>Frases de supervivencia.</h1>
+
+  <div class="sv-lesson" data-en-tabs>
+    <div class="sv-tabs" role="tablist" aria-label="Partes de la lección">
+      <button class="sv-tab" type="button" role="tab" id="tab-ejercicios" aria-controls="panel-ejercicios" aria-selected="true">Ejercicios</button>
+      <button class="sv-tab" type="button" role="tab" id="tab-explicacion" aria-controls="panel-explicacion" aria-selected="false" tabindex="-1">Explicación</button>
+    </div>
+
+    <div id="panel-ejercicios" class="sv-panel" role="tabpanel" aria-labelledby="tab-ejercicios">
+      <div class="sv-pager" data-survival-sheet>
+        <p class="sv-pager-label">Ejercicios:</p>
+        <div role="group" aria-label="Ejercicios de la lección">
+          {survivalSheets.map((sheet) => (
+            <button type="button" data-show-sheet={sheet.id} aria-current={sheet.n === 1 ? 'page' : 'false'}>{sheet.n}</button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-explicacion" class="sv-panel" role="tabpanel" aria-labelledby="tab-explicacion" hidden>
+      {survivalGroups.map((group) => (
+        <section class={`sv-board is-${group.id}`} aria-labelledby={group.id}>
+          <h2 id={group.id}>{group.title}</h2>
+          <p class="sv-board-lede">{splitMixed(group.lede).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          <ul class="sv-cards">
+            {[...group.phrases, ...(group.aside ? [group.aside] : [])].map((item) => (
+              <li class="sv-card">
+                <div class="sv-card-top">
+                  <h3 lang="en">{item.en}</h3>
+                  <EnglishSay text={item.say} label={`Escuchar *${item.en}*`} quiet />
+                </div>
+                <p class="sv-example" lang="en">{item.use}</p>
+                <p class="sv-hint">{splitMixed(item.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+                {item.link && <p class="sv-link"><a href={item.link.href}>{item.link.text}</a></p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+
+  <p class="en-sources">Los significados siguen la tabla de palabras y frases normalizadas de la OACI (Anexo 10, Vol. II, cap. 5) y la fraseología del Doc 4444, cap. 12. Para el uso de EE. UU., siguen el Glosario Piloto/Controlador de la FAA. Ezeiza y la matrícula LV-DEM son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
+
+  <EnglishFinish slug="supervivencia" where="Frases de supervivencia" />
+  <script>
+    import { mountEnglishProgress, mountListen } from '../../scripts/english.js';
+    import { mountSurvivalSheet } from '../../scripts/survival-sheet.js';
+    mountListen();
+    mountEnglishProgress();
+    mountSurvivalSheet();
+  </script>
+</EnglishShell>

@@ -20,13 +20,13 @@ Abrí un issue antes de un cambio grande. Para una corrección chica, un pull re
 1. Un pull request, un tema. Sin refactors al pasar.
 2. No subas `.env`, tokens, claves ni dumps de alumnos.
 3. No agregues una cuenta, un pago ni una dependencia grande sin abrir antes un issue.
-4. `npm run build` tiene que pasar.
+4. `pnpm build` tiene que pasar.
 
 ## Cómo proponer el cambio
 
 1. Forkeá el repositorio y creá una rama desde `main`.
 2. Hacé el cambio.
-3. Corré `npm run build`.
+3. Corré `pnpm build`.
 4. Abrí el pull request con qué cambió, por qué, y la fuente si tocaste un dato.
 
 El maintainer revisa y mergea. Un pull request puede quedar esperando si falta la fuente o si el texto inventa un procedimiento.

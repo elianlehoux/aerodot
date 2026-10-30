@@ -1,0 +1,138 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import { englishNeighbors, phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../data/english.js';
+
+const nextTopic = englishNeighbors('numeros').next;
+---
+<EnglishShell
+  title="Números y alfabeto: inglés aeronáutico | Aerodot"
+  description="Cómo se dicen los números y las letras en la radio: three suena tree, five suena fife, nine suena niner y four suena fower. El alfabeto fonético. Conversor, deletreador y práctica para armar la frase en voz alta."
+>
+  <p class="eyebrow">Base</p>
+  <h1>Números y alfabeto.</h1>
+
+  <section class="en-block" aria-labelledby="cifras">
+    <h2 id="cifras">Las cifras</h2>
+    <p class="en-block-lede">Las azules se escriben igual pero suenan distinto. Abajo va cómo se pronuncian.</p>
+    <ul class="digit-grid" role="list">
+      {spokenDigits.map((item) => (
+        <li>
+          <button class:list={['tile', { 'is-special': item.special }]} type="button" data-say={item.say} aria-label={item.sound ? `${item.digit}: ${item.say}, suena ${item.sound}` : `${item.digit}: ${item.say}`}>
+            <b>{item.digit}</b>
+            <span lang="en">{item.say}</span>
+            {item.sound && <small lang="en">/{item.sound}/</small>}
+          </button>
+        </li>
+      ))}
+    </ul>
+    <ul class="group-row" role="list">
+      {spokenGroups.map((item) => (
+        <li>
+          <button class="tile is-row" type="button" data-say={item.say}>
+            <b lang="en">{item.say}</b>
+            <span>{item.es}</span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="en-block" aria-labelledby="alfabeto">
+    <h2 id="alfabeto">El alfabeto</h2>
+    <p class="en-block-lede">Para deletrear una matrícula, una calle de rodaje o un punto. Debajo de cada palabra hay una guía para decirla.</p>
+    <ul class="alpha-grid" role="list">
+      {phoneticAlphabet.map(([letter, word, sound]) => (
+        <li>
+          <button class="tile" type="button" data-say={word} aria-label={`${letter}: ${word}`}>
+            <b>{letter}</b>
+            <span lang="en">{word}</span>
+            <small>{sound}</small>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="en-block converter" data-converter aria-labelledby="conversor">
+    <h2 id="conversor">El conversor</h2>
+    <p class="en-block-lede">Elegí qué es, escribilo y mirá cómo sale por radio. También sirve para deletrear una matrícula.</p>
+    <div class="converter-card">
+      <div class="seg is-wrap" role="group" aria-label="Qué estás diciendo">
+        {radioKinds.map((kind, index) => (
+          <button type="button" data-kind={kind.id} aria-pressed={index === 0 ? 'true' : 'false'}>{kind.label}</button>
+        ))}
+      </div>
+      <div class="converter-row">
+        <label class="converter-field">
+          <span data-converter-label>{radioKinds[0].label}</span>
+          <input class="converter-input" data-converter-input type="text" value={radioKinds[0].example} autocomplete="off" autocapitalize="characters" spellcheck="false" />
+        </label>
+        <span class="converter-arrow" aria-hidden="true">→</span>
+        <div class="converter-out">
+          <div class="token-row" data-converter-output aria-live="polite"></div>
+          <p class="converter-error" data-converter-error hidden></p>
+        </div>
+      </div>
+      <div class="converter-row converter-alt" data-converter-alt hidden>
+        <div class="converter-field">
+          <span>En Estados Unidos</span>
+          <output class="converter-value" data-converter-alt-value></output>
+        </div>
+        <span class="converter-arrow" aria-hidden="true">→</span>
+        <div class="converter-out">
+          <div class="token-row" data-converter-alt-output aria-live="polite"></div>
+        </div>
+        <p class="converter-alt-note">
+          En Estados Unidos el altímetro se da en pulgadas de mercurio. No se dice QNH. Se dice altimeter y las cuatro cifras, sin el punto.
+          <EnglishSay label="Escuchar" quiet data-converter-alt-say />
+        </p>
+      </div>
+      <div class="converter-foot">
+        <p data-converter-rule>{radioKinds[0].rule}</p>
+        <EnglishSay label="Escuchar" data-converter-say />
+      </div>
+    </div>
+  </section>
+
+  <section class="en-block drill" data-number-drill aria-labelledby="practica-numeros">
+    <h2 id="practica-numeros">Armá la frase</h2>
+    <p class="en-block-lede">Seis frases. Ordená las fichas como se dicen por radio. Al terminar, el tema queda listo.</p>
+    <div class="drill-card" data-drill-card>
+      <div class="quiz-dots" data-drill-dots aria-hidden="true"></div>
+      <p class="card-kicker" data-drill-kicker>Pista</p>
+      <p class="drill-shown" data-drill-shown lang="en">13</p>
+      <p class="drill-prompt" data-drill-prompt>¿Cómo se dice esta pista?</p>
+      <p class="drill-note" data-drill-note hidden></p>
+      <div class="drill-built" data-drill-built aria-live="polite"></div>
+      <div class="drill-bank" data-drill-bank></div>
+      <p class="drill-status" data-drill-status aria-live="polite"></p>
+      <div class="drill-actions">
+        <button class="button-primary" type="button" data-drill-check>Corregir</button>
+        <button class="button-quiet" type="button" data-drill-undo>Deshacer</button>
+        <EnglishSay label="Escuchar" data-drill-say hidden />
+        <button class="button-primary" type="button" data-drill-next hidden>Siguiente</button>
+      </div>
+    </div>
+    <div class="drill-card quiz-done" data-drill-done hidden>
+      <p class="card-kicker">Al primer intento</p>
+      <p class="quiz-score" data-drill-score></p>
+      <p class="quiz-verdict">Ya podés decir una pista, una frecuencia o un QNH en voz alta. Tema guardado como listo.</p>
+      <div class="quiz-actions">
+        <button class="button-primary" type="button" data-drill-restart>Otra vez</button>
+        <a class="button-quiet" href={nextTopic.href}>Seguir con {nextTopic.title.toLowerCase()} →</a>
+      </div>
+    </div>
+    <noscript><p>La práctica de fichas necesita JavaScript. Las tablas de arriba se leen igual.</p></noscript>
+  </section>
+
+  <EnglishFinish slug="numeros" where="Números y alfabeto" />
+  <script>
+    import { mountConverter, mountEnglishProgress, mountListen, mountNumberDrill } from '../../scripts/english.js';
+    mountListen();
+    mountEnglishProgress();
+    mountConverter();
+    mountNumberDrill();
+  </script>
+</EnglishShell>

@@ -1,0 +1,20 @@
+---
+/**
+ * Botón que lee en inglés. Lo maneja mountListen en scripts/english.js.
+ * En label, el inglés va entre asteriscos ("Escuchar *say again*"): sale en un span con lang="en".
+ */
+import { splitMixed } from '../scripts/mixed.js';
+
+interface Props {
+  text?: string;
+  label?: string;
+  quiet?: boolean;
+  [key: string]: unknown;
+}
+
+const { text = '', label = 'Escuchar', quiet = false, ...rest } = Astro.props;
+---
+<button class:list={['en-say', { 'is-quiet': quiet }]} type="button" data-say={text} {...rest}>
+  <animate-icons name="volume-2" size="16"></animate-icons>
+  <span class:list={{ 'visually-hidden': quiet }}>{splitMixed(label).map((part) => part.en ? <span lang="en">{part.text}</span> : part.text)}</span>
+</button>
