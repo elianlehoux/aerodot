@@ -224,6 +224,54 @@ const slipCols = [
   ballY: r1(196 + 56 * Math.sin(rad(col.ball))),
 }));
 
+// Curvas de resistencia: la parasita crece con el cuadrado de la velocidad, la inducida baja
+// con el cuadrado y la total es su suma. Solo muestran la tendencia, sin valores de un avion.
+const drag = (() => {
+  const x0 = 60, y0 = 250, h = 190;
+  const parasite = (x) => 0.0013 * (x - 60) ** 2;
+  const induced = (x) => 450000 / (x - 30) ** 2;
+  const xs = Array.from({ length: 38 }, (_, i) => 84 + i * 10);
+  const path = (fn) => xs.map((x, i) => `${i ? 'L' : 'M'}${x} ${r1(y0 - Math.min(fn(x), h))}`).join('');
+  const total = (x) => parasite(x) + induced(x);
+  const minX = xs.reduce((best, x) => (total(x) < total(best) ? x : best), xs[0]);
+  return { x0, y0, parasite: path(parasite), induced: path(induced), total: path(total), min: [minX, r1(y0 - total(minX))] };
+})();
+// Componentes del viento del ejemplo de la leccion: pista 27, viento de 300° a 20 kt, 8 px por nudo.
+const wind = (() => {
+  const k = 8, from = [96, 74];
+  const head = 20 * Math.cos(rad(30)) * k;
+  const cross = 20 * Math.sin(rad(30)) * k;
+  return { from, end: [r1(from[0] + head), r1(from[1] + cross)] };
+})();
+// Base de cumulos con la cuenta del examen: la diferencia de 10 °C se cierra 6,5 °C cada 1000 m.
+const cloudRows = [0, 500, 1000, 1540].map((m) => {
+  const spread = Math.max(0, 10 - (6.5 * m) / 1000);
+  return { m, y: r1(290 - m * 0.12), w: r1(spread * 22), label: spread ? `${spread.toLocaleString('es-AR', { maximumFractionDigits: 1 })} °C` : '0 °C' };
+});
+const strokes = [
+  { n: 1, name: 'Admisión', note: 'entra mezcla', intake: true, exhaust: false, down: true, gas: 'c-drag' },
+  { n: 2, name: 'Compresión', note: 'se comprime', intake: false, exhaust: false, down: false, gas: 'c-drag' },
+  { n: 3, name: 'Expansión', note: 'empuja', intake: false, exhaust: false, down: true, gas: 'c-weight', spark: true },
+  { n: 4, name: 'Escape', note: 'salen gases', intake: false, exhaust: true, down: false, gas: 'c-ink' },
+].map((stroke, i) => ({ ...stroke, cx: 62 + i * 118 }));
+// Que pasa en cada instrumento segun la toma tapada (PHAK, cap. 8). bad marca la indicacion erronea.
+const blockCols = [
+  { x: 112, head: ['Pitot tapado', 'drenaje abierto'] },
+  { x: 234, head: ['Pitot y drenaje', 'tapados'] },
+  { x: 356, head: ['Estática', 'tapada'] },
+];
+const blockRows = [
+  { name: 'Velocímetro', y: 84, h: 100, cells: [{ bad: true, lines: ['cae a cero'] }, { bad: true, lines: ['sube al', 'subir, baja', 'al bajar'] }, { bad: true, lines: ['de menos', 'al subir,', 'de más', 'al bajar'] }] },
+  { name: 'Altímetro', y: 192, h: 58, cells: [{ lines: ['normal'] }, { lines: ['normal'] }, { bad: true, lines: ['se queda fijo'] }] },
+  { name: 'Variómetro', y: 258, h: 58, cells: [{ lines: ['normal'] }, { lines: ['normal'] }, { bad: true, lines: ['se queda', 'en cero'] }] },
+];
+const speedSteps = [
+  { name: 'IAS', es: 'velocidad indicada', add: 'lo que marca la aguja', cls: 'c-ink' },
+  { name: 'CAS', es: 'velocidad calibrada', add: '+ error del instrumento y de la instalación', cls: 'c-lift' },
+  { name: 'TAS', es: 'velocidad verdadera', add: '+ densidad: altitud y temperatura', cls: 'c-air' },
+  { name: 'GS', es: 'velocidad sobre el suelo', add: '+ viento', cls: 'c-thrust' },
+];
+
 const captions = {
   airfoil: 'Fijate que α se mide entre la cuerda y el viento relativo, no contra el horizonte. Abajo: al subir α crece la sustentación hasta el ángulo crítico; pasado ese punto viene la pérdida.',
   forces: 'Fijate que, en vuelo recto y nivelado a velocidad constante, las flechas opuestas tienen el mismo largo: sustentación = peso y tracción = resistencia.',
@@ -259,6 +307,25 @@ const captions = {
   'airspeed-arcs': 'Fijate que el arco blanco se superpone con el verde: el blanco marca el rango para usar flaps y el verde la operación normal. Las marcas son un ejemplo; las velocidades de tu avión están en su manual de vuelo.',
   'adverse-yaw': 'Fijate que el alerón que baja da más sustentación pero también más resistencia: esa ala frena y la nariz se va al lado contrario del viraje. Con timón hacia el lado del viraje, la nariz acompaña y la bola queda centrada.',
   'slip-skid': 'Fijate en la nariz respecto de la trayectoria (línea azul) y en la bola. En el resbale la nariz gira de menos y la bola cae hacia adentro; en el derrape gira de más y la bola sale hacia afuera. Para centrarla, pisá el pedal del lado de la bola.',
+  'drag-curve': 'Fijate que la parásita sube con la velocidad y la inducida baja. Sumadas dan la resistencia total, que es mínima a una velocidad intermedia. Las curvas muestran la tendencia, no los valores de un avión real.',
+  'wind-components': 'Fijate que el viento se parte en dos flechas: la de frente, a lo largo de la pista, y la cruzada, de costado. Es el ejemplo de la lección. El límite de viento cruzado de tu avión está en su manual.',
+  'cloud-base': 'Fijate que la diferencia entre la temperatura y el punto de rocío se achica al subir. Donde llega a cero puede estar la base del cúmulo. Es la estimación del material de examen; para salir vale el techo del informe vigente.',
+  'wake-vortex': 'Fijate en el sentido de giro: en cada punta el aire sube por afuera y baja por adentro. Los remolinos bajan y el viento los corre, así que pueden quedar donde ya no ves al avión que los dejó.',
+  'vfr-levels': 'Fijate que se mira la derrota magnética, no hacia dónde apunta la nariz. Desde 3000 ft sobre la superficie el nivel es obligatorio (Sección 91.159 y AIP ENR 1.7); por debajo, se recomienda.',
+  'runway-number': 'Fijate que el número sale del rumbo magnético del eje, redondeado a la decena y sin el último cero. Las dos cabeceras del mismo pavimento difieren en 18.',
+  'four-stroke': 'Fijate en las válvulas y en el pistón. Solo en la expansión la mezcla encendida empuja el pistón: es la carrera que entrega potencia. Las cuatro carreras ocupan dos vueltas del cigüeñal.',
+  'pitot-block': 'Fijate que el pitot solo afecta al velocímetro, mientras que la estática afecta a los tres instrumentos. Si el altímetro y el variómetro se traban juntos, pensá en la estática.',
+  altitudes: 'Fijate que la verdadera se mide desde el nivel del mar y la absoluta desde el terreno que tenés debajo. Sobre una sierra, la absoluta es mucho menor que la verdadera.',
+  'ceiling-circuit': 'Fijate que, para quedar 500 ft sobre el suelo y 500 ft bajo la nube a la vez, la base tiene que estar al menos a 1000 ft. Por eso el techo mínimo de la zona de tránsito es 1000 ft.',
+  'fuel-reserve': 'Fijate que la reserva final es aparte del rodaje, del viaje y de la alternativa: es lo que todavía queda al llegar. Los minutos se convierten en litros con el consumo del manual de tu avión.',
+  'civil-twilight': 'Fijate que la noche no empieza con la puesta del sol. Empieza cuando el centro del sol baja 6° por debajo del horizonte, al terminar el crepúsculo civil.',
+  'wing-geometry': 'Fijate que la envergadura se mide de punta a punta y la cuerda de borde a borde. Los alerones van hacia las puntas y los flaps cerca del fuselaje, los dos en el borde de fuga. Es un avión de ejemplo: cada diseño ubica sus superficies a su manera.',
+  inversion: 'Fijate que dentro de la capa la temperatura sube con la altura, al revés de lo habitual. Abajo el aire queda quieto y puede haber niebla o bruma; en el tope el viento cambia de golpe.',
+  'mountain-wave': 'Fijate que el aire sube por barlovento y baja por sotavento, donde puede superar el ascenso de un avión chico. Debajo de las crestas de la onda puede formarse un rotor muy turbulento. Las nubes lenticulares, cuando aparecen, marcan esas crestas.',
+  variation: 'Fijate que con variación este el norte magnético queda a la derecha del verdadero. El mismo curso medido desde el norte magnético da un número menor: el este resta.',
+  'taxi-wind': 'Fijate que con viento de adelante el mando se gira hacia el viento y con viento de atrás, en contra. Con viento de atrás el elevador va abajo en los dos tipos de tren. Es la figura de instrucción del Airplane Flying Handbook; si el manual de tu avión dice otra cosa, vale el manual.',
+  'oxygen-rule': 'Fijate que la regla mira la presión de la cabina, que en un avión sin presurizar es la de la altura a la que volás. Las alturas son las equivalentes en atmósfera estándar a 700 y 620 hPa.',
+  'airspeed-chain': 'Fijate que cada paso suma una corrección. La aguja marca IAS; TAS es tu velocidad respecto del aire y GS, respecto del suelo. La EAS solo cambia algo cuando pesa la compresibilidad, a alta velocidad.',
 };
 const title = {
   airfoil: 'Ángulo de ataque y sustentación',
@@ -295,6 +362,25 @@ const title = {
   'airspeed-arcs': 'Los colores del velocímetro',
   'adverse-yaw': 'Guiñada adversa',
   'slip-skid': 'Resbale, coordinado y derrape',
+  'drag-curve': 'Resistencia parásita, inducida y total',
+  'wind-components': 'Viento de frente y viento cruzado',
+  'cloud-base': 'Dónde puede estar la base de un cúmulo',
+  'wake-vortex': 'Los remolinos de la estela',
+  'vfr-levels': 'Niveles de crucero VFR',
+  'runway-number': 'De dónde sale el número de pista',
+  'airspeed-chain': 'De la IAS a la velocidad sobre el suelo',
+  'oxygen-rule': 'Cuándo hace falta oxígeno',
+  'taxi-wind': 'Los mandos al rodar con viento',
+  variation: 'Curso verdadero y curso magnético',
+  inversion: 'Una inversión de temperatura',
+  'mountain-wave': 'Onda de montaña y rotor',
+  'wing-geometry': 'Las medidas y las superficies del ala',
+  'ceiling-circuit': 'Por qué el techo mínimo es 1000 ft',
+  'fuel-reserve': 'Dónde va la reserva final',
+  'civil-twilight': 'Cuándo empieza la noche',
+  'pitot-block': 'Si se tapa una toma',
+  altitudes: 'Altitud verdadera y absoluta',
+  'four-stroke': 'El ciclo de cuatro tiempos',
 };
 const caption = captions[type];
 const diagramTitle = title[type];
@@ -1182,6 +1268,379 @@ const metarRows = [
     </g>)}
   </svg>}
 
+  {type === 'drag-curve' && <svg viewBox="0 0 480 284" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un gráfico con la velocidad en el eje horizontal y la resistencia en el vertical. La resistencia parásita es casi nula a baja velocidad y sube cada vez más rápido. La inducida es alta a baja velocidad y baja al acelerar. La total es la suma de las dos: tiene forma de U y su punto más bajo está a una velocidad intermedia.</desc>
+    <line x1={drag.x0} y1={drag.y0} x2="464" y2={drag.y0} class="ln thin" />
+    <line x1={drag.x0} y1={drag.y0} x2={drag.x0} y2="40" class="ln thin" />
+    <text x="68" y="40" class="ts">Resistencia</text>
+    <path d={drag.induced} class="ln thick c-air" />
+    <path d={drag.parasite} class="ln thick c-drag" />
+    <path d={drag.total} class="ln thick c-ink" />
+    <line x1={drag.min[0]} y1={drag.min[1]} x2={drag.min[0]} y2={drag.y0} class="guide" />
+    <circle cx={drag.min[0]} cy={drag.min[1]} r="5.5" class="dot c-ink" />
+    <text x={drag.min[0]} y={drag.min[1] - 34} text-anchor="middle" class="tb halo">Total</text>
+    <text x={drag.min[0]} y={drag.min[1] - 14} text-anchor="middle" class="ts halo">mínima acá</text>
+    <text x="100" y="84" class="tb c-air">Inducida</text>
+    <text x="100" y="104" class="ts">manda al volar lento</text>
+    <text x="460" y="156" text-anchor="end" class="tb c-drag">Parásita</text>
+    <text x="460" y="176" text-anchor="end" class="ts">manda al volar rápido</text>
+    <text x="68" y="274" class="ts">más lento</text>
+    <text x="464" y="274" text-anchor="end" class="ts">más rápido →</text>
+  </svg>}
+
+  {type === 'wind-components' && <svg viewBox="0 0 480 344" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Vista desde arriba de la pista 27, con el avión llegando desde el este hacia el oeste. Un viento de los 300 grados a 20 nudos forma 30 grados con el eje de la pista. Se descompone en una componente de frente de unos 17 nudos, a lo largo de la pista, y una cruzada de 10 nudos, de costado.</desc>
+    <path d={arc(wind.from[0], wind.from[1], 52, 0, 30)} class="ln" />
+    <text x="160" y="96" class="ts">30°</text>
+    <path d={arrow(wind.from[0], wind.from[1], wind.end[0], wind.from[1], 12)} class="arw dash c-thrust" />
+    <path d={arrow(wind.end[0], wind.from[1], wind.end[0], wind.end[1], 12)} class="arw dash c-weight" />
+    <path d={arrow(wind.from[0], wind.from[1], wind.end[0], wind.end[1], 14)} class="arw thick c-air" />
+    <text x="16" y="38" class="tb c-air">Viento 300° · 20 kt</text>
+    <text x={(wind.from[0] + wind.end[0]) / 2} y="64" text-anchor="middle" class="t c-thrust">de frente ≈ 17 kt</text>
+    <text x={wind.end[0] + 12} y="124" class="t c-weight">cruzado 10 kt</text>
+    <rect x="40" y="214" width="360" height="32" rx="3" class="runway" />
+    <line x1="92" y1="230" x2="348" y2="230" class="rwy-mark" />
+    <text x="70" y="230" text-anchor="middle" dominant-baseline="central" transform="rotate(90 70 230)" class="tm rwy-num">09</text>
+    <text x="370" y="230" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 370 230)" class="tm rwy-num">27</text>
+    <g transform="translate(442 230) rotate(-90) scale(.36)"><path d={TOP} class="pl" /></g>
+    <text x="220" y="276" text-anchor="middle" class="ts">Pista 27: el avión aterriza con rumbo 270°</text>
+    <text x="16" y="310" class="t"><tspan class="c-weight">cruzado</tspan> = 20 × sen 30° = 10 kt</text>
+    <text x="16" y="334" class="t"><tspan class="c-thrust">de frente</tspan> = 20 × cos 30° ≈ 17 kt</text>
+  </svg>}
+
+  {type === 'cloud-base' && <svg viewBox="0 0 480 350" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Barras horizontales a distintas alturas que muestran la diferencia entre la temperatura y el punto de rocío. En la superficie, con 22 y 12 grados, la diferencia es de 10 grados. Se achica 6,5 grados cada 1000 metros: a 500 metros queda cerca de 6,8, a 1000 metros 3,5, y hacia los 1540 metros llega a cero. Ahí se dibuja la base de un cúmulo.</desc>
+    <text x="16" y="24" class="tb">Temperatura menos punto de rocío</text>
+    <g><circle cx="242" cy="88" r="17" class="cloud" /><circle cx="270" cy="76" r="23" class="cloud" /><circle cx="298" cy="88" r="17" class="cloud" /><rect x="224" y="88" width="92" height="16" class="cloud-flat" /></g>
+    <line x1="150" y1={cloudRows[3].y} x2="470" y2={cloudRows[3].y} class="guide" />
+    <text x="330" y="80" class="tb c-lift">base ≈ 1540 m</text>
+    <text x="330" y="100" class="ts">la diferencia llegó a cero</text>
+    {cloudRows.map((row) => <g>
+      <text x="132" y={row.y + 5} text-anchor="end" class="ts">{row.m.toLocaleString('es-AR')} m</text>
+      {row.w > 0 && <rect x="150" y={row.y - 9} width={row.w} height="18" rx="4" class="spread-bar" />}
+      <text x={158 + row.w} y={row.y + 5} class="t">{row.label}</text>
+    </g>)}
+    <rect x="10" y="302" width="460" height="8" class="ground" />
+    <text x="16" y="338" class="tm">(22 − 12) ÷ 6,5 × 1000 ≈ 1540 m</text>
+  </svg>}
+
+  {type === 'wake-vortex' && <svg viewBox="0 0 480 290" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos escenas vistas desde atrás de un avión. En la primera, el avión acaba de pasar y en cada punta del ala gira un remolino: el aire sube por afuera y baja por adentro, así que entre las puntas el aire baja. En la segunda, un rato después, el avión ya no está: los dos remolinos bajaron y un viento cruzado los corrió hacia la derecha.</desc>
+    <text x="16" y="26" class="tb">1 · Recién pasó</text>
+    <text x="252" y="26" class="tb">2 · Un rato después</text>
+    <line x1="240" y1="40" x2="240" y2="252" class="sep" />
+    <line x1="60" y1="104" x2="180" y2="104" class="ln thick c-ink" />
+    <circle cx="120" cy="106" r="11" class="pl" />
+    <line x1="120" y1="95" x2="120" y2="70" class="ln thick c-ink" />
+    <path d={arcArrow(60, 112, 18, 18, -70, 230, 10)} class="arw thin c-air" />
+    <path d={arcArrow(180, 112, 18, 18, 250, -50, 10)} class="arw thin c-air" />
+    <path d={arrow(120, 140, 120, 188, 11)} class="arw c-air" />
+    <text x="120" y="212" text-anchor="middle" class="ts">el aire baja entre las puntas</text>
+    <line x1="300" y1="104" x2="420" y2="104" class="ln dash thin c-ink" />
+    <text x="360" y="96" text-anchor="middle" class="ts">el avión ya no está</text>
+    <path d={arcArrow(334, 188, 16, 16, -70, 230, 9)} class="arw thin c-air" />
+    <path d={arcArrow(448, 188, 16, 16, 250, -50, 9)} class="arw thin c-air" />
+    <path d={arrow(256, 60, 306, 60, 10)} class="arw thin c-weight" />
+    <text x="314" y="65" class="ts c-weight">viento</text>
+    <line x1="300" y1="112" x2="320" y2="176" class="guide" />
+    <line x1="420" y1="112" x2="436" y2="176" class="guide" />
+    <rect x="10" y="252" width="460" height="8" class="ground" />
+    <text x="252" y="280" class="ts">bajan y se corren con el viento</text>
+  </svg>}
+
+  {type === 'vfr-levels' && <svg viewBox="0 0 480 344" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Una rosa de rumbos partida en dos mitades. La mitad derecha, de 000 a 179 grados de derrota magnética, lleva miles impares más 500 pies: 3500, 5500 y 7500. La mitad izquierda, de 180 a 359 grados, lleva miles pares más 500 pies: 4500, 6500 y 8500.</desc>
+    <path d="M240 54A118 118 0 0 1 240 290Z" class="zone c-lift" />
+    <path d="M240 290A118 118 0 0 1 240 54Z" class="zone c-weight" />
+    <circle cx="240" cy="172" r="118" class="ring" />
+    <line x1="240" y1="44" x2="240" y2="300" class="ln thin" />
+    <text x="240" y="36" text-anchor="middle" class="tm">000°</text>
+    <text x="240" y="322" text-anchor="middle" class="tm">180°</text>
+    <text x="366" y="177" class="ts">090°</text>
+    <text x="114" y="177" text-anchor="end" class="ts">270°</text>
+    <text x="300" y="120" text-anchor="middle" class="tb c-lift">000° a 179°</text>
+    <text x="300" y="144" text-anchor="middle" class="ts">impares + 500</text>
+    <text x="300" y="184" text-anchor="middle" class="tm">3500</text>
+    <text x="300" y="210" text-anchor="middle" class="tm">5500</text>
+    <text x="300" y="236" text-anchor="middle" class="tm">7500</text>
+    <text x="180" y="120" text-anchor="middle" class="tb c-weight">180° a 359°</text>
+    <text x="180" y="144" text-anchor="middle" class="ts">pares + 500</text>
+    <text x="180" y="184" text-anchor="middle" class="tm">4500</text>
+    <text x="180" y="210" text-anchor="middle" class="tm">6500</text>
+    <text x="180" y="236" text-anchor="middle" class="tm">8500</text>
+    <text x="16" y="338" class="ts">Derrota magnética, en pies</text>
+  </svg>}
+
+  {type === 'runway-number' && <svg viewBox="0 0 480 268" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Vista desde arriba de una pista orientada de oeste a este. El eje tiene rumbo magnético 094 grados, que se redondea a 090 y da la pista 09 en la cabecera oeste. Desde la otra punta el rumbo es cerca de 270 grados y esa cabecera es la 27.</desc>
+    <text x="16" y="30" class="t">rumbo magnético <tspan class="tm">094°</tspan> → redondeo <tspan class="tm">090°</tspan> → pista <tspan class="tb c-lift">09</tspan></text>
+    <path d={arrow(452, 240, 452, 204, 10)} class="arw thin c-ink" />
+    <text x="452" y="262" text-anchor="middle" class="ts">N mag.</text>
+    <path d={arrow(370, 82, 250, 82, 12)} class="arw c-weight" />
+    <text x="378" y="88" class="t c-weight">27 · rumbo ≈ 270°</text>
+    <rect x="60" y="116" width="340" height="36" rx="3" class="runway" />
+    <line x1="114" y1="134" x2="346" y2="134" class="rwy-mark" />
+    <text x="88" y="134" text-anchor="middle" dominant-baseline="central" transform="rotate(90 88 134)" class="tm rwy-num">09</text>
+    <text x="372" y="134" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 372 134)" class="tm rwy-num">27</text>
+    <path d={arrow(90, 186, 210, 186, 12)} class="arw c-lift" />
+    <text x="218" y="192" class="t c-lift">09 · rumbo ≈ 090°</text>
+    <text x="16" y="246" class="ts">El mismo pavimento, desde puntas opuestas: 09 + 18 = 27.</text>
+  </svg>}
+
+  {type === 'four-stroke' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Cuatro dibujos de un mismo cilindro. En la admisión la válvula de admisión está abierta, el pistón baja y entra la mezcla. En la compresión las dos válvulas están cerradas y el pistón sube. En la expansión salta la chispa, la mezcla encendida empuja el pistón hacia abajo y entrega potencia. En el escape se abre la válvula de escape, el pistón sube y salen los gases.</desc>
+    {strokes.map((st) => <g>
+      <text x={st.cx} y="26" text-anchor="middle" class={`tb ${st.spark ? 'c-weight' : ''}`}><tspan class="c-lift">{st.n}</tspan> · {st.name}</text>
+      <rect x={st.cx - 28} y="74" width="56" height={st.down ? 58 : 36} class={`zone ${st.gas}`} />
+      <path d={`M${st.cx - 30} 200V68H${st.cx + 30}V200`} class="wall" />
+      <line x1={st.cx - 15} y1="50" x2={st.cx - 15} y2={st.intake ? 82 : 72} class="ln thick" />
+      <line x1={st.cx - 24} y1={st.intake ? 82 : 72} x2={st.cx - 6} y2={st.intake ? 82 : 72} class="ln thick" />
+      <line x1={st.cx + 15} y1="50" x2={st.cx + 15} y2={st.exhaust ? 82 : 72} class="ln thick" />
+      <line x1={st.cx + 6} y1={st.exhaust ? 82 : 72} x2={st.cx + 24} y2={st.exhaust ? 82 : 72} class="ln thick" />
+      {st.intake && <path d={arrow(st.cx - 40, 46, st.cx - 18, 90, 9)} class="arw thin c-drag" />}
+      {st.exhaust && <path d={arrow(st.cx + 18, 90, st.cx + 40, 46, 9)} class="arw thin c-ink" />}
+      {st.spark && <path d={`M${st.cx} 64l4 10l10 -3l-6 9l8 7l-11 0l-5 10l-1 -11l-10 -2l9 -6z`} class="spark" />}
+      <rect x={st.cx - 26} y={st.down ? 132 : 110} width="52" height="20" rx="3" class="box" />
+      <line x1={st.cx} y1={st.down ? 152 : 130} x2={st.cx + (st.n % 2 ? 9 : -9)} y2="232" class="ln" />
+      <circle cx={st.cx} cy="240" r="16" class="ring" />
+      <circle cx={st.cx + (st.n % 2 ? 9 : -9)} cy="232" r="3.5" class="dot c-ink" />
+      <path d={st.down ? arrow(st.cx + 44, 112, st.cx + 44, 156, 9) : arrow(st.cx + 44, 156, st.cx + 44, 112, 9)} class={`arw thin ${st.spark ? 'c-weight' : 'c-lift'}`} />
+      <text x={st.cx} y="280" text-anchor="middle" class="ts">{st.note}</text>
+    </g>)}
+  </svg>}
+
+  {type === 'pitot-block' && <svg viewBox="0 0 480 326" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Una tabla con tres casos. Con el pitot tapado y el drenaje abierto, el velocímetro cae a cero y el altímetro y el variómetro funcionan normal. Con el pitot y el drenaje tapados, el velocímetro sube al subir y baja al bajar, como un altímetro, y los otros dos funcionan normal. Con la estática tapada, el velocímetro marca de menos al subir y de más al bajar, el altímetro se queda fijo y el variómetro se queda en cero.</desc>
+    {blockCols.map((col) => <g>
+      <text x={col.x + 59} y="40" text-anchor="middle" class="tb">{col.head[0]}</text>
+      <text x={col.x + 59} y="62" text-anchor="middle" class="ts">{col.head[1]}</text>
+    </g>)}
+    {blockRows.map((row) => <g>
+      <text x="10" y={row.y + row.h / 2 + 5} class="ts c-ink">{row.name}</text>
+      {row.cells.map((cell, i) => <g>
+        <rect x={blockCols[i].x} y={row.y} width="118" height={row.h} rx="8" class={cell.bad ? 'box box-red' : 'box'} />
+        {cell.lines.map((line, j) => <text x={blockCols[i].x + 59} y={row.y + (row.h - cell.lines.length * 20) / 2 + 15 + j * 20} text-anchor="middle" class={cell.bad ? 'ts c-red' : 'ts'}>{line}</text>)}
+      </g>)}
+    </g>)}
+  </svg>}
+
+  {type === 'altitudes' && <svg viewBox="0 0 480 336" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un avión vuela sobre una sierra. Una flecha va del nivel medio del mar al avión: es la altitud verdadera. Otra, más corta, va del terreno que está debajo al avión: es la altitud absoluta. Abajo se aclara que la de presión es la indicada con 1013,25 hectopascales y que la de densidad es la de presión corregida por temperatura.</desc>
+    <text x="16" y="28" class="t">Indicada: lo que marca el altímetro</text>
+    <path d="M10 280V252Q120 244 180 218Q250 190 320 204Q400 222 470 236V280Z" class="ground" />
+    <line x1="10" y1="280" x2="470" y2="280" class="ln dash thin" />
+    <text x="470" y="272" text-anchor="end" class="ts">nivel medio del mar</text>
+    <g transform="translate(250 82) scale(.55)"><path d={SIDE} class="pl" /><path d={SIDE_WIN} class="pl-win" /></g>
+    <path d={arrow(204, 278, 204, 94, 12)} class="arw c-lift" />
+    <path d={arrow(296, 200, 296, 94, 12)} class="arw c-thrust" />
+    <text x="194" y="176" text-anchor="end" class="tb c-lift">Verdadera</text>
+    <text x="194" y="198" text-anchor="end" class="ts">sobre el nivel del mar</text>
+    <text x="306" y="142" class="tb c-thrust">Absoluta</text>
+    <text x="306" y="164" class="ts">sobre el terreno</text>
+    <text x="16" y="306" class="ts"><tspan class="tb">De presión:</tspan> la indicada con 1013,25 hPa</text>
+    <text x="16" y="328" class="ts"><tspan class="tb">De densidad:</tspan> la de presión corregida por temperatura</text>
+  </svg>}
+
+  {type === 'ceiling-circuit' && <svg viewBox="0 0 480 282" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Corte de costado. Abajo, el suelo con una pista. Un avión vuela a 500 pies sobre el suelo. La base de las nubes está a 1000 pies. Entre el avión y la nube quedan 500 pies, y entre el avión y el suelo, otros 500.</desc>
+    <rect x="10" y="22" width="460" height="48" class="cloud-flat" />
+    <path d="M10 70H470" class="ln thin" />
+    <text x="240" y="52" text-anchor="middle" class="t on-cloud">base de las nubes</text>
+    <rect x="10" y="250" width="460" height="10" class="ground" />
+    <rect x="60" y="244" width="140" height="6" rx="2" class="runway" />
+    <g transform="translate(240 160) scale(.45)"><path d={SIDE} class="pl" /><path d={SIDE_WIN} class="pl-win" /></g>
+    <line x1="10" y1="160" x2="470" y2="160" class="guide" />
+    <path d={arrow(400, 150, 400, 76, 10)} class="arw thin c-lift" />
+    <path d={arrow(400, 170, 400, 244, 10)} class="arw thin c-thrust" />
+    <text x="392" y="118" text-anchor="end" class="tb c-lift">500 ft</text>
+    <text x="408" y="118" class="ts">bajo la nube</text>
+    <text x="392" y="212" text-anchor="end" class="tb c-thrust">500 ft</text>
+    <text x="408" y="212" class="ts">sobre el suelo</text>
+    <text x="16" y="94" class="tb">techo 1000 ft</text>
+    <text x="16" y="276" class="ts">suelo</text>
+  </svg>}
+
+  {type === 'fuel-reserve' && <svg viewBox="0 0 480 214" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Una barra con el combustible del vuelo, de izquierda a derecha: rodaje, viaje, alternativa si corresponde y reserva final. La reserva final es lo que tiene que quedar al llegar: 30 minutos de día y 45 de noche en VFR.</desc>
+    <text x="16" y="28" class="tb">El combustible de un vuelo</text>
+    <rect x="16" y="48" width="52" height="46" rx="6" class="seg-fuel c-ink" />
+    <rect x="72" y="48" width="226" height="46" rx="6" class="seg-fuel c-lift" />
+    <rect x="302" y="48" width="74" height="46" rx="6" class="seg-fuel dashed c-drag" />
+    <rect x="380" y="48" width="84" height="46" rx="6" class="seg-fuel strong c-weight" />
+    <text x="42" y="120" text-anchor="middle" class="ts">rodaje</text>
+    <text x="185" y="120" text-anchor="middle" class="t c-lift">viaje</text>
+    <text x="339" y="120" text-anchor="middle" class="ts">alternativa</text>
+    <text x="339" y="140" text-anchor="middle" class="ts">si corresponde</text>
+    <text x="464" y="28" text-anchor="end" class="tb c-weight">reserva final</text>
+    <path d="M380 156H464" class="ln c-weight" />
+    <text x="464" y="180" text-anchor="end" class="t">queda al llegar</text>
+    <text x="464" y="202" text-anchor="end" class="ts">VFR: 30 min de día, 45 de noche</text>
+  </svg>}
+
+  {type === 'civil-twilight' && <svg viewBox="0 0 480 270" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>El sol baja a lo largo de la tarde. Primero está sobre el horizonte: es de día. Al cruzar el horizonte se pone, pero todavía no es de noche: empieza el crepúsculo civil. Cuando el centro del sol llega a 6 grados por debajo del horizonte termina el crepúsculo civil y empieza la noche.</desc>
+    <rect x="20" y="40" width="180" height="200" class="zone c-drag" />
+    <rect x="200" y="40" width="130" height="200" class="zone c-lift" />
+    <rect x="330" y="40" width="130" height="200" class="night-zone" />
+    <text x="110" y="30" text-anchor="middle" class="tb">día</text>
+    <text x="265" y="30" text-anchor="middle" class="tb c-lift">crepúsculo civil</text>
+    <text x="395" y="30" text-anchor="middle" class="tb">noche</text>
+    <line x1="20" y1="140" x2="460" y2="140" class="ln thick" />
+    <line x1="20" y1="196" x2="460" y2="196" class="ln dash thin" />
+    <text x="26" y="132" class="ts">horizonte · 0°</text>
+    <text x="26" y="216" class="ts">6° bajo el horizonte</text>
+    <path d="M70 70L200 140L330 196" class="guide" />
+    <circle cx="70" cy="70" r="14" class="sun" />
+    <circle cx="200" cy="140" r="14" class="sun" />
+    <circle cx="330" cy="196" r="14" class="sun" />
+    <text x="200" y="174" text-anchor="middle" class="ts">puesta</text>
+    <text x="330" y="234" text-anchor="middle" class="t">empieza la noche</text>
+    <text x="20" y="262" class="ts">la tarde avanza →</text>
+  </svg>}
+
+  {type === 'wing-geometry' && <svg viewBox="0 0 480 346" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un avión visto desde arriba. Una flecha de punta a punta del ala marca la envergadura. Otra, del borde de ataque al borde de fuga, marca la cuerda. En el borde de fuga, los alerones están hacia las puntas y los flaps cerca del fuselaje.</desc>
+    <g transform="translate(240 170) scale(3.6)"><path d={TOP} class="pl" /></g>
+    <rect x="360" y="163" width="78" height="7" class="surf c-lift" />
+    <rect x="42" y="163" width="78" height="7" class="surf c-lift" />
+    <rect x="266" y="164" width="88" height="7" class="surf c-drag" />
+    <rect x="126" y="164" width="88" height="7" class="surf c-drag" />
+    <path d={arrow(240, 92, 438, 92, 10)} class="arw thin c-ink" />
+    <path d={arrow(240, 92, 42, 92, 10)} class="arw thin c-ink" />
+    <text x="120" y="82" text-anchor="middle" class="tb">envergadura</text>
+    <path d={arrow(146, 146, 146, 124, 8)} class="arw thin c-thrust" />
+    <path d={arrow(146, 146, 146, 168, 8)} class="arw thin c-thrust" />
+    <text x="16" y="216" class="tb c-thrust">cuerda</text>
+    <line x1="60" y1="208" x2="140" y2="152" class="guide" />
+    <text x="400" y="202" text-anchor="middle" class="t c-lift">alerón</text>
+    <text x="310" y="226" text-anchor="middle" class="t c-drag">flap</text>
+    <line x1="310" y1="210" x2="310" y2="174" class="guide" />
+    <text x="470" y="112" text-anchor="end" class="ts">borde de ataque</text>
+    <text x="470" y="230" text-anchor="end" class="ts">borde de fuga</text>
+    <text x="16" y="336" class="t">alargamiento: envergadura comparada con la cuerda media</text>
+  </svg>}
+
+  {type === 'inversion' && <svg viewBox="0 0 480 306" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un gráfico con la temperatura en el eje horizontal y la altura en el vertical. Una línea punteada muestra lo habitual: la temperatura baja al subir. La línea del día sube hacia la derecha cerca del suelo, dentro de una capa de inversión, y recién por encima de esa capa empieza a bajar. En el suelo, dentro de la capa, hay niebla o bruma. En el tope de la capa, las flechas de viento cambian de largo: arriba sopla fuerte y abajo casi calmo.</desc>
+    <rect x="60" y="170" width="400" height="80" class="zone c-lift" />
+    <line x1="60" y1="250" x2="460" y2="250" class="ln thin" />
+    <line x1="60" y1="250" x2="60" y2="30" class="ln thin" />
+    <text x="68" y="40" class="ts">altura</text>
+    <text x="460" y="272" text-anchor="end" class="ts">temperatura →</text>
+    <path d="M330 250L170 40" class="guide" />
+    <text x="222" y="120" text-anchor="end" class="ts">habitual</text>
+    <path d="M200 250L300 170L190 40" class="ln thick c-weight" />
+    <text x="310" y="166" class="tb c-weight">más calor arriba</text>
+    <text x="452" y="198" text-anchor="end" class="tb c-lift">capa de inversión</text>
+    <text x="452" y="222" text-anchor="end" class="ts">aire quieto, niebla o bruma</text>
+    <path d={arrow(372, 120, 452, 120, 10)} class="arw thin c-air" />
+    <path d={arrow(372, 146, 452, 146, 10)} class="arw thin c-air" />
+    <text x="372" y="104" class="t c-air">viento fuerte</text>
+    <path d={arrow(80, 196, 104, 196, 8)} class="arw thin c-air" />
+    <text x="16" y="298" class="t">En el tope de la capa puede haber cortante de viento</text>
+  </svg>}
+
+  {type === 'mountain-wave' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Corte de una sierra con el viento de izquierda a derecha. Del lado de barlovento el aire sube por la ladera. Del lado de sotavento baja con fuerza y sigue en ondas. Arriba de la cresta de la onda hay una nube lenticular, y debajo de ella un rotor, una zona de aire que gira y es muy turbulenta.</desc>
+    <path d="M10 262L130 262L215 120L300 262L470 262V280H10Z" class="ground" />
+    <path d="M10 170C110 170 150 96 215 72C270 56 300 160 350 156C392 152 400 84 440 84C455 84 465 96 470 104" class="ln c-air" />
+    <path d="M10 214C100 214 150 140 215 106C260 94 290 216 340 208C380 202 400 146 440 146C455 146 465 154 470 158" class="ln thin c-air" />
+    <path d={arrow(16, 150, 74, 150, 10)} class="arw c-air" />
+    <text x="16" y="138" class="tb c-air">viento</text>
+    <ellipse cx="432" cy="62" rx="38" ry="11" class="cloud" />
+    <text x="470" y="36" text-anchor="end" class="ts">nube lenticular</text>
+    <path d={arcArrow(400, 226, 20, 20, -60, 240, 9)} class="arw thin c-red" />
+    <text x="430" y="232" class="tb c-red">rotor</text>
+    <path d={arrow(282, 140, 300, 196, 10)} class="arw c-red" />
+    <text x="304" y="130" class="t c-red">descenso fuerte</text>
+    <text x="70" y="290" text-anchor="middle" class="ts">barlovento</text>
+    <text x="360" y="290" text-anchor="middle" class="ts">sotavento</text>
+  </svg>}
+
+  {type === 'variation' && <svg viewBox="0 0 480 320" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Desde un mismo punto salen dos flechas de norte: el norte verdadero, hacia arriba, y el norte magnético, 8 grados a la derecha. Una tercera flecha marca un curso de 120 grados medido desde el norte verdadero. Medido desde el norte magnético, el mismo curso es 112 grados.</desc>
+    <path d={arrow(240, 210, 240, 54, 12)} class="arw c-lift" />
+    <path d={arrow(240, 210, r1(240 + 156 * Math.sin(rad(8))), r1(210 - 156 * Math.cos(rad(8))), 12)} class="arw c-weight" />
+    <path d={arrow(240, 210, r1(240 + 190 * Math.sin(rad(120))), r1(210 - 190 * Math.cos(rad(120))), 13)} class="arw thick c-ink" />
+    <path d={arc(240, 210, 62, -90, 30)} class="ln c-lift" />
+    <path d={arc(240, 210, 96, -82, 30)} class="ln c-weight" />
+    <text x="232" y="46" text-anchor="end" class="tb c-lift">N verdadero</text>
+    <text x="268" y="46" class="tb c-weight">N magnético</text>
+    <text x="270" y="96" class="ts">variación 8° E</text>
+    <text x="300" y="176" class="tb c-lift">120°</text>
+    <text x="332" y="134" class="tb c-weight">112°</text>
+    <text x="372" y="250" class="t">curso</text>
+    <text x="16" y="300" class="tm"><tspan class="c-lift">120°</tspan> − 8° = <tspan class="c-weight">112°</tspan></text>
+  </svg>}
+
+  {type === 'taxi-wind' && <svg viewBox="0 0 480 360" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un avión visto desde arriba, con la nariz hacia arriba. La mitad de adelante del dibujo corresponde al viento que viene de adelante y de un costado: el mando se gira hacia el viento y el elevador queda neutro en un triciclo o arriba en un patín de cola. La mitad de atrás corresponde al viento que viene de atrás y de un costado: el mando se gira en contra del viento y el elevador va abajo.</desc>
+    <rect x="10" y="10" width="460" height="166" rx="12" class="zone c-lift" />
+    <rect x="10" y="184" width="460" height="166" rx="12" class="zone c-weight" />
+    <g transform="translate(240 180) scale(1.1)"><path d={TOP} class="pl" /></g>
+    <path d={arrow(40, 40, 120, 104, 12)} class="arw c-air" />
+    <text x="24" y="34" class="ts c-air">viento</text>
+    <path d={arrow(440, 320, 360, 256, 12)} class="arw c-air" />
+    <text x="456" y="342" text-anchor="end" class="ts c-air">viento</text>
+    <text x="456" y="40" text-anchor="end" class="tb c-lift">Viento de adelante</text>
+    <text x="456" y="66" text-anchor="end" class="t">mando hacia el viento</text>
+    <text x="456" y="90" text-anchor="end" class="ts">el alerón de ese lado sube</text>
+    <text x="456" y="114" text-anchor="end" class="ts">elevador neutro (triciclo)</text>
+    <text x="456" y="136" text-anchor="end" class="ts">o arriba (patín de cola)</text>
+    <text x="24" y="226" class="tb c-weight">Viento de atrás</text>
+    <text x="24" y="252" class="t">mando en contra del viento</text>
+    <text x="24" y="276" class="ts">el alerón de ese lado baja</text>
+    <text x="24" y="300" class="ts">elevador abajo</text>
+  </svg>}
+
+  {type === 'oxygen-rule' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Tres franjas de altura de cabina. Por debajo de 10.000 pies, unos 700 hectopascales, la regla no pide oxígeno. Entre 10.000 y 13.000 pies, de 700 a 620 hectopascales, hace falta oxígeno para la tripulación y al menos el 10 por ciento de los pasajeros durante el tramo que pase los 30 minutos. Por encima de 13.000 pies, menos de 620 hectopascales, hace falta para todos durante todo ese tramo.</desc>
+    <rect x="120" y="20" width="350" height="80" rx="10" class="band-o c-red" />
+    <rect x="120" y="108" width="350" height="80" rx="10" class="band-o c-drag" />
+    <rect x="120" y="196" width="350" height="80" rx="10" class="band-o c-thrust" />
+    <text x="16" y="108" class="tm">13.000 ft</text>
+    <text x="16" y="128" class="ts">620 hPa</text>
+    <text x="16" y="196" class="tm">10.000 ft</text>
+    <text x="16" y="216" class="ts">700 hPa</text>
+    <text x="136" y="54" class="tb c-red">Todos, todo el tramo</text>
+    <text x="136" y="78" class="ts">tripulación y todos los pasajeros</text>
+    <text x="136" y="142" class="tb c-drag">Pasados los 30 minutos</text>
+    <text x="136" y="166" class="ts">tripulación y 10 % de los pasajeros</text>
+    <text x="136" y="230" class="tb c-thrust">La regla no pide oxígeno</text>
+    <text x="136" y="254" class="ts">igual vigilá los síntomas de hipoxia</text>
+    <text x="16" y="294" class="ts">Altura de cabina, en atmósfera estándar</text>
+  </svg>}
+
+  {type === 'airspeed-chain' && <svg viewBox="0 0 480 312" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Cuatro casillas en columna unidas por flechas. IAS es lo que marca la aguja. Sumando el error del instrumento y de la instalación se llega a CAS. Corrigiendo por densidad, es decir por altitud y temperatura, se llega a TAS, la velocidad respecto del aire. Sumando el viento se llega a GS, la velocidad sobre el suelo.</desc>
+    {speedSteps.map((step, i) => <g>
+      <rect x="16" y={16 + i * 76} width="104" height="52" rx="10" class="box" />
+      <text x="68" y={48 + i * 76} text-anchor="middle" class={`tb speed-name ${step.cls}`}>{step.name}</text>
+      <text x="140" y={37 + i * 76} class="t">{step.es}</text>
+      <text x="140" y={59 + i * 76} class="ts">{step.add}</text>
+      {i < speedSteps.length - 1 && <path d={arrow(68, 70 + i * 76, 68, 90 + i * 76, 9)} class="arw thin c-ink" />}
+    </g>)}
+  </svg>}
+
   <figcaption id={`diagram-caption-${uid}`}><strong>{diagramTitle}.</strong>{` ${caption}`}</figcaption>
 </figure>}
 
@@ -1328,6 +1787,19 @@ const metarRows = [
   .study-diagram .swatch{stroke-width:8;stroke-linecap:round;}
   .study-diagram .tube-o{fill:none;stroke:var(--dg-ink);stroke-width:22;stroke-linecap:round;}
   .study-diagram .tube-i{fill:none;stroke:var(--dg-card);stroke-width:18;stroke-linecap:round;}
+  .study-diagram .rwy-num{fill:#fff;font-size:14px;}
+  .study-diagram .spread-bar{fill:var(--dg-lift-soft);stroke:var(--dg-lift);stroke-width:1.6;}
+  .study-diagram .cloud-flat{fill:var(--dg-cloud);}
+  .study-diagram .speed-name{font-size:19px;}
+  .study-diagram .band-o{fill:currentColor;fill-opacity:.12;stroke:currentColor;stroke-opacity:.5;stroke-width:1.4;}
+  .study-diagram .surf{fill:currentColor;fill-opacity:.55;stroke:currentColor;stroke-width:1.2;}
+  .study-diagram .seg-fuel{fill:currentColor;fill-opacity:.16;stroke:currentColor;stroke-width:1.6;}
+  .study-diagram .seg-fuel.dashed{stroke-dasharray:6 5;fill-opacity:.08;}
+  .study-diagram .seg-fuel.strong{fill-opacity:.3;stroke-width:2.4;}
+  .study-diagram .on-cloud{fill:#2a2723;}
+  .study-diagram .night-zone{fill:var(--dg-ink);fill-opacity:.1;}
+  .study-diagram .sun{fill:var(--dg-drag);stroke:var(--dg-bg);stroke-width:3;}
+  .study-diagram .spark{fill:var(--dg-weight);stroke:var(--dg-weight);stroke-width:1;stroke-linejoin:round;}
   .study-diagram figcaption{margin:12px 0 0;color:var(--muted);font-size:13px;line-height:1.55;}
   .study-diagram figcaption strong{color:var(--ink);font-weight:600;}
   /* En pantallas chicas el SVG se achica: el texto crece en unidades del viewBox para no
