@@ -133,7 +133,7 @@ const articleJsonLd = {
         </div>}{lesson[2] && <aside class="learning-note" data-report-target data-report-where={`Idea para recordar · ${place}`} data-report-ref={ref}><span>IDEA PARA RECORDAR</span><p>{rememberLines(lesson[2]).map(({ label, detail }) => <span class="learning-note-line">{label && <strong>{label}</strong>}{detail}</span>)}</p></aside>}</section>;
       })}
       <div class="study-report">
-        <button class="button-quiet" type="button" data-report-page data-report-where={chapter.title} data-report-ref={`/estudiar/${chapter.slug}`} data-report-excerpt={chapter.title}>Reportar un error de contenido</button>
+        <button class="page-report" type="button" data-report-page data-report-where={chapter.title} data-report-ref={`/estudiar/${chapter.slug}`} data-report-excerpt={chapter.title}>Avisar un error en esta página</button>
       </div>
       {sortedSources.length > 0 && <section class="study-sources" id="material">
         <h2>Fuentes</h2>

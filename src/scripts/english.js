@@ -30,7 +30,7 @@ const paintProgress = (map) => {
   document.querySelectorAll('[data-english-complete]').forEach((button) => {
     const ready = map[button.dataset.englishComplete] === 'listo';
     const label = button.querySelector('[data-english-complete-label]');
-    if (label) label.textContent = ready ? 'Tema visto' : 'Marcar como visto';
+    if (label) label.textContent = ready ? 'Tema estudiado' : 'Marcar como estudiado';
     button.setAttribute('aria-pressed', String(ready));
   });
   const notice = document.querySelector('[data-english-count]');

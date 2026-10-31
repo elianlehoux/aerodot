@@ -31,6 +31,8 @@ animate-icons{display:inline-flex;flex:none;line-height:0}
 .home-footer .wordmark .wordmark-icon{width:22px;height:22px;border-radius:5px}
 .footer-main a{color:var(--graphite);text-decoration:none}
 .footer-links a{color:var(--muted);text-decoration:none;white-space:nowrap}
+/* Enlaces de texto sueltos: al menos 32 px de alto para el dedo, sin cambiar cómo se ven. */
+.footer-links a,.footer-main a,.path-contents a,.en-crumbs a{display:inline-flex;align-items:center;min-height:32px}
 .footer-main a:hover,.footer-links a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .home-footer small{display:block;max-width:90ch;font-size:12px;line-height:1.5}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
@@ -56,7 +58,7 @@ animate-icons{display:inline-flex;flex:none;line-height:0}
 .home-hero h1 em{font:inherit;font-style:italic}
 .hero-lede{max-width:36ch;margin:18px 0 0;color:var(--graphite);font-size:18px;line-height:1.5}
 .home-doors{display:grid;grid-template-columns:1fr;gap:12px}
-.home-door{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:96px;padding:0 24px;overflow:hidden;border-radius:18px;background:var(--quiet);color:var(--ink);text-decoration:none;transition:color var(--dur) var(--ease),transform var(--dur-fast) var(--ease)}
+.home-door{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:96px;padding:16px 24px;overflow:hidden;border-radius:18px;background:var(--quiet);color:var(--ink);text-decoration:none;transition:color var(--dur) var(--ease),transform var(--dur-fast) var(--ease)}
 /* El relleno nace en el círculo de la flecha y crece hasta cubrir el botón. */
 .home-door::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--action);clip-path:circle(0 at calc(100% - 46px) 50%);transition:clip-path 560ms cubic-bezier(.22,.8,.2,1)}
 .home-door strong{font:520 clamp(26px,2.4vw,32px)/1.12 var(--display);letter-spacing:-.02em;text-wrap:balance}
@@ -78,12 +80,13 @@ animate-icons{display:inline-flex;flex:none;line-height:0}
    (.study-page-toc), asi que un tercer track queda reservado y vacio en todas las paginas. */
 .library-shell{display:grid;grid-template-columns:minmax(180px,205px) minmax(0,1fr);align-items:start;gap:clamp(28px,4vw,56px);width:min(var(--page-max),100%);margin:0 auto;padding:30px 32px 78px}
 .library-shell>main{grid-column:2;min-width:0}
-.library-index-shell{display:block;width:min(100%,920px);padding:38px 32px 78px}
+/* Los tres índices (biblioteca, exámenes e inglés) comparten ancho y márgenes. */
+.library-index-shell{display:block;width:min(100%,1040px);padding:44px 34px 84px}
 .library-index-shell>main{grid-column:auto}
 .library-sidebar{grid-column:1;grid-row:1;position:sticky;top:78px;align-self:start;max-height:calc(100dvh - 94px);padding:4px 6px 10px 0;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .sidebar-open,.sidebar-close{display:none}
 .sidebar-backdrop{position:fixed;z-index:40;inset:0;background:rgba(0,0,0,.35)}
-.sidebar-nav{display:grid;gap:2px}
+.sidebar-nav{display:grid;align-content:start;gap:2px}
 .sidebar-home{display:block;margin:0 0 12px;padding:7px 9px 12px;border-bottom:1px solid var(--line);color:var(--muted);font-size:14px;text-decoration:none}
 .sidebar-home:hover{color:var(--ink)}
 .sidebar-group{margin:0 0 6px;border:0}
@@ -198,7 +201,6 @@ html[data-theme="dark"] .us-note{border-left-color:#b7c4ff}
 html[data-theme="dark"] .us-note span{color:#c5d0ff}
 .us-note p{margin:6px 0 0;color:var(--graphite);font-size:15px;line-height:1.6}
 .study-report{margin:0 0 18px}
-.study-report .button-quiet{border-color:var(--ink);max-width:100%;white-space:normal;text-align:center}
 .study-sources{margin:0 0 34px;padding:23px 24px;border:0;border-radius:var(--radius-card);background:var(--taupe);scroll-margin-top:28px}
 .study-sources h2{margin:0 0 12px;color:var(--ink);font:520 26px/1.2 var(--display);letter-spacing:-.02em}
 .study-sources>p{max-width:62ch;margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
@@ -225,7 +227,7 @@ html[data-theme="dark"] .us-note span{color:#c5d0ff}
 .exam-hub-intro>p:not(.eyebrow){max-width:68ch;margin:0;color:var(--muted);font-size:16px;line-height:1.55}
 .exam-hub-intro>p+p:not(.eyebrow){margin-top:12px}
 .exam-hub-intro>p+p{margin-top:14px}
-.back-link{display:inline-block;margin:0 0 9px;color:var(--muted);font-size:13px;text-decoration:none}
+.back-link{display:inline-flex;align-items:center;min-height:32px;margin:0 0 9px;color:var(--muted);font-size:13px;text-decoration:none}
 .back-link:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .exam-search{margin:22px 0 0}
 .exam-group{margin-top:52px}
@@ -472,7 +474,7 @@ html[data-theme="dark"] .report-error{color:#e7b2a4}
   .library-shell{padding:0 20px 96px}
   .library-index-shell{padding:28px 20px 54px}
   .library-intro{padding:5px 0 20px}
-  .library-intro h1{font-size:clamp(38px,9vw,46px)}
+  .library-intro h1{font-size:clamp(36px,9vw,46px)}
   .library-search,.exam-search{margin-top:22px}
   .library-groups{margin-top:36px}
   .topic-group{margin-top:42px}
