@@ -1,6 +1,9 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { radioFailSet } from '../../data/english-sets.js';
@@ -13,20 +16,12 @@ import '../../styles/english-comms.css';
   title="Falla de radio: inglés aeronáutico | Aerodot"
   description="Qué hacer y qué decir en inglés cuando la radio falla: el código 7600, la transmisión a ciegas y las señales luminosas de la torre. Con audio y una práctica corta."
 >
-  <p class="eyebrow">Comunicaciones</p>
+  <EnglishCrumbs slug="falla-radio" />
   <h1>Falla de radio.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-fr-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        <a href="#pasos">Qué hacés, en orden</a>
-        <a href="#ciegas">Transmitir a ciegas</a>
-        <a href="#luces">Las señales de la torre</a>
-        <a href={`#${radioFailSet.id}-title`}>{radioFailSet.title}</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={[{href:'#pasos',label:'Qué hacés, en orden'},{href:'#ciegas',label:'Transmitir a ciegas'},{href:'#luces',label:'Las señales de la torre'}]} practice={[{href:`#${radioFailSet.id}-title`,label:radioFailSet.title}]} />
+
+  <EnglishPart kind="learn">
 
   <section class="radio-block" aria-labelledby="pasos">
     <h2 id="pasos">Qué hacés, en orden</h2>
@@ -99,7 +94,12 @@ import '../../styles/english-comms.css';
     </dl>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <ExerciseSet set={radioFailSet} />
+
+  </EnglishPart>
 
   <p class="en-sources">La transmisión a ciegas sigue el reglamento europeo SERA (UE 923/2012, SERA.14085). Las señales luminosas y cómo se acusa recibo siguen el Apéndice 1 del mismo reglamento, que toma la tabla del Anexo 2 de la OACI. El código 7600 sigue SERA.13005. Qué hacer en un vuelo en condiciones visuales es la regla general de la OACI: cada país puede agregar detalles y la Unión Europea cambió sus pasos en 2025, así que seguí lo que publique la AIP de tu país y lo que te enseñe tu instructor. Laguna, la matrícula LV-DEM y todas las cifras (distancias, alturas, horas) son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
 
@@ -110,6 +110,6 @@ import '../../styles/english-comms.css';
     mountListen();
     mountEnglishProgress();
     mountExerciseSets();
-    mountPageToc('[data-fr-toc]');
+    mountPageToc('[data-page-toc]');
   </script>
 </EnglishShell>

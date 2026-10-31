@@ -20,10 +20,23 @@ const next = orderIndex > -1 && orderIndex < libraryOrder.length - 1 ? libraryOr
 // (regulaciones) se quedaba sin ninguna cita visible.
 const kindLabel = (source) => source.kind === 'Argentina' ? 'Fuente oficial' : source.kind;
 const sortedSources = [...chapter.sources].sort((a, b) => Number(b.kind === 'Argentina') - Number(a.kind === 'Argentina'));
+// Un párrafo que empieza con "EQ: " es una ecuación con sus términos:
+// "EQ: L = ½ · ρ · V² · S · C_L | L: sustentación | ρ: densidad del aire". "_X" se ve como subíndice.
+const parseEquation = (paragraph) => {
+  const [formula, ...terms] = paragraph.slice(4).split(' | ');
+  return { formula, terms: terms.map((term) => { const i = term.indexOf(': '); return [term.slice(0, i), term.slice(i + 2)]; }) };
+};
+const mathParts = (text) => text.split(/(_[\p{L}\d]+)/u).filter(Boolean).map((part) => part.startsWith('_') ? { sub: part.slice(1) } : { text: part });
+const plainMath = (text) => text.replace(/_([\p{L}\d]+)/gu, '$1');
 const formatLesson = (lesson) => {
-  const body = lesson[1].split(/\n\n+/).map((paragraph) => (
-    paragraph.startsWith('US: ') ? `> **En Estados Unidos.** ${paragraph.slice(4)}` : paragraph
-  )).join('\n\n');
+  const body = lesson[1].split(/\n\n+/).map((paragraph) => {
+    if (paragraph.startsWith('US: ')) return `> **En Estados Unidos.** ${paragraph.slice(4)}`;
+    if (paragraph.startsWith('EQ: ')) {
+      const { formula, terms } = parseEquation(paragraph);
+      return [`**Ecuación:** ${plainMath(formula)}`, ...terms.map(([symbol, meaning]) => `- ${plainMath(symbol)}: ${meaning}`)].join('\n');
+    }
+    return paragraph;
+  }).join('\n\n');
   return `## ${lesson[0]}\n\n${body}\n\n**Idea para recordar:** ${lesson[2]}`;
 };
 const rememberLines = (text) => text.split(/(?<=\.)\s+/).map((sentence) => {
@@ -88,6 +101,13 @@ const articleJsonLd = {
         return <section class="study-lesson" id={`leccion-${i + 1}`}><h2>{lesson[0]}</h2>{lesson[1].split(/\n\n+/).map((paragraph) => {
           const us = paragraph.startsWith('US: ');
           const text = us ? paragraph.slice(4) : paragraph;
+          if (paragraph.startsWith('EQ: ')) {
+            const { formula, terms } = parseEquation(paragraph);
+            return <figure class="study-eq" data-report-target data-report-where={`Ecuación · ${place}`} data-report-ref={ref}>
+              <p class="study-eq-formula">{mathParts(formula).map((part) => part.sub ? <sub>{part.sub}</sub> : part.text)}</p>
+              <dl class="study-eq-terms">{terms.map(([symbol, meaning]) => <div><dt>{mathParts(symbol).map((part) => part.sub ? <sub>{part.sub}</sub> : part.text)}</dt><dd>{meaning}</dd></div>)}</dl>
+            </figure>;
+          }
           return us
             ? <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{text}</p></aside>
             : <p data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{text}</p>;

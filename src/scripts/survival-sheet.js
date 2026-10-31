@@ -135,18 +135,4 @@ export const mountSurvivalSheet = () => {
   };
   buttons.forEach((button) => button.addEventListener('click', () => show(button.dataset.showSheet)));
   show(survivalSheets[0].id);
-
-  const wrap = document.querySelector('[data-en-tabs]');
-  if (!wrap) return;
-  const tabs = [...wrap.querySelectorAll('[role="tab"]')];
-  const tabPanels = [...wrap.querySelectorAll('[role="tabpanel"]')];
-  const open = (id) => {
-    tabs.forEach((tab) => {
-      const on = tab.getAttribute('aria-controls') === id;
-      tab.setAttribute('aria-selected', String(on));
-      tab.tabIndex = on ? 0 : -1;
-    });
-    tabPanels.forEach((panel) => { panel.hidden = panel.id !== id; });
-  };
-  tabs.forEach((tab) => tab.addEventListener('click', () => open(tab.getAttribute('aria-controls'))));
 };

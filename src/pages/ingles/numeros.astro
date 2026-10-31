@@ -1,6 +1,9 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
 import { englishNeighbors, phoneticAlphabet, radioKinds, spokenDigits, spokenGroups } from '../../data/english.js';
 
@@ -10,8 +13,12 @@ const nextTopic = englishNeighbors('numeros').next;
   title="Números y alfabeto: inglés aeronáutico | Aerodot"
   description="Cómo se dicen los números y las letras en la radio: three suena tree, five suena fife, nine suena niner y four suena fower. El alfabeto fonético. Conversor, deletreador y práctica para armar la frase en voz alta."
 >
-  <p class="eyebrow">Base</p>
+  <EnglishCrumbs slug="numeros" />
   <h1>Números y alfabeto.</h1>
+
+  <EnglishToc learn={[{href:'#cifras',label:'Las cifras'},{href:'#alfabeto',label:'El alfabeto'},{href:'#conversor',label:'El conversor'}]} practice={[{href:'#practica-numeros',label:'Armá la frase'}]} />
+
+  <EnglishPart kind="learn">
 
   <section class="en-block" aria-labelledby="cifras">
     <h2 id="cifras">Las cifras</h2>
@@ -96,6 +103,9 @@ const nextTopic = englishNeighbors('numeros').next;
     </div>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <section class="en-block drill" data-number-drill aria-labelledby="practica-numeros">
     <h2 id="practica-numeros">Armá la frase</h2>
     <p class="en-block-lede">Seis frases. Ordená las fichas como se dicen por radio. Al terminar, el tema queda listo.</p>
@@ -127,10 +137,13 @@ const nextTopic = englishNeighbors('numeros').next;
     <noscript><p>La práctica de fichas necesita JavaScript. Las tablas de arriba se leen igual.</p></noscript>
   </section>
 
+  </EnglishPart>
+
   <EnglishFinish slug="numeros" where="Números y alfabeto" />
   <script>
-    import { mountConverter, mountEnglishProgress, mountListen, mountNumberDrill } from '../../scripts/english.js';
+    import { mountConverter, mountEnglishProgress, mountListen, mountNumberDrill, mountPageToc } from '../../scripts/english.js';
     mountListen();
+    mountPageToc('[data-page-toc]');
     mountEnglishProgress();
     mountConverter();
     mountNumberDrill();

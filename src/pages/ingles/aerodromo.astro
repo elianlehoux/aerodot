@@ -1,7 +1,11 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import FlipPhrase from '../../components/FlipPhrase.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { aerodromeRadio, aerodromeWords } from '../../data/english.js';
 import { aerodromeSet } from '../../data/english-sets.js';
@@ -10,10 +14,14 @@ import { aerodromeSet } from '../../data/english-sets.js';
   title="Aeródromo: inglés aeronáutico | Aerodot"
   description="Las palabras del aeródromo en inglés: pista, calle de rodaje, punto de espera, circuito y las frases que se dicen en la frecuencia."
 >
-  <p class="eyebrow">Base</p>
+  <EnglishCrumbs slug="aerodromo" />
   <h1>Aeródromo.</h1>
 
-  <div class="field" data-field>
+  <EnglishToc learn={[{href:'#plano',label:'El plano'},{href:'#frecuencia',label:'En la frecuencia'}]} practice={[{href:'#prueba-mapa',label:'Tocá en el plano'},{href:`#${aerodromeSet.id}-title`,label:aerodromeSet.title}]} />
+
+  <EnglishPart kind="learn">
+
+  <div class="field" id="plano" data-field>
     <div class="field-bar">
       <div class="seg" role="group" aria-label="Modo">
         <button type="button" data-field-mode="explore" aria-pressed="true">Explorar</button>
@@ -218,9 +226,9 @@ import { aerodromeSet } from '../../data/english-sets.js';
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{word.en}</h3>
-            <EnglishSay text={word.say} label={`Escuchar *${word.say}*`} quiet />
+            <EnglishSay text={word.en.replace(/…$/, '')} label={`Escuchar *${word.en}*`} quiet />
           </div>
-          <p class="flip-say" lang="en">“{word.say}”</p>
+          <FlipPhrase text={word.say} say={word.say} term={word.en} />
           <div class="flip-back" id={`flip-${word.id}`} hidden>
             <p class="flip-es">{word.es}</p>
             <p>{word.body}</p>
@@ -231,13 +239,25 @@ import { aerodromeSet } from '../../data/english-sets.js';
     </ul>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
+  <section class="en-block map-quiz" aria-labelledby="prueba-mapa">
+    <h2 id="prueba-mapa">Tocá en el plano</h2>
+    <p class="en-block-lede">Ocho preguntas sobre el mismo plano de la explicación: te dicen una palabra y la tocás. Con seis bien, el tema queda listo.</p>
+    <button class="button-primary" type="button" data-start-map-quiz>Empezar la prueba</button>
+  </section>
+
   <ExerciseSet set={aerodromeSet} />
+
+  </EnglishPart>
 
   <EnglishFinish slug="aerodromo" where="Aeródromo" />
   <script>
-    import { mountAerodrome, mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    import { mountAerodrome, mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
     import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
+    mountPageToc('[data-page-toc]');
     mountEnglishProgress();
     mountAerodrome();
     mountReveals();

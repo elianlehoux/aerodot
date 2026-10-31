@@ -1,7 +1,11 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import FlipPhrase from '../../components/FlipPhrase.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { aircraftFaults, aircraftWords } from '../../data/english.js';
 import { aircraftSet } from '../../data/english-sets.js';
@@ -28,10 +32,14 @@ const views = aircraftViews.map((view) => {
   title="Aeronave: inglés aeronáutico | Aerodot"
   description="Las partes del avión, los instrumentos de la cabina y las fallas, en inglés: tocás una pieza, ves cómo se llama, la escuchás y la ves moverse."
 >
-  <p class="eyebrow">Base</p>
+  <EnglishCrumbs slug="aeronave" />
   <h1>Aeronave.</h1>
 
-  <div class="field ac-field" data-field>
+  <EnglishToc learn={[{href:'#dibujo',label:'El avión'},{href:'#fallas',label:'Cuando algo falla'}]} practice={[{href:'#prueba-mapa',label:'Tocá en el dibujo'},{href:`#${aircraftSet.id}-title`,label:aircraftSet.title}]} />
+
+  <EnglishPart kind="learn">
+
+  <div class="field ac-field" id="dibujo" data-field>
     <div class="field-bar">
       <div class="seg" role="group" aria-label="Modo">
         <button type="button" data-field-mode="explore" aria-pressed="true">Explorar</button>
@@ -145,9 +153,9 @@ const views = aircraftViews.map((view) => {
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{fault.en}</h3>
-            <EnglishSay text={fault.say} label={`Escuchar *${fault.say}*`} quiet />
+            <EnglishSay text={fault.en.replace(/…$/, '')} label={`Escuchar *${fault.en}*`} quiet />
           </div>
-          <p class="flip-say" lang="en">“{fault.say}”</p>
+          <FlipPhrase text={fault.say} say={fault.say} term={fault.en} />
           <div class="flip-back" id={`flip-${fault.id}`} hidden>
             <p class="flip-es">{fault.es}</p>
             <p>{fault.body}</p>
@@ -158,13 +166,25 @@ const views = aircraftViews.map((view) => {
     </ul>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
+  <section class="en-block map-quiz" aria-labelledby="prueba-mapa">
+    <h2 id="prueba-mapa">Tocá en el dibujo</h2>
+    <p class="en-block-lede">Ocho preguntas sobre el mismo dibujo de la explicación: te dicen una palabra y la tocás. Con seis bien, el tema queda listo.</p>
+    <button class="button-primary" type="button" data-start-map-quiz>Empezar la prueba</button>
+  </section>
+
   <ExerciseSet set={aircraftSet} />
+
+  </EnglishPart>
 
   <EnglishFinish slug="aeronave" where="Aeronave" />
   <script>
-    import { mountAircraft, mountEnglishProgress, mountListen, mountReveals } from '../../scripts/english.js';
+    import { mountAircraft, mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
     import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     mountListen();
+    mountPageToc('[data-page-toc]');
     mountEnglishProgress();
     mountAircraft();
     mountReveals();

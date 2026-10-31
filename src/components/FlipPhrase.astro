@@ -1,0 +1,21 @@
+---
+/**
+ * La frase de ejemplo de una tarjeta, con su propio botón para escucharla entera.
+ * El botón del título lee solo el término. Si la frase es el término mismo, no se repite el botón.
+ */
+import EnglishSay from './EnglishSay.astro';
+
+interface Props {
+  text: string;
+  say: string;
+  term: string;
+}
+
+const { text, say, term } = Astro.props;
+const bare = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const own = bare(text) !== bare(term);
+---
+<div class="flip-line">
+  <p class="flip-say" lang="en">“{text}”</p>
+  {own && <EnglishSay text={say} label="Escuchar la frase" quiet />}
+</div>

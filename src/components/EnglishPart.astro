@@ -1,0 +1,16 @@
+---
+/**
+ * Las dos partes de cada tema: la explicación (leer, escuchar, tocar) y la práctica (lo que se
+ * corrige y deja el tema listo). Cada parte abre con su nombre y una línea.
+ */
+interface Props {
+  kind: 'learn' | 'practice';
+}
+
+const { kind } = Astro.props;
+const learn = kind === 'learn';
+---
+<div class:list={['en-part', learn ? 'is-learn' : 'is-practice']} id={learn ? 'explicacion' : 'practica'}>
+  <p class="en-part-label">{learn ? 'Explicación' : 'Práctica'}</p>
+  <slot />
+</div>

@@ -1,0 +1,43 @@
+---
+/**
+ * La ruta de un tema: Inglés › paso del recorrido › tema. Sale de englishPhases y englishSections,
+ * así que un tema nuevo la tiene sin tocar nada. También va como BreadcrumbList para los buscadores.
+ */
+import { englishPhases, englishSections } from '../data/english.js';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const section = englishSections.find((item) => item.slug === slug);
+const phase = englishPhases.find((item) => item.id === section?.phase);
+const crumbs = [
+  { name: 'Inglés', href: '/ingles' },
+  ...(phase ? [{ name: phase.title, href: `/ingles#fase-${phase.id}` }] : []),
+  ...(section ? [{ name: section.title, href: section.href }] : []),
+];
+const site = Astro.site ?? new URL('https://aerodot.app');
+const ld = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: new URL(crumb.href, site).href,
+  })),
+}).replace(/</g, '\\u003c');
+---
+<nav class="en-crumbs" aria-label="Ruta">
+  <ol>
+    {crumbs.map((crumb, index) => (
+      <li>
+        {index < crumbs.length - 1
+          ? <a href={crumb.href}>{crumb.name}</a>
+          : <span aria-current="page">{crumb.name}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script is:inline type="application/ld+json" set:html={ld}></script>

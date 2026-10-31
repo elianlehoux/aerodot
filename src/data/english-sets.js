@@ -84,7 +84,7 @@ export const hearbackSet = {
   track: false,
   shuffle: false,
   title: 'Encontrá el error',
-  lede: 'El controlador también escucha tu repetición, y por eso puede corregir un error a tiempo. Que el controlador no corrija no significa que hayas repetido bien. Ante la duda, pedí confirmación (*confirm*). En cada caso hay un solo dato mal repetido. Escuchá o leé y elegí cuál es.',
+  lede: 'En cada caso hay un solo dato mal repetido. Escuchá o leé y elegí cuál es.',
   items: hearbackCases.map((entry, index) => hearbackItem(entry, `Caso ${index + 1}. ¿Qué dato repitió mal el piloto?`)),
 };
 
@@ -433,7 +433,7 @@ export const aircraftSet = {
   id: 'aircraft-say',
   slug: 'aeronave',
   title: 'Decilo en la cabina',
-  lede: 'Ocho frases de la inspección y de una falla. La palabra justa, no la traducción.',
+  lede: 'Ocho frases de la inspección y de una falla. Elegí la palabra que se usa, no la traducción.',
   items: [
     { id: 'p1', type: 'mcq', prompt: 'Vas a arrancar el motor y hay gente cerca de la hélice. ¿Qué gritás?',
       options: ['Clear prop', 'Propeller go', 'Start now', 'Engine on'], answer: 0,

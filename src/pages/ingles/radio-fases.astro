@@ -1,7 +1,11 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import FlipPhrase from '../../components/FlipPhrase.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { radioPhasesSet } from '../../data/english-sets.js';
 import { radioPhases } from '../../data/english-phases.js';
@@ -24,19 +28,12 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
   title="Fases de vuelo: inglés aeronáutico | Aerodot"
   description="Qué se dice por radio en inglés en cada fase de un vuelo de circuito VFR: puesta en marcha, rodaje, despegue, circuito y aterrizaje. Diálogos con audio, frases clave y práctica."
 >
-  <p class="eyebrow">Comunicaciones</p>
+  <EnglishCrumbs slug="radio-fases" />
   <h1>Fases de vuelo.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-rf-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        <a href="#convencion">Quién habla primero</a>
-        <a href="#fases">El vuelo, fase por fase</a>
-        <a href={`#${radioPhasesSet.id}-title`}>{radioPhasesSet.title}</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={[{href:'#convencion',label:'Quién habla primero'},{href:'#fases',label:'El vuelo, fase por fase'}]} practice={[{href:`#${radioPhasesSet.id}-title`,label:radioPhasesSet.title}]} />
+
+  <EnglishPart kind="learn">
 
   <section class="radio-block" aria-labelledby="convencion">
     <h2 id="convencion">Quién habla primero</h2>
@@ -98,9 +95,9 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
               <li class="flip" data-flip>
                 <div class="word-head">
                   <h5 class="rf-card-en" lang="en">{item.en}</h5>
-                  <EnglishSay text={item.say} label={`Escuchar la frase *${item.en}*`} quiet />
+                  <EnglishSay text={item.en.replace(/…$/, '')} label={`Escuchar *${item.en}*`} quiet />
                 </div>
-                <p class="flip-say" lang="en">“{item.use}”</p>
+                <FlipPhrase text={item.use} say={item.say} term={item.en} />
                 <div class="flip-back" id={`flip-${item.id}`} hidden>
                   <p class="flip-es">{item.es}</p>
                   <p>{splitMixed(item.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
@@ -120,7 +117,12 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
     </div>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <ExerciseSet set={radioPhasesSet} />
+
+  </EnglishPart>
 
   <p class="en-sources">La fraseología de cada fase sigue el manual de radiotelefonía de la CAA británica (CAP 413, cap. 4, y los ejemplos del cap. 11), igual que el lugar del distintivo (2.49). Qué se repite siempre sigue el reglamento europeo SERA (UE 923/2012, SERA.8015) y la apertura de una comunicación sigue SERA.14055. Los nombres de los tramos del circuito y el uso de EE. UU. siguen el AIM de la FAA (4-3-3 y 4-3-18) y el Glosario Piloto/Controlador. Laguna, el aeroclub, la matrícula LV-DEM, los otros aviones y todas las cifras (frecuencias, QNH, pista, viento) son de práctica: no se usan para volar. El audio usa la voz de tu navegador.</p>
 
@@ -132,7 +134,7 @@ const stopName = (phase: { es: string; mapLabel: string }, index: number) => {
     mountEnglishProgress();
     mountReveals();
     mountExerciseSets();
-    mountPageToc('[data-rf-toc]');
+    mountPageToc('[data-page-toc]');
 
     /*
      * El selector de fases: un grupo de botones que se marcan con aria-pressed (uno a la vez).

@@ -1,7 +1,11 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import FlipPhrase from '../../components/FlipPhrase.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { weatherSet } from '../../data/english-sets.js';
 import { cloudAmounts, wxCommon, weatherRadio } from '../../data/weather.js';
@@ -11,20 +15,12 @@ import '../../styles/english-weather.css';
   title="Meteorología: inglés aeronáutico | Aerodot"
   description="Cómo se dicen por radio, en inglés aeronáutico, las nubes y los fenómenos. Dibujos para tocar, audio y una práctica corta."
 >
-  <p class="eyebrow">Base</p>
+  <EnglishCrumbs slug="tiempo" />
   <h1>Meteorología.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-wx-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        <a href="#nubes" lang="en">Clouds</a>
-        <a href="#fenomenos" lang="en">Weather phenomena</a>
-        <a href="#frecuencia" lang="en">On the radio</a>
-        <a href={`#${weatherSet.id}-title`}>Decilo en la radio</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={[{href:'#nubes',label:'Clouds',lang:'en'},{href:'#fenomenos',label:'Weather phenomena',lang:'en'},{href:'#frecuencia',label:'On the radio',lang:'en'}]} practice={[{href:`#${weatherSet.id}-title`,label:'Decilo en la radio'}]} />
+
+  <EnglishPart kind="learn">
 
   <!-- 1 · Nubes -->
   <section class="en-block" data-wc aria-labelledby="nubes">
@@ -90,15 +86,15 @@ import '../../styles/english-weather.css';
   <!-- 3 · Radio -->
   <section class="radio-block" aria-labelledby="frecuencia">
     <h2 id="frecuencia" lang="en">On the radio</h2>
-    <p>Son las frases que se piden, se avisan o se escuchan sobre el tiempo. Adiviná el significado de cada tarjeta antes de darla vuelta.</p>
+    <p>Frases del tiempo que vas a pedir o escuchar por radio. Adiviná el significado de cada tarjeta antes de darla vuelta.</p>
     <ul class="flip-grid" role="list">
       {weatherRadio.map((item) => (
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{item.en}</h3>
-            <EnglishSay text={item.say} label={`Escuchar *${item.en}*`} quiet />
+            <EnglishSay text={item.en.replace(/…$/, '')} label={`Escuchar *${item.en}*`} quiet />
           </div>
-          <p class="flip-say" lang="en">“{item.display ?? item.say}”</p>
+          <FlipPhrase text={item.display ?? item.say} say={item.say} term={item.en} />
           <div class="flip-back" id={`flip-${item.id}`} hidden>
             <p class="flip-es">{item.es}</p>
             <p>{item.body}</p>
@@ -109,8 +105,13 @@ import '../../styles/english-weather.css';
     </ul>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <!-- 4 · Práctica -->
   <ExerciseSet set={weatherSet} />
+
+  </EnglishPart>
 
   <p class="en-sources">El aeródromo Laguna y las frases son de práctica. No se usan para volar. Para volar, el tiempo se consulta en los productos vigentes del SMN. El audio usa la voz de tu navegador.</p>
 
@@ -125,6 +126,6 @@ import '../../styles/english-weather.css';
     mountWeather();
     mountExerciseSets();
 
-    mountPageToc('[data-wx-toc]');
+    mountPageToc('[data-page-toc]');
   </script>
 </EnglishShell>
