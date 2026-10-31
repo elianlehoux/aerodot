@@ -1,6 +1,7 @@
 import { chapters as examChapters } from './ppa-course.js';
 import { librarySources } from './library-sources.js';
 import { handbookLessons } from './handbook-lessons.js';
+import { maneuverChapters } from './maneuvers.js';
 
 const additions = {
   aerodinamica: [
@@ -395,69 +396,6 @@ const newChapters = [
     ],
   },
   {
-    id: 13,
-    slug: 'maniobras-basicas',
-    title: 'Maniobras básicas de vuelo',
-    eyebrow: 'Leer la actitud y entender cómo cambia la trayectoria',
-    minutes: 55,
-    intro: 'Relacioná actitud, velocidad y potencia con la trayectoria en las maniobras básicas.',
-    lessons: [
-      [
-        'Actitud, trayectoria y ángulo de ataque',
-        'La actitud es hacia dónde apunta el avión respecto del horizonte. La trayectoria es hacia dónde se mueve por el aire. El ángulo de ataque mide el ángulo entre la cuerda del ala y el viento relativo, el aire que llega al avión.\n\nLa cuerda es una línea imaginaria entre el borde delantero y el trasero del ala. Si cambiás actitud, potencia o configuración, puede cambiar la trayectoria y la energía. Por eso, una misma actitud no siempre produce la misma velocidad o ascenso.',
-        'El avión puede apuntar hacia un lado y moverse hacia otro: actitud no es trayectoria.',
-        'flightpath',
-      ],
-      [
-        'Vuelo recto y nivelado',
-        'En vuelo recto y nivelado, el avión mantiene rumbo y altura sin girar ni subir o bajar de forma sostenida. El piloto también busca conservar la velocidad y la coordinación.\n\nEl piloto observa las tendencias y hace ajustes pequeños. El compensador alivia la fuerza que aplicás a un mando y ayuda a mantener una condición. No reemplaza los mandos principales. Después de un ajuste, comprobá si produjo el efecto esperado.',
-        'Ajustá poco, observá la respuesta y volvé a comprobar.',
-      ],
-      [
-        'Ascensos y descensos',
-        'Ascender significa ganar altura. Descender, perderla. El avión puede intercambiar altura y velocidad, mientras la potencia y la resistencia influyen en cuánto cambia cada una.\n\nLa velocidad de mejor ángulo de ascenso (Vx) busca ganar más altura en menos distancia horizontal. La de mejor razón de ascenso (Vy) busca ganar altura en menos tiempo. Son valores de la aeronave y condición indicadas. En una maniobra, observá a la vez velocidad, altura y trayectoria.',
-        'Vx gana altura sobre distancia. Vy gana altura sobre tiempo.',
-      ],
-      [
-        'Virajes coordinados, resbale y derrape',
-        'En un viraje, la inclinación de las alas ayuda a cambiar la dirección. Coordinado significa que el avión no se desplaza de costado de forma apreciable. La bola del inclinómetro ayuda a verlo.\n\nEn un viraje descoordinado, en un resbale la nariz gira poco para esa inclinación y la bola cae hacia adentro. En un derrape, la nariz gira de más y la bola se va hacia afuera. El piloto también puede hacer un resbale a propósito para perder altura o corregir viento cruzado. Una carga mayor puede acercar el ala a la pérdida.',
-        'Inclinación y guiñada deben acompañarse. La bola ayuda a comprobarlo.',
-        'slip-skid',
-      ],
-      [
-        'Vuelo lento y margen respecto de la pérdida',
-        'En vuelo lento, el ala necesita un ángulo de ataque mayor para sostener el peso. Los mandos pueden sentirse menos eficaces y el avión puede responder de otra manera.\n\nPotencia, flaps y coordinación afectan velocidad y trayectoria. La pérdida sigue dependiendo del ángulo de ataque crítico, no de una cifra fija. El reconocimiento y la recuperación se practican con instructor y en condiciones aprobadas para el avión.',
-        'Volar lento exige más atención al ángulo de ataque y a la coordinación.',
-      ],
-      [
-        'Despegue y decisión de interrumpir',
-        'El despegue pasa del rodaje a la aceleración, luego al vuelo y al ascenso. Durante la carrera, el piloto mantiene el control direccional y compara lo que ocurre con el plan.\n\nViento, peso, superficie y obstáculos cambian la distancia necesaria. Antes de empezar, conocé las condiciones que llevarían a interrumpir la carrera y los datos publicados para el avión y la pista.',
-        'Definí antes de empezar qué condición haría interrumpir el despegue.',
-      ],
-      [
-        'Variantes de despegue y sus márgenes',
-        'Un campo corto deja menos pista disponible. Una superficie blanda puede aumentar la resistencia al rodaje. Un obstáculo exige considerar la trayectoria inicial. Son problemas distintos y pueden requerir técnicas diferentes.\n\nUsá las tablas que correspondan a la aeronave, superficie, peso y viento. No mezcles pasos de técnicas distintas. Aprendé el objetivo y la secuencia con el manual de vuelo aprobado y el instructor.',
-        'Elegí la técnica por la condición real y usá datos que describan ese escenario.',
-      ],
-      [
-        'Aproximación, aterrizaje y motor y al aire',
-        'La aproximación lleva al avión desde el circuito hasta la pista con una trayectoria y energía preparadas para aterrizar. Aterrizar incluye reducir el descenso, tocar la pista y mantener el control durante la carrera.\n\nMotor y al aire significa interrumpir el aterrizaje y volver a ascender. Se usa cuando no conviene continuar la aproximación. Los criterios y la secuencia se estudian para el avión y el aeródromo.',
-        'Si no se cumplen los criterios acordados, motor y al aire conserva opciones.',
-      ],
-      [
-        'Referencias visuales en final y aterrizaje',
-        'En final, el piloto compara la posición del avión con la pista: alineación, trayectoria de descenso y desplazamiento lateral. La perspectiva cambia a medida que se acerca al suelo y aporta indicios, no una medida única.\n\nEl ancho de pista, el terreno, las luces y el viento pueden alterar esa impresión. Combiná las referencias visuales con velocidad y configuración. El diagrama es una vista lateral conceptual. No fija altura, ángulo ni punto de toma.',
-        'Usá varias referencias juntas: una sola puede engañar sobre la trayectoria.',
-        'landing-approach',
-      ],
-      [
-        'Redondeo, contacto y carrera de aterrizaje',
-        'El redondeo, o flare, es la transición entre el descenso y el contacto con la pista. Durante esa transición cambia la actitud para reducir el descenso y completar la toma.\n\nLa altura aparente depende de perspectiva, viento y geometría del avión. Si el avión llega con exceso de energía, puede flotar más tiempo. Después del contacto, el piloto mantiene el control direccional mientras el avión desacelera. Las referencias y técnicas se aprenden con instructor para la aeronave y pista.',
-        'El redondeo enlaza descenso y contacto. La perspectiva cambia cómo se percibe la altura.',
-      ],
-    ],
-  },
-  {
     id: 10,
     slug: 'decision-y-riesgo',
     title: 'Decisión y gestión del riesgo',
@@ -592,7 +530,6 @@ const sourceIds = {
   'decision-y-riesgo': ['phak', 'risk', 'anacPpa'],
   'factores-humanos': ['phak', 'risk', 'anacPpa', 'raac91'],
   'procedimientos-emergencias': ['afh', 'phak', 'anacPpa', 'raac', 'aip', 'elt', 'ssr'],
-  'maniobras-basicas': ['afh', 'phak', 'anacPpa'],
 };
 
 /**
@@ -624,7 +561,13 @@ const expandedExamChapters = examChapters.map((chapter) => withExamLink(
   [...chapter.lessons, ...(additions[chapter.slug] ?? []), ...(handbookLessons[chapter.slug] ?? [])],
 ));
 
+// Las maniobras traen sus propias fuentes, una lista por página.
+const expandedManeuverChapters = maneuverChapters.map(({ sources, ...chapter }) => ({
+  ...withExamLink(chapter, chapter.lessons),
+  sources: sources.map((id) => librarySources[id]),
+}));
+
 export const chapters = [...expandedExamChapters, ...newChapters.map((chapter) => withExamLink(
   chapter,
   [...chapter.lessons, ...(handbookLessons[chapter.slug] ?? [])],
-))].sort((a, b) => a.id - b.id);
+)), ...expandedManeuverChapters].sort((a, b) => a.id - b.id);

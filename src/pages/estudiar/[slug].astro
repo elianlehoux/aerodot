@@ -37,7 +37,15 @@ const formatLesson = (lesson) => {
     }
     return paragraph;
   }).join('\n\n');
-  return `## ${lesson[0]}\n\n${body}\n\n**Idea para recordar:** ${lesson[2]}`;
+  const maneuver = lesson[4] ? [
+    '### Paso a paso', lesson[4].steps.map((step, n) => `${n + 1}. ${step}`).join('\n'),
+    '### Cuando sale bien', lesson[4].good.map((item) => `- ${item}`).join('\n'),
+    '### Cuando sale mal', lesson[4].bad.map(([error, fix]) => `- **${error}** ${fix}`).join('\n'),
+    '### Por qué se hace así', ...lesson[4].why,
+    ...lesson[4].notes.map((text) => `> **Nota.** ${text}`),
+    ...lesson[4].us.map((text) => `> **En Estados Unidos.** ${text}`),
+  ].join('\n\n') : '';
+  return [`## ${lesson[0]}`, body, maneuver, lesson[2] && `**Idea para recordar:** ${lesson[2]}`].filter(Boolean).join('\n\n');
 };
 const rememberLines = (text) => text.split(/(?<=\.)\s+/).map((sentence) => {
   const separator = sentence.indexOf(':');
@@ -111,7 +119,18 @@ const articleJsonLd = {
           return us
             ? <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{text}</p></aside>
             : <p data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{text}</p>;
-        })}{lesson[3] && <StudyDiagram type={lesson[3]} instance={`${chapter.slug}-l${i + 1}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />}<aside class="learning-note" data-report-target data-report-where={`Idea para recordar · ${place}`} data-report-ref={ref}><span>IDEA PARA RECORDAR</span><p>{rememberLines(lesson[2]).map(({ label, detail }) => <span class="learning-note-line">{label && <strong>{label}</strong>}{detail}</span>)}</p></aside></section>;
+        })}{lesson[3] && <StudyDiagram type={lesson[3]} instance={`${chapter.slug}-l${i + 1}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />}{lesson[4] && <div class="maneuver">
+          <h3>Paso a paso</h3>
+          <ol class="maneuver-steps">{lesson[4].steps.map((step) => <li data-report-target data-report-where={`Paso a paso · ${place}`} data-report-ref={ref}>{step}</li>)}</ol>
+          <h3>Cuando sale bien</h3>
+          <ul class="maneuver-good">{lesson[4].good.map((item) => <li data-report-target data-report-where={`Cuando sale bien · ${place}`} data-report-ref={ref}>{item}</li>)}</ul>
+          <h3>Cuando sale mal</h3>
+          <ul class="maneuver-errors">{lesson[4].bad.map(([error, fix]) => <li data-report-target data-report-where={`Cuando sale mal · ${place}`} data-report-ref={ref}><strong>{error}</strong> {fix}</li>)}</ul>
+          <h3>Por qué se hace así</h3>
+          {lesson[4].why.map((paragraph) => <p class="maneuver-why" data-report-target data-report-where={`Por qué · ${place}`} data-report-ref={ref}>{paragraph}</p>)}
+          {lesson[4].notes.map((text) => <aside class="learning-note maneuver-note" data-report-target data-report-where={`Nota · ${place}`} data-report-ref={ref}><span>NOTA</span><p>{text}</p></aside>)}
+          {lesson[4].us.map((text) => <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{text}</p></aside>)}
+        </div>}{lesson[2] && <aside class="learning-note" data-report-target data-report-where={`Idea para recordar · ${place}`} data-report-ref={ref}><span>IDEA PARA RECORDAR</span><p>{rememberLines(lesson[2]).map(({ label, detail }) => <span class="learning-note-line">{label && <strong>{label}</strong>}{detail}</span>)}</p></aside>}</section>;
       })}
       <div class="study-report">
         <button class="button-quiet" type="button" data-report-page data-report-where={chapter.title} data-report-ref={`/estudiar/${chapter.slug}`} data-report-excerpt={chapter.title}>Reportar un error de contenido</button>

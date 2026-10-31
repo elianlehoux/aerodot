@@ -115,6 +115,12 @@ export const librarySources = {
     detail: 'Extracto publicado en Argentina: código 7700 en emergencia y 7500 en interferencia ilícita, salvo que las circunstancias pidan el otro.',
     kind: 'Argentina',
   },
+  acsPrivate: {
+    title: 'FAA · Private Pilot Airplane ACS (FAA-S-ACS-6C)',
+    url: 'https://www.faa.gov/training_testing/testing/acs/private_airplane_acs_6.pdf',
+    detail: 'Normas de la prueba práctica de piloto privado en Estados Unidos: qué se evalúa en cada maniobra y con qué tolerancias. Sirve de contraste, no reemplaza la RAAC 61.',
+    kind: 'FAA · examen',
+  },
   weightBalance: {
     title: 'FAA · Weight & Balance Handbook (FAA-H-8083-1B)',
     url: 'https://www.faa.gov/sites/faa.gov/files/2023-09/Weight_Balance_Handbook.pdf',
