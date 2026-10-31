@@ -1,7 +1,11 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import FlipPhrase from '../../components/FlipPhrase.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { incidentSet } from '../../data/english-sets.js';
 import { incidentKinds, incidentStory, incidentTerms, tenseRules } from '../../data/english-incident.js';
@@ -15,24 +19,16 @@ const formName = Object.fromEntries(tenseRules.map((rule) => [rule.id, rule.name
   title="Incidentes: inglés aeronáutico | Aerodot"
   description="Accidente, incidente grave e incidente en inglés, las palabras para nombrar qué pasó y cómo contarlo en pasado. Con audio y una práctica corta."
 >
-  <p class="eyebrow">Contar lo que pasó</p>
+  <EnglishCrumbs slug="incidentes" />
   <h1>Incidentes.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-rl-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        <a href="#tres-palabras">Accidente, incidente grave e incidente</a>
-        <a href="#palabras">Las palabras para nombrar qué pasó</a>
-        <a href="#relato">Contalo en pasado</a>
-        <a href={`#${incidentSet.id}-title`}>{incidentSet.title}</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={[{href:'#tres-palabras',label:'Accidente, incidente grave e incidente'},{href:'#palabras',label:'Las palabras para nombrar qué pasó'},{href:'#relato',label:'Contalo en pasado'}]} practice={[{href:`#${incidentSet.id}-title`,label:incidentSet.title}]} />
+
+  <EnglishPart kind="learn">
 
   <section class="radio-block" aria-labelledby="tres-palabras">
     <h2 id="tres-palabras">Accidente, incidente grave e incidente</h2>
-    <p>Se parecen y no son lo mismo. Las definiciones siguen el Anexo 13 de la OACI y van de la más grave a la menos grave.</p>
+    <p>Son tres categorías distintas. Las definiciones siguen el Anexo 13 de la OACI y van de la más grave a la menos grave.</p>
     <ol class="rl-kinds" role="list">
       {incidentKinds.map((kind) => (
         <li class="rl-kind">
@@ -58,9 +54,9 @@ const formName = Object.fromEntries(tenseRules.map((rule) => [rule.id, rule.name
         <li class="flip" data-flip>
           <div class="word-head">
             <h3 lang="en">{term.en}</h3>
-            <EnglishSay text={term.say} label={`Escuchar el ejemplo de *${term.en}*`} quiet />
+            <EnglishSay text={term.en.replace(/…$/, '')} label={`Escuchar *${term.en}*`} quiet />
           </div>
-          <p class="flip-say" lang="en">“{term.use}”</p>
+          <FlipPhrase text={term.use} say={term.say} term={term.en} />
           <div class="flip-back" id={`flip-${term.id}`} hidden>
             <p class="flip-es">{term.es}</p>
             <p>{splitMixed(term.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
@@ -103,7 +99,12 @@ const formName = Object.fromEntries(tenseRules.map((rule) => [rule.id, rule.name
     </ul>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <ExerciseSet set={incidentSet} />
+
+  </EnglishPart>
 
   <p class="en-sources">Las tres definiciones siguen el Anexo 13 de la OACI (investigación de accidentes e incidentes de aviación), dichas con palabras propias. El incidente que se cuenta es inventado y no refleja un hecho real. Laguna y la matrícula LV-DEM son de práctica. El audio usa la voz de tu navegador.</p>
 
@@ -115,6 +116,6 @@ const formName = Object.fromEntries(tenseRules.map((rule) => [rule.id, rule.name
     mountEnglishProgress();
     mountReveals();
     mountExerciseSets();
-    mountPageToc('[data-rl-toc]');
+    mountPageToc('[data-page-toc]');
   </script>
 </EnglishShell>

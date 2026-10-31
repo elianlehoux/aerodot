@@ -93,22 +93,23 @@ const synth = typeof window !== 'undefined' && 'speechSynthesis' in window ? win
 let voice = null;
 let speakId = 0;
 
-/* El primer inglés del sistema suele ser una voz compacta y robótica. Se prefiere una de Google o una mejorada. */
-const voiceScore = (item) => {
-  if (!/^en/i.test(item.lang)) return -1;
-  const name = item.name.toLowerCase();
-  let score = /en[-_]gb/i.test(item.lang) ? 12 : 4;
-  if (/google/.test(name)) score += 40;
-  if (/premium|enhanced|natural|neural/.test(name)) score += 28;
-  if (/female|samantha|karen|serena|fiona|moira|kate/.test(name)) score += 6;
-  if (/compact|novelty|bad news|bells|boing|zarvox|whisper/.test(name)) score -= 40;
-  return score;
-};
+/*
+ * La voz es fija: Google UK English Female. Si el dispositivo no la tiene (fuera de Chrome),
+ * se busca otra voz femenina británica y, si tampoco hay, cualquier inglés británico.
+ * Las de broma de macOS (Albert, Zarvox, Bells…) no se usan nunca.
+ */
+const VOICE_NAME = 'Google UK English Female';
+const UK_FEMALE = /sonia|libby|maisie|hollie|serena|kate|stephanie|martha|susan|hazel|female/i;
+const NOVELTY = /albert|bad news|bahh|bells|boing|bubbles|cellos|deranged|good news|hysterical|jester|junior|organ|princess|ralph|superstar|trinoids|whisper|wobble|zarvox|fred|kathy|novelty|espeak|eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley/i;
 
 const pickVoice = () => {
-  const voices = synth?.getVoices() ?? [];
-  voice = voices.reduce((best, item) => (voiceScore(item) > voiceScore(best ?? {}) ? item : best), null);
-  if (voice && voiceScore(voice) < 0) voice = null;
+  const english = (synth?.getVoices() ?? []).filter((item) => /^en/i.test(item.lang) && !NOVELTY.test(item.name));
+  const british = english.filter((item) => /^en[-_]gb/i.test(item.lang));
+  voice = english.find((item) => item.name === VOICE_NAME)
+    ?? british.find((item) => UK_FEMALE.test(item.name))
+    ?? british[0]
+    ?? english[0]
+    ?? null;
 };
 
 if (synth) {
@@ -123,6 +124,7 @@ const SOUND = { three: 'tree', four: 'fower', five: 'fife', nine: 'niner' };
 const forVoice = (text) => text
   .replace(/LV-DEM/g, 'Lima Victor Delta Echo Mike')
   .replace(/\bQNH\b/g, 'Q N H')
+  .replace(/\bCAVOK\b/g, 'cav oh kay')
   .replace(/\b(three|four|five|nine)\b/gi, (word) => SOUND[word.toLowerCase()]);
 
 export const canSpeak = () => Boolean(synth);
@@ -160,25 +162,6 @@ const sayFrom = (button, text) => {
 };
 
 let listenMounted = false;
-
-/** Pestañas Ejercicios / Explicación. El panel oculto se conserva, no se desarma. */
-export const mountLessonTabs = () => {
-  document.querySelectorAll('[data-en-tabs]').forEach((wrap) => {
-    if (wrap.dataset.tabsMounted) return;
-    wrap.dataset.tabsMounted = '1';
-    const tabs = [...wrap.querySelectorAll('[role="tab"]')];
-    const panels = [...wrap.querySelectorAll('[role="tabpanel"]')];
-    const show = (id) => {
-      tabs.forEach((tab) => {
-        const on = tab.getAttribute('aria-controls') === id;
-        tab.setAttribute('aria-selected', String(on));
-        tab.tabIndex = on ? 0 : -1;
-      });
-      panels.forEach((panel) => { panel.hidden = panel.id !== id; });
-    };
-    tabs.forEach((tab) => tab.addEventListener('click', () => show(tab.getAttribute('aria-controls'))));
-  });
-};
 
 /** Cualquier botón con data-say lee su texto en inglés. */
 export const mountListen = () => {
@@ -389,6 +372,32 @@ export const mountPageToc = (selector) => {
     }, { rootMargin: '-12% 0px -72% 0px', threshold: 0 });
     targets.forEach((target) => observer.observe(target));
   }
+  mountPartJump(toc.closest('aside'));
+};
+
+/* La barrita de abajo aparece cuando el índice sale de la pantalla y marca la parte que estás leyendo. */
+const mountPartJump = (aside) => {
+  const bar = document.querySelector('[data-part-jump]');
+  if (!bar || !aside || !('IntersectionObserver' in window)) return;
+  const links = [...bar.querySelectorAll('a')];
+  const parts = links.map((link) => document.querySelector(link.getAttribute('href')));
+  if (parts.some((part) => !part)) {
+    bar.hidden = true;
+    return;
+  }
+  new IntersectionObserver(([entry]) => {
+    bar.classList.toggle('is-visible', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+  }).observe(aside);
+  const mark = () => {
+    const line = window.innerHeight * 0.4;
+    const current = parts[1].getBoundingClientRect().top < line ? 1 : 0;
+    links.forEach((link, index) => {
+      if (index === current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  mark();
+  window.addEventListener('scroll', mark, { passive: true });
 };
 
 const shuffle = (list) => {
@@ -621,9 +630,12 @@ const mountWordMap = ({ words, slug, noun, readyMsg }) => {
   });
   quizPanel.querySelector('[data-quiz-restart]').addEventListener('click', startQuiz);
 
+  // Explorar es parte de la explicación; la prueba se abre desde la práctica. El selector aparece solo en la prueba, para volver.
+  const modeBar = modes[0]?.parentElement;
   const setMode = (next) => {
     mode = next;
     stage.dataset.mode = next;
+    if (modeBar) modeBar.style.display = next === 'explore' ? 'none' : '';
     modes.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.fieldMode === next)));
     explorePanel.hidden = next !== 'explore';
     quizPanel.hidden = next !== 'quiz';
@@ -646,6 +658,11 @@ const mountWordMap = ({ words, slug, noun, readyMsg }) => {
   };
 
   modes.forEach((button) => button.addEventListener('click', () => setMode(button.dataset.fieldMode)));
+  // La prueba también se abre desde la práctica, más abajo: se pasa al modo prueba y se sube al dibujo.
+  document.querySelectorAll('[data-start-map-quiz]').forEach((button) => button.addEventListener('click', () => {
+    setMode('quiz');
+    root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
   root.querySelector('[data-quiz-explore]')?.addEventListener('click', () => setMode('explore'));
 
   hits.forEach((hit) => {
@@ -866,6 +883,137 @@ export const mountNumberDrill = () => {
   load(0);
 };
 
+/*
+ * ATIS reales de YouTube. El reproductor se carga recién al tocar Escuchar (sin cookies de
+ * seguimiento) y suena uno solo por vez. El video queda tapado para que no se lea el texto que
+ * algunos traen en pantalla; se maneja con botones propios por la API de mensajes del reproductor.
+ * Cerrar saca el video y también esconde el texto.
+ */
+const YT_ORIGIN = 'https://www.youtube-nocookie.com';
+
+export const mountAtisWorld = () => {
+  const root = document.querySelector('[data-atis-world]');
+  if (!root) return;
+  const cards = [...root.querySelectorAll('.world-card')];
+  const state = new Map();
+
+  const send = (frame, func, args = []) => {
+    frame?.contentWindow?.postMessage(JSON.stringify({ event: 'command', func, args }), YT_ORIGIN);
+  };
+
+  const hideText = (card) => {
+    const button = card.querySelector('[data-world-text]');
+    const box = button && document.getElementById(button.getAttribute('aria-controls'));
+    if (!button || !box) return;
+    button.setAttribute('aria-expanded', 'false');
+    button.textContent = 'Ver el texto';
+    box.hidden = true;
+  };
+
+  const close = (card) => {
+    const player = card.querySelector('[data-world-player]');
+    player.querySelector('[data-world-frame]').replaceChildren();
+    player.hidden = true;
+    player.classList.remove('is-revealed');
+    player.querySelector('[data-world-cmd="reveal"]').setAttribute('aria-pressed', 'false');
+    player.querySelector('[data-world-cmd="reveal"]').textContent = 'Mostrar el video';
+    player.querySelector('[data-world-cmd="toggle"]').textContent = 'Pausa';
+    card.classList.remove('is-playing');
+    card.querySelector('[data-world-play]').textContent = 'Escuchar';
+    hideText(card);
+    state.delete(card);
+  };
+
+  const open = (card) => {
+    const player = card.querySelector('[data-world-player]');
+    const id = player.dataset.worldPlayer;
+    const params = new URLSearchParams({ autoplay: '1', rel: '0', playsinline: '1', modestbranding: '1', enablejsapi: '1', origin: location.origin });
+    if (player.dataset.start) params.set('start', player.dataset.start);
+    const frame = document.createElement('iframe');
+    frame.src = `${YT_ORIGIN}/embed/${id}?${params}`;
+    frame.title = `ATIS de ${card.querySelector('h3').textContent}`;
+    frame.allow = 'autoplay; encrypted-media';
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.tabIndex = -1;
+    // El reproductor avisa la hora y el estado solo si se le pide escuchar.
+    frame.addEventListener('load', () => frame.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id, channel: 'widget' }), YT_ORIGIN));
+    player.querySelector('[data-world-frame]').replaceChildren(frame);
+    player.hidden = false;
+    card.classList.add('is-playing');
+    card.querySelector('[data-world-play]').textContent = 'Cerrar';
+    state.set(card, { frame, time: Number(player.dataset.start) || 0, playing: true });
+  };
+
+  window.addEventListener('message', (event) => {
+    if (event.origin !== YT_ORIGIN) return;
+    let data;
+    try {
+      data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+    } catch {
+      return;
+    }
+    const entry = [...state.entries()].find(([, item]) => item.frame.contentWindow === event.source);
+    if (!entry || !data?.info) return;
+    const [card, item] = entry;
+    if (typeof data.info.currentTime === 'number') item.time = data.info.currentTime;
+    if (typeof data.info.playerState === 'number') {
+      item.playing = data.info.playerState === 1 || data.info.playerState === 3;
+      card.querySelector('[data-world-cmd="toggle"]').textContent = item.playing ? 'Pausa' : 'Seguir';
+    }
+  });
+
+  cards.forEach((card) => {
+    card.querySelector('[data-world-play]').addEventListener('click', () => {
+      const wasOpen = state.has(card);
+      stopSpeaking();
+      document.dispatchEvent(new CustomEvent('aerodot:stop-audio'));
+      cards.forEach((other) => { if (state.has(other)) close(other); });
+      if (!wasOpen) open(card);
+    });
+
+    card.querySelectorAll('[data-world-cmd]').forEach((button) => button.addEventListener('click', () => {
+      const item = state.get(card);
+      if (!item) return;
+      const cmd = button.dataset.worldCmd;
+      if (cmd === 'toggle') {
+        send(item.frame, item.playing ? 'pauseVideo' : 'playVideo');
+        item.playing = !item.playing;
+        button.textContent = item.playing ? 'Pausa' : 'Seguir';
+      } else if (cmd === 'back') {
+        send(item.frame, 'seekTo', [Math.max(0, item.time - 10), true]);
+      } else if (cmd === 'restart') {
+        send(item.frame, 'seekTo', [Number(card.querySelector('[data-world-player]').dataset.start) || 0, true]);
+        send(item.frame, 'playVideo');
+      } else if (cmd === 'reveal') {
+        const on = button.getAttribute('aria-pressed') !== 'true';
+        button.setAttribute('aria-pressed', String(on));
+        button.textContent = on ? 'Tapar el video' : 'Mostrar el video';
+        card.querySelector('[data-world-player]').classList.toggle('is-revealed', on);
+      }
+    }));
+
+    const textButton = card.querySelector('[data-world-text]');
+    textButton?.addEventListener('click', () => {
+      const box = document.getElementById(textButton.getAttribute('aria-controls'));
+      const show = textButton.getAttribute('aria-expanded') !== 'true';
+      textButton.setAttribute('aria-expanded', String(show));
+      textButton.textContent = show ? 'Ocultar el texto' : 'Ver el texto';
+      if (box) box.hidden = !show;
+    });
+
+    const gloss = card.querySelector('[data-world-gloss]');
+    gloss?.addEventListener('click', () => {
+      const on = gloss.getAttribute('aria-pressed') !== 'true';
+      gloss.setAttribute('aria-pressed', String(on));
+      gloss.textContent = on ? 'Ocultar qué significa' : 'Qué significa';
+      gloss.closest('.world-text').classList.toggle('is-glossed', on);
+    });
+  });
+
+  // Si arranca el ATIS de práctica, se cierra el video.
+  document.addEventListener('aerodot:stop-video', () => cards.forEach((card) => { if (state.has(card)) close(card); }));
+};
+
 /* El ATIS: escuchar, anotar en papel y recién después mirar el texto. */
 
 const PASS_RATIO = 0.8;
@@ -951,6 +1099,7 @@ export const mountAtis = () => {
   };
 
   const start = () => {
+    document.dispatchEvent(new CustomEvent('aerodot:stop-video'));
     status.textContent = '';
     playing = true;
     plays += 1;
@@ -1012,7 +1161,9 @@ export const mountAtis = () => {
           speak(line.text, { rate: rate(), onend: () => live(-1) });
           return;
         }
-        const [from, to] = current.cues[index];
+        const cue = current.cues?.[index];
+        if (!cue) return;
+        const [from, to] = cue;
         stopAt = to;
         audio.currentTime = from;
         audio.playbackRate = slow.getAttribute('aria-pressed') === 'true' ? 0.8 : 1;
@@ -1149,9 +1300,11 @@ export const mountAtis = () => {
     halt();
     start();
   });
-  root.querySelector('[data-atis-print]')?.addEventListener('click', () => window.print());
 
   sourceButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.atisSource === source)));
   window.addEventListener('pagehide', halt);
+  document.addEventListener('aerodot:stop-audio', () => {
+    if (playing || stopAt !== null) halt();
+  });
   load();
 };

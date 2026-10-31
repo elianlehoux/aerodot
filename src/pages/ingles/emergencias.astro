@@ -1,6 +1,9 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { emergencySet } from '../../data/english-sets.js';
@@ -32,22 +35,12 @@ const steps = [
   title="Mayday y Pan Pan: inglés aeronáutico | Aerodot"
   description="Cuándo es socorro y cuándo urgencia, el mensaje de emergencia en inglés en el orden de la norma y los códigos 7700, 7600 y 7500. Con audio, un armador de mensajes y práctica."
 >
-  <p class="eyebrow">Emergencias</p>
+  <EnglishCrumbs slug="emergencias" />
   <h1>Mayday y Pan Pan.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-em-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        <a href="#primero">Primero volás</a>
-        <a href="#nivel">Mayday o Pan Pan</a>
-        <a href="#mensaje">El mensaje, pieza por pieza</a>
-        <a href="#armador">Armá tu mensaje</a>
-        <a href="#codigos">Los códigos del transpondedor</a>
-        <a href={`#${emergencySet.id}-title`}>{emergencySet.title}</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={[{href:'#primero',label:'Primero volás'},{href:'#nivel',label:'Mayday o Pan Pan'},{href:'#mensaje',label:'El mensaje, pieza por pieza'},{href:'#codigos',label:'Los códigos del transpondedor'}]} practice={[{href:'#armador',label:'Armá tu mensaje'},{href:`#${emergencySet.id}-title`,label:emergencySet.title}]} />
+
+  <EnglishPart kind="learn">
 
   <!-- (1) Aviar, navegar, comunicar -->
   <section class="en-block" aria-labelledby="primero">
@@ -140,7 +133,32 @@ const steps = [
     </div>
   </section>
 
-  <!-- (3b) El armador -->
+  <!-- (4) Los códigos del transpondedor -->
+  <section class="radio-block" aria-labelledby="codigos">
+    <h2 id="codigos">Los códigos del transpondedor</h2>
+    <p>Con tres códigos del transpondedor avisás qué pasa sin hablar. En la pantalla del controlador aparecen con un aviso especial.</p>
+    <ul class="flip-grid em-codes" role="list">
+      {squawkCodes.map((code) => (
+        <li class="flip" data-flip>
+          <div class="word-head">
+            <h3 class="em-code">{code.code}</h3>
+            <EnglishSay text={code.say} label={`Escuchar el código ${code.code}`} quiet />
+          </div>
+          <p class="flip-say" lang="en">{code.en}</p>
+          <div class="flip-back" id={`flip-sq-${code.code}`} hidden>
+            <p class="flip-es">{code.es}</p>
+            <p>{splitMixed(code.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          </div>
+          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-sq-${code.code}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
+  <!-- (5) El armador -->
   <section class="en-block" aria-labelledby="armador">
     <h2 id="armador">Armá tu mensaje</h2>
     <p class="en-block-lede">Elegí el nivel, qué pasa, qué vas a hacer y dónde estás. El mensaje se arma solo, en el orden de la norma, con cada pieza subrayada.</p>
@@ -216,30 +234,10 @@ const steps = [
     </div>
   </section>
 
-  <!-- (4) Los códigos del transpondedor -->
-  <section class="radio-block" aria-labelledby="codigos">
-    <h2 id="codigos">Los códigos del transpondedor</h2>
-    <p>Tres códigos dicen lo que pasa sin hablar. En la pantalla del controlador aparecen con un aviso especial.</p>
-    <ul class="flip-grid em-codes" role="list">
-      {squawkCodes.map((code) => (
-        <li class="flip" data-flip>
-          <div class="word-head">
-            <h3 class="em-code">{code.code}</h3>
-            <EnglishSay text={code.say} label={`Escuchar el código ${code.code}`} quiet />
-          </div>
-          <p class="flip-say" lang="en">{code.en}</p>
-          <div class="flip-back" id={`flip-sq-${code.code}`} hidden>
-            <p class="flip-es">{code.es}</p>
-            <p>{splitMixed(code.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
-          </div>
-          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-sq-${code.code}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <!-- (5) Práctica -->
+  <!-- (6) Preguntas -->
   <ExerciseSet set={emergencySet} />
+
+  </EnglishPart>
 
   <p class="en-sources">Las definiciones de socorro y urgencia, la señal tres veces y el orden de las piezas siguen el reglamento europeo SERA (UE 923/2012, SERA.14095), que toma la norma de la OACI (Anexo 10, Vol. II, cap. 5). Los códigos 7700, 7600 y 7500 siguen SERA.13005. Lo que se suele agregar al final, <span lang="en">MAYDAY FUEL</span> y <span lang="en">PAN PAN MEDICAL</span> siguen el manual de radiotelefonía de la CAA británica (CAP 413, cap. 8). El uso de EE. UU. está en el AIM de la FAA (6-3). Aviar, navegar, comunicar es una regla práctica de instrucción, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras de los mensajes (distancias, alturas, rumbos) son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
 
@@ -253,6 +251,6 @@ const steps = [
     mountReveals();
     mountExerciseSets();
     mountEmergency();
-    mountPageToc('[data-em-toc]');
+    mountPageToc('[data-page-toc]');
   </script>
 </EnglishShell>

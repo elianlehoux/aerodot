@@ -8,7 +8,7 @@
  * Cada frase: en (cómo se escribe), es (su nombre en español), say (lo que lee la voz, sin
  * cifras), body (qué significa y cuándo se usa) y use (un ejemplo corto en contexto).
  * Opcional: link ({ href, text }, un enlace al pie de la explicación).
- * Ezeiza y LV-DEM son de práctica. Se escribe three, four, five y nine (ver english.js).
+ * Laguna y LV-DEM son de práctica. Se escribe three, four, five y nine (ver english.js).
  */
 
 const DEM = 'Lima Victor Delta Echo Mike';
@@ -17,7 +17,7 @@ export const survivalGroups = [
   {
     id: 'no-entendi',
     title: 'No entendí',
-    lede: 'Cuando no escuchaste, escuchaste a medias o te hablan muy rápido. Pedir que repitan es normal. Adivinar no lo es.',
+    lede: 'Cuando no escuchaste, escuchaste a medias o te hablan muy rápido. Pedí que repitan en vez de adivinar.',
     phrases: [
       {
         id: 'say-again',
@@ -64,8 +64,8 @@ export const survivalGroups = [
         id: 'how-read',
         en: 'how do you read',
         es: '¿cómo me escuchás?',
-        say: `Ezeiza Tower, ${DEM}, how do you read?`,
-        use: 'Ezeiza Tower, LV-DEM, how do you read?',
+        say: `Laguna Tower, ${DEM}, how do you read?`,
+        use: 'Laguna Tower, LV-DEM, how do you read?',
         body: 'Preguntás qué tan bien llega tu transmisión. Se usa en una prueba de radio o cuando sospechás que tu equipo falla.',
       },
     ],
@@ -73,7 +73,7 @@ export const survivalGroups = [
   {
     id: 'responder',
     title: 'Confirmar y responder',
-    lede: 'Recibir no es lo mismo que cumplir, y un sí no se dice *yes*. Son las palabras que más se confunden.',
+    lede: 'Son las palabras que más se confunden. Recibir no es lo mismo que cumplir, y para decir sí no se usa *yes*.',
     phrases: [
       {
         id: 'roger',
@@ -138,7 +138,7 @@ export const survivalGroups = [
   {
     id: 'no-puedo',
     title: 'No puedo o esperá',
-    lede: 'Decir que no podés a tiempo es parte de volar seguro. Esperar también tiene su palabra.',
+    lede: 'Si no podés cumplir algo, decilo enseguida. Para pedir que esperen también hay una palabra.',
     phrases: [
       {
         id: 'unable',
@@ -160,8 +160,8 @@ export const survivalGroups = [
         id: 'request',
         en: 'request',
         es: 'solicito',
-        say: `Ezeiza Tower, ${DEM}, request taxi.`,
-        use: 'Ezeiza Tower, LV-DEM, request taxi.',
+        say: `Laguna Tower, ${DEM}, request taxi.`,
+        use: 'Laguna Tower, LV-DEM, request taxi.',
         body: 'Pedís algo: un dato o un permiso. Va adelante de lo que querés obtener.',
       },
     ],
@@ -209,7 +209,7 @@ export const survivalGroups = [
 
 /**
  * Tres ejercicios, de menor a mayor dificultad. El contenido es de esta lección:
- * no se copia de otro curso. Ezeiza y LV-DEM son de práctica.
+ * no se copia de otro curso. Laguna y LV-DEM son de práctica.
  */
 export const survivalSheets = [
   {
@@ -253,7 +253,7 @@ export const survivalSheets = [
       { who: 'Torre', chunks: [{ text: 'LV-DEM, taxi to holding point runway one three.' }] },
       { who: 'Vos', chunks: [{ text: 'Holding point runway three one, ' }, { blank: 'correction', n: 2 }, { text: ', runway one three, LV-DEM.' }] },
       { who: 'Torre', chunks: [{ text: 'LV-DEM, ' }, { blank: 'standby', n: 3 }, { text: '.' }] },
-      { who: 'Vos', chunks: [{ text: 'Ezeiza Tower, LV-DEM, ' }, { blank: 'request', n: 4 }, { text: ' taxi.' }] },
+      { who: 'Vos', chunks: [{ text: 'Laguna Tower, LV-DEM, ' }, { blank: 'request', n: 4 }, { text: ' taxi.' }] },
     ],
   },
 ];

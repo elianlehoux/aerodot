@@ -1,0 +1,33 @@
+---
+/**
+ * El índice de cada tema de Inglés: a la derecha en pantallas anchas y plegable arriba en el celular.
+ * Lista las secciones de la explicación y las de la práctica. Lo monta mountPageToc('[data-page-toc]').
+ * En pantallas angostas suma una barrita fija abajo para saltar entre Explicación y Práctica.
+ */
+interface Link {
+  href: string;
+  label: string;
+  lang?: string;
+}
+interface Props {
+  learn: Link[];
+  practice: Link[];
+}
+
+const { learn, practice } = Astro.props;
+---
+<aside class="library-toc study-page-toc" aria-label="Índice de la página">
+  <details class="chapter-toc" data-page-toc open>
+    <summary>En esta página</summary>
+    <nav aria-label="Secciones del tema">
+      <span class="toc-part" aria-hidden="true">Explicación</span>
+      {learn.map((link) => <a href={link.href} lang={link.lang}>{link.label}</a>)}
+      <span class="toc-part" aria-hidden="true">Práctica</span>
+      {practice.map((link) => <a href={link.href} lang={link.lang}>{link.label}</a>)}
+    </nav>
+  </details>
+</aside>
+<nav class="part-jump" data-part-jump aria-label="Partes del tema">
+  <a href="#explicacion">Explicación</a>
+  <a href="#practica">Práctica</a>
+</nav>

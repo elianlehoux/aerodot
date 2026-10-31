@@ -93,7 +93,7 @@ export const enrouteGroups = [
   {
     id: 'ida-al-aire',
     title: 'Si no podés aterrizar',
-    lede: 'A veces la pista no está libre o la aproximación no sale bien. La decisión es una sola, *go around*. La pide la torre o la tomás vos, y en los dos casos avisás.',
+    lede: 'A veces la pista no está libre o la aproximación no sale bien. Entonces hacés *go around*. Te lo pide la torre o lo decidís vos, y en los dos casos avisás.',
     call: [
       line({ who: 'tower', unit: 'Santa Brisa Tower', text: 'LV-DEM, go around, vehicle on the runway.', key: 'go around',
         note: 'La torre ve un vehículo en la pista. Te ordena la ida al aire y te dice por qué.' }),

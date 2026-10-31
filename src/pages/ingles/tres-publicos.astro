@@ -1,6 +1,9 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { audiencesSet } from '../../data/english-sets.js';
@@ -13,19 +16,12 @@ import '../../styles/english-story.css';
   title="Informar un evento: inglés aeronáutico | Aerodot"
   description="El mismo evento dicho en inglés a la torre, a la empresa y a los pasajeros: qué cambia en las palabras, en el tiempo verbal y en el tono. Con audio y una práctica corta."
 >
-  <p class="eyebrow">Contar lo que pasó</p>
+  <EnglishCrumbs slug="tres-publicos" />
   <h1>Informar un evento.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-tp-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        <a href="#evento">El evento</a>
-        <a href="#publicos">Tres formas de decirlo</a>
-        <a href={`#${audiencesSet.id}-title`}>{audiencesSet.title}</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={[{href:'#evento',label:'El evento'},{href:'#publicos',label:'Tres formas de decirlo'}]} practice={[{href:`#${audiencesSet.id}-title`,label:audiencesSet.title}]} />
+
+  <EnglishPart kind="learn">
 
   <section class="radio-block" aria-labelledby="evento">
     <h2 id="evento">El evento</h2>
@@ -61,7 +57,12 @@ import '../../styles/english-story.css';
     <p class="en-note">En un avión chico le hablás directo a tus pasajeros. Son las mismas ideas, sin el <span lang="en">ladies and gentlemen</span>.</p>
   </section>
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <ExerciseSet set={audiencesSet} />
+
+  </EnglishPart>
 
   <p class="en-sources">El mensaje a la torre sigue el del módulo de Mayday y Pan Pan (SERA.14095). La urgencia con un motor irregular es el mismo caso de ese módulo. El informe a la empresa y el aviso a los pasajeros son ejemplos de práctica y de lenguaje claro. Ningún texto oficial los fija, y tu empresa puede tener su propio formato. El hecho es inventado. Laguna y la matrícula LV-DEM son de práctica. El audio usa la voz de tu navegador.</p>
 
@@ -72,6 +73,6 @@ import '../../styles/english-story.css';
     mountListen();
     mountEnglishProgress();
     mountExerciseSets();
-    mountPageToc('[data-tp-toc]');
+    mountPageToc('[data-page-toc]');
   </script>
 </EnglishShell>

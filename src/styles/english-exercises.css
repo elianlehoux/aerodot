@@ -1,10 +1,10 @@
 .ex-set [hidden]{display:none!important}
-.ex-set>.en-block-lede{max-width:42rem;margin-top:12px;padding:14px 16px;border-radius:12px;background:var(--quiet);color:var(--ink);font-weight:600;text-align:center}
 .ex-list{max-width:42rem;margin:8px 0 0;padding:0;list-style:none;display:grid;gap:18px}
 .ex-q{display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 12px;align-items:center}
 .ex-num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:700}
 .ex-line,.ex-prompt{margin:0;font-weight:300;font-size:17px;line-height:1.7}
-.ex-select{min-height:32px;margin:0 4px;padding:2px 8px;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;vertical-align:baseline}
+/* Una opción larga no puede ensanchar la página en el celular: el campo se corta y la lista abierta la muestra entera. */
+.ex-select{max-width:calc(100% - 8px);text-overflow:ellipsis;min-height:32px;margin:0 4px;padding:2px 8px;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;vertical-align:baseline}
 .ex-blank{min-height:32px;min-width:7ch;max-width:14ch;margin:0 4px;padding:2px 8px;flex:0 0 auto}
 .ex-select[data-state="ok"],.ex-blank[data-state="ok"]{border-color:var(--en-ok,var(--accent))}
 .ex-select[data-state="bad"],.ex-blank[data-state="bad"]{border-color:var(--en-bad,var(--ember))}

@@ -1,16 +1,95 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
+import { splitMixed } from '../../scripts/mixed.js';
+import { realAtis } from '../../data/atis-real.js';
 
-const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 'Nubes', 'Temp. / rocío', 'QNH', 'Frec. torre', 'Obs.'];
+const atisFields = [
+  ['Letra.', '*Information Alfa*, *Bravo*… Es la que vas a decir en la primera llamada.'],
+  ['Hora.', 'La de la observación, en UTC (*Zulu*).'],
+  ['Pista en uso.', '*Runway in use*, a veces con la aproximación que se espera.'],
+  ['Viento.', 'Dirección y velocidad, y las ráfagas si las hay (*gusting*).'],
+  ['Visibilidad.', '*Visibility*, en kilómetros o en millas.'],
+  ['Tiempo presente.', 'Lluvia, niebla, tormenta: *light rain*, *fog*.'],
+  ['Nubes.', 'Cantidad y altura de cada capa: *few*, *scattered*, *broken*, *overcast*.'],
+  ['Temperatura y punto de rocío.', '*Temperature*, *dew point*.'],
+  ['Presión.', '*QNH*, o *altimeter* en Estados Unidos.'],
+  ['Avisos.', 'Frecuencias, pistas o calles cerradas, aves, grúas.'],
+  ['Cierre.', 'Te pide que acuses recibo de la letra: *advise on initial contact you have information…*'],
+];
 ---
 <EnglishShell
   title="ATIS: inglés aeronáutico | Aerodot"
-  description="Practicá el ATIS como se hace de verdad: escuchalo, anotalo en papel y recién después mirá el texto. Audios generados y grabados, con faja para imprimir."
+  description="Escuchá ATIS reales de aeropuertos de todo el mundo, anotalos en un papel y compará con el texto. También un ATIS de práctica que cambia cada vez."
 >
-  <p class="eyebrow">Comunicaciones</p>
+  <EnglishCrumbs slug="atis" />
   <h1>ATIS.</h1>
-  <p class="en-block-lede">Este parte de práctica usa visibilidad en kilómetros y QNH en hectopascales, como en la OACI. En Estados Unidos la visibilidad suele ir en millas terrestres y el altímetro en pulgadas: se dice <em lang="en">altimeter</em>, no QNH. El cierre <em lang="en">advise on initial contact</em> es la fórmula de ese país para decir, en la primera llamada, qué letra copiaste.</p>
+
+  <EnglishToc learn={[{href:'#que-trae',label:'Qué trae un ATIS'}]} practice={[{href:'#atis-reales',label:'ATIS reales'},{href:'#atis-practica',label:'ATIS de práctica'}]} />
+  <EnglishPart kind="learn">
+    <section class="en-block" aria-labelledby="que-trae">
+      <h2 id="que-trae">Qué trae un ATIS</h2>
+      <p class="en-block-lede">El ATIS es un parte grabado que se repite sin parar en una frecuencia del aeródromo. Lo escuchás antes de llamar a la torre y, en la primera llamada, decís qué letra tenés. Cada vez que cambia algo, se graba de nuevo con la letra siguiente del alfabeto.</p>
+      <ol class="atis-order">
+        {atisFields.map(([name, body]) => <li><b>{name}</b> <span>{splitMixed(body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</span></li>)}
+      </ol>
+      <p class="en-block-lede">Anotalo en un papel, siempre en este orden. Así no se te pasa nada y lo comparás fácil.</p>
+      <p class="en-block-lede">El orden y las palabras cambian según el país. En la OACI la visibilidad va en kilómetros y la presión es el QNH, en hectopascales. En Estados Unidos la visibilidad suele ir en millas terrestres y el altímetro en pulgadas: se dice <em lang="en">altimeter</em>, no QNH. El cierre <em lang="en">advise on initial contact</em> es la fórmula de ese país para pedirte que digas, en la primera llamada, qué letra copiaste.</p>
+    </section>
+
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
+  <section class="en-block atis-world" data-atis-world aria-labelledby="atis-reales">
+    <h2 id="atis-reales">ATIS reales</h2>
+    <p class="en-block-lede">Grabaciones de aeropuertos de todo el mundo. En cada uno cambian el acento, la velocidad, la voz y el formato. Escuchá, anotá en un papel y, si la tarjeta lo trae, compará con el texto.</p>
+    <ul class="world-list" role="list">
+      {realAtis.map((item) => (
+        <li class="world-card">
+          <div class="world-head">
+            <p class="card-kicker">{item.country} · <span lang="en">{item.icao}</span></p>
+            <h3>{item.airport}</h3>
+          </div>
+          <div class="world-player" data-world-player={item.id} data-start={item.start} hidden>
+            <div class="world-screen">
+              <div class="world-frame" data-world-frame></div>
+              <div class="world-veil" aria-hidden="true"><p>Video tapado para que escuches sin leer.</p></div>
+            </div>
+            <div class="world-controls">
+              <button class="chip-toggle" type="button" data-world-cmd="toggle">Pausa</button>
+              <button class="chip-toggle" type="button" data-world-cmd="back">Volver 10 s</button>
+              <button class="chip-toggle" type="button" data-world-cmd="restart">Desde el principio</button>
+              <button class="chip-toggle" type="button" data-world-cmd="reveal" aria-pressed="false">Mostrar el video</button>
+            </div>
+          </div>
+          <div class="world-actions">
+            <button class="button-primary" type="button" data-world-play={item.id}>Escuchar</button>
+            {item.transcript && (
+              <button class="chip-toggle" type="button" data-world-text aria-expanded="false" aria-controls={`texto-${item.id}`}>Ver el texto</button>
+            )}
+          </div>
+          {item.transcript && (
+            <div class="world-text" id={`texto-${item.id}`} hidden>
+              <ol>
+                {item.transcript.map(([en, es]) => (
+                  <li><span lang="en">{en}</span><span class="world-es">{es}</span></li>
+                ))}
+              </ol>
+              <button class="chip-toggle world-gloss" type="button" data-world-gloss aria-pressed="false">Qué significa</button>
+              {item.source && <p class="world-source">{item.source}</p>}
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+    <p class="en-sources">Los videos son de sus autores y se ven con el reproductor de YouTube. Hace falta conexión para escucharlos.</p>
+  </section>
+
+  <h2 class="atis-sim-title" id="atis-practica">ATIS de práctica</h2>
+  <p class="en-block-lede">Un parte inventado del aeródromo Laguna. Cambia cada vez que lo escuchás.</p>
 
   <div class="atis-practice" data-atis>
     <div class="atis-bar">
@@ -59,7 +138,6 @@ const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 
         </ol>
         <div class="atis-actions">
           <button class="button-primary" type="button" data-atis-reveal disabled>Ya anoté: mostrar la respuesta</button>
-          <button class="button-quiet" type="button" data-atis-print>Imprimir la faja</button>
         </div>
 
         <div class="atis-revealed" data-atis-revealed hidden>
@@ -77,30 +155,20 @@ const paperRows = ['Letra', 'Hora', 'Pista', 'Viento', 'Visibilidad', 'Tiempo', 
       </section>
     </div>
 
-    <section class="atis-paper" aria-labelledby="faja">
-      <h2 id="faja">La faja</h2>
-      <p class="atis-paper-note">Imprimila o copiala a mano. Lo importante es tener un orden fijo para anotar.</p>
-      {[0, 1, 2, 3].map((copy) => (
-        <div class="paper-copy" aria-hidden={copy ? 'true' : undefined}>
-          <p class="paper-title">ATIS · Aeródromo ________________ · Información ____</p>
-          <div class="paper-grid">
-            {paperRows.map((row) => (
-              <div class={`paper-cell${row === 'Obs.' ? ' is-wide' : ''}`}><span>{row}</span></div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </section>
     <noscript><p>Para escuchar y corregir hace falta JavaScript.</p></noscript>
   </div>
 
-  <p class="en-sources">Los aeródromos y los datos son inventados. No son partes reales. Las voces son sintéticas.</p>
+  </EnglishPart>
+
+  <p class="en-sources">El ATIS de práctica es inventado: Laguna y sus datos no son reales, y las voces son sintéticas.</p>
 
   <EnglishFinish slug="atis" where="ATIS" />
   <script>
-    import { mountAtis, mountEnglishProgress, mountListen } from '../../scripts/english.js';
+    import { mountAtis, mountAtisWorld, mountEnglishProgress, mountListen, mountPageToc } from '../../scripts/english.js';
     mountListen();
+    mountPageToc('[data-page-toc]');
     mountEnglishProgress();
     mountAtis();
+    mountAtisWorld();
   </script>
 </EnglishShell>

@@ -1,7 +1,11 @@
 ---
 import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
 import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
+import FlipPhrase from '../../components/FlipPhrase.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { enrouteSet } from '../../data/english-sets.js';
 import { enrouteGroups } from '../../data/english-enroute.js';
@@ -16,18 +20,12 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
   title="En ruta: inglés aeronáutico | Aerodot"
   description="Cómo se dice por radio, en inglés, el cambio de frecuencia, el reporte de posición y la ida al aire. Diálogos con audio, frases clave y una práctica corta."
 >
-  <p class="eyebrow">Comunicaciones</p>
+  <EnglishCrumbs slug="en-ruta" />
   <h1>En ruta.</h1>
 
-  <aside class="library-toc study-page-toc" aria-label="Índice de la página">
-    <details class="chapter-toc" data-er-toc open>
-      <summary>En esta página</summary>
-      <nav aria-label="Secciones del tema">
-        {enrouteGroups.map((group) => <a href={`#${group.id}`}>{group.title}</a>)}
-        <a href={`#${enrouteSet.id}-title`}>{enrouteSet.title}</a>
-      </nav>
-    </details>
-  </aside>
+  <EnglishToc learn={enrouteGroups.map((group) => ({href:`#${group.id}`,label:group.title}))} practice={[{href:`#${enrouteSet.id}-title`,label:enrouteSet.title}]} />
+
+  <EnglishPart kind="learn">
 
   {enrouteGroups.map((group) => (
     <section class="radio-block" aria-labelledby={group.id}>
@@ -53,9 +51,9 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
             {item.tag && <span class="sv-tag">{item.tag}</span>}
             <div class="word-head">
               <h3 lang="en">{item.en}</h3>
-              <EnglishSay text={item.say} label={`Escuchar la frase *${item.en}*`} quiet />
+              <EnglishSay text={item.en.replace(/…$/, '')} label={`Escuchar *${item.en}*`} quiet />
             </div>
-            <p class="flip-say" lang="en">“{item.use}”</p>
+            <FlipPhrase text={item.use} say={item.say} term={item.en} />
             <div class="flip-back" id={`flip-${item.id}`} hidden>
               <p class="flip-es">{item.es}</p>
               <p>{splitMixed(item.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
@@ -67,7 +65,12 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
     </section>
   ))}
 
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
   <ExerciseSet set={enrouteSet} />
+
+  </EnglishPart>
 
   <p class="en-sources">Las frases de cambio de frecuencia (<span lang="en">contact</span>, <span lang="en">monitor</span>, <span lang="en">request change to</span> y <span lang="en">frequency change approved</span>) son las de la lista de la OACI (Doc 4444, cap. 12), tal como las reproduce el reglamento europeo SERA. Qué se repite siempre sigue SERA.8015. El lugar del distintivo sigue el manual de radio de la CAA británica (CAP 413, 2.49). El reporte de posición en VFR y la ida al aire (<span lang="en">go around</span>, <span lang="en">going around</span>) son de uso habitual. No hay un formato único y un aeródromo puede pedir otra forma. Laguna, Costa, Santa Brisa, Piedra Alta, la matrícula LV-DEM y todas las cifras (frecuencias, QNH, pista, distancias, alturas) son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
 
@@ -79,6 +82,6 @@ const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' 
     mountEnglishProgress();
     mountReveals();
     mountExerciseSets();
-    mountPageToc('[data-er-toc]');
+    mountPageToc('[data-page-toc]');
   </script>
 </EnglishShell>
