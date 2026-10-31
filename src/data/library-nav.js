@@ -1,7 +1,9 @@
 import { chapters } from './library-course.js';
 
 export const libraryGroups = [
-  { id: 'vuelo-y-aeronave', title: 'Vuelo y aeronave', chapterIds: [1, 2, 3, 5, 13] },
+  { id: 'vuelo-y-aeronave', title: 'Vuelo y aeronave', chapterIds: [1, 2, 3, 5] },
+  // Maniobras básicas de vuelo, partida en 17 páginas (ids 13 a 29).
+  { id: 'maniobras-basicas', title: 'Maniobras básicas de vuelo', chapterIds: Array.from({ length: 17 }, (_, i) => 13 + i) },
   { id: 'entorno-de-vuelo', title: 'El entorno de vuelo', chapterIds: [6, 7] },
   { id: 'operacion-y-navegacion', title: 'Operación y navegación', chapterIds: [4, 8, 9, 12] },
   { id: 'decision-y-persona', title: 'Decisión y factores humanos', chapterIds: [10, 11] },

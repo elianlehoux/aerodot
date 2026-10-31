@@ -265,6 +265,18 @@ const blockRows = [
   { name: 'Altímetro', y: 192, h: 58, cells: [{ lines: ['normal'] }, { lines: ['normal'] }, { bad: true, lines: ['se queda fijo'] }] },
   { name: 'Variómetro', y: 258, h: 58, cells: [{ lines: ['normal'] }, { lines: ['normal'] }, { bad: true, lines: ['se queda', 'en cero'] }] },
 ];
+// Como se ve la pista en final: baja, en la senda o alta. Solo cambia la forma del trapecio.
+const runwayViews = [
+  { cx: 84, name: 'Bajo', note: 'corta y ancha', bottom: 112, top: 74, h: 40, cls: 'c-weight' },
+  { cx: 240, name: 'En la senda', note: 'crece sin cambiar', bottom: 92, top: 36, h: 72, cls: 'c-thrust' },
+  { cx: 396, name: 'Alto', note: 'larga y angosta', bottom: 62, top: 18, h: 112, cls: 'c-weight' },
+];
+const recoverySteps = [
+  { name: 'Bajá la nariz', add: ['hasta que se apague', 'el aviso de pérdida'], cls: 'c-red' },
+  { name: 'Nivelá las alas', add: ['con alerón, y el timón', 'frena la guiñada'], cls: 'c-lift' },
+  { name: 'Dá potencia', add: ['la que haga falta,', 'con pie derecho'], cls: 'c-thrust' },
+  { name: 'Volvé suave', add: ['a la trayectoria, sin', 'tirar de golpe'], cls: 'c-ink' },
+];
 const speedSteps = [
   { name: 'IAS', es: 'velocidad indicada', add: 'lo que marca la aguja', cls: 'c-ink' },
   { name: 'CAS', es: 'velocidad calibrada', add: '+ error del instrumento y de la instalación', cls: 'c-lift' },
@@ -325,6 +337,13 @@ const captions = {
   variation: 'Fijate que con variación este el norte magnético queda a la derecha del verdadero. El mismo curso medido desde el norte magnético da un número menor: el este resta.',
   'taxi-wind': 'Fijate que con viento de adelante el mando se gira hacia el viento y con viento de atrás, en contra. Con viento de atrás el elevador va abajo en los dos tipos de tren. Es la figura de instrucción del Airplane Flying Handbook; si el manual de tu avión dice otra cosa, vale el manual.',
   'oxygen-rule': 'Fijate que la regla mira la presión de la cabina, que en un avión sin presurizar es la de la altura a la que volás. Las alturas son las equivalentes en atmósfera estándar a 700 y 620 hPa.',
+  'power-curve': 'Fijate en el punto más bajo de la curva, la velocidad de mínima resistencia. A la derecha, para ir más rápido hace falta más potencia. A la izquierda, para ir más lento también: es la zona donde una pérdida de velocidad sigue sola si no bajás la nariz o agregás potencia.',
+  'runway-perspective': 'Fijate en la forma de la pista. Con la senda correcta crece sin deformarse. Si se ve corta y ancha estás bajo, y si se ve larga y angosta estás alto.',
+  'ground-effect': 'Fijate que el efecto suelo se nota por debajo de una envergadura de altura y crece al acercarte: a un cuarto de envergadura, la resistencia inducida baja cerca de un 25 %. Al subir, esa ayuda desaparece.',
+  departure: 'Fijate que nadie vira antes del final de la pista. Si te quedás, virás a viento cruzado cerca de la altura de circuito. Si te vas, seguís derecho o virás 45° hacia el lado del circuito, ya a la altura de circuito. Las salidas de cada aeródromo las publica la AIP.',
+  'point-turns': 'Fijate que el radio es el mismo en toda la vuelta, pero la inclinación no. Con viento de cola la velocidad sobre el suelo es mayor y hace falta más inclinación. Con viento de frente, menos. En los tramos cruzados la nariz apunta un poco hacia el viento.',
+  'stall-recovery': 'Fijate en el orden: primero el ángulo de ataque, que es lo único que saca al ala de la pérdida. Las alas, la potencia y la trayectoria vienen después. Si tirás de golpe al final, aparece la pérdida secundaria.',
+  'wing-low': 'Fijate que el ala baja va del lado del viento y frena la deriva, mientras el timón contrario mantiene la nariz sobre el eje. Por eso toca primero la rueda del lado del viento. Si para no girar necesitás todo el timón, el viento es demasiado fuerte para esa pista.',
   'airspeed-chain': 'Fijate que cada paso suma una corrección. La aguja marca IAS; TAS es tu velocidad respecto del aire y GS, respecto del suelo. La EAS solo cambia algo cuando pesa la compresibilidad, a alta velocidad.',
 };
 const title = {
@@ -369,6 +388,13 @@ const title = {
   'vfr-levels': 'Niveles de crucero VFR',
   'runway-number': 'De dónde sale el número de pista',
   'airspeed-chain': 'De la IAS a la velocidad sobre el suelo',
+  'wing-low': 'Ala baja con viento cruzado',
+  'stall-recovery': 'La salida de una pérdida, en orden',
+  'point-turns': 'Giros alrededor de un punto con viento',
+  'ground-effect': 'El efecto suelo',
+  departure: 'Cómo se sale del circuito',
+  'power-curve': 'Las dos caras de la curva de potencia',
+  'runway-perspective': 'Cómo se ve la pista en final',
   'oxygen-rule': 'Cuándo hace falta oxígeno',
   'taxi-wind': 'Los mandos al rodar con viento',
   variation: 'Curso verdadero y curso magnético',
@@ -1629,6 +1655,134 @@ const metarRows = [
     <text x="16" y="294" class="ts">Altura de cabina, en atmósfera estándar</text>
   </svg>}
 
+  {type === 'power-curve' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Una curva en forma de U con la velocidad en el eje horizontal y el empuje necesario en el vertical. El punto más bajo es la velocidad de mínima resistencia. A la derecha de ese punto, para ir más rápido hace falta más empuje. A la izquierda, sombreada, para ir más lento también hace falta más empuje: es la zona de comando invertido.</desc>
+    <rect x={drag.x0 + 2} y="40" width={drag.min[0] - drag.x0 - 2} height={drag.y0 - 40} class="zone c-red" />
+    <line x1={drag.x0} y1={drag.y0} x2="464" y2={drag.y0} class="ln thin" />
+    <line x1={drag.x0} y1={drag.y0} x2={drag.x0} y2="40" class="ln thin" />
+    <text x="68" y="34" class="ts">empuje necesario</text>
+    <path d={drag.total} class="ln thick c-ink" />
+    <line x1={drag.min[0]} y1={drag.min[1]} x2={drag.min[0]} y2={drag.y0} class="guide" />
+    <circle cx={drag.min[0]} cy={drag.min[1]} r="5.5" class="dot c-ink" />
+    <text x={drag.min[0]} y="274" text-anchor="middle" class="ts">mínima resistencia</text>
+    <text x="70" y="58" class="tb c-red">comando invertido</text>
+    <text x="70" y="80" class="ts">más lento, más potencia</text>
+    <text x="456" y="216" text-anchor="end" class="ts">más rápido,</text>
+    <text x="456" y="236" text-anchor="end" class="ts">más potencia</text>
+    <text x="464" y="292" text-anchor="end" class="ts">velocidad →</text>
+  </svg>}
+
+  {type === 'runway-perspective' && <svg viewBox="0 0 480 236" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Tres vistas de la misma pista desde la cabina, en final. Si estás bajo, la pista se ve corta y ancha. En la senda correcta, la pista crece sin cambiar de forma. Si estás alto, se ve larga y angosta.</desc>
+    {runwayViews.map((v) => <g>
+      <line x1={v.cx - 70} y1="46" x2={v.cx + 70} y2="46" class="ln thin" />
+      <path d={`M${v.cx - v.bottom / 2} 176L${v.cx - v.top / 2} ${176 - v.h}H${v.cx + v.top / 2}L${v.cx + v.bottom / 2} 176Z`} class="runway" />
+      <line x1={v.cx} y1={172} x2={v.cx} y2={180 - v.h} class="rwy-mark" />
+      <text x={v.cx} y="204" text-anchor="middle" class={`tb ${v.cls}`}>{v.name}</text>
+      <text x={v.cx} y="226" text-anchor="middle" class="ts">{v.note}</text>
+    </g>)}
+    <text x="16" y="30" class="ts">horizonte</text>
+  </svg>}
+
+  {type === 'ground-effect' && <svg viewBox="0 0 480 276" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un gráfico con la altura sobre el suelo, medida en envergaduras, en el eje horizontal y la resistencia inducida en el vertical. Muy cerca del suelo la resistencia inducida es mucho menor. A un cuarto de envergadura es cerca de un 25 por ciento menor. A una envergadura de altura vuelve a ser la normal.</desc>
+    <line x1="60" y1="230" x2="460" y2="230" class="ln thin" />
+    <line x1="60" y1="230" x2="60" y2="30" class="ln thin" />
+    <text x="68" y="30" class="ts">resistencia inducida</text>
+    <line x1="60" y1="50" x2="460" y2="50" class="guide" />
+    <text x="456" y="42" text-anchor="end" class="ts">la normal, lejos del suelo</text>
+    <rect x="60" y="50" width="400" height="180" class="zone c-lift" fill-opacity=".06" />
+    <path d="M100 144C120 118 135 102 160 93C220 72 300 56 460 50" class="ln thick c-lift" />
+    <circle cx="160" cy="93" r="5.5" class="dot c-lift" />
+    <text x="172" y="120" class="tb c-lift">un cuarto de envergadura</text>
+    <text x="172" y="142" class="ts">cerca de un 25 % menos</text>
+    <text x="60" y="252" text-anchor="middle" class="ts">suelo</text>
+    <text x="160" y="252" text-anchor="middle" class="ts">¼</text>
+    <text x="460" y="252" text-anchor="end" class="ts">1 envergadura</text>
+    <text x="460" y="272" text-anchor="end" class="ts">altura sobre el suelo →</text>
+  </svg>}
+
+  {type === 'departure' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Vista desde arriba de una pista con despegue hacia la derecha y circuito por izquierda. Tres trayectorias salen después del final de la pista: seguir derecho por el eje, virar 45 grados hacia el lado del circuito para irse, o virar 90 grados a viento cruzado para quedarse en el circuito.</desc>
+    <rect x="40" y="226" width="200" height="24" rx="3" class="runway" />
+    <line x1="56" y1="238" x2="224" y2="238" class="rwy-mark" />
+    <path d={arrow(60, 214, 150, 214, 10)} class="arw thin c-ink" />
+    <text x="40" y="206" class="ts">despegue</text>
+    <path d={arrow(240, 238, 456, 238, 12)} class="arw c-lift" />
+    <text x="456" y="268" text-anchor="end" class="tb c-lift">seguir derecho</text>
+    <path d={qArrow(250, 238, 280, 238, 384, 134, 12)} class="arw c-thrust" />
+    <text x="392" y="128" class="tb c-thrust">45° para irte</text>
+    <path d={qArrow(244, 238, 268, 236, 268, 70, 12)} class="arw c-weight" />
+    <text x="280" y="62" class="tb c-weight">viento cruzado</text>
+    <text x="280" y="84" class="ts">para quedarte</text>
+    <text x="16" y="34" class="t">Circuito por izquierda</text>
+    <text x="16" y="290" class="ts">Ningún viraje antes del final de la pista</text>
+  </svg>}
+
+  {type === 'point-turns' && <svg viewBox="0 0 480 330" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Vista desde arriba de un círculo alrededor de un punto del suelo, con el viento soplando de izquierda a derecha. El avión recorre el círculo en el sentido de las agujas del reloj. Arriba, donde va con viento de cola, la inclinación es la mayor. Abajo, con viento de frente, la menor. A los costados, con viento cruzado, la inclinación es media y la nariz apunta un poco hacia el viento.</desc>
+    <circle cx="240" cy="170" r="104" class="route-circle" />
+    <circle cx="240" cy="170" r="6" class="dot c-ink" />
+    <text x="252" y="176" class="ts">punto</text>
+    <path d={arcArrow(240, 170, 104, 104, -110, -70, 11)} class="arw c-weight" />
+    <path d={arcArrow(240, 170, 104, 104, 70, 110, 11)} class="arw c-thrust" />
+    <path d={arcArrow(240, 170, 104, 104, -20, 20, 11)} class="arw c-lift" />
+    <path d={arcArrow(240, 170, 104, 104, 160, 200, 11)} class="arw c-lift" />
+    <text x="240" y="38" text-anchor="middle" class="tb c-weight">viento de cola</text>
+    <text x="240" y="58" text-anchor="middle" class="ts">la mayor inclinación</text>
+    <text x="240" y="300" text-anchor="middle" class="tb c-thrust">viento de frente</text>
+    <text x="240" y="320" text-anchor="middle" class="ts">la menor inclinación</text>
+    <text x="470" y="166" text-anchor="end" class="t c-lift">cruzado</text>
+    <text x="470" y="186" text-anchor="end" class="ts">media</text>
+    <text x="10" y="166" class="t c-lift">cruzado</text>
+    <text x="10" y="186" class="ts">media</text>
+    <path d={arrow(20, 104, 96, 104, 10)} class="arw thin c-air" />
+    <text x="20" y="92" class="ts c-air">viento</text>
+  </svg>}
+
+  {type === 'stall-recovery' && <svg viewBox="0 0 480 312" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Cuatro pasos en columna. Primero bajar la nariz hasta que se apague el aviso, porque eso baja el ángulo de ataque. Segundo, nivelar las alas con alerón mientras el timón frena la guiñada. Tercero, dar la potencia que haga falta. Cuarto, volver con suavidad a la trayectoria, sin tirar de golpe.</desc>
+    {recoverySteps.map((step, i) => <g>
+      <rect x="16" y={16 + i * 76} width="172" height="52" rx="10" class={i === 0 ? 'box box-red' : 'box'} />
+      <text x="30" y={48 + i * 76} class={`tb ${step.cls}`}><tspan class="c-lift">{i + 1}</tspan> · {step.name}</text>
+      <text x="204" y={38 + i * 76} class="ts">{step.add[0]}</text>
+      <text x="204" y={58 + i * 76} class="ts">{step.add[1]}</text>
+      {i < recoverySteps.length - 1 && <path d={arrow(102, 70 + i * 76, 102, 90 + i * 76, 9)} class="arw thin c-ink" />}
+    </g>)}
+  </svg>}
+
+  {type === 'wing-low' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un avión en final visto desde atrás, sobre el eje de la pista, con viento cruzado desde la izquierda. El ala izquierda, la del lado del viento, va baja para frenar la deriva. El timón va hacia la derecha para que la nariz siga alineada con el eje. La rueda izquierda va más cerca del suelo y toca primero.</desc>
+    <path d="M150 290L222 150H258L330 290Z" class="runway" />
+    <line x1="240" y1="284" x2="240" y2="156" class="rwy-mark" />
+    <g transform="rotate(-10 240 96)">
+      <line x1="150" y1="96" x2="330" y2="96" class="ln thick c-ink" />
+      <circle cx="240" cy="98" r="12" class="pl" />
+      <line x1="240" y1="86" x2="240" y2="58" class="ln thick c-ink" />
+      <line x1="226" y1="112" x2="222" y2="128" class="ln c-ink" />
+      <line x1="254" y1="112" x2="258" y2="128" class="ln c-ink" />
+      <circle cx="222" cy="132" r="5" class="dot c-red" />
+      <circle cx="258" cy="132" r="5" class="dot c-ink" />
+    </g>
+    <path d={arrow(16, 70, 96, 70, 11)} class="arw c-air" />
+    <text x="16" y="56" class="tb c-air">viento</text>
+    <text x="16" y="142" class="tb c-lift">ala baja</text>
+    <text x="16" y="164" class="ts">del lado del viento</text>
+    <text x="16" y="186" class="ts">frena la deriva</text>
+    <text x="464" y="44" text-anchor="end" class="tb c-weight">timón contrario</text>
+    <text x="464" y="66" text-anchor="end" class="ts">la nariz sigue el eje</text>
+    <text x="464" y="176" text-anchor="end" class="t c-red">toca primero</text>
+    <text x="464" y="198" text-anchor="end" class="ts">la rueda del lado</text>
+    <text x="464" y="220" text-anchor="end" class="ts">del viento</text>
+  </svg>}
+
   {type === 'airspeed-chain' && <svg viewBox="0 0 480 312" role="img" aria-labelledby={`${t} ${d}`}>
     <title id={t}>{diagramTitle}</title>
     <desc id={d}>Cuatro casillas en columna unidas por flechas. IAS es lo que marca la aguja. Sumando el error del instrumento y de la instalación se llega a CAS. Corrigiendo por densidad, es decir por altitud y temperatura, se llega a TAS, la velocidad respecto del aire. Sumando el viento se llega a GS, la velocidad sobre el suelo.</desc>
@@ -1791,6 +1945,7 @@ const metarRows = [
   .study-diagram .spread-bar{fill:var(--dg-lift-soft);stroke:var(--dg-lift);stroke-width:1.6;}
   .study-diagram .cloud-flat{fill:var(--dg-cloud);}
   .study-diagram .speed-name{font-size:19px;}
+  .study-diagram .route-circle{fill:none;stroke:var(--dg-guide);stroke-width:2;stroke-dasharray:6 6;}
   .study-diagram .band-o{fill:currentColor;fill-opacity:.12;stroke:currentColor;stroke-opacity:.5;stroke-width:1.4;}
   .study-diagram .surf{fill:currentColor;fill-opacity:.55;stroke:currentColor;stroke-width:1.2;}
   .study-diagram .seg-fuel{fill:currentColor;fill-opacity:.16;stroke:currentColor;stroke-width:1.6;}
