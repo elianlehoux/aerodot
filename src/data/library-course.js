@@ -378,7 +378,7 @@ const newChapters = [
       ],
       [
         'Circuito de tránsito y conciencia de tráfico',
-        'El circuito de tránsito ordena los tramos alrededor de la pista: salida, viento cruzado, tramo inicial (paralelo a la pista, con viento en cola), básico y final. Te permite preparar el aterrizaje.\n\nLa RAAC Parte 91, Sección 91.128, establece como circuito tipo virajes a la izquierda, 500 ft (pies) de altura, al menos 500 m desde la periferia del aeródromo y una entrada a unos 45° respecto de la trayectoria del tramo inicial. Si la AIP publica otro circuito, seguí lo publicado.\n\nComo buena práctica, evitá entrar directo al tramo básico o al final: desde ahí puede ser más difícil ver y que te vean. Mirá el tránsito y comunicá tu posición cuando corresponda. El dibujo es conceptual.',
+        'El circuito de tránsito ordena los tramos alrededor de la pista: salida, viento cruzado, tramo inicial (paralelo a la pista, con viento en cola), básico y final. Te permite preparar el aterrizaje.\n\nLa RAAC Parte 91, Sección 91.128, establece como circuito tipo virajes a la izquierda, 500 ft (pies) de altura, al menos 500 m desde la periferia del aeródromo y una entrada a unos 45° respecto de la trayectoria del tramo inicial. Si la AIP publica otro circuito, seguí lo publicado.\n\nLa misma sección prohíbe incorporarse por el tramo básico o por el final, porque desde ahí cuesta ver y que te vean. Mirá el tránsito y comunicá tu posición cuando corresponda. El dibujo es conceptual.',
         'El esquema enseña la secuencia. La publicación del aeródromo define el circuito que vas a usar.',
         'traffic-pattern',
       ],

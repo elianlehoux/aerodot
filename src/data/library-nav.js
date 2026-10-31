@@ -23,7 +23,9 @@ export function getLibraryNav() {
     title: group.title,
     chapters: group.chapterIds.map((id) => {
       const chapter = requireChapter(id, group.id);
-      return { id: chapter.id, slug: chapter.slug, title: chapter.title };
+      // Dentro de su grupo, una página de maniobras se nombra sin repetir el grupo: «3. Vuelo lento, pérdidas y planeo».
+      const navTitle = chapter.title.replace(/^Maniobras básicas de vuelo (\d+): (.)/, (_, n, first) => `${n}. ${first.toUpperCase()}`);
+      return { id: chapter.id, slug: chapter.slug, title: chapter.title, navTitle };
     }),
   }));
 }
