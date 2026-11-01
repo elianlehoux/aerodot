@@ -121,7 +121,7 @@ test('los dos niveles, las opciones del armador y los códigos tienen todos sus 
   }
   assert.deepEqual(squawkCodes.map((code) => code.code), ['7700', '7600', '7500']);
   for (const code of squawkCodes) {
-    for (const field of ['code', 'en', 'es', 'say', 'body']) assert.ok(code[field]?.trim(), `${code.code}: falta ${field}`);
+    for (const field of ['code', 'en', 'es', 'say']) assert.ok(code[field]?.trim(), `${code.code}: falta ${field}`);
   }
   const ids = [...emergencyNatures, ...emergencyIntentions, ...emergencyPositions].map((option) => option.id);
   assert.equal(new Set(ids).size, ids.length, 'ids repetidos');
@@ -158,7 +158,6 @@ test('emergencias: los asteriscos del inglés en los textos en español van de a
     ...emergencyLevels.flatMap((level) => [level.body, level.when]),
     ...emergencyOrder.map((piece) => piece.hint),
     ...emergencyNatures.map((nature) => nature.note).filter(Boolean),
-    ...squawkCodes.map((code) => code.body),
   ];
   for (const text of texts) assert.equal(hasUnmatchedMarker(text), false, text);
 });

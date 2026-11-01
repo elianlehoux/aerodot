@@ -1,0 +1,170 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { pictureSet } from '../../data/english-sets.js';
+import { exampleVideos, pictureSteps, pictureWords, positionWords, practicePhotos } from '../../data/english-picture.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-story.css';
+
+const stepName = Object.fromEntries(pictureSteps.map((step) => [step.id, step.es]));
+const [example, ...photos] = practicePhotos;
+---
+<EnglishShell
+  title="Describir una imagen: inglés aeronáutico | Aerodot"
+  description="Cómo describir en inglés una foto de aviación, como en el examen online de la OACI: en qué orden hablar, dónde está cada cosa, qué está pasando y qué pudo pasar. Con fotos reales para practicar."
+>
+  <EnglishCrumbs slug="describir" />
+  <h1>Describir una imagen.</h1>
+
+  <EnglishToc learn={[{href:'#orden',label:'En qué orden'},{href:'#donde',label:'Dónde está cada cosa'},{href:'#palabras',label:'Las palabras de la foto'},{href:'#ejemplo',label:'Una foto descripta'}]} practice={[{href:'#fotos',label:'Describí estas fotos'},{href:'#videos',label:'Videos de ejemplo'},{href:`#${pictureSet.id}-title`,label:pictureSet.title}]} />
+
+  <EnglishPart kind="learn">
+
+  <section class="radio-block" aria-labelledby="orden">
+    <h2 id="orden">En qué orden</h2>
+    <p>En el examen online te muestran una foto y hablás uno o dos minutos. Andá de lo general a lo que suponés.</p>
+    <ol class="rs-pieces" role="list">
+      {pictureSteps.map((step, index) => (
+        <li class="rs-piece">
+          <span class="rl-n" aria-hidden="true">{index + 1}</span>
+          <div class="rs-piece-body">
+            <p class="rs-piece-head"><b>{step.es}</b></p>
+            <p class="rs-piece-note">{splitMixed(step.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+            <div class="rl-example">
+              <p lang="en">{step.frames.join(' · ')}</p>
+              <EnglishSay text={step.say} label={`Escuchar cómo empezar: ${step.es.toLowerCase()}`} quiet />
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="radio-block" aria-labelledby="donde">
+    <h2 id="donde">Dónde está cada cosa</h2>
+    <ul class="rs-words" role="list">
+      {positionWords.map((word) => (
+        <li>
+          <span class="rs-word-text"><b lang="en">{word.en}</b><span>{word.es}</span></span>
+          <EnglishSay text={word.en} label={`Escuchar *${word.en}*`} quiet />
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="radio-block" aria-labelledby="palabras">
+    <h2 id="palabras">Las palabras de la foto</h2>
+    <div class="pd-groups">
+      {pictureWords.map((group) => (
+        <div class="pd-group">
+          <h3 class="pd-group-title">{group.es}</h3>
+          <ul class="rs-words is-compact" role="list">
+            {group.words.map((word) => (
+              <li>
+                <span class="rs-word-text"><b lang="en">{word.en}</b><span>{word.es}</span></span>
+                <EnglishSay text={word.en} label={`Escuchar *${word.en}*`} quiet />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="radio-block" aria-labelledby="ejemplo">
+    <h2 id="ejemplo">Una foto descripta</h2>
+    <figure class="pd-photo">
+      <img src={example.file} width={example.width} height={example.height} alt={example.alt} loading="lazy" decoding="async" />
+      <figcaption>Foto: {example.credit.author}, <a href={example.credit.url} rel="noopener" target="_blank">{example.credit.license}</a>.</figcaption>
+    </figure>
+    <ol class="pd-model" role="list">
+      {example.model.map((line) => (
+        <li><span class="rs-summary-piece">{stepName[line.step]}</span><span lang="en">{line.text}</span></li>
+      ))}
+    </ol>
+    <EnglishSay text={example.say} label="Escuchar la descripción completa" />
+  </section>
+
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
+  <section class="en-block" aria-labelledby="fotos">
+    <h2 id="fotos">Describí estas fotos</h2>
+    <p class="en-block-lede">Hablá un minuto por foto, en voz alta, siguiendo los cuatro pasos. Después mirá las palabras útiles y la descripción modelo.</p>
+    <ul class="pd-list" role="list">
+      {photos.map((photo, index) => (
+        <li class="pd-card">
+          <figure class="pd-photo">
+            <img src={photo.file} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async" />
+            <figcaption>Foto {index + 1}: {photo.credit.author}, <a href={photo.credit.url} rel="noopener" target="_blank">{photo.credit.license}</a>.</figcaption>
+          </figure>
+          <details class="pd-more">
+            <summary>Palabras útiles</summary>
+            <p class="pd-words" lang="en">{photo.words.join(' · ')}</p>
+          </details>
+          <details class="pd-more">
+            <summary>Descripción modelo</summary>
+            <ol class="pd-model" role="list">
+              {photo.model.map((line) => (
+                <li><span class="rs-summary-piece">{stepName[line.step]}</span><span lang="en">{line.text}</span></li>
+              ))}
+            </ol>
+            <EnglishSay text={photo.say} label={`Escuchar la descripción de la foto ${index + 1}`} />
+          </details>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="en-block" data-world-videos data-world-shown aria-labelledby="videos">
+    <h2 id="videos">Videos de ejemplo</h2>
+    <p class="en-block-lede">Profesores de inglés aeronáutico describen una foto como en el examen. Pausá antes de que hablen y probá vos primero.</p>
+    <ul class="world-list" role="list">
+      {exampleVideos.map((video) => (
+        <li class="world-card">
+          <div class="world-head">
+            <p class="card-kicker">{video.channel}</p>
+            <h3>{video.title}</h3>
+          </div>
+          <div class="world-player" data-world-player={video.id} data-start={video.start} hidden>
+            <div class="world-screen">
+              <div class="world-frame" data-world-frame></div>
+            </div>
+            <div class="world-controls">
+              <button class="chip-toggle" type="button" data-world-cmd="toggle">Pausa</button>
+              <button class="chip-toggle" type="button" data-world-cmd="back">Volver 10 s</button>
+              <button class="chip-toggle" type="button" data-world-cmd="restart">Desde el principio</button>
+            </div>
+          </div>
+          <div class="world-actions">
+            <button class="button-primary" type="button" data-world-play={video.id}>Ver el video</button>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="en-sources">Los videos son de sus autores y se ven con el reproductor de YouTube. Hace falta conexión para verlos.</p>
+  </section>
+
+  <ExerciseSet set={pictureSet} />
+
+  </EnglishPart>
+
+  <p class="en-sources">El orden de la descripción sigue el curso de inglés aeronáutico. Las fotos son de Wikimedia Commons, con licencia libre, y las descripciones son propias.</p>
+
+  <EnglishFinish slug="describir" where="Describir una imagen" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountWorldVideos } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountWorldVideos();
+    mountExerciseSets();
+    mountPageToc('[data-page-toc]');
+  </script>
+</EnglishShell>

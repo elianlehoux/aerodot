@@ -95,11 +95,14 @@ let speakId = 0;
 
 /*
  * La voz es fija: Google UK English Female. Si el dispositivo no la tiene (fuera de Chrome),
- * se busca otra voz femenina británica y, si tampoco hay, cualquier inglés británico.
+ * se busca otra voz femenina británica, después cualquier voz femenina en inglés (Moira, Samantha…)
+ * y recién al final un inglés británico masculino como Daniel.
  * Las de broma de macOS (Albert, Zarvox, Bells…) no se usan nunca.
  */
 const VOICE_NAME = 'Google UK English Female';
 const UK_FEMALE = /sonia|libby|maisie|hollie|serena|kate|stephanie|martha|susan|hazel|female/i;
+/* En orden de preferencia: primero la irlandesa, que es la más cercana al acento británico. */
+const OTHER_FEMALE = ['moira', 'samantha', 'karen', 'tessa', 'catherine', 'ava', 'allison', 'zoe'];
 const NOVELTY = /albert|bad news|bahh|bells|boing|bubbles|cellos|deranged|good news|hysterical|jester|junior|organ|princess|ralph|superstar|trinoids|whisper|wobble|zarvox|fred|kathy|novelty|espeak|eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley/i;
 
 const pickVoice = () => {
@@ -107,6 +110,7 @@ const pickVoice = () => {
   const british = english.filter((item) => /^en[-_]gb/i.test(item.lang));
   voice = english.find((item) => item.name === VOICE_NAME)
     ?? british.find((item) => UK_FEMALE.test(item.name))
+    ?? OTHER_FEMALE.map((name) => english.find((item) => item.name.toLowerCase().startsWith(name))).find(Boolean)
     ?? british[0]
     ?? english[0]
     ?? null;
@@ -884,16 +888,20 @@ export const mountNumberDrill = () => {
 };
 
 /*
- * ATIS reales de YouTube. El reproductor se carga recién al tocar Escuchar (sin cookies de
- * seguimiento) y suena uno solo por vez. El video queda tapado para que no se lea el texto que
- * algunos traen en pantalla; se maneja con botones propios por la API de mensajes del reproductor.
- * Cerrar saca el video y también esconde el texto.
+ * Videos de YouTube: los ATIS reales, las noticias y las descripciones de fotos. El reproductor se
+ * carga recién al tocar el botón (sin cookies de seguimiento) y suena uno solo por vez. En los ATIS
+ * el video queda tapado para que no se lea el texto que algunos traen en pantalla; con
+ * data-world-shown en la lista, se ve desde el principio. Se maneja con botones propios por la API
+ * de mensajes del reproductor. Cerrar saca el video y también esconde el texto.
  */
 const YT_ORIGIN = 'https://www.youtube-nocookie.com';
 
-export const mountAtisWorld = () => {
-  const root = document.querySelector('[data-atis-world]');
+export const mountAtisWorld = () => mountWorldVideos('[data-atis-world]');
+
+export const mountWorldVideos = (selector = '[data-world-videos]') => {
+  const root = document.querySelector(selector);
   if (!root) return;
+  const shown = root.hasAttribute('data-world-shown');
   const cards = [...root.querySelectorAll('.world-card')];
   const state = new Map();
 
@@ -906,20 +914,21 @@ export const mountAtisWorld = () => {
     const box = button && document.getElementById(button.getAttribute('aria-controls'));
     if (!button || !box) return;
     button.setAttribute('aria-expanded', 'false');
-    button.textContent = 'Ver el texto';
+    button.textContent = button.textContent.replace(/^Ocultar/, 'Ver');
     box.hidden = true;
   };
 
   const close = (card) => {
     const player = card.querySelector('[data-world-player]');
     player.querySelector('[data-world-frame]').replaceChildren();
+    const reveal = player.querySelector('[data-world-cmd="reveal"]');
     player.hidden = true;
-    player.classList.remove('is-revealed');
-    player.querySelector('[data-world-cmd="reveal"]').setAttribute('aria-pressed', 'false');
-    player.querySelector('[data-world-cmd="reveal"]').textContent = 'Mostrar el video';
+    player.classList.toggle('is-revealed', shown);
+    reveal?.setAttribute('aria-pressed', 'false');
+    if (reveal) reveal.textContent = 'Mostrar el video';
     player.querySelector('[data-world-cmd="toggle"]').textContent = 'Pausa';
     card.classList.remove('is-playing');
-    card.querySelector('[data-world-play]').textContent = 'Escuchar';
+    card.querySelector('[data-world-play]').textContent = card.querySelector('[data-world-play]').dataset.label;
     hideText(card);
     state.delete(card);
   };
@@ -931,7 +940,7 @@ export const mountAtisWorld = () => {
     if (player.dataset.start) params.set('start', player.dataset.start);
     const frame = document.createElement('iframe');
     frame.src = `${YT_ORIGIN}/embed/${id}?${params}`;
-    frame.title = `ATIS de ${card.querySelector('h3').textContent}`;
+    frame.title = `${root.dataset.worldTitle ?? ''}${card.querySelector('h3').textContent}`;
     frame.allow = 'autoplay; encrypted-media';
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     frame.tabIndex = -1;
@@ -939,6 +948,7 @@ export const mountAtisWorld = () => {
     frame.addEventListener('load', () => frame.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id, channel: 'widget' }), YT_ORIGIN));
     player.querySelector('[data-world-frame]').replaceChildren(frame);
     player.hidden = false;
+    player.classList.toggle('is-revealed', shown);
     card.classList.add('is-playing');
     card.querySelector('[data-world-play]').textContent = 'Cerrar';
     state.set(card, { frame, time: Number(player.dataset.start) || 0, playing: true });
@@ -963,7 +973,9 @@ export const mountAtisWorld = () => {
   });
 
   cards.forEach((card) => {
-    card.querySelector('[data-world-play]').addEventListener('click', () => {
+    const play = card.querySelector('[data-world-play]');
+    play.dataset.label = play.textContent.trim();
+    play.addEventListener('click', () => {
       const wasOpen = state.has(card);
       stopSpeaking();
       document.dispatchEvent(new CustomEvent('aerodot:stop-audio'));
@@ -993,11 +1005,12 @@ export const mountAtisWorld = () => {
     }));
 
     const textButton = card.querySelector('[data-world-text]');
+    const textLabel = textButton?.textContent.trim();
     textButton?.addEventListener('click', () => {
       const box = document.getElementById(textButton.getAttribute('aria-controls'));
       const show = textButton.getAttribute('aria-expanded') !== 'true';
       textButton.setAttribute('aria-expanded', String(show));
-      textButton.textContent = show ? 'Ocultar el texto' : 'Ver el texto';
+      textButton.textContent = show ? textLabel.replace(/^Ver/, 'Ocultar') : textLabel;
       if (box) box.hidden = !show;
     });
 

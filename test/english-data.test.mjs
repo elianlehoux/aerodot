@@ -72,6 +72,6 @@ test('el recorrido está completo: toda sección tiene su página y todo paso ti
   );
   assert.deepEqual(
     englishSections.filter((section) => section.phase === 'relato').map((section) => section.slug),
-    ['incidentes', 'tres-publicos'],
+    ['resumir', 'describir', 'tres-publicos'],
   );
 });

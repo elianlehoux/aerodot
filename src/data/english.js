@@ -12,7 +12,7 @@ export const englishPhases = [
   { id: 'base', step: 1, title: 'Base', lede: 'Las palabras y los números.' },
   { id: 'comunicaciones', step: 2, title: 'Comunicaciones', lede: 'Escuchar y responder en la frecuencia.' },
   { id: 'emergencias', step: 3, title: 'Emergencias', lede: 'Qué decir cuando algo sale mal.' },
-  { id: 'relato', step: 4, title: 'Contar lo que pasó', lede: 'Describir un incidente en pasado y adaptarlo a cada oyente.' },
+  { id: 'relato', step: 4, title: 'Contar lo que pasó', lede: 'Resumir una noticia, describir una foto y adaptar el mensaje a cada oyente.' },
 ];
 
 /** Todos los módulos, en orden. Cada uno es una página /ingles/<slug>. */
@@ -27,11 +27,12 @@ export const englishSections = [
   { slug: 'autorizacion', phase: 'comunicaciones', title: 'Autorizaciones', blurb: 'Qué te autorizan, qué repetís y cómo se detecta un error.', href: '/ingles/autorizacion' },
   { slug: 'radio-fases', phase: 'comunicaciones', title: 'Fases de vuelo', blurb: 'De la puesta en marcha a la final: qué se dice en cada tramo.', href: '/ingles/radio-fases' },
   { slug: 'en-ruta', phase: 'comunicaciones', title: 'En ruta', blurb: 'Cambiar de frecuencia, decir dónde estás y qué decir en una ida al aire.', href: '/ingles/en-ruta' },
-  { slug: 'falla-radio', phase: 'comunicaciones', title: 'Falla de radio', blurb: 'Transmitir a ciegas, el código 7600 y las señales luminosas de la torre.', href: '/ingles/falla-radio' },
+  { slug: 'falla-radio', phase: 'comunicaciones', title: 'Falla de radio', blurb: 'Transmitir a ciegas, contestar sin voz cuando el control te prueba y pedir un relevo.', href: '/ingles/falla-radio' },
 
-  { slug: 'emergencias', phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Aviar, navegar, comunicar: el mensaje de emergencia paso a paso.', href: '/ingles/emergencias' },
+  { slug: 'emergencias', phase: 'emergencias', title: 'Mayday y Pan Pan', blurb: 'Socorro o urgencia, el mensaje en orden y los códigos del transpondedor.', href: '/ingles/emergencias' },
 
-  { slug: 'incidentes', phase: 'relato', title: 'Incidentes', blurb: 'Accidente, incidente y las palabras para contar qué pasó, en pasado.', href: '/ingles/incidentes' },
+  { slug: 'resumir', phase: 'relato', title: 'Resumir una noticia', blurb: 'Contar en pasado un hecho real que viste en un video.', href: '/ingles/resumir' },
+  { slug: 'describir', phase: 'relato', title: 'Describir una imagen', blurb: 'Qué muestra una foto, dónde está cada cosa y qué pudo pasar.', href: '/ingles/describir' },
   { slug: 'tres-publicos', phase: 'relato', title: 'Informar un evento', blurb: 'El mismo evento dicho a la torre, a la empresa y a los pasajeros.', href: '/ingles/tres-publicos' },
 ];
 

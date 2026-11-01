@@ -1,0 +1,166 @@
+---
+import EnglishShell from '../../components/EnglishShell.astro';
+import EnglishCrumbs from '../../components/EnglishCrumbs.astro';
+import EnglishFinish from '../../components/EnglishFinish.astro';
+import EnglishPart from '../../components/EnglishPart.astro';
+import EnglishToc from '../../components/EnglishToc.astro';
+import EnglishSay from '../../components/EnglishSay.astro';
+import ExerciseSet from '../../components/ExerciseSet.astro';
+import { retellSet } from '../../data/english-sets.js';
+import { eventKinds, eventLabels, eventVerbs, newsVideos, summaryPieces, tenseRules } from '../../data/english-retell.js';
+import { splitMixed } from '../../scripts/mixed.js';
+import '../../styles/english-survival.css';
+import '../../styles/english-story.css';
+
+const pieceName = Object.fromEntries(summaryPieces.map((piece) => [piece.id, piece.es]));
+---
+<EnglishShell
+  title="Resumir una noticia: inglés aeronáutico | Aerodot"
+  description="Cómo contar en inglés una noticia de aviación, como en el examen de la OACI: el orden del resumen, las palabras para nombrar el hecho, los tiempos verbales y noticias reales para practicar."
+>
+  <EnglishCrumbs slug="resumir" />
+  <h1>Resumir una noticia.</h1>
+
+  <EnglishToc learn={[{href:'#orden',label:'El resumen, en orden'},{href:'#que-fue',label:'Accidente o incidente'},{href:'#palabras',label:'Las palabras del hecho'},{href:'#tiempos',label:'Contalo en pasado'}]} practice={[{href:'#noticias',label:'Noticias reales'},{href:`#${retellSet.id}-title`,label:retellSet.title}]} />
+
+  <EnglishPart kind="learn">
+
+  <section class="radio-block" aria-labelledby="orden">
+    <h2 id="orden">El resumen, en orden</h2>
+    <p>En el examen mirás un video corto de un hecho real y lo contás. Seguí siempre este orden.</p>
+    <ol class="rs-pieces" role="list">
+      {summaryPieces.map((piece, index) => (
+        <li class="rs-piece">
+          <span class="rl-n" aria-hidden="true">{index + 1}</span>
+          <div class="rs-piece-body">
+            <p class="rs-piece-head"><b>{piece.es}</b> <span lang="en">{piece.en}</span></p>
+            <p class="rs-piece-note">{piece.body}</p>
+            <div class="rl-example">
+              <p lang="en">{piece.frame}</p>
+              <EnglishSay text={piece.say} label={`Escuchar el ejemplo: ${piece.es.toLowerCase()}`} quiet />
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="radio-block" aria-labelledby="que-fue">
+    <h2 id="que-fue">Accidente o incidente</h2>
+    <p>La primera oración del resumen dice qué fue. Las definiciones son las del Anexo 13 de la OACI.</p>
+    <ol class="rl-kinds" role="list">
+      {eventKinds.map((kind) => (
+        <li class="rl-kind">
+          <div class="rl-kind-head">
+            <h3 lang="en">{kind.en}</h3>
+            <span class="rl-kind-es">{kind.es}</span>
+          </div>
+          <p class="rl-kind-body">{kind.body}</p>
+          <div class="rl-example">
+            <p lang="en">{kind.use}</p>
+            <EnglishSay text={kind.say} label={`Escuchar el ejemplo de *${kind.en}*`} quiet />
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="radio-block" aria-labelledby="palabras">
+    <h2 id="palabras">Las palabras del hecho</h2>
+    <ul class="rs-words" role="list">
+      {eventLabels.map((word) => (
+        <li>
+          <span class="rs-word-text"><b lang="en">{word.en}</b><span>{word.es}</span></span>
+          <EnglishSay text={word.say} label={`Escuchar *${word.en}*`} quiet />
+        </li>
+      ))}
+    </ul>
+    <h3 class="rl-sub">Verbos que se confunden</h3>
+    <ul class="rs-verbs" role="list">
+      {eventVerbs.map((verb) => (
+        <li>
+          <p class="rs-word-text"><b lang="en">{verb.en}</b><span>{verb.es}</span></p>
+          <div class="rl-example">
+            <p lang="en">{verb.use}</p>
+            <EnglishSay text={verb.say} label={`Escuchar el ejemplo de *${verb.en}*`} quiet />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="radio-block" aria-labelledby="tiempos">
+    <h2 id="tiempos">Contalo en pasado</h2>
+    <ul class="rl-rules" role="list">
+      {tenseRules.map((rule) => (
+        <li class="rl-rule">
+          <p class="rl-rule-name">{rule.name}</p>
+          <h3>{rule.title}</h3>
+          <p class="rl-rule-body">{splitMixed(rule.rule).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
+          <div class="rl-example">
+            <p lang="en">{rule.use}</p>
+            <EnglishSay text={rule.say} label={`Escuchar el ejemplo de ${rule.name.toLowerCase()}`} quiet />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  </EnglishPart>
+
+  <EnglishPart kind="practice">
+  <section class="en-block" data-world-videos data-world-shown aria-labelledby="noticias">
+    <h2 id="noticias">Noticias reales</h2>
+    <p class="en-block-lede">Mirá el video una vez, contalo en voz alta en un minuto y después compará con el resumen.</p>
+    <ul class="world-list rs-news" role="list">
+      {newsVideos.map((video, index) => (
+        <li class="world-card">
+          <div class="world-head">
+            <p class="card-kicker">{video.outlet} · {video.year}</p>
+            <h3>Noticia {index + 1}</h3>
+          </div>
+          <div class="world-player" data-world-player={video.id} hidden>
+            <div class="world-screen">
+              <div class="world-frame" data-world-frame></div>
+            </div>
+            <div class="world-controls">
+              <button class="chip-toggle" type="button" data-world-cmd="toggle">Pausa</button>
+              <button class="chip-toggle" type="button" data-world-cmd="back">Volver 10 s</button>
+              <button class="chip-toggle" type="button" data-world-cmd="restart">Desde el principio</button>
+            </div>
+          </div>
+          <div class="world-actions">
+            <button class="button-primary" type="button" data-world-play={video.id}>Ver la noticia</button>
+            <button class="chip-toggle" type="button" data-world-text aria-expanded="false" aria-controls={`resumen-${video.id}`}>Ver el resumen</button>
+          </div>
+          <div class="world-text" id={`resumen-${video.id}`} hidden>
+            <ol class="rs-summary">
+              {video.summary.map((line) => (
+                <li><span class="rs-summary-piece">{pieceName[line.piece]}</span><span lang="en">{line.text}</span></li>
+              ))}
+            </ol>
+            <p class="world-source">Datos: {video.source}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="en-sources">Los videos son de sus autores y se ven con el reproductor de YouTube. Hace falta conexión para verlos.</p>
+  </section>
+
+  <ExerciseSet set={retellSet} />
+
+  </EnglishPart>
+
+  <p class="en-sources">El orden del resumen sigue el curso de inglés aeronáutico. Las definiciones siguen el Anexo 13 de la OACI. Los resúmenes se armaron con lo que publicó la prensa sobre cada hecho.</p>
+
+  <EnglishFinish slug="resumir" where="Resumir una noticia" />
+  <script>
+    import { mountEnglishProgress, mountListen, mountPageToc, mountWorldVideos } from '../../scripts/english.js';
+    import { mountExerciseSets } from '../../scripts/exercises/engine.js';
+    mountListen();
+    mountEnglishProgress();
+    mountWorldVideos();
+    mountExerciseSets();
+    mountPageToc('[data-page-toc]');
+  </script>
+</EnglishShell>

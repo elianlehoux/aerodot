@@ -25,42 +25,22 @@ import '../../styles/english-emergency.css';
 
 /* Lo que se ve antes de que cargue el script: el mismo mensaje de ejemplo de la cinta. */
 const initial = emergencyExample;
-const steps = [
-  { en: 'Aviate', es: 'Aviar', body: 'Primero, el avión: mantené el control, la actitud, la velocidad y la altura.' },
-  { en: 'Navigate', es: 'Navegar', body: 'Después, saber dónde estás, hacia dónde vas y elegir dónde aterrizar.' },
-  { en: 'Communicate', es: 'Comunicar', body: 'Recién entonces, la radio: un mensaje corto y en orden.' },
-];
 ---
 <EnglishShell
   title="Mayday y Pan Pan: inglés aeronáutico | Aerodot"
-  description="Cuándo es socorro y cuándo urgencia, el mensaje de emergencia en inglés en el orden de la norma y los códigos 7700, 7600 y 7500. Con audio, un armador de mensajes y práctica."
+  description="Cuándo es socorro y cuándo urgencia, el mensaje de emergencia en inglés en orden y los códigos 7700, 7600 y 7500. Con audio, un armador de mensajes y práctica."
 >
   <EnglishCrumbs slug="emergencias" />
   <h1>Mayday y Pan Pan.</h1>
 
-  <EnglishToc learn={[{href:'#primero',label:'Primero volás'},{href:'#nivel',label:'Mayday o Pan Pan'},{href:'#mensaje',label:'El mensaje, pieza por pieza'},{href:'#codigos',label:'Los códigos del transpondedor'}]} practice={[{href:'#armador',label:'Armá tu mensaje'},{href:`#${emergencySet.id}-title`,label:emergencySet.title}]} />
+  <EnglishToc learn={[{href:'#nivel',label:'Mayday o Pan Pan'},{href:'#mensaje',label:'El mensaje, pieza por pieza'},{href:'#codigos',label:'Los códigos del transpondedor'}]} practice={[{href:'#armador',label:'Armá tu mensaje'},{href:`#${emergencySet.id}-title`,label:emergencySet.title}]} />
 
   <EnglishPart kind="learn">
-
-  <!-- (1) Aviar, navegar, comunicar -->
-  <section class="en-block" aria-labelledby="primero">
-    <h2 id="primero">Primero volás</h2>
-    <p class="en-block-lede">Cuando algo sale mal, la radio no va primero. Las prioridades se ordenan en tres palabras: <em lang="en">aviate, navigate, communicate</em>. Es una regla práctica que se enseña en la instrucción, no una norma.</p>
-    <ol class="em-steps" role="list">
-      {steps.map((step, index) => (
-        <li class="em-step" style={`--em-i:${index}`}>
-          <span class="em-step-n" aria-hidden="true">{index + 1}</span>
-          <p class="em-step-head"><b lang="en">{step.en}</b> <span>{step.es}</span></p>
-          <p class="em-step-body">{step.body}</p>
-        </li>
-      ))}
-    </ol>
-  </section>
 
   <!-- (2) Socorro o urgencia -->
   <section class="en-block" aria-labelledby="nivel">
     <h2 id="nivel">Mayday o Pan Pan</h2>
-    <p class="en-block-lede">Hay dos niveles de emergencia, y cada uno abre el mensaje con su señal. La norma pide decirla «preferiblemente» tres veces.</p>
+    <p class="en-block-lede">Cada nivel abre el mensaje con su señal, dicha tres veces.</p>
     <ul class="em-levels" role="list">
       {emergencyLevels.map((level) => (
         <li class="em-level" data-em-level={level.id}>
@@ -70,7 +50,7 @@ const steps = [
             <EnglishSay text={level.say} label={`Escuchar la señal de ${level.es.toLowerCase()}`} quiet />
           </div>
           <p class="em-level-body">{level.body}</p>
-          <p class="em-level-when"><span class="em-label">Por ejemplo</span> {level.when}</p>
+          <p class="em-level-when">{level.when}</p>
           <div class="em-level-example">
             <p lang="en">{level.example}</p>
             <EnglishSay text={level.exampleSay} label={`Escuchar el mensaje de ejemplo de ${level.es.toLowerCase()}`} quiet />
@@ -79,16 +59,16 @@ const steps = [
       ))}
     </ul>
     <ul class="en-rules em-rules" role="list">
-      <li>Cada <em lang="en">pan</em> se pronuncia como la palabra francesa «panne» (avería).</li>
-      <li>Si una urgencia se vuelve un peligro grave o inminente y necesitás ayuda inmediata, ya es socorro: <em lang="en">MAYDAY</em>. Si el problema resulta menos grave de lo que pensabas, podés cancelar la emergencia: <em lang="en">cancel MAYDAY</em>.</li>
-      <li><em lang="en">PAN PAN MEDICAL</em> no es para un pasajero descompuesto. Anuncia un transporte sanitario protegido por los Convenios de Ginebra. Para alguien que se siente mal a bordo, usás <em lang="en">PAN PAN</em> o, si su vida corre peligro, <em lang="en">MAYDAY</em>.</li>
+      <li><em lang="en">Pan</em> se dice como en español, «pan», y no a la inglesa, que suena parecido a «pen».</li>
+      <li>Si la urgencia empeora, pasás a <em lang="en">MAYDAY</em>. Si resulta menos grave, la cancelás: <em lang="en">cancel MAYDAY</em>.</li>
+      <li><em lang="en">PAN PAN MEDICAL</em> es para un transporte sanitario, no para un pasajero descompuesto.</li>
     </ul>
   </section>
 
   <!-- (3) La cinta: las piezas en el orden de la norma -->
   <section class="en-block" aria-labelledby="mensaje">
     <h2 id="mensaje">El mensaje, pieza por pieza</h2>
-    <p class="en-block-lede">Después de la señal, el mensaje lleva todas las piezas que puedas decir y, si se puede, en este orden. Tocá cada pieza para verla en el ejemplo.</p>
+    <p class="en-block-lede">Tocá cada pieza para verla en el ejemplo.</p>
     <div class="em-ribbon" data-em-ribbon>
       <fieldset class="em-pieces">
         <legend class="visually-hidden">Las piezas del mensaje de socorro, en orden</legend>
@@ -118,9 +98,7 @@ const steps = [
           <div class="em-panel" data-em-panel={piece.id} data-em-tone={piece.id}>
             <p class="em-panel-head">
               <b>{piece.official ? `${index + 1}. ` : ''}{piece.es}</b>
-              <span lang="en">{piece.en}</span>
-              <span class:list={['em-badge', { 'is-extra': !piece.official }]}>{piece.official ? 'Lo pide la norma' : 'Se suele agregar'}</span>
-            </p>
+              <span lang="en">{piece.en}</span>            </p>
             <div class="em-panel-piece">
               <p lang="en">“{piece.example}”</p>
               <EnglishSay text={piece.say} label={piece.official ? `Escuchar la pieza ${index + 1}: *${piece.en}*` : `Escuchar lo que se suele agregar: *${piece.en}*`} quiet />
@@ -136,20 +114,15 @@ const steps = [
   <!-- (4) Los códigos del transpondedor -->
   <section class="radio-block" aria-labelledby="codigos">
     <h2 id="codigos">Los códigos del transpondedor</h2>
-    <p>Con tres códigos del transpondedor avisás qué pasa sin hablar. En la pantalla del controlador aparecen con un aviso especial.</p>
-    <ul class="flip-grid em-codes" role="list">
+    <ul class="em-codes" role="list">
       {squawkCodes.map((code) => (
-        <li class="flip" data-flip>
+        <li class="em-code-item">
           <div class="word-head">
             <h3 class="em-code">{code.code}</h3>
             <EnglishSay text={code.say} label={`Escuchar el código ${code.code}`} quiet />
           </div>
-          <p class="flip-say" lang="en">{code.en}</p>
-          <div class="flip-back" id={`flip-sq-${code.code}`} hidden>
-            <p class="flip-es">{code.es}</p>
-            <p>{splitMixed(code.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
-          </div>
-          <button class="flip-toggle" type="button" data-reveal aria-controls={`flip-sq-${code.code}`} aria-expanded="false"><span data-reveal-label>Qué significa</span></button>
+          <p class="em-code-en" lang="en">{code.en}</p>
+          <p class="em-code-es">{code.es}</p>
         </li>
       ))}
     </ul>
@@ -161,7 +134,7 @@ const steps = [
   <!-- (5) El armador -->
   <section class="en-block" aria-labelledby="armador">
     <h2 id="armador">Armá tu mensaje</h2>
-    <p class="en-block-lede">Elegí el nivel, qué pasa, qué vas a hacer y dónde estás. El mensaje se arma solo, en el orden de la norma, con cada pieza subrayada.</p>
+    <p class="en-block-lede">Elegí cada pieza y el mensaje se arma en orden.</p>
     <div class="em-builder" data-em-builder>
       <form class="em-form" data-em-form data-station={emergencyStation} data-callsign={emergencyCallsign} data-extra={emergencyExtra.en}>
         <fieldset class="em-group">
@@ -185,7 +158,7 @@ const steps = [
               </label>
             ))}
           </div>
-          <p class="em-hint">Lo que no va con el nivel elegido queda apagado. Lo que decide es si necesitás ayuda inmediata. Con un monomotor, el motor detenido, el fuego a bordo y el aterrizaje forzoso son socorro. La falla de radio no está. Para eso existe el <a href="#codigos">código 7600 del transpondedor</a>.</p>
+          <p class="em-hint">Lo que no va con el nivel elegido queda apagado.</p>
         </fieldset>
         <fieldset class="em-group">
           <legend>Qué vas a hacer</legend>
@@ -239,16 +212,15 @@ const steps = [
 
   </EnglishPart>
 
-  <p class="en-sources">Las definiciones de socorro y urgencia, la señal tres veces y el orden de las piezas siguen el reglamento europeo SERA (UE 923/2012, SERA.14095), que toma la norma de la OACI (Anexo 10, Vol. II, cap. 5). Los códigos 7700, 7600 y 7500 siguen SERA.13005. Lo que se suele agregar al final, <span lang="en">MAYDAY FUEL</span> y <span lang="en">PAN PAN MEDICAL</span> siguen el manual de radiotelefonía de la CAA británica (CAP 413, cap. 8). El uso de EE. UU. está en el AIM de la FAA (6-3). Aviar, navegar, comunicar es una regla práctica de instrucción, no una norma. Laguna, Santa Brisa, la matrícula LV-DEM y todas las cifras de los mensajes (distancias, alturas, rumbos) son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">Las frases siguen la OACI, SERA, el manual de radio británico (CAP 413) y, para EE. UU., la FAA. Laguna, Santa Brisa, la matrícula y las cifras son de práctica y no se usan para volar.</p>
 
   <EnglishFinish slug="emergencias" where="Mayday y Pan Pan" />
   <script>
-    import { mountEnglishProgress, mountListen, mountPageToc, mountReveals } from '../../scripts/english.js';
+    import { mountEnglishProgress, mountListen, mountPageToc } from '../../scripts/english.js';
     import { mountExerciseSets } from '../../scripts/exercises/engine.js';
     import { mountEmergency } from '../../scripts/emergency.js';
     mountListen();
     mountEnglishProgress();
-    mountReveals();
     mountExerciseSets();
     mountEmergency();
     mountPageToc('[data-page-toc]');
