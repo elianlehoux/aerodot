@@ -305,6 +305,7 @@ const captions = {
   'wind-triangle': 'Fijate que el avión apunta hacia arriba (rumbo), pero el viento lo corre: sobre el suelo avanza por la flecha de la derrota y, con este viento, más despacio. TAS + viento = GS.',
   'traffic-pattern': 'Fijate en el orden de los tramos, en que todos los virajes son a la izquierda y en que te incorporás a 45° al tramo inicial (el paralelo a la pista, con viento en cola): es el circuito por defecto de la Sección 91.128 de la RAAC. Si el aeródromo publica otro circuito, vale el publicado.',
   papi: 'Fijate que con dos luces blancas y dos rojas estás en la senda. Más blanco es más alto; más rojo, más bajo.',
+  'light-signals': 'Fijate que la misma luz cambia de sentido entre vuelo y tierra, y que fija no es lo mismo que en destellos: el verde fijo te deja aterrizar y los destellos verdes te piden que vuelvas. Es la tabla del Anexo 2 de la OACI.',
   'decision-loop': 'Fijate que el ciclo no termina al actuar: comprobás el resultado y volvés a observar cada vez que algo cambia.',
   'risk-matrix': 'Fijate que el riesgo combina dos preguntas: qué tan probable y qué tan grave. Las casillas de “No salgo” se deciden antes del vuelo, en tierra.',
   imsafe: 'Fijate que son seis preguntas para hacerte antes de volar. Si alguna te deja con dudas, la decisión se toma en tierra.',
@@ -367,6 +368,7 @@ const title = {
   'wind-triangle': 'Triángulo de velocidades',
   'traffic-pattern': 'Circuito de tránsito',
   papi: 'Qué te dicen las luces del PAPI',
+  'light-signals': 'Señales luminosas de la torre',
   'decision-loop': 'Ciclo de decisión',
   'risk-matrix': 'Probabilidad y gravedad',
   imsafe: 'Chequeo IMSAFE',
@@ -418,6 +420,14 @@ const papiRows = [
   { label: 'En la senda', white: 2, off: 0 },
   { label: 'Un poco bajo', white: 1, off: 9 },
   { label: 'Muy bajo', white: 0, off: 18 },
+];
+// Señales luminosas: label en dos líneas; air y ground, una acción corta y un detalle opcional.
+const lightRows = [
+  { lamp: 'green', flash: false, label: ['Verde', 'fijo'], air: ['Aterrizá', 'autorizado'], ground: ['Despegá', 'autorizado'] },
+  { lamp: 'green', flash: true, label: ['Destellos', 'verdes'], air: ['Volvé', 'para aterrizar'], ground: ['Rodá', 'autorizado'] },
+  { lamp: 'red', flash: false, label: ['Rojo', 'fijo'], air: ['Cedé el paso', 'seguí circulando'], ground: ['Detenete', ''] },
+  { lamp: 'red', flash: true, label: ['Destellos', 'rojos'], air: ['No aterrices', 'no es seguro'], ground: ['Salí del área', 'de aterrizaje'] },
+  { lamp: 'white', flash: true, label: ['Destellos', 'blancos'], air: ['Aterrizá acá', 'y a plataforma'], ground: ['Volvé', 'adonde saliste'] },
 ];
 const loopNodes = [
   { n: 1, label: 'Observar', x: 240, y: 40 },
@@ -950,6 +960,37 @@ const metarRows = [
       <line x1="378" y1={34 + i * 54} x2="466" y2={34 + i * 54} class="guide" />
       <g transform={`translate(422 ${34 + i * 54 + row.off}) scale(.26)`}><path d={SIDE} class="pl" /></g>
     </g>)}
+  </svg>}
+
+  {type === 'light-signals' && <svg viewBox="0 0 480 338" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Cinco señales luminosas de la torre, con su significado en vuelo y en tierra. Verde fijo: en vuelo, autorizado a aterrizar; en tierra, autorizado a despegar. Destellos verdes: en vuelo, volvé para aterrizar; en tierra, autorizado a rodar. Rojo fijo: en vuelo, cedé el paso y seguí circulando; en tierra, detenete. Destellos rojos: en vuelo, no aterrices, el aeródromo no es seguro; en tierra, salí del área de aterrizaje en uso. Destellos blancos: en vuelo, aterrizá en este aeródromo y andá a la plataforma; en tierra, volvé al punto de partida.</desc>
+    <text x="10" y="22" class="ts">La luz</text>
+    <text x="160" y="22" class="ts">En vuelo</text>
+    <text x="322" y="22" class="ts">En tierra</text>
+    {lightRows.map((row, i) => {
+      const y = 36 + i * 60;
+      const cy = y + 30;
+      return <g>
+        <line x1="6" y1={y} x2="474" y2={y} class="sep" />
+        {row.flash
+          ? <g class={`sig sig-${row.lamp}`}>
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => <line x1={24 + 15 * Math.cos(rad(a))} y1={cy + 15 * Math.sin(rad(a))} x2={24 + 20 * Math.cos(rad(a))} y2={cy + 20 * Math.sin(rad(a))} class="sig-ray" />)}
+              <circle cx="24" cy={cy} r="10" class="sig-lamp" />
+            </g>
+          : <g class={`sig sig-${row.lamp}`}>
+              <circle cx="24" cy={cy} r="17" class="sig-glow" />
+              <circle cx="24" cy={cy} r="11" class="sig-lamp" />
+            </g>}
+        <text x="52" y={cy - 4} class="tb">{row.label[0]}</text>
+        <text x="52" y={cy + 18} class="ts">{row.label[1]}</text>
+        <text x="160" y={row.air[1] ? cy - 4 : cy + 6} class="tb">{row.air[0]}</text>
+        {row.air[1] && <text x="160" y={cy + 18} class="ts">{row.air[1]}</text>}
+        <text x="322" y={row.ground[1] ? cy - 4 : cy + 6} class="tb">{row.ground[0]}</text>
+        {row.ground[1] && <text x="322" y={cy + 18} class="ts">{row.ground[1]}</text>}
+      </g>;
+    })}
+    <line x1="6" y1="336" x2="474" y2="336" class="sep" />
   </svg>}
 
   {type === 'decision-loop' && <svg viewBox="0 0 480 350" role="img" aria-labelledby={`${t} ${d}`}>
@@ -1907,6 +1948,15 @@ const metarRows = [
   .study-diagram .lamp{stroke:#0e0d0c;stroke-width:1.5;}
   .study-diagram .lamp-white{fill:#fbf8f1;}
   .study-diagram .lamp-red{fill:#e3372c;}
+  /* Señales luminosas: fija lleva halo; en destellos, rayos. No depende solo del color. */
+  .study-diagram .sig-green{--sig:#3fbf6f;}
+  .study-diagram .sig-red{--sig:#e3372c;}
+  .study-diagram .sig-white{--sig:#fbf8f1;}
+  .study-diagram .sig-lamp{fill:var(--sig);stroke:#0e0d0c;stroke-width:1.5;}
+  .study-diagram .sig-glow{fill:var(--sig);fill-opacity:.22;}
+  .study-diagram .sig-ray{stroke:var(--sig);stroke-width:2.6;stroke-linecap:round;}
+  :global(html[data-theme="light"]) .study-diagram .sig-white .sig-ray{stroke:#9d968c;}
+  :global(html[data-theme="light"]) .study-diagram .sig-white .sig-glow{fill:#9d968c;}
   .study-diagram .cell{stroke-width:1.4;}
   .study-diagram .cell-ok{fill:var(--dg-thrust-soft);stroke:var(--dg-thrust);stroke-opacity:.45;}
   .study-diagram .cell-mid{fill:var(--dg-drag-soft);stroke:var(--dg-drag);stroke-opacity:.5;}

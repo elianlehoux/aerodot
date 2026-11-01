@@ -115,6 +115,12 @@ export const librarySources = {
     detail: 'Extracto publicado en Argentina: código 7700 en emergencia y 7500 en interferencia ilícita, salvo que las circunstancias pidan el otro.',
     kind: 'Argentina',
   },
+  seraLights: {
+    title: 'Reglamento (UE) 923/2012 · SERA, Apéndice 1',
+    url: 'https://eur-lex.europa.eu/eli/reg_impl/2012/923/oj',
+    detail: 'Reproduce la tabla de señales luminosas del Anexo 2 de la OACI y cómo se acusa recibo. Es normativa europea: sirve de texto de referencia del Anexo 2 y no reemplaza la RAAC ni la AIP.',
+    kind: 'OACI · referencia',
+  },
   acsPrivate: {
     title: 'FAA · Private Pilot Airplane ACS (FAA-S-ACS-6C)',
     url: 'https://www.faa.gov/training_testing/testing/acs/private_airplane_acs_6.pdf',
