@@ -8,6 +8,8 @@ import StudyDiagram from '../../components/StudyDiagram.astro';
 import { chapters } from '../../data/library-course.js';
 import { getLibraryOrder } from '../../data/library-nav.js';
 import { EXAM_LINK_LABEL, LIBRARY_ONLY_REASON } from '../../data/library-course.js';
+import { lessonSlugs, legacyAnchorMap } from '../../data/lesson-anchors.js';
+import { parseParagraph, lessonDiagrams } from '../../data/lesson-blocks.js';
 export function getStaticPaths() { return chapters.map((chapter) => ({ params: { slug: chapter.slug }, props: { chapter } })); }
 const { chapter } = Astro.props;
 // Orden canónico de lectura: el mismo del índice de /temas y del sidebar.
@@ -20,22 +22,20 @@ const next = orderIndex > -1 && orderIndex < libraryOrder.length - 1 ? libraryOr
 // (regulaciones) se quedaba sin ninguna cita visible.
 const kindLabel = (source) => source.kind === 'Argentina' ? 'Fuente oficial' : source.kind;
 const sortedSources = [...chapter.sources].sort((a, b) => Number(b.kind === 'Argentina') - Number(a.kind === 'Argentina'));
-// Un párrafo que empieza con "EQ: " es una ecuación con sus términos:
-// "EQ: L = ½ · ρ · V² · S · C_L | L: sustentación | ρ: densidad del aire". "_X" se ve como subíndice.
-const parseEquation = (paragraph) => {
-  const [formula, ...terms] = paragraph.slice(4).split(' | ');
-  return { formula, terms: terms.map((term) => { const i = term.indexOf(': '); return [term.slice(0, i), term.slice(i + 2)]; }) };
-};
+// Los tipos de párrafo (texto, nota US, ecuación, tabla, lista) están en lesson-blocks.js.
+// Cada lección se ancla con el slug de su título; los enlaces viejos #leccion-N siguen andando.
+const slugs = lessonSlugs(chapter.lessons);
+const legacyBySlug = Object.entries(legacyAnchorMap(chapter)).reduce((acc, [anchor, slug]) => ({ ...acc, [slug]: [...(acc[slug] ?? []), anchor] }), {});
 const mathParts = (text) => text.split(/(_[\p{L}\d]+)/u).filter(Boolean).map((part) => part.startsWith('_') ? { sub: part.slice(1) } : { text: part });
 const plainMath = (text) => text.replace(/_([\p{L}\d]+)/gu, '$1');
 const formatLesson = (lesson) => {
   const body = lesson[1].split(/\n\n+/).map((paragraph) => {
-    if (paragraph.startsWith('US: ')) return `> **En Estados Unidos.** ${paragraph.slice(4)}`;
-    if (paragraph.startsWith('EQ: ')) {
-      const { formula, terms } = parseEquation(paragraph);
-      return [`**Ecuación:** ${plainMath(formula)}`, ...terms.map(([symbol, meaning]) => `- ${plainMath(symbol)}: ${meaning}`)].join('\n');
-    }
-    return paragraph;
+    const block = parseParagraph(paragraph);
+    if (block.kind === 'us') return `> **En Estados Unidos.** ${block.text}`;
+    if (block.kind === 'eq') return [`**Ecuación:** ${plainMath(block.formula)}`, ...block.terms.map(([symbol, meaning]) => `- ${plainMath(symbol)}: ${meaning}`)].join('\n');
+    if (block.kind === 'table') return [block.head, block.head.map(() => '---'), ...block.rows].map((row) => `| ${row.join(' | ')} |`).join('\n');
+    if (block.kind === 'list') return [block.lead, ...block.items.map((item, n) => `${block.ordered ? `${n + 1}.` : '-'} ${item}`)].filter(Boolean).join('\n');
+    return block.text;
   }).join('\n\n');
   const maneuver = lesson[4] ? [
     '### Paso a paso', lesson[4].steps.map((step, n) => `${n + 1}. ${step}`).join('\n'),
@@ -97,29 +97,38 @@ const articleJsonLd = {
       <details class="chapter-toc">
         <summary>En esta página</summary>
         <nav aria-label="Secciones del capítulo">
-          {chapter.lessons.map((lesson, i) => <a href={`#leccion-${i + 1}`}>{lesson[0]}</a>)}
+          {chapter.lessons.map((lesson, i) => <a href={`#${slugs[i]}`}>{lesson[0]}</a>)}
           {sortedSources.length > 0 && <a href="#material">Fuentes</a>}
         </nav>
       </details>
     </aside>
     <div class="study-layout"><article class="study-content">
       {chapter.lessons.map((lesson, i) => {
-        const ref = `/estudiar/${chapter.slug}#leccion-${i + 1}`;
+        const ref = `/estudiar/${chapter.slug}#${slugs[i]}`;
         const place = `${chapter.title} · ${lesson[0]}`;
-        return <section class="study-lesson" id={`leccion-${i + 1}`}><h2>{lesson[0]}</h2>{lesson[1].split(/\n\n+/).map((paragraph) => {
-          const us = paragraph.startsWith('US: ');
-          const text = us ? paragraph.slice(4) : paragraph;
-          if (paragraph.startsWith('EQ: ')) {
-            const { formula, terms } = parseEquation(paragraph);
+        const diagrams = lessonDiagrams(lesson);
+        return <section class="study-lesson" id={slugs[i]}>{(legacyBySlug[slugs[i]] ?? []).map((anchor) => <span class="legacy-anchor" id={anchor} aria-hidden="true"></span>)}<h2>{lesson[0]}</h2>{lesson[1].split(/\n\n+/).map((paragraph) => {
+          const block = parseParagraph(paragraph);
+          if (block.kind === 'eq') {
             return <figure class="study-eq" data-report-target data-report-where={`Ecuación · ${place}`} data-report-ref={ref}>
-              <p class="study-eq-formula">{mathParts(formula).map((part) => part.sub ? <sub>{part.sub}</sub> : part.text)}</p>
-              <dl class="study-eq-terms">{terms.map(([symbol, meaning]) => <div><dt>{mathParts(symbol).map((part) => part.sub ? <sub>{part.sub}</sub> : part.text)}</dt><dd>{meaning}</dd></div>)}</dl>
+              <p class="study-eq-formula">{mathParts(block.formula).map((part) => part.sub ? <sub>{part.sub}</sub> : part.text)}</p>
+              <dl class="study-eq-terms">{block.terms.map(([symbol, meaning]) => <div><dt>{mathParts(symbol).map((part) => part.sub ? <sub>{part.sub}</sub> : part.text)}</dt><dd>{meaning}</dd></div>)}</dl>
             </figure>;
           }
-          return us
-            ? <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{text}</p></aside>
-            : <p data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{text}</p>;
-        })}{lesson[3] && <StudyDiagram type={lesson[3]} instance={`${chapter.slug}-l${i + 1}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />}{lesson[4] && <div class="maneuver">
+          if (block.kind === 'table') {
+            return <div class="study-table-wrap" data-report-target data-report-where={`Tabla · ${place}`} data-report-ref={ref}><table class="study-table">
+              <thead><tr>{block.head.map((cell) => <th scope="col">{cell}</th>)}</tr></thead>
+              <tbody>{block.rows.map(([first, ...rest]) => <tr><th scope="row">{first}</th>{rest.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
+            </table></div>;
+          }
+          if (block.kind === 'list') {
+            const items = block.items.map((item) => <li>{item}</li>);
+            return <div class="study-list" data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{block.lead && <p>{block.lead}</p>}{block.ordered ? <ol>{items}</ol> : <ul>{items}</ul>}</div>;
+          }
+          return block.kind === 'us'
+            ? <aside class="us-note" data-report-target data-report-where={`En Estados Unidos · ${place}`} data-report-ref={ref}><span>En Estados Unidos</span><p>{block.text}</p></aside>
+            : <p data-report-target data-report-where={`Lección · ${place}`} data-report-ref={ref}>{block.text}</p>;
+        })}{diagrams.map((type, k) => <StudyDiagram type={type} instance={`${chapter.slug}-${slugs[i]}${diagrams.length > 1 ? `-${k + 1}` : ''}`} reportWhere={`Diagrama · ${place}`} reportRef={ref} />)}{lesson[4] && <div class="maneuver">
           <h3>Paso a paso</h3>
           <ol class="maneuver-steps">{lesson[4].steps.map((step) => <li data-report-target data-report-where={`Paso a paso · ${place}`} data-report-ref={ref}>{step}</li>)}</ol>
           <h3>Cuando sale bien</h3>
