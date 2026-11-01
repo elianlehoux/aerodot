@@ -28,7 +28,7 @@ El build y los tests son la verificación. `pnpm test` corre una suite chica con
 | Qué | Dónde |
 | --- | --- |
 | Páginas | `src/pages/` |
-| Lecciones de estudio | `src/data/ppa-course.js`, `src/data/handbook-lessons.js` |
+| Lecciones de estudio | `src/data/ppa-course.js`, `src/data/library-course.js`, `src/data/maneuvers.js` |
 | Catálogo de licencias | `src/data/licenses.js` |
 | Bancos de preguntas | `src/data/exam-banks/` |
 | Voz y formato de las lecciones | `docs/content-style-guide.md` |
