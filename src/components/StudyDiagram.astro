@@ -248,6 +248,23 @@ const cloudRows = [0, 500, 1000, 1540].map((m) => {
   const spread = Math.max(0, 10 - (6.5 * m) / 1000);
   return { m, y: r1(290 - m * 0.12), w: r1(spread * 22), label: spread ? `${spread.toLocaleString('es-AR', { maximumFractionDigits: 1 })} °C` : '0 °C' };
 });
+// Estabilidad dinámica: oscilación que se achica, se mantiene o crece en el tiempo.
+const oscillation = (x0, y0, w, a0, k) => 'M' + Array.from({ length: 73 }, (_, i) => {
+  const f = i / 72;
+  return `${r1(x0 + w * f)} ${r1(y0 - a0 * Math.exp(k * f) * Math.cos(2 * Math.PI * 3 * f))}`;
+}).join('L');
+const stabilityCases = [
+  { cx: 82, name: 'Positiva', cls: 'c-thrust', ground: 'M22 70Q82 130 142 70', ball: 91, note: 'vuelve', a0: 30, k: -1.8 },
+  { cx: 240, name: 'Neutra', cls: 'c-drag', ground: 'M180 112H300', ball: 102, note: 'se queda', a0: 18, k: 0 },
+  { cx: 398, name: 'Negativa', cls: 'c-weight', ground: 'M338 112Q398 52 458 112', ball: 72, note: 'se aleja', a0: 6, k: 1.5 },
+];
+// Sección de pala: rota según el ángulo de pala. El borde de ataque queda a la derecha.
+const BLADE = 'M-56 0C-30 -6 30 -12 50 -6C58 -3 58 3 50 4C30 7 -30 4 -56 0Z';
+const blade = (() => {
+  const c = [130, 190], beta = 28, phi = 13;
+  const at = (deg, len) => [r1(c[0] + len * Math.cos(rad(deg))), r1(c[1] - len * Math.sin(rad(deg)))];
+  return { c, beta, chordA: at(beta + 180, 104), chordB: at(beta, 112), wind0: at(phi, 150), wind1: at(phi, 62), betaArc: [at(180, 74), at(180 + beta, 74)], aoaArc: [at(phi, 128), at(beta, 128)] };
+})();
 const strokes = [
   { n: 1, name: 'Admisión', note: 'entra mezcla', intake: true, exhaust: false, down: true, gas: 'c-drag' },
   { n: 2, name: 'Compresión', note: 'se comprime', intake: false, exhaust: false, down: false, gas: 'c-drag' },
@@ -285,6 +302,11 @@ const speedSteps = [
 ];
 
 const captions = {
+  'static-dynamic-stability': 'Fijate que la estática mira solo el primer movimiento: volver, quedarse o alejarse. La dinámica mira qué pasa después: si las oscilaciones se achican, se mantienen o crecen.',
+  'p-factor': 'Fijate que con la nariz alta el aire le llega a la hélice desde abajo. La pala que baja muerde más aire que la que sube, así que ese lado empuja más y la nariz se va hacia el otro. Con hélice horaria desde la cabina, a la izquierda.',
+  'propeller-blade': 'Fijate que el ángulo de pala se mide contra el plano de giro. El ángulo de ataque se mide contra el viento relativo, que cambia con el giro y con el avance del avión.',
+  'slip-types': 'Fijate que en los dos la trayectoria va derecha a la pista. En el deslizamiento hacia adelante la nariz apunta a un costado. En el lateral la nariz queda alineada y el ala baja del lado del viento frena la deriva.',
+  'power-off-approaches': 'Fijate que la de 180° empieza en la posición clave del tramo inicial y, al llegar a la de básica, sigue igual que la de 90°. La de 360° empieza más alto; su forma y sus alturas no están en el AFH vigente.',
   airfoil: 'Fijate que α se mide entre la cuerda y el viento relativo, no contra el horizonte. Abajo: al subir α crece la sustentación hasta el ángulo crítico; pasado ese punto viene la pérdida.',
   forces: 'Fijate que, en vuelo recto y nivelado a velocidad constante, las flechas opuestas tienen el mismo largo: sustentación = peso y tracción = resistencia.',
   axes: 'Fijate que los tres ejes pasan por el centro de gravedad (punto azul) y que cada giro tiene su nombre y su mando principal.',
@@ -322,7 +344,7 @@ const captions = {
   'slip-skid': 'Fijate en la nariz respecto de la trayectoria (línea azul) y en la bola. En el resbale la nariz gira de menos y la bola cae hacia adentro; en el derrape gira de más y la bola sale hacia afuera. Para centrarla, pisá el pedal del lado de la bola.',
   'drag-curve': 'Fijate que la parásita sube con la velocidad y la inducida baja. Sumadas dan la resistencia total, que es mínima a una velocidad intermedia. Las curvas muestran la tendencia, no los valores de un avión real.',
   'wind-components': 'Fijate que el viento se parte en dos flechas: la de frente, a lo largo de la pista, y la cruzada, de costado. Es el ejemplo de la lección. El límite de viento cruzado de tu avión está en su manual.',
-  'cloud-base': 'Fijate que la diferencia entre la temperatura y el punto de rocío se achica al subir. Donde llega a cero puede estar la base del cúmulo. Es la estimación del material de examen; para salir vale el techo del informe vigente.',
+  'cloud-base': 'Con la cuenta del examen, la diferencia de 10 °C se reparte en 6,5 °C cada 1000 m y la base queda cerca de 1540 m. En el aire real se cierra más rápido, unos 8 °C cada 1000 m, y la base queda más baja. Para salir vale el techo del informe vigente.',
   'wake-vortex': 'Fijate en el sentido de giro: en cada punta el aire sube por afuera y baja por adentro. Los remolinos bajan y el viento los corre, así que pueden quedar donde ya no ves al avión que los dejó.',
   'vfr-levels': 'Fijate que se mira la derrota magnética, no hacia dónde apunta la nariz. Desde 3000 ft sobre la superficie el nivel es obligatorio (Sección 91.159 y AIP ENR 1.7); por debajo, se recomienda.',
   'runway-number': 'Fijate que el número sale del rumbo magnético del eje, redondeado a la decena y sin el último cero. Las dos cabeceras del mismo pavimento difieren en 18.',
@@ -348,6 +370,11 @@ const captions = {
   'airspeed-chain': 'Fijate que cada paso suma una corrección. La aguja marca IAS; TAS es tu velocidad respecto del aire y GS, respecto del suelo. La EAS solo cambia algo cuando pesa la compresibilidad, a alta velocidad.',
 };
 const title = {
+  'static-dynamic-stability': 'Estabilidad estática y dinámica',
+  'p-factor': 'Factor P con la nariz alta',
+  'propeller-blade': 'Ángulo de pala y ángulo de ataque',
+  'slip-types': 'Deslizamiento hacia adelante y lateral',
+  'power-off-approaches': 'Aproximaciones sin motor: las posiciones clave',
   airfoil: 'Ángulo de ataque y sustentación',
   forces: 'Las cuatro fuerzas en vuelo',
   axes: 'Los tres ejes del avión',
@@ -1377,14 +1404,131 @@ const metarRows = [
     <text x="16" y="334" class="t"><tspan class="c-thrust">de frente</tspan> = 20 × cos 30° ≈ 17 kt</text>
   </svg>}
 
+  {type === 'static-dynamic-stability' && <svg viewBox="0 0 480 356" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Arriba, la estabilidad estática con una bolita: en un valle vuelve al fondo (positiva), en un plano se queda donde la dejaron (neutra) y sobre una loma se aleja (negativa). Abajo, la estabilidad dinámica en el tiempo: una oscilación que se achica (positiva), una que se mantiene igual (neutra) y una que crece (negativa).</desc>
+    <rect x="6" y="4" width="468" height="148" rx="14" class="panel" />
+    <rect x="6" y="164" width="468" height="188" rx="14" class="panel" />
+    <text x="20" y="28" class="tb">Estática: el primer movimiento</text>
+    <text x="20" y="188" class="tb">Dinámica: qué pasa con el tiempo</text>
+    {stabilityCases.map((c) => <g>
+      <path d={c.ground} class="ln thick" />
+      <circle cx={c.cx} cy={c.ball} r="9" class={`parcel ${c.cls}`} />
+      <text x={c.cx} y="138" text-anchor="middle" class={`ts ${c.cls}`}><tspan class="tb">{c.name}</tspan>: {c.note}</text>
+      <line x1={c.cx - 64} y1="270" x2={c.cx + 64} y2="270" class="guide" />
+      <path d={oscillation(c.cx - 64, 270, 128, c.a0, c.k)} class={`ln ${c.cls}`} />
+      <text x={c.cx} y="334" text-anchor="middle" class={`ts ${c.cls}`}><tspan class="tb">{c.name}</tspan>: {c.k < 0 ? 'se achica' : c.k > 0 ? 'crece' : 'se mantiene'}</text>
+    </g>)}
+    <text x="460" y="188" text-anchor="end" class="ts">tiempo →</text>
+  </svg>}
+
+  {type === 'p-factor' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>A la izquierda, un avión de costado con la nariz alta y el viento relativo que llega desde abajo y adelante. A la derecha, el mismo avión visto desde arriba, con hélice horaria vista desde la cabina: la pala que baja, del lado derecho, empuja más que la que sube, del izquierdo, y la nariz guiña a la izquierda.</desc>
+    <rect x="6" y="4" width="200" height="292" rx="14" class="panel" />
+    <rect x="218" y="4" width="256" height="292" rx="14" class="panel" />
+    <text x="20" y="28" class="tb">De costado</text>
+    <text x="232" y="28" class="tb">Desde arriba</text>
+    <g transform="translate(106 150) rotate(-16) scale(.72)"><path d={SIDE} class="pl" /><path d={SIDE_WIN} class="pl-win" /></g>
+    <path d={arrow(186, 236, 150, 196)} class="arw c-air" />
+    <text x="106" y="256" text-anchor="middle" class="ts c-air">el aire llega desde abajo</text>
+    <text x="106" y="276" text-anchor="middle" class="ts">nariz alta, mucho ángulo de ataque</text>
+    <g transform="translate(346 176) scale(1.25)"><path d={TOP} class="pl" /></g>
+    <line x1="310" y1="120" x2="382" y2="120" class="ln thick" />
+    <path d={arrow(370, 116, 370, 52)} class="arw thick c-thrust" />
+    <path d={arrow(322, 116, 322, 86)} class="arw thin c-thrust" />
+    <text x="380" y="92" class="ts c-thrust">pala que baja:</text>
+    <text x="380" y="110" class="ts c-thrust">más empuje</text>
+    <text x="234" y="80" class="ts c-thrust">pala que sube:</text>
+    <text x="234" y="98" class="ts c-thrust">menos</text>
+    <path d={qArrow(330, 268, 268, 262, 262, 214)} class="arw c-weight" />
+    <text x="346" y="276" class="ts c-weight">la nariz guiña</text>
+    <text x="346" y="292" class="ts c-weight">a la izquierda</text>
+  </svg>}
+
+  {type === 'propeller-blade' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Corte de una pala de hélice. El ángulo de pala va entre la cuerda y el plano de giro. El viento relativo resulta del giro de la pala y del avance del avión, y el ángulo de ataque va entre la cuerda y ese viento. A la derecha, dos cortes: con poco ángulo la hélice tiene paso fino y con mucho ángulo, paso grueso.</desc>
+    <rect x="300" y="4" width="174" height="292" rx="14" class="panel" />
+    <line x1="30" y1={blade.c[1]} x2="284" y2={blade.c[1]} class="guide" />
+    <text x="30" y={blade.c[1] - 8} class="ts">plano de giro</text>
+    <line x1={blade.chordA[0]} y1={blade.chordA[1]} x2={blade.chordB[0]} y2={blade.chordB[1]} class="ln thin dash" />
+    <g transform={`translate(${blade.c[0]} ${blade.c[1]}) rotate(${-blade.beta})`}><path d={BLADE} class="pl" /></g>
+    <path d={`M${blade.betaArc[0][0]} ${blade.betaArc[0][1]}A74 74 0 0 0 ${blade.betaArc[1][0]} ${blade.betaArc[1][1]}`} class="ln c-lift" />
+    <text x="20" y="246" class="ts c-lift">ángulo de pala</text>
+    <path d={arrow(blade.wind0[0], blade.wind0[1], blade.wind1[0], blade.wind1[1])} class="arw c-air" />
+    <text x="290" y="212" text-anchor="end" class="ts c-air">viento relativo</text>
+    <path d={`M${blade.aoaArc[0][0]} ${blade.aoaArc[0][1]}A128 128 0 0 0 ${blade.aoaArc[1][0]} ${blade.aoaArc[1][1]}`} class="ln c-weight" />
+    <text x="236" y="112" text-anchor="end" class="ts c-weight">ángulo de ataque</text>
+    <path d={arrow(40, 40, 120, 40)} class="arw thin" />
+    <text x="40" y="30" class="ts">giro de la pala</text>
+    <path d={arrow(40, 112, 40, 52)} class="arw thin" />
+    <text x="50" y="96" class="ts">avance</text>
+    <text x="314" y="28" class="tb">Paso</text>
+    <line x1="322" y1="100" x2="452" y2="100" class="guide" />
+    <g transform="translate(387 100) rotate(-12) scale(.9)"><path d={BLADE} class="pl" /></g>
+    <text x="387" y="132" text-anchor="middle" class="ts">poco ángulo: paso fino</text>
+    <line x1="322" y1="220" x2="452" y2="220" class="guide" />
+    <g transform="translate(387 220) rotate(-40) scale(.9)"><path d={BLADE} class="pl" /></g>
+    <text x="387" y="272" text-anchor="middle" class="ts">mucho ángulo: paso grueso</text>
+  </svg>}
+
+  {type === 'slip-types' && <svg viewBox="0 0 480 340" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos aviones vistos desde arriba, en final hacia la pista. En el deslizamiento hacia adelante la trayectoria sigue el eje de la pista y la nariz apunta a un costado. En el deslizamiento lateral hay viento cruzado desde la izquierda: la nariz queda alineada con la pista y el ala izquierda va baja para frenar la deriva.</desc>
+    <rect x="6" y="4" width="228" height="332" rx="14" class="panel" />
+    <rect x="246" y="4" width="228" height="332" rx="14" class="panel" />
+    <text x="120" y="28" text-anchor="middle" class="tb">Hacia adelante</text>
+    <text x="120" y="46" text-anchor="middle" class="ts">para perder altura</text>
+    <text x="360" y="28" text-anchor="middle" class="tb">Lateral</text>
+    <text x="360" y="46" text-anchor="middle" class="ts">para el viento cruzado</text>
+    <rect x="104" y="60" width="32" height="96" rx="2" class="runway" />
+    <rect x="344" y="60" width="32" height="96" rx="2" class="runway" />
+    <path d={arrow(120, 300, 120, 172)} class="arw dash c-thrust" />
+    <path d={arrow(360, 300, 360, 172)} class="arw dash c-thrust" />
+    <g transform="translate(120 238) rotate(24) scale(.9)"><path d={TOP} class="pl" /></g>
+    <g transform="translate(360 238) scale(.9)"><path d={TOP} class="pl" /></g>
+    <text x="120" y="324" text-anchor="middle" class="ts">la nariz apunta a un costado</text>
+    <path d={arrow(258, 214, 296, 214)} class="arw thin c-air" />
+    <text x="258" y="204" class="ts c-air">viento</text>
+    <path d={arrow(304, 236, 304, 262, 9)} class="arw thin c-weight" />
+    <text x="258" y="280" class="ts c-weight">ala baja</text>
+    <text x="360" y="324" text-anchor="middle" class="ts">la nariz queda alineada</text>
+  </svg>}
+
+  {type === 'power-off-approaches' && <svg viewBox="0 0 480 340" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Vista en planta de un circuito por izquierda. El avión vuela el tramo inicial paralelo a la pista. Al través del punto de toque está la posición clave del tramo inicial, donde empieza la aproximación de 180°. En la básica, con el punto de toque a 45° de la nariz, está la posición clave de básica, donde empieza la de 90°. Desde ahí las dos siguen igual hasta la final y el punto de toque.</desc>
+    <rect x="96" y="246" width="300" height="26" rx="3" class="runway" />
+    <circle cx="186" cy="259" r="6" class="dot c-weight" />
+    <text x="186" y="296" text-anchor="middle" class="ts c-weight">punto de toque</text>
+    <path d="M440 90H186Q60 90 60 150" class="ln thick c-lift" />
+    <path d="M60 150Q60 259 150 259H180" class="ln thick c-thrust" />
+    <path d={arrow(330, 90, 300, 90)} class="arw c-lift" />
+    <path d={arrow(60, 200, 60, 214)} class="arw c-thrust" />
+    <line x1="186" y1="98" x2="186" y2="246" class="guide" />
+    <line x1="60" y1="150" x2="180" y2="254" class="guide c-weight" />
+    <text x="96" y="224" class="ts c-weight">45°</text>
+    <circle cx="186" cy="90" r="12" class="badge" /><text x="186" y="95" text-anchor="middle" class="badge-t">1</text>
+    <circle cx="60" cy="150" r="12" class="badge" /><text x="60" y="155" text-anchor="middle" class="badge-t">2</text>
+    <text x="210" y="40" class="tb c-lift">1 · Clave del tramo inicial</text>
+    <text x="210" y="60" class="ts">al través del punto: empieza la de 180°</text>
+    <text x="250" y="150" class="tb c-thrust">2 · Clave de básica</text>
+    <text x="250" y="170" class="ts">punto a 45° de la nariz:</text>
+    <text x="250" y="188" class="ts">empieza la de 90°</text>
+    <text x="16" y="326" class="ts">La de 360° empieza más alto. Su forma y sus alturas no están en el AFH vigente.</text>
+  </svg>}
+
   {type === 'cloud-base' && <svg viewBox="0 0 480 350" role="img" aria-labelledby={`${t} ${d}`}>
     <title id={t}>{diagramTitle}</title>
-    <desc id={d}>Barras horizontales a distintas alturas que muestran la diferencia entre la temperatura y el punto de rocío. En la superficie, con 22 y 12 grados, la diferencia es de 10 grados. Se achica 6,5 grados cada 1000 metros: a 500 metros queda cerca de 6,8, a 1000 metros 3,5, y hacia los 1540 metros llega a cero. Ahí se dibuja la base de un cúmulo.</desc>
+    <desc id={d}>Barras horizontales a distintas alturas que muestran la diferencia entre la temperatura y el punto de rocío. En la superficie, con 22 y 12 grados, la diferencia es de 10 grados. Con la cuenta del examen se achica 6,5 grados cada 1000 metros: a 500 metros queda cerca de 6,8, a 1000 metros 3,5, y hacia los 1540 metros llega a cero. Ahí se dibuja la base de un cúmulo. Una línea punteada más abajo, cerca de 1250 metros, marca dónde queda la base en el aire real, donde la diferencia se cierra unos 8 grados cada 1000 metros.</desc>
     <text x="16" y="24" class="tb">Temperatura menos punto de rocío</text>
     <g><circle cx="242" cy="88" r="17" class="cloud" /><circle cx="270" cy="76" r="23" class="cloud" /><circle cx="298" cy="88" r="17" class="cloud" /><rect x="224" y="88" width="92" height="16" class="cloud-flat" /></g>
     <line x1="150" y1={cloudRows[3].y} x2="470" y2={cloudRows[3].y} class="guide" />
     <text x="330" y="80" class="tb c-lift">base ≈ 1540 m</text>
     <text x="330" y="100" class="ts">la diferencia llegó a cero</text>
+    <line x1="150" y1={r1(290 - 1250 * 0.12)} x2="470" y2={r1(290 - 1250 * 0.12)} class="guide c-weight" />
+    <text x="470" y={r1(290 - 1250 * 0.12) - 8} text-anchor="end" class="ts c-weight">aire real ≈ 1250 m</text>
     {cloudRows.map((row) => <g>
       <text x="132" y={row.y + 5} text-anchor="end" class="ts">{row.m.toLocaleString('es-AR')} m</text>
       {row.w > 0 && <rect x="150" y={row.y - 9} width={row.w} height="18" rx="4" class="spread-bar" />}
