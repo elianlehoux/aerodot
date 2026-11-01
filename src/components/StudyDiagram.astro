@@ -302,6 +302,7 @@ const speedSteps = [
 ];
 
 const captions = {
+  'airplane-parts': 'Fijate en qué hace cada parte: las alas sostienen el avión en el aire, el empenaje mantiene la nariz alineada y lleva el elevador y el timón, el fuselaje une todo y el tren lo apoya en tierra.',
   'static-dynamic-stability': 'Fijate que la estática mira solo el primer movimiento: volver, quedarse o alejarse. La dinámica mira qué pasa después: si las oscilaciones se achican, se mantienen o crecen.',
   'p-factor': 'Fijate que con la nariz alta el aire le llega a la hélice desde abajo. La pala que baja muerde más aire que la que sube, así que ese lado empuja más y la nariz se va hacia el otro. Con hélice horaria desde la cabina, a la izquierda.',
   'propeller-blade': 'Fijate que el ángulo de pala se mide contra el plano de giro. El ángulo de ataque se mide contra el viento relativo, que cambia con el giro y con el avance del avión.',
@@ -370,6 +371,7 @@ const captions = {
   'airspeed-chain': 'Fijate que cada paso suma una corrección. La aguja marca IAS; TAS es tu velocidad respecto del aire y GS, respecto del suelo. La EAS solo cambia algo cuando pesa la compresibilidad, a alta velocidad.',
 };
 const title = {
+  'airplane-parts': 'Las partes del avión',
   'static-dynamic-stability': 'Estabilidad estática y dinámica',
   'p-factor': 'Factor P con la nariz alta',
   'propeller-blade': 'Ángulo de pala y ángulo de ataque',
@@ -1719,6 +1721,37 @@ const metarRows = [
     <text x="200" y="174" text-anchor="middle" class="ts">puesta</text>
     <text x="330" y="234" text-anchor="middle" class="t">empieza la noche</text>
     <text x="20" y="262" class="ts">la tarde avanza →</text>
+  </svg>}
+
+  {type === 'airplane-parts' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Un avión de ala alta visto de costado, apoyado en el suelo. Arriba, el ala. Adelante, el motor y la hélice. Atrás, el empenaje, con un plano vertical y uno horizontal. En el medio, el fuselaje, que une todo. Abajo, el tren de aterrizaje: dos ruedas principales y una rueda de nariz.</desc>
+    <line x1="210" y1="170" x2="226" y2="204" class="ln thin" />
+    <line x1="372" y1="166" x2="372" y2="204" class="ln thin" />
+    <circle cx="228" cy="210" r="10" class="pl" />
+    <circle cx="372" cy="210" r="8" class="pl" />
+    <line x1="10" y1="220" x2="470" y2="220" class="ln thin" />
+    <g transform="translate(250 150) scale(1.7)">
+      <path d={SIDE} class="pl" />
+      <path d={SIDE_WIN} class="pl-win" />
+    </g>
+    <text x="250" y="36" text-anchor="middle" class="tb c-lift">Ala</text>
+    <text x="250" y="54" text-anchor="middle" class="ts">sostiene el avión en el aire</text>
+    <line x1="250" y1="60" x2="250" y2="90" class="guide" />
+    <text x="16" y="36" class="tb c-thrust">Empenaje (cola)</text>
+    <text x="16" y="54" class="ts">alinea y controla la nariz</text>
+    <line x1="56" y1="60" x2="56" y2="96" class="guide" />
+    <line x1="40" y1="60" x2="36" y2="140" class="guide" />
+    <text x="464" y="36" text-anchor="end" class="tb c-drag">Motor y hélice</text>
+    <text x="464" y="54" text-anchor="end" class="ts">hacen avanzar el avión</text>
+    <line x1="420" y1="60" x2="414" y2="104" class="guide" />
+    <text x="110" y="262" text-anchor="middle" class="tb c-ink">Fuselaje</text>
+    <text x="110" y="280" text-anchor="middle" class="ts">une todo; lleva cabina y carga</text>
+    <line x1="120" y1="246" x2="146" y2="158" class="guide" />
+    <text x="320" y="262" text-anchor="middle" class="tb c-weight">Tren de aterrizaje</text>
+    <text x="320" y="280" text-anchor="middle" class="ts">lo apoya en tierra para rodar</text>
+    <line x1="290" y1="246" x2="236" y2="218" class="guide" />
+    <line x1="350" y1="246" x2="368" y2="220" class="guide" />
   </svg>}
 
   {type === 'wing-geometry' && <svg viewBox="0 0 480 346" role="img" aria-labelledby={`${t} ${d}`}>
