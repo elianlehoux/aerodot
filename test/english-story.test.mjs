@@ -1,18 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { enrouteGroups } from '../src/data/english-enroute.js';
-import { blindMessages, failSteps, lightAcks, lightSignals } from '../src/data/english-radiofail.js';
-import { incidentKinds, incidentStory, incidentTerms, tenseRules } from '../src/data/english-incident.js';
+import { blindMessages, checkWords, controlChecks, relayCall } from '../src/data/english-radiofail.js';
+import { eventKinds, eventLabels, eventVerbs, newsVideos, summaryPieces, tenseRules } from '../src/data/english-retell.js';
+import { pictureSteps, pictureWords, positionWords, practicePhotos, exampleVideos } from '../src/data/english-picture.js';
+import { existsSync } from 'node:fs';
 import { audiences } from '../src/data/english-audiences.js';
-import { audiencesSet, enrouteSet, incidentSet, radioFailSet } from '../src/data/english-sets.js';
+import { audiencesSet, enrouteSet, pictureSet, radioFailSet, retellSet } from '../src/data/english-sets.js';
 import { validateSet } from '../src/scripts/exercises/validate.js';
 import { hasUnmatchedMarker } from '../src/scripts/mixed.js';
 
 const DEM = 'Lima Victor Delta Echo Mike';
-const sets = { enrouteSet, radioFailSet, incidentSet, audiencesSet };
+const sets = { enrouteSet, radioFailSet, retellSet, pictureSet, audiencesSet };
 const noDigits = (text, where) => assert.doesNotMatch(text, /[0-9]/, `cifras en ${where}: ${text}`);
 
-test('los cuatro sets nuevos son válidos y tienen diez preguntas', () => {
+test('los sets nuevos son válidos y tienen diez preguntas', () => {
   for (const [name, set] of Object.entries(sets)) {
     assert.deepEqual(validateSet(set), [], name);
     assert.equal(set.items.length, 10, `${name}: ${set.items.length} preguntas`);
@@ -88,13 +90,6 @@ test('en ruta: la frecuencia se repite y el cambio de frecuencia usa las frases 
   assert.deepEqual(frequency.phrases.map((phrase) => phrase.id), ['contact', 'monitor', 'request-change', 'change-approved']);
 });
 
-test('falla de comunicaciones: los cuatro pasos van en orden y el primero es seguir volando', () => {
-  assert.deepEqual(failSteps.map((step) => step.id), ['fly', 'code', 'blind', 'land']);
-  for (const step of failSteps) assert.ok(step.title && step.body, `${step.id}: falta título o cuerpo`);
-  assert.match(failSteps[1].title, /7600/);
-  assert.match(failSteps[3].body, /AIP/, 'el último paso manda a la AIP de cada país');
-});
-
 test('falla de comunicaciones: a ciegas el mensaje va dos veces y el de receptor avisa la próxima transmisión', () => {
   assert.deepEqual(blindMessages.map((message) => message.id), ['no-contact', 'receiver']);
   const [noContact, receiver] = blindMessages;
@@ -110,48 +105,77 @@ test('falla de comunicaciones: a ciegas el mensaje va dos veces y el de receptor
   }
 });
 
-test('señales luminosas: las cinco de la tabla, cada una con su significado en vuelo y en tierra', () => {
-  assert.deepEqual(lightSignals.map((signal) => signal.id), ['green-steady', 'green-flash', 'red-steady', 'red-flash', 'white-flash']);
-  for (const signal of lightSignals) {
-    assert.ok(['green', 'red', 'white'].includes(signal.color), `${signal.id}: color`);
-    assert.equal(typeof signal.flash, 'boolean');
-    assert.equal(signal.flash, signal.id.endsWith('-flash'), `${signal.id}: flash no coincide con el nombre`);
-    assert.ok(signal.label && signal.air && signal.ground, `${signal.id}: falta algo`);
+test('falla de comunicaciones: el control te prueba con IDENT o con un viraje, y contestás sin hablar', () => {
+  assert.deepEqual(controlChecks.map((check) => check.id), ['ident', 'turn']);
+  for (const check of controlChecks) {
+    const [ask, answer, seen] = check.call;
+    assert.match(ask.text, /^LV-DEM, reply not received\. If you read, /, `${check.id}: la pregunta sigue el formato de la OACI`);
+    assert.equal(answer.kind, 'action', `${check.id}: la respuesta es una acción`);
+    assert.equal(answer.say, undefined, `${check.id}: una acción no se lee en voz alta`);
+    assert.match(seen.text, / observed[,.]/, `${check.id}: el control confirma con observed`);
+    assert.match(seen.text, /I will continue to pass instructions\.$/);
   }
-  assert.match(lightSignals[0].air, /aterrizar/);
-  assert.match(lightSignals[0].ground, /despegar/);
-  assert.match(lightSignals[2].ground, /Detenete/);
-  assert.deepEqual(lightAcks.map((ack) => ack.id), ['air-day', 'air-night', 'ground-day', 'ground-night']);
-  assert.match(lightAcks[0].how, /base ni en final/);
+  assert.match(controlChecks[0].call[0].text, /squawk ident/);
+  assert.ok(checkWords.every((word) => word.en && word.es));
 });
 
-test('incidentes: tres definiciones, ocho palabras y un relato que usa las tres formas', () => {
-  assert.deepEqual(incidentKinds.map((kind) => kind.id), ['accident', 'serious-incident', 'incident']);
-  assert.ok(incidentTerms.length >= 8);
-  const ids = incidentTerms.map((term) => term.id);
-  assert.equal(new Set(ids).size, ids.length, 'ids de palabras repetidos');
-  for (const entry of [...incidentKinds, ...incidentTerms]) {
-    assert.ok(entry.en && entry.es && entry.body && entry.use, `${entry.id}: falta algo`);
-    assert.equal(entry.say, entry.use.replaceAll('LV-DEM', DEM));
-    noDigits(entry.say, entry.id);
+test('falla de comunicaciones: el relevo pasa el mensaje con el nombre de la dependencia y se colaciona', () => {
+  const spoken = (text) => text.replaceAll('LV-DEM', DEM).replaceAll('LV-KTR', 'Lima Victor Kilo Tango Romeo');
+  for (const entry of [...relayCall, ...controlChecks.flatMap((check) => check.call)]) {
+    if (entry.kind === 'action') continue;
+    assert.equal(entry.say, spoken(entry.text), `say distinto del texto: ${entry.text}`);
+    noDigits(entry.say, entry.text);
+    if (entry.key) assert.ok(entry.text.includes(entry.key), `la frase clave no está en el texto: ${entry.text}`);
+    assert.equal(hasUnmatchedMarker(entry.note ?? ''), false, `nota con asterisco sin pareja: ${entry.text}`);
   }
-  const formIds = tenseRules.map((rule) => rule.id);
-  assert.deepEqual(formIds, ['past-simple', 'past-continuous', 'passive']);
-  assert.equal(incidentStory.length, 6);
-  for (const sentence of incidentStory) {
-    assert.ok(formIds.includes(sentence.form), `${sentence.id}: forma desconocida`);
-    assert.equal(sentence.say, sentence.text.replaceAll('LV-DEM', DEM));
-    noDigits(sentence.say, sentence.id);
-  }
-  for (const form of formIds) assert.ok(incidentStory.some((sentence) => sentence.form === form), `ninguna oración usa ${form}`);
+  assert.doesNotMatch(relayCall[0].text, /all stations/i, 'all stations no pide respuesta');
+  const relayed = relayCall.find((entry) => entry.who === 'other' && /Laguna Tower (clears|advises)/.test(entry.text));
+  assert.ok(relayed, 'el otro avión pasa el mensaje con el nombre de la dependencia');
+  const readback = relayCall.at(-1);
+  assert.equal(readback.kind, 'readback');
+  assert.match(readback.text, /, LV-DEM\.$/);
+  assert.ok(relayed.text.includes('QNH one zero one three') && readback.text.includes('QNH one zero one three'), 'la colación repite el QNH');
 });
 
-test('incidentes: el ejercicio de ordenar cuenta los hechos en el orden del relato', () => {
-  const order = incidentSet.items.find((item) => item.type === 'order');
-  const story = incidentStory.map((sentence) => sentence.text);
-  const positions = order.answer.map((text) => story.indexOf(text));
-  assert.ok(positions.every((position) => position >= 0), 'una ficha no es una oración del relato');
-  assert.deepEqual(positions, [...positions].sort((a, b) => a - b), 'el orden de la respuesta no sigue el relato');
+test('resumir: siete piezas en orden y cada noticia las recorre todas', () => {
+  const ids = summaryPieces.map((piece) => piece.id);
+  assert.deepEqual(ids, ['label', 'who', 'when', 'problem', 'decision', 'result', 'info']);
+  assert.deepEqual(eventKinds.map((kind) => kind.id), ['accident', 'serious-incident', 'incident']);
+  assert.deepEqual(tenseRules.map((rule) => rule.id), ['past-simple', 'past-continuous', 'passive']);
+  for (const entry of [...summaryPieces, ...eventKinds, ...eventLabels, ...eventVerbs, ...tenseRules]) {
+    assert.ok(entry.say?.trim(), `${entry.id}: falta el audio`);
+  }
+  for (const text of [...eventKinds.map((kind) => kind.body), ...tenseRules.map((rule) => rule.rule)]) {
+    assert.equal(hasUnmatchedMarker(text), false, text);
+  }
+  assert.ok(newsVideos.length >= 5);
+  assert.equal(new Set(newsVideos.map((video) => video.id)).size, newsVideos.length, 'videos repetidos');
+  for (const video of newsVideos) {
+    assert.match(video.id, /^[\w-]{11}$/);
+    assert.deepEqual(video.summary.map((line) => line.piece), ids, `${video.id}: el resumen no sigue el orden`);
+    assert.ok(video.source?.trim() && video.outlet && video.year, `${video.id}: falta la fuente`);
+  }
+});
+
+test('resumir: el ejercicio de ordenar sigue el orden del resumen', () => {
+  const order = retellSet.items.find((item) => item.type === 'order');
+  assert.match(order.answer[0], /^This was an/);
+  assert.match(order.answer.at(-1), /landed safely/);
+});
+
+test('describir: cuatro pasos, fotos con crédito y archivo, y una descripción por paso', () => {
+  const steps = pictureSteps.map((step) => step.id);
+  assert.deepEqual(steps, ['general', 'layout', 'action', 'guess']);
+  assert.ok(positionWords.length >= 8);
+  for (const group of pictureWords) assert.ok(group.words.length >= 4, group.id);
+  assert.ok(practicePhotos.length >= 5);
+  for (const photo of practicePhotos) {
+    assert.ok(existsSync(new URL(`../public${photo.file}`, import.meta.url)), `${photo.id}: falta el archivo`);
+    assert.deepEqual(photo.model.map((line) => line.step), steps, `${photo.id}: la descripción no sigue los pasos`);
+    assert.ok(photo.alt && photo.width && photo.height && photo.words.length, `${photo.id}: falta algo`);
+    assert.ok(photo.credit.author && photo.credit.license && photo.credit.url.startsWith('https://commons.wikimedia.org/'), `${photo.id}: crédito`);
+  }
+  for (const video of exampleVideos) assert.match(video.id, /^[\w-]{11}$/);
 });
 
 test('tres públicos: la torre, la empresa y los pasajeros, con cuatro consejos y un ejemplo cada uno', () => {

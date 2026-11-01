@@ -34,7 +34,7 @@ const groups = getLibraryNav();
           <ul class="topic-list">
             {group.chapters.map((entry) => { const chapter = chapterBySlug[entry.slug]; return <li>
               <a class="topic-link" href={`/estudiar/${entry.slug}`} data-topic-card data-study-slug={entry.slug} data-search={`${chapter.title} ${chapter.intro} ${chapter.lessons.map((lesson) => lesson[0]).join(' ')}`}>
-                <span class="topic-copy"><strong>{chapter.title}</strong></span><span class="topic-arrow" aria-hidden="true">↗</span>
+                <span class="topic-copy"><strong>{entry.navTitle}</strong></span><span class="topic-arrow" aria-hidden="true">↗</span>
               </a>
             </li>; })}
           </ul>

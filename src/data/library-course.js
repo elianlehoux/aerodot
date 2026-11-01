@@ -378,7 +378,7 @@ const newChapters = [
       ],
       [
         'Circuito de tránsito y conciencia de tráfico',
-        'El circuito de tránsito ordena los tramos alrededor de la pista: salida, viento cruzado, tramo inicial (paralelo a la pista, con viento en cola), básico y final. Te permite preparar el aterrizaje.\n\nLa RAAC Parte 91, Sección 91.128, establece como circuito tipo virajes a la izquierda, 500 ft (pies) de altura, al menos 500 m desde la periferia del aeródromo y una entrada a unos 45° respecto de la trayectoria del tramo inicial. Si la AIP publica otro circuito, seguí lo publicado.\n\nComo buena práctica, evitá entrar directo al tramo básico o al final: desde ahí puede ser más difícil ver y que te vean. Mirá el tránsito y comunicá tu posición cuando corresponda. El dibujo es conceptual.',
+        'El circuito de tránsito ordena los tramos alrededor de la pista: salida, viento cruzado, tramo inicial (paralelo a la pista, con viento en cola), básico y final. Te permite preparar el aterrizaje.\n\nLa RAAC Parte 91, Sección 91.128, establece como circuito tipo virajes a la izquierda, 500 ft (pies) de altura, al menos 500 m desde la periferia del aeródromo y una entrada a unos 45° respecto de la trayectoria del tramo inicial. Si la AIP publica otro circuito, seguí lo publicado.\n\nLa misma sección prohíbe incorporarse por el tramo básico o por el final, porque desde ahí cuesta ver y que te vean. Mirá el tránsito y comunicá tu posición cuando corresponda. El dibujo es conceptual.',
         'El esquema enseña la secuencia. La publicación del aeródromo define el circuito que vas a usar.',
         'traffic-pattern',
       ],
@@ -499,9 +499,10 @@ const newChapters = [
         'priority',
       ],
       [
-        'Falla de comunicaciones: reconocer el alcance',
-        'Una falla de comunicaciones puede afectar la transmisión, la recepción o ambas. Reconocer qué lado parece fallar ayuda a describir el problema, pero no determina por sí solo qué hacer.\n\nLa respuesta cambia con las reglas, el espacio aéreo, la fase del vuelo y el equipo. Estudiá en tierra el procedimiento de la RAAC, la AIP y los manuales aplicables. El código 7600 avisa la falla de radio. La altura y la ruta que siguen están en el procedimiento de la AIP para ese vuelo.',
-        'Primero identificá qué comunicación falla. Después aplicá el procedimiento local estudiado.',
+        'Falla de comunicaciones y señales de la torre',
+        'Una falla de comunicaciones puede afectar la transmisión, la recepción o ambas. Antes de darla por hecha, revisá lo simple: la frecuencia elegida, el volumen, el auricular, el micrófono y si estás fuera del alcance de la estación.\n\nSi la falla sigue, el orden es el de siempre. Primero volás el avión: control, altura y rumbo. Después ponés 7600 en el transpondedor, que le avisa la falla al controlador en su pantalla. Probá otra frecuencia adecuada y, si tampoco hay contacto, pedile a otro avión que pase tu mensaje. Si nadie contesta, transmití a ciegas tu posición y tu intención: el transmisor puede andar aunque el receptor no. Las frases en inglés de cada caso están en Inglés, en el módulo Falla de radio.\n\nEn un vuelo en condiciones visuales, la regla general de la OACI es seguir en VMC, aterrizar en el aeródromo adecuado más cercano y avisar la llegada por el medio más rápido. La AIP puede agregar pasos para cada espacio aéreo. Estudialos en tierra, junto con la altura y la ruta que corresponden a tu vuelo.\n\nCerca del aeródromo, la torre puede guiarte con luces. El gráfico muestra las cinco señales. La misma luz dice una cosa en vuelo y otra en tierra, y una luz fija no significa lo mismo que sus destellos.\n\nAcusás recibo así. En vuelo, de día, balanceá las alas, salvo en los tramos de base y final. En tierra, de día, mové los alerones o el timón de dirección. De noche, en vuelo o en tierra, encendé y apagá dos veces el faro de aterrizaje. Si no tenés, usá las luces de navegación.\n\nUS: En Estados Unidos (14 CFR 91.125) los destellos blancos no tienen significado en vuelo, y se suma una luz roja y verde alternada que pide precaución extrema.',
+        'Primero volá el avión y poné 7600. La misma luz de la torre dice una cosa en vuelo y otra en tierra.',
+        'light-signals',
       ],
       [
         'Los códigos 7500, 7600 y 7700',
@@ -529,7 +530,7 @@ const sourceIds = {
   'operaciones-aerodromo': ['phak', 'afh', 'aip', 'raac'],
   'decision-y-riesgo': ['phak', 'risk', 'anacPpa'],
   'factores-humanos': ['phak', 'risk', 'anacPpa', 'raac91'],
-  'procedimientos-emergencias': ['afh', 'phak', 'anacPpa', 'raac', 'aip', 'elt', 'ssr'],
+  'procedimientos-emergencias': ['afh', 'phak', 'anacPpa', 'raac', 'aip', 'elt', 'ssr', 'seraLights'],
 };
 
 /**

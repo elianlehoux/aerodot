@@ -1,17 +1,7 @@
-/* Mayday y Pan Pan (/ingles/emergencias). Usa flip, en-say y sv-tag (english-survival.css); en-rules, en-note y el anillo --en-ring vienen de english.css. */
+/* Mayday y Pan Pan (/ingles/emergencias). Usa en-say y sv-tag (english-survival.css); en-rules, en-note y el anillo --en-ring vienen de english.css. */
 
 .em-label{display:block;color:var(--muted);font:500 12px/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
 .en-block-lede em,.em-panel-body em,.em-note em{font-style:italic;color:var(--ink)}
-
-/* (1) Primero volás: tres peldaños que bajan hacia la derecha */
-.em-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;max-width:820px;margin:22px 0 0;padding:0;list-style:none}
-.em-step{position:relative;margin-top:calc(var(--em-i) * 34px);padding:16px 16px 18px;border-top:3px solid var(--ink);border-left:1px solid var(--line);background:linear-gradient(var(--taupe),transparent 90%)}
-.em-step:first-child{border-top-color:var(--accent)}
-.em-step-n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 14px/1 var(--sans)}
-.em-step:first-child .em-step-n{background:var(--accent);color:var(--accent-ink)}
-.em-step-head{margin:10px 0 0;color:var(--muted);font-size:14px}
-.em-step-head b{display:block;color:var(--ink);font:400 24px/1.1 var(--display);letter-spacing:-.01em}
-.em-step-body{margin:6px 0 0;color:var(--graphite);font-size:14px;line-height:1.5}
 
 /* (2) Mayday o Pan Pan */
 .em-levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 0;padding:0;list-style:none}
@@ -20,7 +10,6 @@
 .em-level h3{margin:0;font:400 26px/1.1 var(--display);letter-spacing:.02em}
 .em-level-body{margin:10px 0 0;color:var(--ink);font-size:15px;line-height:1.5}
 .em-level-when{margin:10px 0 0;color:var(--graphite);font-size:14px;line-height:1.5}
-.em-level-when .em-label{margin-bottom:4px}
 .em-level-example{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line)}
 .em-level-when+.em-level-example{margin-top:14px}
 .em-level-example p{flex:1;min-width:0;margin:0;color:var(--muted);font-size:14px;line-height:1.5;overflow-wrap:anywhere}
@@ -47,8 +36,6 @@
 .em-panel{padding:14px 16px;border-left:4px solid var(--accent);border-radius:4px 14px 14px 4px;background:var(--paper)}
 .em-panel-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:0;color:var(--muted);font-size:14px}
 .em-panel-head b{color:var(--ink);font-weight:600}
-.em-badge{padding:3px 8px;border:1px solid var(--en-ring);border-radius:var(--radius-button);color:var(--ink);font:500 12px/1.2 var(--sans)}
-.em-badge.is-extra{border-style:dashed;border-color:var(--muted);color:var(--graphite)}
 .em-panel-piece{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
 .em-panel-piece p{min-width:0;margin:0;color:var(--ink);font-size:16px;font-weight:500;overflow-wrap:anywhere}
 .em-panel-body{margin:6px 0 0;color:var(--graphite);font-size:14px;line-height:1.5}
@@ -74,15 +61,16 @@
 .em-note{margin:10px 0 0;padding:10px 14px;border-left:3px solid var(--en-ring);border-radius:2px 12px 12px 2px;background:var(--paper);color:var(--graphite);font-size:14px;line-height:1.5}
 
 /* (4) Los códigos */
-.em-codes{grid-template-columns:repeat(3,minmax(0,1fr))}
-.flip h3.em-code{font:300 34px/1 var(--mono, var(--sans));letter-spacing:.04em}
+.em-codes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 0;padding:0;list-style:none}
+.em-code-item{min-width:0;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+h3.em-code{margin:0;font:300 34px/1 var(--mono, var(--sans));letter-spacing:.04em}
+.em-code-en{margin:8px 0 0;color:var(--ink);font-size:16px;font-weight:500}
+.em-code-es{margin:2px 0 0;color:var(--graphite);font-size:14px}
 
 @media(max-width:900px){
   .em-pieces-row{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media(max-width:680px){
-  .em-steps{grid-template-columns:minmax(0,1fr);gap:8px}
-  .em-step{margin-top:0;margin-left:calc(var(--em-i) * 16px)}
   .em-levels,.em-codes{grid-template-columns:minmax(0,1fr)}
   .em-ribbon,.em-builder{padding:14px}
   .em-pieces-row{gap:6px}

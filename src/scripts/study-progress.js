@@ -49,7 +49,7 @@ const paint = (map) => {
   document.querySelectorAll('[data-complete]').forEach((button) => {
     const current = statusOf(map, button.dataset.complete);
     const label = button.querySelector('[data-complete-label]');
-    if (label) label.textContent = current === 'listo' ? 'Capítulo estudiado' : 'Marcar como estudiado';
+    if (label) label.textContent = current === 'listo' ? 'Tema estudiado' : 'Marcar como estudiado';
     button.setAttribute('aria-pressed', String(current === 'listo'));
     const status = button.closest('section')?.querySelector('.saved-state');
     if (!status) return;

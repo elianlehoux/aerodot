@@ -7,38 +7,32 @@ import EnglishToc from '../../components/EnglishToc.astro';
 import EnglishSay from '../../components/EnglishSay.astro';
 import ExerciseSet from '../../components/ExerciseSet.astro';
 import { radioFailSet } from '../../data/english-sets.js';
-import { blindMessages, failSteps, lightAcks, lightSignals } from '../../data/english-radiofail.js';
-import { splitMixed } from '../../scripts/mixed.js';
+import { blindMessages, checkWords, controlChecks, relayCall } from '../../data/english-radiofail.js';
+import { splitKey, splitMixed } from '../../scripts/mixed.js';
 import '../../styles/english-survival.css';
 import '../../styles/english-comms.css';
+
+const kindLabel = { call: 'llamás', readback: 'colacionás', action: 'hacés' };
+const speaker = (line: { who: string; unit?: string }) => (line.who === 'pilot' ? 'Vos' : line.unit ?? 'Laguna Tower');
+type Line = { who: string; unit?: string; kind?: string; text: string; say?: string; key?: string; note?: string };
+const calls: { id: string; title: string; lines: Line[] }[] = [
+  ...controlChecks.map((check) => ({ id: check.id, title: check.title, lines: check.call })),
+  { id: 'relay', title: 'Pedir un relevo', lines: relayCall },
+];
 ---
 <EnglishShell
   title="Falla de radio: inglés aeronáutico | Aerodot"
-  description="Qué hacer y qué decir en inglés cuando la radio falla: el código 7600, la transmisión a ciegas y las señales luminosas de la torre. Con audio y una práctica corta."
+  description="Qué se dice en inglés cuando la radio falla: la transmisión a ciegas, cómo te prueba el control y cómo le pedís a otro avión que pase tu mensaje. Con audio y una práctica corta."
 >
   <EnglishCrumbs slug="falla-radio" />
   <h1>Falla de radio.</h1>
 
-  <EnglishToc learn={[{href:'#pasos',label:'Qué hacés, en orden'},{href:'#ciegas',label:'Transmitir a ciegas'},{href:'#luces',label:'Las señales de la torre'}]} practice={[{href:`#${radioFailSet.id}-title`,label:radioFailSet.title}]} />
+  <EnglishToc learn={[{href:'#ciegas',label:'Transmitir a ciegas'},{href:'#prueba',label:'Si el control te prueba'},{href:'#relevo',label:'Pedir un relevo'}]} practice={[{href:`#${radioFailSet.id}-title`,label:radioFailSet.title}]} />
 
   <EnglishPart kind="learn">
 
-  <section class="radio-block" aria-labelledby="pasos">
-    <h2 id="pasos">Qué hacés, en orden</h2>
-    <p>Cuatro pasos. El primero es el de siempre, volar el avión.</p>
-    <ol class="fr-steps" role="list">
-      {failSteps.map((step) => (
-        <li class="fr-step">
-          <h3>{step.title}</h3>
-          <p>{splitMixed(step.body).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>
-        </li>
-      ))}
-    </ol>
-  </section>
-
   <section class="radio-block" aria-labelledby="ciegas">
     <h2 id="ciegas">Transmitir a ciegas</h2>
-    <p>Hay dos situaciones y cada una tiene su frase de apertura. Después va siempre el mismo mensaje corto.</p>
     <div class="fr-blind-grid">
       {blindMessages.map((message) => (
         <article class="fr-blind" aria-labelledby={`fr-${message.id}`}>
@@ -59,40 +53,44 @@ import '../../styles/english-comms.css';
     </div>
   </section>
 
-  <section class="radio-block" aria-labelledby="luces">
-    <h2 id="luces">Las señales de la torre</h2>
-    <p>Si la torre ve que no hablás, te manda una luz. El significado cambia según estés en vuelo o en tierra.</p>
-    <div class="fr-table-wrap">
-      <table class="fr-lights" role="table">
-        <caption class="visually-hidden">Señales luminosas del control de aeródromo y qué significan para un avión en vuelo y para uno en tierra</caption>
-        <thead role="rowgroup">
-          <tr role="row"><th scope="col" role="columnheader">La luz</th><th scope="col" role="columnheader">En vuelo</th><th scope="col" role="columnheader">En tierra</th></tr>
-        </thead>
-        <tbody role="rowgroup">
-          {lightSignals.map((signal) => (
-            <tr role="row">
-              <th scope="row" role="rowheader">
-                <span class:list={['fr-lamp', `is-${signal.color}`, { 'is-flash': signal.flash }]} aria-hidden="true"></span>
-                {signal.label}
-              </th>
-              <td role="cell" data-label="En vuelo">{signal.air}</td>
-              <td role="cell" data-label="En tierra">{signal.ground}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="fr-sub">Cómo acusás recibo</h3>
-    <dl class="fr-acks">
-      {lightAcks.map((ack) => (
+  <section class="radio-block" aria-labelledby="prueba">
+    <h2 id="prueba">Si el control te prueba</h2>
+    <p>No contestás con la voz: con el transpondedor o con la maniobra.</p>
+    <dl class="fr-words">
+      {checkWords.map((word) => (
         <div>
-          <dt>{ack.where}</dt>
-          <dd>{ack.how}</dd>
+          <dt lang="en">{word.en}</dt>
+          <dd>{word.es}</dd>
         </div>
       ))}
     </dl>
   </section>
+
+  {calls.map((call) => (
+    <section class:list={['radio-block', { 'fr-sub-block': call.id !== 'relay' }]} aria-labelledby={call.id === 'relay' ? 'relevo' : `fr-${call.id}`}>
+      {call.id === 'relay'
+        ? <>
+            <h2 id="relevo">Pedir un relevo</h2>
+          </>
+        : <>
+            <h3 id={`fr-${call.id}`} class="fr-sub">{call.title}</h3>
+          </>}
+      <ol class="sv-call er-call" role="list">
+        {call.lines.map((line, n) => (
+          <li class:list={['sv-line', `is-${line.who === 'other' ? 'tower' : line.who}`]}>
+            <span class="sv-who">{line.who === 'pilot' ? <>Vos · {kindLabel[line.kind as keyof typeof kindLabel]}</> : <span lang="en">{speaker(line)}</span>}</span>
+            {line.kind === 'action'
+              ? <p class="fr-action">{line.text}</p>
+              : <div class="sv-bubble">
+                  <p lang="en">{splitKey(line.text, line.key).map((part) => part.hl ? <mark class="sv-hl">{part.text}</mark> : part.text)}</p>
+                  <EnglishSay text={line.say!} label={`${line.who === 'pilot' ? 'Escuchar tu llamada' : `Escuchar a *${speaker(line)}*`}, mensaje ${n + 1}: ${call.title.toLowerCase()}`} quiet />
+                </div>}
+            {line.note && <p class="sv-note">{splitMixed(line.note).map((part) => part.en ? <em lang="en">{part.text}</em> : part.text)}</p>}
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
 
   </EnglishPart>
 
@@ -101,7 +99,7 @@ import '../../styles/english-comms.css';
 
   </EnglishPart>
 
-  <p class="en-sources">La transmisión a ciegas sigue el reglamento europeo SERA (UE 923/2012, SERA.14085). Las señales luminosas y cómo se acusa recibo siguen el Apéndice 1 del mismo reglamento, que toma la tabla del Anexo 2 de la OACI. El código 7600 sigue SERA.13005. Qué hacer en un vuelo en condiciones visuales es la regla general de la OACI: cada país puede agregar detalles y la Unión Europea cambió sus pasos en 2025, así que seguí lo que publique la AIP de tu país y lo que te enseñe tu instructor. Laguna, la matrícula LV-DEM y todas las cifras (distancias, alturas, horas) son de práctica y no se usan para volar. El audio usa la voz de tu navegador.</p>
+  <p class="en-sources">Las frases siguen SERA, el manual de radio británico (CAP 413) y la fraseología de la OACI. Laguna, las matrículas y las cifras son de práctica y no se usan para volar.</p>
 
   <EnglishFinish slug="falla-radio" where="Falla de radio" />
   <script>
