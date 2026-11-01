@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@animateicons/vanilla": "^0.2.0",
-    "posthog-js": "^1.435.6"
+    "posthog-js": "^1.442.1"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.4",
