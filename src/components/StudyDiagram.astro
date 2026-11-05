@@ -309,6 +309,7 @@ const captions = {
   'slip-types': 'Fijate que en los dos la trayectoria va derecha a la pista. En el deslizamiento hacia adelante la nariz apunta a un costado. En el lateral la nariz queda alineada y el ala baja del lado del viento frena la deriva.',
   'power-off-approaches': 'Fijate que la de 180° empieza en la posición clave del tramo inicial y, al llegar a la de básica, sigue igual que la de 90°. La de 360° empieza más alto; su forma y sus alturas no están en el AFH vigente.',
   airfoil: 'Fijate que α se mide entre la cuerda y el viento relativo, no contra el horizonte. Abajo: al subir α crece la sustentación hasta el ángulo crítico; pasado ese punto viene la pérdida.',
+  'anac-figura-1': 'Es la Figura 1 del cuestionario de ANAC. La A es el ángulo entre la cuerda y el viento relativo. También están la sustentación, la resistencia, la resultante y el centro de presión.',
   forces: 'Fijate que, en vuelo recto y nivelado a velocidad constante, las flechas opuestas tienen el mismo largo: sustentación = peso y tracción = resistencia.',
   axes: 'Fijate que los tres ejes pasan por el centro de gravedad (punto azul) y que cada giro tiene su nombre y su mando principal.',
   'turn-load': 'Fijate que, al inclinar el ala, la sustentación se reparte: una parte sigue sosteniendo el peso y la otra empuja hacia el centro del viraje. Por eso, para no perder altura, la sustentación total tiene que crecer.',
@@ -356,6 +357,10 @@ const captions = {
   'fuel-reserve': 'Fijate que la reserva final es aparte del rodaje, del viaje y de la alternativa: es lo que todavía queda al llegar. Los minutos se convierten en litros con el consumo del manual de tu avión.',
   'civil-twilight': 'Fijate que la noche no empieza con la puesta del sol. Empieza cuando el centro del sol baja 6° por debajo del horizonte, al terminar el crepúsculo civil.',
   'wing-geometry': 'Fijate que la envergadura se mide de punta a punta y la cuerda de borde a borde. Los alerones van hacia las puntas y los flaps cerca del fuselaje, los dos en el borde de fuga. Es un avión de ejemplo: cada diseño ubica sus superficies a su manera.',
+  'wing-section': 'Fijate en la tajada: arriba el extradós, abajo el intradós, y la cuerda es la recta que los une. El espesor es la mayor distancia entre las dos caras. La línea de color, a mitad de camino, es la curvatura media. La marca del 25 % se mide desde el borde de ataque.',
+  'aspect-ratio': 'Fijate que las dos alas tienen la misma superficie. La corta y ancha tiene poco alargamiento y más resistencia inducida. La larga y fina tiene más alargamiento y frena menos. Los números son el ejemplo de la lección, no los de un avión real.',
+  'dihedral-sweep': 'Fijate en los dos cortes. De frente, diedro positivo: las puntas están más altas que la raíz. De arriba, flecha positiva: las puntas quedan detrás de la raíz. Es el mismo gesto de subir o echar atrás los brazos.',
+  'wing-shape': 'Fijate dónde empieza la zona marcada. En el ala rectangular, cerca del fuselaje: los alerones, en las puntas, siguen. En el ala que se estrecha, puede empezar en la punta si no hay torsión.',
   inversion: 'Fijate que dentro de la capa la temperatura sube con la altura, al revés de lo habitual. Abajo el aire queda quieto y puede haber niebla o bruma; en el tope el viento cambia de golpe.',
   'mountain-wave': 'Fijate que el aire sube por barlovento y baja por sotavento, donde puede superar el ascenso de un avión chico. Debajo de las crestas de la onda puede formarse un rotor muy turbulento. Las nubes lenticulares, cuando aparecen, marcan esas crestas.',
   variation: 'Fijate que con variación este el norte magnético queda a la derecha del verdadero. El mismo curso medido desde el norte magnético da un número menor: el este resta.',
@@ -378,6 +383,7 @@ const title = {
   'slip-types': 'Deslizamiento hacia adelante y lateral',
   'power-off-approaches': 'Aproximaciones sin motor: las posiciones clave',
   airfoil: 'Ángulo de ataque y sustentación',
+  'anac-figura-1': 'La figura del examen',
   forces: 'Las cuatro fuerzas en vuelo',
   axes: 'Los tres ejes del avión',
   'turn-load': 'La sustentación en un viraje',
@@ -432,6 +438,10 @@ const title = {
   inversion: 'Una inversión de temperatura',
   'mountain-wave': 'Onda de montaña y rotor',
   'wing-geometry': 'Las medidas y las superficies del ala',
+  'wing-section': 'El corte del ala',
+  'aspect-ratio': 'Dos alas, la misma superficie',
+  'dihedral-sweep': 'Diedro y flecha',
+  'wing-shape': 'Dónde empieza la pérdida',
   'ceiling-circuit': 'Por qué el techo mínimo es 1000 ft',
   'fuel-reserve': 'Dónde va la reserva final',
   'civil-twilight': 'Cuándo empieza la noche',
@@ -1777,6 +1787,92 @@ const metarRows = [
     <text x="16" y="336" class="t">alargamiento: envergadura comparada con la cuerda media</text>
   </svg>}
 
+  {type === 'wing-section' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Corte de un ala, como una rodaja. El borde de ataque está a la izquierda y el borde de salida a la derecha. Arriba está el extradós y abajo el intradós. Una línea punteada, la cuerda, une los dos bordes. Otra línea, de color y a mitad de camino entre las dos caras, es la curvatura media. Una flecha vertical marca el espesor, la mayor distancia entre las dos caras. Otra marca, al 25 por ciento de la cuerda, se mide desde el borde de ataque.</desc>
+    <path d="M78 156C128 78 236 72 404 148C292 198 156 206 78 156Z" class="pl" />
+    <line x1="78" y1="156" x2="404" y2="148" class="ln dash" />
+    <path d="M82 154C150 136 248 130 400 146" class="ln thin c-lift" />
+    <line x1="160" y1="108" x2="160" y2="188" class="guide" />
+    <circle cx="160" cy="154" r="4" class="dot c-lift" />
+    <path d={arrow(248, 176, 248, 96, 9)} class="arw thin c-ink" />
+    <text x="8" y="108" class="tb">Borde</text>
+    <text x="8" y="126" class="tb">de ataque</text>
+    <line x1="58" y1="132" x2="74" y2="150" class="guide" />
+    <text x="472" y="92" text-anchor="end" class="tb">Borde</text>
+    <text x="472" y="110" text-anchor="end" class="tb">de salida</text>
+    <line x1="436" y1="116" x2="404" y2="144" class="guide" />
+    <text x="250" y="52" text-anchor="middle" class="tb c-lift">Extradós</text>
+    <text x="250" y="70" text-anchor="middle" class="ts">cara de arriba</text>
+    <text x="250" y="228" text-anchor="middle" class="tb">Intradós</text>
+    <text x="250" y="248" text-anchor="middle" class="ts">cara de abajo</text>
+    <text x="312" y="178" class="t halo">cuerda</text>
+    <text x="258" y="120" class="t halo">espesor</text>
+    <text x="160" y="98" text-anchor="middle" class="ts c-lift">25 %</text>
+    <text x="16" y="286" class="t">La línea de color, a mitad de camino, es la curvatura media</text>
+  </svg>}
+
+  {type === 'aspect-ratio' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos alas vistas desde arriba, con la misma superficie. La de la izquierda es corta y ancha: poco alargamiento y más resistencia inducida. La de la derecha es larga y fina: más alargamiento y menos resistencia inducida. Abajo, el ejemplo de la lección: 10 metros de envergadura y 1,5 metros de cuerda media dan un alargamiento de cerca de 6,7.</desc>
+    <text x="240" y="28" text-anchor="middle" class="tb">misma superficie</text>
+    <text x="108" y="58" text-anchor="middle" class="tb">alargamiento bajo</text>
+    <rect x="60" y="78" width="96" height="100" rx="6" class="pl" />
+    <ellipse cx="108" cy="128" rx="16" ry="28" class="pl" />
+    <text x="108" y="210" text-anchor="middle" class="t">corta y ancha</text>
+    <text x="108" y="230" text-anchor="middle" class="ts c-drag">más resistencia inducida</text>
+    <text x="352" y="58" text-anchor="middle" class="tb c-lift">alargamiento alto</text>
+    <rect x="232" y="108" width="240" height="40" rx="4" class="pl" />
+    <ellipse cx="352" cy="128" rx="14" ry="26" class="pl" />
+    <text x="352" y="210" text-anchor="middle" class="t">larga y fina</text>
+    <text x="352" y="230" text-anchor="middle" class="ts c-lift">menos resistencia inducida</text>
+    <text x="240" y="262" text-anchor="middle" class="t">10 m / 1,5 m ≈ 6,7</text>
+    <text x="240" y="282" text-anchor="middle" class="ts">ejemplo de la lección, no un avión real</text>
+  </svg>}
+
+  {type === 'dihedral-sweep' && <svg viewBox="0 0 480 280" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos vistas del mismo gesto. A la izquierda, el avión de frente: las alas suben hacia las puntas, diedro positivo, por encima de una línea horizontal. A la derecha, el avión desde arriba, con la nariz hacia arriba de la figura: las puntas quedan detrás de la raíz, flecha positiva.</desc>
+    <line x1="240" y1="24" x2="240" y2="230" class="sep" />
+    <text x="120" y="28" text-anchor="middle" class="ts">de frente</text>
+    <text x="120" y="50" text-anchor="middle" class="tb">diedro positivo</text>
+    <line x1="28" y1="150" x2="212" y2="150" class="ln dash thin" />
+    <line x1="120" y1="146" x2="36" y2="102" class="ln thick" />
+    <line x1="120" y1="146" x2="204" y2="102" class="ln thick" />
+    <circle cx="120" cy="154" r="16" class="pl" />
+    <text x="120" y="196" text-anchor="middle" class="t">las puntas, más altas</text>
+    <text x="120" y="216" text-anchor="middle" class="ts">que la raíz</text>
+    <text x="360" y="28" text-anchor="middle" class="ts">de arriba · nariz hacia arriba</text>
+    <text x="360" y="50" text-anchor="middle" class="tb c-lift">flecha positiva</text>
+    <path d="M348 78H372V168H348Z" class="pl" />
+    <path d="M348 108L258 164L258 184L348 128Z" class="pl" />
+    <path d="M372 108L462 164L462 184L372 128Z" class="pl" />
+    <path d={arrow(360, 70, 360, 52, 8)} class="arw thin c-ink" />
+    <text x="360" y="214" text-anchor="middle" class="t">las puntas quedan atrás</text>
+    <text x="360" y="234" text-anchor="middle" class="ts">de la raíz</text>
+  </svg>}
+
+  {type === 'wing-shape' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos alas vistas desde arriba. La izquierda es rectangular: una zona marcada junto al fuselaje indica que la pérdida suele empezar en la raíz, y los alerones quedan en las puntas, afuera de esa zona. La derecha se estrecha hacia las puntas: la zona marcada está en las puntas, donde están los alerones, si el ala no tiene torsión.</desc>
+    <text x="120" y="28" text-anchor="middle" class="tb">rectangular</text>
+    <rect x="28" y="48" width="184" height="72" class="pl" />
+    <rect x="100" y="48" width="40" height="72" class="zone c-weight" />
+    <rect x="28" y="108" width="36" height="12" class="surf c-lift" />
+    <rect x="176" y="108" width="36" height="12" class="surf c-lift" />
+    <text x="120" y="154" text-anchor="middle" class="t c-weight">la pérdida suele</text>
+    <text x="120" y="174" text-anchor="middle" class="t c-weight">empezar en la raíz</text>
+    <text x="120" y="196" text-anchor="middle" class="ts">los alerones siguen</text>
+    <text x="360" y="28" text-anchor="middle" class="tb c-drag">se estrecha</text>
+    <path d="M250 78L330 46L450 78L450 114L330 146L250 114Z" class="pl" />
+    <path d="M250 78L286 68L286 124L250 114Z" class="zone c-red" />
+    <path d="M414 70L450 78L450 114L414 122Z" class="zone c-red" />
+    <text x="360" y="180" text-anchor="middle" class="t c-red">sin torsión, puede</text>
+    <text x="360" y="200" text-anchor="middle" class="t c-red">empezar en la punta</text>
+    <text x="240" y="246" text-anchor="middle" class="t">La torsión baja la incidencia hacia la punta</text>
+    <text x="240" y="268" text-anchor="middle" class="ts">y la raíz llega antes a su límite</text>
+  </svg>}
+
   {type === 'inversion' && <svg viewBox="0 0 480 306" role="img" aria-labelledby={`${t} ${d}`}>
     <title id={t}>{diagramTitle}</title>
     <desc id={d}>Un gráfico con la temperatura en el eje horizontal y la altura en el vertical. Una línea punteada muestra lo habitual: la temperatura baja al subir. La línea del día sube hacia la derecha cerca del suelo, dentro de una capa de inversión, y recién por encima de esa capa empieza a bajar. En el suelo, dentro de la capa, hay niebla o bruma. En el tope de la capa, las flechas de viento cambian de largo: arriba sopla fuerte y abajo casi calmo.</desc>
@@ -2014,6 +2110,8 @@ const metarRows = [
     </g>)}
   </svg>}
 
+  {type === 'anac-figura-1' && <img class="plate" src="/exam-figures/ppa/1.jpg" width="793" height="511" alt="Figura 1 de ANAC: un perfil con la cuerda, el viento relativo, el ángulo A, la sustentación, la resistencia, la resultante y el centro de presión." />}
+
   <figcaption id={`diagram-caption-${uid}`}><strong>{diagramTitle}.</strong>{` ${caption}`}</figcaption>
 </figure>}
 
@@ -2043,6 +2141,7 @@ const metarRows = [
     --dg-ice:#e9f8ff;--dg-cloud:#ffffff;
   }
   .study-diagram svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;color:var(--dg-ink);overflow:visible;}
+  .study-diagram img.plate{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#fff;border-radius:8px;}
   .study-diagram text{fill:currentColor;}
   .study-diagram .t{font:500 15px var(--sans);}
   .study-diagram .tb{font:650 15px var(--sans);}
