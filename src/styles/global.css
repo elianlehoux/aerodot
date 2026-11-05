@@ -65,6 +65,8 @@
      el codigo de licencia, el indice y el timer caian al stack local y cambiaban entre sistemas. */
   --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
   --page-max:1280px;
+  /* Alto real del encabezado, incluido el safe area. Lo usan el sticky, el scroll-padding y los paneles que se pegan debajo. */
+  --site-header-block:calc(58px + env(safe-area-inset-top,0px));
   --radius-input:10px;
   --radius-small:10px;
   --radius-card:16px;

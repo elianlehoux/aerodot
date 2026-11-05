@@ -143,7 +143,7 @@ html[data-theme="light"] .field-svg{--fs-dot:#e1ddd7;--fs-strip:#eeebe6;--fs-asp
 .word-chips button[aria-pressed="true"]::before{background:#fff}
 @keyframes shake{25%{translate:-4px 0}75%{translate:4px 0}}
 
-.word-stack{position:sticky;top:16px;padding:22px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe)}
+.word-stack{position:sticky;top:calc(var(--site-header-block) + 16px);padding:22px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe)}
 .word-stack article{animation:pop .25s cubic-bezier(.2,.8,.2,1) both}
 .word-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
 .word-stack h2,.word-head h2{font:520 34px/1.12 var(--display);letter-spacing:-.02em}
@@ -259,7 +259,7 @@ html[data-theme="light"] .field-svg{--fs-dot:#e1ddd7;--fs-strip:#eeebe6;--fs-asp
 
 /* ATIS */
 .atis-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.95fr);gap:24px;align-items:start;margin-top:28px}
-.atis-radio{position:sticky;top:16px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe)}
+.atis-radio{position:sticky;top:calc(var(--site-header-block) + 16px);padding:20px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--taupe)}
 .atis-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .atis-head h2{margin-top:6px;font-size:28px}
 .atis-live{display:flex;visibility:hidden;align-items:center;gap:3px;height:28px}

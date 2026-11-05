@@ -29,7 +29,7 @@
 .rf-panels{display:grid;gap:40px;margin-top:22px}
 .rf-panel{min-width:0}
 .rf-panel[hidden]{display:none}
-.rf-panel-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0;color:var(--ink);font:400 24px/1.2 var(--display);letter-spacing:-.01em;scroll-margin-top:96px}
+.rf-panel-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0;color:var(--ink);font:400 24px/1.2 var(--display);letter-spacing:-.01em}
 .rf-panel-title:focus{outline:none}
 .rf-panel-title:focus-visible{outline:3px solid var(--en-ring);outline-offset:4px;border-radius:6px}
 .rf-panel-n{display:inline-grid;align-self:center;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);font:600 14px/1 var(--sans)}
