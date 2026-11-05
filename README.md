@@ -14,7 +14,7 @@ cp .env.example .env
 pnpm dev
 ```
 
-`.env` no se sube. Los valores de ejemplo alcanzan para levantar el sitio en local. PostHog solo recibe eventos si ponés un token real.
+`.env` no se sube. Los valores de ejemplo alcanzan para levantar el sitio en local. PostHog solo recibe eventos si ponés un token real. Sentry solo recibe errores si ponés `PUBLIC_SENTRY_DSN`.
 
 ```bash
 pnpm build

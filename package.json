@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@animateicons/vanilla": "^0.2.0",
+    "@sentry/astro": "^11.11.0",
     "posthog-js": "^1.435.6"
   },
   "devDependencies": {

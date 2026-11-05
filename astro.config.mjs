@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import sentry from '@sentry/astro';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -39,9 +40,23 @@ const pwa = () => ({
   },
 });
 
+const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
+
 export default defineConfig({
   site,
   integrations: [
+    sentry({
+      enabled: { client: true, server: false },
+      // Sin token el build no genera ni sube source maps.
+      sourcemaps: { disable: !sentryAuthToken },
+      ...(sentryAuthToken
+        ? {
+            authToken: sentryAuthToken,
+            org: process.env.SENTRY_ORG,
+            project: process.env.SENTRY_PROJECT,
+          }
+        : {}),
+    }),
     sitemap({ filter: (page) => !page.includes('/offline') }),
     pwa(),
   ],

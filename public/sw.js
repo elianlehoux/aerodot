@@ -12,7 +12,7 @@
  *   con rangeResponse (sw-range.js). Las respuestas 206 de la red no se guardan.
  * - Resto del mismo origen (figuras, íconos, manifest): se sirve lo guardado y se actualiza
  *   en segundo plano, así una figura corregida con el mismo nombre llega en la visita siguiente.
- * Las peticiones a otros orígenes (PostHog, ANAC) no pasan por acá.
+ * Las peticiones a otros orígenes (PostHog, Sentry, ANAC) no pasan por acá.
  */
 const BUILD_ID = '__BUILD_ID__';
 importScripts('/sw-range.js');
