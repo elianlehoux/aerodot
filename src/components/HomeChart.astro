@@ -1,0 +1,61 @@
+---
+// La carta de la portada. Es decoración: los enlaces reales son los tres botones de index.astro.
+// `wide` se usa desde 681 px y sus coordenadas (800 x 500) coinciden con las posiciones en cqw de chart-home.css.
+// `tall` es la franja del teléfono.
+interface Props {
+  variant: 'wide' | 'tall';
+}
+
+const { variant } = Astro.props;
+const plane = 'M13 0C13-2 9-2.6 4-2.6L-11-1.8C-14-1.5-14 1.5-11 1.8L4 2.6C9 2.6 13 2 13 0ZM3 0L-3-14H-7L-4 0L-7 14H-3ZM-9 0L-12-6H-14.5L-13 0L-14.5 6H-12Z';
+---
+{variant === 'wide' ? (
+  <svg class="home-chart home-chart-wide" viewBox="0 0 800 500" aria-hidden="true" focusable="false">
+    <g class="home-chart-relief">
+      <path d="M-20 300C120 240 210 330 340 280S560 150 820 210" />
+      <path d="M-20 340C130 280 220 370 350 320S580 200 820 260" />
+      <path d="M-20 390C140 330 240 420 370 370S600 260 820 320" />
+      <path d="M-20 450C150 390 260 480 400 430S620 330 820 390" />
+      <path d="M430 520C470 440 600 420 700 470" />
+      <path d="M-20 240C100 190 180 260 300 220S500 90 620 20" />
+    </g>
+    <circle class="home-chart-zone" cx="430" cy="360" r="78" />
+    <circle class="home-chart-ring" cx="660" cy="250" r="54" />
+    <g class="home-chart-rose">
+      <circle cx="716" cy="420" r="52" />
+      <circle class="home-chart-ticks" cx="716" cy="420" r="46" />
+      <path d="M716 374v92M670 420h92" />
+      <path class="home-chart-north" d="M716 363l-6 16h12z" />
+    </g>
+    <path id="home-route-wide" class="home-chart-route" pathLength="1" d="M30 468L190 400L430 360L660 250L800 100" />
+    <circle class="home-chart-fix" cx="190" cy="400" r="6" />
+    <circle class="home-chart-fix" cx="430" cy="360" r="6" />
+    <circle class="home-chart-fix" cx="660" cy="250" r="6" />
+    <g class="home-plane">
+      <path transform="scale(1.25)" d={plane}>
+        <animateMotion dur="9s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#home-route-wide" /></animateMotion>
+      </path>
+    </g>
+  </svg>
+) : (
+  <svg class="home-chart home-chart-tall" viewBox="0 206 250 116" aria-hidden="true" focusable="false">
+    <g class="home-chart-relief">
+      <path d="M-10 216C40 196 90 222 140 206S210 176 262 178" />
+      <path d="M-10 250C50 226 100 262 160 240S220 212 262 220" />
+      <path d="M-10 284C50 260 100 296 160 274S220 246 262 254" />
+      <path d="M-10 318C50 294 100 330 160 308S220 280 262 288" />
+      <path d="M-10 346C50 322 100 358 160 336S220 308 262 316" />
+    </g>
+    <circle class="home-chart-zone" cx="130" cy="278" r="30" />
+    <circle class="home-chart-ring" cx="196" cy="246" r="21" />
+    <path id="home-route-tall" class="home-chart-route" pathLength="1" d="M-6 318L60 292L130 278L196 246L256 216" />
+    <circle class="home-chart-fix" cx="60" cy="292" r="5" />
+    <circle class="home-chart-fix" cx="130" cy="278" r="5" />
+    <circle class="home-chart-fix" cx="196" cy="246" r="5" />
+    <g class="home-plane">
+      <path d={plane}>
+        <animateMotion dur="6s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#home-route-tall" /></animateMotion>
+      </path>
+    </g>
+  </svg>
+)}

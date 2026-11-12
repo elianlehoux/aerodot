@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/visual-system.css';
+import '../styles/site-header.css';
 import ReportDialog from '../components/ReportDialog.astro';
 import InstallPrompt from '../components/InstallPrompt.astro';
 import PostHog from '../components/posthog.astro';
@@ -45,7 +46,7 @@ const schemaData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#fdfcfc" />
+    <meta name="theme-color" content="#f4f7f6" />
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
     <meta name="google-site-verification" content="e3f28597bbbdc0a5" />
@@ -117,10 +118,12 @@ const schemaData = {
           controls.forEach((control) => {
             control.setAttribute('aria-checked', String(isNight));
             const label = isNight ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+            // La fila "Modo oscuro" del menú ya tiene su texto visible como nombre: solo cambia aria-checked.
+            if (control.classList.contains('theme-row')) return;
             control.setAttribute('aria-label', label);
             control.setAttribute('title', label);
           });
-          if (themeColor) themeColor.setAttribute('content', isNight ? '#1b1a18' : '#fdfcfc');
+          if (themeColor) themeColor.setAttribute('content', isNight ? '#0e1a23' : '#f4f7f6');
         };
 
         update(root.dataset.theme || 'light');

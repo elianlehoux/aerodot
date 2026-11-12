@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import BrandMark from '../components/BrandMark.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import HomeChart from '../components/HomeChart.astro';
+import '../styles/chart-home.css';
 ---
 <BaseLayout
   title="Aerodot: biblioteca de aviación y exámenes ANAC en Argentina"
@@ -11,28 +13,17 @@ import SiteFooter from '../components/SiteFooter.astro';
   <div class="home-page">
     <header class="site-header">
       <BrandMark />
-      <SiteNav />
+      <SiteNav home />
     </header>
     <main id="main-content" tabindex="-1">
-      <section class="home-hero">
-        <div class="home-intro">
-          <h1>Entender la aviación,<br/><em>tema por tema.</em></h1>
-          <p class="hero-lede">Conceptos explicados con claridad y detalle técnico. Consultá lo que necesitás y practicá hasta rendir el examen.</p>
-        </div>
-        <div class="home-doors">
-          <a class="home-door" href="/temas">
-            <strong>Biblioteca de teoría</strong>
-            <span class="home-door-go" aria-hidden="true"><animate-icons name="arrow-right" size="20"></animate-icons></span>
-          </a>
-          <a class="home-door" href="/examenes">
-            <strong>Practicá los exámenes de ANAC</strong>
-            <span class="home-door-go" aria-hidden="true"><animate-icons name="arrow-right" size="20"></animate-icons></span>
-          </a>
-          <a class="home-door" href="/ingles">
-            <strong>Inglés OACI</strong>
-            <span class="home-door-go" aria-hidden="true"><animate-icons name="arrow-right" size="20"></animate-icons></span>
-          </a>
-        </div>
+      <section class="home-stage">
+        <HomeChart variant="wide" />
+        <HomeChart variant="tall" />
+        <h1>Entender la aviación,<br/><em>tema por tema.</em></h1>
+        <p class="hero-lede">Conceptos explicados con claridad y detalle técnico. Consultá lo que necesitás y practicá hasta rendir el examen.</p>
+        <a class="home-door home-door-1 key-button" href="/temas">Biblioteca de teoría<span class="key-button-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="home-door home-door-2 key-button" href="/examenes">Exámenes de ANAC<span class="key-button-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="home-door home-door-3 key-button" href="/ingles">Inglés OACI<span class="key-button-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </section>
     </main>
     <SiteFooter variant="home">

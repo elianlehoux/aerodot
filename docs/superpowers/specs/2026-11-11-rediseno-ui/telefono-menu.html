@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teléfono: portada y menú desplegable</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:4px;background:var(--background,#fff);color:var(--foreground,#171717);font-family:var(--font-sans,system-ui,sans-serif)}
+.cap{margin:0 0 12px;font-size:14px;line-height:1.5;color:var(--muted-foreground,#666)}
+.cap b{color:var(--foreground,#171717)}
+.stage{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+figure{margin:0}
+figcaption{margin-top:8px;font-size:13px;color:var(--muted-foreground,#666);text-align:center}
+.mk{--sheet:#f4f7f6;--ink:#12222e;--dim:#5a6b76;--relief:#b9cbd3;--route:#b3196f;font-family:'Source Sans 3',system-ui,sans-serif;background:var(--sheet);color:var(--ink);position:relative;overflow:hidden;width:264px;height:520px;border:7px solid #12222e;border-radius:34px}
+.mk a,.mk button{color:inherit;text-decoration:none;font:inherit}
+.chart{position:absolute;inset:0;width:100%;height:100%}
+.relief path{fill:none;stroke:var(--relief);stroke-width:1}
+.leg{fill:none;stroke:var(--route);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:400;stroke-dashoffset:400;animation:draw 2.4s cubic-bezier(.5,0,.2,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fix{fill:var(--sheet);stroke:var(--route);stroke-width:2.5}
+@keyframes pop{from{opacity:0;scale:.9}to{opacity:1;scale:1}}
+.top{position:absolute;z-index:3;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;height:54px;padding:0 16px}
+.brand{font:600 19px/1 'Source Sans 3';letter-spacing:-.03em}
+.round{display:grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--ink);border-radius:50%;background:var(--sheet)}
+.round svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+h1{margin:0;font:500 34px/1.04 Newsreader,serif;letter-spacing:-.022em}
+h1 span{display:block;font-style:italic}
+.home h1{position:absolute;left:16px;right:16px;top:62px}
+.lede{position:absolute;left:16px;right:16px;top:176px;margin:0;color:var(--dim);font-size:13.5px;line-height:1.45}
+.mk .wp{position:absolute;left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;height:46px;padding:0 8px 0 18px;border:1.5px solid var(--ink);border-radius:99px;background:var(--sheet);box-shadow:0 4px 0 var(--ink);font-weight:600;font-size:16px;opacity:0;animation:pop .5s cubic-bezier(.2,1.4,.4,1) forwards;transition:translate .15s,box-shadow .15s}
+.wp i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--sheet)}
+.wp i svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.mk .wp:active{translate:0 4px;box-shadow:none}
+.w1{top:334px;animation-delay:.9s}.w2{top:392px;animation-delay:1.2s}.w3{top:450px;animation-delay:1.5s}
+
+/* Página interior */
+.inner .top{border-bottom:1px solid var(--relief);background:var(--sheet)}
+.mk .here{position:relative;width:34px;height:34px;padding:0;border:1.5px solid var(--ink);border-radius:50%;background:var(--sheet);cursor:pointer;transition:background .2s}
+.here::before,.here::after{content:"";position:absolute;left:9px;right:9px;height:2px;border-radius:2px;background:var(--ink);transition:top .3s cubic-bezier(.2,.8,.2,1),rotate .3s cubic-bezier(.2,.8,.2,1),background .2s}
+.here::before{top:11.5px}.here::after{top:17.5px}
+.open .here{background:var(--ink)}
+.open .here::before,.open .here::after{top:14.5px;background:var(--sheet)}
+.open .here::before{rotate:45deg}.open .here::after{rotate:-45deg}
+.scrim{position:absolute;z-index:1;inset:54px 0 0;background:rgba(18,34,46,.28);opacity:0;pointer-events:none;transition:opacity .25s}
+.open .scrim{opacity:1;pointer-events:auto}
+.menu{position:absolute;z-index:2;left:10px;right:10px;top:62px;padding:8px;border:1.5px solid var(--ink);border-radius:20px;background:var(--sheet);box-shadow:0 5px 0 var(--ink);opacity:0;translate:0 -10px;scale:.97;transform-origin:top right;pointer-events:none;transition:opacity .2s,translate .3s cubic-bezier(.2,.8,.2,1),scale .3s cubic-bezier(.2,.8,.2,1)}
+.open .menu{opacity:1;translate:0;scale:1;pointer-events:auto}
+.mk .menu a{display:flex;align-items:center;gap:12px;height:48px;padding:0 12px;border-radius:13px;font-weight:600;font-size:16px}
+.menu a::before{content:"";width:10px;height:10px;border:2.5px solid var(--route);border-radius:50%;background:var(--sheet)}
+.menu a.on{background:#e4ebea}
+.menu a.on::before{background:var(--route)}
+.mk .menu a:active{background:#dbe4e3}
+.menu hr{margin:6px 12px;border:0;border-top:1px solid var(--relief)}
+.mk .menu .row{display:flex;align-items:center;justify-content:space-between;width:100%;height:44px;padding:0 12px;border:0;border-radius:13px;background:none;color:var(--dim);font-size:15px;text-align:left}
+.row .sw{position:relative;width:38px;height:22px;border:1.5px solid var(--ink);border-radius:99px}
+.row .sw::after{content:"";position:absolute;left:2px;top:2px;width:15px;height:15px;border-radius:50%;background:var(--ink)}
+.page{position:absolute;inset:54px 0 0;padding:22px 16px 0}
+.page h1{font-size:31px}
+.find{display:flex;align-items:center;height:42px;margin:18px 0 22px;padding:0 16px;border:1.5px solid var(--relief);border-radius:99px;color:var(--dim);font-size:14px}
+.page h2{margin:0 0 6px;font:500 21px/1.2 Newsreader,serif;letter-spacing:-.015em}
+.page ul{margin:0 0 20px;padding:0;list-style:none;border-top:1px solid var(--relief)}
+.page li{display:flex;justify-content:space-between;padding:12px 2px;border-bottom:1px solid var(--relief);font-size:15.5px;font-weight:500}
+.page li::after{content:"";width:7px;height:7px;margin-top:6px;border-top:2px solid var(--dim);border-right:2px solid var(--dim);rotate:45deg}
+@media(prefers-reduced-motion:reduce){.leg,.wp{animation:none;opacity:1;stroke-dashoffset:0}.menu,.scrim,.here::before,.here::after{transition:none}}
+</style>
+</head>
+<body>
+<p class="cap"><b>Menú del teléfono, más disimulado.</b> En lugar del botón grande con el nombre de la sección, queda un círculo chico con dos rayitas, del mismo tamaño que el de modo oscuro de la portada. Al tocarlo se convierte en una cruz y despliega el menú. Probalo en el segundo teléfono.</p>
+<div class="stage">
+  <figure>
+    <div class="mk home">
+      <svg class="chart" viewBox="0 0 250 506" aria-hidden="true">
+        <g class="relief">
+          <path d="M-10 250C50 226 100 262 160 240S220 212 262 220"/><path d="M-10 284C50 260 100 296 160 274S220 246 262 254"/>
+          <path d="M-10 318C50 294 100 330 160 308S220 280 262 288"/><path d="M-10 216C40 196 90 222 140 206S210 176 262 178"/>
+          <path d="M-10 380C50 356 100 392 160 370S220 342 262 350"/><path d="M-10 440C50 416 100 452 160 430S220 402 262 410"/><path d="M-10 500C50 476 100 512 160 490S220 462 262 470"/>
+        </g>
+        <circle cx="130" cy="278" r="30" fill="none" stroke="#b3196f" stroke-opacity=".28" stroke-width="4"/>
+        <circle cx="196" cy="246" r="21" fill="none" stroke="#2a6f9c" stroke-opacity=".5" stroke-dasharray="6 4"/>
+        <path id="rt" class="leg" d="M-6 318L60 292L130 278L196 246L256 216"/>
+        <circle class="fix" cx="60" cy="292" r="5"/><circle class="fix" cx="130" cy="278" r="5"/><circle class="fix" cx="196" cy="246" r="5"/>
+        <path d="M13 0C13-2 9-2.6 4-2.6L-11-1.8C-14-1.5-14 1.5-11 1.8L4 2.6C9 2.6 13 2 13 0ZM3 0L-3-14H-7L-4 0L-7 14H-3ZM-9 0L-12-6H-14.5L-13 0L-14.5 6H-12Z" fill="#12222e"><animateMotion dur="6s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#rt"/></animateMotion></path>
+      </svg>
+      <div class="top"><span class="brand">aerodot.</span><span class="round" title="Modo oscuro"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span></div>
+      <h1>Entender la aviación, <span>tema por tema.</span></h1>
+      <p class="lede">Conceptos explicados con claridad. Practicá hasta rendir el examen.</p>
+      <a class="wp w1" href="#">Biblioteca de teoría<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <a class="wp w2" href="#">Exámenes de ANAC<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <a class="wp w3" href="#">Inglés OACI<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <figcaption>Portada</figcaption>
+  </figure>
+  <figure>
+    <div class="mk inner open" id="inner">
+      <div class="page">
+        <h1>Temas para <span>entender el vuelo.</span></h1>
+        <div class="find">Buscar en la biblioteca</div>
+        <h2>Secciones</h2>
+        <ul><li>Vuelo y aeronave</li><li>El entorno de vuelo</li><li>Aeródromo y reglas</li><li>Maniobras básicas de vuelo</li></ul>
+      </div>
+      <div class="scrim" id="scrim"></div>
+      <div class="top"><span class="brand">aerodot.</span><button class="here" id="here" type="button" aria-expanded="true" aria-label="Menú de secciones"></button></div>
+      <nav class="menu" aria-label="Secciones">
+        <a class="on" href="#">Biblioteca de teoría</a>
+        <a href="#">Exámenes de ANAC</a>
+        <a href="#">Inglés OACI</a>
+        <hr>
+        <button class="row" type="button">Modo oscuro<span class="sw"></span></button>
+      </nav>
+    </div>
+    <figcaption>Dentro de Biblioteca, con el menú abierto</figcaption>
+  </figure>
+</div>
+<script>
+(() => {
+  const box = document.getElementById('inner'), here = document.getElementById('here');
+  const toggle = () => here.setAttribute('aria-expanded', String(box.classList.toggle('open')));
+  here.addEventListener('click', toggle);
+  document.getElementById('scrim').addEventListener('click', toggle);
+})();
+</script>
+</body>
+</html>

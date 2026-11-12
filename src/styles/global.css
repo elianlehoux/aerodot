@@ -39,26 +39,29 @@
 }
 :root{
   color-scheme:dark;
-  --paper:#1b1a18;
-  --card:#22201d;
-  --ink:#fdfcfc;
-  --graphite:#e7e3df;
-  --muted:#b9b3ac;
-  --ash:#a8a29a;
-  --line:#3b3834;
-  --taupe:#292724;
-  --stone:#403d38;
-  --blue:#fdfcfc;
-  --blue-soft:#34312d;
-  --ember:#ff6a3a;
-  --accent:#4fa3c7;
-  --accent-ink:#0f1a20;
-  --note:#292724;
-  --action:#f4efe8;
-  --action-text:#1c1916;
-  --action-hover:#fffaf4;
-  --quiet:#2e2b28;
-  --quiet-hover:#3a3632;
+  --paper:#0e1a23;
+  --card:#14232e;
+  --ink:#eef3f4;
+  --graphite:#d3dde1;
+  --muted:#9db0ba;
+  --ash:#8499a4;
+  --line:#253744;
+  --relief:#2f4654;
+  --taupe:#172832;
+  --stone:#2f4654;
+  --blue:#eef3f4;
+  --blue-soft:#172832;
+  --ember:#ff8f84;
+  --accent:#ff6fb5;
+  --accent-ink:#0e1a23;
+  --chart-blue:#6fb2dc;
+  --note:#172832;
+  --action:#eef3f4;
+  --action-text:#0e1a23;
+  --action-hover:#ffffff;
+  --quiet:#1b2e3a;
+  --quiet-hover:#243b49;
+  --scrim:rgba(0,0,0,.55);
   --sans:'Source Sans 3','Source Sans Fallback',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --display:Newsreader,'Iowan Old Style',Palatino,'Palatino Linotype',Georgia,serif;
   /* El mono es el stack del sistema. Antes declaraba 'Geist Mono', que nunca se cargo, asi que
@@ -82,26 +85,29 @@
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 html[data-theme="light"]{
   color-scheme:light;
-  --paper:#fdfcfc;
-  --card:#fdfcfc;
-  --ink:#000;
-  --graphite:#44403b;
-  --muted:#635e57;
-  --ash:#6f6a63;
-  --line:#ebe8e4;
-  --taupe:#f5f3f1;
-  --stone:#ebe8e4;
-  --blue:#000;
-  --blue-soft:#f5f3f1;
-  --note:#f5f3f1;
-  --action:#1c4558;
-  --action-text:#fbfaf7;
-  --action-hover:#27586e;
-  --quiet:#efe8df;
-  --quiet-hover:#e4dcd1;
-  --ember:#b33a09;
-  --accent:#1f6a8a;
-  --accent-ink:#fff;
+  --paper:#f4f7f6;
+  --card:#fbfcfc;
+  --ink:#12222e;
+  --graphite:#2c3e4a;
+  --muted:#5a6b76;
+  --ash:#5f6f79;
+  --line:#d5e0e4;
+  --relief:#b9cbd3;
+  --taupe:#e9efee;
+  --stone:#c9d6db;
+  --blue:#12222e;
+  --blue-soft:#e9efee;
+  --note:#e9efee;
+  --action:#12222e;
+  --action-text:#f4f7f6;
+  --action-hover:#1d3445;
+  --quiet:#e4ebea;
+  --quiet-hover:#d8e2e1;
+  --ember:#b0413a;
+  --accent:#b3196f;
+  --accent-ink:#ffffff;
+  --chart-blue:#2a6f9c;
+  --scrim:rgba(18,34,46,.3);
 }
 body{min-width:320px;margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.55;letter-spacing:0;-webkit-font-smoothing:antialiased}
 :where(h1,h2,h3){font-optical-sizing:auto}
@@ -115,6 +121,12 @@ button{color:inherit}
 :where(a,button,summary,input,select,textarea){transition-property:background-color,color,border-color,box-shadow,opacity,transform,translate;transition-duration:var(--dur-fast);transition-timing-function:var(--ease)}
 .skip-link{position:fixed;z-index:100;top:12px;left:12px;padding:10px 16px;transform:translateY(-160%);border:1px solid var(--line);border-radius:var(--radius-button);background:var(--paper);color:var(--ink);font-size:14px;text-decoration:none}
 .skip-link:focus{transform:translateY(0)}
+/* Cambio de página: fundido corto entre documentos. El encabezado tiene nombre propio
+   (site-header.css) para que no parpadee. Sin soporte, la navegación es la de siempre. */
+@media(prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:200ms}
+}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}

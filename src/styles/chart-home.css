@@ -1,0 +1,75 @@
+/* Portada: una carta de navegación. La ruta une tres puntos y de cada uno cuelga un botón. */
+.home-page{display:grid;grid-template-rows:auto 1fr auto;min-height:100dvh;background:var(--paper)}
+.home-page .site-header{border-bottom-color:transparent}
+.home-page>main{display:grid;place-items:center;min-width:0;padding:0 clamp(16px,3vw,40px);overflow:clip}
+
+.home-chart{display:block;overflow:visible}
+.home-chart-relief path{fill:none;stroke:var(--relief);stroke-width:1}
+.home-chart-zone{fill:none;stroke:var(--accent);stroke-opacity:.28;stroke-width:5}
+.home-chart-ring{fill:none;stroke:var(--chart-blue);stroke-opacity:.55;stroke-dasharray:7 5}
+.home-chart-rose{fill:none;stroke:var(--chart-blue);stroke-opacity:.6;transform-origin:716px 420px}
+.home-chart-ticks{stroke-width:6;stroke-dasharray:1 7.03}
+.home-chart-north{fill:var(--chart-blue);stroke:none}
+.home-chart-route{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.home-chart-fix{fill:var(--paper);stroke:var(--accent);stroke-width:2.5}
+/* El avión se mueve con animateMotion, que CSS no puede pausar: solo se muestra si el sistema acepta movimiento. */
+.home-plane{display:none;fill:var(--ink)}
+
+.home-stage h1{margin:0;color:var(--ink);font-family:var(--display);font-weight:520;line-height:1.04;letter-spacing:-.022em}
+.home-stage h1 em{display:block;font:inherit;font-style:italic}
+.hero-lede{margin:0;color:var(--muted);line-height:1.45}
+.home-door{justify-content:space-between;white-space:nowrap}
+
+/* Escritorio y tablet: todo se mide en cqw sobre un lienzo 16:10, igual que el viewBox de la carta,
+   así cada botón queda colgado de su punto a cualquier ancho. */
+@media(min-width:681px){
+  .home-stage{position:relative;container-type:inline-size;width:min(1120px,100%,(100dvh - 170px)*1.6);min-width:min(640px,100%);aspect-ratio:16/10}
+  .home-chart-wide{position:absolute;inset:0;width:100%;height:100%}
+  .home-chart-tall{display:none}
+  .home-stage h1{position:absolute;left:4cqw;top:5cqw;font-size:5.8cqw}
+  .hero-lede{position:absolute;left:4cqw;top:19.5cqw;width:38cqw;font-size:max(15px,1.9cqw)}
+  .home-door{position:absolute;gap:1.2cqw;padding:max(6px,.9cqw) max(7px,1cqw) max(6px,.9cqw) max(16px,1.9cqw);font-size:max(15px,2.1cqw)}
+  .home-door .key-button-go{width:max(30px,3.4cqw);height:max(30px,3.4cqw)}
+  .home-door .key-button-go svg{width:48%;height:48%}
+  .home-door-1{left:4cqw;top:53.5cqw}
+  .home-door-2{left:44cqw;top:47.5cqw}
+  .home-door-3{left:66cqw;top:33.5cqw}
+}
+
+/* Teléfono: mismo orden y mismas piezas, en una columna. Los botones quedan abajo, al alcance del pulgar. */
+@media(max-width:680px){
+  .home-page>main{place-items:start stretch;padding:0}
+  .home-stage{display:flex;flex-direction:column;padding:14px 16px 28px}
+  .home-chart-wide{display:none}
+  .home-chart-tall{order:3;width:calc(100% + 32px);height:auto;margin:6px -16px 14px;overflow:hidden}
+  .home-stage h1{order:1;font-size:clamp(36px,10.6vw,48px)}
+  .hero-lede{order:2;margin-top:12px;font-size:16px}
+  .home-door{order:4;min-height:52px;margin-bottom:14px;padding:8px 9px 8px 20px;font-size:17px;white-space:normal}
+  .home-door:last-child{margin-bottom:0}
+  .home-door .key-button-go{width:34px;height:34px}
+}
+
+@media(prefers-reduced-motion:no-preference){
+  .home-plane{display:block}
+  .home-chart-route{animation:home-route 2.6s cubic-bezier(.5,0,.2,1) .3s backwards}
+  .home-chart-rose{animation:home-rose 80s linear infinite}
+  .home-chart-fix{animation:home-fade .4s var(--ease) backwards}
+  .home-chart-fix:nth-of-type(3){animation-delay:.9s}
+  .home-chart-fix:nth-of-type(4){animation-delay:1.5s}
+  .home-chart-fix:nth-of-type(5){animation-delay:2.1s}
+  .home-door{animation:home-pop .5s cubic-bezier(.2,1.4,.4,1) backwards}
+  .home-door-1{animation-delay:.9s}
+  .home-door-2{animation-delay:1.5s}
+  .home-door-3{animation-delay:2.1s}
+}
+@media(prefers-reduced-motion:no-preference) and (max-width:680px){
+  .home-chart-route{animation-duration:1.6s}
+  .home-door-1{animation-delay:.5s}
+  .home-door-2{animation-delay:.7s}
+  .home-door-3{animation-delay:.9s}
+  .home-chart-fix:nth-of-type(n){animation-delay:.6s}
+}
+@keyframes home-route{from{stroke-dashoffset:1}}
+@keyframes home-rose{to{transform:rotate(360deg)}}
+@keyframes home-fade{from{opacity:0}}
+@keyframes home-pop{from{opacity:0;scale:.88}}

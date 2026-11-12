@@ -3,13 +3,42 @@ import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   current?: 'biblioteca' | 'examenes' | 'ingles' | null;
+  home?: boolean;
 }
 
-const { current = null } = Astro.props;
+const { current = null, home = false } = Astro.props;
+
+const sections = [
+  { id: 'biblioteca', href: '/temas', short: 'Biblioteca', long: 'Biblioteca de teoría' },
+  { id: 'examenes', href: '/examenes', short: 'Exámenes', long: 'Exámenes de ANAC' },
+  { id: 'ingles', href: '/ingles', short: 'Inglés', long: 'Inglés OACI' },
+];
 ---
-<nav aria-label="Navegación principal">
-  <a href="/temas" aria-current={current === 'biblioteca' ? 'page' : undefined}>Biblioteca</a>
-  <a href="/examenes" aria-current={current === 'examenes' ? 'page' : undefined}>Exámenes</a>
-  <a href="/ingles" aria-current={current === 'ingles' ? 'page' : undefined}>Inglés</a>
-  <ThemeToggle />
+<nav class="site-links" aria-label="Navegación principal">
+  {sections.map((section) => (
+    <a href={section.href} aria-current={current === section.id ? 'page' : undefined}>{section.short}</a>
+  ))}
+  <ThemeToggle variant="switch" />
 </nav>
+{home ? (
+  <div class="site-compact"><ThemeToggle variant="round" /></div>
+) : (
+  <details class="site-menu site-compact" data-site-menu>
+    <summary class="header-round" aria-label="Abrir el menú de secciones"><span class="site-menu-icon" aria-hidden="true"></span></summary>
+    <div class="site-menu-scrim" data-site-menu-close></div>
+    <nav class="site-menu-panel" aria-label="Secciones">
+      {sections.map((section) => (
+        <a href={section.href} aria-current={current === section.id ? 'page' : undefined}>
+          <span class="route-mark" data-state={current === section.id ? 'done' : undefined}></span>
+          {section.long}
+        </a>
+      ))}
+      <hr />
+      <ThemeToggle variant="row" />
+    </nav>
+  </details>
+)}
+<script>
+  import { mountSiteMenu } from '../scripts/site-menu.js';
+  document.querySelectorAll('[data-site-menu]').forEach((menu) => mountSiteMenu(menu));
+</script>
