@@ -14,5 +14,10 @@ skills-lock.json
 # Reels de lanzamiento: se arman en local y no se publican.
 reel/
 
+# Tráiler: el mp4 se arma en local. La caché de HyperFrames no se publica.
+trailer/*.mp4
+trailer/.hyperframes/
+trailer/.thumbnails/
+
 .playwright-mcp/
 .superpowers/

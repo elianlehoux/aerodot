@@ -1,0 +1,67 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #ppa-clip { position: absolute; inset: 0; }
+    #ppa-mover { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #ppa-mover::before {
+      content: ""; position: absolute; left: -1600px; top: -1600px;
+      width: 5120px; height: 4280px; background: #fdfcfc;
+    }
+    #ppa-shot { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    #ppa-cursor { position: absolute; left: 572px; top: 566px; width: 92px; height: 92px; z-index: 6; transform-origin: 8px 4px; }
+    #ppa-press {
+      position: absolute; left: 484px; top: 551px; width: 118px; height: 46px;
+      border-radius: 14px; background: #fdfcfc; opacity: 0; z-index: 4;
+      transform-origin: 72% 50%;
+    }
+    #ppa-hit {
+      position: absolute; left: 572px; top: 566px; width: 88px; height: 88px;
+      margin-left: -44px; margin-top: -44px; border-radius: 50%;
+      border: 16px solid #1b1a18; box-shadow: 0 0 0 8px #fdfcfc;
+      background: rgba(253, 252, 252, 0.35);
+      opacity: 0; z-index: 5; transform-origin: 50% 50%;
+    }
+  </style>
+  <div id="root" data-composition-id="ppa" data-width="1920" data-height="1080" data-motion-blur="on" data-motion-blur-shutter="240">
+    <div id="ppa-clip" class="clip" data-start="0" data-duration="1.02" data-track-index="1">
+      <div id="ppa-mover" data-layout-allow-overflow>
+        <img id="ppa-shot" src="assets/shots/ppa.png" alt="" />
+        <div id="ppa-press" data-layout-ignore></div>
+        <div id="ppa-hit" data-layout-ignore></div>
+        <div id="ppa-cursor" data-layout-allow-overflow data-layout-allow-occlusion>
+          <svg viewBox="0 0 24 24" width="92" height="92" aria-hidden="true">
+            <path d="M3 2 L3 20.5 L8.2 15.2 L12.4 22 L15.6 20.4 L11.3 13.6 L18 13.2 Z" fill="#1b1a18" stroke="#fdfcfc" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ppa-mover",
+      { x: 2300, scale: 1.2, y: 108 },
+      { x: 0, scale: 1.2, y: 108, duration: 0.22, ease: "power4.out" },
+      0.02);
+    tl.fromTo("#ppa-cursor", { x: 680 }, { x: 0, duration: 0.22, ease: "power4.out" }, 0.26);
+    tl.fromTo("#ppa-press",
+      { opacity: 0, scale: 1 },
+      { opacity: 0.72, scale: 0.9, duration: 0.06, ease: "power2.in", immediateRender: false },
+      0.5);
+    tl.to("#ppa-press", { opacity: 0, scale: 1.06, duration: 0.16, ease: "power2.out" }, 0.56);
+    tl.fromTo("#ppa-hit",
+      { scale: 0.4, opacity: 1 },
+      { scale: 1.15, opacity: 1, duration: 0.08, ease: "power3.out", immediateRender: false },
+      0.5);
+    tl.to("#ppa-hit", { scale: 3.5, opacity: 0, duration: 0.26, ease: "power2.out" }, 0.58);
+    tl.to("#ppa-cursor", { scale: 0.5, duration: 0.05, ease: "power2.in" }, 0.5);
+    tl.to("#ppa-cursor", { scale: 0.5, duration: 0.08, ease: "none" }, 0.55);
+    tl.to("#ppa-cursor", { scale: 1.48, duration: 0.11, ease: "back.out(4)" }, 0.63);
+    tl.to("#ppa-cursor", { scale: 1, duration: 0.1, ease: "power2.out" }, 0.74);
+    tl.to("#ppa-mover", { scale: 1.08, duration: 0.06, ease: "power2.in" }, 0.5);
+    tl.fromTo("#ppa-mover",
+      { scale: 1.08, x: 0, y: 108 },
+      { scale: 1.9, x: 793, y: -65, duration: 0.3, ease: "expo.out", immediateRender: false },
+      0.58);
+    window.__timelines["ppa"] = tl;
+  </script>
+</template>
