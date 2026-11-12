@@ -303,6 +303,7 @@ const speedSteps = [
 
 const captions = {
   'airplane-parts': 'Fijate en qué hace cada parte: las alas sostienen el avión en el aire, el empenaje mantiene la nariz alineada y lleva el elevador y el timón, el fuselaje une todo y el tren lo apoya en tierra.',
+  empennage: 'Fijate qué está fijo y qué se mueve. En el plano horizontal, el estabilizador queda adelante y el elevador atrás, con el compensador en la punta. En el vertical, la deriva es la parte fija y el timón es el de atrás.',
   'static-dynamic-stability': 'Fijate que la estática mira solo el primer movimiento: volver, quedarse o alejarse. La dinámica mira qué pasa después: si las oscilaciones se achican, se mantienen o crecen.',
   'p-factor': 'Fijate que con la nariz alta el aire le llega a la hélice desde abajo. La pala que baja muerde más aire que la que sube, así que ese lado empuja más y la nariz se va hacia el otro. Con hélice horaria desde la cabina, a la izquierda.',
   'propeller-blade': 'Fijate que el ángulo de pala se mide contra el plano de giro. El ángulo de ataque se mide contra el viento relativo, que cambia con el giro y con el avance del avión.',
@@ -361,6 +362,8 @@ const captions = {
   'aspect-ratio': 'Fijate que las dos alas tienen la misma superficie. La corta y ancha tiene poco alargamiento y más resistencia inducida. La larga y fina tiene más alargamiento y frena menos. Los números son el ejemplo de la lección, no los de un avión real.',
   'dihedral-sweep': 'Fijate en los dos cortes. De frente, diedro positivo: las puntas están más altas que la raíz. De arriba, flecha positiva: las puntas quedan detrás de la raíz. Es el mismo gesto de subir o echar atrás los brazos.',
   'wing-shape': 'Fijate dónde empieza la zona marcada. En el ala rectangular, cerca del fuselaje: los alerones, en las puntas, siguen. En el ala que se estrecha, puede empezar en la punta si no hay torsión.',
+  'wing-inside': 'Fijate en el corte: la viga es el larguero, las líneas de atrás son costillas y el contorno es el revestimiento. La zona marcada es un tanque, como en muchos entrenadores. No es un avión real.',
+  'landing-gear': 'Fijate en el punto del peso, con la nariz a la derecha. En el triciclo queda adelante de la rueda principal. En el convencional queda atrás, y un desvío puede cerrarse solo.',
   inversion: 'Fijate que dentro de la capa la temperatura sube con la altura, al revés de lo habitual. Abajo el aire queda quieto y puede haber niebla o bruma; en el tope el viento cambia de golpe.',
   'mountain-wave': 'Fijate que el aire sube por barlovento y baja por sotavento, donde puede superar el ascenso de un avión chico. Debajo de las crestas de la onda puede formarse un rotor muy turbulento. Las nubes lenticulares, cuando aparecen, marcan esas crestas.',
   variation: 'Fijate que con variación este el norte magnético queda a la derecha del verdadero. El mismo curso medido desde el norte magnético da un número menor: el este resta.',
@@ -377,6 +380,7 @@ const captions = {
 };
 const title = {
   'airplane-parts': 'Las partes del avión',
+  empennage: 'Las partes de la cola',
   'static-dynamic-stability': 'Estabilidad estática y dinámica',
   'p-factor': 'Factor P con la nariz alta',
   'propeller-blade': 'Ángulo de pala y ángulo de ataque',
@@ -442,6 +446,8 @@ const title = {
   'aspect-ratio': 'Dos alas, la misma superficie',
   'dihedral-sweep': 'Diedro y flecha',
   'wing-shape': 'Dónde empieza la pérdida',
+  'wing-inside': 'Por dentro del ala',
+  'landing-gear': 'Dos trenes, de costado',
   'ceiling-circuit': 'Por qué el techo mínimo es 1000 ft',
   'fuel-reserve': 'Dónde va la reserva final',
   'civil-twilight': 'Cuándo empieza la noche',
@@ -1871,6 +1877,79 @@ const metarRows = [
     <text x="360" y="200" text-anchor="middle" class="t c-red">empezar en la punta</text>
     <text x="240" y="246" text-anchor="middle" class="t">La torsión baja la incidencia hacia la punta</text>
     <text x="240" y="268" text-anchor="middle" class="ts">y la raíz llega antes a su límite</text>
+  </svg>}
+
+  {type === 'empennage' && <svg viewBox="0 0 480 280" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos cortes de la cola, con el borde de salida a la derecha. A la izquierda, el plano horizontal: el estabilizador es la parte fija y el elevador, la móvil, con un compensador chico en la punta. A la derecha, el plano vertical: la deriva es la parte fija y el timón es el de atrás.</desc>
+    <text x="240" y="24" text-anchor="middle" class="ts">borde de salida a la derecha</text>
+    <line x1="240" y1="40" x2="240" y2="230" class="guide" />
+    <text x="120" y="52" text-anchor="middle" class="tb">horizontal</text>
+    <rect x="28" y="108" width="108" height="22" rx="2" class="pl" />
+    <rect x="136" y="108" width="52" height="22" class="surf c-lift" />
+    <rect x="176" y="114" width="18" height="10" class="surf c-weight" />
+    <text x="82" y="160" text-anchor="middle" class="t">estabilizador</text>
+    <text x="82" y="178" text-anchor="middle" class="ts">fijo</text>
+    <text x="162" y="160" text-anchor="middle" class="t c-lift">elevador</text>
+    <text x="162" y="178" text-anchor="middle" class="ts">móvil</text>
+    <text x="120" y="214" text-anchor="middle" class="t c-weight">compensador</text>
+    <text x="360" y="52" text-anchor="middle" class="tb">vertical</text>
+    <path d="M300 186L340 58L378 186Z" class="pl" />
+    <path d="M352 86L378 186L408 186L372 78Z" class="surf c-lift" />
+    <text x="330" y="214" text-anchor="middle" class="t">deriva</text>
+    <text x="330" y="232" text-anchor="middle" class="ts">fija</text>
+    <text x="430" y="150" text-anchor="middle" class="t c-lift">timón</text>
+    <text x="430" y="168" text-anchor="middle" class="ts">móvil</text>
+    <line x1="400" y1="140" x2="390" y2="150" class="guide" />
+  </svg>}
+
+  {type === 'wing-inside' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Corte de un ala. El contorno es el revestimiento. Una viga vertical, cerca del borde de ataque, es el larguero. Tres líneas más atrás son costillas. Entre el larguero y la primera costilla hay una zona marcada: un tanque, como en muchos entrenadores. No es un avión real.</desc>
+    <path d="M78 156C128 78 236 72 404 148C292 198 156 206 78 156Z" class="pl" />
+    <rect x="168" y="108" width="16" height="62" class="surf c-ink" />
+    <rect x="192" y="118" width="46" height="36" rx="4" class="zone c-lift" />
+    <line x1="248" y1="102" x2="248" y2="178" class="guide" />
+    <line x1="310" y1="112" x2="310" y2="168" class="guide" />
+    <line x1="358" y1="124" x2="358" y2="158" class="guide" />
+    <text x="176" y="214" text-anchor="middle" class="tb">larguero</text>
+    <text x="215" y="140" text-anchor="middle" class="ts halo">tanque</text>
+    <text x="310" y="198" text-anchor="middle" class="ts">costilla</text>
+    <text x="330" y="58" text-anchor="middle" class="tb">revestimiento</text>
+    <line x1="330" y1="66" x2="310" y2="96" class="guide" />
+    <text x="16" y="250" class="t">Lo de adentro no se ve en la recorrida</text>
+    <text x="16" y="272" class="ts">La arruga en la chapa, sí</text>
+  </svg>}
+
+  {type === 'landing-gear' && <svg viewBox="0 0 480 300" role="img" aria-labelledby={`${t} ${d}`}>
+    <title id={t}>{diagramTitle}</title>
+    <desc id={d}>Dos aviones de costado, con la nariz a la derecha. A la izquierda, un triciclo: la rueda chica está adelante y el punto del peso queda delante de la rueda principal. A la derecha, un tren convencional: la rueda chica está en la cola y el punto del peso queda detrás de la rueda principal.</desc>
+    <text x="240" y="28" text-anchor="middle" class="ts">nariz a la derecha</text>
+    <line x1="240" y1="44" x2="240" y2="230" class="guide" />
+    <text x="120" y="56" text-anchor="middle" class="tb">triciclo</text>
+    <rect x="48" y="118" width="150" height="34" rx="16" class="pl" />
+    <line x1="96" y1="152" x2="96" y2="186" class="ln" />
+    <circle cx="96" cy="198" r="14" class="pl" />
+    <line x1="176" y1="148" x2="176" y2="194" class="ln" />
+    <circle cx="176" cy="202" r="8" class="pl" />
+    <circle cx="132" cy="134" r="5" class="dot c-lift" />
+    <text x="132" y="108" text-anchor="middle" class="ts c-lift">peso</text>
+    <text x="96" y="228" text-anchor="middle" class="ts">principal</text>
+    <text x="176" y="228" text-anchor="middle" class="ts">nariz</text>
+    <text x="120" y="258" text-anchor="middle" class="t">el peso va adelante</text>
+    <text x="120" y="278" text-anchor="middle" class="ts">tiende a enderezarse</text>
+    <text x="360" y="56" text-anchor="middle" class="tb">convencional</text>
+    <rect x="268" y="122" width="160" height="30" rx="14" class="pl" />
+    <line x1="368" y1="152" x2="368" y2="186" class="ln" />
+    <circle cx="368" cy="198" r="14" class="pl" />
+    <line x1="292" y1="150" x2="292" y2="196" class="ln" />
+    <circle cx="292" cy="204" r="8" class="pl" />
+    <circle cx="328" cy="136" r="5" class="dot c-weight" />
+    <text x="328" y="110" text-anchor="middle" class="ts c-weight">peso</text>
+    <text x="368" y="228" text-anchor="middle" class="ts">principal</text>
+    <text x="292" y="228" text-anchor="middle" class="ts">cola</text>
+    <text x="360" y="258" text-anchor="middle" class="t">el peso va atrás</text>
+    <text x="360" y="278" text-anchor="middle" class="ts">puede cerrarse solo</text>
   </svg>}
 
   {type === 'inversion' && <svg viewBox="0 0 480 306" role="img" aria-labelledby={`${t} ${d}`}>
