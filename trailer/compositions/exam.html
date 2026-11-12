@@ -1,0 +1,136 @@
+<template>
+  <style>
+    @font-face { font-family: Newsreader; font-style: normal; font-weight: 400 700; src: url("assets/fonts/newsreader-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; src: url("assets/fonts/source-sans-3-latin.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #exam-clip { position: absolute; inset: 0; }
+    #exam-stage { position: absolute; inset: 0; background: #fdfcfc; }
+    #exam-paper {
+      position: absolute; left: -640px; top: -640px; width: 3200px; height: 2360px;
+      background: #fdfcfc;
+    }
+    #exam-meta {
+      position: absolute; left: 300px; top: 120px; width: 1320px;
+      font-family: "Source Sans 3", sans-serif; font-weight: 500; font-size: 28px;
+      letter-spacing: 0.04em; color: #635e57;
+    }
+    #exam-track { position: absolute; left: 300px; top: 164px; width: 1320px; height: 3px; background: #ebe8e4; }
+    #exam-fill { position: absolute; left: 0; top: 0; width: 1320px; height: 3px; background: #000; transform-origin: 0% 50%; }
+    #exam-prompt {
+      position: absolute; left: 300px; top: 186px; width: 1320px;
+      font-family: Newsreader, serif; font-weight: 560; font-size: 50px;
+      letter-spacing: -0.025em; line-height: 1.12; color: #000;
+    }
+    .exam-opt {
+      position: absolute; left: 300px; width: 1320px; height: 104px;
+      display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center;
+      padding: 0 22px; border: 1px solid #ebe8e4; border-radius: 16px; background: #fdfcfc;
+      transform-origin: 50% 50%;
+    }
+    #exam-opt-a { top: 330px; }
+    #exam-opt-b { top: 446px; }
+    #exam-opt-c { top: 562px; }
+    .exam-mark {
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ebe8e4;
+      background: #f5f3f1; color: #44403b;
+      font-family: "Source Sans 3", sans-serif; font-size: 20px;
+      display: grid; place-items: center;
+    }
+    .exam-opt b {
+      font-family: "Source Sans 3", sans-serif; font-weight: 400; font-size: 32px; line-height: 1.25; color: #000;
+    }
+    #exam-feedback {
+      position: absolute; left: 300px; top: 686px; width: 1320px; opacity: 0;
+      padding: 18px 22px; border-radius: 10px; background: #f5f3f1; border-left: 4px solid #536b51;
+      transform-origin: 50% 0%;
+    }
+    #exam-feedback strong {
+      display: block; font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 32px; color: #000;
+    }
+    #exam-feedback p {
+      margin-top: 6px; font-family: "Source Sans 3", sans-serif; font-weight: 400; font-size: 28px;
+      line-height: 1.35; color: #44403b;
+    }
+    #exam-cursor { position: absolute; left: 980px; top: 352px; width: 92px; height: 92px; z-index: 6; transform-origin: 8px 4px; }
+    #exam-hit {
+      position: absolute; left: 980px; top: 352px; width: 96px; height: 96px;
+      margin-left: -48px; margin-top: -48px; border-radius: 50%;
+      border: 16px solid #1b1a18; box-shadow: 0 0 0 8px #fdfcfc;
+      background: rgba(83, 107, 81, 0.28);
+      opacity: 0; z-index: 5; transform-origin: 50% 50%;
+    }
+  </style>
+  <div id="root" data-composition-id="exam" data-width="1920" data-height="1080" data-motion-blur="on" data-motion-blur-shutter="240">
+    <div id="exam-clip" class="clip" data-start="0" data-duration="1.56" data-track-index="1">
+      <div id="exam-stage" data-layout-allow-overflow>
+        <div id="exam-paper" data-layout-ignore></div>
+        <div id="exam-meta">TEMA 01 · AERODINÁMICA BÁSICA · PREGUNTA 2</div>
+        <div id="exam-track"><div id="exam-fill"></div></div>
+        <h2 id="exam-prompt">El término “ángulo de ataque” es definido como el ángulo:</h2>
+        <div id="exam-opt-a" class="exam-opt">
+          <span id="exam-mark-a" class="exam-mark" data-layout-ignore>A</span>
+          <b>Entre la cuerda del ala y el viento relativo.</b>
+        </div>
+        <div id="exam-opt-b" class="exam-opt">
+          <span class="exam-mark" data-layout-ignore>B</span>
+          <b>Entre el ángulo de ascenso del avión y el horizonte.</b>
+        </div>
+        <div id="exam-opt-c" class="exam-opt">
+          <span class="exam-mark" data-layout-ignore>C</span>
+          <b>Formado por el eje longitudinal del avión y la cuerda del ala.</b>
+        </div>
+        <div id="exam-hit" data-layout-ignore></div>
+        <div id="exam-feedback">
+          <strong>Correcto.</strong>
+          <p>El análisis descarta b) (no existe ese término) y c) (que es incidencia): queda a) cuerda del ala y viento relativo.</p>
+        </div>
+        <div id="exam-cursor" data-layout-allow-overflow data-layout-allow-occlusion>
+          <svg viewBox="0 0 24 24" width="92" height="92" aria-hidden="true">
+            <path d="M3 2 L3 20.5 L8.2 15.2 L12.4 22 L15.6 20.4 L11.3 13.6 L18 13.2 Z" fill="#1b1a18" stroke="#fdfcfc" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#exam-fill", { scaleX: 0.02 }, { scaleX: 0.08, duration: 0.22, ease: "power2.out" }, 0.04);
+    tl.fromTo("#exam-prompt", { filter: "blur(8px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.14, ease: "power4.out" }, 0.02);
+    tl.fromTo("#exam-opt-a", { scale: 1.12 }, { scale: 1, duration: 0.16, ease: "expo.out" }, 0.08);
+    tl.fromTo("#exam-opt-b", { scale: 1.12 }, { scale: 1, duration: 0.16, ease: "expo.out" }, 0.12);
+    tl.fromTo("#exam-opt-c", { scale: 1.12 }, { scale: 1, duration: 0.16, ease: "expo.out" }, 0.16);
+    tl.fromTo("#exam-cursor", { x: 820 }, { x: 0, duration: 0.18, ease: "power4.out" }, 0.22);
+    tl.fromTo("#exam-hit",
+      { scale: 0.4, opacity: 1 },
+      { scale: 1.2, opacity: 1, duration: 0.08, ease: "power3.out", immediateRender: false },
+      0.42);
+    tl.to("#exam-hit", { scale: 3.6, opacity: 0, duration: 0.26, ease: "power2.out" }, 0.5);
+    tl.to("#exam-cursor", { scale: 0.48, duration: 0.05, ease: "power2.in" }, 0.42);
+    tl.to("#exam-cursor", { scale: 0.48, duration: 0.08, ease: "none" }, 0.47);
+    tl.to("#exam-cursor", { scale: 1.5, duration: 0.11, ease: "back.out(4)" }, 0.55);
+    tl.to("#exam-cursor", { scale: 1, duration: 0.1, ease: "power2.out" }, 0.66);
+    tl.to("#exam-opt-a", { scale: 0.9, duration: 0.08, ease: "power2.in" }, 0.42);
+    tl.to("#exam-opt-a", { scale: 1.045, backgroundColor: "#eef2ec", borderColor: "#536b51", duration: 0.14, ease: "back.out(3)" }, 0.5);
+    tl.to("#exam-opt-a", { scale: 1, duration: 0.08, ease: "power2.out" }, 0.64);
+    tl.to("#exam-mark-a", { backgroundColor: "#536b51", borderColor: "#536b51", color: "#ffffff", duration: 0.06, ease: "power2.out" }, 0.42);
+    tl.fromTo("#exam-mark-a",
+      { scale: 0.3 },
+      { scale: 1.5, duration: 0.14, ease: "back.out(4)", immediateRender: false },
+      0.42);
+    tl.to("#exam-mark-a", { scale: 1, duration: 0.1, ease: "power2.out" }, 0.56);
+    tl.to("#exam-stage", { x: -22, duration: 0.04, ease: "none" }, 0.44);
+    tl.to("#exam-stage", { x: 14, duration: 0.04, ease: "none" }, 0.48);
+    tl.to("#exam-stage", { x: -6, duration: 0.04, ease: "none" }, 0.52);
+    tl.to("#exam-stage", { x: 0, duration: 0.04, ease: "none" }, 0.56);
+    tl.fromTo("#exam-feedback",
+      { opacity: 0, y: 40, scale: 0.9 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.16, ease: "expo.out", immediateRender: false },
+      0.5);
+    tl.fromTo("#exam-stage",
+      { scale: 1, x: 0, y: 0 },
+      { scale: 1.16, x: 0, y: 36, duration: 0.26, ease: "expo.out", immediateRender: false },
+      0.74);
+    tl.to("#exam-stage", { x: -2300, duration: 0.22, ease: "power4.in" }, 1.28);
+    window.__timelines["exam"] = tl;
+  </script>
+</template>

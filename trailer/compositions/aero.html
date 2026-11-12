@@ -1,0 +1,37 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #aero-clip { position: absolute; inset: 0; }
+    #aero-mover { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #aero-mover::before {
+      content: "";
+      position: absolute;
+      left: -1600px; top: -1600px; width: 5120px; height: 4280px;
+      background: #fdfcfc;
+    }
+    #aero-shot { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+  </style>
+  <div id="root" data-composition-id="aero" data-width="1920" data-height="1080" data-motion-blur="on" data-motion-blur-shutter="240">
+    <div id="aero-clip" class="clip" data-start="0" data-duration="1.06" data-track-index="1">
+      <div id="aero-mover" data-layout-allow-overflow>
+        <img id="aero-shot" src="assets/shots/aero.png" alt="" />
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#aero-mover",
+      { x: 2300, scale: 1.22, y: 119 },
+      { x: 0, scale: 1.22, y: 119, duration: 0.22, ease: "power4.out" },
+      0.02);
+    tl.fromTo("#aero-mover",
+      { scale: 1.22, y: 119, x: 0 },
+      { scale: 1.42, y: 227, x: -30, duration: 0.4, ease: "expo.out", immediateRender: false },
+      0.28);
+    tl.fromTo("#aero-mover",
+      { x: -30 },
+      { x: -2300, duration: 0.22, ease: "power4.in", immediateRender: false },
+      0.78);
+    window.__timelines["aero"] = tl;
+  </script>
+</template>

@@ -1,0 +1,45 @@
+<template>
+  <style>
+    @font-face { font-family: Newsreader; font-style: normal; font-weight: 400 700; src: url("assets/fonts/newsreader-latin.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #hook-clip { position: absolute; inset: 0; }
+    #hook-stage { position: absolute; inset: 0; }
+    #hook-ground { position: absolute; inset: 0; background: #1b1a18; }
+    #hook-grain { position: absolute; inset: -40px; background: url("assets/brand/noise.png"); opacity: 0.14; mix-blend-mode: overlay; }
+    #hook-copy {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    #hook-word {
+      font-family: Newsreader, serif; font-weight: 650; font-size: 248px;
+      letter-spacing: -0.055em; line-height: 0.82; color: #fdfcfc;
+    }
+    #hook-line2 {
+      margin-top: 8px;
+      font-family: Newsreader, serif; font-weight: 560; font-size: 112px;
+      letter-spacing: -0.045em; line-height: 0.9; color: #fdfcfc;
+    }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080" data-motion-blur="on" data-motion-blur-shutter="240">
+    <div id="hook-clip" class="clip" data-start="0" data-duration="1.7" data-track-index="1">
+      <div id="hook-stage" data-layout-allow-overflow>
+        <div id="hook-ground"></div>
+        <div id="hook-grain" data-layout-ignore></div>
+        <div id="hook-copy">
+          <div id="hook-word">ÁNGULO</div>
+          <div id="hook-line2">DE ATAQUE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hook-word", { scale: 1.48 }, { scale: 1, duration: 0.22, ease: "expo.out" }, 0);
+    tl.to("#hook-word", { x: -16, duration: 0.033, ease: "none" }, 0.22);
+    tl.to("#hook-word", { x: 10, duration: 0.033, ease: "none" }, 0.253);
+    tl.to("#hook-word", { x: 0, duration: 0.04, ease: "none" }, 0.286);
+    tl.fromTo("#hook-line2", { x: 280 }, { x: 0, duration: 0.28, ease: "power4.out" }, 0.3);
+    tl.fromTo("#hook-stage", { x: 0 }, { x: -2300, duration: 0.24, ease: "power4.in" }, 1.42);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

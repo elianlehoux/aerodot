@@ -1,0 +1,63 @@
+<template>
+  <style>
+    @font-face { font-family: Newsreader; font-style: italic; font-weight: 400 700; src: url("assets/fonts/newsreader-latin-italic.woff2") format("woff2"); }
+    @font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; src: url("assets/fonts/source-sans-3-latin.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; }
+    #end-clip { position: absolute; inset: 0; }
+    #end-stage { position: absolute; inset: 0; transform-origin: 50% 100%; background: #fdfcfc; }
+    #end-grain { position: absolute; inset: -40px; background: url("assets/brand/noise.png"); opacity: 0.1; mix-blend-mode: multiply; }
+    #end-lockup {
+      position: absolute; left: 0; right: 0; top: 300px;
+      display: flex; align-items: center; justify-content: center; gap: 24px;
+    }
+    #end-logo { width: 150px; height: 150px; display: block; }
+    #end-word {
+      font-family: "Source Sans 3", sans-serif; font-weight: 560; font-size: 88px;
+      letter-spacing: -0.04em; line-height: 1; color: #000;
+    }
+    #end-signoff {
+      position: absolute; left: 0; right: 0; top: 500px;
+      font-family: Newsreader, serif; font-style: italic; font-weight: 500; font-size: 42px;
+      letter-spacing: -0.02em; text-align: center; color: #000;
+    }
+    #end-rule {
+      position: absolute; left: 924px; top: 566px; width: 72px; height: 3px; background: #1c4558;
+      transform-origin: 0% 50%;
+    }
+    #end-url {
+      position: absolute; left: 0; right: 0; top: 590px;
+      font-family: "Source Sans 3", sans-serif; font-weight: 500; font-size: 32px;
+      letter-spacing: 0.01em; text-align: center; color: #000;
+    }
+  </style>
+  <div id="root" data-composition-id="end" data-width="1920" data-height="1080" data-motion-blur="on" data-motion-blur-shutter="180">
+    <div id="end-clip" class="clip" data-start="0" data-duration="2.5" data-track-index="1">
+      <div id="end-stage">
+        <div id="end-grain" data-layout-ignore></div>
+        <div id="end-lockup">
+          <img id="end-logo" src="assets/brand/logo.png" alt="" />
+          <div id="end-word">aerodot.</div>
+        </div>
+        <div id="end-signoff" data-var-text="signoff">Estudiá a tu ritmo.</div>
+        <div id="end-rule"></div>
+        <div id="end-url" data-var-text="url">aerodot.app</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#end-stage", { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "power4.out" }, 0);
+    tl.fromTo("#end-logo", { scale: 1.45 }, { scale: 1, duration: 0.24, ease: "expo.out" }, 0.32);
+    tl.to("#end-logo", { x: -8, duration: 0.033, ease: "none" }, 0.56);
+    tl.to("#end-logo", { x: 5, duration: 0.033, ease: "none" }, 0.593);
+    tl.to("#end-logo", { x: 0, duration: 0.04, ease: "none" }, 0.626);
+    tl.fromTo("#end-word",
+      { clipPath: "inset(0 100% 0 0)" },
+      { clipPath: "inset(0 0% 0 0)", duration: 0.32, ease: "power4.out" },
+      0.66);
+    tl.fromTo("#end-signoff", { filter: "blur(8px)", opacity: 0 }, { filter: "blur(0px)", opacity: 1, duration: 0.16, ease: "power4.out" }, 1.02);
+    tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.22, ease: "power3.out" }, 1.16);
+    tl.fromTo("#end-url", { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power2.out" }, 1.28);
+    window.__timelines["end"] = tl;
+  </script>
+</template>

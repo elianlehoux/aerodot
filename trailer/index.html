@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es" data-composition-variables='[
+  {"id":"line1","type":"string","label":"Claim 1","default":"Entender la aviación,"},
+  {"id":"line2","type":"string","label":"Claim 2","default":"tema por tema."},
+  {"id":"signoff","type":"string","label":"Cierre","default":"Estudiá a tu ritmo."},
+  {"id":"url","type":"string","label":"URL","default":"aerodot.app"}
+]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #1b1a18;
+      }
+      #root { width: 1920px; height: 1080px; position: relative; overflow: hidden; background: #1b1a18; }
+      #hook { z-index: 1; }
+      #home { z-index: 2; }
+      #temas { z-index: 3; }
+      #aero { z-index: 4; }
+      #ppa { z-index: 5; }
+      #exam { z-index: 6; }
+      #ingles { z-index: 7; }
+      #claim { z-index: 8; }
+      #end { z-index: 9; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="12.8"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="hook" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0" data-duration="1.7" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="home" data-composition-id="home" data-composition-src="compositions/home.html" data-start="1.46" data-duration="1.16" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="temas" data-composition-id="temas" data-composition-src="compositions/temas.html" data-start="2.62" data-duration="1.3" data-track-index="3" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="aero" data-composition-id="aero" data-composition-src="compositions/aero.html" data-start="3.64" data-duration="1.06" data-track-index="4" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="ppa" data-composition-id="ppa" data-composition-src="compositions/ppa.html" data-start="4.42" data-duration="1.02" data-track-index="5" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="exam" data-composition-id="exam" data-composition-src="compositions/exam.html" data-start="5.44" data-duration="1.56" data-track-index="6" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="ingles" data-composition-id="ingles" data-composition-src="compositions/ingles.html" data-start="6.72" data-duration="1.24" data-track-index="7" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="claim" data-composition-id="claim" data-composition-src="compositions/claim.html" data-start="7.7" data-duration="2.86" data-track-index="8" data-track-kind="graphics" data-width="1920" data-height="1080" data-variable-values='{"line1":"Entender la aviación,","line2":"tema por tema."}'></div>
+      <div id="end" data-composition-id="end" data-composition-src="compositions/end.html" data-start="10.3" data-duration="2.5" data-track-index="9" data-track-kind="graphics" data-width="1920" data-height="1080" data-variable-values='{"signoff":"Estudiá a tu ritmo.","url":"aerodot.app"}'></div>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
