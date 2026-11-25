@@ -1,0 +1,13 @@
+---
+/** Ícono de Flowdot: un punto de partida en tinta y una ruta curva en el acento que termina en otro punto. */
+interface Props {
+  size?: number;
+  class?: string;
+}
+const { size = 24, class: className } = Astro.props;
+---
+<svg class:list={['flowdot-mark', className]} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <path d="M6.5 17.5C9 9 15 15 17.5 6.5" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" />
+  <circle cx="6.5" cy="17.5" r="3.2" fill="var(--ink)" />
+  <circle cx="17.5" cy="6.5" r="2.4" fill="var(--accent)" />
+</svg>

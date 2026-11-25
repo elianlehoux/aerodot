@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandMark from '../components/BrandMark.astro';
+import FlowdotMark from '../components/FlowdotMark.astro';
+import '../styles/flowdot.css';
+---
+<BaseLayout
+  title="Flowdot: flujos de cabina | Aerodot"
+  description="Subí la foto de tu cabina, marcá los controles en orden y repasá tus flujos de memoria. Todo queda guardado en tu dispositivo."
+>
+  <div class="fd-app ph-no-capture" id="flowdot" data-screen="list">
+    <header class="fd-bar">
+      <div class="fd-brand">
+        <BrandMark />
+        <span class="fd-sep" aria-hidden="true"></span>
+        <span class="fd-name"><FlowdotMark size={22} />Flowdot</span>
+      </div>
+      <div class="fd-bar-actions" data-bar-actions></div>
+    </header>
+    <main id="main-content" class="fd-main" tabindex="-1" data-root>
+      <noscript><p class="fd-empty">Flowdot necesita JavaScript para funcionar.</p></noscript>
+    </main>
+  </div>
+</BaseLayout>
+
+<script>
+  import '../flowdot/app.js';
+</script>

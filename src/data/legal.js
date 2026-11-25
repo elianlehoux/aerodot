@@ -3,5 +3,5 @@
 export const LEGAL = {
   brand: 'Aerodot',
   contactEmail: 'elian.developer@gmail.com',
-  lastUpdated: '5 de noviembre de 2026',
+  lastUpdated: '16 de noviembre de 2026',
 };
