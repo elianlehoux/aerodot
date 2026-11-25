@@ -1,5 +1,7 @@
 /* --en-ring: el anillo de foco, de la pieza elegida y del subrayado del resaltado; pasa 3:1 sobre el papel en los dos temas. */
-.english-page{--en-ok:var(--accent);--en-bad:var(--ember);--en-ring:color-mix(in srgb,var(--accent) 50%,var(--ink));width:min(1120px,100%);margin:0 auto;padding:44px 34px 84px}
+/* Correcto e incorrecto usan el mismo verde y rojo que los exámenes, nunca el acento. */
+html[data-theme="light"] .english-page{--en-ok:#2f6b4f;--en-bad:#a2433a}
+.english-page{overflow-x:clip;--en-ok:#6fb894;--en-bad:#e08a80;--en-ring:color-mix(in srgb,var(--accent) 50%,var(--ink));width:min(1120px,100%);margin:0 auto;padding:44px 34px 84px}
 /* Los colores de las luces de la torre: son los de la señal, no un acento. Los usa la tabla de Falla de radio. */
 .english-page{--sig-green:#4fcf8a;--sig-red:#ff6b5e;--sig-white:#fdfcfc}
 html[data-theme="light"] .english-page{--sig-green:#1b8a4b;--sig-red:#c62f1d;--sig-white:#fff}
@@ -56,7 +58,18 @@ html[data-theme="light"] .english-page{--sig-green:#1b8a4b;--sig-red:#c62f1d;--s
 .en-phase h2{margin:0}
 .en-phase-lede{max-width:70ch;margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
 .topic-grid{display:grid;grid-template-columns:minmax(0,1fr);margin:16px 0 0;padding:0;list-style:none;border-bottom:1px solid var(--line)}
-.topic-card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 24px;padding:16px 8px;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;transition:background-color var(--dur-fast) var(--ease)}
+.topic-card{position:relative;display:grid;grid-template-columns:11px minmax(0,1fr) auto;align-items:center;gap:4px 18px;min-height:58px;padding:16px 8px;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;transition:background-color var(--dur-fast) var(--ease)}
+/* Misma ruta que en /temas y /examenes: un tramo por fila y un punto que se llena cuando el módulo está listo. */
+.topic-grid>li{position:relative}
+.topic-grid>li::before{content:"";position:absolute;z-index:1;top:0;bottom:0;left:12.5px;width:2px;background:var(--accent);transform-origin:top;pointer-events:none}
+.topic-grid>li:first-child::before{top:50%}
+.topic-grid>li:last-child::before{bottom:50%}
+.topic-grid>li:only-child::before{display:none}
+.topic-card::before{content:"";position:relative;z-index:2;box-sizing:border-box;width:11px;height:11px;border:2.5px solid var(--accent);border-radius:50%;background:var(--paper);transition:background var(--dur) var(--ease)}
+.topic-grid>li[data-english-state="listo"] .topic-card::before{background:var(--accent)}
+@media(prefers-reduced-motion:no-preference){
+  .topic-grid>li::before{animation:route-grow .6s cubic-bezier(.5,0,.2,1) backwards}
+}
 .topic-card:hover{background:var(--taupe)}
 .topic-card:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .topic-text{display:grid;gap:4px;min-width:0}

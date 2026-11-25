@@ -14,6 +14,9 @@ skills-lock.json
 # Reels de lanzamiento: se arman en local y no se publican.
 reel/
 
+# Archivos de prueba sin licencia para publicar (la A320 de Flowdot): solo en esta máquina.
+local/
+
 # Tráiler: el mp4 se arma en local. La caché de HyperFrames no se publica.
 trailer/*.mp4
 trailer/.hyperframes/

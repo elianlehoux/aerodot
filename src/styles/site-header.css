@@ -1,0 +1,67 @@
+/* Encabezado. Desde 681 px: enlaces a la vista. Hasta 680 px: logo y un botón redondo
+   (tema en la portada, menú de secciones en el resto). */
+.site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;width:100%;height:var(--site-header-block);padding:env(safe-area-inset-top,0px) clamp(20px,5vw,64px) 0;border-bottom:1px solid var(--line);background:var(--paper);view-transition-name:site-header}
+.site-links{display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)}
+.site-links>a{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;background:linear-gradient(var(--accent),var(--accent)) left calc(50% + 14px)/0 2px no-repeat;color:var(--muted);font-size:15.5px;font-weight:520;text-decoration:none;transition:background-size var(--dur-panel) var(--ease),color var(--dur-fast) var(--ease)}
+.site-links>a[aria-current="page"]{background-size:100% 2px;color:var(--ink);font-weight:620}
+@media(hover:hover){
+  .site-links>a:hover{background-size:100% 2px;color:var(--ink)}
+}
+.site-compact{display:none}
+
+/* Interruptor de tema, variante de escritorio. */
+.theme-switch{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:62px;height:34px;margin:0 0 0 4px;padding:0;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);cursor:pointer}
+.theme-toggle-track{position:relative;display:flex;align-items:center;justify-content:space-around;width:58px;height:30px;border-radius:999px}
+.theme-toggle-indicator{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--quiet-hover);transition:transform var(--dur) var(--ease)}
+.theme-switch[aria-checked="true"] .theme-toggle-indicator{transform:translateX(28px)}
+.theme-icon{position:relative;z-index:1;width:16px;height:16px;color:var(--muted);transition:color var(--dur-fast) var(--ease)}
+.theme-switch[aria-checked="false"] .theme-icon-sun,.theme-switch[aria-checked="true"] .theme-icon-moon{color:var(--ink)}
+
+/* Botón redondo del encabezado en teléfono: 34 px visibles dentro de 44 px táctiles. */
+.header-round{position:relative;display:grid;width:44px;height:44px;margin-right:-5px;padding:0;place-items:center;border:0;background:none;color:var(--ink);cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+.header-round::-webkit-details-marker{display:none}
+.header-round::before{content:"";position:absolute;inset:5px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper);transition:background-color var(--dur) var(--ease),scale var(--dur-fast) var(--ease)}
+.header-round:active::before{scale:.92}
+.header-round>*{position:relative}
+.theme-round .theme-icon{color:var(--ink)}
+/* El custom element fija su display en línea: hace falta !important para ocultar el ícono que no corresponde. */
+.theme-round[aria-checked="false"] .theme-icon-sun,.theme-round[aria-checked="true"] .theme-icon-moon{display:none!important}
+
+/* Menú de secciones. */
+.site-menu-icon{display:block;width:16px;height:8px}
+.site-menu-icon::before,.site-menu-icon::after{content:"";position:absolute;left:0;width:16px;height:2px;border-radius:2px;background:var(--ink);transition:top var(--dur-panel) var(--ease),rotate var(--dur-panel) var(--ease),background-color var(--dur) var(--ease)}
+.site-menu-icon{position:relative}
+.site-menu-icon::before{top:0}
+.site-menu-icon::after{top:6px}
+.site-menu[open]>summary::before{background:var(--ink)}
+.site-menu[open] .site-menu-icon::before,.site-menu[open] .site-menu-icon::after{top:3px;background:var(--paper)}
+.site-menu[open] .site-menu-icon::before{rotate:45deg}
+.site-menu[open] .site-menu-icon::after{rotate:-45deg}
+.site-menu-scrim{position:fixed;z-index:-1;inset:var(--site-header-block) 0 0;background:var(--scrim)}
+.site-menu-panel{position:fixed;top:calc(var(--site-header-block) + 8px);right:10px;left:10px;display:grid;max-width:420px;max-height:calc(100dvh - var(--site-header-block) - 24px);overflow:auto;margin-left:auto;padding:8px;border:1.5px solid var(--ink);border-radius:20px;background:var(--paper);box-shadow:0 5px 0 var(--ink);transform-origin:top right}
+.site-menu-panel>a{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 12px;border-radius:13px;color:var(--ink);font-size:16.5px;font-weight:600;text-decoration:none}
+.site-menu-panel>a[aria-current="page"],.site-menu-panel>a:active{background:var(--quiet)}
+.site-menu-panel>hr{width:auto;margin:6px 12px;border:0;border-top:1px solid var(--line)}
+.theme-row{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:46px;padding:0 12px;border:0;border-radius:13px;background:none;color:var(--muted);font-size:15.5px;text-align:left;cursor:pointer}
+.theme-row-switch{position:relative;width:40px;height:24px;border:1.5px solid var(--ink);border-radius:999px}
+.theme-row-switch::after{content:"";position:absolute;top:2.5px;left:2.5px;width:16px;height:16px;border-radius:50%;background:var(--ink);transition:translate var(--dur) var(--ease)}
+.theme-row[aria-checked="true"] .theme-row-switch::after{translate:16px 0}
+html.menu-lock{overflow:hidden}
+@media(hover:hover){
+  .site-menu-panel>a:hover,.theme-row:hover{background:var(--quiet)}
+}
+@media(prefers-reduced-motion:no-preference){
+  .site-menu[open] .site-menu-panel{animation:site-menu-in var(--dur-panel) cubic-bezier(.2,.8,.2,1)}
+  .site-menu[open] .site-menu-scrim{animation:site-scrim-in var(--dur) var(--ease)}
+}
+@keyframes site-menu-in{from{opacity:0;translate:0 -10px;scale:.97}}
+@keyframes site-scrim-in{from{opacity:0}}
+
+@media(max-width:860px){
+  .site-header{padding-right:20px;padding-left:20px}
+}
+@media(max-width:680px){
+  .site-header{padding-right:16px;padding-left:16px}
+  .site-links{display:none}
+  .site-compact{display:block}
+}

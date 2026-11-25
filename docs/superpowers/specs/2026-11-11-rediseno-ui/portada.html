@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carta de navegación, cuarta vuelta</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:4px;background:var(--background,#fff);color:var(--foreground,#171717);font-family:var(--font-sans,system-ui,sans-serif)}
+.cap{margin:0 0 12px;font-size:14px;line-height:1.5;color:var(--muted-foreground,#666)}
+.cap b{color:var(--foreground,#171717)}
+.stage{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.mk{--sheet:#f4f7f6;--ink:#12222e;--dim:#5a6b76;--relief:#b9cbd3;--route:#b3196f;font-family:'Source Sans 3',system-ui,sans-serif;background:var(--sheet);color:var(--ink);position:relative;overflow:hidden}
+.mk a{color:inherit;text-decoration:none}
+.chart{position:absolute;inset:0;width:100%;height:100%}
+.relief path{fill:none;stroke:var(--relief);stroke-width:1}
+.leg{fill:none;stroke:var(--route);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.6s cubic-bezier(.5,0,.2,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fix{fill:var(--sheet);stroke:var(--route);stroke-width:2.5}
+.rose{transform-origin:700px 420px;animation:spin 80s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{from{opacity:0;scale:.85}to{opacity:1;scale:1}}
+.brand{font:600 2.5cqw/1 'Source Sans 3';letter-spacing:-.03em}
+h1{margin:0;font:500 5.8cqw/1.04 Newsreader,serif;letter-spacing:-.022em}
+h1 span{display:block;font-style:italic}
+
+/* Escritorio */
+.desk{flex:1 1 480px;aspect-ratio:16/10;container-type:inline-size;border-radius:14px;border:1px solid var(--relief)}
+.top{position:absolute;left:4cqw;right:4cqw;top:3cqw;display:flex;justify-content:space-between;align-items:center;font-size:1.85cqw}
+.top nav{display:flex;gap:2.4cqw;color:var(--dim)}
+.top nav a{padding-bottom:.4cqw;background:linear-gradient(var(--route),var(--route)) left bottom/0 2px no-repeat;transition:background-size .3s,color .2s}
+.top nav a:hover{color:var(--ink);background-size:100% 2px}
+.desk h1{position:absolute;left:4cqw;top:11cqw}
+.lede{position:absolute;left:4cqw;top:25cqw;width:36cqw;margin:0;color:var(--dim);font-size:1.9cqw;line-height:1.45}
+.mk .wp{position:absolute;display:flex;align-items:center;gap:1.1cqw;padding:1.1cqw 1.1cqw 1.1cqw 1.9cqw;border:1.5px solid var(--ink);border-radius:99px;background:var(--sheet);box-shadow:0 .5cqw 0 var(--ink);font:600 2.2cqw/1 'Source Sans 3';white-space:nowrap;opacity:0;animation:pop .5s cubic-bezier(.2,1.4,.4,1) forwards;transition:translate .15s,box-shadow .15s,background .2s}
+.wp i{display:grid;place-items:center;width:3.5cqw;height:3.5cqw;margin-left:.6cqw;border-radius:50%;background:var(--ink);color:var(--sheet);transition:background .2s}
+.wp i svg{width:1.7cqw;height:1.7cqw;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:translate .25s}
+.mk .wp:hover{translate:0 .3cqw;box-shadow:0 .2cqw 0 var(--ink);background:#fff}
+.mk .wp:active{translate:0 .5cqw;box-shadow:0 0 0 var(--ink)}
+.wp:hover i{background:var(--route)}
+.wp:hover i svg{translate:.25cqw 0}
+.w1{left:8cqw;top:52.5cqw;animation-delay:.9s}.w2{left:41cqw;top:47.5cqw;animation-delay:1.5s}.w3{left:64cqw;top:33.5cqw;animation-delay:2.1s}
+
+/* Teléfono: mismos elementos que escritorio, botones a todo el ancho */
+.phone{flex:0 0 264px;height:520px;border:7px solid #12222e;border-radius:34px}
+.phone .leg{stroke-dasharray:400;stroke-dashoffset:400}
+.phone .top{left:16px;right:16px;top:16px;font-size:12px}
+.phone .top nav{gap:10px}
+.phone .top nav a{padding-bottom:2px}
+.phone .brand{font-size:18px}
+.phone h1{position:absolute;left:16px;right:16px;top:56px;font-size:34px}
+.phone .lede{left:16px;right:16px;top:170px;width:auto;font-size:13.5px}
+.mk.phone .wp{left:16px;right:16px;justify-content:space-between;height:46px;padding:0 8px 0 18px;box-shadow:0 4px 0 var(--ink);font-size:16px}
+.phone .wp i{width:30px;height:30px}
+.phone .wp i svg{width:15px;height:15px}
+.mk.phone .wp:active{translate:0 4px;box-shadow:none}
+.phone .w1{top:334px}.phone .w2{top:392px}.phone .w3{top:450px}
+@media(prefers-reduced-motion:reduce){.leg,.wp,.stop,.rose{animation:none;opacity:1;stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<p class="cap"><b>Carta de navegación, cuarta vuelta.</b> El teléfono usa las mismas piezas que el escritorio: encabezado con los tres enlaces, la ruta con el avioncito y los mismos botones, ahora a todo el ancho y apilados abajo, donde llega el pulgar. Sin menú inferior.</p>
+<div class="stage">
+  <div class="mk desk">
+    <svg class="chart" viewBox="0 0 800 500" aria-hidden="true">
+      <g class="relief">
+        <path d="M-20 300C120 240 210 330 340 280S560 150 820 210"/><path d="M-20 340C130 280 220 370 350 320S580 200 820 260"/>
+        <path d="M-20 390C140 330 240 420 370 370S600 260 820 320"/><path d="M-20 450C150 390 260 480 400 430S620 330 820 390"/>
+        <path d="M430 520C470 440 600 420 700 470"/><path d="M-20 240C100 190 180 260 300 220S500 90 620 20"/>
+      </g>
+      <circle cx="430" cy="360" r="78" fill="none" stroke="#b3196f" stroke-opacity=".28" stroke-width="5"/>
+      <circle cx="660" cy="250" r="54" fill="none" stroke="#2a6f9c" stroke-opacity=".5" stroke-dasharray="7 5"/>
+      <g class="rose" stroke="#2a6f9c" fill="none">
+        <circle cx="700" cy="420" r="52" stroke-opacity=".55"/><circle cx="700" cy="420" r="46" stroke-width="6" stroke-dasharray="1 7.03" stroke-opacity=".7"/>
+        <path d="M700 374v92M654 420h92" stroke-opacity=".45"/><path d="M700 363l-6 16h12z" fill="#2a6f9c" stroke="none"/>
+      </g>
+      <path id="rt" class="leg" d="M30 468L190 400L430 360L660 250L800 100"/>
+      <circle class="fix" cx="190" cy="400" r="6"/><circle class="fix" cx="430" cy="360" r="6"/><circle class="fix" cx="660" cy="250" r="6"/>
+      <path transform="scale(1.25)" d="M13 0C13-2 9-2.6 4-2.6L-11-1.8C-14-1.5-14 1.5-11 1.8L4 2.6C9 2.6 13 2 13 0ZM3 0L-3-14H-7L-4 0L-7 14H-3ZM-9 0L-12-6H-14.5L-13 0L-14.5 6H-12Z" fill="#12222e"><animateMotion dur="9s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#rt"/></animateMotion></path>
+    </svg>
+    <div class="top"><span class="brand">aerodot.</span><nav><a href="#">Biblioteca</a><a href="#">Exámenes</a><a href="#">Inglés</a></nav></div>
+    <h1>Entender la aviación, <span>tema por tema.</span></h1>
+    <p class="lede">Conceptos explicados con claridad y detalle técnico. Practicá hasta rendir el examen.</p>
+    <a class="wp w1" href="#">Biblioteca de teoría<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <a class="wp w2" href="#">Exámenes de ANAC<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <a class="wp w3" href="#">Inglés OACI<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+  </div>
+
+  <div class="mk phone">
+    <svg class="chart" viewBox="0 0 250 506" aria-hidden="true">
+      <g class="relief">
+        <path d="M-10 250C50 226 100 262 160 240S220 212 262 220"/><path d="M-10 284C50 260 100 296 160 274S220 246 262 254"/>
+        <path d="M-10 318C50 294 100 330 160 308S220 280 262 288"/><path d="M-10 216C40 196 90 222 140 206S210 176 262 178"/>
+        <path d="M-10 380C50 356 100 392 160 370S220 342 262 350"/><path d="M-10 440C50 416 100 452 160 430S220 402 262 410"/><path d="M-10 500C50 476 100 512 160 490S220 462 262 470"/>
+      </g>
+      <circle cx="130" cy="278" r="30" fill="none" stroke="#b3196f" stroke-opacity=".28" stroke-width="4"/>
+      <circle cx="196" cy="246" r="21" fill="none" stroke="#2a6f9c" stroke-opacity=".5" stroke-dasharray="6 4"/>
+      <path id="rt2" class="leg" d="M-6 318L60 292L130 278L196 246L256 216"/>
+      <circle class="fix" cx="60" cy="292" r="5"/><circle class="fix" cx="130" cy="278" r="5"/><circle class="fix" cx="196" cy="246" r="5"/>
+      <path d="M13 0C13-2 9-2.6 4-2.6L-11-1.8C-14-1.5-14 1.5-11 1.8L4 2.6C9 2.6 13 2 13 0ZM3 0L-3-14H-7L-4 0L-7 14H-3ZM-9 0L-12-6H-14.5L-13 0L-14.5 6H-12Z" fill="#12222e"><animateMotion dur="6s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#rt2"/></animateMotion></path>
+    </svg>
+    <div class="top"><span class="brand">aerodot.</span><nav><a href="#">Biblioteca</a><a href="#">Exámenes</a><a href="#">Inglés</a></nav></div>
+    <h1>Entender la aviación, <span>tema por tema.</span></h1>
+    <p class="lede">Conceptos explicados con claridad. Practicá hasta rendir el examen.</p>
+    <a class="wp w1" href="#">Biblioteca de teoría<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <a class="wp w2" href="#">Exámenes de ANAC<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <a class="wp w3" href="#">Inglés OACI<i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+  </div>
+</div>
+</body>
+</html>

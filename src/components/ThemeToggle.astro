@@ -1,7 +1,28 @@
-<button type="button" class="ld-dn" role="switch" aria-checked="false" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
-  <span class="theme-toggle-track" aria-hidden="true">
-    <span class="theme-toggle-indicator"></span>
-    <animate-icons class="theme-icon theme-icon-sun" name="sun" size="16"></animate-icons>
-    <animate-icons class="theme-icon theme-icon-moon" name="moon" size="16"></animate-icons>
-  </span>
-</button>
+---
+interface Props {
+  variant?: 'switch' | 'round' | 'row';
+}
+
+const { variant = 'switch' } = Astro.props;
+---
+{variant === 'switch' && (
+  <button type="button" class="ld-dn theme-switch" role="switch" aria-checked="false" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+    <span class="theme-toggle-track" aria-hidden="true">
+      <span class="theme-toggle-indicator"></span>
+      <animate-icons class="theme-icon theme-icon-sun" name="sun" size="16"></animate-icons>
+      <animate-icons class="theme-icon theme-icon-moon" name="moon" size="16"></animate-icons>
+    </span>
+  </button>
+)}
+{variant === 'round' && (
+  <button type="button" class="ld-dn theme-round header-round" role="switch" aria-checked="false" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro">
+    <animate-icons class="theme-icon theme-icon-moon" name="moon" size="16" aria-hidden="true"></animate-icons>
+    <animate-icons class="theme-icon theme-icon-sun" name="sun" size="16" aria-hidden="true"></animate-icons>
+  </button>
+)}
+{variant === 'row' && (
+  <button type="button" class="ld-dn theme-row" role="switch" aria-checked="false">
+    <span>Modo oscuro</span>
+    <span class="theme-row-switch" aria-hidden="true"></span>
+  </button>
+)}
