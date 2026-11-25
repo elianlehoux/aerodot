@@ -4,9 +4,9 @@ export const libraryGroups = [
   { id: 'vuelo-y-aeronave', title: 'Vuelo y aeronave', chapterIds: [5, 1, 2, 3] },
   { id: 'entorno-de-vuelo', title: 'El entorno de vuelo', chapterIds: [6, 7] },
   { id: 'aerodromo-y-reglas', title: 'Aeródromo y reglas', chapterIds: [9, 4] },
-  // Maniobras básicas de vuelo, en 17 páginas (ids 13 a 29). Cada tema general va antes de las
-  // maniobras que lo usan; el número de cada título sigue este orden.
-  { id: 'maniobras-basicas', title: 'Maniobras básicas de vuelo', chapterIds: [13, 21, 14, 23, 22, 15, 24, 25, 26, 16, 19, 20, 17, 27, 18, 29, 28] },
+  // Maniobras básicas de vuelo, en 17 páginas (ids 13 a 29). Cada página trae primero la teoría y
+  // después las fichas de las maniobras que la usan; el número de cada título sigue este orden.
+  { id: 'maniobras-basicas', title: 'Maniobras básicas de vuelo', chapterIds: [13, 21, 26, 14, 20, 22, 23, 15, 24, 25, 16, 19, 17, 18, 29, 27, 28] },
   { id: 'operacion-y-navegacion', title: 'Operación y navegación', chapterIds: [12, 8] },
   { id: 'decision-y-persona', title: 'Decisión y factores humanos', chapterIds: [10, 11] },
 ];

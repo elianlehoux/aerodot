@@ -26,18 +26,18 @@ const newChapters = [
     lessons: [
       [
         'Antes de rodar',
-        'Antes de rodar, buscá los datos del aeródromo en la AIP (Publicación de Información Aeronáutica) y en las cartas. Los NOTAM son avisos de cambios temporarios. Confirmá pista, calles de rodaje, obras, obstáculos, frecuencias y restricciones.\n\nLa pista en uso puede cambiar. Confirmala por el ATIS (Servicio Automático de Información Terminal), si existe, o con los ATS (servicios de tránsito aéreo), según el procedimiento local. En cabina, ubicá la ruta y acordá quién maneja. Si una instrucción no queda clara, detenete en un lugar seguro y pedí que la repitan.',
+        'Llegás a un aeródromo que no conocés. Antes de mover el avión tenés que saber qué pista está en uso, por dónde se llega a ella y con quién hablás. Tres fuentes lo responden:\n\nTABLA: Fuente | Qué te da\nAIP (Publicación de Información Aeronáutica) y cartas | el plano del aeródromo: pistas, calles de rodaje, frecuencias y obstáculos\nNOTAM | los cambios temporarios: una calle cerrada, una obra, una ayuda fuera de servicio\nATIS (Servicio Automático de Información Terminal), donde existe | la información del momento: pista en uso, viento y QNH\n\nSi no hay ATIS, la pista en uso te la dan los ATS (servicios de tránsito aéreo) o la sacás de la manga y del tránsito, según el procedimiento del lugar.\n\nCon el plano a la vista, repasá la ruta de rodaje antes de soltar los frenos. Si recibís una instrucción que no entendés, no avances: pedí que la repitan.',
         'Primero ubicá la ruta y entendé la instrucción. Después empezá a rodar.',
       ],
       [
         'Arranque, comprobaciones y briefing previo al despegue',
-        'El arranque pone el motor en funcionamiento. Las comprobaciones posteriores permiten observar si trabaja dentro de sus límites. La prueba de motor y la revisión previa al despegue también confirman que el avión está preparado.\n\nEl briefing es un repaso hablado del plan: pista, viento, trayectoria, obstáculos, tareas y condiciones para interrumpir. Acordalo antes de entrar en la carrera. Los puntos y valores se estudian con la lista aprobada del avión.',
-        'La lista organiza la comprobación. El briefing aclara qué hará cada persona.',
+        'Entre el arranque y el despegue hay tres controles. Cada uno contesta una pregunta distinta:\n\nTABLA: Momento | Qué comprobás\nDespués del arranque | que el motor quedó andando dentro de sus límites: presión de aceite, revoluciones y carga eléctrica\nPrueba de motor, antes de la pista | que entrega potencia y que los dos circuitos de encendido funcionan\nLista antes del despegue | que el avión está configurado: mandos libres, compensador, flaps, combustible e instrumentos\n\nEl briefing es decir en voz alta el plan del despegue antes de entrar a la pista: qué pista y qué viento, hacia dónde salís, qué obstáculos hay y qué hacés si el motor falla. Lo que decidís en tierra no lo tenés que pensar cuando no hay tiempo. Si volás con otra persona, también aclara quién hace qué.\n\nLos ítems y los valores son los de la lista de tu avión.',
+        'La lista comprueba el avión. El briefing deja decidido el plan antes de la carrera.',
       ],
       [
         'Radiotelefonía clara y confirmación',
-        'La radiotelefonía es la comunicación por radio. Un mensaje claro identifica a quién llamás, quién sos, dónde estás y qué necesitás, y usa la fraseología aplicable.\n\nEscuchá antes de transmitir y mantené el mensaje breve. Repetí los datos críticos cuando lo exija el servicio. En Argentina, las frecuencias y procedimientos se consultan en las publicaciones vigentes. Si no entendiste una instrucción o autorización, pedí que la repitan antes de actuar.',
-        'Un mensaje corto sirve si identifica quién llama, dónde está y qué necesita.',
+        'Un llamado por radio se arma siempre con las mismas cuatro partes, en este orden:\n\nTABLA: Parte | Ejemplo\nA quién llamás | la torre del aeródromo\nQuién sos | tu matrícula\nDónde estás | en plataforma\nQué querés | rodar para despegar\n\nAntes de hablar, escuchá: si alguien está transmitiendo, lo tapás. Pensá el mensaje antes de apretar el botón y decilo corto.\n\nCuando te dan una autorización o una instrucción, repetí los datos que no admiten error: la pista, el QNH, el nivel, el rumbo y el código de transpondedor. Así quien te la dio comprueba que entendiste lo que dijo.\n\nSi no entendiste, pedí que repitan antes de moverte. Las frecuencias de cada lugar están en la AIP. Las frases en inglés se practican en la sección Inglés.',
+        'A quién llamás, quién sos, dónde estás y qué querés. Lo que no entendiste, pedilo de nuevo.',
       ],
       [
         'Qué dice el número de pista',
@@ -52,7 +52,7 @@ const newChapters = [
       ],
       [
         'Rodaje y prevención de incursiones',
-        'Rodar es desplazarse por tierra con la aeronave. Una incursión de pista ocurre cuando una aeronave, vehículo o persona ocupa una pista protegida sin corresponder.\n\nSeguí la ruta en la carta y compará lo que ves con señales, marcas e instrucciones. Antes de cruzar o entrar en una pista, la vigilancia visual acompaña la autorización aplicable. Si perdés orientación o algo no coincide, detené el avión si es seguro y aclaralo antes de seguir.',
+        'Una incursión de pista es que un avión, un vehículo o una persona esté en una pista sin tener que estar ahí. Casi siempre empieza con algo chico: una calle de rodaje confundida, una instrucción entendida a medias o la vista adentro de la cabina en el momento equivocado.\n\nPara evitarla:\n- Rodá con el plano del aeródromo a la vista y seguí la ruta sobre él.\n- Compará lo que ves afuera con el plano: carteles, marcas y números de pista.\n- Si podés, dejá las listas y la radio para cuando el avión está detenido.\n- Antes de entrar a una pista o cruzarla, mirá los dos lados y la final, aunque tengas autorización.\n- Si no sabés dónde estás, frená y decilo por radio.\n\nLa autorización no reemplaza mirar, y mirar no reemplaza la autorización. Hacen falta las dos.',
         'La autorización y la vigilancia se complementan: usá ambas antes de ocupar una pista.',
       ],
       [
@@ -69,8 +69,8 @@ const newChapters = [
       ],
       [
         'Estela turbulenta y separación',
-        'La estela turbulenta es el aire giratorio que queda detrás de las alas. Al producir sustentación, el aire fluye alrededor de las puntas y forma vórtices, remolinos que pueden persistir después de que pase el avión.\n\nSuele ser más intensa detrás de un avión pesado, lento y con los flaps retraídos. Su ala necesita producir mucha sustentación y trabaja con más ángulo de ataque. El viento puede desplazar esos remolinos. Usá la separación y los procedimientos aplicables. La estela puede persistir aunque ya no veas al avión precedente.',
-        'El avión deja remolinos invisibles. Pensá dónde los llevó su trayectoria y el viento.',
+        'La estela turbulenta son los dos remolinos que deja un avión detrás de las puntas de sus alas. Por qué se forman está en Aerodinámica, en la lección de resistencia. Acá importa dónde quedan.\n\nTres datos para ubicarlos:\n- Son más fuertes detrás de un avión pesado, lento y con los flaps retraídos.\n- Empiezan cuando el avión rota en el despegue y terminan cuando toca en el aterrizaje.\n- Bajan despacio por detrás del avión y el viento los corre. Un viento cruzado suave puede dejar uno sobre la pista.\n\nCon eso se arma la defensa. Si despegás detrás de un avión grande, rotá antes del punto donde rotó él y quedate por encima de su trayectoria. Si aterrizás detrás, volá por encima de su senda y tocá más adelante de donde tocó él. Y esperá: el tiempo los disipa.\n\nLa separación que da el control ya contempla la estela. Donde no hay control, la separación la ponés vos.',
+        'Los remolinos bajan y el viento los corre. Quedate por encima de la trayectoria del avión de adelante.',
         'wake-vortex',
       ],
       [
@@ -81,8 +81,8 @@ const newChapters = [
       ],
       [
         'Después del aterrizaje y salida de pista',
-        'Después del contacto, mantené el control direccional y reducí la velocidad. Salí por una calle de rodaje cuando puedas hacerlo sin un giro brusco y según las instrucciones aplicables.\n\nUna vez fuera de la pista, ubicá la ruta siguiente antes de moverte y completá la lista posterior al aterrizaje. Las marcas y autorizaciones indican dónde continuar o detenerse. La secuencia exacta se aprende con la publicación del aeródromo y la lista del avión.',
-        'Aterrizar termina el vuelo en pista. Todavía falta orientarse y rodar hasta destino.',
+        'El vuelo no termina cuando tocás. Después del toque seguís sobre el eje de la pista y frenás hasta velocidad de rodaje.\n\nSalí por una calle de rodaje sin forzar un giro a alta velocidad. Cruzá entera la marca del punto de espera: recién ahí liberaste la pista. Detenete, hacé la lista posterior al aterrizaje y buscá en el plano el camino a la plataforma antes de seguir.\n\nCon control, la torre te dice por dónde salir y con quién seguir. Sin control, avisá que la pista quedó libre según el procedimiento del lugar.',
+        'La pista queda libre cuando cruzaste entera la marca del punto de espera.',
       ],
     ],
   },
@@ -93,48 +93,54 @@ const newChapters = [
     eyebrow: 'Reconocer peligros y conservar opciones para decidir',
     minutes: 40,
     intro: 'Identificá qué puede salir mal, qué margen tenés y cuándo conviene cambiar el plan.',
+    legacyAnchors: {
+      'leccion-1': 'peligros-riesgos-y-mitigaciones',
+      'leccion-2': 'un-ciclo-breve-para-decidir',
+      'leccion-3': 'minimos-personales-y-presion-externa',
+      'leccion-4': 'escenario-el-pronostico-se-deteriora',
+      'leccion-5': 'cinco-formas-de-enganarte',
+      'leccion-6': 'peligros-riesgos-y-mitigaciones',
+      'leccion-7': 'amenazas-errores-y-el-estado-en-que-queda-el-avion',
+      'leccion-8': 'la-automatizacion-no-elige-por-vos',
+      'probabilidad-y-gravedad': 'peligros-riesgos-y-mitigaciones',
+    },
     lessons: [
       [
         'Peligros, riesgos y mitigaciones',
-        'Un peligro es algo que puede causar daño. El riesgo combina qué tan probable es y qué tan grave sería. Viento cruzado, cansancio o una pista corta son ejemplos de peligros.\n\nUna mitigación es una medida que reduce la probabilidad o las consecuencias. Pensá qué barrera tenés y qué señal mostraría que dejó de alcanzar. Varios peligros juntos pueden achicar el margen aunque cada uno parezca manejable. Si el riesgo sigue alto, demorar, cambiar destino o cancelar son decisiones posibles.',
-        'Nombrá el peligro, estimá sus consecuencias y comprobá si tus barreras alcanzan.',
+        'Un viento cruzado de 15 kt (nudos) es un peligro: algo que puede causar daño. El riesgo es otra cosa: cuánto te puede dañar a vos, hoy. Para alguien con mil aterrizajes en ese avión es bajo. Para vos, con veinte horas, puede ser alto.\n\nEl riesgo sale de dos preguntas: qué tan probable es que salga mal y qué tan grave sería. Algo frecuente puede ser leve. Algo raro puede ser gravísimo, como una falla de motor de noche.\n\nUna mitigación es lo que hacés para bajar una de las dos. Elegir una pista más alineada con el viento baja la probabilidad. Llevar más combustible baja la gravedad de una demora. Si después de mitigar el riesgo sigue alto, quedan tres salidas: demorar, cambiar el destino o no salir.\n\nLos peligros se suman. Viento cruzado, cansancio y una pista corta pueden ser manejables de a uno y demasiado los tres juntos.\n\nUS: La tabla de colores viene del Risk Management Handbook de la FAA. Sirve para ordenar ideas. No cambia los requisitos argentinos ni tus límites personales.',
+        'Riesgo es probabilidad y gravedad. Si después de mitigar sigue alto, cambiá el plan.',
+        'risk-matrix',
       ],
       [
         'Un ciclo breve para decidir',
-        'Decidir puede pensarse como un ciclo: observá qué pasa, interpretá qué significa, elegí una acción y comprobá el resultado. Si cambian el tiempo, combustible o estado del piloto, empezá otra vuelta.\n\nPAVE organiza la revisión del piloto, la aeronave, el entorno y las presiones externas. Es una ayuda para detectar peligros, no una regla argentina. Antes de salir, anotá señales que te harían esperar, volver o desviarte. El diagrama muestra cómo se repite el ciclo.',
-        'Decidir no es un paso único: observá, interpretá, actuá y volvé a comprobar.',
+        'Decidir no es un momento: es una vuelta que se repite. Salís con un pronóstico bueno y a mitad de camino ves una capa de nubes más baja que la prevista.\n1. Observar: la base está más baja que en el pronóstico.\n2. Evaluar: si sigue bajando, no llego con el techo que necesito.\n3. Elegir: sigo veinte minutos más o voy a la alternativa.\n4. Actuar: viro a la alternativa.\n5. Comprobar: ¿mejoró? Si no, otra vuelta.\n\nPara la vuelta de antes de salir sirve PAVE, que reparte los peligros en cuatro grupos:\n\nTABLA: Letra | Qué mirás | Ejemplo\nP, piloto | vos | dormí poco, hace dos meses que no vuelo\nA, aeronave | el avión | combustible, performance, un equipo que no anda\nV, entorno (enVironment) | el tiempo, el terreno y el aeródromo | viento cruzado, pista corta\nE, presiones externas | lo que te empuja a salir igual | pasajeros apurados, un horario\n\nPAVE viene de los manuales de la FAA. Es una ayuda para no olvidarte de un grupo, no una regla argentina.',
+        'Decidir no es un paso único: observá, evaluá, elegí, actuá y volvé a comprobar.',
         'decision-loop',
       ],
       [
         'Mínimos personales y presión externa',
-        'Los mínimos personales son límites que elegís antes de volar para condiciones como visibilidad, viento, fatiga o experiencia reciente. Te ayudan a decidir si el día y el vuelo están dentro de tu capacidad.\n\nElegilos con tiempo y revisalos cuando cambien tu experiencia o situación. Ningún mínimo personal permite exceder una regla ni una limitación del avión. Pasajeros, horarios o costos pueden presionarte para continuar. Reconocé esa presión antes de empezar.',
+        'La norma dice con qué visibilidad se puede volar. No dice con cuánta podés volar vos, hoy, con tu experiencia. Eso lo fijan tus mínimos personales: límites más exigentes que los de la norma, que escribís vos.\n\nUn ejemplo de cómo se ven. No es para copiar:\n\nTABLA: Condición | Límite de la norma o del avión | Mínimo personal de un piloto nuevo\nViento cruzado | el demostrado en el manual | la mitad\nVisibilidad | 5 km en la zona de tránsito | 10 km\nCombustible al llegar | la reserva final | la reserva final más media hora\n\nSe escriben en tierra y con calma, porque en el momento siempre hay una razón para estirarlos: el pasajero que ya llegó, el avión alquilado, el horario. Esa es la presión externa. Un número escrito de antemano te da algo que contestar.\n\nLos mínimos personales solo pueden ser más exigentes. Ninguno te deja pasar una regla ni un límite del avión. A medida que sumás experiencia, los revisás.',
         'Un límite acordado en tierra es más fácil de sostener cuando aparece presión.',
       ],
       [
-        'Escenario: el pronóstico se deteriora',
-        'Imaginá que el pronóstico de destino empeora y el viento real difiere del previsto. Además, llevás varias horas de actividad y el regreso tiene horario ajustado.\n\nAntes de salir, elegí alternativas y condiciones para esperar o cancelar. En ruta, compará observación, pronóstico y progreso. Revisá combustible y hora estimada. Si aparece la señal que habías definido, usá la alternativa con tiempo suficiente. No hay un umbral único para todos los vuelos.',
-        'Un buen plan dice qué condición te haría dejar de continuar.',
-      ],
-      [
         'Cinco formas de engañarte',
-        'Algunas actitudes empujan a decidir mal: antiautoridad («esa regla no es para mí»), impulsividad («tengo que hacer algo ya»), invulnerabilidad («a mí no me pasa»), «macho» («puedo con esto») y resignación («no hay nada que hacer»).\n\nLa respuesta se prepara en tierra: respetar la regla, frenar, reconocer que puede pasar, no demostrar nada y buscar otra opción. Podés demorar, desviarte, pedir ayuda o cancelar.\n\nUS: La FAA enseña estos cinco nombres como actitudes de riesgo y propone antídotos. No son una lista de infracciones de la RAAC. Sirven para reconocer una forma de pensar.',
+        'Hay cinco maneras de pensar que llevan a decidir mal. Reconocerlas en tu propia cabeza es la mitad del trabajo. Cada una tiene una respuesta para decirte:\n\nTABLA: Actitud | Lo que pensás | Lo que te contestás\nAntiautoridad | «esa regla no es para mí» | las reglas suelen tener razón\nImpulsividad | «tengo que hacer algo ya» | primero pensá\nInvulnerabilidad | «a mí no me pasa» | me puede pasar\nMacho | «yo puedo con esto» | arriesgar de más es tonto\nResignación | «no hay nada que hacer» | algo puedo hacer\n\nSuelen aparecer cuando ya estás cansado o apurado. Por eso se ensayan en tierra.\n\nUS: La FAA enseña estos cinco nombres como actitudes de riesgo, cada una con su antídoto. No son una lista de infracciones de la RAAC. Sirven para reconocer una forma de pensar.',
         'Reconocé la frase de riesgo y ensayá su antídoto antes de que aparezca en vuelo.',
       ],
       [
-        'Probabilidad y gravedad',
-        'Para pensar un riesgo, preguntá dos cosas: qué probabilidad tiene y qué tan grave sería. Un hecho frecuente puede tener poco impacto. Uno raro puede tener consecuencias serias.\n\nAntes del vuelo, combiná amenazas posibles, como viento fuerte para tu experiencia, techo bajo o cansancio. Decidí en tierra qué combinaciones te hacen cambiar o cancelar el plan.\n\nUS: La tabla de colores del Risk Management Handbook de la FAA ayuda a ordenar factores. Es una herramienta de ese manual. No cambia los requisitos argentinos ni tus límites personales.',
-        'Toda decisión de riesgo junta dos preguntas: ¿qué tan probable y qué tan grave?',
-        'risk-matrix',
-      ],
-      [
         'Amenazas, errores y el estado en que queda el avión',
-        'Una amenaza es algo externo que complica el vuelo, por ejemplo un pronóstico que empeora o un pasajero que apura. Un error es una acción u omisión del piloto, como seleccionar mal una frecuencia.\n\nSi el error deja al avión bajo, rápido o fuera de rumbo, aparece un estado no deseado. Cuanto antes reconozcas la amenaza o el error, más opciones tenés para corregir.\n\nUS: El manual de riesgo de la FAA presenta la cadena amenaza, error y estado no deseado con casos de Estados Unidos. El orden ayuda a analizar cualquier vuelo.',
+        'Casi ningún accidente tiene una sola causa. Lo habitual es una cadena de tres eslabones:\n\nTABLA: Eslabón | Qué es | Ejemplo\nAmenaza | algo de afuera que complica el vuelo | te cambian la pista a último momento\nError | algo que hacés mal o dejás de hacer | con el apuro, no repasás la aproximación nueva\nEstado no deseado | el avión queda donde no querías | llegás alto y rápido a la final\n\nLa cadena se corta en cualquier eslabón, y cuanto antes, mejor. Nombrar la amenaza («me cambiaron la pista, me tomo un minuto») evita el error. Reconocer el error evita el estado no deseado. Y del estado no deseado se sale con una maniobra conocida: motor y al aire.\n\nUS: El manual de riesgo de la FAA presenta esta cadena con casos de Estados Unidos. El orden sirve para analizar cualquier vuelo.',
         'Cortá la cadena temprano: reconocé la amenaza antes de que se convierta en un estado no deseado.',
       ],
       [
         'La automatización no elige por vos',
         'El piloto automático sigue las órdenes seleccionadas. No decide si siguen siendo seguras. Un modo es la función activa, como rumbo, navegación, altitud o descenso.\n\nCada vez que cambies un modo, nombralo y comprobá que el avión responda como esperás. Si el equipo no hace lo previsto, recuperá el control con la técnica que corresponda a ese avión. La misma atención vale para la ruta que muestra un GPS.\n\nUS: La FAA destaca las indicaciones de modo en aviones con cabina digital, instrumentos en pantallas, porque muestran qué función está activa. Ese hábito de verificar la automatización sirve en cualquier lugar.',
         'Si no podés decir qué modo está activo, todavía no verificaste qué trayectoria vuela el equipo.',
+      ],
+      [
+        'Escenario: el pronóstico se deteriora',
+        'Un caso para juntar todo. Vuelo de 150 NM (millas náuticas) a un aeródromo que no conocés, con un amigo que tiene que estar allá a las seis. El pronóstico de destino da el techo bajando hacia la tarde. Vos dormiste poco.\n\nAntes de salir:\n- PAVE marca tres grupos: piloto cansado, entorno que empeora y presión del horario.\n- Tus mínimos personales dicen con qué techo no seguís.\n- Elegís una alternativa a mitad de camino y le avisás a tu amigo que quizás no llegan.\n\nEn ruta, a la media hora, el viento de frente es más fuerte que el previsto y el techo ya está más bajo:\n1. Observar: vas a llegar veinte minutos tarde y con menos combustible.\n2. Evaluar: el techo en destino va a estar en tu mínimo o por debajo.\n3. Elegir: la alternativa, mientras todavía te sobran combustible y tiempo.\n\nLa decisión difícil se tomó en tierra, cuando definiste el número. En el aire solo la cumplís. No hay un umbral único para todos los vuelos: hay uno para cada piloto, escrito antes.',
+        'Un buen plan dice qué condición te haría dejar de continuar.',
       ],
     ],
   },
@@ -160,7 +166,7 @@ const newChapters = [
     lessons: [
       [
         'Aptitud antes del vuelo',
-        'IMSAFE es una ayuda para revisar tu aptitud: Illness (enfermedad), Medication (medicación), Stress (estrés), Alcohol (alcohol), Fatigue (fatiga) y Emotion (emoción). Dolor, falta de sueño o una emoción intensa pueden reducir atención, coordinación y juicio.\n\nLos efectos se pueden sumar. El estrés ocupa atención. La fatiga demora respuestas. Una congestión puede impedir que se iguale la presión en el oído durante un cambio de altura. La lista no es un certificado médico ni reemplaza las reglas. Si dudás de tu aptitud, resolvelo antes de volar.',
+        'El avión pasa una inspección antes de cada vuelo. Vos también. IMSAFE es la lista para hacerla, una pregunta por letra: Illness (enfermedad), Medication (medicación), Stress (estrés), Alcohol (alcohol), Fatigue (fatiga) y Emotion (emoción).\n\nNo hace falta estar enfermo de verdad para que cuente. Un resfrío que te tapa los oídos alcanza: al cambiar de altura no vas a poder igualar la presión, y duele. Un antialérgico de venta libre puede dar sueño. Una discusión antes de salir ocupa atención que necesitás para volar.\n\nLos efectos se suman. Poco sueño y un día de estrés pesan más juntos que cada uno por separado.\n\nIMSAFE no es un certificado médico ni reemplaza las reglas. Si alguna respuesta te deja dudas, la decisión se toma en tierra.',
         'Revisá cada letra y también cómo se combinan los factores ese día.',
         'imsafe',
       ],
@@ -176,13 +182,13 @@ const newChapters = [
       ],
       [
         'Oxígeno, hipoxia y monóxido de carbono',
-        'La hipoxia ocurre cuando los tejidos reciben poco oxígeno. Puede afectar el juicio antes de que notes que algo anda mal. El monóxido de carbono es un gas de combustión sin olor. Si entra en la cabina, puede causar dolor de cabeza, mareo, somnolencia y confusión. Si sospechás monóxido, seguí la lista aprobada del avión y planificá aterrizar cuanto antes.\n\nHay cuatro mecanismos. La hipoxia hipóxica aparece cuando baja el oxígeno disponible, como en altura. La hipémica ocurre cuando la sangre transporta menos oxígeno, por ejemplo por monóxido de carbono o anemia. La de estancamiento aparece cuando la circulación no lo lleva suficiente, por ejemplo con mucha carga G. La histotóxica ocurre cuando los tejidos no pueden usarlo. Algunas sustancias, como el alcohol, pueden interferir.\n\nEl tiempo de conciencia útil es el período en que todavía podés realizar tareas. Material de instrucción de la Administración Federal de Aviación de Estados Unidos (FAA) ofrece estimaciones aproximadas. A 18 000 ft (pies), estima 20 a 30 minutos. A 25 000 ft, pocos minutos. Son referencias, no un límite seguro.',
+        'La hipoxia es falta de oxígeno en los tejidos. Lo traicionero es que afecta primero el juicio: podés sentirte bien, hasta eufórico, mientras ya estás decidiendo mal. Otros síntomas son dolor de cabeza, mareo, hormigueo, visión que se angosta y labios o uñas azulados.\n\nHay cuatro tipos, según dónde se corta el camino del oxígeno:\n\nTABLA: Tipo | Qué falla | Ejemplo\nHipóxica | llega poco oxígeno a los pulmones | la altura\nHipémica | la sangre no lo puede transportar | monóxido de carbono, anemia\nDe estancamiento | la sangre no circula bien | mucha carga g\nHistotóxica | las células no lo pueden usar | alcohol, algunas drogas\n\nEl monóxido de carbono merece atención aparte. Es un gas sin olor que sale con los gases de escape, y en muchos aviones livianos la calefacción de cabina toma el calor del escape. Si hay una fisura, el gas entra a la cabina. Da dolor de cabeza, somnolencia y mareo. Si lo sospechás, cerrá la calefacción, abrí la ventilación y aterrizá cuanto antes, con la lista del avión.\n\nEl tiempo de conciencia útil es el rato en que todavía podés hacer tareas. El material de instrucción de la FAA (Administración Federal de Aviación de Estados Unidos) lo estima en 20 a 30 minutos a 18 000 ft (pies) y en pocos minutos a 25 000 ft. Son referencias, no un límite seguro.',
         'La hipoxia puede nublar el juicio antes de que el piloto reconozca sus propios síntomas.',
         'hypoxia-types',
       ],
       [
         'Oxígeno que pide la regla',
-        'La Sección 91.211 se basa en la presión de la cabina. En un avión sin presurizar, esa presión es la de la altura a la que volás. En atmósfera estándar, 700 hPa equivalen a unos 10.000 ft (pies) y 620 hPa a unos 13.000 ft.\n\nNo se inicia un vuelo que vaya a quedar bajo 700 hPa si no se lleva oxígeno suficiente.\n\nTABLA: Presión de cabina | Quién lleva oxígeno | Cuánto\nEntre 700 y 620 hPa | toda la tripulación y, como mínimo, el 10 % de los pasajeros | el tramo que supere los 30 minutos\nBajo 620 hPa | toda la tripulación y todos los pasajeros | todo ese tramo; la tripulación que lo necesita lo usa de forma continua\n\nEl cuestionario a veces resume solo los 30 minutos entre 10.000 y 13.000 ft.',
+        'La Sección 91.211 se basa en la presión de la cabina. En un avión sin presurizar, esa presión es la de la altura a la que volás. En atmósfera estándar, 700 hPa equivalen a unos 10.000 ft (pies) y 620 hPa a unos 13.000 ft.\n\nNo se inicia un vuelo que vaya a quedar bajo 700 hPa si no se lleva oxígeno suficiente.\n\nTABLA: Presión de cabina | Quién lleva oxígeno | Cuánto\nEntre 700 y 620 hPa | toda la tripulación y, como mínimo, el 10 % de los pasajeros | el tramo que supere los 30 minutos\nBajo 620 hPa | toda la tripulación y todos los pasajeros | todo ese tramo. La tripulación que lo necesita lo usa de forma continua\n\nEl cuestionario a veces resume solo los 30 minutos entre 10.000 y 13.000 ft.',
         'De 10.000 a 13.000 ft, oxígeno pasado los 30 minutos. Por encima de 13.000, todos y todo el tiempo.',
         'oxygen-rule',
       ],
@@ -193,8 +199,8 @@ const newChapters = [
       ],
       [
         'Desorientación espacial e ilusiones',
-        'El sistema vestibular, ubicado en el oído interno, ayuda a percibir giros y aceleraciones. Puede confundir un viraje prolongado con vuelo recto, o una aceleración con la nariz que sube.\n\nNiebla, oscuridad, luces o un horizonte inclinado también pueden engañar la vista. Si el cuerpo y los instrumentos confiables parecen discrepar, la sensación corporal puede no describir la actitud real. Reconocer esas condiciones y entrenar dentro de la habilitación ayuda a prevenir la desorientación.',
-        'Una sensación fuerte no siempre indica la actitud real del avión.',
+        'Con buena visibilidad, los ojos te dicen dónde está el horizonte. Sin él, en una nube o en una noche cerrada, el cuerpo intenta reemplazarlos con el oído interno y con lo que siente en el asiento. Los dos se equivocan.\n\nEl oído interno detecta cambios, no estados. Si entrás muy despacio en un viraje, no lo registra. Si el viraje dura, se acostumbra y deja de avisar.\n\nTABLA: Ilusión | Qué sentís | Qué pasa de verdad\nInclinación falsa | que estás inclinado, justo después de nivelar | venías inclinado sin notarlo, y al nivelar el oído avisa al revés\nEspiral | que volás nivelado | seguís en un viraje que desciende. Si tirás del mando, lo cerrás más\nDe aceleración | que la nariz sube, al acelerar | la nariz no se movió. Si empujás, bajás\nAgujero negro | que estás alto, de noche y sobre terreno sin luces | venís bajo en la aproximación\n\nLa regla es una sola: cuando lo que sentís y lo que marcan los instrumentos no coinciden, valen los instrumentos.\n\nVolar sin referencias visuales pide entrenamiento y habilitación. Si un piloto visual entra en una nube sin querer, la salida habitual es un viraje suave de 180° con el horizonte artificial, para volver por donde vino. Se practica con instructor.',
+        'Sin horizonte, el cuerpo engaña. Si no coincide con los instrumentos, valen los instrumentos.',
       ],
       [
         'Atención, carga de trabajo y conciencia situacional',
@@ -233,28 +239,28 @@ const newChapters = [
     lessons: [
       [
         'Procedimientos normales y uso de listas',
-        'Un procedimiento normal es una secuencia prevista para operar el avión en condiciones habituales. La lista ayuda a recordar sus comprobaciones y reduce omisiones.\n\nCada ítem corresponde a un sistema o condición que conviene verificar. Aprendé qué busca cada punto y usá la lista aprobada para el modelo y la revisión correctos. No copies de memoria la secuencia de otro avión.',
-        'La lista sirve cuando entendés qué comprueba cada paso y lo confirmás.',
+        'Una lista de verificación no te enseña a volar el avión: comprueba que no te olvidaste de nada. Hay dos formas de usarla.\n\nTABLA: Forma | Cómo es | Cuándo se usa\nLeer y hacer | leés un ítem y lo hacés | en tierra y sin apuro: prevuelo, arranque, prueba de motor\nHacer y verificar | hacés los pasos de memoria y después leés la lista para confirmar | en vuelo, cuando no podés sacar la vista de afuera mucho tiempo\n\nEn una emergencia hay pasos que no esperan a que encuentres la página. Se aprenden de memoria y después se confirman con la lista. Cuáles son lo dice el manual de tu avión.\n\nLa lista vale si es la de tu avión, en su modelo y su revisión. Y si entendés qué comprueba cada ítem, notás cuando algo no da lo que debería.',
+        'La lista no reemplaza saber. Confirma que no te olvidaste de nada.',
       ],
       [
         'Energía en despegue, aproximación y aterrizaje',
-        'La energía del avión combina velocidad y altura. La cuenta está en Maniobras, «De dónde sale la energía». Potencia, actitud y configuración cambian cómo se administra.\n\nLa velocidad va al cuadrado. Llegar a la pista con un 10 % más de velocidad suma cerca de un 21 % de energía de movimiento, y esa energía hay que disiparla en el suelo con más pista.\n\nEn una aproximación, el exceso de velocidad o altura puede exigir más espacio para estabilizarse. Una aproximación estabilizada cumple criterios observables de velocidad, trayectoria y configuración. Las velocidades y la decisión de motor y al aire se aprenden para el avión y el entrenamiento.',
+        'El avión tiene dos reservas de energía: la velocidad y la altura. Podés cambiar una por otra, y el motor agrega. La cuenta está en Maniobras, en «Energía: velocidad, altura y potencia».\n\nCerca del suelo las dos reservas son chicas. Por eso el despegue y la aproximación son los momentos con menos margen. Bajo y lento, no tenés con qué corregir. Alto y rápido, sobra energía y hay que gastarla en pista.\n\nLa velocidad pesa más de lo que parece, porque va al cuadrado. Llegar con un 10 % más de velocidad suma cerca de un 21 % de energía de movimiento, y se paga en metros de pista.\n\nPor eso se busca una aproximación estabilizada: velocidad, senda y configuración ya puestas, sin cambios grandes. Si a la altura que definiste con tu instructor no lo está, hacés motor y al aire.',
         'Velocidad y altura son energía. Cerca del suelo queda menos espacio para corregir.',
       ],
       [
         'Pérdidas, barrenas y prevención de pérdida de control',
-        'La pérdida ocurre cuando el ala supera el ángulo de ataque crítico y deja de producir sustentación de la forma esperada. Una barrena es una rotación descendente que combina pérdida y giro alrededor de varios ejes.\n\nUna barrena puede desarrollarse cuando un ala entra en pérdida antes que la otra y el avión sigue girando. Reconocer energía y coordinación ayuda a prevenir la pérdida de control. Las maniobras y recuperaciones se practican con instructor y avión autorizados, según el entrenamiento previsto.',
-        'La pérdida depende del ángulo de ataque. La barrena agrega una rotación descendente.',
+        'El caso típico de pérdida de control es un viraje lento y cerrado cerca del suelo, como el de básica a final cuando te pasaste del eje de la pista.\n\nLa pérdida es superar el ángulo de ataque crítico: está en Aerodinámica. La barrena necesita dos cosas a la vez, pérdida y guiñada. Si el avión entra en pérdida descoordinado, un ala pierde más que la otra, cae, y el avión baja girando.\n\nTABLA: Rasgo | Pérdida | Barrena\nQué pasa | el ala deja de sostener | un ala pierde más que la otra y el avión baja girando\nQué hace falta | pasar el ángulo crítico | pérdida y guiñada juntas\nCómo se evita | no pasar el ángulo crítico | volar coordinado, con la bola al centro\n\nLa prevención es la misma para las dos: no tirar del mando para salvar un viraje y mantener la bola al centro. Si el viraje a final no sale, motor y al aire.\n\nLa salida de la pérdida está en Maniobras. La de la barrena depende del avión y está en su manual: se aprende con instructor, en un avión aprobado para eso.',
+        'La pérdida depende del ángulo de ataque. La barrena necesita, además, guiñada.',
       ],
       [
         'Pérdida de potencia y aterrizaje forzoso',
-        'Una pérdida de potencia significa que el motor ya no entrega el empuje esperado. Un aterrizaje forzoso es una toma no planificada fuera de las condiciones normales, por una emergencia.\n\nLa altura, el terreno, el viento y los obstáculos cambian qué zonas pueden alcanzarse. El entrenamiento enseña a conservar control, elegir una opción y preparar la aeronave. Las acciones y listas concretas se estudian para el modelo. Los ejercicios se practican con instructor.',
-        'Una falla real exige decisiones con el margen disponible. Aprendé la lista antes de volar.',
+        'Se para el motor en crucero. El avión no se cae: pasa a planear, y tenés minutos, no segundos. Hay un orden que ayuda:\n1. Volá el avión: poné la velocidad de mejor planeo del manual y compensá.\n2. Elegí un campo que alcances, mejor con el viento de frente, y andá hacia él.\n3. Si queda altura, buscá la causa con la lista: combustible, mezcla, calefacción de carburador, encendido.\n4. Avisá: 7700 en el transpondedor y un llamado de emergencia.\n5. Prepará el aterrizaje con la lista.\n\nEs el orden general que enseña el Airplane Flying Handbook. Los pasos exactos son los de la lista de emergencia de tu avión.\n\nCon poca altura no hay tiempo para todo: los pasos 1 y 2 son los que no se saltean. Si el motor falla justo después de despegar, bajá la nariz y aterrizá adelante, con virajes chicos. Lo desarrolla Maniobras, en la página del despegue.',
+        'Sin motor: primero la velocidad de planeo, después el campo y después la lista.',
       ],
       [
         'Comunicación y contingencias',
-        'En una contingencia, la radio permite informar qué ocurre y pedir asistencia. Aviate, navigate, communicate significa «controlá el avión, orientá la trayectoria, comunicá». Es una ayuda para ordenar la atención, no una regla de prioridad para toda situación.\n\nSi la tarea de radio te hace descuidar velocidad, actitud o trayectoria, primero recuperá una condición controlable según tu entrenamiento. Después transmití posición e intención cuando sea posible. Una falla de radio tiene procedimientos propios en la RAAC, la AIP y el manual del equipo. Estudialos antes del vuelo.',
-        'La frase ayuda a ordenar la atención. El procedimiento concreto se aprende para la operación local.',
+        'Cuando algo sale mal, la atención no alcanza para todo. Tres palabras la ordenan: aviate, navigate, communicate. Volá el avión, llevalo hacia donde querés ir y recién después hablá.\n\nEl orden tiene una razón. Si dejás de volar para hablar por radio, cambiaste un problema por uno peor. La radio puede esperar unos segundos. La actitud y la velocidad, no.\n\nCon el avión controlado, pedí ayuda sin vueltas. Hay dos niveles:\n\nTABLA: Llamado | Cuándo\nMAYDAY, tres veces | peligro grave e inminente: necesitás ayuda ya\nPAN PAN, tres veces | urgencia: hay un problema, sin peligro inmediato\n\nDespués decí quién sos, qué pasa, qué vas a hacer y dónde estás. Los códigos del transpondedor y la falla de radio están en las dos lecciones que siguen.',
+        'Primero volá el avión, después llevalo adonde querés ir y recién entonces hablá.',
         'priority',
       ],
       [
