@@ -3,6 +3,7 @@
  * Colecciones: flights, aircraft, documents (con el archivo adjunto como Blob), plans, cvs y meta.
  */
 
+import { safeFileType } from './documents.js';
 export const COLLECTIONS = ['flights', 'aircraft', 'documents', 'plans', 'cvs'];
 
 const done = (request) => new Promise((resolve, reject) => {
@@ -70,6 +71,7 @@ const toBase64 = async (blob) => {
 };
 
 const fromBase64 = (data, type) => {
+  type = safeFileType(type);
   const text = atob(data);
   const bytes = new Uint8Array(text.length);
   for (let i = 0; i < text.length; i += 1) bytes[i] = text.charCodeAt(i);

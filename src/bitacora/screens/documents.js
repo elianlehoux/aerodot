@@ -1,5 +1,5 @@
 /** Documentos: licencias, CMA, habilitaciones y lo que venza, con aviso y archivo adjunto opcional. */
-import { DEFAULT_WARN_DAYS, DOC_CATEGORIES, docStatus, statusText } from '../documents.js';
+import { DEFAULT_WARN_DAYS, DOC_CATEGORIES, docStatus, isSafeFileType, safeFileType, statusText } from '../documents.js';
 import { btn, chip, confirm, dialog, empty, field, formatDate, h, input, pickFiles, readForm, select, toast, todayIso } from '../ui.js';
 
 const MAX_FILE = 15 * 1024 * 1024;
@@ -12,9 +12,10 @@ async function editDocument(ctx, doc = {}) {
   const showFile = () => { fileLabel.textContent = file ? `Adjunto: ${fileName || 'archivo'}` : 'Sin archivo adjunto.'; };
   showFile();
   const attach = btn('Adjuntar foto o PDF', async () => {
-    const [picked] = await pickFiles('image/*,application/pdf');
+    const [picked] = await pickFiles('image/png,image/jpeg,image/webp,image/gif,image/heic,application/pdf');
     if (!picked) return;
     if (picked.size > MAX_FILE) return toast('El archivo pasa los 15 MB.');
+    if (!isSafeFileType(picked.type)) return toast('Adjuntá una foto (JPG, PNG o WebP) o un PDF.');
     file = picked;
     fileName = picked.name;
     showFile();
@@ -61,9 +62,11 @@ export async function renderDocuments(view, ctx) {
       ? h('div', { class: 'bt-cards' }, sorted.map(({ doc, status }) => {
         let open = null;
         if (doc.file instanceof Blob) {
-          const url = URL.createObjectURL(doc.file);
+          // Lo guardado antes de revisar los tipos también pasa por la lista.
+          const safe = isSafeFileType(doc.file.type) ? doc.file : new Blob([doc.file], { type: safeFileType(doc.file.type) });
+          const url = URL.createObjectURL(safe);
           urls.push(url);
-          open = h('a', { class: 'bt-link', href: url, target: '_blank', rel: 'noopener', text: 'Ver archivo', onclick: (event) => event.stopPropagation() });
+          open = h('a', { class: 'bt-link', href: url, ...(safe === doc.file ? { target: '_blank', rel: 'noopener' } : { download: doc.fileName || 'adjunto' }), text: safe === doc.file ? 'Ver archivo' : 'Descargar archivo', onclick: (event) => event.stopPropagation() });
         }
         return h('div', { class: 'bt-card bt-item' },
           h('button', { type: 'button', class: 'bt-item-main', onclick: async () => { await editDocument(ctx, doc); after(); } },

@@ -48,3 +48,12 @@ export function alerts(docs, today) {
     .filter(({ status }) => status.state === 'vencido' || status.state === 'por-vencer')
     .sort((a, b) => a.status.days - b.status.days);
 }
+
+/**
+ * Tipos de adjunto que se pueden abrir en el navegador. Un SVG o un HTML abierto desde una
+ * dirección blob: corre con los permisos de Aerodot, así que todo lo demás queda como archivo
+ * para descargar (una copia de seguridad puede venir de otra persona).
+ */
+const SAFE_FILE_TYPES = new Set(['application/pdf', 'image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/heic', 'image/heif']);
+export const isSafeFileType = (type) => SAFE_FILE_TYPES.has(String(type ?? '').toLowerCase());
+export const safeFileType = (type) => (isSafeFileType(type) ? String(type).toLowerCase() : 'application/octet-stream');

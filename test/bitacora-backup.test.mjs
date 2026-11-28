@@ -52,3 +52,19 @@ test('un archivo que no es una copia se rechaza con un mensaje claro', async () 
   await assert.rejects(readBackup(target, asFile(new Blob(['no es json']))), /no es una copia/);
   await assert.rejects(readBackup(target, asFile(new Blob(['{"app":"otra"}']))), /no es una copia/);
 });
+
+test('un adjunto HTML o SVG de una copia ajena vuelve como archivo para descargar', async () => {
+  const backup = new Blob([JSON.stringify({
+    app: 'aerodot-bitacora', version: 1,
+    documents: [
+      { id: 'x', name: 'Trampa', file: { name: 'a.html', type: 'text/html', data: btoa('<script>alert(1)</script>') } },
+      { id: 'y', name: 'Dibujo', file: { name: 'a.svg', type: 'image/svg+xml', data: btoa('<svg/>') } },
+      { id: 'z', name: 'Foto', file: { name: 'a.jpg', type: 'image/jpeg', data: btoa('jpg') } },
+    ],
+  })]);
+  const target = memoryStore();
+  await (await readBackup(target, asFile(backup))).restore();
+  assert.equal(target.data.documents.get('x').file.type, 'application/octet-stream');
+  assert.equal(target.data.documents.get('y').file.type, 'application/octet-stream');
+  assert.equal(target.data.documents.get('z').file.type, 'image/jpeg');
+});
