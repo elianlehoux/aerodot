@@ -127,6 +127,8 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
   if (url.pathname === '/sw.js') return;
+  // Los datos en vivo (NOTAM) van siempre a la red: la Bitácora guarda su propia última consulta con la hora.
+  if (url.pathname.startsWith('/api/')) return;
 
   if (request.mode === 'navigate') {
     event.respondWith(handlePage(event));

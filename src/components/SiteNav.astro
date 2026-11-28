@@ -2,7 +2,7 @@
 import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
-  current?: 'biblioteca' | 'examenes' | 'ingles' | 'flowdot' | null;
+  current?: 'biblioteca' | 'examenes' | 'ingles' | 'flowdot' | 'bitacora' | null;
   home?: boolean;
 }
 
@@ -13,6 +13,7 @@ const sections = [
   { id: 'examenes', href: '/examenes', short: 'Exámenes', long: 'Exámenes de ANAC' },
   { id: 'ingles', href: '/ingles', short: 'Inglés', long: 'Inglés OACI' },
   { id: 'flowdot', href: '/flowdot', short: 'Flowdot', long: 'Flowdot, flujos de cabina' },
+  { id: 'bitacora', href: '/bitacora', short: 'Bitácora', long: 'Bitácora del piloto' },
 ];
 ---
 <nav class="site-links" aria-label="Navegación principal">

@@ -1,4 +1,5 @@
-/* Portada: una carta de navegación. La ruta une tres puntos y de cada uno cuelga un botón. */
+/* Portada: una carta de navegación. La ruta une cinco puntos y de cada uno cuelga un botón.
+   El último (Bitácora) va arriba de su punto: abajo está Flowdot. */
 .home-page{display:grid;grid-template-rows:auto 1fr auto;min-height:100dvh;background:var(--paper)}
 .home-page .site-header{border-bottom-color:transparent}
 .home-page>main{display:grid;place-items:center;min-width:0;padding:0 clamp(16px,3vw,40px);overflow:clip}
@@ -37,6 +38,7 @@
   .home-door-2{left:44cqw;top:47.5cqw}
   .home-door-3{left:66cqw;top:33.5cqw}
   .home-door-4{left:76cqw;top:21cqw}
+  .home-door-5{right:4.65cqw;top:7.55cqw}
 }
 
 /* Pantalla apaisada: cuando el espacio es más ancho que 16:10, la carta pasa a 2:1 para llenar el ancho.
@@ -56,6 +58,7 @@
     .home-door-2{left:45.95cqw;top:38cqw}
     .home-door-3{left:69.3cqw;top:26.8cqw}
     .home-door-4{left:79.55cqw;top:16.8cqw}
+    .home-door-5{right:4.1cqw;top:6cqw}
   }
 }
 
@@ -81,11 +84,13 @@
   .home-chart-fix:nth-of-type(4){animation-delay:1.5s}
   .home-chart-fix:nth-of-type(5){animation-delay:2.1s}
   .home-chart-fix:nth-of-type(6){animation-delay:2.5s}
+  .home-chart-fix:nth-of-type(7){animation-delay:2.8s}
   .home-door{animation:home-pop .5s cubic-bezier(.2,1.4,.4,1) backwards}
   .home-door-1{animation-delay:.9s}
   .home-door-2{animation-delay:1.5s}
   .home-door-3{animation-delay:2.1s}
   .home-door-4{animation-delay:2.5s}
+  .home-door-5{animation-delay:2.8s}
 }
 @media(prefers-reduced-motion:no-preference) and (max-width:680px){
   .home-chart-route{animation-duration:1.6s}
@@ -93,6 +98,7 @@
   .home-door-2{animation-delay:.7s}
   .home-door-3{animation-delay:.9s}
   .home-door-4{animation-delay:1.1s}
+  .home-door-5{animation-delay:1.3s}
   .home-chart-fix:nth-of-type(n){animation-delay:.6s}
 }
 @keyframes home-route{from{stroke-dashoffset:1}}

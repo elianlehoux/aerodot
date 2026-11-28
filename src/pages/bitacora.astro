@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import BrandMark from '../components/BrandMark.astro';
+import '../styles/bitacora.css';
+---
+<BaseLayout
+  title="Bitácora del piloto: libro de vuelo, documentos y plan de vuelo | Aerodot"
+  description="Libro de vuelo con totales y revisión de errores, vencimientos de licencias y CMA, plan de vuelo OACI, NOTAM de ANAC, cálculos de cabina y CV. Gratis, sin cuenta y guardado en tu dispositivo."
+>
+  <header class="site-header study-header">
+    <BrandMark />
+    <SiteNav current="bitacora" />
+  </header>
+  <div class="bt-app ph-no-capture" id="bitacora">
+    <div class="bt-top">
+      <h1>Bitácora</h1>
+      <nav class="bt-tabs" aria-label="Partes de la bitácora" data-tabs></nav>
+    </div>
+    <main id="main-content" class="bt-main" tabindex="-1" data-root>
+      <noscript><p class="bt-empty">La Bitácora necesita JavaScript para funcionar.</p></noscript>
+    </main>
+  </div>
+</BaseLayout>
+
+<script>
+  import '../bitacora/app.js';
+</script>

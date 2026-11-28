@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const site = process.env.PUBLIC_SITE_URL || 'https://aerodot.app';
 
 /** Páginas que quedan disponibles sin conexión desde la primera visita. */
-const precachePages = ['/', '/examenes', '/camino', '/temas', '/ingles', '/ingles/supervivencia', '/ingles/aerodromo', '/ingles/numeros', '/ingles/atis', '/ingles/autorizacion', '/ingles/tiempo', '/ingles/aeronave', '/ingles/emergencias', '/ingles/radio-fases', '/ingles/en-ruta', '/ingles/falla-radio', '/ingles/resumir', '/ingles/describir', '/ingles/tres-publicos', '/flowdot', '/offline'];
+const precachePages = ['/', '/examenes', '/camino', '/temas', '/ingles', '/ingles/supervivencia', '/ingles/aerodromo', '/ingles/numeros', '/ingles/atis', '/ingles/autorizacion', '/ingles/tiempo', '/ingles/aeronave', '/ingles/emergencias', '/ingles/radio-fases', '/ingles/en-ruta', '/ingles/falla-radio', '/ingles/resumir', '/ingles/describir', '/ingles/tres-publicos', '/flowdot', '/bitacora', '/offline'];
 
 /**
  * Completa dist/sw.js después del build: un BUILD_ID nuevo (para que el navegador instale la
@@ -40,6 +40,25 @@ const pwa = () => ({
   },
 });
 
+/**
+ * En desarrollo, sirve /api/notam con la misma función que corre en Vercel (api/notam.js).
+ * En el sitio publicado esa carpeta la sirve Vercel directamente.
+ */
+const devApi = () => ({
+  name: 'aerodot-dev-api',
+  hooks: {
+    'astro:server:setup': ({ server }) => {
+      server.middlewares.use('/api/notam', async (req, res) => {
+        const { GET } = await server.ssrLoadModule('/api/notam.js');
+        const response = await GET(new Request(new URL(req.originalUrl ?? req.url, 'http://localhost')));
+        res.statusCode = response.status;
+        response.headers.forEach((value, key) => res.setHeader(key, value));
+        res.end(await response.text());
+      });
+    },
+  },
+});
+
 const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
 
 export default defineConfig({
@@ -59,6 +78,7 @@ export default defineConfig({
     }),
     sitemap({ filter: (page) => !page.includes('/offline') }),
     pwa(),
+    devApi(),
   ],
   output: 'static',
   build: {
