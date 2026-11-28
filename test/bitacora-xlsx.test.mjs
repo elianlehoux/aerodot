@@ -76,3 +76,22 @@ test('un archivo que no es Excel da un error claro', async () => {
   const text = new TextEncoder().encode('Fecha,Total\n1/1/2026,1:00');
   await assert.rejects(readXlsx(text.buffer), /no es un Excel/);
 });
+
+test('el Excel exportado se vuelve a leer con los mismos vuelos', async () => {
+  const { flightsToXlsx } = await import('../src/bitacora/xlsx-write.js');
+  const original = [
+    { date: '2026-11-01', reg: 'LV-ABC', type: 'C152', from: 'SADF', to: 'SADP', dep: '10:00', arr: '11:30', total: 90, role: 'pic', night: 0, ifr: 0, hood: 30, sim: false, landingsDay: 2, landingsNight: 0, remarks: 'Viento <fuerte> & "ráfagas"' },
+    { date: '2026-11-02', reg: '', type: 'FTD', from: '', to: '', dep: '', arr: '', total: 1815, role: 'dual', night: 0, ifr: 0, hood: 60, sim: true, landingsDay: 0, landingsNight: 0, remarks: '' },
+  ];
+  const blob = flightsToXlsx(original);
+  const [header, ...body] = await readXlsx(await blob.arrayBuffer());
+  const flights = rowsToFlights(body, guessMapping(header));
+  assert.equal(flights.length, 2);
+  assert.equal(flights[0].date, '2026-11-01');
+  assert.equal(flights[0].total, 90);
+  assert.equal(flights[0].hood, 30);
+  assert.equal(flights[0].remarks, 'Viento <fuerte> & "ráfagas"');
+  assert.equal(flights[1].total, 1815);
+  assert.equal(flights[1].sim, true);
+  assert.equal(flights[1].role, 'dual');
+});

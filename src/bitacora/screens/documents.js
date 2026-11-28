@@ -22,7 +22,7 @@ async function editDocument(ctx, doc = {}) {
   const drop = btn('Quitar archivo', () => { file = null; fileName = ''; showFile(); });
 
   const form = h('form', { class: 'bt-form', novalidate: true },
-    field('Tipo', select('category', DOC_CATEGORIES, doc.category || 'Licencia')),
+    field('Tipo', select('category', doc.category && !DOC_CATEGORIES.includes(doc.category) ? [doc.category, ...DOC_CATEGORIES] : DOC_CATEGORIES, doc.category || 'Licencia')),
     field('Nombre', input('name', doc.name, { placeholder: 'Piloto privado de avión' })),
     field('Número', input('number', doc.number, { placeholder: 'Opcional' })),
     field('Emitido', input('issued', doc.issued, { type: 'date' })),

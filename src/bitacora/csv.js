@@ -133,14 +133,25 @@ const cell = (value) => {
   return /[";\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
 };
 
-/** El libro entero en CSV con punto y coma, que Excel en español abre bien. */
-export function flightsToCsv(flights) {
+/**
+ * Las filas del libro para exportar. Las fechas van como { date } y los tiempos como { minutes },
+ * así el CSV los escribe como texto y el Excel como números con formato.
+ */
+export function flightsToRows(flights) {
   const header = ['Fecha', 'Matrícula', 'Tipo', 'Desde', 'Hasta', 'Hora de salida', 'Hora de llegada', 'Tiempo total', 'Función', 'Nocturno', 'Instrumentos reales', 'Instrumentos simulados', 'Simulador', 'Aterrizajes día', 'Aterrizajes noche', 'Observaciones'];
   const roles = { pic: 'Piloto al mando', solo: 'Solo', dual: 'Doble comando', sic: 'Copiloto', instructor: 'Instructor' };
-  const lines = flights.map((flight) => [
-    flight.date, flight.reg, flight.type, flight.from, flight.to, flight.dep, flight.arr,
-    formatDuration(flight.total), roles[flight.role], formatDuration(flight.night), formatDuration(flight.ifr), formatDuration(flight.hood),
+  const rows = flights.map((flight) => [
+    /^\d{4}-\d{2}-\d{2}$/.test(flight.date) ? { date: flight.date } : flight.date, flight.reg, flight.type, flight.from, flight.to, flight.dep, flight.arr,
+    { minutes: flight.total }, roles[flight.role], { minutes: flight.night }, { minutes: flight.ifr }, { minutes: flight.hood },
     flight.sim ? 'sí' : '', flight.landingsDay, flight.landingsNight, flight.remarks,
-  ].map(cell).join(';'));
-  return `﻿${[header.join(';'), ...lines].join('\r\n')}\r\n`;
+  ]);
+  return { header, rows };
+}
+
+/** El libro entero en CSV con punto y coma, que Excel en español abre bien. */
+export function flightsToCsv(flights) {
+  const { header, rows } = flightsToRows(flights);
+  const text = (value) => (value && typeof value === 'object' ? ('date' in value ? value.date : formatDuration(value.minutes)) : value);
+  const lines = rows.map((row) => row.map((value) => cell(text(value))).join(';'));
+  return `\ufeff${[header.join(';'), ...lines].join('\r\n')}\r\n`;
 }

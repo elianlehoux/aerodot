@@ -231,3 +231,19 @@ test('paginateBook suma cada hoja y arrastra el acumulado', async () => {
   assert.equal(pages[2].total.instructor, 60);
   assert.equal(pages[2].total.landingsDay, 5);
 });
+
+test('un vuelo dado por revisado sale de los avisos hasta que se cambia un dato', async () => {
+  const { flightSignature, splitAccepted } = await import('../src/bitacora/logbook.js');
+  const base = normalizeFlight({ id: 'a', date: '2026-11-01', reg: 'LV-ZZZ', from: 'SADF', to: 'SADP', total: '1:00', landingsDay: 1 });
+  const flight = { ...base, accepted: { note: 'Avión del aeroclub.', signature: flightSignature(base) } };
+  const issues = reviewFlights([flight], [], '2026-11-28');
+  assert.equal(issues.size, 1);
+  let split = splitAccepted(issues, [flight]);
+  assert.equal(split.open.size, 0);
+  assert.equal(split.accepted.size, 1);
+  const edited = { ...flight, total: 75 };
+  split = splitAccepted(reviewFlights([edited], [], '2026-11-28'), [edited]);
+  assert.equal(split.open.size, 1);
+  const noNote = { ...flight, accepted: { note: '', signature: flightSignature(base) } };
+  assert.equal(splitAccepted(issues, [noNote]).open.size, 1);
+});

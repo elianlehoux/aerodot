@@ -1,7 +1,8 @@
 /** Vuelos: lista con avisos, alta y edición, importar una planilla, exportar CSV e imprimir el libro. */
-import { BOOK_COLUMNS, ROLES, blockMinutes, paginateBook, formatDuration, normalizeFlight, parseDuration, reviewFlights, roleLabel, sortFlights } from '../logbook.js';
+import { BOOK_COLUMNS, ROLES, blockMinutes, flightSignature, formatDecimal, formatDuration, isAccepted, normalizeFlight, paginateBook, parseDuration, reviewFlights, roleLabel, sortFlights, splitAccepted } from '../logbook.js';
 import { FIELDS, flightsToCsv, guessMapping, parseCsv, rowsToFlights } from '../csv.js';
 import { readXlsx } from '../xlsx.js';
+import { flightsToXlsx } from '../xlsx-write.js';
 import { btn, plural, checkbox, chip, confirm, dialog, download, empty, field, formatDate, h, input, pickFiles, printSheet, readForm, select, toast, todayIso } from '../ui.js';
 
 const KIND_LABEL = { solapado: 'Superpuesto', duplicado: 'Repetido', aeronave: 'Aeronave sin cargar', dato: 'Revisar' };
@@ -57,10 +58,30 @@ function checkForm(form) {
 
 export async function editFlight(ctx, existing = {}, aircraft = [], notes = []) {
   const form = flightForm(existing, aircraft);
-  if (notes.length) form.prepend(h('ul', { class: 'bt-notes is-wide' }, notes.map((note) => h('li', { text: note.text }))));
+  const accepted = isAccepted(existing);
+  if (notes.length) {
+    // Un aviso puede estar bien (un vuelo con escala que se cargó dos veces a propósito, un avión prestado):
+    // el piloto lo da por revisado y deja el motivo. Si después cambia un dato, el aviso vuelve.
+    form.prepend(h('div', { class: 'bt-review is-wide' },
+      h('ul', { class: 'bt-notes' }, notes.map((note) => h('li', { text: note.text }))),
+      accepted
+        ? h('p', { class: 'bt-note', text: `Lo diste por revisado: ${existing.accepted.note}` })
+        : field('Motivo, si está bien así', h('textarea', { class: 'bt-input', name: 'acceptNote', rows: 2, placeholder: 'Por ejemplo: el avión es de un aeroclub y no lo cargo en mis aeronaves.' }), { hint: 'Con un motivo, el vuelo deja de contar entre los avisos. Si cambiás un dato, se vuelve a revisar.' })));
+  }
+  const checkAccept = () => {
+    if (!checkForm(form)) return false;
+    const ok = Boolean(form.elements.acceptNote.value.trim());
+    const error = form.querySelector('.bt-form-error');
+    error.textContent = ok ? '' : 'Escribí el motivo para darlo por revisado.';
+    error.hidden = ok;
+    if (!ok) form.elements.acceptNote.focus();
+    return ok;
+  };
   const actions = [
     existing.id ? { value: 'delete', label: 'Borrar', kind: 'danger' } : null,
     existing.id ? { value: 'copy', label: 'Duplicar' } : null,
+    notes.length && !accepted ? { value: 'accept', label: 'Dar por revisado', validate: checkAccept } : null,
+    notes.length && accepted ? { value: 'reopen', label: 'Volver a revisar' } : null,
     { value: 'save', label: 'Guardar', kind: 'primary', validate: () => checkForm(form) },
   ].filter(Boolean);
   const choice = await dialog({ title: existing.id ? 'Editar vuelo' : 'Nuevo vuelo', body: form, actions, wide: true, onOpen: () => form.elements.reg.focus() });
@@ -72,14 +93,19 @@ export async function editFlight(ctx, existing = {}, aircraft = [], notes = []) 
     return;
   }
   if (choice === 'copy') {
-    const { id, createdAt, ...rest } = existing;
+    const { id, createdAt, accepted: _, ...rest } = existing;
     return editFlight(ctx, { ...rest, date: todayIso() }, aircraft);
   }
-  if (choice !== 'save') return;
-  const data = normalizeFlight(readForm(form));
-  await ctx.store.put('flights', { ...existing, ...data, id: existing.id });
-  ctx.track(existing.id ? 'bitacora_flight_edit' : 'bitacora_flight_add');
-  toast('Vuelo guardado.');
+  if (!['save', 'accept', 'reopen'].includes(choice)) return;
+  const raw = readForm(form);
+  const data = normalizeFlight(raw);
+  const { accepted: previous, ...base } = existing;
+  const record = { ...base, ...data, id: existing.id };
+  if (choice === 'accept') record.accepted = { note: raw.acceptNote.trim(), signature: flightSignature(data), at: Date.now() };
+  else if (choice === 'save' && previous) record.accepted = previous;
+  await ctx.store.put('flights', record);
+  ctx.track(choice === 'accept' ? 'bitacora_flight_accept' : existing.id ? 'bitacora_flight_edit' : 'bitacora_flight_add');
+  toast(choice === 'accept' ? 'Vuelo dado por revisado.' : choice === 'reopen' ? 'Los avisos vuelven a contar.' : 'Vuelo guardado.');
 }
 
 async function importSheet(ctx, aircraft) {
@@ -133,7 +159,7 @@ async function importSheet(ctx, aircraft) {
 
 /** El libro para imprimir: columnas como las del libro de vuelo en papel, con totales al pie. */
 function printBook(flights, profile) {
-  const d = (minutes) => (minutes ? formatDuration(minutes) : '');
+  const d = (minutes) => (minutes ? (profile?.hours === 'decimal' ? formatDecimal(minutes) : formatDuration(minutes)) : '');
   const head = ['Fecha', 'Matrícula', 'Tipo', 'Desde', 'Hasta', 'Sal.', 'Lleg.', 'Total', 'Al mando', 'Doble c.', 'Copiloto', 'Instructor', 'Noche', 'IFR', 'Simul.', 'Ater. D', 'Ater. N', 'Observaciones'];
   // Una fila de pie: etiqueta en las siete primeras columnas, las sumas y nada en observaciones.
   const foot = (label, sums) => h('tr', {}, h('td', { colspan: 7, text: label }),
@@ -159,9 +185,11 @@ let lastOpened = null;
 
 export async function renderFlights(view, ctx, param) {
   const { store } = ctx;
-  const [raw, aircraft] = await Promise.all([store.all('flights'), store.all('aircraft')]);
+  const [raw, aircraft, profile] = await Promise.all([store.all('flights'), store.all('aircraft'), store.getMeta('profile')]);
   const flights = sortFlights(raw.map((flight) => ({ ...flight, ...normalizeFlight(flight) })));
-  const issues = reviewFlights(flights, aircraft, todayIso());
+  const all = reviewFlights(flights, aircraft, todayIso());
+  const { open: issues, accepted } = splitAccepted(all, flights);
+  const time = (minutes) => (profile?.hours === 'decimal' ? formatDecimal(minutes) : formatDuration(minutes));
   let onlyIssues = param === 'avisos';
   let query = '';
 
@@ -183,19 +211,21 @@ export async function renderFlights(view, ctx, param) {
       h('thead', {}, h('tr', {}, ['Fecha', 'Aeronave', 'Ruta', 'Total', 'Función', 'Noche', 'Ater.', ''].map((text) => h('th', { text })))),
       h('tbody', {}, shown.slice(0, 500).map((flight) => {
         const notes = issues.get(flight.id) ?? [];
+        const reviewed = accepted.get(flight.id);
         // La fila entera abre el vuelo con el mouse; con teclado y lector, el botón de la fecha.
         // El botón no tiene acción propia: su clic sube a la fila.
         const route = flight.from || flight.to ? `${flight.from || '?'} a ${flight.to || '?'}` : '';
-        return h('tr', { class: notes.length ? 'has-issue' : undefined, 'data-id': flight.id, title: notes.map((note) => note.text).join('\n') || undefined, onclick: async () => { lastOpened = flight.id; await editFlight(ctx, flight, aircraft, notes); after(); } },
+        return h('tr', { class: notes.length ? 'has-issue' : undefined, 'data-id': flight.id, title: notes.map((note) => note.text).join('\n') || (reviewed ? `Revisado: ${flight.accepted.note}` : undefined), onclick: async () => { lastOpened = flight.id; await editFlight(ctx, flight, aircraft, reviewed ?? notes); after(); } },
           h('td', { 'data-label': 'Fecha' }, h('button', { type: 'button', class: 'bt-row-btn', 'aria-label': `Editar el vuelo del ${formatDate(flight.date) || 'día sin fecha'}${route ? `, ${route}` : ''}${notes.length ? `, ${notes.length} ${notes.length === 1 ? 'aviso' : 'avisos'}` : ''}`, text: formatDate(flight.date) || 'Sin fecha' })),
           h('td', { 'data-label': 'Aeronave', text: flight.sim ? `Simulador ${flight.type}` : `${flight.reg} ${flight.type}`.trim() }),
           h('td', { 'data-label': 'Ruta', text: flight.from || flight.to ? `${flight.from || '?'} → ${flight.to || '?'}` : '' }),
-          h('td', { 'data-label': 'Total', class: 'is-num', text: formatDuration(flight.total) }),
+          h('td', { 'data-label': 'Total', class: 'is-num', text: time(flight.total) }),
           h('td', { 'data-label': 'Función', text: roleLabel(flight.role) }),
-          h('td', { 'data-label': 'Noche', class: 'is-num', text: flight.night ? formatDuration(flight.night) : '' }),
+          h('td', { 'data-label': 'Noche', class: 'is-num', text: flight.night ? time(flight.night) : '' }),
           h('td', { 'data-label': 'Ater.', class: 'is-num', text: flight.landingsDay + flight.landingsNight || '' }),
           h('td', { class: 'bt-issues-cell' }, notes.length ? h('div', { class: 'bt-issues' }, [...new Set(notes.map((note) => note.kind))].map((kind) => chip(KIND_LABEL[kind], kind === 'dato' ? 'warn' : 'bad')),
-            h('span', { class: 'bt-visually-hidden', text: notes.map((note) => note.text).join(' ') })) : null));
+            h('span', { class: 'bt-visually-hidden', text: notes.map((note) => note.text).join(' ') }))
+            : reviewed ? h('div', { class: 'bt-issues' }, chip('Revisado', 'ok')) : null));
       })))),
     shown.length > 500 ? h('p', { class: 'bt-note', text: 'Se muestran los 500 más nuevos. Usá la búsqueda para encontrar otros.' }) : null);
   };
@@ -208,8 +238,9 @@ export async function renderFlights(view, ctx, param) {
     h('div', { class: 'bt-toolbar' },
       btn('Agregar vuelo', add, 'primary'),
       btn('Importar planilla', async () => { await importSheet(ctx, aircraft); after(); }),
+      btn('Exportar Excel', () => { download(flightsToXlsx(sortFlights(flights).reverse()), `libro-de-vuelo-${todayIso()}.xlsx`); ctx.track('bitacora_export_xlsx'); }, 'quiet', { disabled: flights.length ? undefined : true }),
       btn('Exportar CSV', () => { download(new Blob([flightsToCsv(sortFlights(flights).reverse())], { type: 'text/csv;charset=utf-8' }), `libro-de-vuelo-${todayIso()}.csv`); ctx.track('bitacora_export_csv'); }, 'quiet', { disabled: flights.length ? undefined : true }),
-      btn('Imprimir o PDF', async () => { printBook(flights, await store.getMeta('profile')); ctx.track('bitacora_print_book'); }, 'quiet', { disabled: flights.length ? undefined : true })),
+      btn('Imprimir o PDF', async () => { printBook(flights, profile); ctx.track('bitacora_print_book'); }, 'quiet', { disabled: flights.length ? undefined : true })),
     h('div', { class: 'bt-filters' }, search, filter),
     count,
     list);

@@ -3,10 +3,15 @@
 export const DOC_CATEGORIES = [
   'Licencia',
   'Certificado médico (CMA)',
-  'Habilitación',
-  'Constancia de instrucción',
-  'Inglés aeronáutico',
+  'Habilitación de clase o tipo',
+  'Habilitación de vuelo por instrumentos',
+  'Habilitación de instructor',
+  'Competencia lingüística (inglés)',
+  'Verificación de competencia',
+  'Curso periódico o readaptación',
+  'Credencial aeroportuaria',
   'Pasaporte',
+  'Visa',
   'Seguro',
   'Otro',
 ];

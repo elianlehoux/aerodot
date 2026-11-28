@@ -1,21 +1,26 @@
 /** Resumen: totales, experiencia reciente, vencimientos, avisos del libro y copia de seguridad. */
-import { formatDecimal, formatDuration, normalizeFlight, recency, reviewFlights, totals } from '../logbook.js';
+import { formatDecimal, formatDuration, normalizeFlight, recency, reviewFlights, sortFlights, splitAccepted, totals } from '../logbook.js';
 import { alerts, statusText } from '../documents.js';
 import { exportBackup, readBackup } from '../store.js';
-import { btn, plural, chip, dialog, download, empty, field, h, input, pickFiles, readForm, toast, todayIso } from '../ui.js';
+import { btn, plural, chip, dialog, download, field, formatDate, h, input, pickFiles, readForm, select, toast, todayIso } from '../ui.js';
 
 /** Tus datos: el nombre y la licencia que usan el plan de vuelo, el libro impreso y el CV. */
 const profileFields = (profile) => [
   field('Nombre y apellido', input('name', profile.name, { autocomplete: 'name' })),
   field('Licencia y número', input('license', profile.license, { placeholder: 'PPA 12345' }), { hint: 'Opcional. Sale en el libro impreso.' }),
+  field('Horas en el libro', select('hours', [['hhmm', '1:30, horas y minutos'], ['decimal', '1,5, en décimas']], profile.hours || 'hhmm'), { hint: 'Cómo se muestran en la lista y en el libro impreso.' }),
 ];
+
+const readProfile = (form, profile) => {
+  const data = readForm(form);
+  return { ...profile, name: data.name.trim(), license: data.license.trim(), hours: data.hours };
+};
 
 async function editProfile(ctx, profile) {
   const form = h('form', { class: 'bt-form', novalidate: true }, profileFields(profile));
   const choice = await dialog({ title: 'Tus datos', body: form, actions: [{ value: 'cancel', label: 'Cancelar' }, { value: 'ok', label: 'Guardar', kind: 'primary' }] });
   if (choice !== 'ok') return;
-  const data = readForm(form);
-  await ctx.store.setMeta('profile', { ...profile, name: data.name.trim(), license: data.license.trim() });
+  await ctx.store.setMeta('profile', readProfile(form, profile));
   toast('Datos guardados.');
   ctx.refresh();
 }
@@ -59,11 +64,11 @@ function monthChart(byMonth, today) {
 export async function renderSummary(view, ctx) {
   const { store, go } = ctx;
   const [rawFlights, aircraft, docs] = await Promise.all([store.all('flights'), store.all('aircraft'), store.all('documents')]);
-  const flights = rawFlights.map((flight) => ({ ...normalizeFlight(flight), createdAt: flight.createdAt }));
+  const flights = rawFlights.map((flight) => ({ ...normalizeFlight(flight), createdAt: flight.createdAt, accepted: flight.accepted }));
   const today = todayIso();
   const t = totals(flights, aircraft);
   const recent = recency(flights, today);
-  const issues = reviewFlights(flights, aircraft, today);
+  const { open: issues } = splitAccepted(reviewFlights(flights, aircraft, today), flights);
   const docAlerts = alerts(docs, today);
   const lastBackup = await store.getMeta('lastBackupAt');
 
@@ -97,10 +102,7 @@ export async function renderSummary(view, ctx) {
   if (!flights.length && !docs.length && !aircraft.length) {
     // El nombre se guarda mientras se escribe: así ya aparece en el plan de vuelo y el CV.
     const welcomeForm = h('form', { class: 'bt-form bt-welcome-form', novalidate: true, onsubmit: (event) => event.preventDefault() }, profileFields(profile));
-    welcomeForm.addEventListener('change', () => {
-      const data = readForm(welcomeForm);
-      store.setMeta('profile', { ...profile, name: data.name.trim(), license: data.license.trim() });
-    });
+    welcomeForm.addEventListener('change', () => store.setMeta('profile', readProfile(welcomeForm, profile)));
     view.append(
       h('section', { class: 'bt-card bt-welcome' },
         h('h2', { text: 'Tu libro de vuelo, en este dispositivo' }),
@@ -114,8 +116,17 @@ export async function renderSummary(view, ctx) {
     return;
   }
 
-  const flagged = [...issues.keys()].length;
+  const flagged = issues.size;
+  const real = flights.filter((flight) => !flight.sim);
+  const aerodromes = new Set(real.flatMap((flight) => [flight.from, flight.to]).filter((code) => /^[A-Z]{4}$/.test(code)));
+  const favourite = t.byReg[0];
+  const lastFlights = sortFlights(real).slice(0, 4);
+  const time = (minutes) => (profile.hours === 'decimal' ? formatDecimal(minutes) : formatDuration(minutes));
   view.append(
+    h('div', { class: 'bt-toolbar' },
+      btn('Cargar un vuelo', () => go('vuelos', 'nuevo'), 'primary'),
+      btn('Nuevo plan de vuelo', () => go('plan', 'nuevo')),
+      btn('Consultar NOTAM', () => go('notam'))),
     h('section', { class: 'bt-stats' },
       stat('Total de vuelo', t.all.total, `${formatDecimal(t.all.total)} h · ${plural(t.all.flights - flights.filter((f) => f.sim).length, 'vuelo')}`),
       // Las funciones que nunca volaste no ocupan lugar.
@@ -151,6 +162,21 @@ export async function renderSummary(view, ctx) {
           : h('p', { class: 'bt-big', text: 'Sin avisos' }),
         h('p', { class: 'bt-note', text: 'Se revisan superposiciones de horario, vuelos repetidos, matrículas que no están en tus aeronaves y tiempos que no cierran.' }),
         flagged ? h('a', { class: 'bt-link', href: '#vuelos/avisos', text: 'Ver los vuelos con avisos' }) : null)),
+
+    h('div', { class: 'bt-grid' },
+      h('section', { class: 'bt-card' },
+        h('h2', { text: 'Últimos vuelos' }),
+        lastFlights.length
+          ? h('ul', { class: 'bt-list' }, lastFlights.map((flight) => h('li', {},
+            h('span', { text: `${formatDate(flight.date)} · ${flight.from || '?'} → ${flight.to || '?'} · ${flight.reg}` }),
+            h('span', { class: 'bt-num', text: time(flight.total) }))))
+          : h('p', { class: 'bt-note', text: 'Solo hay vuelos de simulador.' }),
+        h('a', { class: 'bt-link', href: '#vuelos', text: 'Ver el libro' })),
+      h('section', { class: 'bt-card' },
+        h('h2', { text: 'Dónde volaste' }),
+        h('p', { class: 'bt-big', text: plural(aerodromes.size, 'aeródromo') }),
+        h('p', { class: 'bt-note', text: favourite ? `La matrícula que más volaste es ${favourite.key}: ${time(favourite.total)} h en ${plural(favourite.flights, 'vuelo')}.` : 'Todavía no hay vuelos con matrícula.' }),
+        aerodromes.size ? h('p', { class: 'bt-note bt-codes', text: [...aerodromes].sort().join(' ') }) : null)),
 
     monthChart(t.byMonth, today),
     h('div', { class: 'bt-grid' },

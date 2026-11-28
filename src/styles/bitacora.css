@@ -50,7 +50,8 @@
 
 .bt-form{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px 14px}
 .bt-field{display:flex;flex-direction:column;gap:5px;min-width:0}
-.bt-field.is-wide,.bt-notes.is-wide{grid-column:1/-1}
+.bt-field.is-wide,.bt-notes.is-wide,.bt-review.is-wide{grid-column:1/-1}
+.bt-review .bt-field{margin-bottom:4px}
 .bt-label{color:var(--graphite);font-size:14px;font-weight:600}
 .bt-hint{color:var(--muted);font-size:13px}
 .bt-input{width:100%;min-height:42px;padding:8px 11px;border:1px solid var(--relief);border-radius:var(--radius-input);background:var(--paper);color:var(--ink);font-size:16px}
@@ -191,3 +192,5 @@ textarea.bt-input{resize:vertical}
 .bt-cv-hours td{padding:2px 18px 2px 0}
 .bt-cv-hours td:last-child{font-family:var(--mono)}
 .bt-cv-foot{margin-top:18px!important;color:#666;font-size:9pt}
+.bt-num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.bt-codes{font-family:var(--mono);font-size:13px;letter-spacing:.02em;line-height:1.6}

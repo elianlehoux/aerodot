@@ -10,7 +10,8 @@ const HOURS = [
   ['total', 'Total de vuelo'], ['pic', 'Al mando'], ['multi', 'Multimotor'], ['instructor', 'Instructor'],
   ['sic', 'Copiloto'], ['night', 'Nocturno'], ['ifr', 'Instrumentos'], ['xc', 'Travesía'], ['sim', 'Simulador'],
 ];
-const LICENSE_CATEGORIES = ['Licencia', 'Habilitación', 'Certificado médico (CMA)', 'Inglés aeronáutico'];
+/** Lo que va en el CV como licencias y habilitaciones (también los nombres de versiones anteriores). */
+const inCv = (category = '') => /^(Licencia|Habilitación|Certificado médico|Competencia lingüística|Inglés)/.test(category);
 
 const area = (name, value, rows, placeholder) => h('textarea', { class: 'bt-input', name, rows, placeholder, text: value ?? '' });
 
@@ -52,7 +53,7 @@ async function editor(view, ctx, id) {
   const profile = (await store.getMeta('profile')) ?? {};
   let cv = saved ?? { title: 'Mi CV', name: profile.name ?? '', showLicenses: true, h_total: true, h_pic: true, h_multi: true, h_instructor: true, h_night: true, h_ifr: true, h_types: true };
   const hours = hoursOf(raw.map(normalizeFlight), aircraft);
-  const licenses = docs.filter((doc) => LICENSE_CATEGORIES.includes(doc.category) && docStatus(doc).state !== 'vencido');
+  const licenses = docs.filter((doc) => inCv(doc.category) && docStatus(doc).state !== 'vencido');
   const preview = h('div', { class: 'bt-cv-preview' });
 
   const form = h('form', { class: 'bt-form', novalidate: true },

@@ -159,6 +159,25 @@ export function reviewFlights(flights, aircraft = [], today = new Date().toISOSt
   return issues;
 }
 
+/** Los datos que, si cambian, hacen que un vuelo revisado se vuelva a revisar. */
+export const flightSignature = (flight) => ['date', 'reg', 'type', 'from', 'to', 'dep', 'arr', 'total', 'role', 'night', 'ifr', 'hood', 'sim', 'landingsDay', 'landingsNight']
+  .map((key) => String(flight[key] ?? '')).join('|');
+
+/** Si el piloto dio por buenos los avisos de este vuelo y el vuelo no cambió desde entonces. */
+export const isAccepted = (flight) => Boolean(flight.accepted?.note) && flight.accepted.signature === flightSignature(flight);
+
+/**
+ * Separa los avisos en abiertos y revisados (los que el piloto dio por buenos con un motivo).
+ * Un vuelo revisado vuelve a abiertos si se edita algún dato que pesa en la revisión.
+ */
+export function splitAccepted(issues, flights) {
+  const byId = new Map(flights.map((flight) => [flight.id, flight]));
+  const open = new Map();
+  const accepted = new Map();
+  for (const [id, list] of issues) (isAccepted(byId.get(id) ?? {}) ? accepted : open).set(id, list);
+  return { open, accepted };
+}
+
 const emptyTotals = () => ({ flights: 0, total: 0, pic: 0, solo: 0, dual: 0, sic: 0, instructor: 0, night: 0, ifr: 0, hood: 0, sim: 0, landingsDay: 0, landingsNight: 0, xc: 0 });
 
 function addTo(sum, flight) {
